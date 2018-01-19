@@ -130,6 +130,9 @@
 	if(!name)							//To prevent nameless ghosts
 		name = capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
 	real_name = name
+
+	animate(src, pixel_y = 2, time = 10, loop = -1)
+
 	..()
 
 /mob/observer/dead/Topic(href, href_list)
@@ -313,68 +316,33 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	ManualFollow(target)
 
 // This is the ghost's follow verb with an argument
-/mob/observer/dead/proc/ManualFollow(var/atom/movable/target)
-	if(!target)
+/mob/observer/dead/proc/ManualFollow(atom/movable/target)
+	if (!istype(target))
 		return
-
+	if(target == src)
+		return
 	var/turf/targetloc = get_turf(target)
 	if(check_holy(targetloc))
 		usr << "<span class='warning'>You cannot follow a mob standing on holy grounds!</span>"
 		return
-	if(target != src)
-		if(following && following == target)
-			return
-		following = target
-		src << "<span class='notice'>Now following [target]</span>"
-		if(ismob(target))
-			forceMove(get_turf(target))
-			var/mob/M = target
-			M.following_mobs += src
-		else
-			spawn(0)
-				while(target && following == target && client)
-					var/turf/T = get_turf(target)
-					if(!T)
-						break
-					// To stop the ghost flickering.
-					if(loc != T)
-						forceMove(T)
-					sleep(15)
 
-/mob/proc/update_following()
-	. = get_turf(src)
-	for(var/mob/observer/dead/M in following_mobs)
-		if(M.following != src)
-			following_mobs -= M
-		else
-			if(M.loc != .)
-				M.forceMove(.)
+	var/orbitsize = world.icon_size
 
-/mob
-	var/list/following_mobs = list()
+	if(orbiting && orbiting.orbiting != target)
+		to_chat(src, "<span class='notice'>Now orbiting [target].</span>")
 
-/mob/Destroy()
-	for(var/mob/observer/dead/M in following_mobs)
-		M.following = null
-	following_mobs = null
-	return ..()
+	orbit(target, orbitsize, FALSE, 20, 36)
 
-/mob/observer/dead/Destroy()
-	if(ismob(following))
-		var/mob/M = following
-		M.following_mobs -= src
-	following = null
-	return ..()
+/mob/observer/dead/orbit()
+	set_dir(2)//reset dir so the right directional sprites show up
+	..()
 
-/mob/Move()
-	. = ..()
-	if(.)
-		update_following()
+/mob/observer/dead/stop_orbit()
+	..()
+	//restart our floating animation after orbit is done.
+	pixel_y = 0
+	animate(src, pixel_y = 2, time = 10, loop = -1)
 
-/mob/Life()
-	// to catch teleports etc which directly set loc
-	update_following()
-	return ..()
 
 /mob/proc/check_holy(var/turf/T)
 	return 0

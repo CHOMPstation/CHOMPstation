@@ -130,7 +130,8 @@
 /obj/screen/plane_master/fullbright
 	plane = PLANE_LIGHTING
 	layer = LIGHTING_LAYER
-	color = null //To break lighting when visible (this is sorta backwards)
+	blend_mode = BLEND_MULTIPLY
+	color = list(null,null,null,null,"#111f") //To break lighting when visible (this is sorta backwards)
 	alpha = 255 //Starts full opaque
 	invisibility = 101 //But invisible
 	invis_toggle = TRUE

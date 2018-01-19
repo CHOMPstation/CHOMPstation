@@ -23,8 +23,7 @@
 	if(istype(A,/atom/movable))
 		ManualFollow(A)
 	// Otherwise jump
-	else
-		following = null
+	else if (A.loc)
 		forceMove(get_turf(A))
 
 /mob/observer/dead/ClickOn(var/atom/A, var/params)
