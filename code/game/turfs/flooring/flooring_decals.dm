@@ -2,6 +2,7 @@
 // decal list of the floor under them. Use them rather than distinct icon_states
 // when mapping in interesting floor designs.
 var/list/floor_decals = list()
+var/global/floor_decals_initialized = FALSE
 
 /obj/effect/floor_decal
 	name = "floor decal"
@@ -23,6 +24,24 @@ var/list/floor_decals = list()
 	T.apply_decals()
 	qdel(src)
 	return
+
+/obj/effect/floor_decal/proc/add_to_turf_decals()
+	if(src.supplied_dir) src.set_dir(src.supplied_dir)
+	var/turf/T = get_turf(src)
+	if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor) || istype(T, /turf/simulated/shuttle/floor))
+		// TODO - We can keep our own layer instead of turf's layer if we adopt ABOVE_TURF_PLANE
+		var/cache_key = "[src.alpha]-[src.color]-[src.dir]-[src.icon_state]=[src.plane]-[T.layer]"
+		var/mutable_appearance/I = floor_decals[cache_key]
+		if(!I)
+			I = new /mutable_appearance(src)
+			I.layer = T.layer // Override with turf's layer
+			LAZYCLEARLIST(I.verbs) // Just in case!
+			floor_decals[cache_key] = I
+		LAZYINITLIST(T.decals)
+		T.decals += I
+		return T
+	src.loc = null
+	src.tag = null
 
 /obj/effect/floor_decal/reset
 	name = "reset marker"

@@ -280,3 +280,8 @@ var/const/enterloopsanity = 100
 		if(isliving(AM))
 			var/mob/living/M = AM
 			M.turf_collision(src, speed)
+
+/turf/proc/apply_decals()
+	// TODO - Should we consolidate all decal overlays into a single MA?
+	if(LAZYLEN(decals))
+		overlays |= decals
