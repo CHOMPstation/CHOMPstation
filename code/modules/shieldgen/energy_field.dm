@@ -17,6 +17,7 @@
 	anchored = 1
 	layer = 4.1		//just above mobs
 	density = 0
+	atmos_canpass = CANPASS_DENSITY
 	var/obj/machinery/shield_gen/my_gen = null
 	var/strength = 0 // in Renwicks
 	var/ticks_recovering = 10

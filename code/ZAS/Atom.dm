@@ -81,3 +81,6 @@ turf/c_airblock(turf/other)
 		result |= M.c_airblock(other)
 		if(result == BLOCKED) return BLOCKED
 	return result
+
+/atom/movable
+	var/atmos_canpass = CANPASS_ALWAYS

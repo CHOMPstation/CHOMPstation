@@ -28,6 +28,7 @@
 	anchored = 1
 	var/health = 200
 	//var/mob/living/affecting = null
+	atmos_canpass = CANPASS_PROC
 
 /obj/effect/alien/resin/wall
 	name = "resin wall"

@@ -9,6 +9,7 @@
 	density = 1
 	opacity = 0
 	anchored = 1
+	atmos_canpass = CANPASS_NEVER
 
 	var/window_flags = 0 // Bitflags to indicate connected windows
 	var/wall_flags = 0 // Bitflags to indicate connected walls

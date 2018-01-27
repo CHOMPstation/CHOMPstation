@@ -11,6 +11,7 @@
 	var/isSwitchingStates = 0
 	var/hardness = 1
 	var/oreAmount = 7
+	atmos_canpass = CANPASS_PROC
 
 /obj/structure/simple_door/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	TemperatureAct(exposed_temperature)

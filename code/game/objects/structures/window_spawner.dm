@@ -10,6 +10,7 @@
 	density = 1
 	anchored = 1.0
 	pressure_resistance = 4*ONE_ATMOSPHERE
+	atmos_canpass = CANPASS_NEVER
 	var/win_path = /obj/structure/window/basic
 	var/activated
 

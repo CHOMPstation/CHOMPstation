@@ -98,9 +98,11 @@ Class Procs:
 	ASSERT(isturf(A))
 	ASSERT(isturf(B))
 	#endif
-	var/ablock = A.c_airblock(B)
+	var/ablock
+	ATMOS_CANPASS_TURF(ablock, A, B)
 	if(ablock == BLOCKED) return BLOCKED
-	return ablock | B.c_airblock(A)
+	ATMOS_CANPASS_TURF(., B, A)
+	return ablock | .
 
 /datum/controller/subsystem/air/proc/has_valid_zone(turf/simulated/T)
 	#ifdef ZASDBG

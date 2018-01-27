@@ -131,6 +131,7 @@
 	name = "foamed metal"
 	desc = "A lightweight foamed metal wall."
 	var/metal = 1 // 1 = aluminum, 2 = iron
+	atmos_canpass = CANPASS_PROC
 
 /obj/structure/foamedmetal/New()
 	..()

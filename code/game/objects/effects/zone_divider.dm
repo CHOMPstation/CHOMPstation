@@ -7,6 +7,7 @@
 	anchored = 1
 	density = 0
 	opacity = 0
+	atmos_canpass = CANPASS_PROC
 
 /obj/effect/zone_divider/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
  	// Special case to prevent us from being part of a zone during the first air master tick.

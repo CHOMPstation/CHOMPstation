@@ -189,6 +189,7 @@
 	maxHealth = 60
 	brute_resist = 1
 	fire_resist = 2
+	atmos_canpass = CANPASS_DENSITY
 
 /obj/effect/blob/shield/New()
 	..()

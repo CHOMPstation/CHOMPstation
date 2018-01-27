@@ -5,6 +5,7 @@
 	icon_state = "folded_wall"
 	w_class = ITEMSIZE_NORMAL
 	var/deploy_path = /obj/structure/inflatable
+	atmos_canpass = CANPASS_DENSITY
 
 /obj/item/inflatable/attack_self(mob/user)
 	inflate(user,user.loc)

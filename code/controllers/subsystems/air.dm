@@ -105,7 +105,9 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		var/turf/T = currentrun[currentrun.len]
 		currentrun.len--
 		//check if the turf is self-zone-blocked
-		if(T.c_airblock(T) & ZONE_BLOCKED)
+		var/c_airblock
+		ATMOS_CANPASS_TURF(c_airblock, T, T)
+		if(c_airblock & ZONE_BLOCKED)
 			selfblock_deferred += T
 			if(MC_TICK_CHECK)
 				return
