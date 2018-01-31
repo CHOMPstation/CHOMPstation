@@ -55,7 +55,9 @@ client/proc/Test_ZAS_Connection(var/turf/simulated/T as turf)
 		return
 
 	if(direction == "N/A")
-		if(!(T.c_airblock(T) & AIR_BLOCKED))
+		var/block
+		ATMOS_CANPASS_TURF(block, T, T)
+		if(!(block & AIR_BLOCKED))
 			mob << "The turf can pass air! :D"
 		else
 			mob << "No air passage :x"
@@ -65,8 +67,10 @@ client/proc/Test_ZAS_Connection(var/turf/simulated/T as turf)
 	if(!istype(other_turf))
 		return
 
-	var/t_block = T.c_airblock(other_turf)
-	var/o_block = other_turf.c_airblock(T)
+	var/t_block
+	ATMOS_CANPASS_TURF(t_block, T, other_turf)
+	var/o_block
+	ATMOS_CANPASS_TURF(o_block, other_turf, T)
 
 	if(o_block & AIR_BLOCKED)
 		if(t_block & AIR_BLOCKED)

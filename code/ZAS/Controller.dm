@@ -81,8 +81,8 @@ Class Procs:
 	var/list/active_edges = list()
 
 	var/active_zones = 0
-	var/current_cycle = 0
-	var/next_id = 1 //Used to keep track of zone UIDs.
+	var/static/current_cycle = 0
+	var/static/next_id = 1 //Used to keep track of zone UIDs.
 
 /datum/controller/subsystem/air/proc/add_zone(zone/z)
 	zones.Add(z)
@@ -141,8 +141,16 @@ Class Procs:
 	var/direct = !(block & ZONE_BLOCKED)
 	var/space = !istype(B)
 
-	if(!space)
-		if(min(A.zone.contents.len, B.zone.contents.len) < ZONE_MIN_SIZE || (direct && (equivalent_pressure(A.zone,B.zone) || current_cycle == 0)))
+	world.log << "Connecting [global.log_info_line(A)] and [global.log_info_line(B)]"
+	if(A.z != B.z && direct)
+		world.log << "OI direct between [log_info_line(A)] and [log_info_line(B)]"
+
+	if(!space && A.z == B.z)
+		if(min(A.zone.contents.len, B.zone.contents.len) < ZONE_MIN_SIZE || (direct && (current_cycle == 0 || equivalent_pressure(A.zone,B.zone))))
+			if(A.z != B.z)
+				world.log << "Merging across between [global.log_info_line(A)] and [global.log_info_line(B)]: A.len=[A.zone.contents.len], B.len[B.zone.contents.len], direct=[direct], equiv=[equivalent_pressure(A.zone,B.zone)] cur=[current_cycle]"
+				crash_with("Huff!")
+				world.log << "Yeah"
 			merge(A.zone,B.zone)
 			return
 

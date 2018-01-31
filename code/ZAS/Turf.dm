@@ -89,10 +89,9 @@
 		#endif
 		for(var/dir in to_check)
 			var/turf/simulated/other = get_step(T, dir)
-			if(istype(other) && other.zone == T.zone && !(other.c_airblock(T) & AIR_BLOCKED) && get_dist(src, other) <= 1)
 			if(istype(other) && other.zone == T.zone)
 				var/blocked
-				ATMOS_CANPASS_TURF(src, T)
+				ATMOS_CANPASS_TURF(blocked, src, T)
 				if (!(blocked & AIR_BLOCKED) && get_dist(src, other) <= 1)
 					. |= dir
 
@@ -190,6 +189,8 @@
 						postponed.Add(sim)
 
 					else
+						if(sim.z != src.z)
+							world.log << "Adding [log_info_line(src)] into zone of [log_info_line(sim)]"
 
 						sim.zone.add(src)
 
