@@ -236,3 +236,32 @@ var/list/all_maps = list()
 		num2text(SUP_FREQ)   = list(access_cargo),
 		num2text(SRV_FREQ)   = list(access_janitor, access_hydroponics),
 	)
+
+/datum/telltale
+	var/name
+	var/time_newd
+
+/datum/telltale/New(var/name)
+	src.name = name
+	time_newd = world.timeofday
+	world.log << "Telltale [name] (\ref[src]) Newd() at [time_newd] tick_usage=[TICK_USAGE]"
+
+/obj/telltale
+	var/time_newd
+	var/time_init
+	name = "map telltale"
+
+/obj/telltale/New()
+	time_newd = world.timeofday
+	world.log << "Map Telltale [name] (\ref[src]) Newd() at [time_newd] tick_usage=[TICK_USAGE]"
+	..()
+
+/obj/telltale/initialize()
+	time_init = world.timeofday
+	world.log << "Map Telltale [name] (\ref[src]) init() at [time_init] tick_usage=[TICK_USAGE]"
+	..()
+
+
+
+
+var/global/datum/telltale/final_countdown = new("final_countdown")

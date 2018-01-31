@@ -3,6 +3,8 @@
 #warn This compiler is out of date. You may experience issues with projectile animations.
 #endif
 
+var/global/datum/telltale/hopefully_first = new("hopefully_first")
+
 // Items that ask to be called every cycle.
 var/global/datum/datacore/data_core = null
 var/global/list/all_areas                = list()
