@@ -3,7 +3,10 @@
 #warn This compiler is out of date. You may experience issues with projectile animations.
 #endif
 
+var/global/datum/telltale/epsilon = new("epsilon")
 var/global/datum/telltale/hopefully_first = new("hopefully_first")
+var/global/datum/telltale/alpha = new("alpha")
+
 
 // Items that ask to be called every cycle.
 var/global/datum/datacore/data_core = null

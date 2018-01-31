@@ -263,5 +263,8 @@ var/list/all_maps = list()
 
 
 
-
+var/global/datum/telltale/beta = new("beta")
+var/global/datum/telltale/zeta = new("zeta")
 var/global/datum/telltale/final_countdown = new("final_countdown")
+
+
