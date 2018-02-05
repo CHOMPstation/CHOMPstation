@@ -81,8 +81,7 @@
 		/obj/item/rig_module/device/plasmacutter,
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/orescanner,
-		/obj/item/rig_module/vision/material,
-		/obj/item/rig_module/maneuvering_jets) //VOREStation Edit - Added maneuvering jets
+		/obj/item/rig_module/vision/material)
 
 /obj/item/weapon/rig/eva
 	name = "EVA suit control module"
