@@ -72,6 +72,11 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	var/strength = null
 	var/desc_holder = null
 
+/obj/structure/particle_accelerator/initialize()
+	. = ..()
+	verbs += /obj/structure/proc/rotatecw
+	verbs += /obj/structure/proc/rotateccw
+
 /obj/structure/particle_accelerator/Destroy()
 	construction_state = 0
 	if(master)
@@ -87,29 +92,6 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 /obj/structure/particle_accelerator/update_icon()
 	..()
 	return
-
-
-/obj/structure/particle_accelerator/verb/rotate()
-	set name = "Rotate Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if (src.anchored || usr:stat)
-		usr << "It is fastened to the floor!"
-		return 0
-	src.set_dir(turn(src.dir, 270))
-	return 1
-
-/obj/structure/particle_accelerator/verb/rotateccw()
-	set name = "Rotate Counter Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if (src.anchored || usr:stat)
-		usr << "It is fastened to the floor!"
-		return 0
-	src.set_dir(turn(src.dir, 90))
-	return 1
 
 /obj/structure/particle_accelerator/examine(mob/user)
 	switch(src.construction_state)

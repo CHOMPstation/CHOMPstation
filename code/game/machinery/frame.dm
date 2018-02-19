@@ -201,6 +201,11 @@
 	var/list/req_components = null
 	var/list/req_component_names = null
 
+/obj/structure/frame/initialize()
+	. = ..()
+	verbs += /obj/structure/proc/rotatecw
+	verbs += /obj/structure/proc/rotateccw
+
 /obj/structure/frame/computer //used for maps
 	frame_type = new /datum/frame/frame_types/computer
 	anchored = 1
@@ -576,40 +581,3 @@
 					return
 
 	update_icon()
-
-/obj/structure/frame/verb/rotate()
-	set name = "Rotate Frame Counter-Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if(usr.incapacitated())
-		return 0
-
-	if(anchored)
-		usr << "It is fastened to the floor therefore you can't rotate it!"
-		return 0
-
-	set_dir(turn(dir, 90))
-
-	usr << "<span class='notice'>You rotate the [src] to face [dir2text(dir)]!</span>"
-
-	return
-
-
-/obj/structure/frame/verb/revrotate()
-	set name = "Rotate Frame Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if(usr.incapacitated())
-		return 0
-
-	if(anchored)
-		usr << "It is fastened to the floor therefore you can't rotate it!"
-		return 0
-
-	set_dir(turn(dir, 270))
-
-	usr << "<span class='notice'>You rotate the [src] to face [dir2text(dir)]!</span>"
-
-	return

@@ -183,3 +183,32 @@
 	user.do_attack_animation(src)
 	spawn(1) qdel(src)
 	return 1
+
+// Proc available for subtypes if they want to be rotateable.  Just add to src.verbs
+/obj/structure/proc/rotatecw()
+	set name = "Rotate Clockwise"
+	set category = "Object"
+	set src in oview(1)
+
+	if(!can_touch(usr))
+		return 0
+	if(anchored)
+		to_chat(usr, "<span class='warning'>It's fastened to the floor therefore you can't rotate it!</span>")
+		return 0
+	set_dir(turn(dir, 270))
+	to_chat(usr, "<span class='notice'>You rotate \the [src] to face [dir2text(dir)]!</span>")
+	return 1
+
+/obj/structure/proc/rotateccw()
+	set name = "Rotate Counter-Clockwise"
+	set category = "Object"
+	set src in oview(1)
+
+	if(!can_touch(usr))
+		return 0
+	if(anchored)
+		to_chat(usr, "<span class='warning'>It's fastened to the floor therefore you can't rotate it!</span>")
+		return 0
+	set_dir(turn(dir, 90))
+	to_chat(usr, "<span class='notice'>You rotate \the [src] to face [dir2text(dir)]!</span>")
+	return 1
