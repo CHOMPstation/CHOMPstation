@@ -16,7 +16,7 @@
 		to_chat(src, "You are already reconstructing, or your body is currently recovering from the intense process of your previous reconstitution.")
 		return
 
-	var/nutrition_used = nutrition/2
+	var/nutrition_used = nutrition * 0.5
 	var/time = (240+960/(1 + nutrition_used/75))
 
 	//Clicked regen while dead.
