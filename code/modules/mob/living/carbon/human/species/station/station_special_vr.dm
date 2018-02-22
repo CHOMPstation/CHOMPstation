@@ -149,22 +149,24 @@
 	if(feral)
 
 		//Shock due to mostly halloss. More feral.
-		if(2.5*H.halloss >= H.traumatic_shock)
-			H.feral = max(H.feral, H.halloss)
+		if(shock && 2.5*H.halloss >= H.traumatic_shock)
+			feral = max(H.feral, H.halloss)
 
 		//Shock due to mostly injury. More feral.
-		else
-			H.feral = max(H.feral, H.traumatic_shock * 2)
+		else if(shock)
+			feral = max(H.feral, H.traumatic_shock * 2)
 
 		//Still jittery? More feral.
-		if(H.jitteriness)
-			H.feral = max(H.feral, H.jitteriness-100)
+		if(jittery)
+			feral = max(H.feral, H.jitteriness-100)
 
 		//Still hungry? More feral.
 		if(H.feral + H.nutrition < 150)
-			H.feral++
+			feral++
 		else
-			H.feral = H.feral
+			feral = max(0,--feral)
+
+		H.feral = feral
 
 		//Did we just finish being feral?
 		if(!H.feral)
@@ -175,28 +177,34 @@
 		//If they lose enough health to hit softcrit, handle_shock() will keep resetting this. Otherwise, pissed off critters will lose shock faster than they gain it.
 		H.shock_stage = max(H.shock_stage-(H.feral/20), 0)
 
+		//Handle light/dark areas
+		var/turf/T = get_turf(H)
+		if(!T)
+			return //Nullspace
+		var/darkish = T.get_lumcount() <= 0.1
+
 		//Don't bother doing heavy lifting if we weren't going to give emotes anyway.
 		if(!prob(1))
 
 			//This is basically the 'lite' version of the below block.
 			var/list/nearby = H.living_mobs(world.view)
 
-			//Always handle feral if nobody's around.
-			if(!nearby.len)
-				H.handle_feral()
+			//Not in the dark.
+			if(!darkish)
 
-			//Rarely handle feral if someone's around (this is how it was before)
-			else if(prob(1))
-				H.handle_feral()
+				//Always handle feral if nobody's around and not in the dark.
+				if(!nearby.len)
+					H.handle_feral()
+
+				//Rarely handle feral if someone is around
+				else if(prob(1))
+					H.handle_feral()
 
 			//And bail
 			return
 
-		//Handle light/dark areas
-		var/light_amount = H.getlightlevel()
-
 		// In the darkness. No need for custom scene-protection checks as it's just an occational infomessage.
-		if(light_amount <= 0.5)
+		if(darkish)
 			// If hurt, tell 'em to heal up
 			if (shock)
 				to_chat(H,"<span class='info'>This place seems safe, secure, hidden, a place to lick your wounds and recover...</span>")
@@ -206,14 +214,14 @@
 				to_chat(H,"<span class='info'>Secure in your hiding place, your hunger still gnaws at you. You need to catch some food...</span>")
 
 			//If jittery, etc
-			else if(H.jitteriness >= 100)
+			else if(jittery)
 				to_chat(H,"<span class='info'>sneakysneakyyesyesyescleverhidingfindthingsyessssss</span>")
 
 			//Otherwise, just tell them to keep hiding.
 			else
 				to_chat(H,"<span class='info'>...safe...</span>")
 
-		// > 0.5 luminosity
+		// NOT in the darkness
 		else
 
 			//Twitch twitch

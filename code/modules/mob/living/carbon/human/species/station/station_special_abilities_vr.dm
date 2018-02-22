@@ -92,7 +92,7 @@
 			//Don't have nutriment to hatch! Or you somehow died in between completing your revive and hitting hatch.
 			else
 				to_chat(src, "Your body was unable to regenerate, what few living cells remain require additional nutrients to complete the process.")
-				reviving = FALSE // so they can try again when they're given a kickstart
+				reviving = FALSE //So they can try again when they're given a kickstart
 
 		//Alive when hatching
 		else
@@ -103,6 +103,7 @@
 	last_special = world.time + 1 HOUR
 	verbs -= /mob/living/carbon/human/proc/hatch
 	to_chat(src, "<span class='notice'>Your new body awakens, bursting free from your old skin.</span>")
+	reviving = FALSE
 
 	//Modify and record values (half nutrition and braindamage)
 	var/old_nutrition = nutrition * 0.5
