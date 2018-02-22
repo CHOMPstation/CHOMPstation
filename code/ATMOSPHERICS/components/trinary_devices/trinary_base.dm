@@ -64,10 +64,12 @@
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \
 			"You hear a ratchet.")
-		new /obj/item/pipe(loc, make_from=src)
-		qdel(src)
+		deconstruct()
 
 // Housekeeping and pipe network stuff below
+/obj/machinery/atmospherics/trinary/get_neighbor_nodes_for_init()
+	return list(node1, node2, node3)
+
 /obj/machinery/atmospherics/trinary/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	if(reference == node1)
 		network1 = new_network

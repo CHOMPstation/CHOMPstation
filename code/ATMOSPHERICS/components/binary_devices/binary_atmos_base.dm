@@ -29,7 +29,12 @@
 		if(WEST)
 			initialize_directions = EAST|WEST
 
+
+
 // Housekeeping and pipe network stuff below
+/obj/machinery/atmospherics/binary/get_neighbor_nodes_for_init()
+	return list(node1, node2)
+
 /obj/machinery/atmospherics/binary/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	if(reference == node1)
 		network1 = new_network

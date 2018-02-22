@@ -71,19 +71,19 @@
 // Trinary
 // TODO - Make some be flippable in hand by using construction_type = /obj/item/pipe/trinary/flippable
 /obj/machinery/atmospherics/trinary/mixer
-	construction_type = /obj/item/pipe/trinary
+	construction_type = /obj/item/pipe/trinary/flippable
 	pipe_state = "mixer"
 /obj/machinery/atmospherics/trinary/mixer/t_mixer
-	construction_type = /obj/item/pipe/trinary
+	construction_type = /obj/item/pipe/trinary  // Can't flip a "T", its symmetrical
 	pipe_state = "t_mixer"
 /obj/machinery/atmospherics/trinary/mixer/m_mixer
-	construction_type = /obj/item/pipe/trinary
+	construction_type = /obj/item/pipe/trinary/flippable
 	pipe_state = "m_mixer"
 /obj/machinery/atmospherics/trinary/atmos_filter
-	construction_type = /obj/item/pipe/trinary
+	construction_type = /obj/item/pipe/trinary/flippable
 	pipe_state = "filter"
 /obj/machinery/atmospherics/trinary/atmos_filter/m_filter
-	construction_type = /obj/item/pipe/trinary
+	construction_type = /obj/item/pipe/trinary/flippable
 	pipe_state = "m_filter"
 
 // Omni
@@ -102,12 +102,12 @@
 	pipe_state = "dvalve"
 
 /obj/machinery/atmospherics/tvalve
-	construction_type = /obj/item/pipe/trinary
+	construction_type = /obj/item/pipe/trinary/flippable
 	pipe_state = "mtvalve"
 /obj/machinery/atmospherics/tvalve/digital
 	pipe_state = "dtvalve"
 
 /obj/machinery/atmospherics/tvalve/mirrored
 	pipe_state = "mtvalvem"
-/obj/machinery/atmospherics/tvalve/mirrored/digital
+/obj/machinery/atmospherics/tvalve/digital/mirrored
 	pipe_state = "dtvalvem"

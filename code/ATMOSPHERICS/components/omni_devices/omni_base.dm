@@ -221,6 +221,11 @@
 
 
 // Housekeeping and pipe network stuff below
+/obj/machinery/atmospherics/omni/get_neighbor_nodes_for_init()
+	var/list/neighbor_nodes = list()
+	for(var/datum/omni_port/P in ports)
+		neighbor_nodes += P.node
+	return neighbor_nodes
 
 /obj/machinery/atmospherics/omni/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	for(var/datum/omni_port/P in ports)

@@ -45,6 +45,9 @@
 		if(EAST || WEST)
 			initialize_directions = EAST|WEST
 
+/obj/machinery/atmospherics/valve/get_neighbor_nodes_for_init()
+	return list(node1, node2)
+
 /obj/machinery/atmospherics/valve/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	if(reference == node1)
 		network_node1 = new_network

@@ -34,7 +34,7 @@ Buildable meters
 	RPD_type = PIPE_TRINARY
 /obj/item/pipe/trinary/flippable
 	RPD_type = PIPE_TRIN_M
-	var/flipped = FALSE
+	var/mirrored = FALSE
 /obj/item/pipe/quaternary
 	RPD_type = PIPE_ONEDIR
 
@@ -65,10 +65,10 @@ Buildable meters
 	color = make_from.pipe_color
 	pipe_type = make_from.type
 
-/obj/item/pipe/trinary/flippable/make_from_existing(obj/machinery/atmospherics/components/trinary/make_from)
+/obj/item/pipe/trinary/flippable/make_from_existing(obj/machinery/atmospherics/trinary/make_from)
 	..()
 	// TODO - Do they have flipped instead of mirrored variants?
-	if(make_from.flipped)
+	if(make_from.mirrored)
 		do_a_flip()
 
 /obj/item/pipe/dropped()
@@ -108,8 +108,8 @@ Buildable meters
 	fixdir()
 
 /obj/item/pipe/trinary/flippable/do_a_flip()
-	set_dir(turn(dir, flipped ? 45 : -45))
-	flipped = !flipped
+	// set_dir(turn(dir, flipped ? 45 : -45)) // I wonder why it did this `Leshana
+	mirrored = !mirrored
 
 
 /obj/item/pipe/verb/rotate()
@@ -207,8 +207,8 @@ Buildable meters
 		A.req_one_access = req_one_access
 	A.on_construction(color, piping_layer)
 
-/obj/item/pipe/trinary/flippable/build_pipe(obj/machinery/atmospherics/components/trinary/T)
-	T.flipped = flipped
+/obj/item/pipe/trinary/flippable/build_pipe(obj/machinery/atmospherics/trinary/T)
+	T.mirrored = mirrored
 	. = ..()
 
 // Lookup the initialize_directions for a given atmos machinery instance facing dir.

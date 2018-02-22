@@ -544,6 +544,12 @@ character_name: Myryan Karnage-Cunningham
 item_path: /obj/item/weapon/storage/belt/utility/fluff/vulpine
 }
 
+{
+ckey: myryan
+character_name: Test Guy
+item_path: /obj/item/weapon/wrench/alien
+}
+
 # ######## N CKEYS
 
 {

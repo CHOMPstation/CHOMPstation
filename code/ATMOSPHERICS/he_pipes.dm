@@ -49,11 +49,11 @@
 				node2_dir = direction
 
 	for(var/obj/machinery/atmospherics/pipe/simple/heat_exchanging/target in get_step(src,node1_dir))
-		if(target.initialize_directions_he & get_dir(target,src))
+		if(can_be_node(target, 1))
 			node1 = target
 			break
 	for(var/obj/machinery/atmospherics/pipe/simple/heat_exchanging/target in get_step(src,node2_dir))
-		if(target.initialize_directions_he & get_dir(target,src))
+		if(can_be_node(target, 2))
 			node2 = target
 			break
 	if(!node1 && !node2)

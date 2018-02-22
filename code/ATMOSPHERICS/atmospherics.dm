@@ -162,7 +162,7 @@ Pipelines + Other Objects -> Pipe network
 	if(QDELETED(src))
 		return
 	if(construction_type)
-		var/obj/item/pipe/I = new construction_type(loc, make_from = src)
+		var/obj/item/pipe/I = new construction_type(loc, null, null, src)
 		I.setPipingLayer(piping_layer)
 		transfer_fingerprints_to(I)
 	qdel(src)

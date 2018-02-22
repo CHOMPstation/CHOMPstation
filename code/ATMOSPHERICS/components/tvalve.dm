@@ -12,6 +12,7 @@
 	var/state = 0 // 0 = go straight, 1 = go to side
 
 	var/mirrored = FALSE
+	var/tee = FALSE // Note: Tee not actually supported for T-valves: no sprites
 
 	// like a trinary component, node1 is input, node2 is side output, node3 is straight output
 	var/obj/machinery/atmospherics/node3
@@ -46,6 +47,9 @@
 
 /obj/machinery/atmospherics/tvalve/init_dir()
 	initialize_directions = get_initialize_directions_trinary(dir, mirrored)
+
+/obj/machinery/atmospherics/tvalve/get_neighbor_nodes_for_init()
+	return list(node1, node2, node3)
 
 /obj/machinery/atmospherics/tvalve/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	if(reference == node1)

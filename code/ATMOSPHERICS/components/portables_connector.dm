@@ -47,6 +47,9 @@
 	return 1
 
 // Housekeeping and pipe network stuff below
+/obj/machinery/atmospherics/portables_connector/get_neighbor_nodes_for_init()
+	return list(node)
+
 /obj/machinery/atmospherics/portables_connector/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	if(reference == node)
 		network = new_network
