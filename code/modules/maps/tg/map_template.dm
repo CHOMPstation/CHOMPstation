@@ -96,6 +96,8 @@ var/list/global/map_templates = list()
 //	repopulate_sorted_areas()
 
 	//initialize things that are normally initialized after map load
+	SSlighting.initialize_lighting_objects(block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]),
+												 locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
 	initTemplateBounds(bounds)
 	log_game("Z-level [name] loaded at at [x],[y],[world.maxz]")
 	on_map_loaded(world.maxz) //VOREStation Edit

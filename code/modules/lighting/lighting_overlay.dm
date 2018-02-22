@@ -30,6 +30,9 @@
 	total_lighting_overlays++
 
 	var/turf/T = loc //If this runtimes atleast we'll know what's creating overlays outside of turfs.
+	if(T.lighting_overlay)
+		qdel(T.lighting_object, force = TRUE)
+		return
 	T.lighting_overlay = src
 	T.luminosity = 0
 	if(no_update)

@@ -42,6 +42,14 @@ SUBSYSTEM_DEF(lighting)
 	internal_process_overlays(FALSE, TRUE)
 	return ..()
 
+/datum/controller/subsystem/lighting/proc/initialize_lighting_objects(list/turfs)
+	for(var/turf/T in turfs)
+		if(T.dynamic_lighting)
+			var/area/A = T.loc
+			if(A.dynamic_lighting)
+				new /atom/movable/lighting_overlay(T, TRUE)
+		CHECK_TICK
+
 /datum/controller/subsystem/lighting/fire(resumed = FALSE)
 	var/timer
 	if(!resumed)
