@@ -1,0 +1,48 @@
+0	PIPE_SIMPLE_STRAIGHT     	"pipe"                  	"simple"	/obj/machinery/atmospherics/pipe/simple
+1	PIPE_SIMPLE_BENT         	"bent pipe"             	"simple"	/obj/machinery/atmospherics/pipe/simple
+2	PIPE_HE_STRAIGHT         	"h/e pipe"              	"he"	/obj/machinery/atmospherics/pipe/simple/heat_exchanging
+3	PIPE_HE_BENT             	"bent h/e pipe"         	"he"	/obj/machinery/atmospherics/pipe/simple/heat_exchanging
+4	PIPE_CONNECTOR           	"connector"             	"connector"	/obj/machinery/atmospherics/portables_connector
+5	PIPE_MANIFOLD            	"manifold"              	"manifold"	/obj/machinery/atmospherics/pipe/manifold
+6	PIPE_JUNCTION            	"junction"              	"junction"	/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction
+7	PIPE_UVENT               	"uvent"                 	"uvent"	/obj/machinery/atmospherics/unary/vent_pump
+8	PIPE_MVALVE              	"mvalve"                	"mvalve"	/obj/machinery/atmospherics/valve
+9	PIPE_PUMP                	"pump"                  	"pump"	/obj/machinery/atmospherics/binary/pump
+10	PIPE_SCRUBBER            	"scrubber"              	"scrubber"	/obj/machinery/atmospherics/unary/vent_scrubber
+11	PIPE_INSULATED_STRAIGHT  	"insulated pipe"        	"insulated"	/obj/machinery/atmospherics/pipe/simple/insulated
+12	PIPE_INSULATED_BENT      	"bent insulated pipe"   	"insulated"	/obj/machinery/atmospherics/pipe/simple/insulated
+13	PIPE_GAS_FILTER          	"gas filter"            	"filter"	/obj/machinery/atmospherics/trinary/atmos_filter
+14	PIPE_GAS_MIXER           	"gas mixer"             	"mixer"	/obj/machinery/atmospherics/trinary/mixer
+15	PIPE_PASSIVE_GATE        	"pressure regulator"    	"passivegate"	/obj/machinery/atmospherics/binary/passive_gate
+16	PIPE_VOLUME_PUMP         	"high power pump"       	"volumepump"	/obj/machinery/atmospherics/binary/pump/high_power
+17	PIPE_HEAT_EXCHANGE       	"heat exchanger"        	"heunary"	/obj/machinery/atmospherics/unary/heat_exchanger
+18	PIPE_MTVALVE             	"t-valve"               	"mtvalve"	/obj/machinery/atmospherics/tvalve/mirrored
+19	PIPE_MANIFOLD4W          	"4-way manifold"        	"manifold4w"	/obj/machinery/atmospherics/pipe/manifold4w
+20	PIPE_CAP                 	"pipe cap"              	"cap"	/obj/machinery/atmospherics/pipe/cap
+21	PIPE_UP                  	"pipe up"               	"cap"	/obj/machinery/atmospherics/pipe/zpipe/up
+22	PIPE_DOWN                	"pipe down"             	"cap"	/obj/machinery/atmospherics/pipe/zpipe/down
+23	PIPE_GAS_FILTER_M        	"gas filter m"          	"m_filter"	/obj/machinery/atmospherics/trinary/atmos_filter/m_filter
+24	PIPE_GAS_MIXER_T         	"gas mixer t"           	"t_mixer"	/obj/machinery/atmospherics/trinary/mixer/t_mixer
+25	PIPE_GAS_MIXER_M         	"gas mixer m"           	"m_mixer"	/obj/machinery/atmospherics/trinary/mixer/m_mixer
+26	PIPE_OMNI_MIXER          	"omni mixer"            	"omni_mixer"	/obj/machinery/atmospherics/omni/mixer
+27	PIPE_OMNI_FILTER         	"omni filter"           	"omni_filter"	/obj/machinery/atmospherics/omni/atmos_filter
+28	PIPE_UNIVERSAL           	"universal pipe adapter"	"universal"	/obj/machinery/atmospherics/pipe/simple/visible/universal
+29	PIPE_SUPPLY_STRAIGHT     	"supply pipe"           	"simple"
+30	PIPE_SUPPLY_BENT         	"bent supply pipe"      	"simple"
+31	PIPE_SCRUBBERS_STRAIGHT  	"scrubbers pipe"        	"simple"
+32	PIPE_SCRUBBERS_BENT      	"bent scrubbers pipe"   	"simple"
+33	PIPE_SUPPLY_MANIFOLD     	"supply manifold"       	"manifold"
+34	PIPE_SCRUBBERS_MANIFOLD  	"scrubbers manifold"    	"manifold"
+35	PIPE_SUPPLY_MANIFOLD4W   	"supply 4-way manifold" 	"manifold4w"
+36	PIPE_SCRUBBERS_MANIFOLD4W	"scrubbers 4-way manifol	"manifold4w"
+37	PIPE_SUPPLY_UP           	"supply pipe up"        	"cap"
+38	PIPE_SCRUBBERS_UP        	"scrubbers pipe up"     	"cap"
+39	PIPE_SUPPLY_DOWN         	"supply pipe down"      	"cap"
+40	PIPE_SCRUBBERS_DOWN      	"scrubbers pipe down"   	"cap"
+41	PIPE_SUPPLY_CAP          	"supply pipe cap"       	"cap"
+42	PIPE_SCRUBBERS_CAP       	"scrubbers pipe cap"    	"cap"
+43	PIPE_MTVALVEM            	"t-valve m"             	"mtvalvem"	/obj/machinery/atmospherics/tvalve/mirrored
+44	PIPE_DVALVE              	"dvalve"                	"dvalve"	/obj/machinery/atmospherics/valve/digital
+45	PIPE_DTVALVE             	"dt-valve"              	"dtvalve"	/obj/machinery/atmospherics/tvalve/digital
+46	PIPE_DTVALVEM            	"dt-valve m"            	"dtvalvem"	/obj/machinery/atmospherics/tvalve/mirrored/digital
+47	PIPE_PASSIVE_VENT        	"passive vent"          	"passive vent"	/obj/machinery/atmospherics/pipe/vent

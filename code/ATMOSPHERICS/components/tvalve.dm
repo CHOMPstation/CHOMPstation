@@ -178,21 +178,9 @@
 
 	var/list/node_connects = get_node_connect_dirs()
 
-	for(var/obj/machinery/atmospherics/target in get_step(src,node_connects[1]))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node1 = target
-				break
-	for(var/obj/machinery/atmospherics/target in get_step(src,node_connects[2]))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node2 = target
-				break
-	for(var/obj/machinery/atmospherics/target in get_step(src,node_connects[3]))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node3 = target
-				break
+	STANDARD_ATMOS_CHOOSE_NODE(1, node_connects[1])
+	STANDARD_ATMOS_CHOOSE_NODE(2, node_connects[2])
+	STANDARD_ATMOS_CHOOSE_NODE(3, node_connects[3])
 
 	update_icon()
 	update_underlays()
@@ -348,8 +336,7 @@
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \
 			"You hear a ratchet.")
-		new /obj/item/pipe(loc, make_from=src)
-		qdel(src)
+		deconstruct()
 
 /obj/machinery/atmospherics/tvalve/mirrored
 	icon_state = "map_tvalvem0"

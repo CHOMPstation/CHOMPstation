@@ -64,17 +64,8 @@
 	var/node2_connect = dir
 	var/node1_connect = turn(dir, 180)
 
-	for(var/obj/machinery/atmospherics/target in get_step(src,node1_connect))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node1 = target
-				break
-
-	for(var/obj/machinery/atmospherics/target in get_step(src,node2_connect))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node2 = target
-				break
+	STANDARD_ATMOS_CHOOSE_NODE(1, node1_connect)
+	STANDARD_ATMOS_CHOOSE_NODE(2, node2_connect)
 
 	update_icon()
 	update_underlays()

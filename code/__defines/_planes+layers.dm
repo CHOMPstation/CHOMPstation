@@ -56,6 +56,10 @@ What is the naming convention for planes or layers?
 	//#define TURF_LAYER		2 //For easy recordkeeping; this is a byond define
 	#define DECALS_LAYER		2.01
 	#define OVERTURF_LAYER		2.1
+	#define PIPE_LAYER_SCRUBBER	2.38
+	#define PIPE_LAYER_SUPPLY	2.39
+	#define PIPE_LAYER_REGULAR	2.4 // Under wires with their 2.44
+	#define CABLE_LAYER			2.44 //Just below unary stuff, which is at 2.45 and above pipes, which are at 2.4
 	#define HIDING_LAYER		2.45 //Layer at which mobs hide to be under things like tables
 	#define DOOR_OPEN_LAYER		2.7 //Under all objects if opened. 2.7 due to tables being at 2.6
 	//#define OBJ_LAYER			3 //For easy recordkeeping; this is a byond define

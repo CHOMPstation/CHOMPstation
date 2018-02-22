@@ -17,6 +17,12 @@
 	buckle_require_restraints = 1
 	buckle_lying = -1
 
+
+/** Return a list of the pipe's nodes, with associated values being the dir that node is facing. */
+/obj/machinery/atmospherics/pipe/proc/GetNodeFacings()
+	// TODO - Automated detection? Can't do that yet, must wait until nodes is an array.
+	return list()
+
 /obj/machinery/atmospherics/pipe/drain_power()
 	return -1
 
@@ -30,6 +36,10 @@
 
 /obj/machinery/atmospherics/pipe/proc/pipeline_expansion()
 	return null
+
+// For pipes this is the same as pipeline_expansion()
+/obj/machinery/atmospherics/pipe/get_neighbor_nodes_for_init()
+	return pipeline_expansion()
 
 /obj/machinery/atmospherics/pipe/proc/check_pressure(pressure)
 	//Return 1 if parent should continue checking other pipes
@@ -69,7 +79,11 @@
 	qdel_null(parent)
 	if(air_temporary)
 		loc.assume_air(air_temporary)
-
+	for(var/obj/machinery/meter/meter in loc)
+		if(meter.target == src)
+			var/obj/item/pipe_meter/PM = new /obj/item/pipe_meter(loc)
+			meter.transfer_fingerprints_to(PM)
+			qdel(meter)
 	. = ..()
 
 /obj/machinery/atmospherics/pipe/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
@@ -96,12 +110,7 @@
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \
 			"You hear a ratchet.")
-		new /obj/item/pipe(loc, make_from=src)
-		for (var/obj/machinery/meter/meter in T)
-			if (meter.target == src)
-				new /obj/item/pipe_meter(T)
-				qdel(meter)
-		qdel(src)
+		deconstruct()
 
 /obj/machinery/atmospherics/pipe/proc/change_color(var/new_color)
 	//only pass valid pipe colors please ~otherwise your pipe will turn invisible
@@ -262,15 +271,13 @@
 				node2_dir = direction
 
 	for(var/obj/machinery/atmospherics/target in get_step(src,node1_dir))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node1 = target
-				break
+		if(can_be_node(target, 1))
+			node1 = target
+			break
 	for(var/obj/machinery/atmospherics/target in get_step(src,node2_dir))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node2 = target
-				break
+		if(can_be_node(target, 2))
+			node2 = target
+			break
 
 	if(!node1 && !node2)
 		qdel(src)
@@ -512,11 +519,10 @@
 	for(var/direction in cardinal)
 		if(direction&connect_directions)
 			for(var/obj/machinery/atmospherics/target in get_step(src,direction))
-				if(target.initialize_directions & get_dir(target,src))
-					if (check_connect_types(target,src))
-						node1 = target
-						connect_directions &= ~direction
-						break
+				if (can_be_node(target, 1))
+					node1 = target
+					connect_directions &= ~direction
+					break
 			if (node1)
 				break
 
@@ -524,11 +530,10 @@
 	for(var/direction in cardinal)
 		if(direction&connect_directions)
 			for(var/obj/machinery/atmospherics/target in get_step(src,direction))
-				if(target.initialize_directions & get_dir(target,src))
-					if (check_connect_types(target,src))
-						node2 = target
-						connect_directions &= ~direction
-						break
+				if (can_be_node(target, 2))
+					node2 = target
+					connect_directions &= ~direction
+					break
 			if (node2)
 				break
 
@@ -536,11 +541,10 @@
 	for(var/direction in cardinal)
 		if(direction&connect_directions)
 			for(var/obj/machinery/atmospherics/target in get_step(src,direction))
-				if(target.initialize_directions & get_dir(target,src))
-					if (check_connect_types(target,src))
-						node3 = target
-						connect_directions &= ~direction
-						break
+				if (can_be_node(target, 3))
+					node3 = target
+					connect_directions &= ~direction
+					break
 			if (node3)
 				break
 
@@ -769,29 +773,25 @@
 
 /obj/machinery/atmospherics/pipe/manifold4w/atmos_init()
 
-	for(var/obj/machinery/atmospherics/target in get_step(src,1))
-		if(target.initialize_directions & 2)
-			if (check_connect_types(target,src))
-				node1 = target
-				break
+	for(var/obj/machinery/atmospherics/target in get_step(src, NORTH))
+		if (can_be_node(target, 1))
+			node1 = target
+			break
 
-	for(var/obj/machinery/atmospherics/target in get_step(src,2))
-		if(target.initialize_directions & 1)
-			if (check_connect_types(target,src))
-				node2 = target
-				break
+	for(var/obj/machinery/atmospherics/target in get_step(src, SOUTH))
+		if (can_be_node(target, 2))
+			node2 = target
+			break
 
-	for(var/obj/machinery/atmospherics/target in get_step(src,4))
-		if(target.initialize_directions & 8)
-			if (check_connect_types(target,src))
-				node3 = target
-				break
+	for(var/obj/machinery/atmospherics/target in get_step(src, EAST))
+		if (can_be_node(target, 3))
+			node3 = target
+			break
 
-	for(var/obj/machinery/atmospherics/target in get_step(src,8))
-		if(target.initialize_directions & 4)
-			if (check_connect_types(target,src))
-				node4 = target
-				break
+	for(var/obj/machinery/atmospherics/target in get_step(src, WEST))
+		if (can_be_node(target, 4))
+			node4 = target
+			break
 
 	if(!node1 && !node2 && !node3 && !node4)
 		qdel(src)
@@ -946,10 +946,9 @@
 
 /obj/machinery/atmospherics/pipe/cap/atmos_init()
 	for(var/obj/machinery/atmospherics/target in get_step(src, dir))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node = target
-				break
+		if (can_be_node(target, 1))
+			node = target
+			break
 
 	var/turf/T = src.loc			// hide if turf is not intact
 	if(level == 1 && !T.is_plating()) hide(1)
@@ -1053,10 +1052,9 @@
 	var/connect_direction = dir
 
 	for(var/obj/machinery/atmospherics/target in get_step(src,connect_direction))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node1 = target
-				break
+		if (can_be_node(target, 1))
+			node1 = target
+			break
 
 	update_underlays()
 
@@ -1225,10 +1223,9 @@
 	var/connect_direction = dir
 
 	for(var/obj/machinery/atmospherics/target in get_step(src,connect_direction))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node1 = target
-				break
+		if (can_be_node(target, 1))
+			node1 = target
+			break
 
 	update_icon()
 

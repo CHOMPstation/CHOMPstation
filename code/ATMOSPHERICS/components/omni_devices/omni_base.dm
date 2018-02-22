@@ -93,8 +93,7 @@
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \
 			"You hear a ratchet.")
-		new /obj/item/pipe(loc, make_from=src)
-		qdel(src)
+		deconstruct()
 
 /obj/machinery/atmospherics/omni/can_unwrench()
 	var/int_pressure = 0
@@ -252,10 +251,9 @@
 		if(P.node || P.mode == 0)
 			continue
 		for(var/obj/machinery/atmospherics/target in get_step(src, P.dir))
-			if(target.initialize_directions & get_dir(target,src))
-				if (check_connect_types(target,src))
-					P.node = target
-					break
+			if(can_be_node(target, 1))
+				P.node = target
+				break
 
 	for(var/datum/omni_port/P in ports)
 		P.update = 1
