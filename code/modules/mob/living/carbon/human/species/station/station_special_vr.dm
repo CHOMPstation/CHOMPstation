@@ -150,15 +150,15 @@
 
 		//Shock due to mostly halloss. More feral.
 		if(shock && 2.5*H.halloss >= H.traumatic_shock)
-			feral = max(H.feral, H.halloss)
+			feral = max(feral, H.halloss)
 
 		//Shock due to mostly injury. More feral.
 		else if(shock)
-			feral = max(H.feral, H.traumatic_shock * 2)
+			feral = max(feral, H.traumatic_shock * 2)
 
 		//Still jittery? More feral.
 		if(jittery)
-			feral = max(H.feral, H.jitteriness-100)
+			feral = max(feral, H.jitteriness-100)
 
 		//Still hungry? More feral.
 		if(H.feral + H.nutrition < 150)
@@ -166,16 +166,17 @@
 		else
 			feral = max(0,--feral)
 
+		//Set our real mob's var to our temp var
 		H.feral = feral
 
 		//Did we just finish being feral?
-		if(!H.feral)
+		if(!feral)
 			to_chat(H,"<span class='info'>Your thoughts start clearing, your feral urges having passed - for the time being, at least.</span>")
 			log_and_message_admins("is no longer feral.", H)
 			return
 
 		//If they lose enough health to hit softcrit, handle_shock() will keep resetting this. Otherwise, pissed off critters will lose shock faster than they gain it.
-		H.shock_stage = max(H.shock_stage-(H.feral/20), 0)
+		H.shock_stage = max(H.shock_stage-(feral/20), 0)
 
 		//Handle light/dark areas
 		var/turf/T = get_turf(H)
