@@ -78,8 +78,13 @@
 	set name = "Hatch"
 	set category = "Abilities"
 
+	if(!reviving)
+		//Hwhat?
+		verbs -= /mob/living/carbon/human/proc/hatch
+		return
+
 	var/confirm = alert(usr, "Are you sure you want to hatch right now? This will be very obvious to anyone in view.", "Confirm Regeneration", "Yes", "No")
-	if(confirm == "Yes" && reviving)
+	if(confirm == "Yes")
 
 		//Dead when hatching
 		if(stat == DEAD)
@@ -87,12 +92,12 @@
 			if(hasnutriment())
 				chimera_hatch()
 				visible_message("<span class='danger'><p><font size=4>The lifeless husk of [src] bursts open, revealing a new, intact copy in the pool of viscera.</font></p></span>") //Bloody hell...
-				brainloss += 10 //Reviving from dead means you take a lil' brainloss on top of whatever was healed in the revive.
 				return
 
 			//Don't have nutriment to hatch! Or you somehow died in between completing your revive and hitting hatch.
 			else
 				to_chat(src, "Your body was unable to regenerate, what few living cells remain require additional nutrients to complete the process.")
+				verbs -= /mob/living/carbon/human/proc/hatch
 				reviving = FALSE //So they can try again when they're given a kickstart
 
 		//Alive when hatching
@@ -108,13 +113,13 @@
 
 	//Modify and record values (half nutrition and braindamage)
 	var/old_nutrition = nutrition * 0.5
-	var/braindamage = brainloss * 0.5
+	var/braindamage = (brainloss * 0.5) + 10 //A little damage from the process.
 
 	//I did have special snowflake code, but this is easier.
 	revive()
 	mutations.Remove(HUSK)
 	nutrition = old_nutrition
-	brainloss = braindamage
+	setBrainLoss(braindamage)
 
 	//Drop everything
 	for(var/obj/item/W in src)
@@ -140,7 +145,7 @@
 	else return 0
 
 /mob/living/carbon/human/proc/handle_feral()
-	if(handling_hal) return //avoid conflict with actual hallucinations
+	if(handling_hal) return
 	handling_hal = 1
 
 	if(client && feral >= 10) // largely a copy of handle_hallucinations() without the fake attackers. Unlike hallucinations, only fires once - if they're still feral they'll get hit again anyway.
