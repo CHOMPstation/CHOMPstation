@@ -37,7 +37,7 @@
 				// Was dead, still dead.
 				else
 					to_chat(src, "<span class='notice'>Consciousness begins to stir as your new body awakens, ready to hatch.</span>")
-					verbs += /mob/living/carbon/human/proc/hatch
+					verbs |= /mob/living/carbon/human/proc/hatch
 
 		//Dead until nutrition injected.
 		else
@@ -48,17 +48,18 @@
 		to_chat(src, "You begin to reconstruct your form. You will not be able to move during this time. It should take aproximately [round(time)] seconds.")
 
 		//Waiting for regen after being alive
+		reviving = TRUE
 		spawn(time SECONDS)
 
 			//If they're still alive after regenning.
 			if(stat != DEAD)
 				to_chat(src, "<span class='notice'>Consciousness begins to stir as your new body awakens, ready to hatch..</span>")
-				verbs += /mob/living/carbon/human/proc/hatch
+				verbs |= /mob/living/carbon/human/proc/hatch
 
 			//Was alive, now dead
 			else if(hasnutriment())
 				to_chat(src, "<span class='notice'>Consciousness begins to stir as your new body awakens, ready to hatch..</span>")
-				verbs += /mob/living/carbon/human/proc/hatch
+				verbs |= /mob/living/carbon/human/proc/hatch
 
 			//Dead until nutrition injected.
 			else
