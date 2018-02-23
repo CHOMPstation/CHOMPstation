@@ -3,7 +3,6 @@
 //
 
 var/global/list/atmos_pipe_recipes = null
-var/global/list/disposal_pipe_recipes = null
 
 /hook/startup/proc/init_pipe_recipes()
 	global.atmos_pipe_recipes = list(
@@ -23,37 +22,28 @@ var/global/list/disposal_pipe_recipes = null
 		"Devices" = list(
 			new /datum/pipe_info/pipe("Connector",			/obj/machinery/atmospherics/portables_connector),
 			new /datum/pipe_info/pipe("Unary Vent",			/obj/machinery/atmospherics/unary/vent_pump),
-			new /datum/pipe_info/pipe("Gas Pump",			/obj/machinery/atmospherics/binary/pump),
-			new /datum/pipe_info/pipe("Passive Gate",		/obj/machinery/atmospherics/binary/passive_gate),
-			new /datum/pipe_info/pipe("Volume Pump",		/obj/machinery/atmospherics/binary/pump/high_power),
-			new /datum/pipe_info/pipe("Scrubber",			/obj/machinery/atmospherics/unary/vent_scrubber),
+			new /datum/pipe_info/pipe("Passive Vent",		/obj/machinery/atmospherics/pipe/vent),
 			new /datum/pipe_info/pipe("Injector",			/obj/machinery/atmospherics/unary/outlet_injector),
+			new /datum/pipe_info/pipe("Gas Pump",			/obj/machinery/atmospherics/binary/pump),
+			new /datum/pipe_info/pipe("Pressure Regulator",	/obj/machinery/atmospherics/binary/passive_gate),
+			new /datum/pipe_info/pipe("High Power Gas Pump",/obj/machinery/atmospherics/binary/pump/high_power),
+			new /datum/pipe_info/pipe("Scrubber",			/obj/machinery/atmospherics/unary/vent_scrubber),
 			new /datum/pipe_info/meter("Meter"),
 			new /datum/pipe_info/pipe("Gas Filter",			/obj/machinery/atmospherics/trinary/atmos_filter),
 			new /datum/pipe_info/pipe("Gas Mixer",			/obj/machinery/atmospherics/trinary/mixer),
 			new /datum/pipe_info/pipe("Gas Mixer 'T'",		/obj/machinery/atmospherics/trinary/mixer/t_mixer),
+			new /datum/pipe_info/pipe("Omni Gas Mixer",		/obj/machinery/atmospherics/omni/mixer),
+			new /datum/pipe_info/pipe("Omni Gas Filter",	/obj/machinery/atmospherics/omni/atmos_filter),
 		),
 		"Heat Exchange" = list(
 			new /datum/pipe_info/pipe("Pipe",				/obj/machinery/atmospherics/pipe/simple/heat_exchanging),
 			new /datum/pipe_info/pipe("Junction",			/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction),
 			new /datum/pipe_info/pipe("Heat Exchanger",		/obj/machinery/atmospherics/unary/heat_exchanger),
+		),
+		"Insulated pipes" = list(
+			new /datum/pipe_info/pipe("Pipe",				/obj/machinery/atmospherics/pipe/simple/insulated),
 		)
 	)
-
-	/*
-	global.disposal_pipe_recipes, list(
-		"Disposal Pipes" = list(
-			new /datum/pipe_info/disposal("Pipe",			/obj/structure/disposalpipe/segment, PIPE_BENDABLE),
-			new /datum/pipe_info/disposal("Junction",		/obj/structure/disposalpipe/junction, PIPE_TRIN_M),
-			new /datum/pipe_info/disposal("Y-Junction",		/obj/structure/disposalpipe/junction/yjunction),
-			new /datum/pipe_info/disposal("Sort Junction",	/obj/structure/disposalpipe/sorting/mail, PIPE_TRIN_M),
-			new /datum/pipe_info/disposal("Trunk",			/obj/structure/disposalpipe/trunk),
-			new /datum/pipe_info/disposal("Bin",			/obj/machinery/disposal/bin, PIPE_ONEDIR),
-			new /datum/pipe_info/disposal("Outlet",			/obj/structure/disposaloutlet),
-			new /datum/pipe_info/disposal("Chute",			/obj/machinery/disposal/deliveryChute),
-		)
-	))
-	*/
 	return TRUE
 
 //

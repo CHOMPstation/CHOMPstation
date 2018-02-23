@@ -20,7 +20,7 @@ Buildable meters
 	w_class = ITEMSIZE_NORMAL
 	level = 2
 	var/piping_layer = PIPING_LAYER_DEFAULT
-	var/connect_types = CONNECT_TYPE_REGULAR
+	// var/connect_types = CONNECT_TYPE_REGULAR
 	var/RPD_type
 
 // One subtype for each way components connect to neighbors
@@ -78,14 +78,25 @@ Buildable meters
 
 /obj/item/pipe/proc/setPipingLayer(new_layer = PIPING_LAYER_DEFAULT)
 	var/obj/machinery/atmospherics/fakeA = pipe_type
-
-	if(initial(fakeA.pipe_flags) & PIPING_ALL_LAYER)
+	if(initial(fakeA.pipe_flags) & (PIPING_ALL_LAYER|PIPING_DEFAULT_LAYER_ONLY))
 		new_layer = PIPING_LAYER_DEFAULT
 	piping_layer = new_layer
-
-	pixel_x = PIPE_PIXEL_OFFSET_X(piping_layer)
-	pixel_y = PIPE_PIXEL_OFFSET_Y(piping_layer)
-	layer = initial(layer) + PIPE_LAYER_OFFSET(piping_layer)
+	// Do it the Polaris way
+	switch(piping_layer)
+		if(PIPING_LAYER_SCRUBBER)
+			// connect_types = CONNECT_TYPE_SCRUBBER
+			color = PIPE_COLOR_RED
+			name = "[initial(fakeA.name)] scrubber fitting"
+		if(PIPING_LAYER_SUPPLY)
+			// connect_types = CONNECT_TYPE_SUPPLY
+			color = PIPE_COLOR_BLUE
+			name = "[initial(fakeA.name)] supply fitting"
+		else
+			name = "[initial(fakeA.name)] fitting"
+	// Or if we were to do it the TG way...
+	// pixel_x = PIPE_PIXEL_OFFSET_X(piping_layer)
+	// pixel_y = PIPE_PIXEL_OFFSET_Y(piping_layer)
+	// layer = initial(layer) + PIPE_LAYER_OFFSET(piping_layer)
 
 /obj/item/pipe/proc/update()
 	var/obj/machinery/atmospherics/fakeA = pipe_type

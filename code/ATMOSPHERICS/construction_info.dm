@@ -9,9 +9,13 @@
 	var/pipe_state // icon_state as a pipe item
 
 // Pipes
+/obj/machinery/atmospherics/pipe
+	pipe_flags = 0 // Does not have PIPING_DEFAULT_LAYER_ONLY flag
+
 /obj/machinery/atmospherics/pipe/simple
 	pipe_state = "simple"
 	construction_type = /obj/item/pipe/binary/bendable
+	pipe_flags = PIPING_CARDINAL_AUTONORMALIZE
 /obj/machinery/atmospherics/pipe/manifold
 	pipe_state = "manifold"
 	construction_type = /obj/item/pipe/trinary
@@ -24,6 +28,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal
 	pipe_state = "universal"
 	construction_type = /obj/item/pipe/binary
+	pipe_flags = PIPING_ALL_LAYER|PIPING_CARDINAL_AUTONORMALIZE
 
 /obj/machinery/atmospherics/pipe/zpipe
 	pipe_state = "cap"
@@ -34,6 +39,7 @@
 
 // HE Pipes
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging
+	pipe_flags = 0 // Does not have PIPING_DEFAULT_LAYER_ONLY flag
 	pipe_state = "he"
 	construction_type = /obj/item/pipe/binary/bendable
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction
@@ -49,6 +55,8 @@
 	pipe_state = "scrubber"
 /obj/machinery/atmospherics/unary/vent_pump
 	pipe_state = "uvent"
+/obj/machinery/atmospherics/unary/outlet_injector
+	pipe_state = "injector"
 // Unary-ish
 /obj/machinery/atmospherics/portables_connector
 	construction_type = /obj/item/pipe/directional

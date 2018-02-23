@@ -6,21 +6,36 @@
 	anchored = 1
 	var/unwrenched = 0
 	var/wait = 0
+	var/p_layer = PIPING_LAYER_REGULAR
 
 // TODO - Its about time to make this NanoUI don't we think?
-/obj/machinery/pipedispenser/attack_hand(user as mob)
-	if(..())
+/obj/machinery/pipedispenser/attack_hand(var/mob/user as mob)
+	if((. = ..()))
 		return
+	src.interact(user)
+
+/obj/machinery/pipedispenser/interact(mob/user)
+	user.set_machine(src)
+	
 	var/list/lines = list()
 	for(var/category in atmos_pipe_recipes)
 		lines += "<b>[category]:</b><BR>"
+		if(category == "Pipes")
+			// Stupid hack. Fix someday. So tired right now.
+			lines += "<a class='[p_layer == PIPING_LAYER_REGULAR ? "linkOn" : "linkOff"]' href='?src=\ref[src];setlayer=[PIPING_LAYER_REGULAR]'>Regular</a> "
+			lines += "<a class='[p_layer == PIPING_LAYER_SUPPLY ? "linkOn" : "linkOff"]' href='?src=\ref[src];setlayer=[PIPING_LAYER_SUPPLY]'>Supply</a> "
+			lines += "<a class='[p_layer == PIPING_LAYER_SCRUBBER ? "linkOn" : "linkOff"]' href='?src=\ref[src];setlayer=[PIPING_LAYER_SCRUBBER]'>Scrubber</a> "
+			lines += "<br>"
 		for(var/datum/pipe_info/PI in atmos_pipe_recipes[category])
 			lines += PI.Render(src)
-	var/dat = lines.Join("\n")
+	var/dat = lines.Join()
 
 	//What number the make points to is in the define # at the top of construction.dm in same folder
-	user << browse("<HEAD><TITLE>[src]</TITLE></HEAD><TT>[dat]</TT>", "window=pipedispenser")
-	onclose(user, "pipedispenser")
+	// user << browse("<HEAD><TITLE>[src]</TITLE></HEAD><TT>[dat]</TT>", "window=pipedispenser")
+	// onclose(user, "pipedispenser")
+	var/datum/browser/popup = new(user, "pipedispenser", name, 300, 500, src)
+	popup.set_content("<TT>[dat]</TT>")
+	popup.open()
 	return
 
 /obj/machinery/pipedispenser/Topic(href, href_list)
@@ -28,19 +43,26 @@
 		return
 	if(unwrenched || !usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
 		usr << browse(null, "window=pipedispenser")
+		usr.unset_machine(src)
 		return
 	usr.set_machine(src)
 	src.add_fingerprint(usr)
-	if(href_list["makepipe"])
+	if(href_list["setlayer"])
+		var/new_pipe_layer = text2num(href_list["setlayer"])
+		if(isnum(new_pipe_layer) && new_pipe_layer >= PIPING_LAYER_MIN && new_pipe_layer <= PIPING_LAYER_MAX)
+			p_layer = new_pipe_layer
+			updateDialog()
+	else if(href_list["makepipe"])
 		if(!wait)
 			var/p_type = text2path(href_list["makepipe"])
 			var/p_dir = text2num(href_list["dir"])
 			var/obj/item/pipe/P = new(src.loc, p_type, p_dir)
+			P.setPipingLayer(p_layer)
 			P.add_fingerprint(usr)
 			wait = 1
 			spawn(10)
 				wait = 0
-	if(href_list["makemeter"])
+	else if(href_list["makemeter"])
 		if(!wait)
 			new /obj/item/pipe_meter(/*usr.loc*/ src.loc)
 			wait = 1

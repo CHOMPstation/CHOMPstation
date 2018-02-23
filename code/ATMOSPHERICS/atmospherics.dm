@@ -197,20 +197,22 @@ Pipelines + Other Objects -> Pipe network
 	// Do it the Polaris way
 	switch(piping_layer)
 		if(PIPING_LAYER_SCRUBBER)
-			icon_state = "intact-scrubbers"
+			icon_state = "[icon_state]-scrubbers"
 			connect_types = CONNECT_TYPE_SCRUBBER
 			layer = 2.38
 			icon_connect_type = "-scrubbers"
 		if(PIPING_LAYER_SUPPLY)
-			icon_state = "intact-supply"
+			icon_state = "[icon_state]-supply"
 			connect_types = CONNECT_TYPE_SUPPLY
 			layer = 2.39
 			icon_connect_type = "-supply"
 		else
-			icon_state = "intact"
+			//icon_state = "intact"
 			connect_types = CONNECT_TYPE_REGULAR
 			layer = 2.4
 			icon_connect_type = ""
+	if(pipe_flags & PIPING_ALL_LAYER)
+		connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER
 	// Or if we were to do it the TG way...
 	// pixel_x = PIPE_PIXEL_OFFSET_X(piping_layer)
 	// pixel_y = PIPE_PIXEL_OFFSET_Y(piping_layer)
