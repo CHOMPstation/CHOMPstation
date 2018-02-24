@@ -1,6 +1,7 @@
 /obj/machinery/atmospherics/unary
 	dir = SOUTH
 	initialize_directions = SOUTH
+	construction_type = /obj/item/pipe/directional
 	//layer = TURF_LAYER+0.1
 
 	var/datum/gas_mixture/air_contents
@@ -21,6 +22,9 @@
 	initialize_directions = dir
 
 // Housekeeping and pipe network stuff below
+/obj/machinery/atmospherics/unary/get_neighbor_nodes_for_init()
+	return list(node)
+
 /obj/machinery/atmospherics/unary/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	if(reference == node)
 		network = new_network
@@ -48,10 +52,9 @@
 	var/node_connect = dir
 
 	for(var/obj/machinery/atmospherics/target in get_step(src,node_connect))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node = target
-				break
+		if(can_be_node(target, 1))
+			node = target
+			break
 
 	update_icon()
 	update_underlays()
