@@ -200,10 +200,16 @@
 	var/type_name = null
 	projectile_type = /obj/item/projectile/beam
 
+/obj/item/ammo_casing/nsfw_batt/New()
+	..()
+	world.log << "Ammo casing New()"
+	update_icon()
+
 /obj/item/ammo_casing/nsfw_batt/initialize()
 	. = ..()
 	pixel_x = rand(-10, 10)
 	pixel_y = rand(-10, 10)
+	world.log << "Ammo casing initialize()"
 	update_icon()
 
 /obj/item/ammo_casing/nsfw_batt/update_icon()

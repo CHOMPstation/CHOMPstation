@@ -10,6 +10,7 @@ SUBSYSTEM_DEF(overlays)
 	var/list/stats
 	var/list/overlay_icon_state_caches	// Cache thing
 	var/list/overlay_icon_cache			// Cache thing
+	var/static/obj/tattletale/howabouthere = new(null, "[__FILE__]:[__LINE__]")
 
 /datum/controller/subsystem/overlays/PreInit()
 	overlay_icon_state_caches = list()
@@ -90,7 +91,10 @@ SUBSYSTEM_DEF(overlays)
 		icon_cache[icon] = .
 
 /atom/proc/build_appearance_list(old_overlays)
+	var/static/obj/tattletale/alpha = new(null, "alpha")
 	var/static/image/appearance_bro = new()
+	var/static/obj/tattletale/baker = new(null, "baker")
+	world.log << "Here in build_appearance_list, typeof=[typeof(appearance_bro)] isnull(bro)=[isnull(appearance_bro)]"
 	var/list/new_overlays = list()
 	if (!islist(old_overlays))
 		old_overlays = list(old_overlays)

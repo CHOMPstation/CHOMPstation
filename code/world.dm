@@ -11,6 +11,8 @@
 */
 var/global/datum/global_init/init = new ()
 
+var/global/obj/tattletale/tellme = new(null, "[__FILE__]:[__LINE__]")
+
 /*
 	Pre-map initialization stuff should go here.
 */
@@ -41,6 +43,8 @@ var/global/datum/global_init/init = new ()
 #define RECOMMENDED_VERSION 501
 /world/New()
 	world.log << "Map Loading Complete"
+	var/static/obj/tattletale/tellme = new(null, "[__FILE__]:[__LINE__]")
+	var/obj/tattletale/tellme2 = new(null, "[__FILE__]:[__LINE__]")
 	//logs
 	var/date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
 	href_logfile = file("data/logs/[date_string] hrefs.htm")
