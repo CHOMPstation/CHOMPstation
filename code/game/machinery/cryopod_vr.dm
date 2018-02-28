@@ -9,14 +9,14 @@
 	spawnpoint_type = /datum/spawnpoint/cyborg
 
 /obj/machinery/cryopod/robot/door/gateway
-	name = "public teleporter"
+/*	name = "public teleporter" // CHOMPstation Edit
 	desc = "The short-range teleporter you might've came in from. You could leave easily using this."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "tele0"
 	base_icon_state = "tele0"
 	occupied_icon_state = "tele1"
 	on_store_message = "has departed via short-range teleport."
-	on_enter_occupant_message = "The teleporter activates, and you step into the swirling portal."
+	on_enter_occupant_message = "The teleporter activates, and you step into the swirling portal." */ //End CHOMPstation Edit
 	spawnpoint_type = /datum/spawnpoint/gateway
 
 /obj/machinery/computer/cryopod/gateway

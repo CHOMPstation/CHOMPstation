@@ -11,6 +11,7 @@
 	minimal_player_age = 7
 	account_allowed = 0
 	economic_modifier = 0
+	whitelist_only = 1		//CHOMPstation Edit
 
 /datum/job/ai/equip(var/mob/living/carbon/human/H)
 	if(!H)	return 0
