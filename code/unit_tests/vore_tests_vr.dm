@@ -18,15 +18,6 @@
 	return 1
 
 /datum/unit_test/belly_nonsuffocation/check_result()
-
-	// Jerry rigged cause it seems pred and prey seem to be missing.
-	pred = create_test_mob()
-	if(!istype(pred))
-		return 0
-	prey = create_test_mob(pred.loc)
-	if(!istype(prey))
-		return 0
-
 	// Unfortuantely we need to wait for the pred's belly to initialize. (Currently after a spawn())
 	if(!pred.vore_organs || !pred.vore_organs.len)
 		return 0
