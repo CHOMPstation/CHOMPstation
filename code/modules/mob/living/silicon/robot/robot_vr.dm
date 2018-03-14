@@ -92,5 +92,7 @@
 		original_icon = icon
 	if((icon_state in vr_icons) && (icon == 'icons/mob/robots.dmi'))
 		icon = 'icons/mob/robots_vr.dmi'
+	else if(dogborg)
+		icon = 'icons/mob/widerobot_vr.dmi'
 	else if(!(icon_state in vr_icons))
 		icon = original_icon
