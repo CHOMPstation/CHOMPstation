@@ -93,6 +93,13 @@
 	faction = "neutral"
 	tamed = 1
 
+/mob/living/simple_animal/otie/cotie/tofu
+	name = "Tofu"
+	desc = "Some kind of longdog. This one's wearing a collar with a bone-shaped tag that reads 'Tofu' on it."
+	response_help = "pets"
+	response_disarm = "bops"
+	response_harm = "hits"
+
 /mob/living/simple_animal/otie/cotie/phoron //friendly phoron pup with collar
 	name = "mutated otie"
 	desc = "Looks like someone did manage to domesticate one of those wild phoron mutants. What a badass."
