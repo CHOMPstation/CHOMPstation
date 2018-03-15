@@ -137,8 +137,6 @@ default behaviour is:
 				return
 
 			// VOREStation Edit - Begin
-			// Handle grabbing, stomping, and such of micros!
-			if(handle_micro_bump_other(tmob)) return
 			// Plow that nerd.
 			if(ishuman(tmob))
 				var/mob/living/carbon/human/H = tmob
@@ -147,6 +145,8 @@ default behaviour is:
 					H.Weaken(20)
 					now_pushing = 0
 					return
+			// Handle grabbing, stomping, and such of micros!
+			if(handle_micro_bump_other(tmob)) return
 			// VOREStation Edit - End
 
 			if(istype(tmob, /mob/living/carbon/human) && (FAT in tmob.mutations))
@@ -1178,15 +1178,9 @@ default behaviour is:
 			//limit throw range by relative mob size
 			throw_range = round(M.throw_range * min(src.mob_size/M.mob_size, 1))
 
-			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 			var/turf/end_T = get_turf(target)
-			if(start_T && end_T)
-				var/start_T_descriptor = "<font color='#6b5d00'>tile at [start_T.x], [start_T.y], [start_T.z] in area [get_area(start_T)]</font>"
-				var/end_T_descriptor = "<font color='#6b4400'>tile at [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
-
-				M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been thrown by [usr.name] ([usr.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>")
-				usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>")
-				msg_admin_attack("[usr.name] ([usr.ckey]) has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)")
+			if(end_T)
+				add_attack_logs(src,M,"Thrown via grab to [end_T.x],[end_T.y],[end_T.z]")
 
 	src.drop_from_inventory(item)
 	if(!item || !isturf(item.loc))
@@ -1210,3 +1204,18 @@ default behaviour is:
 
 
 	item.throw_at(target, throw_range, item.throw_speed, src)
+
+/mob/living/get_sound_env(var/pressure_factor)
+	if (hallucination)
+		return PSYCHOTIC
+	else if (druggy)
+		return DRUGGED
+	else if (drowsyness)
+		return DIZZY
+	else if (confused)
+		return DIZZY
+	else if (sleeping)
+		return UNDERWATER
+	else
+		return ..()
+		

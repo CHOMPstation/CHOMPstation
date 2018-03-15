@@ -11,6 +11,8 @@ SUBSYSTEM_DEF(overlays)
 	var/list/overlay_icon_state_caches	// Cache thing
 	var/list/overlay_icon_cache			// Cache thing
 
+var/global/image/appearance_bro = new() // Temporarily super-global because of BYOND init order dumbness.
+
 /datum/controller/subsystem/overlays/PreInit()
 	overlay_icon_state_caches = list()
 	overlay_icon_cache = list()
@@ -27,9 +29,7 @@ SUBSYSTEM_DEF(overlays)
 
 
 /datum/controller/subsystem/overlays/Shutdown()
-	//text2file(render_stats(stats), "[GLOB.log_directory]/overlay.log")
-	var/date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
-	text2file(render_stats(stats), "data/logs/[date_string]-overlay.log")
+	text2file(render_stats(stats), "[log_path]-overlay.log")
 
 /datum/controller/subsystem/overlays/Recover()
 	overlay_icon_state_caches = SSoverlays.overlay_icon_state_caches
@@ -90,7 +90,7 @@ SUBSYSTEM_DEF(overlays)
 		icon_cache[icon] = .
 
 /atom/proc/build_appearance_list(old_overlays)
-	var/static/image/appearance_bro = new()
+	// var/static/image/appearance_bro = new() // Moved to be superglobal due to BYOND insane init order stupidness.
 	var/list/new_overlays = list()
 	if (!islist(old_overlays))
 		old_overlays = list(old_overlays)
