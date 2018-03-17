@@ -4,19 +4,17 @@
 	icon = 'icons/goonstation/objects/syringe_vr.dmi'
 	mode = SYRINGE_CAPPED //Override
 	var/used = FALSE
-	var/dirtiness = 0
 	var/list/targets
-	var/list/datum/disease2/disease/viruses
 
 /obj/item/weapon/reagent_containers/syringe/initialize()
 	. = ..()
 	update_icon()
 
 /obj/item/weapon/reagent_containers/syringe/Destroy()
-	qdel_null_list(viruses)
+//	qdel_null_list(viruses)
 	LAZYCLEARLIST(targets)
 	return ..()
-
+/*
 /obj/item/weapon/reagent_containers/syringe/process()
 	dirtiness = min(dirtiness + targets.len,75)
 	if(dirtiness >= 75)
@@ -63,7 +61,7 @@
 		var/obj/item/organ/external/found_limb = limb_ref.resolve()
 		if(istype(found_limb))
 			eo.germ_level += INFECTION_LEVEL_ONE+30
-	
+*/
 //Allow for capped syringe mode
 /obj/item/weapon/reagent_containers/syringe/attack_self(mob/user as mob)
 	switch(mode)
@@ -78,10 +76,10 @@
 			return
 	update_icon()
 
-//Allow for capped syringes 
+//Allow for capped syringes
 /obj/item/weapon/reagent_containers/syringe/update_icon()
 	cut_overlays(src)
-	
+
 	var/matrix/tf = matrix()
 	if(isstorage(loc))
 		tf.Turn(-90) //Vertical for storing compact-ly
@@ -111,7 +109,7 @@
 			if (SYRINGE_INJECT)
 				injoverlay = "inject"
 		new_overlays += injoverlay
-	
+
 	add_overlay(new_overlays)
 	icon_state = "[rounded_vol]"
 	item_state = "syringe_[rounded_vol]"
