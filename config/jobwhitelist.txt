@@ -1,2 +1,14 @@
 # Job whitelist in format ckey - jobname
 # Like arokha - clown
+bikky - research director
+kylerick - head of personnel
+warrior256 - colony director
+ashling - chief engineer
+nadyr - chief medical officer
+keithwinters - head of security
+izzya - chief medical officer
+lucidhope - head of personnel
+kotetsuredwood - chief medical officer
+mrmacinto0sh - head of personnel
+erikthedog - head of security
+maglev2 - chief engineer
