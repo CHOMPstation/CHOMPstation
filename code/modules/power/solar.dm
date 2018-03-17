@@ -534,7 +534,7 @@ var/list/solars_list = list()
 
 /obj/machinery/power/solar_control/autostart/New()
 	..()
-	spawn(150) // Wait 15 seconds to ensure everything was set up properly (such as, powernets, solar panels, etc.
+	spawn(300) // Wait 15 seconds to ensure everything was set up properly (such as, powernets, solar panels, etc.
 		src.search_for_connected()
 		if(connected_tracker && track == 2)
 			connected_tracker.set_angle(sun.angle)
