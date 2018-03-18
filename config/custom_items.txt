@@ -415,6 +415,12 @@ item_path: /obj/item/device/modkit_conversion/fluff/harmonyspace
 
 # ######## K CKEYS
 {
+ckey: keith_winters
+character_name: Keith Winters
+item_path: /obj/item/clothing/accessory/medal/gold/heroism
+}
+
+{
 ckey: ketrai
 character_name: Ketrai
 item_path: /obj/item/clothing/head/fluff/ketrai
