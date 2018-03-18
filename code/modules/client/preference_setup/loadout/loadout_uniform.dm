@@ -240,6 +240,10 @@
 	path = /obj/item/clothing/under/rank/bartender/skirt
 	allowed_roles = list("Bartender")
 
+/datum/gear/uniform/suit/waiter
+	display_name = "waiter uniform"
+	path = /obj/item/clothing/under/waiter
+
 /datum/gear/uniform/scrub
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/scrubs
