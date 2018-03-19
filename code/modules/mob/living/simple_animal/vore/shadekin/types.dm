@@ -254,3 +254,17 @@
 	you to curl up a bit. You can feel her rub at you some through the layers of flesh and fluff, while aches \
 	and pains begin to fade away across your body."
 	player_msg = "Mar? Mar mar. Mar mar mar. Mar. Mar mar? Mar! Mar. Marrrr."
+
+//thanks john
+/mob/living/simple_animal/shadekin/yellow/niko
+    name = "Niko"
+    desc = "She appears to be a Neko of some sort. Glowing yellow eyes and cattitude."
+    icon_state = "niko"
+    eye_desc = ""
+    vore_stomach_flavor = "Look, if you had one shot, one opportunity. To seize everything you ever wanted. One moment. Would you capture it or just let it slip?"
+    player_msg = "Nyan?"
+    light_range = 5
+    light_power = 1
+    light_color = "#FFFF00"
+    luminosity = 5
+    
