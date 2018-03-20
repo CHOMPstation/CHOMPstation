@@ -87,7 +87,7 @@
 
 /datum/trait/hard_vore/apply(var/datum/species/S,var/mob/living/carbon/human/H)
 	..(S,H)
-	H.verbs |= /mob/living/carbon/human/proc/shred_limb
+	H.verbs |= /mob/living/proc/shred_limb
 
 /datum/trait/trashcan
 	name = "Trash Can"
@@ -113,3 +113,21 @@
 	..(S,H)
 	H.verbs |= /mob/living/proc/glow_toggle
 	H.verbs |= /mob/living/proc/glow_color
+
+/datum/trait/face_sit
+    name = "Face_Sitting"
+    desc = "Makes you able to sit on your prey"
+    cost = 0
+
+/datum/trait/face_sit/apply(var/datum/species/S,var/mob/living/carbon/human/H)
+    ..(S,H)
+    H.verbs |= /mob/living/carbon/human/proc/face_sit
+
+/datum/trait/succubus_bite
+    name = "Succubus Bite"
+    desc = "Makes you able to bite prey in your grasp and subject them to a variety of chemicals.."
+    cost = 0
+
+/datum/trait/succubus_drain/apply(var/datum/species/S,var/mob/living/carbon/human/H)
+    ..(S,H)
+    H.verbs |= /mob/living/carbon/human/proc/succubus_bite

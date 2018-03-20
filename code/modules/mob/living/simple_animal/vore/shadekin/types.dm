@@ -268,3 +268,18 @@
     light_color = "#FFFF00"
     luminosity = 5
     
+/mob/living/simple_animal/shadekin/blue/luna
+    name = "Luna"
+    desc = "She appears to be a fuzzy critter of some sort. Her eyes shimmer a dark blue, glancing around curiously."
+    icon_state = "luna"
+    eye_desc = "e_blue"
+    vore_stomach_flavor = "Dark blue flesh fills your vision as you slip past the Shadekin's tongue and into the darkness \
+    of her gullet. The flesh around you seems squishy and pliable and malleable to say the least, warmth rolling up \
+    your body as the humid air rises across the deeper you slide into the darkness of her stomach. As you splash \
+    inside, you curl up comfortably inside the walls that churn and squeeze around you, any fidgeting quickly \
+    subdued by the strength of the walls, and any movement of your predator seems to coax a light sway from \
+    your current prison. The slime inside stuck fairly well, though harmless - your aches and pains slowly soothing \
+    up and fading away."
+    player_msg = "You are a shadekin that goes by the name of Luna. Curious, you have tasked yourself and yourself alone \
+    with studying this foreign world. Learn their language. Learn their culture. Adapt. Everything is wonderful and new, \
+    and your mind is set on retaining knowledge of these odd planescape."

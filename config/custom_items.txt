@@ -96,12 +96,6 @@ item_path: /obj/item/clothing/under/fluff/sakura_hokkaido_kimono
 
 {
 ckey: beyondmylife
-character_name: Cassandra Selone
-item_path: /obj/item/weapon/storage/box/fluff/cassandra
-}
-
-{
-ckey: beyondmylife
 character_name: Kilano Soryu
 item_path: /obj/item/clothing/under/dress/fluff/kilano
 }
@@ -210,26 +204,6 @@ item_path: /obj/item/weapon/storage/belt/champion
 ckey: drakefrostpaw
 character_name: Drake Frostpaw
 item_path: /obj/item/weapon/storage/box/fluff/drake
-}
-
-{
-ckey: draycu
-character_name: Theseus
-item_path:/obj/item/weapon/coin/diamond
-item_name: theseus' diamond coin
-item_desc: An engraved coin made of diamond. On the side for heads is printed the year 2541, along with the letter T. On the side for tails, the letter Y can be seen.
-}
-
-{
-ckey: draycu
-character_name: Schae Yonra
-item_path: /obj/item/weapon/melee/fluff/holochain/mass
-}
-
-{
-ckey: draycu
-character_name: Schae Yonra
-item_path: /obj/item/weapon/implanter/reagent_generator/yonra
 }
 
 # ######## E CKEYS
@@ -459,6 +433,12 @@ item_path: /obj/item/clothing/glasses/omnihud/kamina
 }
 
 {
+ckey: Sharkmare
+character_name: Xala
+item_path: /obj/item/clothing/glasses/omnihud/kamina
+}
+
+{
 ckey: Killjaden
 character_name: Lassara Faaira'Nrezi
 item_path: /obj/item/clothing/accessory/storage/knifeharness
@@ -470,11 +450,11 @@ character_name: Chakat Taiga
 item_path: /obj/item/clothing/under/fluff/taiga
 }
 
-{
-ckey: kligor
-character_name: Andy Gettemy
-item_path: /obj/item/device/pda_mod/fluff/kligor
-}
+#{
+#ckey: kligor
+#character_name: Andy Gettemy
+#item_path: /obj/item/device/pda_mod/fluff/kligor
+#}
 
 {
 ckey: konabird
@@ -504,7 +484,7 @@ item_path: /obj/item/weapon/implanter/reagent_generator/savannah
 {
 ckey: mewchild
 character_name: Phi Vietsi
-item_path: /obj/item/clothing/gloves/ring/seal/signet/fluff/vietsi
+item_path: /obj/item/clothing/gloves/fluff/vietsi
 }
 
 {
@@ -664,6 +644,12 @@ item_path: /obj/item/device/modkit_conversion/fluff/screekit
 }
 
 {
+ckey: Sharkmare
+character_name: Kiri
+item_path: /obj/item/clothing/accessory/medal/gold/heroism
+}
+
+{
 ckey: scree
 character_name: Scree
 item_path: /obj/item/clothing/head/fluff/pompom
@@ -764,6 +750,14 @@ item_path: /obj/item/clothing/under/sexymime
 
 # ######## T CKEYS
 {
+
+ckey: techtypes
+
+character_name: Lasshseeki Korss
+item_path: /obj/item/weapon/implant/language/eal
+
+}
+{
 ckey: tonyvld
 character_name: Tony Bingham
 item_path: /obj/item/clothing/head/fluff/runac
@@ -852,11 +846,11 @@ item_path: /obj/item/clothing/mask/gas/sexymime
 }
 
 # ######## W CKEYS
-{
-ckey: warbrand2
-character_name: Brandy draca
-item_path: /obj/item/device/pda_mod/fluff/warbrand2
-}
+#{
+#ckey: warbrand2
+#character_name: Brandy draca
+#item_path: /obj/item/device/pda_mod/fluff/warbrand2
+#}
 
 {
 ckey: werebear
@@ -879,7 +873,7 @@ item_path: /obj/item/clothing/glasses/omnihud/med/fluff/wickedtemphud
 {
 ckey: wickedtemp
 character_name: Chakat Tempest
-item_path: /obj/item/weapon/reagent_containers/hypospray/vial/tempest
+item_path: /obj/item/weapon/reagent_containers/hypospray/vr/tempest
 }
 
 {

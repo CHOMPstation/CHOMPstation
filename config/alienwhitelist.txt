@@ -1,3 +1,34 @@
-#CKey is not case sensitive, Race is.
-#CKey - Race
-#e.g. JakkSergal - Tajaran
+aether_elemental - Daemon
+aruis - Xenochimera
+bothnevarbackwards - Diona
+cameron653 - Xenomorph Hybrid
+hawkerthegreat - Vox
+jemli - Gutter
+mewchild - Diona
+mewchild - Vox
+natje - Xenochimera
+rapidvalj - Vox
+rikaru19xjenkins  - Xenomorph Hybrid
+rikaru19xjenkins - Xenochimera
+rixunie - Diona
+rixunie - Gutter
+seiga - Vox
+sepulchre - Vox
+sepulchre - Xenomorph Hybrid
+silverTalismen - Diona
+silvertalismen - Xenochimera
+singo - Gutter
+some~user - Species
+tastypred - Xenochimera
+verkister - Xenochimera
+xioen - Diona
+xioen - Xenochimera
+xioen - Xenomorph Hybrid
+yuliy - Vox
+zammyman215 - Vox
+zekesturm - Xenomorph Hybrid
+billybob11432 - Vox
+bikky - Xenomorph Hybrid
+kotetsuredwood - Xenochimera
+quotegoat - Xenochimera
+ashling - Vox

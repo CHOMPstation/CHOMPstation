@@ -240,6 +240,10 @@
 	path = /obj/item/clothing/under/rank/bartender/skirt
 	allowed_roles = list("Bartender")
 
+/datum/gear/uniform/suit/waiter
+	display_name = "waiter uniform"
+	path = /obj/item/clothing/under/waiter
+
 /datum/gear/uniform/scrub
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/scrubs
@@ -449,3 +453,11 @@
 /datum/gear/uniform/bathrobe
 	display_name = "bathrobe"
 	path = /obj/item/clothing/under/bathrobe
+
+/datum/gear/uniform/flamenco
+	display_name = "flamenco dress"
+	path = /obj/item/clothing/under/dress/flamenco
+
+/datum/gear/uniform/westernbustle
+	display_name = "western bustle"
+	path = /obj/item/clothing/under/dress/westernbustle
