@@ -902,7 +902,7 @@ mob/living/carbon/proc/charmed() //TODO
 
 /mob/living/carbon/human/proc/face_sit()
     set name = "Face Sit"
-    set desc = "Sit on your Preys Face"
+    set desc = "Sit on your Prey's Face"
     set category = "Abilities"
 
     if(last_special > world.time)
