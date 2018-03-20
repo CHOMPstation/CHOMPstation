@@ -128,6 +128,6 @@
     desc = "Makes you able to bite prey in your grasp and subject them to a variety of chemicals.."
     cost = 0
 
-/datum/trait/succubus_drain/apply(var/datum/species/S,var/mob/living/carbon/human/H)
+/datum/trait/succubus_bite/apply(var/datum/species/S,var/mob/living/carbon/human/H)
     ..(S,H)
     H.verbs |= /mob/living/carbon/human/proc/succubus_bite
