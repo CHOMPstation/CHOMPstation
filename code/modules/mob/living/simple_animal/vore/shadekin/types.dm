@@ -262,12 +262,21 @@
     icon_state = "niko"
     eye_desc = ""
     vore_stomach_flavor = "Look, if you had one shot, one opportunity. To seize everything you ever wanted. One moment. Would you capture it or just let it slip?"
-    player_msg = "Nyan?"
-    light_range = 5
-    light_power = 1
-    light_color = "#FFFF00"
+    player_msg = "You are NOT a cat, your objective is to... wait this is the wrong game."
+    glow_range = 5
+    glow_toggle = 1
     luminosity = 5
-    
+    energy_adminbuse = 1
+    tailimage.icon_state = no_tail_for_niko
+    hostile = FALSE
+	retaliate = FALSE
+    eye_state = no_eyes_for_niko
+    attacktext = list("clawed")
+	shy_approach = TRUE
+	stalker = TRUE
+	speak = list("Hello i am niko and this is jackass!")
+
+
 /mob/living/simple_animal/shadekin/blue/luna
     name = "Luna"
     desc = "She appears to be a fuzzy critter of some sort. Her eyes shimmer a dark blue, glancing around curiously."
