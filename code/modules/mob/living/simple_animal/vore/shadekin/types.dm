@@ -256,6 +256,7 @@
 	player_msg = "Mar? Mar mar. Mar mar mar. Mar. Mar mar? Mar! Mar. Marrrr."
 
 //thanks john
+//ur_mum = gay
 /mob/living/simple_animal/shadekin/blue/niko
     name = "Niko"
     desc = "They appear to be a Neko of some sort, containing Glowing yellow eyes and cattitude."
