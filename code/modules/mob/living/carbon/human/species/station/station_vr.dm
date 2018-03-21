@@ -339,9 +339,10 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/sonar_ping,
-		/mob/living/proc/hide,
+		/mob/living/carbon/human/proc/hide_humanoid,
 		/mob/living/proc/shred_limb,
-		/mob/living/proc/toggle_pass_table
+		/mob/living/proc/toggle_pass_table,
+		/mob/living/carbon/human/proc/succubus_bite
 		)
 
 /datum/species/shapeshifter/promethean

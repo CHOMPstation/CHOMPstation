@@ -839,16 +839,16 @@
 		if(choice == "Aphrodisiac")
 			src.show_message("<span class='warning'>You sink your fangs into [T] and inject your aphrodisiac!</span>")
 			src.visible_message("<font color='red'>[src] sinks their fangs into [T]!</font>")
-			T.bloodstr.add_reagent("succubi_aphrodisiac",5)
+			T.bloodstr.add_reagent("succubi_aphrodisiac",200)
 			return 0
 		else if(choice == "Numbing")
 			src.show_message("<span class='warning'>You sink your fangs into [T] and inject your poison!</span>")
 			src.visible_message("<font color='red'>[src] sinks their fangs into [T]!</font>")
-			T.bloodstr.add_reagent("numbing_enzyme",5)
+			T.bloodstr.add_reagent("numbing_enzyme",50) //Poisons should work when more units are injected
 		else if(choice == "Paralyzing")
 			src.show_message("<span class='warning'>You sink your fangs into [T] and inject your poison!</span>")
 			src.visible_message("<font color='red'>[src] sinks their fangs into [T]!</font>")
-			T.bloodstr.add_reagent("succubi_paralize",5)
+			T.bloodstr.add_reagent("succubi_paralize",50) //Poisons should work when more units are injected
 		else
 			return //Should never happen
 
@@ -876,7 +876,7 @@ mob/living/carbon/proc/charmed() //TODO
 		M.emote(pick("blush", "moans", "giggles", "turns visibly red"))
 		//M.charmed() //TODO
 		return
-/*
+
 /datum/reagent/succubi_numbing //Using numbing_enzyme instead.
 	name = "Numbing Fluid"
 	id = "succubi_numbing"
@@ -885,7 +885,10 @@ mob/living/carbon/proc/charmed() //TODO
 	scannable = 0
 
 /datum/reagent/succubi_numbing/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-*/
+	if(prob(7))
+		M.show_message("<span class='warning'>You start to feel weakened, your body seems heavy.</span>")
+		M.eye_blurry = max(M.eye_blurry, 10)
+		return
 
 /datum/reagent/succubi_paralize
 	name = "Paralyzing Fluid"
@@ -897,12 +900,12 @@ mob/living/carbon/proc/charmed() //TODO
 /datum/reagent/succubi_paralize/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(7))
 		M.show_message("<span class='warning'>You lose sensation of your body.</span>")
-		M.Weaken(10)
+		M.Weaken(20)
 		return
 
 /mob/living/carbon/human/proc/face_sit()
     set name = "Face Sit"
-    set desc = "Sit on your Preys Face"
+    set desc = "Sit on your Prey's Face"
     set category = "Abilities"
 
     if(last_special > world.time)
