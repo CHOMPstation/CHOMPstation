@@ -256,7 +256,7 @@
 	player_msg = "Mar? Mar mar. Mar mar mar. Mar. Mar mar? Mar! Mar. Marrrr."
 
 //thanks john
-/mob/living/simple_animal/shadekin/yellow/niko
+/mob/living/simple_animal/shadekin/blue/niko
     name = "Niko"
     desc = "They appear to be a Neko of some sort, containing Glowing yellow eyes and cattitude."
     icon_state = "niko"
@@ -267,15 +267,10 @@
     glow_toggle = 1
     luminosity = 5
     energy_adminbuse = 1
-    tailimage.icon_state = no_tail_for_niko
-    hostile = FALSE
-	retaliate = FALSE
-    eye_state = no_eyes_for_niko
+    hostile = "FALSE"
+    retaliate = "FALSE"
+    eye_state = 0
     attacktext = list("clawed")
-	shy_approach = TRUE
-	stalker = TRUE
-	speak = list("Hello i am niko and this is jackass!")
-
 
 /mob/living/simple_animal/shadekin/blue/luna
     name = "Luna"
