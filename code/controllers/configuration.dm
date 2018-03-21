@@ -1,5 +1,8 @@
 var/list/gamemode_cache = list()
 
+// Also global to prevent easy edits
+var/global/python_path = "" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
+
 /datum/configuration
 	var/server_name = null				// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
@@ -186,7 +189,6 @@ var/list/gamemode_cache = list()
 	var/irc_bot_export = 0 // whether the IRC bot in use is a Bot32 (or similar) instance; Bot32 uses world.Export() instead of nudge.py/libnudge
 	var/main_irc = ""
 	var/admin_irc = ""
-	var/python_path = "" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
 	var/use_lib_nudge = 0 //Use the C library nudge instead of the python nudge.
 	var/use_overmap = 0
 
@@ -640,7 +642,12 @@ var/list/gamemode_cache = list()
 
 				if("python_path")
 					if(value)
-						config.python_path = value
+						python_path = value
+					else
+						if(world.system_type == UNIX)
+							python_path = "/usr/bin/env python2"
+						else //probably windows, if not this should work anyway
+							python_path = "pythonw"
 
 				if("use_lib_nudge")
 					config.use_lib_nudge = 1
@@ -908,11 +915,3 @@ var/list/gamemode_cache = list()
 		if(M && M.can_start() && !isnull(config.probabilities[M.config_tag]) && config.probabilities[M.config_tag] > 0)
 			runnable_modes |= M
 	return runnable_modes
-
-/datum/configuration/proc/post_load()
-	//apply a default value to config.python_path, if needed
-	if (!config.python_path)
-		if(world.system_type == UNIX)
-			config.python_path = "/usr/bin/env python2"
-		else //probably windows, if not this should work anyway
-			config.python_path = "python"

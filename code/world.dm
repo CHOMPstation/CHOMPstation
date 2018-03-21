@@ -38,7 +38,7 @@ var/global/datum/global_init/init = new ()
 
 
 
-#define RECOMMENDED_VERSION 501
+#define RECOMMENDED_VERSION 512
 /world/New()
 	world.log << "Map Loading Complete"
 	//logs
@@ -52,8 +52,6 @@ var/global/datum/global_init/init = new ()
 
 	if(byond_version < RECOMMENDED_VERSION)
 		world.log << "Your server's byond version does not meet the recommended requirements for this server. Please update BYOND"
-
-	config.post_load()
 
 	if(config && config.server_name != null && config.server_suffix && world.port > 0)
 		// dumb and hardcoded but I don't care~
@@ -121,7 +119,7 @@ var/global/datum/global_init/init = new ()
 
 	//Must be done now, otherwise ZAS zones and lighting overlays need to be recreated.
 	createRandomZlevel()
-	
+
 	processScheduler = new
 	master_controller = new /datum/controller/game_controller()
 
