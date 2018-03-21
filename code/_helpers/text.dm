@@ -139,6 +139,10 @@
 /proc/sanitize_old(var/t,var/list/repl_chars = list("\n"="#","\t"="#"))
 	return html_encode(replace_characters(t,repl_chars))
 
+/proc/paranoid_sanitize(t)
+	var/regex/alphanum_only = regex("\[^a-zA-Z0-9# ,.?!:;()]", "g")
+	return alphanum_only.Replace(t, "#")
+
 /*
  * Text searches
  */
