@@ -879,6 +879,7 @@
 
 /datum/reagent/succubi_numbing/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	
+	var/threshold = 1
 	var/effective_dose = dose
 
 	if(effective_dose < 1.5 * threshold)
@@ -902,6 +903,7 @@
 
 /datum/reagent/succubi_paralize/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	
+	var/threshold = 1
 	var/effective_dose = dose
 
 	if(effective_dose == metabolism)
