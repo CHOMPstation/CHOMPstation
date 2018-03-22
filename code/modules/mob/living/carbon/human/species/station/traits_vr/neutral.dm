@@ -114,15 +114,6 @@
 	H.verbs |= /mob/living/proc/glow_toggle
 	H.verbs |= /mob/living/proc/glow_color
 
-/datum/trait/face_sit
-    name = "Face_Sitting"
-    desc = "Makes you able to sit on your prey"
-    cost = 0
-
-/datum/trait/face_sit/apply(var/datum/species/S,var/mob/living/carbon/human/H)
-    ..(S,H)
-    H.verbs |= /mob/living/carbon/human/proc/face_sit
-
 /datum/trait/succubus_bite
     name = "Succubus Bite"
     desc = "Makes you able to bite prey in your grasp and subject them to a variety of chemicals.."

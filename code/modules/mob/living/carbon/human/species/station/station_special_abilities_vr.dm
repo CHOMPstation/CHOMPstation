@@ -650,7 +650,7 @@
 		var/list/choices = list()
 		for(var/mob/living/carbon/human/M in oviewers(1))
 			choices += M
-		
+
 		if(!choices.len)
 			to_chat(src,"<span class='warning'>There's nobody nearby to use this on.</span>")
 
@@ -698,7 +698,7 @@
 		if(can_shred(T) != T)
 			to_chat(src,"<span class='warning'>Looks like you lost your chance...</span>")
 			return
-		
+
 		//Removing an internal organ
 		if(T_int && T_int.damage >= 25) //Internal organ and it's been severely damaged
 			T.apply_damage(15, BRUTE, T_ext) //Damage the external organ they're going through.
@@ -713,7 +713,7 @@
 		//Removing an external organ
 		else if(!T_int && (T_ext.damage >= 25 || T_ext.brute_dam >= 25))
 			T_ext.droplimb(1,DROPLIMB_EDGE) //Clean cut so it doesn't kill the prey completely.
-			
+
 			//Is it groin/chest? You can't remove those.
 			if(T_ext.cannot_amputate)
 				T.apply_damage(25, BRUTE, T_ext)
@@ -726,12 +726,12 @@
 				visible_message("<span class='warning'>[src] tears off [T]'s [T_ext.name]!</span>","<span class='warning'>You tear off [T]'s [T_ext.name]!</span>")
 
 		//Not targeting an internal organ w/ > 25 damage , and the limb doesn't have < 25 damage.
-		else 
+		else
 			if(T_int)
 				T_int.damage = 25 //Internal organs can only take damage, not brute damage.
 			T.apply_damage(25, BRUTE, T_ext)
 			visible_message("<span class='danger'>[src] severely damages [T]'s [T_ext.name]!</span>")
-		
+
 		add_attack_logs(src,T,"Shredded (hardvore)")
 
 /mob/living/proc/flying_toggle()
@@ -902,35 +902,3 @@ mob/living/carbon/proc/charmed() //TODO
 		M.show_message("<span class='warning'>You lose sensation of your body.</span>")
 		M.Weaken(20)
 		return
-
-/mob/living/carbon/human/proc/face_sit()
-    set name = "Face Sit"
-    set desc = "Sit on your Prey's Face"
-    set category = "Abilities"
-
-    if(last_special > world.time)
-        return
-
-    if(!ishuman(src))
-        return //If you're not a human you don't have permission to do this.
-
-    var/mob/living/carbon/human/C = src
-
-    var/obj/item/weapon/grab/G = src.get_active_hand()
-
-    if(!istype(G))
-        to_chat(C, "<span class='warning'>You must be grabbing a creature in your active hand to sit on them.</span>")
-        return
-
-    var/mob/living/carbon/human/T = G.affecting
-
-    if(!istype(T) || T.isSynthetic())
-        to_chat(src, "<span class='warning'>\The [T] is not able to be sit on.</span>")
-        return
-
-    if(G.state != GRAB_AGGRESSIVE)
-        to_chat(C, "<span class='warning'>You must have the creature pinned on the ground to sit on them </span>")
-        return
-
-    src.visible_message("<font color='red'><b>[src] moves their ass to [T]'s head, sitting down on them, making them unable to see anything else than [src]'s butt </b></font>")
-    return
