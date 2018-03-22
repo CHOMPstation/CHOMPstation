@@ -2,13 +2,13 @@
 	name = "Haste"
 	desc = "Allows you to move faster on average than baseline."
 	cost = 3
-	var_changes = list("slowdown" = -0.5)
+	var_changes = list("slowdown" = -0.3)
 
 /datum/trait/speed_fast_plus
 	name = "Major Haste"
 	desc = "Allows you to move MUCH faster on average than baseline."
 	cost = 5
-	var_changes = list("slowdown" = -1.0)
+	var_changes = list("slowdown" = -0.8)
 
 /datum/trait/hardy
 	name = "Hardy"
@@ -19,14 +19,14 @@
 /datum/trait/hardy_plus
 	name = "Major Hardy"
 	desc = "Allows you to carry heavy equipment with almost no slowdown."
-	cost = 2
+	cost = 3
 	var_changes = list("item_slowdown_mod" = 0.1)
 
 /datum/trait/endurance_high
 	name = "High Endurance"
-	desc = "Increases your maximum total hitpoints to 125"
+	desc = "Increases your maximum total hitpoints to 120"
 	cost = 2
-	var_changes = list("total_health" = 125)
+	var_changes = list("total_health" = 120)
 
 	apply(var/datum/species/S,var/mob/living/carbon/human/H)
 		..(S,H)
@@ -34,7 +34,7 @@
 
 /datum/trait/endurance_very_high
 	name = "Very High Endurance"
-	desc = "Increases your maximum total hitpoints to 150"
+	desc = "Increases your maximum total hitpoints to 140"
 	cost = 3
 	var_changes = list("total_health" = 150)
 
@@ -75,50 +75,50 @@
 /datum/trait/melee_attack_fangs
 	name = "Sharp Melee & Numbing Fangs"
 	desc = "Provides sharp melee attacks that do slightly more damage, along with fangs that makes the person bit unable to feel their body or pain."
-	cost = 2
+	cost = 3
 	var_changes = list("unarmed_types" = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp, /datum/unarmed_attack/bite/sharp/numbing))
 
 /datum/trait/minor_brute_resist
 	name = "Minor Brute Resist"
-	desc = "Adds 15% resistance to brute damage sources."
+	desc = "Adds 10% resistance to brute damage sources."
 	cost = 1
-	var_changes = list("brute_mod" = 0.85)
+	var_changes = list("brute_mod" = 0.90)
 
 /datum/trait/brute_resist
 	name = "Brute Resist"
-	desc = "Adds 25% resistance to brute damage sources."
+	desc = "Adds 20% resistance to brute damage sources."
 	cost = 2
-	var_changes = list("brute_mod" = 0.75)
+	var_changes = list("brute_mod" = 0.80)
 
 /datum/trait/brute_resist_plus
 	name = "Major Brute Resist"
-	desc = "Adds 50% resistance to brute damage sources."
-	cost = 3
-	var_changes = list("brute_mod" = 0.5)
+	desc = "Adds 40% resistance to brute damage sources."
+	cost = 4
+	var_changes = list("brute_mod" = 0.6)
 
 /datum/trait/minor_burn_resist
 	name = "Minor Burn Resist"
-	desc = "Adds 15% resistance to burn damage sources."
+	desc = "Adds 10% resistance to burn damage sources."
 	cost = 1
-	var_changes = list("burn_mod" = 0.85)
+	var_changes = list("burn_mod" = 0.90)
 
 /datum/trait/burn_resist
 	name = "Burn Resist"
-	desc = "Adds 25% resistance to burn damage sources."
+	desc = "Adds 20% resistance to burn damage sources."
 	cost = 2
-	var_changes = list("burn_mod" = 0.75)
+	var_changes = list("burn_mod" = 0.8)
 
 /datum/trait/burn_resist_plus
 	name = "Major Burn Resist"
-	desc = "Adds 50% resistance to burn damage sources."
-	cost = 3
-	var_changes = list("burn_mod" = 0.5)
+	desc = "Adds 40% resistance to burn damage sources."
+	cost = 4
+	var_changes = list("burn_mod" = 0.6)
 
 /datum/trait/photoresistant
 	name = "Photoresistant"
-	desc = "Decreases stun duration from flashes and other light-based stuns and disabilities by 50%"
-	cost = 1
-	var_changes = list("flash_mod" = 0.5)
+	desc = "Decreases stun duration from flashes and other light-based stuns and disabilities by 40%"
+	cost = 2
+	var_changes = list("flash_mod" = 0.6)
 
 /datum/trait/winged_flight
 	name = "Winged Flight"
