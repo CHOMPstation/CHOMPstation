@@ -862,7 +862,7 @@
 
 /datum/reagent/succubi_aphrodisiac/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/effective_dose = dose
-	
+	var/threshold = 1
 	if(effective_dose < 1 * threshold)
 		M.show_message("<span class='warning'>You feel funny, and fall in love with the person in front of you</span>")
 		M.emote(pick("blush", "moans", "giggles", "turns visibly red"))
