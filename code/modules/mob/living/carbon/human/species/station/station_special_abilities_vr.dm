@@ -910,35 +910,4 @@
 		M.Weaken(30)
 		M.eye_blurry = max(M.eye_blurry, 10)
 		M.show_message("<span class='warning'>You lose sensation of your body.</span>")
-
-/mob/living/carbon/human/proc/face_sit()
-    set name = "Face Sit"
-    set desc = "Sit on your Prey's Face"
-    set category = "Abilities"
-
-    if(last_special > world.time)
-        return
-
-    if(!ishuman(src))
-        return //If you're not a human you don't have permission to do this.
-
-    var/mob/living/carbon/human/C = src
-
-    var/obj/item/weapon/grab/G = src.get_active_hand()
-
-    if(!istype(G))
-        to_chat(C, "<span class='warning'>You must be grabbing a creature in your active hand to sit on them.</span>")
-        return
-
-    var/mob/living/carbon/human/T = G.affecting
-
-    if(!istype(T) || T.isSynthetic())
-        to_chat(src, "<span class='warning'>\The [T] is not able to be sit on.</span>")
-        return
-
-    if(G.state != GRAB_AGGRESSIVE)
-        to_chat(C, "<span class='warning'>You must have the creature pinned on the ground to sit on them </span>")
-        return
-
-    src.visible_message("<font color='red'><b>[src] moves their ass to [T]'s head, sitting down on them, making them unable to see anything else than [src]'s butt </b></font>")
-    return
+	
