@@ -133,6 +133,7 @@ var/global/repository/radiation/radiation_repository = new()
 
 /mob/living/rad_act(var/severity)
 	if(severity)
-		src.apply_effect(severity, IRRADIATE, src.getarmor(null, "rad"))
+		if(!istype(src.loc, /obj/belly)) //eaten mobs are made immune to radiation
+			src.apply_effect(severity, IRRADIATE, src.getarmor(null, "rad"))
 		for(var/atom/I in src)
 			I.rad_act(severity)
