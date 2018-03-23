@@ -1,10 +1,8 @@
 /proc/send2irc(var/channel, var/msg)
-	if(config.use_irc_bot && config.irc_bot_host)
-		for(var/IP in config.irc_bot_host)
-			spawn(0)
-				log_debug("send2irc: Sending [msg] to [channel]")
-				paranoid_sanitize(msg)
-				ext_python("ircbot_message.py", "[config.comms_password] [IP] [channel] [dbcon.Quote(msg)]")
+	if(config.use_irc_bot)
+		log_debug("send2irc: Sending [msg] to [channel]")
+		paranoid_sanitize(msg)
+		ext_python("ircbot_message.py", "[config.comms_password] [config.irc_bot_host] [channel] [dbcon.Quote(msg)]")
 	return
 
 /proc/send2mainirc(var/msg)
