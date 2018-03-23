@@ -896,7 +896,7 @@ mob/living/carbon/proc/charmed() //TODO
 	else if(effective_dose < 5 * threshold)
 		M.Weaken(2)
 		M.drowsyness = max(M.drowsyness, 20)
-	if(proc(7))
+	if(prob(7))
 		M.show_message("<span class='warning'>You start to feel weakened, your body seems heavy.</span>")
 	return
 
@@ -910,7 +910,7 @@ mob/living/carbon/proc/charmed() //TODO
 
 /datum/reagent/succubi_paralize/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) //will first keep it like that.  lets see what it changes. if nothing, than I will rework the effect again
 	
-	if(proc(7))
+	if(prob(7))
 		M.Weaken(20)
 		M.eye_blurry = max(M.eye_blurry, 10)
 		M.show_message("<span class='warning'>You lose sensation of your body.</span>")
