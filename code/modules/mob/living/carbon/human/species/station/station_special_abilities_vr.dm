@@ -839,20 +839,20 @@
 		if(choice == "Aphrodisiac")
 			src.show_message("<span class='warning'>You sink your fangs into [T] and inject your aphrodisiac!</span>")
 			src.visible_message("<font color='red'>[src] sinks their fangs into [T]!</font>")
-			T.bloodstr.add_reagent("succubi_aphrodisiac",200)
+			T.bloodstr.add_reagent("succubi_aphrodisiac",100)
 			return 0
 		else if(choice == "Numbing")
 			src.show_message("<span class='warning'>You sink your fangs into [T] and inject your poison!</span>")
 			src.visible_message("<font color='red'>[src] sinks their fangs into [T]!</font>")
-			T.bloodstr.add_reagent("numbing_enzyme",50) //Poisons should work when more units are injected
+			T.bloodstr.add_reagent("numbing_enzyme",20) //Poisons should work when more units are injected
 		else if(choice == "Paralyzing")
 			src.show_message("<span class='warning'>You sink your fangs into [T] and inject your poison!</span>")
 			src.visible_message("<font color='red'>[src] sinks their fangs into [T]!</font>")
-			T.bloodstr.add_reagent("succubi_paralize",50) //Poisons should work when more units are injected
+			T.bloodstr.add_reagent("succubi_paralize",20) //Poisons should work when more units are injected
 		else
 			return //Should never happen
 
-/*
+/* //will maybe add something one day
 mob/living/carbon/proc/charmed() //TODO
 	charmed = 1
 
@@ -867,6 +867,7 @@ mob/living/carbon/proc/charmed() //TODO
 	name = "Aphrodisiac"
 	id = "succubi_aphrodisiac"
 	description = "A unknown liquid, it smells sweet"
+	metabolism = REM * 0.8
 	color = "#8A0829"
 	scannable = 0
 
@@ -875,30 +876,42 @@ mob/living/carbon/proc/charmed() //TODO
 		M.show_message("<span class='warning'>You feel funny, and fall in love with the person in front of you</span>")
 		M.emote(pick("blush", "moans", "giggles", "turns visibly red"))
 		//M.charmed() //TODO
-		return
+	return
 
 /datum/reagent/succubi_numbing //Using numbing_enzyme instead.
 	name = "Numbing Fluid"
 	id = "succubi_numbing"
 	description = "A unknown liquid, it doesn't smell"
+	metabolism = REM * 0.5
 	color = "#41029B"
 	scannable = 0
 
 /datum/reagent/succubi_numbing/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	
+	var/effective_dose = dose
+	var/threshold = 1
+	
+	if(effective_dose < 1.5 * threshold)
+		M.eye_blurry = max(M.eye_blurry, 10)
+	else if(effective_dose < 5 * threshold)
+		M.Weaken(2)
+		M.drowsyness = max(M.drowsyness, 20)
 	if(prob(7))
 		M.show_message("<span class='warning'>You start to feel weakened, your body seems heavy.</span>")
-		M.eye_blurry = max(M.eye_blurry, 10)
-		return
+	return
 
 /datum/reagent/succubi_paralize
 	name = "Paralyzing Fluid"
 	id = "succubi_numbing"
 	description = "A unknown liquid, it doesn't smell"
+	metabolism= REM * 0.5
 	color = "#41029B"
 	scannable = 0
 
-/datum/reagent/succubi_paralize/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/succubi_paralize/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) //will first keep it like that.  lets see what it changes. if nothing, than I will rework the effect again
+	
 	if(prob(7))
-		M.show_message("<span class='warning'>You lose sensation of your body.</span>")
 		M.Weaken(20)
-		return
+		M.eye_blurry = max(M.eye_blurry, 10)
+		M.show_message("<span class='warning'>You lose sensation of your body.</span>")
+	return
