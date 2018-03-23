@@ -7,12 +7,13 @@
 
 /proc/send2mainirc(var/msg)
 	if(config.main_irc)
+		log_debug("send2mainirc: Sending [msg] to send2irc")
 		send2irc(config.main_irc, msg)
 	return
 
 /proc/send2adminirc(var/msg)
 	var/queuedmsg = "ADMIN - [msg]"
-
+	log_debug("send2adminirc: Sending [queuedmsg] to send2irc")
 	send2irc(config.admin_irc, queuedmsg)
 	return
 
