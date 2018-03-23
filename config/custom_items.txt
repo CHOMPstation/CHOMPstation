@@ -211,7 +211,7 @@ item_path: /obj/item/weapon/storage/box/fluff/drake
 {
 ckey: erik_the_dog
 character_name: Erik
-item_path: /obj/item/clothing/accessory/medal/heroism
+item_path: /obj/item/clothing/accessory/medal/gold/heroism
 }
 
 # Permit Expired
