@@ -18,7 +18,7 @@ var/obj/screen/robot_inventory
 
 	//Doggos with own intent
 	if(target.dogborg)
-    	ui_style = 'icons/mob/screen1_robot_wideborg_chomp.dmi'
+		ui_style = 'icons/mob/screen1_robot_wideborg_chomp.dmi'
     //much bork very bork
 
 	src.adding = list()
