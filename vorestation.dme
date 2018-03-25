@@ -2484,6 +2484,7 @@
 #include "code\modules\reagents\Chemistry-Reagents\Chemistry-Reagents-Other.dm"
 #include "code\modules\reagents\Chemistry-Reagents\Chemistry-Reagents-Toxins.dm"
 #include "code\modules\reagents\Chemistry-Reagents\Chemistry-Reagents-Vore_vr.dm"
+#include "code\modules\reagents\Chemistry-Reagents\Chemistry-Reagents_chomp.dm"
 #include "code\modules\reagents\dispenser\_defines.dm"
 #include "code\modules\reagents\dispenser\cartridge.dm"
 #include "code\modules\reagents\dispenser\cartridge_presets.dm"
