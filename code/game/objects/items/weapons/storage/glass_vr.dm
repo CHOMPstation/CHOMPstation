@@ -1,4 +1,4 @@
-/obj/item/weapon/storage/glass
+/obj/item/weapon/storage/glass_ornament
 	name = "Hollow Glass Ornament"
 	desc = "An ornate, bulbous glass ornament, clear and transparent. A hinge on the bottom allows things to be dropped inside."
 	icon = 'icons/obj/lighting.dmi'
