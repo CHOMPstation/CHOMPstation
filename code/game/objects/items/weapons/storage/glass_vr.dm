@@ -5,5 +5,6 @@
 	icon_state = "glowstick_yellow"
 	item_state = "glowstick_yellow"
 	max_w_class = ITEMSIZE_SMALL
+	matter = list("glass" = 100)
 	max_storage_space = 1 * ITEMSIZE_COST_SMALL
 	can_hold = list(/obj/item/weapon/holder/micro)
