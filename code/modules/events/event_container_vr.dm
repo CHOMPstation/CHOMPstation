@@ -87,6 +87,7 @@
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Viral Infection",			/datum/event/viral_infection,			0,		list(ASSIGNMENT_MEDICAL = 50), 1),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Virology Breach",			/datum/event/prison_break/virology,		0,		list(ASSIGNMENT_MEDICAL = 100), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, 	"Wallrot",					/datum/event/wallrot, 					0,		list(ASSIGNMENT_ENGINEER = 30, ASSIGNMENT_GARDENER = 50), 1),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Wormholes",				/datum/event/wormholes,	 				20,		list(ASSIGNMENT_ANY = 5)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Xenobiology Breach",		/datum/event/prison_break/xenobiology,	0,		list(ASSIGNMENT_SCIENCE = 100), 1),
 	)
 	add_disabled_events(list(
