@@ -593,6 +593,8 @@
 				to_chat(src, "<span class='notice'>You can taste the flavor of garbage and leftovers. Delicious?</span>")
 			else
 				to_chat(src, "<span class='notice'>You can taste the flavor of gluttonous waste of food.</span>")
+		else if(istype(I,/obj/item/weapon/storage/glass_ornament))
+			to_chat(src, "<span class='notice'>You can taste the flavor of smooth glass.</span>")
 		else
 			to_chat(src, "<span class='notice'>You can taste the flavor of garbage. Delicious.</span>")
 		return
