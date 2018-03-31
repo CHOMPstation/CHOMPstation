@@ -6,6 +6,7 @@ bikky - research director
 crimson_steam - research director
 erikthedog - head of security
 gingeraledragon - head of security
+gomorawashere - research director
 hikarathemienshao - chief medical officer
 izzya - chief medical officer
 jaybaez - research director
@@ -23,3 +24,4 @@ reddeyfish - colony director
 reddeyfish - head of personnel
 skurdergn - chief medical officer
 warrior256 - colony director
+wheatley_the_snowy_owl - head of security
