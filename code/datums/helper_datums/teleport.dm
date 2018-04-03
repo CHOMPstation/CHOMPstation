@@ -188,7 +188,11 @@
 	//VOREStation Edit Start
 	if(destination.z in using_map.player_levels)
 		return 1
-	//if(istype(teleatom, /mob/living))
-	//	to_chat(teleatom, "<span class='warning'>The portal refuses to carry you that far away!</span>")
+	if(isbelly(destination.loc)) //if we're going to televore
+		/obj/belly/B = destination.loc
+		if(B.contents.len < 3) //avoid a 'belly of holding' situation
+			return 1
+	if(istype(teleatom, /mob/living))
+		to_chat(teleatom, "<span class='warning'>The portal refuses to carry you that far away!</span>")
 	return 0
 	//VOREStation Edit End
