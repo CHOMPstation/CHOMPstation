@@ -189,7 +189,7 @@
 	if(destination.z in using_map.player_levels)
 		return 1
 	if(isbelly(destination.loc)) //if we're going to televore
-		/obj/belly/B = destination.loc
+		var/obj/belly/B = destination.loc
 		if(B.contents.len < 3) //avoid a 'belly of holding' situation
 			return 1
 	if(istype(teleatom, /mob/living))
