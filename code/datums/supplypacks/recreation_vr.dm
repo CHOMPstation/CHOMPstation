@@ -13,6 +13,7 @@
 	contains = list(
 			/obj/item/clothing/mask/muzzle,
 			/obj/item/clothing/glasses/sunglasses/blindfold,
+			/obj/item/weapon/storage/glass_ornament,
 			/obj/item/weapon/handcuffs/fuzzy,
 			/obj/item/weapon/tape_roll,
 			/obj/item/stack/cable_coil/random,
