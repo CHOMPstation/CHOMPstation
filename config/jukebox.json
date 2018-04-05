@@ -1,0 +1,125 @@
+[
+	{ 
+		"url" : "sound/music/jukebox/SongAboutHares.ogg",
+		"title" : "A Song About Hares",
+		"duration" : 1710,
+		"secret" : false 
+	},
+	{ 
+		"url" : "sound/music/jukebox/BelowTheAsteroids.ogg ",
+		"title" : "Below The Asteroids",
+		"duration" : 2770,
+		"secret" : false 
+	},
+	{ 
+		"url" : "sound/music/jukebox/OdeToGreed.ogg",
+		"title" : "Ode to Greed",
+		"duration" : 2600,
+		"secret" : false 
+	}, 
+	
+	{ 
+		"url" : "sound/music/jukebox/russianrapdisco.ogg",
+		"title" : "Russkiy rep Diskoteka",
+		"duration" : 2120,
+		"secret" : false 
+	},
+	{ 
+		"url" : "sound/music/title1.ogg",
+		"title" : "Scratch",
+		"duration" : 1510,
+		"secret" : false 
+	},
+	{ 
+		"url" : "sound/music/space_oddity.ogg",
+		"title" : "Space Oddity",
+		"duration" : 3180,
+		"secret" : false 
+	},
+	{
+		"url" : "sound/music/THUNDERDOME.ogg",
+		"title" : "Thunderdome",
+		"duration" : 2020,
+		"secret" : false 
+	},
+	{ 
+		"url" : "sound/music/traitor.ogg",
+		"title" : "Trai`Tor",
+		"duration" : 3300,
+		"secret" : false 
+	},
+	{ 
+		"url" : "sound/music/jukebox/WelcomeToJurassicPark.mid",
+		"title" : "Welcome To Jurassic Park",
+		"duration" : 3550,
+		"secret" : false 
+	},
+	{ 
+		"url" : "sound/music/jukebox/MinorTurbulenceFull.ogg",
+		"title" : "Minor Turbulence",
+		"duration" : 2740,
+		"secret" : false 
+	},
+	{
+		"url" : "sound/music/jukebox/Cantina.ogg",
+		"title" : "Mad About Me",
+		"duration" : 1160,
+		"secret" : false 
+	},
+	{ 
+		"url" : "sound/music/jukebox/Fly_Me_To_The_Moon.ogg",
+		"title" : "Fly Me To The Moon",
+		"duration" : 1480,
+		"secret" : false 
+	},
+	{ 
+		"url" : "sound/music/main.ogg",
+		"title" : "Floating",
+		"duration" : 510,
+		"secret" : false 
+	},
+	{ 
+		"url" : "sound/music/jukebox/DuckTalesMoon.mid",
+		"title" : "Duck Tales - Moon",
+		"duration" : 840,
+		"secret" : false 
+	},
+	{
+		"url" : "sound/music/title2.ogg",
+		"title" : "D`Bert",
+		"duration" : 1190,
+		"secret" : false 
+	},
+	{
+		"url" : "sound/music/jukebox/Ransacked.ogg",
+		"title" : "Ransacked",
+		"duration" : 3050,
+		"secret" : false
+	},
+	{
+		"url" : "sound/music/jukebox/bandit_radio.ogg", 
+		"title" : "Bandit Radio", 
+		"duration" : 1110,
+		"secret" : true
+	},
+	{
+		"url" : "sound/music/space_asshole.ogg",
+		"title" : "Space Asshole",
+		"duration" : 2560,
+		"secret" : true
+	},
+	{
+		"url" : "sound/music/jukebox/nothing.wav",
+		"title" : "Nothing",
+		"artist" : "Spindle",
+		"duration" : 1340,
+		"secret" : false
+	},
+	{
+		"url" : "sound/music/jukebox/Sophisticate.wav",
+		"title" : "Sophisticate",
+		"artist" : "Dj.Spundle",
+		"duration" : 1780,
+		"secret" : false
+	}
+]
