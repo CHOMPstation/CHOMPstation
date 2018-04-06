@@ -1760,3 +1760,25 @@ Departamental Swimsuits, for general use
 	icon_state = "tronsiren_shoes"
 	icon = 'icons/vore/custom_clothes_vr.dmi'
 	icon_override = 'icons/vore/custom_onmob_vr.dmi'
+
+//Igni Vulpas
+/obj/item/clothing/accessory/collar/fluff/Kellyscollar
+    name = "Warden's collar"
+    desc = "A collar with spikes that look dangerously sharp, projecting an menacing aura"
+    icon_state = "collar_spik"
+    item_state = "collar_spik_overlay"
+    overlay_state = "collar_spik_overlay"
+
+/obj/item/clothing/accessory/collar/fluff/Kellyscollar/attack_self(mob/user as mob)
+    user << "<span class='notice'>[name]'s interface is projected onto your hand.</span>"
+
+    var/str = copytext(reject_bad_text(input(user,"Tag text?","Set tag","")),1,MAX_NAME_LEN)
+
+    if(!str || !length(str))
+        user << "<span class='notice'>[name]'s tag set to be blank.</span>"
+        name = initial(name)
+        desc = initial(desc)
+    else
+        user << "<span class='notice'>You set the [name]'s tag to '[str]'.</span>"
+        name = initial(name) + " ([str])"
+        desc = initial(desc) + " The tag says \"[str]\"."

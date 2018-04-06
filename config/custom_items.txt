@@ -283,6 +283,19 @@ item_path: /obj/item/weapon/implanter/reagent_generator/belle
 # ######## I CKEYS
 
 {
+ckey: igni
+character_name:  Kelly Summers
+item_path:/obj/item/weapon/melee/fluffstuff/wardenschain
+req_titles: Warden, Head of Security
+}
+
+{
+ckey: igni
+character_name:  Kelly Summers
+item_path:/obj/item/clothing/accessory/collar/fluff/Kellyscollar
+}
+
+{
 ckey: interrolouis
 character_name:  Ruda Lizden
 item_path:/obj/item/clothing/accessory/badge/holo/detective/ruda

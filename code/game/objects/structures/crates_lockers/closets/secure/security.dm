@@ -205,6 +205,7 @@
 		new /obj/item/device/flashlight/maglight(src)
 		new /obj/item/device/megaphone(src)
 		new /obj/item/clothing/mask/gas/half(src)
+		new /obj/item/clothing/gloves/warden(src)
 		return
 
 

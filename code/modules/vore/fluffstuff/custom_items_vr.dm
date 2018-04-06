@@ -2004,3 +2004,21 @@
 	..()
 	attack_verb = list("bapped", "thwapped", "bonked", "whacked")
 	icon_state = initial(icon_state)
+
+//Igni Vulpas
+/obj/item/weapon/melee/fluffstuff/wardenschain
+    name = "Warden's chain"
+    desc = "A High Tech solution to simple punishment. It has a red leather handle with the word 'punish'. The silver base has a pair of engraved initials, K.S."
+    icon = 'icons/vore/custom_items_vr.dmi'
+    icon_state = "holochain"
+
+    icon_override = 'icons/vore/custom_items_vr.dmi'
+    item_state = "holochain_mob"
+
+    flags = CONDUCT | NOBLOODY
+    slot_flags = SLOT_BELT
+    force = 15
+    throwforce = 3
+    w_class = ITEMSIZE_NORMAL
+    damtype = HALLOSS
+    attack_verb = list("flogged", "whipped", "lashed", "disciplined", "chastised", "flayed", "punished")

@@ -47,6 +47,15 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
+/obj/item/clothing/gloves/warden
+    desc = "These black gloves scream of prisoner abuse"
+    name = "Warden's Gloves"
+    icon_state = "swat"
+    item_state = "swat"
+    force = 2
+    punch_force = 1
+    damtype= HALLOSS
+
 /obj/item/clothing/gloves/sterile
 	name = "sterile gloves"
 	desc = "Sterile gloves."
