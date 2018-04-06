@@ -1842,6 +1842,7 @@
 #include "code\modules\mining\mine_items_vr.dm"
 #include "code\modules\mining\mine_turfs.dm"
 #include "code\modules\mining\mineral_effect.dm"
+#include "code\modules\mining\mining_vending.dm"
 #include "code\modules\mining\mint.dm"
 #include "code\modules\mining\money_bag.dm"
 #include "code\modules\mining\ore.dm"
