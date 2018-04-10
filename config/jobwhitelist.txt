@@ -8,6 +8,8 @@ erikthedog - head of security
 gingeraledragon - head of security
 gomorawashere - research director
 hikarathemienshao - chief medical officer
+igni - head of security
+igni - research director
 izzya - chief medical officer
 jaybaez - research director
 keithwinters - head of security
@@ -22,6 +24,7 @@ reddeyfish - ai
 reddeyfish - chief engineer
 reddeyfish - colony director
 reddeyfish - head of personnel
+silencedmp5a5 - head of security
 skurdergn - chief medical officer
 warrior256 - colony director
 wheatleythesnowyowl - head of security
