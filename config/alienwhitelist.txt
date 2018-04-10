@@ -1,13 +1,20 @@
 aether_elemental - Daemon
 aruis - Xenochimera
+ashling - Vox
+billybob11432 - Vox
+bikky - Xenomorph Hybrid
 bothnevarbackwards - Diona
 cameron653 - Xenomorph Hybrid
+sharkmare - Protean
+drakewyrmsilverwing - Xenomorph Hybrid
 hawkerthegreat - Vox
 jemli - Gutter
+kotetsuredwood - Xenochimera
 mewchild - Diona
 mewchild - Vox
 natje - Xenochimera
 paradoxspace - Xenochimera
+quotegoat - Xenochimera
 rapidvalj - Vox
 rikaru19xjenkins  - Xenomorph Hybrid
 rikaru19xjenkins - Xenochimera
@@ -19,7 +26,6 @@ sepulchre - Xenomorph Hybrid
 silverTalismen - Diona
 silvertalismen - Xenochimera
 singo - Gutter
-some~user - Species
 tastypred - Xenochimera
 verkister - Xenochimera
 xioen - Diona
@@ -27,8 +33,3 @@ xioen - Xenochimera
 xioen - Xenomorph Hybrid
 zammyman215 - Vox
 zekesturm - Xenomorph Hybrid
-billybob11432 - Vox
-bikky - Xenomorph Hybrid
-kotetsuredwood - Xenochimera
-quotegoat - Xenochimera
-ashling - Vox
