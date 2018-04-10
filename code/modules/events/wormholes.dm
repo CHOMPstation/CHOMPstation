@@ -1,6 +1,6 @@
 /datum/event/wormholes
 	startWhen	= 0
-	endWhen		= 8
+	endWhen		= 80
 
 /datum/event/wormholes/start()
 	wormhole_event()
