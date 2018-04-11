@@ -86,11 +86,13 @@
 		/mob/living/carbon/human/proc/nano_partswap,
 		/mob/living/carbon/human/proc/nano_metalnom,
 		/mob/living/carbon/human/proc/nano_blobform,
+		/mob/living/carbon/human/proc/nano_set_size,
 		/mob/living/carbon/human/proc/nano_change_fitting, //These verbs are displayed normally,
 		/mob/living/carbon/human/proc/shapeshifter_select_hair,
 		/mob/living/carbon/human/proc/shapeshifter_select_hair_colors,
 		/mob/living/carbon/human/proc/shapeshifter_select_colour,
-		/mob/living/carbon/human/proc/shapeshifter_select_eye_colour
+		/mob/living/carbon/human/proc/shapeshifter_select_eye_colour,
+		/mob/living/carbon/human/proc/shapeshifter_select_gender
 		)
 
 	var/global/list/abilities = list()
@@ -185,7 +187,7 @@
 /datum/species/protean/Stat(var/mob/living/carbon/human/H)
 	..()
 	if(statpanel("Protean"))
-		var/obj/item/organ/internal/nano/refactory/refactory = locate() in H.internal_organs
+		var/obj/item/organ/internal/nano/refactory/refactory = H.nano_get_refactory()
 		if(refactory && !(refactory.status & ORGAN_DEAD))
 			stat(null, "- -- --- Refactory Metal Storage --- -- -")
 			var/max = refactory.max_storage
@@ -203,7 +205,7 @@
 // Various modifiers
 /datum/modifier/protean
 	stacks = MODIFIER_STACK_FORBID
-	var/material_use = 100
+	var/material_use = 150
 	var/material_name = DEFAULT_WALL_MATERIAL
 
 /datum/modifier/protean/on_applied()
@@ -216,7 +218,7 @@
 	if(holder.temporary_form)
 		to_chat(holder.temporary_form,on_expired_text)
 
-/datum/modifier/protean/tick()
+/datum/modifier/protean/check_if_valid()
 	//No origin set
 	if(!istype(origin))
 		expire()
@@ -237,7 +239,6 @@
 	on_created_text = "<span class='notice'>You feel yourself accelerate, the metallic hydrogen increasing your speed temporarily.</span>"
 	on_expired_text = "<span class='notice'>Your refactory finishes consuming the metallic hydrogen, and you return to normal speed.</span>"
 
-	material_use = 100
 	material_name = "mhydrogen"
 
 	slowdown = -1
@@ -249,7 +250,6 @@
 	on_created_text = "<span class='notice'>You feel yourself become nearly impervious to physical attacks as plasteel nanites are made.</span>"
 	on_expired_text = "<span class='notice'>Your refactory finishes consuming the plasteel, and you return to your normal nanites.</span>"
 	
-	material_use = 100
 	material_name = "plasteel"
 
 	incoming_brute_damage_percent = 0.5
@@ -261,7 +261,6 @@
 	on_created_text = "<span class='notice'>You feel yourself become more reflective, able to resist heat and fire better for a time.</span>"
 	on_expired_text = "<span class='notice'>Your refactory finishes consuming the diamond, and you return to your normal nanites.</span>"
 	
-	material_use = 100
 	material_name = "diamond"
 
 	incoming_fire_damage_percent = 0.2
@@ -273,7 +272,6 @@
 	on_created_text = "<span class='notice'>You feel new nanites being produced from your stockpile of steel, healing you slowly.</span>"
 	on_expired_text = "<span class='notice'>Your steel supply has either run out, or is no longer needed, and your healing stops.</span>"
 	
-	material_use = 100
 	material_name = "steel"
 
 /datum/modifier/protean/steel/tick()

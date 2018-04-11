@@ -7,7 +7,7 @@
 /obj/item/weapon/storage/quickdraw
 	name = "quickdraw"
 	desc = "This object should not appear"
-	icon = 'icons/obj/storage_vr.dmi'
+	icon = 'icons/obj/storage_vr.dmi' // VOREStation Edit
 
 	//Quickmode
 	//When set to 0, this storage will operate as a regular storage, and clicking on it while equipped will open it as a storage
@@ -48,6 +48,8 @@
 	..()
 	if(src.loc == user) //Are they carrying us?
 		toggle_quickdraw()
+
+// If we start adding more of these, we'll need to make them their own folder. 'til then, this one should be fine.
 
 // -----------------------------
 //       Syringe case
