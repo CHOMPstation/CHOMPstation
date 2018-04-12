@@ -23,7 +23,7 @@
 	flesh_color = "#5F7BB0"
 	base_color = "#001144"
 	tail = "seromitail"
-	//tail_hair = "feathers"
+	//tail_hair = "feathers" //TESHARI TEMPORARY REMOVAL
 	reagent_tag = IS_TESHARI
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
@@ -114,7 +114,7 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/sonar_ping,
-		/mob/living/carbon/human/proc/hide_humanoid
+		/mob/living/proc/hide
 		)
 
 /datum/species/teshari/equip_survival_gear(var/mob/living/carbon/human/H)
