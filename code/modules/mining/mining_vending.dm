@@ -34,6 +34,7 @@
 	/obj/item/stack/marker_beacon/thirty = 10,
 	/obj/item/weapon/storage/fancy/cigar = 5,
 	/obj/item/weapon/rig/industrial = 5,
+	/obj/item/clothing/accessory/storage/brown_vest = 5
 	/obj/item/toy/plushie/face_hugger = 3,
 	/obj/item/weapon/storage/firstaid/regular = 5,
 	/obj/item/weapon/reagent_containers/hypospray/autoinjector/beltminer = 5,
@@ -55,21 +56,32 @@
 	// Prices for each item, list(/type/path = price), items not in the list don't have a price.
 	var/list/prices     = list(
 	/obj/item/weapon/storage/fancy/cigar = 1,
-	/obj/item/weapon/rig/industrial = 10,
-	/obj/item/toy/plushie/face_hugger = 1,
-	/obj/item/weapon/storage/firstaid/regular = 2,
-	/obj/item/weapon/reagent_containers/hypospray/autoinjector/beltminer = 3,
-	/obj/machinery/mining/drill = 1,
-	/obj/machinery/mining/brace = 1,
-	/obj/mecha/working/ripley/mining = 10,
-	/obj/mecha/working/ripley/deathripley = 40,
-	/obj/item/weapon/pickaxe/drill = 3,
-	/obj/item/weapon/pickaxe/jackhammer = 5,
-	/obj/item/weapon/pickaxe/plasmacutter = 7,
-	/obj/item/weapon/pickaxe/borgdrill = 10,
-	/obj/item/weapon/pickaxe/diamonddrill = 15,
-	/obj/item/device/gps/mining = 2,
-	/obj/item/rig_module/device/drill = 3,
+	/obj/item/weapon/rig/industrial = 40,
+	/obj/item/clothing/accessory/storage/brown_vest = 4,
+	/obj/item/toy/plushie/face_hugger = 4,
+	/obj/item/weapon/storage/firstaid/regular = 8,
+	/obj/item/weapon/reagent_containers/hypospray/autoinjector/beltminer = 12,
+	/obj/machinery/mining/drill = 4,
+	/obj/machinery/mining/brace = 4,
+	/obj/mecha/working/ripley/mining = 60,
+	/obj/mecha/working/ripley/deathripley = 200,
+	/obj/item/weapon/pickaxe/drill = 15,
+	/obj/item/weapon/pickaxe/jackhammer = 25,
+	/obj/item/weapon/pickaxe/plasmacutter = 42,
+	/obj/item/weapon/pickaxe/borgdrill = 60,
+	/obj/item/weapon/pickaxe/diamonddrill = 90,
+	/obj/item/device/gps/mining = 8,
+	/obj/item/rig_module/device/drill = 12,
+	)
+
+	var/list/coins	= list(
+	/obj/item/weapon/coin/iron		= 1,
+	/obj/item/weapon/coin/gold		= 2,
+	/obj/item/weapon/coin/silver	= 2,
+	/obj/item/weapon/coin/phoron	= 2,
+	/obj/item/weapon/coin/uranium	= 3,
+	/obj/item/weapon/coin/platinum	= 3,
+	//does not accept diamond
 	)
 
 	// List of vending_product items available.
@@ -78,7 +90,7 @@
 /obj/machinery/vending_mining/New()
 	..()
 	spawn(4)
-		
+
 		build_inventory()
 		power_change()
 
@@ -158,10 +170,17 @@
  */
 /obj/machinery/vending_mining/proc/insert_coin(var/obj/item/weapon/coin/C, mob/user)
 
-	//TODO: different point values based on material
+	var/accepted = 0
+	for(var/type in coins)
+		if(istype(C, type))
+			accepted = 1
+			break
+	if(!accepted)
+		visible_message("<span class='danger'>\The [src] beeps harshly, refusing to accept the coin.</span>")
+		return 1
 
 	visible_message("<span class='info'>\The [usr] inserts a coin into \the [src].</span>")
-	points++
+	points += coins[C]
 	usr.drop_from_inventory(C)
 	qdel(C)
 	return 1
@@ -220,7 +239,7 @@
 			if(R.price <= points)
 				points -= R.price
 				vend(R, usr)
-			else 
+			else
 				to_chat(usr, "<span class='danger'>Not enough points. Requisition Denied.</span>")
 
 		add_fingerprint(usr)
