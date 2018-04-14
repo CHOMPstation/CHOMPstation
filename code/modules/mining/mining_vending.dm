@@ -34,7 +34,7 @@
 	/obj/item/stack/marker_beacon/thirty = 10,
 	/obj/item/weapon/storage/fancy/cigar = 5,
 	/obj/item/weapon/rig/industrial = 5,
-	/obj/item/clothing/accessory/storage/brown_vest = 5
+	/obj/item/clothing/accessory/storage/brown_vest = 5,
 	/obj/item/toy/plushie/face_hugger = 3,
 	/obj/item/weapon/storage/firstaid/regular = 5,
 	/obj/item/weapon/reagent_containers/hypospray/autoinjector/beltminer = 5,
