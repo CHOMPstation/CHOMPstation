@@ -1901,7 +1901,7 @@
 		user.visible_message(pick("<span class='danger'>\The [user] is slitting \his stomach open with \the [src]! It looks like [tempgender] trying to commit seppuku.</span>",\
 			"<span class='danger'>\The [user] is falling on \the [src]! It looks like [tempgender] trying to commit suicide.</span>"))
 		return (BRUTELOSS|FIRELOSS)
- 
+
 /obj/item/weapon/melee/fluffstuff/awoosword
 	name = "Wolfgirl Sword Replica"
 	desc = "A replica of a large, scimitar-like sword with a dull edge. Ceremonial... until it isn't."
@@ -1963,3 +1963,16 @@
     w_class = ITEMSIZE_NORMAL
     damtype = HALLOSS
     attack_verb = list("flogged", "whipped", "lashed", "disciplined", "chastised", "flayed", "punished")
+
+//SilencedMP5A5 - Serdykov Antoz
+/obj/item/device/modkit_conversion/hasd
+	name = "HASD EVA modification kit"
+	desc = "A kit containing all the needed tools and parts to modify a suit and helmet into something a HASD unit can use for EVA operations."
+	icon = 'icons/vore/custom_items_vr.dmi'
+	icon_state = "modkit"
+
+	from_helmet = /obj/item/clothing/head/helmet/space/void/security
+	from_suit = /obj/item/clothing/suit/space/void/security/taur
+	to_helmet = /obj/item/clothing/head/helmet/space/void/security/hasd
+	to_suit = /obj/item/clothing/suit/space/void/security/hasd
+
