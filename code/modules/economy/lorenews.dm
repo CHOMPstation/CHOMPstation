@@ -8,7 +8,7 @@
 
 	//locations by region for later pick()
 	//probably would be good to move these to a global somehwere but fuck if I know how to do that
-	//var/list/rim = list("Shelf", "Vounna", "Relan", "Whythe", "Angessa's Pearl") // this is also the Association list for most purposes  //Unused?
+	var/list/rim = list("Shelf", "Vounna", "Relan", "Whythe", "Angessa's Pearl") // this is also the Association list for most purposes
 	var/list/crescent = list("Saint Columbia", "Ganesha", "Gavel", "Oasis", "Kess-Gendar") //Vir not included
 	var/list/core = list("Sol", "Alpha Centauri", "Tau Ceti", "Altair")
 	var/list/heights = list("New Ohio", "Mahi-Mahi", "Parvati", "Sidhe", "New Seoul")
@@ -19,10 +19,10 @@
 	//by government
 	var/list/solgov = crescent + core + heights + bowl + crypt + weird
 	var/list/skrell = list("Qerr'Vallis", "Qerma-Lakirr", "Harrqak", "Kauq'xum")
-	//var/list/skrellfar = list("The Far Kingdom of Light and Shifting Shadow")// more colonies Elgeon  //Unused?
-	//var/list/unathi = list("Moghes", "Qerrna-Qamxea", "Abel's Rest") // more colonies Anewbe //Unused?
+	var/list/skrellfar = list("The Far Kingdom of Light and Shifting Shadow")// more colonies Elgeon
+	var/list/unathi = list("Moghes", "Qerrna-Qamxea", "Abel's Rest") // more colonies Anewbe
 	var/list/tajara = list("Rarkajar", "Mesomori", "Arathiir")
-	//var/list/independent = list("New Kyoto", "Casini's Reach", "Ue'Orsi", "Natuna", "Neon Light") //Unused?
+	var/list/independent = list("New Kyoto", "Casini's Reach", "Ue'Orsi", "Natuna", "Neon Light")
 
 	//this is what you should pick for most applications
 	//whether or not the rim goes there is something that should be changed per the metaplot
