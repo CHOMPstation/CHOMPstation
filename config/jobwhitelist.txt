@@ -4,6 +4,8 @@ ashling - chief engineer
 bikky - chief medical officer
 bikky - research director
 crimson_steam - research director
+draycu - chief engineer
+draycu - research director
 erikthedog - head of security
 gingeraledragon - head of security
 gomorawashere - research director
@@ -11,6 +13,7 @@ hikarathemienshao - chief medical officer
 igni - head of security
 igni - research director
 izzya - chief medical officer
+izzya - research director
 jaybaez - research director
 keithwinters - head of security
 kotetsuredwood - chief medical officer
@@ -25,6 +28,7 @@ reddeyfish - chief engineer
 reddeyfish - colony director
 reddeyfish - head of personnel
 silencedmp5a5 - head of security
+suhayll - chief medical officer
 skurdergn - chief medical officer
 warrior256 - colony director
 wheatleythesnowyowl - head of security
