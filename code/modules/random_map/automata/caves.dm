@@ -56,7 +56,7 @@
 				//T.ChangeTurf(/turf/space/cracked_asteroid)
 
 			//CHOMPStation Edit
-			if(rand(1, 40) == 1) // 1 in 40 chance
+			if(rand(1, 100) == 1) // 1 in 100 chance
 				new /obj/structure/mob_spawner/scanner/mining_animals(T)
 		else
 			T.make_wall()
