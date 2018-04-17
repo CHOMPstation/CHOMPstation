@@ -45,8 +45,6 @@
 	/obj/item/weapon/pickaxe/drill = 5,
 	/obj/item/weapon/pickaxe/jackhammer = 5,
 	/obj/item/weapon/pickaxe/plasmacutter = 5,
-	/obj/item/weapon/pickaxe/borgdrill = 5,
-	/obj/item/weapon/pickaxe/diamonddrill = 3,
 	/obj/item/device/gps/mining = 5,
 	/obj/item/rig_module/device/drill = 3,
 	)
@@ -68,19 +66,17 @@
 	/obj/item/weapon/pickaxe/drill = 15,
 	/obj/item/weapon/pickaxe/jackhammer = 25,
 	/obj/item/weapon/pickaxe/plasmacutter = 42,
-	/obj/item/weapon/pickaxe/borgdrill = 60,
-	/obj/item/weapon/pickaxe/diamonddrill = 90,
 	/obj/item/device/gps/mining = 8,
 	/obj/item/rig_module/device/drill = 12,
 	)
 
 	var/list/coins	= list(
-	/obj/item/weapon/coin/iron		= 1,
-	/obj/item/weapon/coin/gold		= 2,
-	/obj/item/weapon/coin/silver	= 2,
-	/obj/item/weapon/coin/phoron	= 2,
-	/obj/item/weapon/coin/uranium	= 3,
-	/obj/item/weapon/coin/platinum	= 3,
+	/obj/item/weapon/coin/iron,
+	/obj/item/weapon/coin/gold,
+	/obj/item/weapon/coin/silver,
+	/obj/item/weapon/coin/phoron,
+	/obj/item/weapon/coin/uranium,
+	/obj/item/weapon/coin/platinum,
 	//does not accept diamond
 	)
 
@@ -180,7 +176,7 @@
 		return 1
 
 	visible_message("<span class='info'>\The [usr] inserts a coin into \the [src].</span>")
-	points += coins[C]
+	points += C.mining_value
 	usr.drop_from_inventory(C)
 	qdel(C)
 	return 1
