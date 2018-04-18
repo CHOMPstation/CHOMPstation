@@ -37,6 +37,8 @@
 	return FALSE
 /obj/item/device/perfect_tele_beacon/digest_act(...)
 	return FALSE //Sorta important to not digest your own beacons.
+/obj/item/weapon/storage/glass_ornament/digest_act(...)
+	return FALSE
 
 /////////////
 // Some special treatment
