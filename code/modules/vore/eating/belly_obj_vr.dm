@@ -32,7 +32,7 @@
 	var/shrink_grow_size = 1				// This horribly named variable determines the minimum/maximum size it will shrink/grow prey to.
 	var/transferlocation					// Location that the prey is released if they struggle and get dropped off.
 	var/release_sound = TRUE				// Boolean for now, maybe replace with something else later
-	var/mode_flags = 0						// Stripping, numbing, etc.
+	var/mode_flags = DM_FLAG_ITEMWEAK			// Stripping, numbing, etc.
 
 	//I don't think we've ever altered these lists. making them static until someone actually overrides them somewhere.
 	//Actual full digest modes
