@@ -209,7 +209,7 @@ item_path: /obj/item/weapon/storage/box/fluff/drake
 # ######## E CKEYS
 
 {
-ckey: erik_the_dog
+ckey: erikthedog
 character_name: Erik
 item_path: /obj/item/clothing/accessory/medal/gold/heroism
 }
