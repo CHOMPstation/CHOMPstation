@@ -35,11 +35,14 @@ var/datum/species/shapeshifter/promethean/prometheans
 	male_cough_sounds = list('sound/effects/slime_squish.ogg')
 	female_cough_sounds = list('sound/effects/slime_squish.ogg')
 
+	min_age =		1
+	max_age =		10
+
+	economic_modifier = 3
+
 	//gluttonous =	1 // VOREStation Edit. Redundant feature.
 	virus_immune =	1
 	blood_volume =	560
-	min_age =		1
-	max_age =		10
 	brute_mod =		0.75
 	burn_mod =		2
 	oxy_mod =		0
@@ -86,6 +89,9 @@ var/datum/species/shapeshifter/promethean/prometheans
 		/mob/living/carbon/human/proc/shapeshifter_select_eye_colour,
 		/mob/living/carbon/human/proc/shapeshifter_select_hair_colors,
 		/mob/living/carbon/human/proc/shapeshifter_select_gender,
+		/mob/living/carbon/human/proc/shapeshifter_select_wings, //VOREStation Add,
+		/mob/living/carbon/human/proc/shapeshifter_select_tail, //VOREStation Add,
+		/mob/living/carbon/human/proc/shapeshifter_select_ears, //VOREStation Add,
 		/mob/living/carbon/human/proc/regenerate
 		)
 

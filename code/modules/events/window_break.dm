@@ -22,7 +22,7 @@
 			chosen_window = target_window
 			chosen_location = chosen_window.loc
 			collateral_windows = gather_collateral_windows(chosen_window)
-			announceWhen = (collateral_windows.len + 1) * 5
+			announceWhen = (collateral_windows.len + 1) * 20
 			endWhen = announceWhen + 1
 			return
 
@@ -66,7 +66,7 @@
 	chosen_window.shatter(0)
 
 	for(var/obj/structure/window/current_collateral in collateral_windows)
-		sleep(rand(1,5))
+		sleep(rand(1,20))
 		current_collateral.take_damage(current_collateral.health - (current_collateral.maxhealth / 5)) //set to 1/5th health
 
 /datum/event/window_break/announce()
