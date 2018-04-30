@@ -6,6 +6,7 @@ bikky - research director
 crimson_steam - research director
 draycu - chief engineer
 draycu - research director
+erikthedog - chief medical officer
 erikthedog - head of security
 gingeraledragon - head of security
 gomorawashere - research director
@@ -27,6 +28,7 @@ reddeyfish - ai
 reddeyfish - chief engineer
 reddeyfish - colony director
 reddeyfish - head of personnel
+iliketurles - research director
 silencedmp5a5 - head of security
 suhayll - chief medical officer
 skurdergn - chief medical officer
