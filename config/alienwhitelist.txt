@@ -5,8 +5,8 @@ billybob11432 - Vox
 bikky - Xenomorph Hybrid
 bothnevarbackwards - Diona
 cameron653 - Xenomorph Hybrid
-sharkmare - Protean
 drakewyrmsilverwing - Xenomorph Hybrid
+dryacu - Gutter
 hawkerthegreat - Vox
 jemli - Gutter
 kawkaw - Vox
@@ -25,10 +25,13 @@ rixunie - Gutter
 seiga - Vox
 sepulchre - Vox
 sepulchre - Xenomorph Hybrid
-silverTalismen - Diona
+sharkmare - Protean
+silvertalismen - Diona
 silvertalismen - Xenochimera
+Silvertalismen - Protean
 singo - Gutter
 tastypred - Xenochimera
+tomtyph - Protean
 verkister - Xenochimera
 xioen - Diona
 xioen - Xenochimera
