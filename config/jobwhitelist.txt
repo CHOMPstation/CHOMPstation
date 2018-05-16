@@ -13,6 +13,7 @@ gomorawashere - research director
 hikarathemienshao - chief medical officer
 igni - head of security
 igni - research director
+iliketurles - research director
 izzya - chief medical officer
 izzya - research director
 jaybaez - research director
@@ -28,9 +29,10 @@ reddeyfish - ai
 reddeyfish - chief engineer
 reddeyfish - colony director
 reddeyfish - head of personnel
-iliketurles - research director
+rsmr - research director
 silencedmp5a5 - head of security
 suhayll - chief medical officer
 skurdergn - chief medical officer
+thefurryfeline - chief medical officer
 warrior256 - colony director
 wheatleythesnowyowl - head of security
