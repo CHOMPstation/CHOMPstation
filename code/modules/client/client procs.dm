@@ -251,12 +251,21 @@
 
 	//Panic bunker code
 	if (isnum(player_age) && player_age == 0) //first connection
+		log_adminwarn("[key] has joined for the first time.") //Chompstation edit, notifying admins of a first join <3
+		message_admins("[key] has joined for the first time.")
 		if (config.panic_bunker && !holder && !deadmin_holder)
 			log_adminwarn("Failed Login: [key] - New account attempting to connect during panic bunker")
 			message_admins("<span class='adminnotice'>Failed Login: [key] - New account attempting to connect during panic bunker</span>")
 			to_chat(src, "Sorry but the server is currently not accepting connections from never before seen players.")
 			qdel(src)
 			return 0
+
+	// Chompstation edit, adds restriction that you can only join with discord account linked to your ckey - Jonathan
+	if(config.discord_restriction && !IsDiscordLinked(ckey))
+		to_chat(src,"This server requires you to be linked to the Chompers Discord server in order to connect. Please head to https://chompstation.tk to find out more about our server.")
+		qdel(src)
+		return 0
+	// Chompstation edit end
 
 	// VOREStation Edit Start - Department Hours
 	if(config.time_off)
@@ -372,3 +381,21 @@ client/verb/character_setup()
 	set category = "Preferences"
 	if(prefs)
 		prefs.ShowChoices(usr)
+
+// Chompstation Edit, adding a proc to check if their account is linked to discord. - Jonathan
+/proc/IsDiscordLinked(ckey)
+	establish_db_connection()
+	if(!dbcon.IsConnected())
+		return null
+
+	var/sql_ckey = sql_sanitize_text(ckey)
+
+	var/DBQuery/query = dbcon.NewQuery("SELECT * FROM discord2byond WHERE ckey = '[sql_ckey]'")
+	query.Execute()
+
+	if(query.NextRow())
+		if(ckey in query.item)
+			return 1
+	else
+		return 0
+// Chompstation Edit end.

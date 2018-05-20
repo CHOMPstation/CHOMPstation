@@ -2,13 +2,13 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-CREATE SCHEMA IF NOT EXISTS `shawn_chompstation_master` DEFAULT CHARACTER SET latin1 ;
-USE `shawn_chompstation_master` ;
+CREATE SCHEMA IF NOT EXISTS `tgstation` DEFAULT CHARACTER SET latin1 ;
+USE `tgstation` ;
 
 -- -----------------------------------------------------
--- Table `shawn_chompstation_master`.`death`
+-- Table `tgstation`.`death`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `shawn_chompstation_master`.`death` (
+CREATE  TABLE IF NOT EXISTS `tgstation`.`death` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `pod` TEXT NOT NULL COMMENT 'Place of death' ,
   `coord` TEXT NOT NULL COMMENT 'X, Y, Z POD' ,
@@ -31,9 +31,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `shawn_chompstation_master`.`karma`
+-- Table `tgstation`.`karma`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `shawn_chompstation_master`.`karma` (
+CREATE  TABLE IF NOT EXISTS `tgstation`.`karma` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `spendername` TEXT NOT NULL ,
   `spenderkey` TEXT NOT NULL ,
@@ -51,9 +51,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `shawn_chompstation_master`.`karmatotals`
+-- Table `tgstation`.`karmatotals`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `shawn_chompstation_master`.`karmatotals` (
+CREATE  TABLE IF NOT EXISTS `tgstation`.`karmatotals` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `byondkey` TEXT NOT NULL ,
   `karma` INT(11) NOT NULL ,
@@ -64,9 +64,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `shawn_chompstation_master`.`library`
+-- Table `tgstation`.`library`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `shawn_chompstation_master`.`library` (
+CREATE  TABLE IF NOT EXISTS `tgstation`.`library` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `author` TEXT NOT NULL ,
   `title` TEXT NOT NULL ,
@@ -79,9 +79,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `shawn_chompstation_master`.`population`
+-- Table `tgstation`.`population`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `shawn_chompstation_master`.`population` (
+CREATE  TABLE IF NOT EXISTS `tgstation`.`population` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `playercount` INT(11) NULL DEFAULT NULL ,
   `admincount` INT(11) NULL DEFAULT NULL ,
