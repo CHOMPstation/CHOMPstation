@@ -243,7 +243,7 @@
 	var/mob/living/carbon/human/user = AM
 
 	var/choice = alert("Do you want to depart via the tram? Your character will leave the round.","Departure","Yes","No")
-	if(user && choice == "Yes")
+	if(user && Adjacent(user) && choice == "Yes")
 		user.ghostize()
 		despawn_occupant(user)
 
@@ -369,7 +369,7 @@ var/global/list/latejoin_tram   = list()
 
 /obj/item/weapon/reagent_containers/pill/airlock
 	name = "\'Airlock\' Pill"
-	desc = "Neutralizes toxins and provides a mild alangesic effect."
+	desc = "Neutralizes toxins and provides a mild analgesic effect."
 	icon_state = "pill2"
 
 /obj/item/weapon/reagent_containers/pill/airlock/New()
@@ -407,7 +407,7 @@ var/global/list/latejoin_tram   = list()
 	guard = 20
 	mobs_to_pick_from = list(
 		/mob/living/simple_animal/hostile/jelly = 3,
-		/mob/living/simple_animal/hostile/giant_spider/electric = 1,
+		/mob/living/simple_animal/hostile/giant_spider/hunter = 1,
 		/mob/living/simple_animal/hostile/giant_spider/phorogenic = 1,
 		/mob/living/simple_animal/hostile/giant_spider/lurker = 1,
 	)
@@ -420,8 +420,8 @@ var/global/list/latejoin_tram   = list()
 	prob_fall = 50
 	guard = 20
 	mobs_to_pick_from = list(
-		/mob/living/simple_animal/hostile/badboi = 1,
-		/mob/living/simple_animal/hostile/rous = 1,
+		/mob/living/simple_animal/hostile/corrupthound = 1,
+		/mob/living/simple_animal/hostile/rat = 1,
 		/mob/living/simple_animal/hostile/mimic = 1
 	)
 
@@ -435,6 +435,10 @@ var/global/list/latejoin_tram   = list()
 	mobs_to_pick_from = list(
 		/mob/living/simple_animal/hostile/dragon = 1
 	)
+
+// Used at centcomm for the elevator
+/obj/machinery/cryopod/robot/door/dorms
+	spawnpoint_type = /datum/spawnpoint/tram
 
 //
 // ### Wall Machines On Full Windows ###
