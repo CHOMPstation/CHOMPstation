@@ -197,11 +197,34 @@
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src) //In case the chemist is nice!
 	src.modules += new /obj/item/weapon/reagent_containers/glass/beaker(src)//For holding the chemicals when the chemist is nice
 	src.modules += new /obj/item/device/sleevemate(src) //Lets them scan people.
+	src.modules += new /obj/item/weapon/gripper/medical(src)//Now you can set up cyro or make peri.
 	src.modules += new /obj/item/weapon/shockpaddles/robot/hound(src) //Paws of life
 	src.emag 	 = new /obj/item/weapon/dogborg/pounce(src) //Pounce
 	R.icon = 'icons/mob/widerobot_vr.dmi'
 	R.hands.icon = 'icons/mob/screen1_robot_vr.dmi'
 	R.ui_style_vr = TRUE
+	
+	//Adds tools for medihound to treat patients without sleeper. Traumakits, Advance Ointment, and Splints.
+	
+	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(15000)
+	synths += medicine
+
+	var/obj/item/stack/medical/advanced/ointment/O = new /obj/item/stack/medical/advanced/ointment(src)
+	var/obj/item/stack/medical/advanced/bruise_pack/B = new /obj/item/stack/medical/advanced/bruise_pack(src)
+	var/obj/item/stack/medical/splint/S = new /obj/item/stack/medical/splint(src)
+	O.uses_charge = 1
+	O.charge_costs = list(1000)
+	O.synths = list(medicine)
+	B.uses_charge = 1
+	B.charge_costs = list(1000)
+	B.synths = list(medicine)
+	S.uses_charge = 1
+	S.charge_costs = list(1000)
+	S.synths = list(medicine)
+	src.modules += O
+	src.modules += B
+	src.modules += S
+	
 	//R.icon_state = "medihound"
 	R.pixel_x 	 = -16
 	R.old_x  	 = -16
