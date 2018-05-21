@@ -409,3 +409,10 @@ ENGINE_MAP Supermatter Engine,Edison's Bane
 # Applies a limit to the number of assistants and visitors respectively
 # LIMIT_INTERNS 6
 # LIMIT_VISITORS 6
+
+## Setting to prevent players from joining without having their accounts linked to their discord account.
+## WIP system to allow a bot to be a interface to allow basic moderation to both discord and SS13 at the same time.
+## A specific bot is required to use this, ask Jonathan123ii on discord about this information.
+## Uncomment to enable discord restriction, default off if you leave commented.
+# DISCORD_RESTRICTION
+

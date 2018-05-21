@@ -1,17 +1,18 @@
-/proc/send2irc(var/channel, var/msg)
+/proc/send2irc(var/msg, var/admin = 0)
 	if(config.use_irc_bot)
 		paranoid_sanitize(msg)
-		ext_python("ircbot_message.py", "[config.comms_password] [config.irc_bot_host] [channel] [msg]")
+		if(admin)
+			msg = "ADMIN - [msg]"
+		// 3rd param is unused in the bot, would spend time to fix this but I'm lazy. - Jon
+		ext_python("ircbot_message.py", "[config.comms_password] [config.irc_bot_host] null [msg]")
 	return
 
 /proc/send2mainirc(var/msg)
-	if(config.main_irc)
-		send2irc(config.main_irc, msg)
+	send2irc(msg)
 	return
 
 /proc/send2adminirc(var/msg)
-	var/queuedmsg = "ADMIN - [msg]"
-	send2irc(config.admin_irc, queuedmsg)
+	send2irc(msg, 1)
 	return
 
 /hook/startup/proc/ircNotify()
