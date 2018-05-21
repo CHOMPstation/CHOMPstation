@@ -9,6 +9,7 @@ draycu - chief engineer
 draycu - research director
 erikthedog - chief medical officer
 erikthedog - head of security
+fevix - ai
 gingeraledragon - head of security
 gomorawashere - research director
 hikarathemienshao - chief medical officer
@@ -37,3 +38,4 @@ skurdergn - chief medical officer
 thefurryfeline - chief medical officer
 warrior256 - colony director
 wheatleythesnowyowl - head of security
+wickedtemp - chief medical officer
