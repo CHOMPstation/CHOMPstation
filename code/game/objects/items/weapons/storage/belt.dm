@@ -67,6 +67,7 @@
 		/obj/item/weapon/extinguisher/mini,
 		/obj/item/weapon/tape_roll,
 		/obj/item/device/integrated_electronics/wirer,
+		/obj/item/device/integrated_electronics/debugger, //CHOMPstation edit: Adding debugger to toolbelt can hold list - Sharkmare
 		)
 
 /obj/item/weapon/storage/belt/utility/full
