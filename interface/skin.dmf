@@ -1815,7 +1815,7 @@ window "mainwindow"
 		right-click = false
 		saved-params = "pos;size;is-minimized;is-maximized"
 		on-size = ""
-		title = "VOREStation"
+		title = "CHOMPStation"
 		titlebar = true
 		statusbar = true
 		can-close = true
@@ -1825,7 +1825,7 @@ window "mainwindow"
 		is-minimized = false
 		is-maximized = true
 		can-scroll = none
-		icon = 'icons\\virgoicon.png'
+		icon = 'icons\\ss13_64.png'
 		image = ""
 		image-mode = stretch
 		keep-aspect = false
