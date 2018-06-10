@@ -360,6 +360,7 @@ var/list/admin_verbs_event_manager = list(
 	/client/proc/admin_ghost,
 	/datum/admins/proc/show_player_info,
 	/client/proc/dsay,
+	/client/proc/cmd_mod_say,
 	/client/proc/cmd_admin_subtle_message,
 	/client/proc/debug_variables,
 	/client/proc/check_antagonists,
