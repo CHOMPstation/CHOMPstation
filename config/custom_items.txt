@@ -229,7 +229,7 @@ item_path: /obj/item/weapon/melee/fluff/holochain/mass
 
 {
 ckey: erikthedog
-character_name: Erik
+character_name: Erik Ramadwood
 item_path: /obj/item/clothing/accessory/medal/gold/heroism
 }
 
