@@ -13,7 +13,7 @@
 	maxHealth = 150
 	health = 120
 	turns_per_move = 3
-	speed = -3
+	speed = -2
 	see_in_dark = 6
 	stop_when_pulled = 0
 	armor = list(			// will be determined
@@ -58,7 +58,7 @@
 /mob/living/simple_animal/neutral/synx/New()
 	..()
 	verbs |= /mob/living/proc/ventcrawl
-	verbs |= /mob/living/proc/hide
+	verbs |= /mob/living/simple_animal/proc/contort
 	verbs |= /mob/living/proc/disguise
 
 mob/living/simple_animal/synx/PunchTarget()
@@ -82,3 +82,22 @@ mob/living/simple_animal/synx/PunchTarget()
 		..()
 
 
+/mob/living/simple_animal/proc/contort()
+	set name = "contort"
+	set desc = "Allows to hide beneath tables or certain items. Toggled on or off."
+	set category = "Abilities"
+
+	if(stat == DEAD || paralysis || weakened || stunned || restrained())
+		return
+
+	if(status_flags & HIDING)
+		status_flags &= ~HIDING
+		reset_plane_and_layer()
+		to_chat(src,"<span class='notice'>You have stopped hiding.</span>")
+		speed = -3
+	else
+		status_flags |= HIDING
+		layer = HIDING_LAYER //Just above cables with their 2.44
+		plane = OBJ_PLANE
+		to_chat(src,"<span class='notice'>You are now hiding.</span>")
+		speed = 2
