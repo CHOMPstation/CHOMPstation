@@ -908,21 +908,17 @@ mob/living/carbon/proc/charmed() //TODO
 
 /datum/reagent/succubi_numbing/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	
-	var/effective_dose = dose
-	var/threshold = 1
 	
-	if(effective_dose < 1.5 * threshold)
-		M.eye_blurry = max(M.eye_blurry, 10)
-	else if(effective_dose < 5 * threshold)
-		M.Weaken(2)
-		M.drowsyness = max(M.drowsyness, 20)
+	M.eye_blurry = max(M.eye_blurry, 10)
+	M.Weaken(2)
+	M.drowsyness = max(M.drowsyness, 20)
 	if(prob(7))
 		M.show_message("<span class='warning'>You start to feel weakened, your body seems heavy.</span>")
 	return
 
 /datum/reagent/succubi_paralize
 	name = "Paralyzing Fluid"
-	id = "succubi_numbing"
+	id = "succubi_paralize"
 	description = "A unknown liquid, it doesn't smell"
 	metabolism= REM * 0.5
 	color = "#41029B"
@@ -930,8 +926,8 @@ mob/living/carbon/proc/charmed() //TODO
 
 /datum/reagent/succubi_paralize/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) //will first keep it like that.  lets see what it changes. if nothing, than I will rework the effect again
 	
-	if(prob(7))
-		M.Weaken(20)
-		M.eye_blurry = max(M.eye_blurry, 10)
+	M.Weaken(20)
+	M.eye_blurry = max(M.eye_blurry, 10)
+	if(prob(10))
 		M.show_message("<span class='warning'>You lose sensation of your body.</span>")
 	return
