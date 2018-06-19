@@ -99,6 +99,7 @@
     materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 8000, "uranium" = 6000, "diamond" = 6000)
     build_path = /obj/item/device/nif/bioadap
     sort_string = "HABBD"
+//CHOMP edit, added bioaddaptive NIF to protolathe
 
 /datum/design/item/nifrepairtool
 	name = "adv. NIF repair tool"
@@ -106,7 +107,7 @@
 	req_tech = list(TECH_MAGNET = 5, TECH_BLUESPACE = 5, TECH_MATERIAL = 5, TECH_ENGINEERING = 5, TECH_DATA = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 200, "glass" = 3000, "uranium" = 2000, "diamond" = 2000)
 	build_path = /obj/item/device/nifrepairer
-	sort_string = "HABBE"
+	sort_string = "HABBE" //CHOMP Edit, Changed String from HABBD to HABBE
 
 // Resleeving Circuitboards
 
