@@ -105,6 +105,7 @@
 		/obj/item/device/integrated_electronics/debugger,
 		/obj/item/stack/material/steel,
 		)
+//CHOMPstation edit, adding an advanced utility belt for engineers.
 
 /obj/item/weapon/storage/belt/utility/full
 	starts_with = list(
