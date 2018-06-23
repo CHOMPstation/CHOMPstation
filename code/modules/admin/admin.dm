@@ -730,28 +730,28 @@ var/datum/announcement/minor/admin_min_announcer = new
 	//Split on pipe or \n
 	decomposed = splittext(message,regex("\\||$","m"))
 	decomposed += "0" //Tack on a final 0 sleep to make 3-per-message evenly
-	
+
 	//Time to find how they screwed up.
 	//Wasn't the right length
 	if((decomposed.len) % 3) //+1 to accomidate the lack of a wait time for the last message
 		to_chat(usr,"<span class='warning'>You passed [decomposed.len] segments (senders+messages+pauses). You must pass a multiple of 3, minus 1 (no pause after the last message). That means a sender and message on every other line (starting on the first), separated by a pipe character (|), and a number every other line that is a pause in seconds.</span>")
 		return
-	
+
 	//Too long a conversation
 	if((decomposed.len / 3) > 20)
 		to_chat(usr,"<span class='warning'>This conversation is too long! 20 messages maximum, please.</span>")
 		return
-	
+
 	//Missed some sleeps, or sanitized to nothing.
 	for(var/i = 1; i < decomposed.len; i++)
-		
+
 		//Sanitize sender
 		var/clean_sender = sanitize(decomposed[i])
 		if(!clean_sender)
 			to_chat(usr,"<span class='warning'>One part of your conversation was not able to be sanitized. It was the sender of the [(i+2)/3]\th message.</span>")
 			return
 		decomposed[i] = clean_sender
-		
+
 		//Sanitize message
 		var/clean_message = sanitize(decomposed[++i])
 		if(!clean_message)
@@ -1548,7 +1548,7 @@ datum/admins/var/obj/item/weapon/paper/admin/faxreply // var to hold fax replies
 		P.stamped += /obj/item/weapon/stamp/centcomm
 		P.overlays += stampoverlay
 
-	var/obj/item/rcvdcopy
+	var/obj/item/weapon/paper/rcvdcopy
 	rcvdcopy = destination.copy(P)
 	rcvdcopy.loc = null //hopefully this shouldn't cause trouble
 	adminfaxes += rcvdcopy
@@ -1559,11 +1559,13 @@ datum/admins/var/obj/item/weapon/paper/admin/faxreply // var to hold fax replies
 		src.owner << "<span class='notice'>Message reply to transmitted successfully.</span>"
 		if(P.sender) // sent as a reply
 			log_admin("[key_name(src.owner)] replied to a fax message from [key_name(P.sender)]")
+			send2adminirc("FAX LOG: [src.owner.ckey]([src.owner]) replied to a fax message from [P.sender.ckey]([P.sender.mind.name]): [rcvdcopy] - ```[rcvdcopy.info]```")
 			for(var/client/C in admins)
 				if((R_ADMIN | R_MOD) & C.holder.rights)
 					C << "<span class='log_message'><span class='prefix'>FAX LOG:</span>[key_name_admin(src.owner)] replied to a fax message from [key_name_admin(P.sender)] (<a href='?_src_=holder;AdminFaxView=\ref[rcvdcopy]'>VIEW</a>)</span>"
 		else
 			log_admin("[key_name(src.owner)] has sent a fax message to [destination.department]")
+			send2adminirc("FAX LOG: [src.owner.ckey]([src.owner]) has sent a fax message to [destination.department]: [rcvdcopy] - ```[rcvdcopy.info]```")
 			for(var/client/C in admins)
 				if((R_ADMIN | R_MOD) & C.holder.rights)
 					C << "<span class='log_message'><span class='prefix'>FAX LOG:</span>[key_name_admin(src.owner)] has sent a fax message to [destination.department] (<a href='?_src_=holder;AdminFaxView=\ref[rcvdcopy]'>VIEW</a>)</span>"
