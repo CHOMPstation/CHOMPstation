@@ -1,5 +1,9 @@
 # VOREStation
 
+[![Build Status](https://travis-ci.org/CHOMPstation/CHOMPstation.svg?branch=master)](https://travis-ci.org/CHOMPstation/CHOMPstation)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/CHOMPstation/CHOMPstation.svg)](http://isitmaintained.com/project/CHOMPstation/CHOMPstation "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/CHOMPstation/CHOMPstation.svg)](http://isitmaintained.com/project/CHOMPstation/CHOMPstation "Percentage of issues still open")
+
 [![forthebadge](http://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/compatibility-club-penguin.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/no-ragrets.svg)](http://forthebadge.com)
 
 [Website](https://vore-station.net) - [Forums](https://forum.vore-station.net/) - [Wiki](https://wiki.vore-station.net/)
