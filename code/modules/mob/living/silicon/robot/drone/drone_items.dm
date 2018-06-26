@@ -85,7 +85,7 @@
 		/obj/item/slimepotion,
 		/obj/item/slime_extract,
 		/obj/item/weapon/reagent_containers/food/snacks/monkeycube,
-
+		/obj/item/mecha_parts/micro/part/
 		)
 
 /obj/item/weapon/gripper/service //Used to handle food, drinks, and seeds.
