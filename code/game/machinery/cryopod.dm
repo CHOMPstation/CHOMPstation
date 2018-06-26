@@ -77,6 +77,9 @@
 /obj/machinery/computer/cryopod/attack_ai()
 	attack_hand()
 
+/obj/machinery/computer/cryopod/MouseDrop_T()
+	attack_hand()
+
 /obj/machinery/computer/cryopod/attack_hand(mob/user = usr)
 	if(stat & (NOPOWER|BROKEN))
 		return
@@ -101,7 +104,6 @@
 	onclose(user, "cryopod_console")
 
 /obj/machinery/computer/cryopod/Topic(href, href_list)
-
 	if(..())
 		return
 
