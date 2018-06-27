@@ -433,6 +433,11 @@
 		manip_rating += M.rating
 	blur_amount = (48 - manip_rating * 8)
 
+/obj/machinery/transhuman/resleever/MouseDrop_T(var/mob/target, var/mob/user)
+	if(!Adjacent(user) || !target.Adjacent(user))
+		return
+	put_mob(target)
+
 /obj/machinery/transhuman/resleever/attack_hand(mob/user as mob)
 	user.set_machine(src)
 	var/health_text = ""
