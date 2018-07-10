@@ -9,7 +9,7 @@ var/global/floorIsLava = 0
 	//log_adminwarn(msg) //log_and_message_admins is for this
 
 	for(var/client/C in admins)
-		if((R_ADMIN|R_MOD) & C.holder.rights)
+		if((R_ADMIN|R_MOD|R_EVENT) & C.holder.rights)
 			C << msg
 
 /proc/msg_admin_attack(var/text) //Toggleable Attack Messages
