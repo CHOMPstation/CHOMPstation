@@ -326,6 +326,7 @@ var/list/admin_verbs_hideable = list(
 	/proc/release,
 	/datum/admins/proc/set_tcrystals
 	)
+
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	//right-click adminPM interface,
 	/client/proc/cmd_admin_pm_panel,	//admin-pm list,
@@ -403,9 +404,23 @@ var/list/admin_verbs_event_manager = list(
 	/client/proc/toggle_random_events,
 	/client/proc/editappear,
 	/client/proc/roll_dices,
+	/client/proc/cmd_admin_create_centcom_report,
+	/client/proc/trader_ship,
+	/client/proc/response_team,
+	/client/proc/cmd_admin_change_custom_event,
+	/client/proc/admin_call_shuttle,
+	/client/proc/admin_cancel_shuttle,
+	/client/proc/admin_deny_shuttle,
+	/client/proc/event_manager_panel,
+	/client/proc/secrets,
+	/datum/admins/proc/startnow,
+	/client/proc/change_security_level,
+	/datum/admins/proc/access_news_network,
 	/datum/admins/proc/call_supply_drop,
 	/datum/admins/proc/call_drop_pod
 )
+
+
 
 /client/proc/add_admin_verbs()
 	if(holder)
@@ -902,7 +917,7 @@ var/list/admin_verbs_event_manager = list(
 	set desc = "Sets the station security level"
 	set category = "Admin"
 
-	if(!check_rights(R_ADMIN))	return
+	if(!check_rights(R_ADMIN | R_EVENT))	return
 	var sec_level = input(usr, "It's currently code [get_security_level()].", "Select Security Level")  as null|anything in (list("green","blue","red","delta")-get_security_level())
 	if(alert("Switch from code [get_security_level()] to code [sec_level]?","Change security level?","Yes","No") == "Yes")
 		set_security_level(sec_level)
