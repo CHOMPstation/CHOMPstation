@@ -17,7 +17,7 @@
 
 	maxHealth = 150
 	health = 120
-	turns_per_move = 3
+	turns_per_move = 2
 	speed = -2
 	see_in_dark = 6
 	stop_when_pulled = 0
@@ -121,15 +121,11 @@ mob/living/simple_animal/synx/PunchTarget()
 	// If transform isn't true
 	if(!transformed)
 		to_chat(src,"<span class='warning'>you changed back into your disguise.</span>")
+		icon_living = transformed_state //Switch state to transformed state
 	else // If transformed is true.
 		to_chat(src,"<span class='warning'>now they see your true form.</span>")
+		icon_living = initial(icon_living) //Switch state to what it was originally defined.
+
 
 	transformed = !transformed
 	update_icons()
-
-/mob/living/simple_animal/retaliate/synx/update_icons()
-	..()
-	if(transformed)
-		icon_state = transformed_state
-	else
-		icon_state = initial(icon_state)
