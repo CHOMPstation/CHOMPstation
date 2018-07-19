@@ -49,6 +49,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	req_admin_notify = 1
 	minimal_player_age = 10
 	economic_modifier = 10
+	whitelist_only = 1			//CHOMPstation Edit
 
 	minimum_character_age = 25
 	ideal_character_age = 50
@@ -88,4 +89,3 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	minimal_access = list(access_heads, access_keycard_auth)
 
 	outfit_type = /decl/hierarchy/outfit/job/secretary
-	alt_titles = list("Command Liaison", "Bridge Secretary")

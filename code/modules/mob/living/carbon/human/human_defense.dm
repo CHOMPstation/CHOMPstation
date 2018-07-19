@@ -152,7 +152,7 @@ emp_act
 	for(var/obj/item/clothing/gear in protective_gear)
 		if(gear.body_parts_covered & def_zone.body_part)
 			protection += gear.armor[type]
-		if(gear.accessories.len)
+		if(LAZYLEN(gear.accessories))
 			for(var/obj/item/clothing/accessory/bling in gear.accessories)
 				if(bling.body_parts_covered & def_zone.body_part)
 					protection += bling.armor[type]
@@ -165,7 +165,7 @@ emp_act
 	for(var/obj/item/clothing/gear in protective_gear)
 		if(gear.body_parts_covered & def_zone.body_part)
 			soaked += gear.armorsoak[type]
-		if(gear.accessories.len)
+		if(LAZYLEN(gear.accessories))
 			for(var/obj/item/clothing/accessory/bling in gear.accessories)
 				if(bling.body_parts_covered & def_zone.body_part)
 					soaked += bling.armorsoak[type]
@@ -341,7 +341,7 @@ emp_act
 
 /mob/living/carbon/human/emag_act(var/remaining_charges, mob/user, var/emag_source)
 	var/obj/item/organ/external/affecting = get_organ(user.zone_sel.selecting)
-	if(!affecting || !(affecting.status & ORGAN_ROBOT))
+	if(!affecting || !(affecting.robotic >= ORGAN_ROBOT))
 		user << "<span class='warning'>That limb isn't robotic.</span>"
 		return -1
 	if(affecting.sabotaged)

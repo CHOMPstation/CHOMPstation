@@ -85,7 +85,7 @@
 		/obj/item/slimepotion,
 		/obj/item/slime_extract,
 		/obj/item/weapon/reagent_containers/food/snacks/monkeycube,
-
+		/obj/item/mecha_parts/micro/part/
 		)
 
 /obj/item/weapon/gripper/service //Used to handle food, drinks, and seeds.
@@ -195,6 +195,21 @@
 		return
 
 	to_chat(src.loc, "<span class='danger'>You drop \the [wrapped].</span>")
+	wrapped.loc = get_turf(src)
+	wrapped = null
+	//update_icon()
+
+/obj/item/weapon/gripper/proc/drop_item_nm()
+
+	if(!wrapped)
+		for(var/obj/item/thing in src.contents)
+			thing.loc = get_turf(src)
+		return
+
+	if(wrapped.loc != src)
+		wrapped = null
+		return
+
 	wrapped.loc = get_turf(src)
 	wrapped = null
 	//update_icon()

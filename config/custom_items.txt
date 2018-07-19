@@ -61,6 +61,12 @@ item_path: /obj/item/clothing/head/helmet/hos/fluff/lethe
 }
 
 {
+ckey: argobargsoup
+character_name: Lynn Shady
+item_path: /obj/item/device/flashlight/pen/fluff/lynn
+}
+
+{
 ckey: arokha
 character_name: Aronai Kadigan
 item_path: /obj/item/clothing/under/utility/sifguard/medical/command
@@ -79,7 +85,7 @@ item_desc: A medical jacket straight from Central Command.
 {
 ckey: arokha
 character_name: Aronai Kadigan
-item_path: /obj/item/weapon/storage/backpack/satchel/gen/fluff/aronai
+item_path: /obj/item/weapon/card/id/centcom/station/fluff/aronai
 }
 
 {
@@ -207,6 +213,25 @@ item_path: /obj/item/weapon/storage/box/fluff/drake
 }
 
 # ######## E CKEYS
+{
+ckey: draycu
+character_name: Theseus
+item_path: /obj/item/weapon/coin/diamond
+item_name: theseus' diamond coin
+item_desc: An engraved coin made of diamond. On the side for heads is printed the year 2541, along with the letter T. On the side for tails, the letter Y can be seen.
+}
+
+{
+ckey: draycu
+character_name: Schae Yonra
+item_path: /obj/item/weapon/melee/fluff/holochain/mass
+}
+
+{
+ckey: erikthedog
+character_name: Erik Ramadwood
+item_path: /obj/item/clothing/accessory/medal/gold/heroism
+}
 
 # Permit Expired
 #{
@@ -274,12 +299,49 @@ character_name: Belle Day
 item_path: /obj/item/weapon/implanter/reagent_generator/belle
 }
 
+{
+ckey: hzdonut
+character_name: Jesse Soemmer
+item_path: /obj/item/weapon/gun/projectile/revolver/fluff/jesselemat
+}
+
+{
+ckey: hzdonut
+character_name: Jesse Soemmer
+item_path: /obj/item/clothing/accessory/permit/gun/fluff/JesseSoemmer
+}
+
+{
+ckey: hzdonut
+character_name: Jesse Soemmer
+item_path: /obj/item/clothing/accessory/holster/hip
+}
+
 # ######## I CKEYS
+
+{
+ckey: igni
+character_name:  Kelly Summers
+item_path:/obj/item/weapon/melee/fluffstuff/wardenschain
+req_titles: Warden, Head of Security
+}
+
+{
+ckey: igni
+character_name:  Kelly Summers
+item_path:/obj/item/clothing/accessory/collar/fluff/Kellyscollar
+}
 
 {
 ckey: interrolouis
 character_name:  Ruda Lizden
-item_path:/obj/item/clothing/accessory/badge/holo/detective/ruda
+item_path: /obj/item/clothing/accessory/badge/holo/detective/ruda
+}
+
+{
+ckey: interrolouis
+character_name: Kai Highlands
+item_path: /obj/item/borg/upgrade/modkit/chassis_mod/kai
 }
 
 {
@@ -524,6 +586,13 @@ character_name: Myryan Karnage-Cunningham
 item_path: /obj/item/weapon/storage/belt/utility/fluff/vulpine
 }
 
+{
+ckey: mr_signmeup
+character_name: Reshskakskakss Seekiseekis
+item_path: /obj/item/clothing/suit/security/navyhos
+req_titles: Head of Security
+}
+
 # ######## N CKEYS
 
 {
@@ -683,6 +752,13 @@ item_path: /obj/item/clothing/glasses/sunglasses/fluff/alfonso
 #}
 
 {
+ckey: silencedmp5a5
+character_name: NT-HASD #556
+item_path: /obj/item/device/modkit_conversion/hasd
+req_access = 1
+}
+
+{
 ckey: silvertalismen
 character_name: Tasy Ruffles
 item_path: /obj/item/clothing/under/sexyclown
@@ -704,12 +780,6 @@ item_path: /obj/item/clothing/mask/gas/sexyclown
 ckey: silvertalismen
 character_name: Tasy Ruffles
 item_path: /obj/item/device/pda/clown
-}
-
-{
-ckey: silvertalismen
-character_name: Camilla
-item_path: /obj/item/toy/plushie/farwa
 }
 
 {
@@ -866,25 +936,25 @@ item_path: /obj/item/clothing/head/welding/fluff/vinjj
 
 {
 ckey: wickedtemp
-character_name: Chakat Tempest
+character_name: Chakat Tempest Venesare
 item_path: /obj/item/clothing/glasses/omnihud/med/fluff/wickedtemphud
 }
 
 {
 ckey: wickedtemp
-character_name: Chakat Tempest
-item_path: /obj/item/weapon/reagent_containers/hypospray/vr/tempest
+character_name: Chakat Tempest Venesare
+item_path: /obj/item/weapon/reagent_containers/hypospray/vial/tempest
 }
 
 {
 ckey: wickedtemp
-character_name: Chakat Tempest
+character_name: Chakat Tempest Venesare
 item_path: /obj/item/weapon/storage/backpack/saddlebag/tempest
 }
 
 {
 ckey: wickedtemp
-character_name: Chakat Tempest
+character_name: Chakat Tempest Venesare
 item_path: /obj/item/weapon/implanter/reagent_generator/tempest
 }
 
@@ -914,6 +984,12 @@ item_path: /obj/item/device/modkit_single/fluff/zekechimera
 ckey: zekesturm
 character_name: Zeke Arachi
 item_path: /obj/item/clothing/head/fluff/xeno
+}
+
+{
+ckey: zigfe
+character_name: Zaoozaoo Xrimxuqmqixzix
+item_path: /obj/item/clothing/head/fluff/zao
 }
 
 {

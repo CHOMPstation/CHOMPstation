@@ -134,10 +134,13 @@ var/list/admin_verbs_fun = list(
 	/client/proc/editappear,
 	/client/proc/roll_dices,
 	/datum/admins/proc/call_supply_drop,
-	/datum/admins/proc/call_drop_pod
+	/datum/admins/proc/call_drop_pod,
+	/client/proc/smite_vr, //VOREStation Add,
+	/client/proc/smite
 	)
 
 var/list/admin_verbs_spawn = list(
+	/datum/admins/proc/quick_nif, //CHOMPStation Add,
 	/datum/admins/proc/spawn_fruit,
 	/datum/admins/proc/spawn_custom_item,
 	/datum/admins/proc/check_custom_items,
@@ -176,7 +179,8 @@ var/list/admin_verbs_server = list(
 	/client/proc/nanomapgen_DumpImage,
 	/client/proc/modify_server_news,
 	/client/proc/recipe_dump,
-	/client/proc/panicbunker
+	/client/proc/panicbunker,
+	/client/proc/paranoia_logging
 	)
 
 var/list/admin_verbs_debug = list(
@@ -322,6 +326,7 @@ var/list/admin_verbs_hideable = list(
 	/proc/release,
 	/datum/admins/proc/set_tcrystals
 	)
+
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	//right-click adminPM interface,
 	/client/proc/cmd_admin_pm_panel,	//admin-pm list,
@@ -342,6 +347,7 @@ var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_subtle_message, 	//send an message to somebody as a 'voice in their head',
 	/datum/admins/proc/paralyze_mob,
 	/client/proc/cmd_admin_direct_narrate,
+	/datum/admins/proc/quick_nif, //CHOMPStation Add,
 	/client/proc/allow_character_respawn,   // Allows a ghost to respawn ,
 	/datum/admins/proc/sendFax,
 	/client/proc/getserverlog,			//allows us to fetch server logs (diary) for other days,
@@ -354,15 +360,21 @@ var/list/admin_verbs_event_manager = list(
 	/client/proc/cmd_admin_pm_context,
 	/client/proc/cmd_admin_pm_panel,
 	/datum/admins/proc/PlayerNotes,
+	/datum/admins/proc/announce,		//priority announce something to all clients.,
+	/datum/admins/proc/intercom,		//send a fake intercom message, like an arrivals announcement,
+	/datum/admins/proc/intercom_convo,	//send a fake intercom conversation, like an ATC exchange,
 	/client/proc/admin_ghost,
 	/datum/admins/proc/show_player_info,
 	/client/proc/dsay,
+	/client/proc/cmd_mod_say,
 	/client/proc/cmd_admin_subtle_message,
 	/client/proc/debug_variables,
 	/client/proc/check_antagonists,
 	/client/proc/aooc,
 	/datum/admins/proc/paralyze_mob,
 	/client/proc/cmd_admin_direct_narrate,
+	/client/proc/cmd_admin_world_narrate,	//sends text to all players with no padding,
+	/datum/admins/proc/quick_nif, //CHOMPStation Add,
 	/client/proc/allow_character_respawn,
 	/datum/admins/proc/sendFax,
 	/client/proc/respawn_character,
@@ -392,9 +404,23 @@ var/list/admin_verbs_event_manager = list(
 	/client/proc/toggle_random_events,
 	/client/proc/editappear,
 	/client/proc/roll_dices,
+	/client/proc/cmd_admin_create_centcom_report,
+	/client/proc/trader_ship,
+	/client/proc/response_team,
+	/client/proc/cmd_admin_change_custom_event,
+	/client/proc/admin_call_shuttle,
+	/client/proc/admin_cancel_shuttle,
+	/client/proc/admin_deny_shuttle,
+	/client/proc/event_manager_panel,
+	/client/proc/secrets,
+	/datum/admins/proc/startnow,
+	/client/proc/change_security_level,
+	/datum/admins/proc/access_news_network,
 	/datum/admins/proc/call_supply_drop,
 	/datum/admins/proc/call_drop_pod
 )
+
+
 
 /client/proc/add_admin_verbs()
 	if(holder)
@@ -891,7 +917,7 @@ var/list/admin_verbs_event_manager = list(
 	set desc = "Sets the station security level"
 	set category = "Admin"
 
-	if(!check_rights(R_ADMIN))	return
+	if(!check_rights(R_ADMIN | R_EVENT))	return
 	var sec_level = input(usr, "It's currently code [get_security_level()].", "Select Security Level")  as null|anything in (list("green","blue","red","delta")-get_security_level())
 	if(alert("Switch from code [get_security_level()] to code [sec_level]?","Change security level?","Yes","No") == "Yes")
 		set_security_level(sec_level)

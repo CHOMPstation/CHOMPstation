@@ -1,5 +1,5 @@
 /datum/species/sergal
-	name = "Sergal"
+	name = SPECIES_SERGAL
 	name_plural = "Sergals"
 	icobase = 'icons/mob/human_races/r_sergal.dmi'
 	deform = 'icons/mob/human_races/r_def_sergal.dmi'
@@ -60,7 +60,7 @@
 		)
 
 /datum/species/akula
-	name = "Akula"
+	name = SPECIES_AKULA
 	name_plural = "Akula"
 	icobase = 'icons/mob/human_races/r_akula.dmi'
 	deform = 'icons/mob/human_races/r_def_akula.dmi'
@@ -104,7 +104,7 @@
 	return TRUE // Surprise, SHERKS.
 
 /datum/species/nevrean
-	name = "Nevrean"
+	name = SPECIES_NEVREAN
 	name_plural = "Nevreans"
 	icobase = 'icons/mob/human_races/r_nevrean.dmi'
 	deform = 'icons/mob/human_races/r_def_nevrean.dmi'
@@ -148,7 +148,7 @@
 		)
 
 /datum/species/hi_zoxxen
-	name = "Highlander Zorren"
+	name = SPECIES_ZORREN_HIGH
 	name_plural = "Zorren"
 	icobase = 'icons/mob/human_races/r_fox_vr.dmi'
 	deform = 'icons/mob/human_races/r_def_fox.dmi'
@@ -156,8 +156,8 @@
 	icobase_tail = 1
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
 	num_alternate_languages = 3
-	secondary_langs = list(LANGUAGE_SIIK)
-	name_language = LANGUAGE_SIIK
+	secondary_langs = list(LANGUAGE_TERMINUS)
+	name_language = LANGUAGE_TERMINUS
 
 	min_age = 18
 	max_age = 80
@@ -176,6 +176,7 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
+	blood_color = "#240bc4"
 	color_mult = 1
 
 	heat_discomfort_strings = list(
@@ -186,7 +187,7 @@
 	inherent_verbs = list(/mob/living/proc/shred_limb)
 
 /datum/species/fl_zorren
-	name = "Flatland Zorren"
+	name = SPECIES_ZORREN_FLAT
 	name_plural = "Zorren"
 	icobase = 'icons/mob/human_races/r_fennec_vr.dmi'
 	deform = 'icons/mob/human_races/r_def_fennec.dmi'
@@ -194,8 +195,8 @@
 	icobase_tail = 1
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
 	num_alternate_languages = 3
-	secondary_langs = list(LANGUAGE_SIIK)
-	name_language = LANGUAGE_SIIK
+	secondary_langs = list(LANGUAGE_TERMINUS)
+	name_language = LANGUAGE_TERMINUS
 
 	min_age = 18
 	max_age = 80
@@ -214,6 +215,7 @@
 
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
+	blood_color = "#240bc4"
 	color_mult = 1
 	inherent_verbs = list(/mob/living/proc/shred_limb)
 
@@ -225,7 +227,7 @@
 
 
 /datum/species/vulpkanin
-	name = "Vulpkanin"
+	name = SPECIES_VULPKANIN
 	name_plural = "Vulpkanin"
 	icobase = 'icons/mob/human_races/r_vulpkanin.dmi'
 	deform = 'icons/mob/human_races/r_vulpkanin.dmi'
@@ -261,7 +263,7 @@
 	max_age = 80
 
 /datum/species/xenohybrid
-	name = "Xenomorph Hybrid"
+	name = SPECIES_XENOHYBRID
 	name_plural = "Xenomorphs"
 	icobase = 'icons/mob/human_races/r_xenomorph.dmi'
 	deform = 'icons/mob/human_races/r_def_xenomorph.dmi'
@@ -341,7 +343,8 @@
 		/mob/living/carbon/human/proc/sonar_ping,
 		/mob/living/proc/hide,
 		/mob/living/proc/shred_limb,
-		/mob/living/proc/toggle_pass_table
+		/mob/living/proc/toggle_pass_table,
+		/mob/living/carbon/human/proc/succubus_bite
 		)
 
 /datum/species/shapeshifter/promethean
@@ -364,7 +367,7 @@
 	inherent_verbs = list(/mob/living/proc/shred_limb)
 
 datum/species/harpy
-	name = "Rapala"
+	name = SPECIES_RAPALA
 	name_plural = "Rapalans"
 	icobase = 'icons/mob/human_races/r_harpy_vr.dmi'
 	deform = 'icons/mob/human_races/r_def_harpy_vr.dmi'

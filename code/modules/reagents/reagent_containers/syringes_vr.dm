@@ -27,13 +27,14 @@
 	LAZYINITLIST(targets)
 
 	//We can't keep a mob reference, that's a bad idea, so instead name+ref should suffice.
-	var/hash = md5(target.real_name + "\ref[target]")
+	var/name_to_use = ismob(target) ? target.real_name : target.name
+	var/hash = md5(name_to_use + "\ref[target]")
 
 	//Just once!
 	targets |= hash
 
 	//Grab any viruses they have
-	if(LAZYLEN(target.virus2.len))
+	if(iscarbon(target) && LAZYLEN(target.virus2.len))
 		LAZYINITLIST(viruses)
 		var/datum/disease2/disease/virus = pick(target.virus2.len)
 		viruses[hash] = virus.getcopy()

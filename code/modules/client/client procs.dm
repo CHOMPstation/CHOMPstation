@@ -64,7 +64,7 @@
 
 	//Logs all hrefs
 	if(config && config.log_hrefs && href_logfile)
-		href_logfile << "<small>[time2text(world.timeofday,"hh:mm")] [src] (usr:[usr])</small> || [hsrc ? "[hsrc] " : ""][href]<br>"
+		href_logfile << "[src] (usr:[usr])</small> || [hsrc ? "[hsrc] " : ""][href]"
 
 	switch(href_list["_src_"])
 		if("holder")	hsrc = holder
@@ -164,6 +164,12 @@
 			src.changes()
 
 	hook_vr("client_new",list(src)) //VOREStation Code
+	
+	if(config.paranoia_logging)
+		if(isnum(player_age) && player_age == 0)
+			log_and_message_admins("PARANOIA: [key_name(src)] has connected here for the first time.")
+		if(isnum(account_age) && account_age <= 2)
+			log_and_message_admins("PARANOIA: [key_name(src)] has a very new BYOND account ([account_age] days).")
 
 	//////////////
 	//DISCONNECT//
@@ -220,6 +226,12 @@
 		player_age = text2num(query.item[2])
 		break
 
+	account_join_date = sanitizeSQL(findJoinDate())
+	if(account_join_date && dbcon.IsConnected())
+		var/DBQuery/query_datediff = dbcon.NewQuery("SELECT DATEDIFF(Now(),'[account_join_date]')")
+		if(query_datediff.Execute() && query_datediff.NextRow())
+			account_age = text2num(query_datediff.item[1])
+
 	var/DBQuery/query_ip = dbcon.NewQuery("SELECT ckey FROM erro_player WHERE ip = '[address]'")
 	query_ip.Execute()
 	related_accounts_ip = ""
@@ -251,12 +263,21 @@
 
 	//Panic bunker code
 	if (isnum(player_age) && player_age == 0) //first connection
+		log_adminwarn("[key] has joined for the first time.") //Chompstation edit, notifying admins of a first join <3
+		message_admins("[key] has joined for the first time.")
 		if (config.panic_bunker && !holder && !deadmin_holder)
 			log_adminwarn("Failed Login: [key] - New account attempting to connect during panic bunker")
 			message_admins("<span class='adminnotice'>Failed Login: [key] - New account attempting to connect during panic bunker</span>")
 			to_chat(src, "Sorry but the server is currently not accepting connections from never before seen players.")
 			qdel(src)
 			return 0
+
+	// Chompstation edit, adds restriction that you can only join with discord account linked to your ckey - Jonathan
+	if(config.discord_restriction && !IsDiscordLinked(ckey))
+		to_chat(src,"This server requires you to be linked to the Chompers Discord server in order to connect. Please head to https://chompstation.tk to find out more about our server.")
+		qdel(src)
+		return 0
+	// Chompstation edit end
 
 	// VOREStation Edit Start - Department Hours
 	if(config.time_off)
@@ -372,3 +393,34 @@ client/verb/character_setup()
 	set category = "Preferences"
 	if(prefs)
 		prefs.ShowChoices(usr)
+
+// Chompstation Edit, adding a proc to check if their account is linked to discord. - Jonathan
+/proc/IsDiscordLinked(ckey)
+	establish_db_connection()
+	if(!dbcon.IsConnected())
+		return null
+
+	var/sql_ckey = sql_sanitize_text(ckey)
+
+	var/DBQuery/query = dbcon.NewQuery("SELECT * FROM discord2byond WHERE ckey = '[sql_ckey]'")
+	query.Execute()
+
+	if(query.NextRow())
+		if(ckey in query.item)
+			return 1
+	else
+		return 0
+// Chompstation Edit end.
+
+/client/proc/findJoinDate()
+	var/list/http = world.Export("http://byond.com/members/[ckey]?format=text")
+	if(!http)
+		log_world("Failed to connect to byond age check for [ckey]")
+		return
+	var/F = file2text(http["CONTENT"])
+	if(F)
+		var/regex/R = regex("joined = \"(\\d{4}-\\d{2}-\\d{2})\"")
+		if(R.Find(F))
+			. = R.group[1]
+		else
+			CRASH("Age check regex failed for [src.ckey]")

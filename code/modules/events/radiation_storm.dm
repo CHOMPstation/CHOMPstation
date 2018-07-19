@@ -9,7 +9,7 @@
 	var/postStartTicks 		= 0
 
 /datum/event/radiation_storm/announce()
-	command_announcement.Announce("High levels of radiation detected near the station. Please evacuate into one of the shielded maintenance tunnels or dorms.", "Anomaly Alert", new_sound = 'sound/AI/radiation.ogg')
+	command_announcement.Announce("High levels of radiation detected near \the [station_name()]. Please evacuate into one of the shielded maintenance tunnels or dorms.", "Anomaly Alert", new_sound = 'sound/AI/radiation.ogg') //VOREStation Edit - Dorms ref
 
 /datum/event/radiation_storm/start()
 	make_maint_all_access()
@@ -30,8 +30,8 @@
 		command_announcement.Announce("The station has passed the radiation belt. Please allow for up to one minute while radiation levels dissipate, and report to medbay if you experience any unusual symptoms. Maintenance will lose all access again shortly.", "Anomaly Alert")
 /datum/event/radiation_storm/proc/radiate()
 	var/radiation_level = rand(15, 35)
-	for(var/z in using_map.station_levels)
-		radiation_repository.z_radiate(locate(1, 1, z), radiation_level, 1)
+	//for(var/z in using_map.station_levels) //VORESTATION: No safe areas outside of the core station
+	radiation_repository.z_radiate(locate(1, 1, 1), radiation_level, 1)
 
 	for(var/mob/living/carbon/C in living_mob_list)
 		var/area/A = get_area(C)

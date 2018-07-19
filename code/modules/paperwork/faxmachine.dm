@@ -1,5 +1,5 @@
 var/list/obj/machinery/photocopier/faxmachine/allfaxes = list()
-var/list/admin_departments = list("[using_map.boss_name]", "Virgo Prime Governmental Authority", "Supply")
+var/list/admin_departments = list("[using_map.boss_name]", "Virgo-Prime Governmental Authority", "Supply") // Vorestation Edit
 var/list/alldepartments = list()
 
 var/list/adminfaxes = list()	//cache for faxes that have been sent to admins
@@ -165,7 +165,7 @@ var/list/adminfaxes = list()	//cache for faxes that have been sent to admins
 	use_power(200)
 
 	//received copies should not use toner since it's being used by admins only.
-	var/obj/item/rcvdcopy
+	var/obj/item/weapon/paper/rcvdcopy
 	if (istype(copyitem, /obj/item/weapon/paper))
 		rcvdcopy = copy(copyitem, 0)
 	else if (istype(copyitem, /obj/item/weapon/photo))
@@ -182,7 +182,7 @@ var/list/adminfaxes = list()	//cache for faxes that have been sent to admins
 	//message badmins that a fax has arrived
 	if (destination == using_map.boss_name)
 		message_admins(sender, "[uppertext(using_map.boss_short)] FAX", rcvdcopy, "CentComFaxReply", "#006100")
-	else if (destination == "Virgo Prime Governmental Authority")
+	else if (destination == "Virgo-Prime Governmental Authority") // Vorestation Edit
 		message_admins(sender, "VIRGO GOVERNMENT FAX", rcvdcopy, "CentComFaxReply", "#1F66A0")
 	else if (destination == "Supply")
 		message_admins(sender, "[uppertext(using_map.boss_short)] SUPPLY FAX", rcvdcopy, "CentComFaxReply", "#5F4519")
@@ -195,7 +195,7 @@ var/list/adminfaxes = list()	//cache for faxes that have been sent to admins
 	visible_message("[src] beeps, \"Message transmitted successfully.\"")
 
 
-/obj/machinery/photocopier/faxmachine/proc/message_admins(var/mob/sender, var/faxname, var/obj/item/sent, var/reply_type, font_colour="#006100")
+/obj/machinery/photocopier/faxmachine/proc/message_admins(var/mob/sender, var/faxname, var/obj/item/weapon/paper/sent, var/reply_type, font_colour="#006100")
 	var/msg = "<span class='notice'><b><font color='[font_colour]'>[faxname]: </font>[get_options_bar(sender, 2,1,1)]"
 	msg += "(<a href='?_src_=holder;FaxReply=\ref[sender];originfax=\ref[src];replyorigin=[reply_type]'>REPLY</a>)</b>: "
 	msg += "Receiving '[sent.name]' via secure connection ... <a href='?_src_=holder;AdminFaxView=\ref[sent]'>view message</a></span>"
@@ -209,3 +209,5 @@ var/list/adminfaxes = list()	//cache for faxes that have been sent to admins
 	var/faxid = export_fax(sent)
 	message_chat_admins(sender, faxname, sent, faxid, font_colour)
 	// VoreStation Edit End
+
+	send2adminirc("Receiving [sent.name] via secure connection from [sender.ckey]([sender.mind.name]) ... [sent] - ```[sent.info]```")

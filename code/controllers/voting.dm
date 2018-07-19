@@ -266,7 +266,7 @@ var/global/list/round_voters = list() // Keeps track of the individuals voting f
 		return
 	var/admin = 0
 	if(C.holder)
-		if(C.holder.rights & R_ADMIN)
+		if(C.holder.rights & R_ADMIN|R_EVENT)
 			admin = 1
 
 	. = "<html><head><title>Voting Panel</title></head><body>"

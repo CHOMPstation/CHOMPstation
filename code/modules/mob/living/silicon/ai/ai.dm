@@ -1,7 +1,6 @@
 #define AI_CHECK_WIRELESS 1
 #define AI_CHECK_RADIO 2
 
-var/list/ai_list = list()
 var/list/ai_verbs_default = list(
 	// /mob/living/silicon/ai/proc/ai_recall_shuttle,
 	/mob/living/silicon/ai/proc/ai_emergency_message,
@@ -150,6 +149,7 @@ var/list/ai_verbs_default = list(
 	add_language(LANGUAGE_SOL_COMMON, 1)
 	add_language(LANGUAGE_UNATHI, 1)
 	add_language(LANGUAGE_SIIK, 1)
+	add_language(LANGUAGE_AKHANI, 1)
 	add_language(LANGUAGE_SKRELLIAN, 1)
 	add_language(LANGUAGE_SKRELLIANFAR, 0)
 	add_language(LANGUAGE_TRADEBAND, 1)
@@ -263,7 +263,7 @@ var/list/ai_verbs_default = list(
 		aiPDA.name = pickedName + " (" + aiPDA.ownjob + ")"
 
 	if(aiCommunicator)
-		aiCommunicator.register_device(src)
+		aiCommunicator.register_device(src.name)
 
 /*
 	The AI Power supply is a dummy object used for powering the AI since only machinery should be using power.
@@ -586,8 +586,8 @@ var/list/ai_verbs_default = list(
 				"female human",
 				"male unathi",
 				"female unathi",
-				"male tajara",
-				"female tajara",
+				"male tajaran",
+				"female tajaran",
 				"male tesharii",
 				"female tesharii",
 				"male skrell",
@@ -629,9 +629,9 @@ var/list/ai_verbs_default = list(
 						holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holounam"))
 					if("female unathi")
 						holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holounaf"))
-					if("male tajara")
+					if("male tajaran")
 						holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holotajm"))
-					if("female tajara")
+					if("female tajaran")
 						holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holotajf"))
 					if("male tesharii")
 						holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holotesm"))
@@ -800,6 +800,18 @@ var/list/ai_verbs_default = list(
 	// AI cores don't store what brain was used to build them so we're just gonna assume they can think to some degree.
 	// If that is ever fixed please update this proc.
 	return TRUE
+
+//Special subtype kept around for global announcements
+/mob/living/silicon/ai/announcer/initialize()
+	. = ..()
+	mob_list -= src
+	living_mob_list -= src
+	dead_mob_list -= src
+	ai_list -= src
+	silicon_mob_list -= src
+
+/mob/living/silicon/ai/announcer/Life()
+	return
 
 #undef AI_CHECK_WIRELESS
 #undef AI_CHECK_RADIO

@@ -5,9 +5,10 @@
 	item_state = "card-id"
 
 	sprite_sheets = list(
-		"Teshari" = 'icons/mob/species/seromi/id.dmi'
+		SPECIES_TESHARI = 'icons/mob/species/seromi/id.dmi'
 		)
 
+	var/mining_points = 0 // VOREStation Edit - For redeeming at mining equipment lockers
 	var/access = list()
 	var/registered_name = "Unknown" // The name registered_name on the card
 	slot_flags = SLOT_ID | SLOT_EARS
@@ -112,6 +113,12 @@
 	usr << "The DNA hash on the card is [dna_hash]."
 	usr << "The fingerprint hash on the card is [fingerprint_hash]."
 	return
+
+/obj/item/weapon/card/id/get_worn_icon_state(var/slot_name)
+	if(slot_name == slot_wear_id_str)
+		return "id" //Legacy, just how it is. There's only one sprite.
+
+	return ..()
 
 /obj/item/weapon/card/id/initialize()
 	. = ..()

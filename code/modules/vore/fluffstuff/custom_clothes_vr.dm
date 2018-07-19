@@ -1031,32 +1031,25 @@
 	icon_state = "gildedcuffs"
 
 	icon_override = 'icons/vore/custom_onmob_vr.dmi'
-	item_state = "gildedcuffs_mob"
-	item_icons = null
+	item_icons = list()
 
 	body_parts_covered = 0
-	species_restricted = null
 
 /obj/item/clothing/shoes/black/cuffs/red
 	name = "red leg wraps"
 	desc = "Ankle coverings for digitigrade creatures. Red!"
 	icon_state = "redcuffs"
-	item_state = "redcuffs_mob"
 
 /obj/item/clothing/shoes/black/cuffs/blue
 	name = "blue leg wraps"
 	desc = "Ankle coverings for digitigrade creatures. Blue!"
 	icon_state = "bluecuffs"
-	item_state = "bluecuffs_mob"
-
 
 //bwoincognito:Octavious Ward
 /obj/item/clothing/shoes/black/cuffs/octavious
 	name = "silvered leg wraps"
 	desc = "Dark leather leg wraps with sliver clasps on the sides. Stylish and functional."
 	icon_state = "silvergildedcuffs"
-	item_state = "silvergildedcuffs_mob"
-
 
 //jemli:Jemli
 /obj/item/clothing/head/fedora/fluff/jemli
@@ -1320,18 +1313,13 @@ Departamental Swimsuits, for general use
 /obj/item/clothing/suit/storage/hooded/wintercoat/jessie
 	name = "Handmade Winter Suit"
 	desc = "A durable, but somewhat ragged lower portion of a snow suit fitted for a wolftaur."
-	icon = 'icons/mob/taursuits_vr.dmi'
-	icon_override = 'icons/mob/taursuits_vr.dmi'
+	icon = 'icons/mob/taursuits_wolf_vr.dmi'
 	icon_state = "jessiecoat"
+	item_state = "jessiecoat"
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/jessie/mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
 	if(..())
 		if(istype(H) && istype(H.tail_style, /datum/sprite_accessory/tail/taur/wolf))
-			if(icon_state == "jessiecoat")
-				return ..()
-			icon_override = 'icons/mob/taursuits_vr.dmi'
-			icon_state = "jessiecoat"
-			pixel_x = -16
 			return ..()
 		else
 			to_chat(H, "<span class='warning'>You need to have a wolf-taur half to wear this.</span>")
@@ -1342,19 +1330,13 @@ Departamental Swimsuits, for general use
 	name = "Kat's Fox Taur Armor"
 	desc = "A set of security armor, light weight and easy to run in for a Taur, this item protects the \
 	entire body."
-	icon = 'icons/mob/taursuits_vr.dmi'
-	icon_override = 'icons/mob/taursuits_vr.dmi'
+	icon = 'icons/mob/taursuits_wolf_vr.dmi'
 	icon_state = "katesuit"
 	item_state_slots = null
 
 /obj/item/clothing/suit/armor/vest/wolftaur/kate/mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
 	if(..())
 		if(istype(H) && istype(H.tail_style, /datum/sprite_accessory/tail/taur/wolf))
-			if(icon_state == "katesuit")
-				return ..()
-			icon_override = 'icons/mob/taursuits_vr.dmi'
-			icon_state = "katesuit"
-			pixel_x = -16
 			return ..()
 		else
 			to_chat(H, "<span class='warning'>You need to have a wolf-taur half to wear this.</span>")
@@ -1366,24 +1348,11 @@ Departamental Swimsuits, for general use
 	desc = "Taur engineering voidsuit. Recolored navy blue and white. Slightly tweaked as well to \
 	get close to having security voidsuit protection as possible with a slight reduction in movement \
 	speed to compensate for custom padding and armor Kateryna made herself."
-	icon = 'icons/mob/taursuits_vr.dmi'
-	icon_override = 'icons/mob/taursuits_vr.dmi'
+	icon = 'icons/mob/taursuits_wolf_vr.dmi'
 	icon_state = "lilithsuit"
+	item_state = "lilithsuit"
 	species_restricted = null
 	armor = list(melee = 40, bullet = 20, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 20)
-
-/obj/item/clothing/suit/space/void/engineering/kate/mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
-	if(..())
-		if(istype(H) && istype(H.tail_style, /datum/sprite_accessory/tail/taur/wolf))
-			if(icon_state == "lilithsuit")
-				return ..()
-			icon_override = 'icons/mob/taursuits_vr.dmi'
-			icon_state = "lilithsuit"
-			pixel_x = -16
-			return ..()
-		else
-			to_chat(H, "<span class='warning'>You need to have a wolf-taur half to wear this.</span>")
-			return 0
 
 //samanthafyre:Kateryna Petrovitch
 /obj/item/clothing/head/helmet/space/fluff/kate
@@ -1767,3 +1736,72 @@ Departamental Swimsuits, for general use
 	icon_state = "tronsiren_shoes"
 	icon = 'icons/vore/custom_clothes_vr.dmi'
 	icon_override = 'icons/vore/custom_onmob_vr.dmi'
+
+//Igni Vulpas
+/obj/item/clothing/accessory/collar/fluff/Kellyscollar
+    name = "Warden's collar"
+    desc = "A collar with spikes that look dangerously sharp, projecting an menacing aura"
+    icon_state = "collar_spik"
+    item_state = "collar_spik_overlay"
+    overlay_state = "collar_spik_overlay"
+
+/obj/item/clothing/accessory/collar/fluff/Kellyscollar/attack_self(mob/user as mob)
+    user << "<span class='notice'>[name]'s interface is projected onto your hand.</span>"
+
+    var/str = copytext(reject_bad_text(input(user,"Tag text?","Set tag","")),1,MAX_NAME_LEN)
+
+    if(!str || !length(str))
+        user << "<span class='notice'>[name]'s tag set to be blank.</span>"
+        name = initial(name)
+        desc = initial(desc)
+    else
+        user << "<span class='notice'>You set the [name]'s tag to '[str]'.</span>"
+        name = initial(name) + " ([str])"
+        desc = initial(desc) + " The tag says \"[str]\"."
+
+/obj/item/clothing/head/helmet/space/void/security/hasd
+	name = "HASD EVA faceplate"
+	desc = "It's a faceplate that slots into the HASD EVA bodyplate assembly. Functionally useless alone."
+
+	icon = 'icons/vore/custom_clothes_vr.dmi'
+	icon_state = "hasd_helm"
+
+	icon_override = 'icons/vore/custom_clothes_vr.dmi'
+	item_state = "hasd_helm"
+	species_restricted = null
+
+	mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
+		if(..())
+			if(H.ckey != "silencedmp5a5")
+				H << "<span class='warning'>...The faceplate is clearly not made for your anatomy, thus, does not fit.</span>"
+				return 0
+			else
+				return 1
+
+/obj/item/clothing/suit/space/void/security/hasd
+	name = "HASD EVA bodyplates"
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	desc = "A series of armor plates painted black, deployed from a back-mounted module. They fit smoothly over the unit's armor plates and projects a skintight bubble shield over the unit's uncovered parts. Faceplate and coolant unit not included."
+	species_restricted = null
+	icon = 'icons/mob/taursuits_lizard_vr.dmi'
+	icon_state = "hasd_suit"
+	item_state = "hasd_suit"
+	pixel_x = -16
+
+	mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
+		if(..() && istype(H) && H.ckey == "silencedmp5a5")
+			return 1
+		else
+			to_chat(H,"<span class='warning'>This suit is not designed for you.</span>")
+			return 0
+
+//Zigfe:Zaoozaoo Xrimxuqmqixzix
+/obj/item/clothing/head/fluff/zao
+	name = "Zao's Hat"
+	desc = "A black hat that has an uncanny similarity to the HoS's hat. There's a small letter Z sewn on the inside of the brim."
+
+	icon = 'icons/vore/custom_clothes_vr.dmi'
+	icon_state = "zao_cap"
+
+	icon_override = 'icons/vore/custom_clothes_vr.dmi'
+	item_state = "zao_cap_mob"

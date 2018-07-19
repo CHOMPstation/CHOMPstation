@@ -2,8 +2,8 @@
 	name = "helmet"
 	desc = "Standard Security gear. Protects the head from impacts."
 	icon_state = "helmet"
-	valid_accessory_slots = list(ACCESSORY_SLOT_HELM_C)
-	restricted_accessory_slots = list(ACCESSORY_SLOT_HELM_C)
+	valid_accessory_slots = (ACCESSORY_SLOT_HELM_C)
+	restricted_accessory_slots = (ACCESSORY_SLOT_HELM_C)
 	flags = THICKMATERIAL
 	armor = list(melee = 40, bullet = 30, laser = 30, energy = 10, bomb = 10, bio = 0, rad = 0)
 	flags_inv = HIDEEARS|HIDEEYES
@@ -153,8 +153,8 @@
 	icon_state = "swathelm"
 	item_state_slots = list(slot_r_hand_str = "swat", slot_l_hand_str = "swat")
 	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
-		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
+		SPECIES_TAJ = 'icons/mob/species/tajaran/helmet.dmi',
+		SPECIES_UNATHI = 'icons/mob/species/unathi/helmet.dmi',
 		)
 
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)

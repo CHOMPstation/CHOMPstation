@@ -1,18 +1,26 @@
 /mob/living/New()
 	..()
 
+	//Prime this list if we need it.
+	if(has_huds)
+		add_overlay(backplane,TRUE) //Strap this on here, to block HUDs from appearing in rightclick menus: http://www.byond.com/forum/?post=2336679
+		hud_list = list()
+		hud_list.len = TOTAL_HUDS
+		make_hud_overlays()
+
 	//I'll just hang my coat up over here
 	dsoverlay = image('icons/mob/darksight.dmi',global_hud.darksight) //This is a secret overlay! Go look at the file, you'll see.
 	var/mutable_appearance/dsma = new(dsoverlay) //Changing like ten things, might as well.
 	dsma.alpha = 0
 	dsma.plane = PLANE_LIGHTING
-	dsma.layer = LIGHTING_LAYER + 0.1
 	dsma.blend_mode = BLEND_ADD
 	dsoverlay.appearance = dsma
 
 /mob/living/Destroy()
 	dsoverlay.loc = null //I'll take my coat with me
 	dsoverlay = null
+	if(buckled)
+		buckled.unbuckle_mob(src, TRUE)
 	return ..()
 
 //mob verbs are faster than object verbs. See mob/verb/examine.
@@ -142,7 +150,7 @@ default behaviour is:
 				var/mob/living/carbon/human/H = tmob
 				if(H.species.lightweight == 1 && prob(50))
 					H.visible_message("<span class='warning'>[src] bumps into [H], knocking them off balance!</span>")
-					H.Weaken(20)
+					H.Weaken(5)
 					now_pushing = 0
 					return
 			// Handle grabbing, stomping, and such of micros!
@@ -209,10 +217,10 @@ default behaviour is:
 /mob/living/verb/succumb()
 	set hidden = 1
 	if ((src.health < 0 && src.health > (5-src.getMaxHealth()))) // Health below Zero but above 5-away-from-death, as before, but variable
-		src.adjustOxyLoss(src.health + src.getMaxHealth() * 2) // Deal 2x health in OxyLoss damage, as before but variable.
-		src.health = src.getMaxHealth() - src.getOxyLoss() - src.getToxLoss() - src.getFireLoss() - src.getBruteLoss()
+		src.death()
 		to_chat(src, "<font color='blue'>You have given up life and succumbed to death.</font>")
-
+	else
+		to_chat(src, "<font color='blue'>You are not injured enough to succumb to death!</font>")
 
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
@@ -282,7 +290,8 @@ default behaviour is:
 /mob/living/proc/getActualBruteLoss()	// Mostly for humans with robolimbs.
 	return getBruteLoss()
 
-/mob/living/proc/adjustBruteLoss(var/amount)
+//'include_robo' only applies to healing, for legacy purposes, as all damage typically hurts both types of organs
+/mob/living/proc/adjustBruteLoss(var/amount,var/include_robo)
 	if(status_flags & GODMODE)	return 0	//godmode
 
 	if(amount > 0)
@@ -356,7 +365,8 @@ default behaviour is:
 /mob/living/proc/getActualFireLoss()	// Mostly for humans with robolimbs.
 	return getFireLoss()
 
-/mob/living/proc/adjustFireLoss(var/amount)
+//'include_robo' only applies to healing, for legacy purposes, as all damage typically hurts both types of organs
+/mob/living/proc/adjustFireLoss(var/amount,var/include_robo)
 	if(status_flags & GODMODE)	return 0	//godmode
 	if(amount > 0)
 		for(var/datum/modifier/M in modifiers)
@@ -870,7 +880,6 @@ default behaviour is:
 		for(var/atom/A in M.contents)
 			if(istype(A,/mob/living/simple_animal/borer) || istype(A,/obj/item/weapon/holder))
 				return
-		M.status_flags &= ~PASSEMOTES
 
 	else if(istype(H.loc,/obj/item/clothing/accessory/holster))
 		var/obj/item/clothing/accessory/holster/holster = H.loc
@@ -900,6 +909,16 @@ default behaviour is:
 
 	resting = !resting
 	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
+	update_canmove()
+
+//called when the mob receives a bright flash
+/mob/living/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	if(override_blindness_check || !(disabilities & BLIND))
+		overlay_fullscreen("flash", type)
+		spawn(25)
+			if(src)
+				clear_fullscreen("flash", 25)
+		return 1
 
 /mob/living/proc/cannot_use_vents()
 	if(mob_size > MOB_SMALL)
@@ -1047,14 +1066,22 @@ default behaviour is:
 			canmove = 0
 			break
 
-	//Temporarily moved here from the various life() procs
-	//I'm fixing stuff incrementally so this will likely find a better home.
-	//It just makes sense for now. ~Carn
-	if( update_icon )	//forces a full overlay update
-		update_icon = 0
-		regenerate_icons()
-	else if( lying != lying_prev )
-		update_icons()
+	if(lying != lying_prev)
+		lying_prev = lying
+		update_transform()
+		//VOREStation Add
+		if(lying && LAZYLEN(buckled_mobs))
+			for(var/rider in buckled_mobs)
+				var/mob/living/L = rider
+				if(buckled_mobs[rider] != "riding")
+					continue // Only boot off riders
+				if(riding_datum)
+					riding_datum.force_dismount(L)
+				else
+					unbuckle_mob(L)
+				L.Stun(5)
+		//VOREStation Add End
+
 	return canmove
 
 // Adds overlays for specific modifiers.
@@ -1082,10 +1109,10 @@ default behaviour is:
 /mob/living/proc/is_sentient()
 	return TRUE
 
-/* //VOREStation Edit. We have a better system in place.
+
 /mob/living/update_transform()
 	// First, get the correct size.
-	var/desired_scale = icon_scale
+	var/desired_scale = size_multiplier //VOREStation edit
 	for(var/datum/modifier/M in modifiers)
 		if(!isnull(M.icon_scale_percent))
 			desired_scale *= M.icon_scale_percent
@@ -1095,8 +1122,8 @@ default behaviour is:
 	M.Scale(desired_scale)
 	M.Translate(0, 16*(desired_scale-1))
 	src.transform = M
-	animate(src, transform = M, time = 10)
-*/ //VOREStation Edit
+	//animate(src, transform = M, time = 10) //VOREStation edit
+
 
 // This handles setting the client's color variable, which makes everything look a specific color.
 // This proc is here so it can be called without needing to check if the client exists, or if the client relogs.
@@ -1107,6 +1134,9 @@ default behaviour is:
 	var/list/colors_to_blend = list()
 	for(var/datum/modifier/M in modifiers)
 		if(!isnull(M.client_color))
+			if(islist(M.client_color)) //It's a color matrix! Forget it. Just use that one.
+				animate(client, color = M.client_color, time = 10)
+				return
 			colors_to_blend += M.client_color
 
 	if(colors_to_blend.len)
@@ -1143,6 +1173,13 @@ default behaviour is:
 		else
 			hud_used.l_hand_hud_object.icon_state = "l_hand_inactive"
 			hud_used.r_hand_hud_object.icon_state = "r_hand_active"
+
+	// We just swapped hands, so the thing in our inactive hand will notice it's not the focus
+	var/obj/item/I = get_inactive_hand()
+	if(I)
+		if(I.zoom)
+			I.zoom()
+		I.in_inactive_hand(src)	//This'll do specific things, determined by the item
 	return
 
 /mob/living/proc/activate_hand(var/selhand) //0 or "r" or "right" for right hand; 1 or "l" or "left" for left hand.
@@ -1218,4 +1255,26 @@ default behaviour is:
 		return UNDERWATER
 	else
 		return ..()
-		
+
+//Add an entry to overlays, assuming it exists
+/mob/living/proc/apply_hud(cache_index, var/image/I)
+	hud_list[cache_index] = I
+	if((. = hud_list[cache_index]))
+		//underlays += .
+		add_overlay(.)
+
+//Remove an entry from overlays, and from the list
+/mob/living/proc/grab_hud(cache_index)
+	var/I = hud_list[cache_index]
+	if(I)
+		//underlays -= I
+		cut_overlay(I)
+		hud_list[cache_index] = null
+		return I
+
+/mob/living/proc/make_hud_overlays()
+	return
+
+
+/mob/living/proc/has_vision()
+	return !(eye_blind || (disabilities & BLIND) || stat || blinded)

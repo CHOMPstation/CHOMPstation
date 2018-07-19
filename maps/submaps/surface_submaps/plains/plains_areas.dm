@@ -73,3 +73,11 @@
 /area/submap/snow5
 	name = "Snow5"
 
+/area/submap/SupplyDrop2
+	name = "Supply Drop 2"
+
+/area/submap/RationCache
+	name = "Ration Cache"
+
+/area/submap/Oldhouse
+	name = "Oldhouse"

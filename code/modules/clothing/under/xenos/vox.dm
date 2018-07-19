@@ -1,8 +1,8 @@
 /obj/item/clothing/under/vox
 	has_sensor = 0
-	species_restricted = list("Vox")
-	valid_accessory_slots = list("vox")
-	restricted_accessory_slots = list("vox")
+	species_restricted = list(SPECIES_VOX)
+	valid_accessory_slots = "vox"
+	restricted_accessory_slots = "vox"
 	phoronproof = 1
 
 /obj/item/clothing/under/vox/vox_casual

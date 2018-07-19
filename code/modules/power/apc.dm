@@ -64,6 +64,8 @@
 	desc = "A control terminal for the area electrical systems."
 	icon = 'icons/obj/power_vr.dmi' //VOREStation Edit - New Icon
 	icon_state = "apc0"
+	plane = TURF_PLANE
+	layer = ABOVE_TURF_LAYER
 	anchored = 1
 	use_power = 0
 	req_access = list(access_engine_equip)
@@ -346,7 +348,7 @@
 
 	if(update & 3)
 		if(update_state & UPDATE_BLUESCREEN)
-			set_light(l_range = 2, l_power = 0.5, l_color = "#0000FF")
+			set_light(l_range = 2, l_power = 0.25, l_color = "#0000FF")
 		else if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
 			var/color
 			switch(charging)
@@ -356,7 +358,7 @@
 					color = "#A8B0F8"
 				if(2)
 					color = "#82FF4C"
-			set_light(l_range = 2, l_power = 0.5, l_color = color)
+			set_light(l_range = 2, l_power = 0.25, l_color = color)
 		else
 			set_light(0)
 
@@ -656,7 +658,7 @@
 		if ((stat & BROKEN) \
 				&& !opened \
 				&& W.force >= 5 \
-				&& W.w_class >= ITEMSIZE_NORMAL )
+				&& W.w_class >= ITEMSIZE_SMALL )
 			user.visible_message("<span class='danger'>The [src.name] has been hit with the [W.name] by [user.name]!</span>", \
 				"<span class='danger'>You hit the [src.name] with your [W.name]!</span>", \
 				"You hear a bang!")
@@ -674,7 +676,7 @@
 				istype(W, /obj/item/weapon/wirecutters) || istype(W, /obj/item/device/assembly/signaler)))
 				return src.attack_hand(user)
 			//Placeholder until someone can do take_damage() for APCs or something.
-			to_chat(user,"<span class='notice'>The [src.name] looks too sturdy to bash open.</span>")
+			to_chat(user,"<span class='notice'>The [src.name] looks too sturdy to bash open with \the [W.name].</span>")
 
 // attack with hand - remove cell (if cover open) or interact with the APC
 

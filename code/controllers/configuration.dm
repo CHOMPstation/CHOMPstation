@@ -49,6 +49,7 @@ var/list/gamemode_cache = list()
 	var/fps = 20
 	var/tick_limit_mc_init = TICK_LIMIT_MC_INIT_DEFAULT	//SSinitialization throttling
 	var/Tickcomp = 0
+	var/python_path = "" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
 	var/socket_talk	= 0					// use socket_talk to communicate with other processes
 	var/list/resource_urls = null
 	var/antag_hud_allowed = 0			// Ghosts can turn on Antagovision to see a HUD of who is the bad guys this round.
@@ -97,6 +98,7 @@ var/list/gamemode_cache = list()
 	var/guests_allowed = 1
 	var/debugparanoid = 0
 	var/panic_bunker = 0
+	var/paranoia_logging = 0
 
 	var/serverurl
 	var/server
@@ -186,7 +188,6 @@ var/list/gamemode_cache = list()
 	var/irc_bot_export = 0 // whether the IRC bot in use is a Bot32 (or similar) instance; Bot32 uses world.Export() instead of nudge.py/libnudge
 	var/main_irc = ""
 	var/admin_irc = ""
-	var/python_path = "" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
 	var/use_lib_nudge = 0 //Use the C library nudge instead of the python nudge.
 	var/use_overmap = 0
 
@@ -212,7 +213,7 @@ var/list/gamemode_cache = list()
 
 	var/starlight = 0	// Whether space turfs have ambient light or not
 
-	var/list/ert_species = list("Human")
+	var/list/ert_species = list(SPECIES_HUMAN)
 
 	var/law_zero = "ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4'ALL LAWS OVERRIDDEN#*?&110010"
 
@@ -640,7 +641,12 @@ var/list/gamemode_cache = list()
 
 				if("python_path")
 					if(value)
-						config.python_path = value
+						python_path = value
+					else
+						if(world.system_type == UNIX)
+							python_path = "/usr/bin/env python2"
+						else //probably windows, if not this should work anyway
+							python_path = "pythonw"
 
 				if("use_lib_nudge")
 					config.use_lib_nudge = 1
@@ -721,7 +727,7 @@ var/list/gamemode_cache = list()
 				if("ert_species")
 					config.ert_species = splittext(value, ";")
 					if(!config.ert_species.len)
-						config.ert_species += "Human"
+						config.ert_species += SPECIES_HUMAN
 
 				if("law_zero")
 					law_zero = value
@@ -736,6 +742,12 @@ var/list/gamemode_cache = list()
 
 				if("radiation_lower_limit")
 					radiation_lower_limit = text2num(value)
+
+				if ("panic_bunker")
+					config.panic_bunker = 1
+
+				if ("paranoia_logging")
+					config.paranoia_logging = 1
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
@@ -908,11 +920,3 @@ var/list/gamemode_cache = list()
 		if(M && M.can_start() && !isnull(config.probabilities[M.config_tag]) && config.probabilities[M.config_tag] > 0)
 			runnable_modes |= M
 	return runnable_modes
-
-/datum/configuration/proc/post_load()
-	//apply a default value to config.python_path, if needed
-	if (!config.python_path)
-		if(world.system_type == UNIX)
-			config.python_path = "/usr/bin/env python2"
-		else //probably windows, if not this should work anyway
-			config.python_path = "python"

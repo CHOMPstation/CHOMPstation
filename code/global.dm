@@ -6,7 +6,8 @@
 // Items that ask to be called every cycle.
 var/global/datum/datacore/data_core = null
 var/global/list/all_areas                = list()
-var/global/list/machines                 = list()	// TODO - Move into SSmachines
+var/global/list/machines                 = list()	// ALL Machines, wether processing or not.
+var/global/list/processing_machines      = list()	// TODO - Move into SSmachines
 var/global/list/processing_objects       = list()
 var/global/list/processing_power_items   = list()	// TODO - Move into SSmachines
 var/global/list/active_diseases          = list()
@@ -36,7 +37,7 @@ var/href_logfile		= null
 // var/const/company_short	= "NT"
 // var/const/star_name		= "Vir"
 // var/const/starsys_name	= "Vir"
-var/const/game_version	= "VOREStation"
+var/const/game_version	= "CHOMPStation"
 var/changelog_hash		= ""
 var/game_year			= (text2num(time2text(world.realtime, "YYYY")) + 544)
 var/round_progressing = 1

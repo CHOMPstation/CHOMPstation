@@ -29,6 +29,13 @@
 
 	req_one_access = list(access_heads) //VOREStation Add
 
+/obj/machinery/computer/cryopod/update_icon()
+	..()
+	if((stat & NOPOWER) || (stat & BROKEN))
+		icon_state = "[initial(icon_state)]-p"
+	else
+		icon_state = initial(icon_state)
+
 /obj/machinery/computer/cryopod/robot
 	name = "robotic storage console"
 	desc = "An interface between crew and the robotic storage systems"
@@ -43,8 +50,6 @@
 /obj/machinery/computer/cryopod/dorms
 	name = "residential oversight console"
 	desc = "An interface between visitors and the residential oversight systems tasked with keeping track of all visitors in the deeper section of the colony."
-	icon = 'icons/obj/robot_storage.dmi' //placeholder
-	icon_state = "console" //placeholder
 	circuit = "/obj/item/weapon/circuitboard/robotstoragecontrol"
 
 	storage_type = "visitors"
@@ -54,8 +59,6 @@
 /obj/machinery/computer/cryopod/travel
 	name = "docking oversight console"
 	desc = "An interface between visitors and the docking oversight systems tasked with keeping track of all visitors who enter or exit from the docks."
-	icon = 'icons/obj/robot_storage.dmi' //placeholder
-	icon_state = "console" //placeholder
 	circuit = "/obj/item/weapon/circuitboard/robotstoragecontrol"
 
 	storage_type = "visitors"
@@ -65,8 +68,6 @@
 /obj/machinery/computer/cryopod/gateway
 	name = "gateway oversight console"
 	desc = "An interface between visitors and the gateway oversight systems tasked with keeping track of all visitors who enter or exit from the gateway."
-	icon = 'icons/obj/robot_storage.dmi' //placeholder
-	icon_state = "console" //placeholder
 	circuit = "/obj/item/weapon/circuitboard/robotstoragecontrol"
 
 	storage_type = "visitors"
@@ -74,6 +75,9 @@
 	allow_items = 1
 
 /obj/machinery/computer/cryopod/attack_ai()
+	attack_hand()
+
+/obj/machinery/computer/cryopod/MouseDrop_T()
 	attack_hand()
 
 /obj/machinery/computer/cryopod/attack_hand(mob/user = usr)
@@ -93,14 +97,13 @@
 	dat += "<a href='?src=\ref[src];log=1'>View storage log</a>.<br>"
 	if(allow_items)
 		dat += "<a href='?src=\ref[src];view=1'>View objects</a>.<br>"
-		dat += "<a href='?src=\ref[src];item=1'>Recover object</a>.<br>"
-		dat += "<a href='?src=\ref[src];allitems=1'>Recover all objects</a>.<br>"
+		//dat += "<a href='?src=\ref[src];item=1'>Recover object</a>.<br>" //VOREStation Removal - Just log them.
+		//dat += "<a href='?src=\ref[src];allitems=1'>Recover all objects</a>.<br>" //VOREStation Removal
 
 	user << browse(dat, "window=cryopod_console")
 	onclose(user, "cryopod_console")
 
 /obj/machinery/computer/cryopod/Topic(href, href_list)
-
 	if(..())
 		return
 
@@ -121,8 +124,10 @@
 		if(!allow_items) return
 
 		var/dat = "<b>Recently stored objects</b><br/><hr/><br/>"
-		for(var/obj/item/I in frozen_items)
-			dat += "[I.name]<br/>"
+		//VOREStation Edit Start
+		for(var/I in frozen_items)
+			dat += "[I]<br/>"
+		//VOREStation Edit End
 		dat += "<hr/>"
 
 		user << browse(dat, "window=cryoitems")
@@ -239,7 +244,7 @@
 	on_store_name = "Robotic Storage Oversight"
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
 	allow_occupant_types = list(/mob/living/silicon/robot)
-	disallow_occupant_types = list(/mob/living/silicon/robot/drone)
+	//disallow_occupant_types = list(/mob/living/silicon/robot/drone) //VOREStation Removal - Why? How else do they leave?
 	applies_stasis = 0
 
 /obj/machinery/cryopod/robot/door
@@ -380,13 +385,19 @@
 
 	// VOREStation
 	hook_vr("despawn", list(to_despawn, src))
-	if(ishuman(to_despawn))
-		var/mob/living/carbon/human/H = to_despawn
-		if(H.nif)
-			var/datum/nifsoft/soulcatcher/SC = H.nif.imp_check(NIF_SOULCATCHER)
-			if(SC)
-				for(var/bm in SC.brainmobs)
-					despawn_occupant(bm)
+	if(isliving(to_despawn))
+		var/mob/living/L = to_despawn
+		for(var/belly in L.vore_organs)
+			var/obj/belly/B = belly
+			for(var/mob/living/sub_L in B)
+				despawn_occupant(sub_L)
+		if(ishuman(to_despawn))
+			var/mob/living/carbon/human/H = to_despawn
+			if(H.nif)
+				var/datum/nifsoft/soulcatcher/SC = H.nif.imp_check(NIF_SOULCATCHER)
+				if(SC)
+					for(var/bm in SC.brainmobs)
+						despawn_occupant(bm)
 	// VOREStation
 
 	//Drop all items into the pod.
@@ -413,7 +424,7 @@
 			preserve = 1
 
 		if(istype(W,/obj/item/weapon/implant/health))
-			for(var/obj/machinery/computer/cloning/com in world)
+			for(var/obj/machinery/computer/cloning/com in machines)
 				for(var/datum/dna2/record/R in com.records)
 					if(locate(R.implant) == W)
 						qdel(R)
@@ -422,12 +433,14 @@
 		if(!preserve)
 			qdel(W)
 		else
+			log_special_item(W,to_despawn) //VOREStation Add
+			/* VOREStation Removal - We do our own thing.
 			if(control_computer && control_computer.allow_items)
 				control_computer.frozen_items += W
 				W.loc = control_computer //VOREStation Edit
 			else
 				W.forceMove(src.loc)
-
+			VOREStation Removal End */
 	for(var/obj/structure/B in items)
 		if(istype(B,/obj/structure/bed))
 			qdel(B)
