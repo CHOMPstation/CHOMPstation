@@ -4,7 +4,7 @@
 	tt_desc = "synxus pergulus"
 
 	 //Synx species belongs to ChimeraSynx , Sprites by: SpitefulCrow
-	icon = /icons/mob/synx.dmi
+	icon = '/icons/mob/synx.dmi'
 	icon_state = "synx"
 	icon_living = "synx"
 
