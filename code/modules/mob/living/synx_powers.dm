@@ -4,10 +4,10 @@ mob/living/proc/disguise()
 	set category = "Abilities"
 
 	//Transformed form
-	if(icon_state !="bear")
-		icon_state="bear"
+	if(icon_state !="synx-1")
+		icon_state="synx-1"
 		to_chat(src,"<span class='warning'>you changed back into your disguise.</span>")
-		if(icon_state== "bear")
+		if(icon_state== "synx-1")
 			to_chat(temporary_form,"<span class='warning'>You can only do this while not stunned.</span>")
 		else
 			to_chat(src,"<span class='warning'>you failed.</span>")
