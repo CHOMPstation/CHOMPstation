@@ -56,7 +56,7 @@
 	emote_hear = list()
 	emote_see = list()*/
 
-/mob/living/simple_animal/neutral/synx/New()
+/mob/living/simple_animal/retaliate/synx/New()
 	..()
 	verbs |= /mob/living/proc/ventcrawl
 	verbs |= /mob/living/simple_animal/proc/contort
