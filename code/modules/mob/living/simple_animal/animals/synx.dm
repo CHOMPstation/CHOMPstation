@@ -1,4 +1,4 @@
-/mob/living/simple_animal/neutral/synx
+/mob/living/simple_animal/retaliate/synx
 	name = "Synx"
 	desc = "to be added"
 	tt_desc = "synxus pergulus"
