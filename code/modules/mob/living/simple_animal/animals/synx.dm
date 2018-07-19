@@ -64,7 +64,7 @@
     ..()
     verbs |= /mob/living/proc/ventcrawl
     verbs |= /mob/living/simple_animal/proc/contort
-    verbs |= /mob/living/simple_animal/retaliate/synx/disguise()
+    verbs +=  /mob/living/simple_animal/retaliate/synx/proc/disguise
 
 mob/living/simple_animal/synx/PunchTarget()
 	if(!Adjacent(target_mob))
