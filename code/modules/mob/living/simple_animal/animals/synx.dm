@@ -121,11 +121,15 @@ mob/living/simple_animal/synx/PunchTarget()
 	// If transform isn't true
 	if(!transformed)
 		to_chat(src,"<span class='warning'>you changed back into your disguise.</span>")
-		icon_state = transformed_state //Switch state to transformed state
 	else // If transformed is true.
 		to_chat(src,"<span class='warning'>now they see your true form.</span>")
-		icon_state = initial(icon_state) //Switch state to what it was originally defined.
-
 
 	transformed = !transformed
-	update_icon()
+	update_icons()
+
+/mob/living/simple_animal/retaliate/synx/update_icons()
+	..()
+	if(transformed)
+		icon_state = transformed_state
+	else
+		icon_state = initial(icon_state)
