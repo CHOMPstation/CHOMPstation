@@ -8,6 +8,10 @@
 	icon_state = "synx"
 	icon_living = "synx"
 
+	var/transformed_state = "synx_transformed"
+
+	var/transformed = FALSE
+
 	faction = "Synx"
 	intelligence_level = SA_ANIMAL
 
@@ -57,10 +61,10 @@
 	emote_see = list()*/
 
 /mob/living/simple_animal/retaliate/synx/New()
-	..()
-	verbs |= /mob/living/proc/ventcrawl
-	verbs |= /mob/living/simple_animal/proc/contort
-	verbs |= /mob/living/proc/disguise
+    ..()
+    verbs |= /mob/living/proc/ventcrawl
+    verbs |= /mob/living/simple_animal/proc/contort
+    verbs |= /mob/living/simple_animal/retaliate/synx/proc/disguise()
 
 mob/living/simple_animal/synx/PunchTarget()
 	if(!Adjacent(target_mob))
@@ -82,6 +86,9 @@ mob/living/simple_animal/synx/PunchTarget()
 	else
 		..()
 
+//////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////// POWERS!!!! /////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
 
 /mob/living/simple_animal/proc/contort()
 	set name = "contort"
@@ -102,3 +109,23 @@ mob/living/simple_animal/synx/PunchTarget()
 		plane = OBJ_PLANE
 		to_chat(src,"<span class='notice'>You are now hiding.</span>")
 		speed = 2
+
+/mob/living/simple_animal/retaliate/synx/proc/disguise()
+	set name = "Toggle Form"
+	set desc = "Switch between amorphous and humanoid forms."
+	set category = "Abilities"
+
+	if(stat == DEAD || paralysis || weakened || stunned || restrained())
+		return
+
+	// If transform isn't true
+	if(!transformed)
+		to_chat(src,"<span class='warning'>you changed back into your disguise.</span>")
+		icon_state = transformed_state //Switch state to transformed state
+	else // If transformed is true.
+		to_chat(src,"<span class='warning'>now they see your true form.</span>")
+		icon_state = initial(icon_state) //Switch state to what it was originally defined.
+
+
+	transformed = !transformed
+	update_icon()
