@@ -3,7 +3,8 @@
 	desc = "to be added"
 	tt_desc = "synxus pergulus"
 
-	 //to be added
+	 //Synx species belongs to ChimeraSynx , Sprites by: SpitefulCrow
+	icon = /icons/mob/synx.dmi
 	icon_state = "synx"
 	icon_living = "synx"
 
