@@ -118,6 +118,22 @@ var/list/security_positions = list(
 )
 
 
+var/list/whitelisted_positions = list(
+	"Colony Director",
+	"Head of Personnel",
+	"Head of Security",
+	"Chief Engineer",
+	"Research Director",
+	"Chief Medical Officer",
+	"Command Secretary",
+	"Warden",
+	"AI",
+	"Cyborg",
+	"pAI",
+	"CentCom Officer"
+)
+
+
 var/list/planet_positions = list(
 	// "Explorer", // VOREStation Edit - Moved Explorer from planetary -> science
 	// "Pilot",  // VOREStation Edit - Moved Pilot from planetary -> civ
@@ -133,7 +149,8 @@ var/list/nonhuman_positions = list(
 
 
 /proc/guest_jobbans(var/job)
-	return ((job in command_positions) || (job in nonhuman_positions) || (job in security_positions))
+	return ((job in whitelisted_positions))
+
 
 /proc/get_job_datums()
 	var/list/occupations = list()

@@ -4,6 +4,7 @@
 
 /datum/configuration
 	var/discord_restriction = 0
+	var/use_jobwhitelist = 0
 
 /hook/startup/proc/read_ch_config()
 	var/list/Lines = file2list("config/config.txt")
@@ -32,4 +33,6 @@
 		switch (name)
 			if ("discord_restriction")
 				config.discord_restriction = 1
+			if ("use_jobwhitelist")
+				config.use_jobwhitelist = 1
 	return 1
