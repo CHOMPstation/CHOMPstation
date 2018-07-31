@@ -1759,28 +1759,29 @@ Departamental Swimsuits, for general use
         name = initial(name) + " ([str])"
         desc = initial(desc) + " The tag says \"[str]\"."
 
+
+//HASD armor, made by serdy for use with the hasd species.
 /obj/item/clothing/head/helmet/space/void/security/hasd
 	name = "HASD EVA faceplate"
+	armor = list(melee = 50, bullet = 25, laser = 25, energy = 5, bomb = 45, bio = 100, rad = 10)
 	desc = "It's a faceplate that slots into the HASD EVA bodyplate assembly. Functionally useless alone."
-
+	species_restricted = null //Species restriction commented out for now, can be re-added later. Reason: it's a helmet, most species can just thunk it on their head.
 	icon = 'icons/vore/custom_clothes_vr.dmi'
 	icon_state = "hasd_helm"
-
 	icon_override = 'icons/vore/custom_clothes_vr.dmi'
 	item_state = "hasd_helm"
-	species_restricted = null
 
-	mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
-		if(..())
-			if(H.ckey != "silencedmp5a5")
-				H << "<span class='warning'>...The faceplate is clearly not made for your anatomy, thus, does not fit.</span>"
-				return 0
-			else
-				return 1
+//	mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
+//		if(..())
+//			if(istype(H) && istype(H.tail_style, /datum/sprite_accessory/tail/taur))
+//				return ..()
+//		else
+//			to_chat(H,"<span class='warning'>This suit is not designed for a face unlike yours, and it doesn't fit on your head.</span>")
+//			return 0
 
 /obj/item/clothing/suit/space/void/security/hasd
 	name = "HASD EVA bodyplates"
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 50, bullet = 25, laser = 25, energy = 5, bomb = 45, bio = 100, rad = 10)
 	desc = "A series of armor plates painted black, deployed from a back-mounted module. They fit smoothly over the unit's armor plates and projects a skintight bubble shield over the unit's uncovered parts. Faceplate and coolant unit not included."
 	species_restricted = null
 	icon = 'icons/mob/taursuits_lizard_vr.dmi'
@@ -1789,10 +1790,11 @@ Departamental Swimsuits, for general use
 	pixel_x = -16
 
 	mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
-		if(..() && istype(H) && H.ckey == "silencedmp5a5")
-			return 1
+		if(..())
+			if(istype(H) && istype(H.tail_style, /datum/sprite_accessory/tail/taur))
+				return ..()
 		else
-			to_chat(H,"<span class='warning'>This suit is not designed for you.</span>")
+			to_chat(H,"<span class='warning'>This suit is not designed for taurs, and doesn't fit on your body in the slightest.</span>")
 			return 0
 
 //Zigfe:Zaoozaoo Xrimxuqmqixzix
