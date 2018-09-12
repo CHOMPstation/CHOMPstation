@@ -200,7 +200,7 @@
 	sprites = list(
 					"Medical Hound" = "medihound",
 					"Dark Medical Hound (Static)" = "medihounddark",
-					"Mediborg model V-2" = "vale"
+					"Mediborg model V-2" = "vale",
 					"Mediborg model V-3" = "vale2"
 					)
 
