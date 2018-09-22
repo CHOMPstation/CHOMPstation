@@ -200,7 +200,8 @@
 	sprites = list(
 					"Medical Hound" = "medihound",
 					"Dark Medical Hound (Static)" = "medihounddark",
-					"Mediborg model V-2" = "vale"
+					"Mediborg model V-2" = "vale",
+					"Mediborg model V-3" = "vale2"
 					)
 
 /obj/item/weapon/robot_module/robot/medihound/New(var/mob/living/silicon/robot/R)
