@@ -69,6 +69,43 @@
 		/obj/item/device/integrated_electronics/wirer,
 		/obj/item/device/integrated_electronics/debugger, //CHOMPstation edit: Adding debugger to toolbelt can hold list - Sharkmare
 		)
+		
+/obj/item/weapon/storage/belt/advancedutility
+	name = "advanced-tool-belt"
+	desc = "Can hold various tools and materials"
+	icon_state = "utility"
+	max_w_class = ITEMSIZE_HUGE
+	storage_slots = 9
+	can_hold = list(
+		///obj/item/weapon/combitool,
+		/obj/item/weapon/crowbar,
+		/obj/item/weapon/screwdriver,
+		/obj/item/weapon/weldingtool,
+		/obj/item/weapon/wirecutters,
+		/obj/item/weapon/wrench,
+		/obj/item/device/multitool,
+		/obj/item/device/flashlight,
+		/obj/item/weapon/cell/device,
+		/obj/item/stack/cable_coil,
+		/obj/item/device/t_scanner,
+		/obj/item/device/analyzer,
+		/obj/item/clothing/glasses,
+		/obj/item/clothing/gloves,
+		/obj/item/device/pda,
+		/obj/item/device/megaphone,
+		/obj/item/taperoll,
+		/obj/item/device/radio/headset,
+		/obj/item/device/robotanalyzer,
+		/obj/item/weapon/material/minihoe,
+		/obj/item/weapon/material/knife/machete/hatchet,
+		/obj/item/device/analyzer/plant_analyzer,
+		/obj/item/weapon/extinguisher/mini,
+		/obj/item/weapon/tape_roll,
+		/obj/item/device/integrated_electronics/wirer,
+		/obj/item/device/integrated_electronics/debugger,
+		/obj/item/stack/material/steel,
+		)
+//CHOMPstation edit, adding an advanced utility belt for engineers.
 
 /obj/item/weapon/storage/belt/utility/full
 	starts_with = list(
