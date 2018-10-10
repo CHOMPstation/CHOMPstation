@@ -130,7 +130,6 @@ var/list/whitelisted_positions = list(
 	"AI",
 	"Cyborg",
 	"pAI"
-//	"CentCom Officer"
 )
 
 
