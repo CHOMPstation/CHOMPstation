@@ -4,7 +4,7 @@
 
 /mob/living/simple_animal/hostile/statue
 	name = "statue" // matches the name of the statue with the flesh-to-stone spell
-	desc = "An incredibly lifelife marble statue, depicting an angellic figure." // same as an ordinary statue with the added "eye following you" description
+	desc = "An incredibly lifelike marble statue, depicting an angellic figure." // same as an ordinary statue with the added "eye following you" description
 	icon = 'icons/obj/statue.dmi'
 	tt_desc = "angelum weepicus"
 	icon_state = "Angel_Female_ch"
