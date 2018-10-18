@@ -4,12 +4,12 @@
 
 /mob/living/simple_animal/hostile/statue
 	name = "statue" // matches the name of the statue with the flesh-to-stone spell
-	desc = "An incredibly lifelike marble carving. Its eyes seems to follow you..." // same as an ordinary statue with the added "eye following you" description
+	desc = "An incredibly lifelife marble statue, depicting an angellic figure." // same as an ordinary statue with the added "eye following you" description
 	icon = 'icons/obj/statue.dmi'
 	tt_desc = "angelum weepicus"
-	icon_state = "human_male"
-	icon_living = "human_male"
-	icon_dead = "human_male"
+	icon_state = "Angel_Female_ch"
+	icon_living = "Angel_Female_ch"
+	icon_dead = "Angel_Female_ch"
 	intelligence_level = SA_HUMANOID
 	stop_automated_movement = 1
 	var/annoyance = 30 //stop staring you creep
@@ -78,7 +78,7 @@
 /mob/living/simple_animal/hostile/statue/DestroySurroundings()
 	if(can_be_seen(get_turf(loc)))
 		if(client)
-			to_chat(src, "<span class='warning'>You cannot move, there are eyes on you!</span>")
+			to_chat(src, "<span class='warning'>You cannot move, you are seen!</span>")
 		return 0
 	return ..()
 
@@ -99,7 +99,7 @@
 /mob/living/simple_animal/hostile/statue/Move(turf/NewLoc)
 	if(can_be_seen(NewLoc))
 		if(client)
-			to_chat(src, "<span class='warning'>You cannot move, there are eyes on you!</span>")
+			to_chat(src, "<span class='warning'>You cannot move, you are seen!</span>")
 		return 0
 	return ..()
 
@@ -161,7 +161,7 @@
 /mob/living/simple_animal/hostile/statue/proc/AI_mirrorshmash()
 	for(var/obj/structure/mirror/M in oview(4, src))
 		if ((!M.shattered )||(!M.glass))
-			visible_message("The statue slowly points at the mirror!")
+			visible_message("The statue slowly points at the mirror.")
 			sleep(5)
 			M.shatter()
 	return
@@ -171,7 +171,7 @@
 /mob/living/simple_animal/hostile/statue/AttackTarget()
 	if(can_be_seen(get_turf(loc)))
 		if(client)
-			to_chat(src, "<span class='warning'>You cannot attack, there are eyes on you!</span>")
+			to_chat(src, "<span class='warning'>You cannot attack, you are seen!</span>")
 			return
 	else
 		spawn(3) //a small delay
@@ -360,7 +360,7 @@
 	desc = "A peculiar slab of marble, radiating with dark energy."
 	icon = 'icons/obj/stacks.dmi'
 	icon_state = "sheet-marble"
-	description_info = "Summons the Statue - a mysterious powerful creature, that can move only when unsurveyed by living eyes."
+	description_info = "Summons the Statue - a mysterious powerful creature, that can move only when unseen by living eyes."
 	var/searching = 0
 
 /obj/item/cursed_marble/attack_self(mob/user as mob)
