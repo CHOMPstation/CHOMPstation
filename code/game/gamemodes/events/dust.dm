@@ -31,7 +31,7 @@ The "dust" will damage the hull of the station causin minor hull breaches.
 //	just bombard the ship with little pellets at a drastically huge number.
 //	Along with the fact that shields can BLOCK THE DUST!!! - Jon
 
-	spawn_meteors(numbers, /obj/effect/meteor/dust)
+	spawn_meteors(numbers, meteors_dust)
 	return
 
 
