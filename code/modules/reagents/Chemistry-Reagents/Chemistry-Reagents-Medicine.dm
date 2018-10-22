@@ -698,7 +698,7 @@
 		M.make_dizzy(5)
 	if(prob(20))
 		M.hallucination = max(M.hallucination, 10)
-	
+
 	//One of the levofloxacin side effects is 'spontaneous tendon rupture', which I'll immitate here. 1:1000 chance, so, pretty darn rare.
 	if(ishuman(M) && rand(1,10000) == 1) //VOREStation Edit (more rare)
 		var/obj/item/organ/external/eo = pick(H.organs) //Misleading variable name, 'organs' is only external organs
@@ -817,16 +817,19 @@
 	metabolism = 0.01
 	mrate_static = TRUE
 	data = 0
+	var/delay = 0
 
 /datum/reagent/methylphenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(!delay)
+		delay = world.time
 	if(alien == IS_DIONA)
 		return
-	if(volume <= 0.1 && data != -1)
-		data = -1
+	if(volume <= 0.1 && data != -1 && world.time > delay + ANTIDEPRESSANT_MESSAGE_DELAY)
+		delay = world.time
 		M << "<span class='warning'>You lose focus...</span>"
 	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
-			data = world.time
+		if(world.time > delay + ANTIDEPRESSANT_MESSAGE_DELAY)
+			delay = world.time
 			M << "<span class='notice'>Your mind feels focused and undivided.</span>"
 
 /datum/reagent/citalopram
@@ -839,17 +842,20 @@
 	metabolism = 0.01
 	mrate_static = TRUE
 	data = 0
+	var/delay = 0
 
 /datum/reagent/citalopram/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(!delay)
+		delay = world.time
 	if(alien == IS_DIONA)
 		return
-	if(volume <= 0.1 && data != -1)
-		data = -1
-		M << "<span class='warning'>Your mind feels a little less stable...</span>"
+	if(volume <= 0.1 && world.time > delay + ANTIDEPRESSANT_MESSAGE_DELAY)
+		delay = world.time
+		to_chat(M, "<span class='warning'>Your mind feels a little less stable...</span>")
 	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
-			data = world.time
-			M << "<span class='notice'>Your mind feels stable... a little stable.</span>"
+		if(world.time > delay + ANTIDEPRESSANT_MESSAGE_DELAY)
+			delay = world.time
+			to_chat(M, "<span class='notice'>Your mind feels stable... a little stable.</span>")
 
 /datum/reagent/paroxetine
 	name = "Paroxetine"
@@ -861,16 +867,17 @@
 	metabolism = 0.01
 	mrate_static = TRUE
 	data = 0
+	var/delay = 0
 
 /datum/reagent/paroxetine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
-	if(volume <= 0.1 && data != -1)
-		data = -1
+	if(volume <= 0.1 && world.time > delay + ANTIDEPRESSANT_MESSAGE_DELAY)
+		delay = world.time
 		M << "<span class='warning'>Your mind feels much less stable...</span>"
 	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
-			data = world.time
+		if(world.time > delay + ANTIDEPRESSANT_MESSAGE_DELAY)
+			delay = world.time
 			if(prob(90))
 				M << "<span class='notice'>Your mind feels much more stable.</span>"
 			else
