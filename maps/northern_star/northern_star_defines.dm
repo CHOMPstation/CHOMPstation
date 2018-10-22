@@ -11,8 +11,8 @@
 	full_name = "NCS Northern Star"
 	path = "northern_star"
 
-	lobby_icon = 'icons/misc/title_ch.dmi' // Amazing title screen made by Jareix, kudos to him! <3
-	lobby_screens = list("chompers")
+	lobby_icon = 'icons/misc/title.dmi' // Amazing title screen made by Jareix, kudos to him! <3
+	lobby_screens = list("mockingjay00")
 
 	zlevel_datum_type = /datum/map_z_level/northern_star
 

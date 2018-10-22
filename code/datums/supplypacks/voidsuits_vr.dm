@@ -70,6 +70,8 @@
 			/obj/item/weapon/tank/oxygen = 3
 			)
 
+// Removing due to it being for southern_cross
+/*
 /datum/supply_packs/voidsuits/explorer
 	name = "Exploration voidsuits"
 	contains = list(
@@ -97,3 +99,4 @@
 	containertype = "/obj/structure/closet/crate/secure"
 	containername = "Pilot voidsuit crate"
 	access = access_pilot
+*/

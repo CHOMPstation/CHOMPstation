@@ -7,7 +7,7 @@
 	starts_with = list(
 		/obj/item/weapon/gun/energy/gun = 4)
 
-
+/*
 /obj/structure/closet/secure_closet/guncabinet/rifle
 	name = "rifle cabinet"
 	req_one_access = list(access_explorer,access_brig)
