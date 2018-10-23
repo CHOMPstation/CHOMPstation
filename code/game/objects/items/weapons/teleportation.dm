@@ -156,7 +156,7 @@ Frequency:
 	if ((user.get_active_hand() != src || user.stat || user.restrained()))
 		return
 	var/count = 0	//num of portals from this teleport in world
-	for(var/obj/effect/portal/PO in all_portals)
+	for(var/obj/effect/portal/PO in portals)
 		if(PO.creator == src)	count++
 	if(count >= 3)
 		user.show_message("<span class='notice'>\The [src] is recharging!</span>")

@@ -11,21 +11,27 @@ The "dust" will damage the hull of the station causin minor hull breaches.
 	var/numbers = 1
 	switch(strength)
 		if("weak")
-		 numbers = rand(2,4)
-		 for(var/i = 0 to numbers)
-		 	new/obj/effect/space_dust/weak()
+		 numbers = rand(1,4)
+//		 for(var/i = 0 to numbers)
+//		 	new/obj/effect/space_dust/weak()
 		if("norm")
 		 numbers = rand(5,10)
-		 for(var/i = 0 to numbers)
-		 	new/obj/effect/space_dust()
+//		 for(var/i = 0 to numbers)
+//		 	new/obj/effect/space_dust()
 		if("strong")
 		 numbers = rand(10,15)
-		 for(var/i = 0 to numbers)
-		 	new/obj/effect/space_dust/strong()
+//		 for(var/i = 0 to numbers)
+//		 	new/obj/effect/space_dust/strong()
 		if("super")
 		 numbers = rand(15,25)
-		 for(var/i = 0 to numbers)
-		 	new/obj/effect/space_dust/super()
+//		 for(var/i = 0 to numbers)
+//		 	new/obj/effect/space_dust/super()
+
+//	Instead of calling retardedly stupidly powerful meteors,
+//	just bombard the ship with little pellets at a drastically huge number.
+//	Along with the fact that shields can BLOCK THE DUST!!! - Jon
+
+	spawn_meteors(numbers, meteors_dust)
 	return
 
 
