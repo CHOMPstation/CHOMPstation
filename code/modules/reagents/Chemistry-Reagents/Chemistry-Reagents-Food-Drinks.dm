@@ -38,7 +38,7 @@
 	if(!injectable && alien != IS_SLIME)
 		M.adjustToxLoss(0.1 * removed)
 		return
-	affect_ingest(M, alien, removed) 
+	affect_ingest(M, alien, removed)
 	*/ //VOREStation Removal End
 	if(injectable) //vorestation addition/replacement
 		affect_ingest(M, alien, removed)
@@ -2876,13 +2876,13 @@
 /datum/reagent/ethanol/cloverclub
 	name = "Clover Club"
 	id = "cloverclub"
-	description = "A light and refreshing rasberry cocktail."
-	taste_description = "sweet raspberry"
+	description = "A light and refreshing raspberry cocktail."
+	taste_description = "sweet raspberry and gin"
 	color = "#dd00a6" // rgb(221, 0, 166)
 	strength = 30
 
 	glass_name = "Clover Club"
-	glass_desc = "A light and refreshing rasberry cocktail."
+	glass_desc = "A light and refreshing cocktail garnished with skewered raspberries."
 
 /datum/reagent/ethanol/negroni
 	name = "Negroni"
