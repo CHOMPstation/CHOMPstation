@@ -34,8 +34,6 @@
 		H.adjustBrainLoss(-200)
 		H.radiation = 0
 		H.bodytemperature = initial(H.bodytemperature)
-		spawn(1)
-			H.fixblood()
 	//
 	adjustOxyLoss(-200)
 	adjustToxLoss(-200)
