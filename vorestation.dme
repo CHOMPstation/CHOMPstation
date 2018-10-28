@@ -1441,6 +1441,7 @@
 #include "code\modules\busy_space\air_traffic.dm"
 #include "code\modules\busy_space\loremaster.dm"
 #include "code\modules\busy_space_vr\organizations.dm"
+#include "code\modules\chompstation\custom_verbs.dm"
 #include "code\modules\client\client defines.dm"
 #include "code\modules\client\client procs.dm"
 #include "code\modules\client\movement.dm"
