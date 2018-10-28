@@ -30,7 +30,7 @@
 		var/mob/living/carbon/human/H = src
 		for(var/obj/item/organ/affecting in H.organs)
 			if(affecting && istype(affecting))
-				affecting.heal_damage(affecting.max_damage,affecting.max_damage) //ha, scuffed, oh well.
+				affecting.rejuvenate() //ha, scuffed, oh well.
 		H.adjustBrainLoss(-200)
 		H.radiation = 0
 		H.bodytemperature = initial(H.bodytemperature)
