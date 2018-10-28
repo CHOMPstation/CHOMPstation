@@ -461,3 +461,15 @@
 /datum/gear/uniform/westernbustle
 	display_name = "western bustle"
 	path = /obj/item/clothing/under/dress/westernbustle
+
+/datum/gear/uniform/yellowdress
+	display_name = "yellow dress"
+	path = /obj/item/clothing/under/dress/dress_yellow
+
+/datum/gear/uniform/saloondress
+	display_name = "saloon dress"
+	path = /obj/item/clothing/under/dress/dress_saloon
+
+/datum/gear/uniform/orangedress
+	display_name = "orange dress"
+	path = /obj/item/clothing/under/dress/dress_orange
