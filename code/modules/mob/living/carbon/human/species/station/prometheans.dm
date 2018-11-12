@@ -20,7 +20,7 @@ var/datum/species/shapeshifter/promethean/prometheans
 
 	hunger_factor =    0.2
 	reagent_tag =      IS_SLIME
-	mob_size =         MOB_SMALL
+	mob_size =         MOB_MEDIUM
 	bump_flag =        SLIME
 	swap_flags =       MONKEY|SLIME|SIMPLE_ANIMAL
 	push_flags =       MONKEY|SLIME|SIMPLE_ANIMAL
