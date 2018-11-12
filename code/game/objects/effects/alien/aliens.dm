@@ -330,7 +330,7 @@ Alien plants should do something if theres a lot of poison
 /obj/effect/alien/egg
 	desc = "It looks like a weird egg"
 	name = "egg"
-//	icon_state = "egg_growing" // So the egg looks 'grown', even though it's not.
+	icon_state = "egg_growing" // So the egg looks 'grown', even though it's not.
 	icon_state = "egg"
 	density = 0
 	anchored = 1
