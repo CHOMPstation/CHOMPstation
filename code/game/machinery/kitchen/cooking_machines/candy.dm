@@ -5,6 +5,8 @@
 	off_icon = "mixer_off"
 	on_icon = "mixer_on"
 	cook_type = "candied"
+	can_burn_food = 0
+	cooked_sound = 'sound/machines/ding.ogg'
 
 	output_options = list(
 		"Jawbreaker" = /obj/item/weapon/reagent_containers/food/snacks/variable/jawbreaker,

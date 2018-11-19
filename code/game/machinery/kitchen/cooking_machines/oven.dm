@@ -8,7 +8,8 @@
 	cook_type = "baked"
 	cook_time = 300
 	food_color = "#A34719"
-	can_burn_food = 1
+	can_burn_food = 0
+	cooked_sound = 'sound/machines/ding.ogg'
 
 	output_options = list(
 		"Personal Pizza" = /obj/item/weapon/reagent_containers/food/snacks/variable/pizza,
