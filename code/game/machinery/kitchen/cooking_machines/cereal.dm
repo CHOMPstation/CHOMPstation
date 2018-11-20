@@ -6,6 +6,8 @@
 	cook_type = "cerealized"
 	on_icon = "cereal_on"
 	off_icon = "cereal_off"
+	can_burn_food = 0
+	cooked_sound = 'sound/machines/ding.ogg'
 
 /obj/machinery/cooker/cereal/change_product_strings(var/obj/item/weapon/reagent_containers/food/snacks/product)
 	. = ..()
