@@ -473,7 +473,8 @@
 	id = "translator"
 
 	toggle(mob/living/silicon/pai/user)
-		// 	Sol Common, Tradeband, Terminus and Gutter are added with New() and are therefore the current default, always active languages
+		// 	Sol Common, Tradeband, and Terminus are added with New() and are therefore the current default, always active languages
+		// Edit: Borgs should not know Gutter.
 		user.translator_on = !user.translator_on
 		if(user.translator_on)
 			user.add_language(LANGUAGE_UNATHI)

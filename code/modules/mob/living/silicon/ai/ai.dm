@@ -153,7 +153,7 @@ var/list/ai_verbs_default = list(
 	add_language(LANGUAGE_SKRELLIAN, 1)
 	add_language(LANGUAGE_SKRELLIANFAR, 0)
 	add_language(LANGUAGE_TRADEBAND, 1)
-	add_language(LANGUAGE_GUTTER, 1)
+	add_language(LANGUAGE_GUTTER, 0)
 	add_language(LANGUAGE_EAL, 1)
 	add_language(LANGUAGE_SCHECHI, 1)
 	add_language(LANGUAGE_SIGN, 1)
@@ -417,7 +417,7 @@ var/list/ai_verbs_default = list(
 		return
 	if(usr != src)
 		return
-	/*if(..()) // <------ MOVED FROM HERE 
+	/*if(..()) // <------ MOVED FROM HERE
 		return*/
 	if (href_list["mach_close"])
 		if (href_list["mach_close"] == "aialerts")

@@ -36,7 +36,7 @@
 #define LANGUAGE_SIIK "Siik"
 #define LANGUAGE_SKRELLIAN "Common Skrellian"
 #define LANGUAGE_TRADEBAND "Tradeband"
-#define LANGUAGE_GUTTER "Gutter"
+#define LANGUAGE_GUTTER "Gutter" //Borgs should not understand this!
 #define LANGUAGE_SIGN "Sign Language"
 #define LANGUAGE_SCHECHI "Schechi"
 #define LANGUAGE_ROOTLOCAL "Local Rootspeak"

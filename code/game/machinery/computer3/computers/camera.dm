@@ -111,6 +111,11 @@
 	title = "singularity"
 	networks = list(NETWORK_ENGINE)
 
+/datum/file/camnet_key/solars
+	name = "Solar Panel Survelyance"
+	title = "Solars"
+	networks = list(NETWORK_SOLARS)
+
 /datum/file/camnet_key/entertainment
 	name = "Entertainment Channel Encryption Key"
 	title = "entertainment"

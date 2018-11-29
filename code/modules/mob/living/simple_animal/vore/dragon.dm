@@ -45,7 +45,9 @@
 	vore_pounce_chance = 0 // Beat them into crit before eating.
 	vore_icons = SA_ICON_LIVING
 
-/mob/living/simple_animal/hostile/dragon/virgo3b
+/* Why a weaker subtype?
+ /mob/living/simple_animal/hostile/dragon/virgo3b
 	maxHealth = 200
 	health = 200
 	faction = "virgo3b"
+*/
