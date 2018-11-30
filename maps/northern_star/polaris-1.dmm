@@ -3598,7 +3598,7 @@
 "brj" = (/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 4},/turf/simulated/floor/tiled/white,/area/rnd/research)
 "brk" = (/obj/structure/table/standard,/obj/item/weapon/clipboard,/obj/item/weapon/clipboard,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/white,/area/rnd/research)
 "brl" = (/obj/machinery/requests_console{department = "Science"; departmentType = 2; name = "Science Requests Console"; pixel_x = -30; pixel_y = 0},/obj/effect/floor_decal/corner/purple{dir = 9},/obj/machinery/atmospherics/unary/vent_scrubber/on,/obj/structure/disposalpipe/segment,/turf/simulated/floor/tiled/white,/area/rnd/lab)
-"brm" = (/obj/machinery/computer/rdconsole/core{dir = 4; icon_state = "computer"; tag = "admeme"},/turf/simulated/floor/tiled,/area/rnd/lab)
+"brm" = (/obj/machinery/computer/rdconsole/core{dir = 4},/turf/simulated/floor/tiled,/area/rnd/lab)
 "brn" = (/obj/machinery/hologram/holopad,/turf/simulated/floor/tiled,/area/rnd/lab)
 "bro" = (/obj/machinery/r_n_d/circuit_imprinter,/obj/item/weapon/reagent_containers/glass/beaker/sulphuric,/turf/simulated/floor/tiled,/area/rnd/lab)
 "brp" = (/obj/effect/floor_decal/corner/purple{dir = 6},/obj/machinery/atmospherics/unary/vent_pump/on,/turf/simulated/floor/tiled/white,/area/rnd/lab)
