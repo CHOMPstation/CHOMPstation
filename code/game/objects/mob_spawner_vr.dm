@@ -160,7 +160,7 @@ It also makes it so a ghost wont know where all the goodies/mobs are.
 	/mob/living/simple_animal/retaliate/gaslamp = 20,
 	/mob/living/simple_animal/otie/feral = 10,
 	/mob/living/simple_animal/hostile/dino/virgo3b = 5,
-/*	/mob/living/simple_animal/hostile/dragon/virgo3b = 1 */ //Chomp: removed for dragon remake
+//	/mob/living/simple_animal/hostile/dragon/virgo3b = 1 //Chomp: removed for dragon remake
 	)
 
 /obj/structure/mob_spawner/scanner/xenos
