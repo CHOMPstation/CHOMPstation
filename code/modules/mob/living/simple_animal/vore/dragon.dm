@@ -31,7 +31,7 @@
 	pixel_y = 0
 
 /mob/living/simple_animal/hostile/dragon/Process_Spacemove(var/check_drift = 0)
-	return 1	//No drifting in space for space dragons!
+	return 1 //No drifting in space for space dragons!
 
 /mob/living/simple_animal/hostile/dragon/FindTarget()
 	. = ..()
@@ -46,7 +46,7 @@
 	vore_icons = SA_ICON_LIVING
 
 // Why a weaker subtype?
- /mob/living/simple_animal/hostile/dragon/virgo3b
-	maxHealth = 500
-	health = 500
-	faction = "virgo3b"
+///mob/living/simple_animal/hostile/dragon/virgo3b
+//	maxHealth = 200
+//	health = 200
+//	faction = "virgo3b"
