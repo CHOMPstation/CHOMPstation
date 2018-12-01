@@ -126,10 +126,16 @@
 	layer = HIDING_LAYER
 	health = 3
 	var/last_itch = 0
-	var/amount_grown = -1
+	var/amount_grown = 0
 	var/obj/machinery/atmospherics/unary/vent_pump/entry_vent
 	var/travelling_in_vent = 0
-	var/list/grow_as = list(/mob/living/simple_animal/hostile/giant_spider, /mob/living/simple_animal/hostile/giant_spider/nurse, /mob/living/simple_animal/hostile/giant_spider/hunter)
+	var/dormant = FALSE    // If dormant, does not add the spiderling to the process list unless it's also growing
+
+	var/list/grow_as = list(
+		/mob/living/simple_animal/hostile/giant_spider,
+		/mob/living/simple_animal/hostile/giant_spider/nurse,
+		/mob/living/simple_animal/hostile/giant_spider/hunter
+		)
 
 /obj/effect/spider/spiderling/frost
 	grow_as = list(/mob/living/simple_animal/hostile/giant_spider/frost)
@@ -138,8 +144,8 @@
 	pixel_x = rand(6,-6)
 	pixel_y = rand(6,-6)
 	processing_objects |= src
-	//50% chance to grow up
-	if(prob(50))
+	//50% chance to grow up //Chompedit- buffed due to bugs?
+	if(prob(90))
 		amount_grown = 1
 	get_light_and_color(parent)
 	..()
@@ -172,12 +178,13 @@
 	else if(entry_vent)
 		if(get_dist(src, entry_vent) <= 1)
 			//VOREStation Edit Start
-			var/obj/machinery/atmospherics/unary/vent_pump/exit_vent = get_safe_ventcrawl_target(entry_vent)
-			if(!exit_vent)
-				return
-			if(1) //To maintain indentation level
+//			var/obj/machinery/atmospherics/unary/vent_pump/exit_vent = get_safe_ventcrawl_target(entry_vent)
+//			if(!exit_vent)
+//				return
+//			if(1) //To maintain indentation level
 			//VOREStation Edit End
-			/*	//VOREStation Removal Start - prevent spiders in dorms
+
+				//VOREStation Removal Start - prevent spiders in dorms
 			if(entry_vent.network && entry_vent.network.normal_members.len)
 				var/list/vents = list()
 				for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in entry_vent.network.normal_members)
@@ -186,7 +193,10 @@
 					entry_vent = null
 					return
 				var/obj/machinery/atmospherics/unary/vent_pump/exit_vent = pick(vents)
-				*/ //VOREStation Removal End
+				//VOREStation Removal End
+
+//Chomp: Removed the removal of the above, as it causes a lot of issues, and doesn't actually stop it from going to the dorms.
+
 				/*if(prob(50))
 					src.visible_message("<B>[src] scrambles into the ventillation ducts!</B>")*/
 

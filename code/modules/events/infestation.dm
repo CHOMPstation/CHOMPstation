@@ -74,7 +74,8 @@
 			vermstring = "lizards"
 		if(VERM_SPIDERS)
 			spawn_types = list(/obj/effect/spider/spiderling)
-			max_number = 3
+//			rand(2,8) //Not sure if this would work instead
+			max_number = 8
 			vermstring = "spiders"
 
 	spawn(0)
@@ -86,7 +87,7 @@
 
 			if(vermin == VERM_SPIDERS)
 				var/obj/effect/spider/spiderling/S = new(T)
-				S.amount_grown = -1
+				S.amount_grown = 0
 			else
 				var/spawn_type = pick(spawn_types)
 				new spawn_type(T)

@@ -287,3 +287,12 @@
     player_msg = "You are a shadekin that goes by the name of Luna. Curious, you have tasked yourself and yourself alone \
     with studying this foreign world. Learn their language. Learn their culture. Adapt. Everything is wonderful and new, \
     and your mind is set on retaining knowledge of these odd planescape."
+
+//"All your chickens are belong to me!" - Zylas
+/mob/living/simple_animal/shadekin/purple/zylas
+	name ="Zylas"
+	desc = " placerholder "
+	icon_state = "zylas"
+	eye_desc = "e_purple"
+	vore_stomach_flavor = " placeholder "
+	player_msg = " placeholder "

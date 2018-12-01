@@ -105,7 +105,7 @@
 	available_events = list(
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Nothing",				/datum/event/nothing,			900),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Atmos Leak",			/datum/event/atmos_leak, 		30,		list(ASSIGNMENT_ENGINEER = 25), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob",				/datum/event/blob, 				-30,	list(ASSIGNMENT_SECURITY = 5, ASSIGNMENT_ENGINEER = 10), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob",				/datum/event/blob, 				-25,	list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_ENGINEER = 5), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Carp Migration",		/datum/event/carp_migration,	-30,	list(ASSIGNMENT_SECURITY = 10), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Containment Breach",	/datum/event/prison_break/station,0,	list(ASSIGNMENT_ANY = 5),		0),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Escaped Slimes",		/datum/event/escaped_slimes, 	-25,	list(ASSIGNMENT_SCIENTIST = 10, ASSIGNMENT_SECURITY = 5), 0),
