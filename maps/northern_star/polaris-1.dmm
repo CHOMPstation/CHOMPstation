@@ -24,7 +24,7 @@
 "aax" = (/turf/simulated/wall,/area/maintenance/locker)
 "aay" = (/obj/structure/grille,/obj/structure/lattice,/turf/space,/area/space)
 "aaz" = (/obj/structure/grille/broken,/obj/structure/lattice,/turf/space,/area/space)
-"aaA" = (/mob/living/simple_animal/hostile/rat{desc = "In what passes for a hierarchy among verminous rodents, this one is king. And he doesn't like visitors to his domain."; health = 300; maxHealth = 300; name = "Jenner"; response_disarm = "bops"; response_harm = "hits"; response_help = "pets"},/turf/simulated/floor,/area/maintenance/locker)
+"aaA" = (/mob/living/simple_animal/hostile/rat/passive{armor = list("melee" = 40, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 100, "rad" = 100); attack_armor_pen = 5; health = 300; maxHealth = 300; name = "Jenner"},/turf/simulated/floor,/area/maintenance/locker)
 "aaB" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/airless,/area/mine/unexplored/upper_level)
 "aaC" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/obj/machinery/shield_diffuser,/turf/simulated/floor/airless,/area/maintenance/library)
 "aaD" = (/obj/item/weapon/pickaxe/drill,/turf/simulated/floor,/area/maintenance/locker)
