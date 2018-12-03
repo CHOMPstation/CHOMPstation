@@ -421,7 +421,7 @@
 "ie" = (/obj/machinery/light,/obj/structure/table/standard,/turf/simulated/shuttle/floor{icon_state = "floor_white"},/area/shuttle/arrival/pre_game)
 "if" = (/obj/machinery/vending/coffee,/turf/simulated/shuttle/floor{icon_state = "floor_white"},/area/shuttle/arrival/pre_game)
 "ig" = (/obj/structure/shuttle/engine/heater,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/airless,/area/shuttle/arrival/pre_game)
-"ih" = (/obj/item/clothing/gloves/rainbow,/obj/item/clothing/head/soft/rainbow,/obj/item/clothing/shoes/rainbow,/obj/item/clothing/suit/storage/seromi/cloak/rainbow,/obj/item/clothing/under/seromi/smock/rainbow,/obj/item/clothing/under/seromi/undercoat/rainbow,/obj/item/weapon/flame/lighter/zippo/rainbow,/obj/item/weapon/pen/crayon/marker/rainbow,/obj/structure/closet/crate,/obj/structure/closet/crate/gaycrate,/turf/simulated/shuttle/floor/black,/area/shuttle/trade/centcom)
+"ih" = (/obj/item/clothing/gloves/rainbow,/obj/item/clothing/head/soft/rainbow,/obj/item/clothing/shoes/rainbow,/obj/item/clothing/suit/storage/seromi/cloak/rainbow,/obj/item/clothing/under/seromi/smock/rainbow,/obj/item/clothing/under/seromi/undercoat/rainbow,/obj/item/weapon/flame/lighter/zippo/rainbow,/obj/item/weapon/pen/crayon/marker/rainbow,/obj/structure/closet/crate/gaycrate,/turf/simulated/shuttle/floor/black,/area/shuttle/trade/centcom)
 "ii" = (/turf/simulated/wall/dungeon,/area/admin)
 "ij" = (/turf/simulated/wall/ironphoron,/area/admin)
 "ik" = (/turf/space,/obj/structure/shuttle/engine/propulsion,/turf/simulated/shuttle/plating/airless/carry,/area/shuttle/arrival/pre_game)
