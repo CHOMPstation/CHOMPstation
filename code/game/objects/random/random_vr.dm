@@ -184,7 +184,8 @@
 				prob(50);/mob/living/simple_animal/retaliate/gaslamp,
 //				prob(50);/mob/living/simple_animal/otie/feral, // Removed until Otie code is unfucked.
 				prob(20);/mob/living/simple_animal/hostile/dino/virgo3b,
-				prob(1);/mob/living/simple_animal/hostile/dragon/virgo3b)
+//				prob(1);/mob/living/simple_animal/hostile/dragon/virgo3b //Chomp: removed for dragon remake
+				)
 
 /obj/random/outside_mob/spawn_item()
 	. = ..()

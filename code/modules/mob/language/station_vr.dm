@@ -84,4 +84,4 @@
 	flags = 0
 /datum/language/gutter
 	flags = WHITELISTED
-	machine_understands = FALSE
+	machine_understands = FALSE //See this? Stop giving it to borgs.

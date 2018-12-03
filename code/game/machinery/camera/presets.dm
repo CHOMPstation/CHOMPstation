@@ -40,6 +40,9 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/network/cargo
 	network = list(NETWORK_CARGO)
 
+/obj/machinery/camera/network/solars
+	network = list(NETWORK_SOLARS)
+
 /obj/machinery/camera/network/civilian
 	network = list(NETWORK_CIVILIAN)
 

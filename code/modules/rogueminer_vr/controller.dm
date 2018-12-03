@@ -57,19 +57,19 @@ var/datum/controller/rogue/rm_controller = new()
 	var/mobs = list(
 		"tier1" = list(/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/goose),
 
-		"tier2" = list(/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/goose),
+		"tier2" = list(/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/goose, /mob/living/simple_animal/hostile/jelly),
 
-		"tier3" = list(/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/goose,
+		"tier3" = list(/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/goose, /mob/living/simple_animal/hostile/jelly,
 						/mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/carp/strong),
 
-		"tier4" = list(/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/goose, /mob/living/simple_animal/hostile/bear,
+		"tier4" = list(/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/goose, /mob/living/simple_animal/hostile/jelly, /mob/living/simple_animal/hostile/bear,
 						/mob/living/simple_animal/hostile/carp/strong, /mob/living/simple_animal/hostile/carp/pike/weak),
 
 		"tier5" = list(/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/carp/pike/weak,
-						/mob/living/simple_animal/hostile/carp/strong, /mob/living/simple_animal/hostile/carp/pike),
+						/mob/living/simple_animal/hostile/carp/strong, /mob/living/simple_animal/hostile/carp/pike, /mob/living/simple_animal/hostile/corrupthound),
 
 		"tier6" = list(/mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/carp/strong,
-						/mob/living/simple_animal/hostile/carp/pike, /mob/living/simple_animal/hostile/carp/pike/weak)
+						/mob/living/simple_animal/hostile/carp/pike, /mob/living/simple_animal/hostile/carp/pike/weak, /mob/living/simple_animal/hostile/corrupthound)
 	)
 
 /datum/controller/rogue/New()
