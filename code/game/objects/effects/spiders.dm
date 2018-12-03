@@ -144,8 +144,8 @@
 	pixel_x = rand(6,-6)
 	pixel_y = rand(6,-6)
 	processing_objects |= src
-	//50% chance to grow up //Chompedit- buffed due to bugs?
-	if(prob(90))
+	//50% chance to grow up
+	if(prob(50))
 		amount_grown = 1
 	get_light_and_color(parent)
 	..()
