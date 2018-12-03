@@ -24,7 +24,7 @@
 "aax" = (/turf/simulated/wall,/area/maintenance/locker)
 "aay" = (/obj/structure/grille,/obj/structure/lattice,/turf/space,/area/space)
 "aaz" = (/obj/structure/grille/broken,/obj/structure/lattice,/turf/space,/area/space)
-"aaA" = (/mob/living/simple_animal/hostile/rat{desc = "In what passes for a hierarchy among verminous rodents, this one is king. And he doesn't like visitors to his domain."; health = 300; maxHealth = 300; name = "Jenner"; response_disarm = "bops"; response_harm = "hits"; response_help = "pets"},/turf/simulated/floor,/area/maintenance/locker)
+"aaA" = (/mob/living/simple_animal/hostile/rat/passive{armor = list("melee" = 40, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 100, "rad" = 100); health = 300; maxHealth = 300; name = "Jenner"},/turf/simulated/floor,/area/maintenance/locker)
 "aaB" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/airless,/area/mine/unexplored/upper_level)
 "aaC" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/obj/machinery/shield_diffuser,/turf/simulated/floor/airless,/area/maintenance/library)
 "aaD" = (/obj/item/weapon/pickaxe/drill,/turf/simulated/floor,/area/maintenance/locker)
@@ -10110,9 +10110,9 @@
 "dMv" = (/obj/machinery/power/apc/high{alarms_hidden = 1; dir = 1; name = "north bump"; pixel_y = 24},/obj/structure/cable/green{d2 = 4; icon_state = "0-4"},/turf/simulated/floor/tiled/dark,/area/hallway/secondary/entry/docking_lounge)
 "dMw" = (/obj/machinery/computer/atmos_alert,/obj/effect/floor_decal/corner/blue/full{dir = 8},/obj/machinery/doorbell_chime{name = "Engineering request chime"; desc = "Small wall-mounted chime triggered by a bell"; pixel_z = 32; pixel_w = -1; id_tag = "engineering_dinger"},/turf/simulated/floor/tiled,/area/crew_quarters/heads/chief)
 "dMx" = (/obj/machinery/doorbell_chime{desc = "Small wall-mounted chime triggered by a bell"; id_tag = "engineering_dinger"; name = "Engineering request chime"},/turf/simulated/wall,/area/engineering/atmos)
-"dMy" = (/obj/machinery/disposal,/obj/structure/disposalpipe/trunk{dir = 1},/obj/machinery/doorbell_chime{desc = "Small wall-mounted chime triggered by a bell"; id_tag = "engineering_dinger"; name = "Engineering request chime"; pixel_z = 0},/turf/simulated/floor/tiled,/area/engineering/workshop)
-"dMz" = (/obj/item/clothing/gloves/rainbow,/obj/item/clothing/head/soft/rainbow,/obj/item/clothing/shoes/rainbow,/obj/item/clothing/suit/storage/seromi/cloak/rainbow,/obj/item/clothing/under/seromi/smock/rainbow,/obj/item/clothing/under/seromi/undercoat/rainbow,/obj/item/weapon/flame/lighter/zippo/rainbow,/obj/item/weapon/pen/crayon/marker/rainbow,/obj/structure/closet/crate,/obj/structure/closet/crate/gaycrate,/turf/simulated/floor/tiled,/area/mine/unexplored/upper_level)
-"dMA" = (/obj/machinery/doorbell_chime{desc = "Small wall-mounted chime triggered by a bell"; id_tag = "engineering_dinger"; name = "Engineering request chime"; pixel_z = 0},/turf/simulated/floor/tiled,/area/engineering/aft_hallway)
+"dMy" = (/obj/machinery/disposal,/obj/structure/disposalpipe/trunk{dir = 1},/obj/machinery/doorbell_chime{name = "Engineering request chime"; desc = "Small wall-mounted chime triggered by a bell"; pixel_z = 0; pixel_w = 30; id_tag = "engineering_dinger"},/turf/simulated/floor/tiled,/area/engineering/workshop)
+"dMz" = (/obj/item/clothing/gloves/rainbow,/obj/item/clothing/head/soft/rainbow,/obj/item/clothing/shoes/rainbow,/obj/item/clothing/suit/storage/seromi/cloak/rainbow,/obj/item/clothing/under/seromi/smock/rainbow,/obj/item/clothing/under/seromi/undercoat/rainbow,/obj/item/weapon/flame/lighter/zippo/rainbow,/obj/item/weapon/pen/crayon/marker/rainbow,/obj/item/toy/plushie/silly_teshari,/obj/structure/closet/crate/gaycrate,/turf/simulated/floor/tiled,/area/mine/unexplored/upper_level)
+"dMA" = (/obj/machinery/doorbell_chime{name = "Engineering request chime"; desc = "Small wall-mounted chime triggered by a bell"; pixel_z = 33; id_tag = "engineering_dinger"},/turf/simulated/floor/tiled,/area/engineering/aft_hallway)
 "dMB" = (/obj/machinery/light{dir = 1},/obj/machinery/atmospherics/binary/pump{dir = 8},/obj/machinery/doorbell_chime{name = "Engineering request chime"; desc = "Small wall-mounted chime triggered by a bell"; pixel_z = 32; id_tag = "engineering_dinger"},/turf/simulated/floor/plating,/area/engineering/engine_room)
 
 (1,1,1) = {"
