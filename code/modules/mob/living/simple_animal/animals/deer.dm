@@ -7,7 +7,10 @@
 	icon_dead = "Deer_dead"
 	icon_gib = "generic_gib"
 	intelligence_level = SA_ANIMAL
+
+	specific_targets = 1 //Only targets with Found()	
 	
+	view_range = 5
 	health = 50
 	turns_per_move = 5
 	see_in_dark = 6
@@ -25,6 +28,9 @@
 
 	meat_amount = 3
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+
+	var/turns_since_scan = 0
+	var/mob/flee_target
 
 /mob/living/simple_animal/deer/New()
 	
@@ -102,3 +108,4 @@
 /mob/living/simple_animal/deer/ex_act()
 	. = ..()
 	react_to_attack(src.loc)
+	
