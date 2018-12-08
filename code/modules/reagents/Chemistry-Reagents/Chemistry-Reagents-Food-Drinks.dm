@@ -2987,3 +2987,25 @@
 
 	glass_name = "Mint Julep"
 	glass_desc = "Minty and refreshing, perfect for a hot day."
+
+/datum/reagent/ethanol/eggnog
+	name = "Eggnog"
+	id = "eggnog"
+	description = "A creamy mixture with eggs and cognac to spice it up."
+	taste_description = "creamy yolk and cognac"
+	color = "#d5cbbf" // rgb(213, 203, 191)
+	strength = 30
+
+	glass_name = "Eggnog"
+	glass_desc = "A seasonal drink made from egg, alcohol, dairy products and sugar."
+	
+/datum/reagent/ethanol/spiderdrink
+	name = "Brimming glass of spiders"
+	id = "spiderdrink"
+	description = "A fresh drink consisting of cloned spiderlings who are intoxicated by a healthy dose of absinthe."
+	taste_description = "TOO MANY LEGS"
+	color = "#526062" // rgb(82, 96, 98)
+	strength = 15
+
+	glass_name = "Brimming glass of spiders"
+	glass_desc = "A glass filled to the brim with tiny drunk spiderlings. Lets hope they dont escape."
