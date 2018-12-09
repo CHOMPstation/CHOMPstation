@@ -150,3 +150,9 @@
 	contains = list(/obj/machinery/portable_atmospherics/hydroponics{anchored = 0} = 3)
 	access = access_hydroponics
 
+/datum/supply_packs/hydro/deer
+	name = "Deer crate"
+	cost = 50
+	containertype = /obj/structure/largecrate/animal/deer
+	containername = "Deer crate"
+	access = access_hydroponics

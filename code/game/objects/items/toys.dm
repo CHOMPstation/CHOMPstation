@@ -972,6 +972,25 @@
 	name = "facehugger plushie"
 	icon_state = "huggable"
 
+//chomp. Teshari plushies, feel free to make more! Or improve the existing sprites.
+/obj/item/toy/plushie/gold_teshari
+	name = "golden teshari plush"
+	icon_state = "teshplush_gold"
+
+/obj/item/toy/plushie/grey_teshari
+	name = "grey teshari plush"
+	icon_state = "teshplush_grey"
+
+/obj/item/toy/plushie/rainbow_teshari
+	name = "rainbow teshari plush"
+	desc = "Shiny!"
+	icon_state = "teshplush_rainbow"
+
+/obj/item/toy/plushie/silly_teshari
+	name = "teshari plushie"
+	desc = "It has a tag on the foot that says 'WHY'"
+	icon_state = "taaa_plush"
+
 //foxes are basically the best
 
 /obj/item/toy/plushie/red_fox

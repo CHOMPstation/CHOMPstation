@@ -21,16 +21,20 @@
 
 
 /datum/event/escaped_slimes/setup()
+//	world << "TEST-SETUP START"
 	announceWhen = rand(announceWhen, announceWhen + 60)
-	spawncount = rand(2 * severity, 4 * severity)	//spiderlings only have a 50% chance to grow big and strong
+	spawncount = rand(2 * severity, 4 * severity)
+//	world << "TEST-SETUP COMPLETE"
 
 /datum/event/escaped_slimes/announce()
+//	world << "TEST-ANNOUNCE START"
 	command_announcement.Announce("Unidentified lifesigns detected coming aboard [station_name()]. Secure any exterior access, including ducting and ventilation.", "Lifesign Alert", new_sound = 'sound/AI/aliens.ogg')
 	sleep(15)
 	command_announcement.Announce("The previously unidentified lifesigns have been identified as escaped slimes from Xenobiology. Secure any exterior access, including ducting and ventilation, taking care to return the slimes to their proper confinement.", "Lifesign Alert")
-
+//	world << "TEST-ANNOUNCE COMPLETE"
 
 /datum/event/escaped_slimes/start()
+//	world << "TEST-SPAWN START"
 	var/list/vents = list()
 	for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in world)
 		if(temp_vent.network && temp_vent.loc.z in using_map.station_levels && !is_area_occupied(temp_vent.loc.loc)) //borrowed from spiders event, but it works. Distribute the slimes only in rooms with vents
@@ -42,3 +46,4 @@
 		new slime_type(vent.loc, 1)
 		vents -= vent
 		spawncount--
+//	world << "TEST-SPAWN COMPLETE"

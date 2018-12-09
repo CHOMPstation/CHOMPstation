@@ -507,3 +507,10 @@ Drinks Data
 /datum/reagent/ethanol/cloverclub
 	glass_icon_state = "cloverclub"
 	glass_center_of_mass = list("x"=16, "y"=8)
+
+/datum/reagent/ethanol/eggnog
+	glass_icon_state = "eggnogglass"
+	glass_center_of_mass = list("x"=16, "y"=6)
+	
+/datum/reagent/ethanol/spiderdrink
+	glass_icon_state = "glassofspiders"
