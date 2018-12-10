@@ -53,9 +53,10 @@ SUBSYSTEM_DEF(transcore)
 		var/mob/living/carbon/human/H = imp.loc
 		BITSET(H.hud_updateflag, BACKUP_HUD)
 
-//		if(H == imp.imp_in && H.mind && H.stat < DEAD)
+		if(H == imp.imp_in && H.mind && H.stat < DEAD)
 //			SStranscore.m_backup(H.mind,H.nif)
 //			persist_nif_data(H) //Chompstation Edit: Removing NIFs - Jon
+			SStranscore.m_backup(H.mind,null)
 
 		if(MC_TICK_CHECK)
 			return
