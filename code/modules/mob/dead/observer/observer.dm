@@ -50,6 +50,7 @@
 		"Wraith" = "wraith",
 		"Viscerator" = "viscerator",
 		"Corgi" = "corgi",
+		"Deer" = "deer",
 		"Tamaskan" = "tamaskan",
 		"Black Cat" = "blackcat",
 		"Lizard" = "lizard",

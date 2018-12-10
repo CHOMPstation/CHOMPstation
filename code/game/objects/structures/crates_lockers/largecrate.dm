@@ -81,3 +81,7 @@
 /obj/structure/largecrate/animal/chick
 	name = "chicken crate"
 	starts_with = list(/mob/living/simple_animal/chick = 5)
+	
+/obj/structure/largecrate/animal/deer
+	name = "deer crate"
+	starts_with = list(/mob/living/simple_animal/deer = 3)
