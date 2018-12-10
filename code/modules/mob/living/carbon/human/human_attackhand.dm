@@ -1,6 +1,7 @@
 /mob/living/carbon/human/proc/get_unarmed_attack(var/mob/living/carbon/human/target, var/hit_zone)
+	//Chompstation Edit: Removing NIFs - Jon
 	// VOREStation Edit - Begin
-	if(nif && nif.flag_check(NIF_C_HARDCLAWS,NIF_FLAGS_COMBAT)){return unarmed_hardclaws}
+//	if(nif && nif.flag_check(NIF_C_HARDCLAWS,NIF_FLAGS_COMBAT)){return unarmed_hardclaws}
 	if(src.default_attack && src.default_attack.is_usable(src, target, hit_zone))
 		if(pulling_punches)
 			var/datum/unarmed_attack/soft_type = src.default_attack.get_sparring_variant()
@@ -251,7 +252,7 @@
 				H.visible_message("<span class='danger'>[attack_message]</span>")
 
 			playsound(loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
-			
+
 			add_attack_logs(H,src,"Melee attacked with fists (miss/block)")
 
 			if(miss_type)
