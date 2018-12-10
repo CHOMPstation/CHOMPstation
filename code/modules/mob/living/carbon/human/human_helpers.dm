@@ -147,11 +147,12 @@
 				var/obj/item/clothing/glasses/V = rig.visor.vision.glasses
 				compiled_vis |= V.enables_planes
 
-	//VOREStation Add - NIF Support
+//Chompstation Edit: Removing NIFs - Jon
+/*	//VOREStation Add - NIF Support
 	if(nif)
 		compiled_vis |= nif.planes_visible()
 	//VOREStation Add End
-
+*/
 	if(!compiled_vis.len && !vis_enabled.len)
 		return //Nothin' doin'.
 

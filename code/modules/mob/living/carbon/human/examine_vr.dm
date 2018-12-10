@@ -119,14 +119,15 @@
 
 //For OmniHUD records access for appropriate models
 /proc/hasHUD_vr(mob/living/carbon/human/H, hudtype)
-	if(H.nif)
+//Chompstation Edit: Removing NIFs - Jon
+/*	if(H.nif)
 		switch(hudtype)
 			if("security")
 				if(H.nif.flag_check(NIF_V_AR_SECURITY,NIF_FLAGS_VISION))
 					return TRUE
 			if("medical")
 				if(H.nif.flag_check(NIF_V_AR_MEDICAL,NIF_FLAGS_VISION))
-					return TRUE
+					return TRUE */
 
 	if(istype(H.glasses, /obj/item/clothing/glasses/omnihud))
 		var/obj/item/clothing/glasses/omnihud/omni = H.glasses
@@ -152,6 +153,9 @@
 		message = "<font color='red'>They are small enough that you could easily trample them!</font>\n"
 	return message
 
+//Chompstation Edit: Removing NIFs - Jon
+/*
 /mob/living/carbon/human/proc/examine_nif(mob/living/carbon/human/H)
 	if(nif && nif.examine_msg) //If you have one set, anyway.
 		return "<span class='notice'>[nif.examine_msg]</span>\n"
+*/

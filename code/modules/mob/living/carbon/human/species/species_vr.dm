@@ -28,6 +28,8 @@
 	for(var/u_type in unarmed_types)
 		unarmed_attacks += new u_type()
 
+//Chompstation Edit: Removing NIFs - Jon
+/*
 /datum/species/create_organs(var/mob/living/carbon/human/H)
 	if(H.nif)
 		var/type = H.nif.type
@@ -39,4 +41,4 @@
 		var/obj/item/device/nif/nif = new type(H,durability,nif_savedata)
 		nif.nifsofts = nifsofts
 	else
-		..()
+		..() */
