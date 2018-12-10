@@ -347,7 +347,7 @@ var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_subtle_message, 	//send an message to somebody as a 'voice in their head',
 	/datum/admins/proc/paralyze_mob,
 	/client/proc/cmd_admin_direct_narrate,
-//	/datum/admins/proc/quick_nif, //CHOMPStation Add, //Chompstation Edit: Removing NIFs - Jon
+//	/datum/admins/proc/quick_nif,		//Chompstation Edit: Removing NIFs - Jon,
 	/client/proc/allow_character_respawn,   // Allows a ghost to respawn ,
 	/datum/admins/proc/sendFax,
 	/client/proc/giveruntimelog,		//allows us to give access to runtime logs to somebody,
