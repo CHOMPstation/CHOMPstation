@@ -349,6 +349,8 @@
 
 /datum/species/shapeshifter/promethean
 	spawn_flags = SPECIES_CAN_JOIN
+	push_flags = ~HEAVY //for some reason this fixes the issue with Prommies not being able to swap or push other players
+	swap_flags = ~HEAVY
 
 /datum/species/human
 	color_mult = 1
