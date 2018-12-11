@@ -502,6 +502,13 @@
 	desc = ""
 	icon_state = "moth_full"
 
+/datum/sprite_accessory/wing/moth_full_colorable
+	name = "moth antenna and wings (colorable)"
+	desc = ""
+	icon_state = "moth_full_colorable"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+
 /datum/sprite_accessory/wing/kerena
 	name = "wingwolf wings (Kerena)"
 	desc = ""
