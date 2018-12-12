@@ -2209,6 +2209,19 @@
 	required_reagents = list("icecoffee" = 1, "whiskey" = 1, "mint" = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/drinks/eggnog
+	name = "Eggnog"
+	id = "eggnog"
+	result = "eggnog"
+	required_reagents = list("sugar" = 1, "egg" = 1, "milk" = 1, "cream" = 1, "cognac" = 2)
+	result_amount = 6
+	
+/datum/chemical_reaction/drinks/spiderdrink
+	name = "Brimming glass of spiders"
+	id = "spiderdrink"
+	result = "spiderdrink"
+	required_reagents = list("spidertoxin" = 1, "clonexadone" = 5, "absinthe" = 4)
+	result_amount = 10
 
 //R-UST Port
 /datum/chemical_reaction/hyrdophoron
