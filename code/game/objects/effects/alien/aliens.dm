@@ -330,7 +330,7 @@ Alien plants should do something if theres a lot of poison
 /obj/effect/alien/egg
 	desc = "It looks like a weird egg"
 	name = "egg"
-	icon_state = "egg_growing" // So the egg looks 'grown', even though it's not.
+//	icon_state = "egg_growing" // So the egg looks 'grown', even though it's not.
 	icon_state = "egg"
 	density = 0
 	anchored = 1
@@ -340,14 +340,14 @@ Alien plants should do something if theres a lot of poison
 	flags = PROXMOVE
 
 /obj/effect/alien/egg/New()
-
+/*
 	if(config.aliens_allowed)
 		..()
 		spawn(rand(MIN_GROWTH_TIME,MAX_GROWTH_TIME))
 			Grow()
 	else
 		qdel(src)
-
+*/
 /obj/effect/alien/egg/attack_hand(user as mob)
 
 	var/mob/living/carbon/M = user
@@ -359,34 +359,31 @@ Alien plants should do something if theres a lot of poison
 			user << "<span class='warning'>You clear the hatched egg.</span>"
 			qdel(src)
 			return
-		if(GROWING)
+/*		if(GROWING)
 			user << "<span class='warning'>The child is not developed yet.</span>"
 			return
 		if(GROWN)
 			user << "<span class='warning'>You retrieve the child.</span>"
 			Burst(0)
 			return
-
 /obj/effect/alien/egg/proc/GetFacehugger() // Commented out for future edit.
 	return locate(/obj/item/clothing/mask/facehugger) in contents
-
 /obj/effect/alien/egg/proc/Grow()
 	icon_state = "egg"
-	status = GROWN
+//	status = GROWN
 	status = BURST
-	new /obj/item/clothing/mask/facehugger(src)
+//	new /obj/item/clothing/mask/facehugger(src)
 	return
-
+*/
 /obj/effect/alien/egg/proc/Burst(var/kill = 1) //drops and kills the hugger if any is remaining
 	if(status == GROWN || status == GROWING)
-		var/obj/item/clothing/mask/facehugger/child = GetFacehugger()
+//		var/obj/item/clothing/mask/facehugger/child = GetFacehugger()
 		icon_state = "egg_hatched"
-		flick("egg_opening", src)
+/*		flick("egg_opening", src)
 		status = BURSTING
 		spawn(15)
 			status = BURST
 			child.loc = get_turf(src)
-
 			if(kill && istype(child))
 				child.Die()
 			else
@@ -394,7 +391,7 @@ Alien plants should do something if theres a lot of poison
 					if(CanHug(M))
 						child.Attach(M)
 						break
-
+*/
 /obj/effect/alien/egg/bullet_act(var/obj/item/projectile/Proj)
 	health -= Proj.damage
 	..()
@@ -430,14 +427,13 @@ Alien plants should do something if theres a lot of poison
 	if(exposed_temperature > 500 + T0C)
 		health -= 5
 		healthcheck()
-
+/*
 /obj/effect/alien/egg/HasProximity(atom/movable/AM as mob|obj)
 	if(status == GROWN)
 		if(!CanHug(AM))
 			return
-
 		var/mob/living/carbon/C = AM
 		if(C.stat == CONSCIOUS && C.status_flags & XENO_HOST)
 			return
-
 		Burst(0)
+*/
