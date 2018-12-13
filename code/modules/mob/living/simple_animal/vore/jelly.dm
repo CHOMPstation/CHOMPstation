@@ -10,6 +10,8 @@
 	maxHealth = 50
 	health = 50
 
+	view_range = 4 //they're blind AF
+
 //atmo-immune. Might be necessary for it to not just die in vacuum.
 	min_oxy = 0
 	max_oxy = 0

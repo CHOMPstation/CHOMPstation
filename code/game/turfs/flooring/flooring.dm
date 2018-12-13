@@ -155,6 +155,11 @@ var/list/flooring_types
 	icon_base = "tealcarpet"
 	build_type = /obj/item/stack/tile/carpet/teal
 
+/decl/flooring/carpet/rainbowcarpet
+	name = "rainbow carpet"
+	icon_base = "rainbowcarpet"
+//	build_type = /obj/item/stack/tile/carpet/rainbow
+
 /decl/flooring/tiling
 	name = "floor"
 	desc = "Scuffed from the passage of countless greyshirts."
