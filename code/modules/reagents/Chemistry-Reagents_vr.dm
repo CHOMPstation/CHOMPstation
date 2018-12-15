@@ -27,6 +27,8 @@
 	result_amount = 30
 	required = /obj/item/slime_extract/sapphire
 
+//Chompstation Edit: Removing NIFs - Jon
+/*
 /datum/reagent/nif_repair_nanites
 	name = "Programmed Nanomachines"
 	id = "nifrepairnanites"
@@ -44,3 +46,4 @@
 			if(nif.stat == NIF_TEMPFAIL)
 				nif.stat = NIF_INSTALLING
 			nif.durability = min(nif.durability + removed, initial(nif.durability))
+*/

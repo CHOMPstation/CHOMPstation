@@ -48,14 +48,16 @@
 		else
 			vantag.icon_state = "hudblank"
 		apply_hud(VANTAG_HUD, vantag)
+// Chompstation Edit: Removing NIFs temporarily - Jon
 
+/*
 //Our call for the NIF to do whatever
 /mob/living/carbon/human/proc/handle_nif()
 	if(!nif) return
 
 	//Process regular life stuff
 	nif.life()
-
+*/
 //Overriding carbon move proc that forces default hunger factor
 /mob/living/carbon/Move(NewLoc, direct)
 	. = ..()

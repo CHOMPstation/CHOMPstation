@@ -316,12 +316,13 @@
 /obj/item/projectile/beam/final_option/on_hit(var/atom/impacted)
 	if(isliving(impacted))
 		var/mob/living/L = impacted
-		if(L.mind)
+// Chompstation Edit: Removed Nifs - Jon
+/*		if(L.mind)
 			var/nif
 			if(ishuman(L))
 				var/mob/living/carbon/human/H = L
 				nif = H.nif
-			SStranscore.m_backup(L.mind,nif,one_time = TRUE)
+			SStranscore.m_backup(L.mind,nif,one_time = TRUE)*/
 		L.gib()
 
 	..()
