@@ -715,7 +715,6 @@
 	if(href_list["b_del"])
 
 		if(alert("Are you sure you want to delete your [lowertext(selected.name)]?","Confirmation","Delete","Cancel") == "Cancel")
-			user << "alert not Delete"
 			return 0
 
 		var/failure_msg = ""
