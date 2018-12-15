@@ -142,7 +142,7 @@ var/global/datum/controller/gameticker/ticker
 			//Deleting Startpoints but we need the ai point to AI-ize people later
 			if (S.name != "AI")
 				qdel(S)
-		to_chat(world, "<FONT color='blue'><B>Enjoy the game!</B></FONT>")
+		to_chat(world, "<FONT color='0544ff'><B>Enjoy the game!</B></FONT>")
 		world << sound('sound/AI/welcome.ogg') // Skie
 		//Holiday Round-start stuff	~Carn
 		Holiday_Game_Start()
