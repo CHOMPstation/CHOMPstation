@@ -352,6 +352,7 @@
 	push_flags = ~HEAVY //Allows them to push others
 	swap_flags = ~HEAVY //Allows them to swap places with others
 
+
 /datum/species/human
 	color_mult = 1
 	icobase = 'icons/mob/human_races/r_human_vr.dmi'
