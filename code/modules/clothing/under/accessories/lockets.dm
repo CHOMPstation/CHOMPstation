@@ -43,3 +43,10 @@
 			held = O
 		return
 	..()
+
+/obj/item/clothing/accessory/locket/star
+	name = "Grand Star Necklace"
+	desc = "A small golden necklace with a golden star-shaped charm hanging from it. The charm shines brightly when exposed to light. There seems to be an inscription on the back saying '~From your friends at the Observatory~'"
+	icon_state = "star_necklace"
+	item_state = "star_necklace"
+	overlay_state = "star_necklace"
