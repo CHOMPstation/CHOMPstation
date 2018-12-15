@@ -294,7 +294,7 @@
 	msg += attempt_vr(src,"examine_bellies",args) //VOREStation Code
 	msg += attempt_vr(src,"examine_pickup_size",args) //VOREStation Code
 	msg += attempt_vr(src,"examine_step_size",args) //VOREStation Code
-	msg += attempt_vr(src,"examine_nif",args) //VOREStation Code
+//	msg += attempt_vr(src,"examine_nif",args) //VOREStation Code //removed due to removal of NIFs temporarily - Jon
 
 	if(mSmallsize in mutations)
 		msg += "[T.He] [T.is] very short!<br>"
@@ -329,7 +329,7 @@
 		else if(disconnect_time)
 			msg += "\[Disconnected/ghosted [round(((world.realtime - disconnect_time)/10)/60)] minutes ago\]\n"
 		//VOREStation Add End
-	
+
 	var/list/wound_flavor_text = list()
 	var/list/is_bleeding = list()
 	var/applying_pressure = ""
