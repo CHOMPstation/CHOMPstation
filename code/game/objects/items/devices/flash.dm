@@ -77,6 +77,8 @@
 	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 	var/flashfail = 0
 
+//Chompstation Edit: Removing NIFs - Jon
+/*
 	//VOREStation Add - NIF
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -84,7 +86,7 @@
 			flashfail = 1
 			H.nif.notify("High intensity light detected, and blocked!",TRUE)
 	//VOREStation Add End
-
+*/
 	if(iscarbon(M) && !flashfail) //VOREStation Add - NIF
 		var/mob/living/carbon/C = M
 		if(C.stat != DEAD)

@@ -355,7 +355,7 @@
 		var/obj/effect/overlay/aiholo/holo = loc
 		holo.drop_prey() //Easiest way
 		log_and_message_admins("[key_name(src)] used the OOC escape button to get out of [key_name(holo.master)] (AI HOLO) ([holo ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[holo.x];Y=[holo.y];Z=[holo.z]'>JMP</a>" : "null"])")
-	
+
 	//Don't appear to be in a vore situation
 	else
 		to_chat(src,"<span class='alert'>You aren't inside anyone, though, is the thing.</span>")
@@ -455,11 +455,11 @@
 	var/datum/gas_mixture/belly_air/air = new(1000)
 	return air
 
-// This is about 0.896m^3 of atmosphere
+// This is about 0.896m^3 of atmosphere / Erik's Edit. Volume and moles changed to match station atmosphere, Synth Tesh no longer overheat in bellies!
 /datum/gas_mixture/belly_air
-    volume = 1000
+    volume = 2500
     temperature = 293.150
-    total_moles = 40
+    total_moles = 104
 
 /datum/gas_mixture/belly_air/New()
     . = ..()

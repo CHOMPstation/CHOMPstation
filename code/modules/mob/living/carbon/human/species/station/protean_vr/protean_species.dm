@@ -112,6 +112,8 @@
 		for(var/path in powertypes)
 			abilities += new path()
 
+//Chompstation Edit: Removing NIFs - Jon
+/*
 /datum/species/protean/create_organs(var/mob/living/carbon/human/H)
 	var/obj/item/device/nif/saved_nif = H.nif
 	if(saved_nif)
@@ -119,7 +121,7 @@
 		H.nif.forceMove(null)
 	..()
 	if(saved_nif)
-		saved_nif.quick_implant(H)
+		saved_nif.quick_implant(H)*/
 
 /datum/species/protean/get_bodytype(var/mob/living/carbon/human/H)
 	if(H)
@@ -139,18 +141,19 @@
 
 	if(H.backbag == 1) //Somewhat misleading, 1 == no bag (not boolean)
 		H.equip_to_slot_or_del(permit, slot_l_hand)
-		H.equip_to_slot_or_del(metal_stack, slot_r_hand)		
+		H.equip_to_slot_or_del(metal_stack, slot_r_hand)
 	else
 		H.equip_to_slot_or_del(permit, slot_in_backpack)
 		H.equip_to_slot_or_del(metal_stack, slot_in_backpack)
-
+// Chompstation Edit: Removing temporarily - Jon
+/*
 	spawn(0) //Let their real nif load if they have one
 		if(!H.nif)
 			var/obj/item/device/nif/bioadap/new_nif = new()
 			new_nif.quick_implant(H)
 		else
 			H.nif.durability = rand(21,25)
-
+*/
 /datum/species/protean/hug(var/mob/living/carbon/human/H, var/mob/living/target)
 	return ..() //Wut
 
@@ -172,7 +175,7 @@
 
 	var/obj/item/organ/internal/nano/refactory/refactory = locate() in H.internal_organs
 	if(refactory && !(refactory.status & ORGAN_DEAD))
-		
+
 		//MHydrogen adds speeeeeed
 		if(refactory.get_stored_material("mhydrogen") >= METAL_PER_TICK)
 			H.add_modifier(/datum/modifier/protean/mhydrogen, origin = refactory)
@@ -233,7 +236,7 @@
 	var/obj/item/organ/internal/nano/refactory/refactory = origin.resolve()
 	if(!istype(refactory) || refactory.status & ORGAN_DEAD)
 		expire()
-	
+
 	//Out of materials
 	if(!refactory.use_stored_material(material_name,material_use))
 		expire()
@@ -255,7 +258,7 @@
 
 	on_created_text = "<span class='notice'>You feel yourself become nearly impervious to physical attacks as plasteel nanites are made.</span>"
 	on_expired_text = "<span class='notice'>Your refactory finishes consuming the plasteel, and you return to your normal nanites.</span>"
-	
+
 	material_name = "plasteel"
 
 	incoming_brute_damage_percent = 0.5
@@ -266,7 +269,7 @@
 
 	on_created_text = "<span class='notice'>You feel yourself become more reflective, able to resist heat and fire better for a time.</span>"
 	on_expired_text = "<span class='notice'>Your refactory finishes consuming the diamond, and you return to your normal nanites.</span>"
-	
+
 	material_name = "diamond"
 
 	incoming_fire_damage_percent = 0.2
@@ -277,7 +280,7 @@
 
 	on_created_text = "<span class='notice'>You feel new nanites being produced from your stockpile of steel, healing you slowly.</span>"
 	on_expired_text = "<span class='notice'>Your steel supply has either run out, or is no longer needed, and your healing stops.</span>"
-	
+
 	material_name = "steel"
 
 /datum/modifier/protean/steel/tick()
