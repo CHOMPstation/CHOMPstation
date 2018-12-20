@@ -331,7 +331,12 @@
 	name = "Feline dual-color (Taur)"
 	icon_state = "feline_s"
 	extra_overlay = "feline_markings"
-
+	
+/datum/sprite_accessory/tail/taur/feline/feline_spots
+	name = "Feline spots (Taur)"
+	icon_state = "feline_s"
+	extra_overlay = "feline_spots"
+	
 /datum/sprite_accessory/tail/taur/feline/synthfeline
 	name = "SynthFeline dual-color (Taur)"
 	icon_state = "synthfeline_s"
