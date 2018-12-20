@@ -93,6 +93,7 @@ ckey: aerowing
 character_name: Sebastian Aji
 item_path: /obj/item/weapon/storage/box/fluff/sebastian_aji
 }
+
 # ######## B CKEYS
 {
 ckey: benemuel
@@ -818,6 +819,18 @@ character_name: Silent Stripes
 item_path: /obj/item/clothing/under/sexymime
 }
 
+{
+ckey: SMB64
+character_name: Koshi Kirbis Yoshamatori
+item_path: /obj/item/clothing/accessory/locket/star
+}
+
+{
+ckey: SMB64
+character_name: Apricot Eris Yoshamatori
+item_path: /obj/item/clothing/accessory/locket/star
+}
+
 # ######## T CKEYS
 {
 
@@ -831,6 +844,19 @@ item_path: /obj/item/weapon/implant/language/eal
 ckey: tonyvld
 character_name: Tony Bingham
 item_path: /obj/item/clothing/head/fluff/runac
+}
+{
+ckey: tomtyph
+character_name: Sarika
+item_path: /obj/item/weapon/gun/projectile/revolver/mateba/fluff/tasald_corlethian/tomtyph
+
+}
+{
+ckey: tomtyph
+character_name: Sarika
+item_path: /obj/item/clothing/accessory/permit/gun/fluff/tomtyph
+item_name: Sarika's Sidearm Permit
+item_desc: A card indicating that the owner is allowed to carry a sidearm. It is issued by CentCom, registered to Sarika for a single-action revolver.
 }
 
 # ######## U CKEYS
