@@ -57,9 +57,9 @@
 	human_mob_list -= src
 	for(var/organ in organs)
 		qdel(organ)
-// Chompstation Edit: Removing NIFs temporarily - Jon
-//	qdel_null(nif)	//VOREStation Add
-//	qdel_null_list(vore_organs) //VOREStation Add
+
+	qdel_null(nif)	//VOREStation Add
+	qdel_null_list(vore_organs) //VOREStation Add
 	return ..()
 
 /mob/living/carbon/human/Stat()

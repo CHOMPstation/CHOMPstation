@@ -41,8 +41,7 @@
 	ckey = ckey(mind.key)
 
 	cryo_at = 0
-// Chompstation Edit: Removing NIFs temporarily - Jon
-/*
+
 	//Mental stuff the game doesn't keep mentally
 	if(istype(M) || istype(M,/mob/living/carbon/brain/caught_soul))
 		id_gender = M.identifying_gender
@@ -58,7 +57,7 @@
 					nifsofts += nifsoft.type
 			nif_software = nifsofts
 			nif_savedata = M.nif.save_data.Copy()
-*/
+
 	last_update = world.time
 
 	if(add_to_db)

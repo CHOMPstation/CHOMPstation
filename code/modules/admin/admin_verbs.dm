@@ -102,7 +102,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggle_attack_logs,
 	/datum/admins/proc/paralyze_mob,
 	/client/proc/fixatmos,
-//	/datum/admins/proc/quick_nif,	//VOREStation Add, //Chompstation Edit: Removing NIFs - Jon,
+	/datum/admins/proc/quick_nif,	//VOREStation Add,
 	/datum/admins/proc/sendFax,
 	/client/proc/despawn_player
 	)
@@ -140,7 +140,7 @@ var/list/admin_verbs_fun = list(
 	)
 
 var/list/admin_verbs_spawn = list(
-//	/datum/admins/proc/quick_nif,		//CHOMPStation Add, //Chompstation Edit: Removing NIFs - Jon,
+	/datum/admins/proc/quick_nif,		//CHOMPStation Add,
 	/datum/admins/proc/spawn_fruit,
 	/datum/admins/proc/spawn_custom_item,
 	/datum/admins/proc/check_custom_items,
@@ -347,7 +347,7 @@ var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_subtle_message, 	//send an message to somebody as a 'voice in their head',
 	/datum/admins/proc/paralyze_mob,
 	/client/proc/cmd_admin_direct_narrate,
-//	/datum/admins/proc/quick_nif,		//Chompstation Edit: Removing NIFs - Jon,
+	/datum/admins/proc/quick_nif,
 	/client/proc/allow_character_respawn,	// Allows a ghost to respawn ,
 	/datum/admins/proc/sendFax,
 	/client/proc/giveruntimelog,		//allows us to give access to runtime logs to somebody,
@@ -376,7 +376,7 @@ var/list/admin_verbs_event_manager = list(
 	/datum/admins/proc/paralyze_mob,
 	/client/proc/cmd_admin_direct_narrate,
 	/client/proc/cmd_admin_world_narrate,	//sends text to all players with no padding,
-//	/datum/admins/proc/quick_nif,		//CHOMPStation Add, //Chompstation Edit: Removing NIFs - Jon,
+	/datum/admins/proc/quick_nif,		//CHOMPStation Add,
 	/client/proc/allow_character_respawn,
 	/datum/admins/proc/sendFax,
 	/client/proc/respawn_character,

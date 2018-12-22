@@ -21,9 +21,7 @@
 /datum/gear/utility/communicator/New()
 	..()
 	var/list/communicators = list()
-// Chompstation Edit: Conflict with Removing NIFs - Jon
-//	for(var/communicator in typesof(/obj/item/device/communicator) - list(/obj/item/device/communicator/integrated,/obj/item/device/communicator/commlink)) //VOREStation Edit - Remove Commlink
-	for(var/communicator in typesof(/obj/item/device/communicator) - /obj/item/device/communicator/integrated)
+	for(var/communicator in typesof(/obj/item/device/communicator) - list(/obj/item/device/communicator/integrated,/obj/item/device/communicator/commlink)) //VOREStation Edit - Remove Commlink
 		var/obj/item/device/communicator_type = communicator
 		communicators[initial(communicator_type.name)] = communicator_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(communicators))

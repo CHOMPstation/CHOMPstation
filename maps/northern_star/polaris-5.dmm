@@ -1593,7 +1593,7 @@
 "EG" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9},/turf/simulated/floor/tiled,/area/outpost/mining_main/south_hall)
 "EH" = (/obj/structure/disposalpipe/segment,/obj/machinery/power/apc{dir = 4; name = "east bump"; pixel_x = 24},/obj/structure/cable/blue,/turf/simulated/floor/tiled,/area/outpost/mining_main/south_hall)
 "EI" = (/obj/item/weapon/crowbar,/obj/item/weapon/wrench,/obj/item/weapon/storage/toolbox/mechanical,/obj/structure/table/steel,/obj/machinery/light,/turf/simulated/floor/tiled,/area/outpost/mining_main/eva)
-"EJ" = (/obj/item/stack/flag/green{pixel_x = -4; pixel_y = 0},/obj/item/stack/flag/red,/obj/item/stack/flag/yellow{pixel_x = 4},/obj/structure/table/steel,/turf/simulated/floor/tiled,/area/outpost/mining_main/eva)
+"EJ" = (/obj/item/stack/flag/green{pixel_x = -4; pixel_y = 0},/obj/item/stack/flag/red,/obj/item/stack/flag/yellow{pixel_x = 4},/obj/structure/table/steel,/obj/item/weapon/storage/box/nifsofts_mining,/turf/simulated/floor/tiled,/area/outpost/mining_main/eva)
 "EK" = (/obj/structure/reagent_dispensers/fueltank,/obj/machinery/status_display{layer = 4; pixel_x = 0; pixel_y = -32},/turf/simulated/floor/tiled/dark,/area/outpost/mining_main/storage)
 "EL" = (/obj/structure/reagent_dispensers/watertank,/turf/simulated/floor/tiled/dark,/area/outpost/mining_main/storage)
 "EM" = (/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -20},/turf/simulated/floor/tiled,/area/outpost/mining_main/south_hall)
