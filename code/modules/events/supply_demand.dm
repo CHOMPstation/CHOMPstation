@@ -27,8 +27,8 @@
 	var/deptActivity = metric.assess_all_departments(severity * 2, notHaveDeptList)
 	for(var/dept in deptActivity)
 		switch(dept)
-			if(ROLE_ENGINEERING)
-				choose_atmos_items(severity + 1)
+//			if(ROLE_ENGINEERING)
+//				choose_atmos_items(severity + 1)
 			if(ROLE_MEDICAL)
 				choose_chemistry_items(roll(severity, 2))
 			if(ROLE_RESEARCH) // Would be nice to differentiate between research diciplines
@@ -74,7 +74,7 @@
 	// Check if the crew succeeded or failed!
 	if(required_items.len == 0)
 		// Success!
-		supply_controller.points += 100 * severity
+		supply_controller.points += 500 * severity
 		var/msg = "Great work! With those items you delivered our inventory levels all match up. "
 		msg += "[capitalize(pick(first_names_female))] from accounting will have nothing to complain about. "
 		msg += "I think you'll find a little something in your supply account."
@@ -223,6 +223,8 @@
 // Request is for a gas mixture.
 //	In this case the target is moles!
 //
+// Chomp edit: Commented out because this is exceedingly picky with the mixtures.
+/*
 /datum/supply_demand_order/gas
 	name = "gas mixture"
 	var/datum/gas_mixture/mixture
@@ -254,7 +256,8 @@
 	// Huh, it actually matches!
 	qty_need -= 1
 	return 1
-
+*/
+//Chomp edit end
 //
 // Item choosing procs - Decide what supplies will be demanded!
 //
@@ -321,6 +324,7 @@
 		required_items += new /datum/supply_demand_order/thing(rand(1, 2), T)
 	return
 
+/* // Commented out, same reason as the above. Broken event
 /datum/event/supply_demand/proc/choose_atmos_items(var/differentTypes)
 	var/datum/gas_mixture/mixture = new
 	mixture.temperature = T20C
@@ -335,6 +339,7 @@
 	O.mixture = mixture
 	required_items += O
 	return
+*/
 
 /datum/event/supply_demand/proc/choose_alloy_items(var/differentTypes)
 	var/list/types = typesof(/datum/alloy) - /datum/alloy

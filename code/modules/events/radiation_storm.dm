@@ -1,8 +1,8 @@
 /datum/event/radiation_storm
-	var/const/enterBelt		= 30
+	var/const/enterBelt		= 50
 	var/const/radIntervall 	= 5	// Enough time between enter/leave belt for 10 hits, as per original implementation
-	var/const/leaveBelt		= 80
-	var/const/revokeAccess	= 165
+	var/const/leaveBelt		= 100
+	var/const/revokeAccess	= 185
 	startWhen				= 2
 	announceWhen			= 1
 	endWhen					= revokeAccess

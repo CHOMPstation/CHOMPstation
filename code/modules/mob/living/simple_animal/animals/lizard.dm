@@ -10,7 +10,7 @@
 
 	health = 5
 	maxHealth = 5
-	mob_size = MOB_MINISCULE
+	mob_size = 1
 
 	response_help  = "pets"
 	response_disarm = "shoos"

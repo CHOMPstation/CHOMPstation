@@ -1767,9 +1767,10 @@
 		..()
 
 //jacknoir413:Areax Third
+//Probs gunna hate, but changed the description for public use.
 /obj/item/weapon/melee/baton/fluff/stunstaff
 	name = "Electrostaff"
-	desc = "Six-foot long staff from dull, rugged metal, with two thin spikes protruding from each end. Small etching near to the middle of it reads 'Children Of Nyx Facilities: Product No. 12'."
+	desc = "Six-foot long staff from dull, rugged metal, with two thin spikes protruding from each end. This is the weapon of truly robust security forces."
 	icon = 'icons/vore/custom_items_vr.dmi'
 	item_icons = list(slot_l_hand_str = 'icons/vore/custom_items_left_hand_vr.dmi', slot_r_hand_str = 'icons/vore/custom_items_right_hand_vr.dmi')
 	icon_state = "stunstaff00"
@@ -1778,6 +1779,7 @@
 	sharp = 0
 	edge = 0
 	throwforce = 7
+	reach = 2
 	w_class = ITEMSIZE_HUGE
 	origin_tech = list(TECH_COMBAT = 2)
 	attack_verb = list("beaten")
@@ -2016,7 +2018,7 @@
 	KA.desc = initial(KA.desc)
 	KA.icon = initial(KA.icon)
 	..()
-	
+
 //ArgobargSoup:Lynn Shady
 /obj/item/device/flashlight/pen/fluff/lynn
 	name = "Lynn's penlight"
