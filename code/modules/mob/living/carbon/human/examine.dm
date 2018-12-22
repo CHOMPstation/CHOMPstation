@@ -329,7 +329,7 @@
 		else if(disconnect_time)
 			msg += "\[Disconnected/ghosted [round(((world.realtime - disconnect_time)/10)/60)] minutes ago\]\n"
 		//VOREStation Add End
-	
+
 	var/list/wound_flavor_text = list()
 	var/list/is_bleeding = list()
 	var/applying_pressure = ""

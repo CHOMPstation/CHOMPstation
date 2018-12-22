@@ -77,7 +77,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 							mobs_found += found
 							if(!ai_found && isAI(found))
 								ai_found = 1
-							msg += "<b><font color='black'>[original_word] (<A HREF='?_src_=holder;adminmoreinfo=\ref[found]'>?</A>)</font></b> "
+							msg += "<b><font color='white'>[original_word] (<A HREF='?_src_=holder;adminmoreinfo=\ref[found]'>?</A>)</font></b> "
 							continue
 			msg += "[original_word] "
 
@@ -91,7 +91,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 			//Options bar:  mob, details ( admin = 2, dev = 3, event manager = 4, character name (0 = just ckey, 1 = ckey and character name), link? (0 no don't make it a link, 1 do so),
 			//		highlight special roles (0 = everyone has same looking name, 1 = antags / special roles get a golden name)
 
-	msg = "<b><font color=red>Request for Help: </font></b><font color='blue'><b>[get_options_bar(mob, 2, 1, 1)][ai_cl]</b> [msg]</font>"
+	msg = "<b><font color=red>Request for Help: </font></b><font color='cyan'><b>[get_options_bar(mob, 2, 1, 1)][ai_cl]</b> [msg]</font>"
 
 	var/admin_number_afk = 0
 
@@ -104,7 +104,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 				X << 'sound/effects/adminhelp.ogg'
 
 	//show it to the person adminhelping too
-	src << "<font color='blue'>PM to-<b>Staff </b>: [original_msg]</font>"
+	src << "<font color='cyan'>PM to-<b>Staff </b>: [original_msg]</font>"
 
 	var/admin_number_present = admins.len - admin_number_afk
 	log_admin("HELP: [key_name(src)]: [original_msg] - heard by [admin_number_present] non-AFK admins.")

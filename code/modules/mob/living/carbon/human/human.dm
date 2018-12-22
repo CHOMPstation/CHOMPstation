@@ -57,6 +57,7 @@
 	human_mob_list -= src
 	for(var/organ in organs)
 		qdel(organ)
+
 	qdel_null(nif)	//VOREStation Add
 	qdel_null_list(vore_organs) //VOREStation Add
 	return ..()

@@ -713,8 +713,8 @@
 			selected.digestchance = sanitize_integer(digest_chance_input, 0, 100, initial(selected.digestchance))
 
 	if(href_list["b_del"])
-		var/alert = alert("Are you sure you want to delete your [lowertext(selected.name)]?","Confirmation","Delete","Cancel")
-		if(!alert == "Delete")
+
+		if(alert("Are you sure you want to delete your [lowertext(selected.name)]?","Confirmation","Delete","Cancel") == "Cancel")
 			return 0
 
 		var/failure_msg = ""

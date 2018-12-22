@@ -163,6 +163,7 @@
 	icon_state = "collar_holo"
 	item_state = "collar_holo_overlay"
 	overlay_state = "collar_holo_overlay"
+	matter = list(DEFAULT_WALL_MATERIAL = 50)
 
 // Chompstation edit - Deprecated, implementing a custom method of renaming collars.
 /*

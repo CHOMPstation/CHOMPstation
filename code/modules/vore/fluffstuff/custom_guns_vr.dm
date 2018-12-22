@@ -157,6 +157,14 @@
 	else
 		..()
 
+//Tomtyph : Sarika
+/obj/item/weapon/gun/projectile/revolver/mateba/fluff/tasald_corlethian/tomtyph
+	name =  "\improper \"Black Iron\" revolver"
+	desc =	"A single-action .357 revolver with a wooden grip and black iron receiver. A faded name is etched onto the handle. All you can make out is a single T. "
+	icon_state = "black_iron"
+	item_state = "revolver"
+	fire_sound = 'sound/weapons/pistol.ogg'
+
 // wankersonofjerkin : Glenn Pink
 /obj/item/weapon/gun/projectile/revolver/fluff/admiral_pink_revolver
 	name = "Admiral Pink's 'Devilgun'"

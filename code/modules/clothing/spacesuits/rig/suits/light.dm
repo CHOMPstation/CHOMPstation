@@ -126,3 +126,15 @@
 		/obj/item/rig_module/stealth_field,
 		/obj/item/rig_module/vision
 		)
+/*
+//New suit, in testing.
+/obj/item/weapon/rig/light/KWIv1
+	name = "simple rig control module"
+	suit_type = "KWI"
+	desc = "A bare-bones, simple rig, but highly customizable."
+	icon_state = "kwi_rig"
+
+	initial_modules = list(
+	/obj/item/rig_module/power_sink //Just to recharge it, nothing else.
+	)
+*/

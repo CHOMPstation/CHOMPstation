@@ -209,6 +209,9 @@
 		if(!T) return
 		//VOREStation Edit Start for commlinks
 		var/list/mobs_to_relay
+
+// Chompstation Edit: Removing NIFs temporarily - Jon
+
 		if(istype(comm,/obj/item/device/communicator/commlink))
 			var/obj/item/device/communicator/commlink/CL = comm
 			mobs_to_relay = list(CL.nif.human)
@@ -237,6 +240,8 @@
 		if(!T) return
 		//VOREStation Edit Start for commlinks
 		var/list/mobs_to_relay
+
+
 		if(istype(comm,/obj/item/device/communicator/commlink))
 			var/obj/item/device/communicator/commlink/CL = comm
 			mobs_to_relay = list(CL.nif.human)
