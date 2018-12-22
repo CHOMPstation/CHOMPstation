@@ -1,7 +1,7 @@
 client/script = {"<style>
 body					{font-family: Verdana, sans-serif; color: #e2ebf1;}
 
-h1, h2, h3, h4, h5, h6	{color: #1919FF;font-family: Georgia, Verdana, sans-serif;}
+h1, h2, h3, h4, h5, h6	{color: #6F6FE2;font-family: Georgia, Verdana, sans-serif;}
 
 em						{font-style: normal;font-weight: bold;}
 
