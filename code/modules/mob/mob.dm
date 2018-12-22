@@ -331,9 +331,9 @@
 	if (flavor_text && flavor_text != "")
 		var/msg = replacetext(flavor_text, "\n", " ")
 		if(lentext(msg) <= 40)
-			return "<font color='blue'>[msg]</font>"
+			return "<font color='#a5a5e2'>[msg]</font>"
 		else
-			return "<font color='blue'>[copytext_preserve_html(msg, 1, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</font></a>"
+			return "<font color='#a5a5e2'>[copytext_preserve_html(msg, 1, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</font></a>"
 
 /*
 /mob/verb/help()

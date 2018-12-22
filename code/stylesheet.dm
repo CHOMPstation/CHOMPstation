@@ -18,8 +18,8 @@ em						{font-style: normal;font-weight: bold;}
 .ooc					{font-weight: bold;}
 .ooc img.text_tag		{width: 32px; height: 10px;}
 
-.ooc .everyone			{color: #0544ff;}
-.ooc .looc				{color: #4DA0A0;}
+.ooc .everyone			{color: #3064ff;}
+.ooc .looc				{color: #61c7ce;}
 .ooc .elevated			{color: #2e78d9;}
 .ooc .moderator			{color: #587AA3;}
 .ooc .developer			{color: #48744B;}
@@ -40,7 +40,7 @@ em						{font-style: normal;font-weight: bold;}
 .event_channel			{color: #D65BAD;	font-weight: bold;}
 
 /* Radio: Misc */
-.deadsay				{color: #753EBD;}
+.deadsay				{color: #8954ce;}
 .radio					{color: #6FB76F;}
 .deptradio				{color: #ff00ff;}	/* when all other department colors fail */
 .newscaster				{color: #903232;}
@@ -54,7 +54,7 @@ em						{font-style: normal;font-weight: bold;}
 
 .secradio				{color: #A30000;}
 .engradio				{color: #A66300;}
-.medradio				{color: #329A7F;}
+.medradio				{color: #2ca384;}
 .sciradio				{color: #AD5BAD;}
 .supradio				{color: #7E6A46;}
 .srvradio				{color: #8BBB56;}
