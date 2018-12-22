@@ -93,6 +93,7 @@ ckey: aerowing
 character_name: Sebastian Aji
 item_path: /obj/item/weapon/storage/box/fluff/sebastian_aji
 }
+
 # ######## B CKEYS
 {
 ckey: benemuel
@@ -818,6 +819,18 @@ character_name: Silent Stripes
 item_path: /obj/item/clothing/under/sexymime
 }
 
+{
+ckey: SMB64
+character_name: Koshi Kirbis Yoshamatori
+item_path: /obj/item/clothing/accessory/locket/star
+}
+
+{
+ckey: SMB64
+character_name: Apricot Eris Yoshamatori
+item_path: /obj/item/clothing/accessory/locket/star
+}
+
 # ######## T CKEYS
 {
 
@@ -835,9 +848,7 @@ item_path: /obj/item/clothing/head/fluff/runac
 {
 ckey: tomtyph
 character_name: Sarika
-item_path: /obj/item/weapon/gun/projectile/revolver/mateba/fluff/tasald_corlethian
-item_name: Black Iron
-item_desc: The handle has a faded etching, all you can make out is a single T.
+item_path: /obj/item/weapon/gun/projectile/revolver/mateba/fluff/tasald_corlethian/tomtyph
 
 }
 {

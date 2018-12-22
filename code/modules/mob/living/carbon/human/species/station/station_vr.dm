@@ -349,6 +349,9 @@
 
 /datum/species/shapeshifter/promethean
 	spawn_flags = SPECIES_CAN_JOIN
+	push_flags = ~HEAVY //Allows them to push others
+	swap_flags = ~HEAVY //Allows them to swap places with others
+
 
 /datum/species/human
 	color_mult = 1
