@@ -54,9 +54,8 @@ SUBSYSTEM_DEF(transcore)
 		BITSET(H.hud_updateflag, BACKUP_HUD)
 
 		if(H == imp.imp_in && H.mind && H.stat < DEAD)
-//			SStranscore.m_backup(H.mind,H.nif)
-//			persist_nif_data(H) //Chompstation Edit: Removing NIFs - Jon
-			SStranscore.m_backup(H.mind,null)
+			SStranscore.m_backup(H.mind,H.nif)
+			persist_nif_data(H)
 
 		if(MC_TICK_CHECK)
 			return
@@ -130,8 +129,6 @@ SUBSYSTEM_DEF(transcore)
 		MR.last_update = world.time
 		MR.one_time = one_time
 
-// Chompstation Edit: TEMPORARILY REMOVING - Jon
-/*
 		//Pass a 0 to not change NIF status (because the elseif is checking for null)
 		if(nif)
 			MR.nif_path = nif.type
@@ -148,7 +145,7 @@ SUBSYSTEM_DEF(transcore)
 			MR.nif_durability = null
 			MR.nif_software = null
 			MR.nif_savedata = null
-*/
+
 	else
 		MR = new(mind, mind.current, add_to_db = TRUE, one_time = one_time)
 

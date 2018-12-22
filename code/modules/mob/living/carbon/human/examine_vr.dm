@@ -153,9 +153,8 @@
 		message = "<font color='red'>They are small enough that you could easily trample them!</font>\n"
 	return message
 
-//Chompstation Edit: Removing NIFs - Jon
-/*
+
+
 /mob/living/carbon/human/proc/examine_nif(mob/living/carbon/human/H)
 	if(nif && nif.examine_msg) //If you have one set, anyway.
 		return "<span class='notice'>[nif.examine_msg]</span>\n"
-*/

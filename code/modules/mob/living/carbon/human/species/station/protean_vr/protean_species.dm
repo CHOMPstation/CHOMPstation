@@ -112,8 +112,6 @@
 		for(var/path in powertypes)
 			abilities += new path()
 
-//Chompstation Edit: Removing NIFs - Jon
-/*
 /datum/species/protean/create_organs(var/mob/living/carbon/human/H)
 	var/obj/item/device/nif/saved_nif = H.nif
 	if(saved_nif)
@@ -121,7 +119,7 @@
 		H.nif.forceMove(null)
 	..()
 	if(saved_nif)
-		saved_nif.quick_implant(H)*/
+		saved_nif.quick_implant(H)
 
 /datum/species/protean/get_bodytype(var/mob/living/carbon/human/H)
 	if(H)
@@ -145,15 +143,14 @@
 	else
 		H.equip_to_slot_or_del(permit, slot_in_backpack)
 		H.equip_to_slot_or_del(metal_stack, slot_in_backpack)
-// Chompstation Edit: Removing temporarily - Jon
-/*
+
 	spawn(0) //Let their real nif load if they have one
 		if(!H.nif)
 			var/obj/item/device/nif/bioadap/new_nif = new()
 			new_nif.quick_implant(H)
 		else
 			H.nif.durability = rand(21,25)
-*/
+
 /datum/species/protean/hug(var/mob/living/carbon/human/H, var/mob/living/target)
 	return ..() //Wut
 

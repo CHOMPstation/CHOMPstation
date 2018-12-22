@@ -47,8 +47,7 @@
 						/obj/item/clothing/accessory/permit/gun,
 						/obj/item/device/perfect_tele,
 						/obj/item/device/sleevemate,
-// Chompstation Edit: Removing NIFs temporarily - Jon
-//						/obj/item/weapon/disk/nifsoft/compliance,
+						/obj/item/weapon/disk/nifsoft/compliance,
 						/obj/item/seeds/ambrosiadeusseed,
 						/obj/item/seeds/ambrosiavulgarisseed,
 						/obj/item/seeds/libertymycelium,

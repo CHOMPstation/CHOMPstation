@@ -148,8 +148,7 @@
 	user.drop_item()
 	affected.implants += tool
 	tool.loc = affected
-// Chompstation Edit: Removing NIFs temporarily - Jon
-//	if(istype(tool,/obj/item/device/nif)){var/obj/item/device/nif/N = tool;N.implant(target)} //VOREStation Add - NIF support
+	if(istype(tool,/obj/item/device/nif)){var/obj/item/device/nif/N = tool;N.implant(target)} //VOREStation Add - NIF support
 	affected.cavity = 0
 
 //////////////////////////////////////////////////////////////////
@@ -221,8 +220,7 @@
 					var/obj/item/weapon/implant/imp = obj
 					imp.imp_in = null
 					imp.implanted = 0
-// Chompstation Edit: Removing NIFs temporarily - Jon
-//				else if(istype(tool,/obj/item/device/nif)){var/obj/item/device/nif/N = tool;N.unimplant(target)} //VOREStation Add - NIF support
+				else if(istype(tool,/obj/item/device/nif)){var/obj/item/device/nif/N = tool;N.unimplant(target)} //VOREStation Add - NIF support
 		else
 			user.visible_message("<font color='blue'>[user] removes \the [tool] from [target]'s [affected.name].</font>", \
 			"<font color='blue'>There's something inside [target]'s [affected.name], but you just missed it this time.</font>" )

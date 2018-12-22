@@ -84,8 +84,6 @@
 	build_path = /obj/item/device/perfect_tele
 	sort_string = "HABAF"
 
-// Chompstation Edit: Removing temporarily - Jon
-/*
 /datum/design/item/nif
 	name = "nanite implant framework"
 	id = "nif"
@@ -110,7 +108,7 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 200, "glass" = 3000, "uranium" = 2000, "diamond" = 2000)
 	build_path = /obj/item/device/nifrepairer
 	sort_string = "HABBE" //CHOMP Edit, Changed String from HABBD to HABBE
-*/
+
 // Resleeving Circuitboards
 
 /datum/design/circuit/transhuman_clonepod

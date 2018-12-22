@@ -19,15 +19,13 @@
 		if ("awoo")
 			message = "awoos loudly. AwoooOOOOoooo!"
 			m_type = 2
-//Chompstation Edit: Removing NIFs - Jon
-/*
 		if ("nsay")
 			nsay()
 			return TRUE
 		if ("nme")
 			nme()
 			return TRUE
-*/
+
 		if ("flip")
 			var/danger = 1 //Base 1% chance to break something.
 			var/list/involved_parts = list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
