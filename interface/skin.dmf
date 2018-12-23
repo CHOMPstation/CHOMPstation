@@ -1502,7 +1502,7 @@ window "infowindow"
 		background-color = #23272A
 		is-default = true
 		saved-params = ""
-		highlight-color = #23272A 
+		highlight-color = #9cb9b5 
 		tab-text-color = #e2ebf1
 		tab-background-color = #23272A
 		on-show = ".winset\"rpane.infob.is-visible=true;rpane.browseb.is-visible=true?rpane.infob.pos=130,0:rpane.infob.pos=65,0 rpane.textb.is-visible=true rpane.infob.is-checked=true rpane.rpanewindow.pos=0,30 rpane.rpanewindow.size=0x0 rpane.rpanewindow.left=infowindow\""

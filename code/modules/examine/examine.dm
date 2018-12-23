@@ -71,7 +71,7 @@
 			for(var/line in description_holders["interactions"])
 				stat(null, "<font color='#084B8A'><b>[line]</b></font>")
 		if(description_holders["fluff"])
-			stat(null,"<font color='#298A08'><b>[description_holders["fluff"]]</b></font>") //Yellow, fluff-related text.
+			stat(null,"<font color='#298A08'><b>[description_holders["fluff"]]</b></font>") //Green, fluff-related text.
 		if(description_holders["antag"])
 			stat(null,"<font color='#8A0808'><b>[description_holders["antag"]]</b></font>") //Red, malicious antag-related text
 
