@@ -244,7 +244,7 @@
 	name = "apple"
 	seed_name = "apple"
 	display_name = "apple tree"
-	mutants = list("poisonapple","goldapple")
+	mutants = list("poisonapple","goldapple","fallingapple")
 	chems = list("nutriment" = list(1,10),"applejuice" = list(10,20))
 	kitchen_tag = "apple"
 
@@ -265,6 +265,13 @@
 	name = "poisonapple"
 	mutants = null
 	chems = list("cyanide" = list(1,5))
+
+//Chompstation add: Adding self harvesting apples which contain poison and can mutate into poisonapples
+/datum/seed/apple/falling
+	name = "fallingapple"
+	mutants = list("poisonapple")
+	can_self_harvest = 1
+	chems = list("nutriment" = list(1,5),"applejuice" = list(5,10),"cyanide" = list(1,3))
 
 /datum/seed/apple/gold
 	name = "goldapple"
