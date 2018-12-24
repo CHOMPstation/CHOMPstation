@@ -1,6 +1,6 @@
 /mob/living/simple_animal/retaliate/synx
 	name = "Synx"
-	desc = "to be added"
+	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration."
 	tt_desc = "synxus pergulus"
 
 	 //Synx species belongs to ChimeraSynx , Sprites by: SpitefulCrow
@@ -17,8 +17,8 @@
 
 	maxHealth = 150
 	health = 120
-	turns_per_move = 2
-	speed = -2
+	//turns_per_move = 2 //to be balanced, default for now
+	//speed = -2 //to be balanced, default for now
 	see_in_dark = 6
 	stop_when_pulled = 0
 	armor = list(			// will be determined
@@ -102,7 +102,7 @@ mob/living/simple_animal/synx/PunchTarget()
 		status_flags &= ~HIDING
 		reset_plane_and_layer()
 		to_chat(src,"<span class='notice'>You have stopped hiding.</span>")
-		speed = -3
+		//speed = -3, to be balanced
 	else
 		status_flags |= HIDING
 		layer = HIDING_LAYER //Just above cables with their 2.44
