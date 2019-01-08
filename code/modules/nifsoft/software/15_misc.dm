@@ -122,7 +122,7 @@
 	name = "Mass Alteration"
 	desc = "A system that allows one to change their size, through drastic mass rearrangement. Causes significant wear when installed."
 	list_pos = NIF_SIZECHANGE
-	cost = 750
+	cost = 375
 	wear = 6
 
 	activate()
