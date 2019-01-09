@@ -129,7 +129,8 @@
 	sprites = list(
 					"K9 hound" = "k9",
 					"K9 Alternative (Static)" = "k92",
-					"Secborg model V-2" = "secborg"
+					"Secborg model V-2" = "secborg",
+					"Secborg model V-3" = "SecVale"
 					)
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
