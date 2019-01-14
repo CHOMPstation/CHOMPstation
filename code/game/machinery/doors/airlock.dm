@@ -232,6 +232,8 @@
 	opacity = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_hatch
 	req_one_access = list(access_maint_tunnels)
+	open_sound_powered = 'sound/machines/hatchopen.ogg'
+	close_sound_powered = 'sound/machines/hatchclose.ogg'
 
 /obj/machinery/door/airlock/maintenance_hatch
 	name = "Maintenance Hatch"
@@ -240,6 +242,8 @@
 	opacity = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_mhatch
 	req_one_access = list(access_maint_tunnels)
+	open_sound_powered = 'sound/machines/hatchopen.ogg'
+	close_sound_powered = 'sound/machines/hatchclose.ogg'
 
 /obj/machinery/door/airlock/glass_command
 	name = "Command Airlock"
@@ -288,6 +292,8 @@
 /obj/machinery/door/airlock/glass_medical
 	name = "Medical Airlock"
 	icon = 'icons/obj/doors/Doormedglass.dmi'
+	open_sound_powered = 'sound/machines/WideOpen.ogg'
+	close_sound_powered = 'sound/machines/WideClose.ogg'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
