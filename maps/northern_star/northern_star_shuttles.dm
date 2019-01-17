@@ -159,6 +159,15 @@
 	dock_target_station = "mining_dock_airlock"
 	dock_target_offsite = "mining_outpost_airlock"
 
+/datum/shuttle/ferry/medical
+	name = "Medical"
+	warmup_time = 10
+	area_offsite = /area/shuttle/medical/outpost
+	area_station = /area/shuttle/medical/station
+	docking_controller_tag = "medical_shuttle"
+	dock_target_station = "med_dock_airlock"
+	dock_target_station = "med_outpost_airlock"
+
 /datum/shuttle/ferry/research
 	name = "Research"
 	warmup_time = 10

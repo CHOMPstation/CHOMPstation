@@ -15,3 +15,9 @@
 	shuttle_tag = "Research"
 	//req_access = list(access_research)
 	circuit = /obj/item/weapon/circuitboard/research_shuttle
+
+/obj/machinery/computer/shuttle_control/medical
+	name = "medical shuttle control console"
+	shuttle_tag = "Medical"
+	//req_access = list(access_medical)
+	circuit = /obj/item/weapon/circuitboard/medical_shuttle
