@@ -120,7 +120,7 @@
 	usr.set_machine(src)
 	src.add_fingerprint(usr)
 	if(processing==1)
-		usr << "<font color='blue'>The machine is processing.</font>"
+		usr << "<font color='#6F6FE2'>The machine is processing.</font>"
 		return
 	if(href_list["choose"])
 		chosen = href_list["choose"]

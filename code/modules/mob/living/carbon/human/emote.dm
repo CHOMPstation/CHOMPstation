@@ -730,7 +730,7 @@
 					twitch_v, vomit, whimper, wink, yawn. Synthetics: beep, buzz, yes, no, rcough, rsneeze, ping"
 
 		else
-			src << "<font color='blue'>Unusable emote '[act]'. Say *help for a list.</font>"
+			src << "<font color='#6F6FE2'>Unusable emote '[act]'. Say *help for a list.</font>"
 
 	if (message)
 		custom_emote(m_type,message)

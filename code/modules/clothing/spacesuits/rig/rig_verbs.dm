@@ -218,11 +218,11 @@
 
 	if(!istype(module))
 		selected_module = null
-		usr << "<font color='blue'><b>Primary system is now: deselected.</b></font>"
+		usr << "<font color='#6F6FE2'><b>Primary system is now: deselected.</b></font>"
 		return
 
 	selected_module = module
-	usr << "<font color='blue'><b>Primary system is now: [selected_module.interface_name].</b></font>"
+	usr << "<font color='#6F6FE2'><b>Primary system is now: [selected_module.interface_name].</b></font>"
 
 /obj/item/weapon/rig/verb/toggle_module()
 
@@ -256,10 +256,10 @@
 		return
 
 	if(module.active)
-		usr << "<font color='blue'><b>You attempt to deactivate \the [module.interface_name].</b></font>"
+		usr << "<font color='#6F6FE2'><b>You attempt to deactivate \the [module.interface_name].</b></font>"
 		module.deactivate()
 	else
-		usr << "<font color='blue'><b>You attempt to activate \the [module.interface_name].</b></font>"
+		usr << "<font color='#6F6FE2'><b>You attempt to activate \the [module.interface_name].</b></font>"
 		module.activate()
 
 /obj/item/weapon/rig/verb/engage_module()
@@ -293,5 +293,5 @@
 	if(!istype(module))
 		return
 
-	usr << "<font color='blue'><b>You attempt to engage the [module.interface_name].</b></font>"
+	usr << "<font color='#6F6FE2'><b>You attempt to engage the [module.interface_name].</b></font>"
 	module.engage()

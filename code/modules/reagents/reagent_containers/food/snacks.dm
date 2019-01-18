@@ -147,11 +147,11 @@
 	if (bitecount==0)
 		return
 	else if (bitecount==1)
-		user << "<font color='blue'>\The [src] was bitten by someone!</font>"
+		user << "<font color='#6F6FE2'>\The [src] was bitten by someone!</font>"
 	else if (bitecount<=3)
-		user << "<font color='blue'>\The [src] was bitten [bitecount] times!</font>"
+		user << "<font color='#6F6FE2'>\The [src] was bitten [bitecount] times!</font>"
 	else
-		user << "<font color='blue'>\The [src] was bitten multiple times!</font>"
+		user << "<font color='#6F6FE2'>\The [src] was bitten multiple times!</font>"
 
 /obj/item/weapon/reagent_containers/food/snacks/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/storage))
@@ -171,7 +171,7 @@
 
 			user.visible_message( \
 				"[user] scoops up some [src] with \the [U]!", \
-				"<font color='blue'>You scoop up some [src] with \the [U]!</font>" \
+				"<font color='#6F6FE2'>You scoop up some [src] with \the [U]!</font>" \
 			)
 
 			src.bitecount++
@@ -585,10 +585,10 @@
 		var/clr = C.colourName
 
 		if(!(clr in list("blue","green","mime","orange","purple","rainbow","red","yellow")))
-			usr << "<font color='blue'>The egg refuses to take on this color!</font>"
+			usr << "<font color='#6F6FE2'>The egg refuses to take on this color!</font>"
 			return
 
-		usr << "<font color='blue'>You color \the [src] [clr]</font>"
+		usr << "<font color='#6F6FE2'>You color \the [src] [clr]</font>"
 		icon_state = "egg-[clr]"
 	else
 		..()

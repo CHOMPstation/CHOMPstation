@@ -878,7 +878,7 @@ mob/living/carbon/proc/charmed() //TODO
 
 	spawn(0)
 		for(var/i = 1,i > 0, i--)
-			src << "<font color='blue'><i>... [pick(charmed)] ...</i></font>"
+			src << "<font color='#6F6FE2'><i>... [pick(charmed)] ...</i></font>"
 		charmed = 0
 
 */

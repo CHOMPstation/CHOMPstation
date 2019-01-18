@@ -105,7 +105,7 @@
 		var/pressure = tile_info[index][2]
 		o += "<span class='[(dir_alerts[index] & (FIREDOOR_ALERT_HOT|FIREDOOR_ALERT_COLD)) ? "warning" : "color:blue"]'>"
 		o += "[celsius]&deg;C</span> "
-		o += "<span style='color:blue'>"
+		o += "<span style='color:#6F6FE2'>"
 		o += "[pressure]kPa</span></li>"
 		user << o
 

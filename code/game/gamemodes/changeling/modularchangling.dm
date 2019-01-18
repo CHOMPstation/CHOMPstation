@@ -108,7 +108,7 @@ var/list/datum/power/changeling/powerinstances = list()
 
 					if(enhancedtext)
 					{
-						body += "<font size='2'><font color = 'blue'>Recursive Enhancement Effect: <b>"+enhancedtext+"</b></font></font><BR>"
+						body += "<font size='2'><font color = '#6F6FE2'>Recursive Enhancement Effect: <b>"+enhancedtext+"</b></font></font><BR>"
 					}
 
 					if(!ownsthis)
