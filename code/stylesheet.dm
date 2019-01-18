@@ -46,13 +46,13 @@ em						{font-style: normal;font-weight: bold;}
 .newscaster				{color: #903232;}
 
 /* Radio Channels */
-.comradio				{color: #466194;}
+.comradio				{color: #546fa3;}
 .syndradio				{color: #8A6566;}
 .centradio				{color: #5C5C8A;}
 .airadio				{color: #FF00FF;}
 .entradio				{color: #5BAD84;}
 
-.secradio				{color: #A30000;}
+.secradio				{color: #d63131;}
 .engradio				{color: #A66300;}
 .medradio				{color: #2ca384;}
 .sciradio				{color: #AD5BAD;}
