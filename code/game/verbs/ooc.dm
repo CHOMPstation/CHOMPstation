@@ -12,6 +12,11 @@
 		src << "Guests may not use OOC."
 		return
 
+	//Chompstation ADD
+	if((copytext(msg, 1, 2) in list(".",";",":","#")) || (findtext(lowertext(copytext(msg, 1, 5)), "say")))
+		if(alert("Your message \"[msg]\" looks like it was meant for in game communication, say it in OOC?", "Meant for OOC?", "No", "Yes") != "Yes")
+			return
+
 	msg = sanitize(msg)
 	if(!msg)	return
 
