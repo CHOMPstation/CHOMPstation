@@ -105,7 +105,7 @@
 		if(!stat)
 			for(var/mob/M in viewers(user, null))
 				if ((M.client && !( M.blinded )))
-					M.show_message("<font color='blue'>[user] baps [name] on the nose with the rolled up [O]</font>")
+					M.show_message("<font color='#6F6FE2'>[user] baps [name] on the nose with the rolled up [O]</font>")
 			spawn(0)
 				for(var/i in list(1,2,4,8,4,2,1,2))
 					set_dir(i)

@@ -60,7 +60,7 @@
 		if ("help")
 			src << "alarm,alert,notice,flash,blink,whistle,beep,boop"
 		else
-			src << "<font color='blue'>Unusable emote '[act]'. Say *help for a list.</font>"
+			src << "<font color='#6F6FE2'>Unusable emote '[act]'. Say *help for a list.</font>"
 
 	if (message)
 		log_emote(message, src)

@@ -407,7 +407,7 @@ var/list/solars_list = list()
 		playsound(src, I.usesound, 50, 1)
 		if(do_after(user, 20))
 			if (src.stat & BROKEN)
-				user << "<font color='blue'>The broken glass falls out.</font>"
+				user << "<font color='#6F6FE2'>The broken glass falls out.</font>"
 				var/obj/structure/frame/A = new /obj/structure/frame/computer( src.loc )
 				new /obj/item/weapon/material/shard( src.loc )
 				var/obj/item/weapon/circuitboard/solar_control/M = new /obj/item/weapon/circuitboard/solar_control( A )
@@ -419,7 +419,7 @@ var/list/solars_list = list()
 				A.anchored = 1
 				qdel(src)
 			else
-				user << "<font color='blue'>You disconnect the monitor.</font>"
+				user << "<font color='#6F6FE2'>You disconnect the monitor.</font>"
 				var/obj/structure/frame/A = new /obj/structure/frame/computer( src.loc )
 				var/obj/item/weapon/circuitboard/solar_control/M = new /obj/item/weapon/circuitboard/solar_control( A )
 				for (var/obj/C in src)

@@ -144,7 +144,7 @@
 /mob/living/carbon/human/proc/examine_pickup_size(mob/living/H)
 	var/message = ""
 	if(istype(H) && (H.get_effective_size() - src.get_effective_size()) >= 0.50)
-		message = "<font color='blue'>They are small enough that you could easily pick them up!</font>\n"
+		message = "<font color='#6F6FE2'>They are small enough that you could easily pick them up!</font>\n"
 	return message
 
 /mob/living/carbon/human/proc/examine_step_size(mob/living/H)

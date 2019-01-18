@@ -259,6 +259,6 @@ obj/machinery/gateway/centerstation/process()
 				return
 			// VOREStation Add End
 			else
-				user << "<font color='blue'><b>Recalibration successful!</b>:</font><font color='black'> This gate's systems have been fine tuned. Travel to this gate will now be on target.</font>"
+				user << "<font color='#6F6FE2'><b>Recalibration successful!</b>:</font><font color='black'> This gate's systems have been fine tuned. Travel to this gate will now be on target.</font>"
 				calibrated = 1
 				return

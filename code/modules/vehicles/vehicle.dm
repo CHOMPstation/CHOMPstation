@@ -137,7 +137,7 @@
 						health = min(maxhealth, health+10)
 						user.setClickCooldown(user.get_attack_speed(W))
 						playsound(src, T.usesound, 50, 1)
-						user.visible_message("<font color='red'>[user] repairs [src]!</font>","<font color='blue'> You repair [src]!</font>")
+						user.visible_message("<font color='red'>[user] repairs [src]!</font>","<font color='#6F6FE2'> You repair [src]!</font>")
 					else
 						user << "<span class='notice'>Unable to repair with the maintenance panel closed.</span>"
 				else
