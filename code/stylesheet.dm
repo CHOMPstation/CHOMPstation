@@ -18,7 +18,7 @@ em						{font-style: normal;font-weight: bold;}
 .ooc					{font-weight: bold;}
 .ooc img.text_tag		{width: 32px; height: 10px;}
 
-.ooc .everyone			{color: #3064ff;}
+.ooc .everyone			{color: #386aff;}
 .ooc .looc				{color: #61c7ce;}
 .ooc .elevated			{color: #2e78d9;}
 .ooc .moderator			{color: #587AA3;}
