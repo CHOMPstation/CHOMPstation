@@ -192,7 +192,7 @@
 				break
 
 	if(total_transferred)
-		user << "<font color='blue'>You transfer [total_transferred] units into the suit reservoir.</font>"
+		user << "<font color='#6F6FE2'>You transfer [total_transferred] units into the suit reservoir.</font>"
 	else
 		user << "<span class='danger'>None of the reagents seem suitable.</span>"
 	return 1
@@ -321,17 +321,17 @@
 		if("Enable")
 			active = 1
 			voice_holder.active = 1
-			usr << "<font color='blue'>You enable the speech synthesiser.</font>"
+			usr << "<font color='#6F6FE2'>You enable the speech synthesiser.</font>"
 		if("Disable")
 			active = 0
 			voice_holder.active = 0
-			usr << "<font color='blue'>You disable the speech synthesiser.</font>"
+			usr << "<font color='#6F6FE2'>You disable the speech synthesiser.</font>"
 		if("Set Name")
 			var/raw_choice = sanitize(input(usr, "Please enter a new name.")  as text|null, MAX_NAME_LEN)
 			if(!raw_choice)
 				return 0
 			voice_holder.voice = raw_choice
-			usr << "<font color='blue'>You are now mimicking <B>[voice_holder.voice]</B>.</font>"
+			usr << "<font color='#6F6FE2'>You are now mimicking <B>[voice_holder.voice]</B>.</font>"
 	return 1
 
 /obj/item/rig_module/maneuvering_jets
@@ -518,7 +518,7 @@
 		user << "<span class='danger'>Another grenade of that type will not fit into the module.</span>"
 		return 0
 
-	user << "<font color='blue'><b>You slot \the [input_device] into the suit module.</b></font>"
+	user << "<font color='#6F6FE2'><b>You slot \the [input_device] into the suit module.</b></font>"
 	user.drop_from_inventory(input_device)
 	qdel(input_device)
 	accepted_item.charges++
@@ -642,7 +642,7 @@
 
 	var/mob/living/carbon/human/H = holder.wearer
 
-	H << "<font color='blue'><b>You activate the suit's sprint mode.</b></font>"
+	H << "<font color='#6F6FE2'><b>You activate the suit's sprint mode.</b></font>"
 
 	holder.slowdown = initial(holder.slowdown) - sprint_speed
 

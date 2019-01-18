@@ -99,7 +99,7 @@
 
 	if(istype(I, /obj/item/weapon/storage/bag/trash))
 		var/obj/item/weapon/storage/bag/trash/T = I
-		user << "<font color='blue'>You empty the bag.</font>"
+		user << "<font color='#6F6FE2'>You empty the bag.</font>"
 		for(var/obj/item/O in T.contents)
 			T.remove_from_storage(O,src)
 		T.update_icon()
@@ -1169,7 +1169,7 @@
 			if(O.currTag)// Tag set
 				sort_tag = O.currTag
 				playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-				user << "<font color='blue'>Changed tag to '[sort_tag]'.</font>"
+				user << "<font color='#6F6FE2'>Changed tag to '[sort_tag]'.</font>"
 				updatename()
 				updatedesc()
 
@@ -1237,7 +1237,7 @@
 			if(O.currTag)// Tag set
 				sortType = O.currTag
 				playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-				user << "<font color='blue'>Changed filter to '[sortType]'.</font>"
+				user << "<font color='#6F6FE2'>Changed filter to '[sortType]'.</font>"
 				updatename()
 				updatedesc()
 

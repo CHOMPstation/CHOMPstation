@@ -82,7 +82,7 @@
 				if(PROCESS_SMELT)
 					dat += "<font color='orange'>smelting</font>"
 				if(PROCESS_COMPRESS)
-					dat += "<font color='blue'>compressing</font>"
+					dat += "<font color='#6F6FE2'>compressing</font>"
 				if(PROCESS_ALLOY)
 					dat += "<font color='gray'>alloying</font>"
 		else

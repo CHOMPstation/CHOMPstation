@@ -179,7 +179,7 @@
 		return
 
 	if (MS.moving_status != SHUTTLE_IDLE)
-		to_chat(usr, "<font color='blue'>[shuttle_tag] vessel is moving.</font>")
+		to_chat(usr, "<font color='#6F6FE2'>[shuttle_tag] vessel is moving.</font>")
 		return
 
 	if(href_list["dock_command"])
@@ -246,7 +246,7 @@
 		var/choice = input("Select a destination.") as null|anything in MS.destinations
 		if(!choice) return
 
-		to_chat(usr, "<font color='blue'>[shuttle_tag] main computer received message.</font>")
+		to_chat(usr, "<font color='#6F6FE2'>[shuttle_tag] main computer received message.</font>")
 
 		if(MS.at_origin)
 			MS.announce_arrival()

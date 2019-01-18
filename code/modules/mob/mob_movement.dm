@@ -73,7 +73,7 @@
 	set hidden = 1
 
 	if(!usr.pulling)
-		usr << "<font color='blue'>You are not pulling anything.</font>"
+		usr << "<font color='#6F6FE2'>You are not pulling anything.</font>"
 		return
 	usr.stop_pulling()
 
@@ -262,13 +262,13 @@
 			for(var/mob/M in range(mob, 1))
 				if(M.pulling == mob)
 					if(!M.restrained() && M.stat == 0 && M.canmove && mob.Adjacent(M))
-						src << "<font color='blue'>You're restrained! You can't move!</font>"
+						src << "<font color='#6F6FE2'>You're restrained! You can't move!</font>"
 						return 0
 					else
 						M.stop_pulling()
 
 		if(mob.pinned.len)
-			src << "<font color='blue'>You're pinned to a wall by [mob.pinned[1]]!</font>"
+			src << "<font color='#6F6FE2'>You're pinned to a wall by [mob.pinned[1]]!</font>"
 			return 0
 
 		move_delay = world.time//set move delay
@@ -477,7 +477,7 @@
 
 	//Check to see if we slipped
 	if(prob(Process_Spaceslipping(5)) && !buckled)
-		src << "<font color='blue'><B>You slipped!</B></font>"
+		src << "<font color='#6F6FE2'><B>You slipped!</B></font>"
 		src.inertia_dir = src.last_move
 		step(src, src.inertia_dir)
 		return 0

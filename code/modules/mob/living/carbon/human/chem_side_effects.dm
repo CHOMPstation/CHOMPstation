@@ -24,7 +24,7 @@
 	for(var/R in cures)
 		if(H.reagents.has_reagent(R))
 			if (cure_message)
-				H <<"<font color='blue'>[cure_message]</font>"
+				H <<"<font color='#6F6FE2'>[cure_message]</font>"
 			return 1
 	return 0
 

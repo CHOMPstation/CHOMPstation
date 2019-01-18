@@ -261,14 +261,14 @@
 		return
 
 	if (src.active)
-		user.visible_message("<font color='blue'>\icon[src] [user] deactivated the shield generator.</font>", \
-			"<font color='blue'>\icon[src] You deactivate the shield generator.</font>", \
+		user.visible_message("<font color='#6F6FE2'>\icon[src] [user] deactivated the shield generator.</font>", \
+			"<font color='#6F6FE2'>\icon[src] You deactivate the shield generator.</font>", \
 			"You hear heavy droning fade out.")
 		src.shields_down()
 	else
 		if(anchored)
-			user.visible_message("<font color='blue'>\icon[src] [user] activated the shield generator.</font>", \
-				"<font color='blue'>\icon[src] You activate the shield generator.</font>", \
+			user.visible_message("<font color='#6F6FE2'>\icon[src] [user] activated the shield generator.</font>", \
+				"<font color='#6F6FE2'>\icon[src] You activate the shield generator.</font>", \
 				"You hear heavy droning.")
 			src.shields_up()
 		else
@@ -285,10 +285,10 @@
 	if(istype(W, /obj/item/weapon/screwdriver))
 		playsound(src, W.usesound, 100, 1)
 		if(is_open)
-			user << "<font color='blue'>You close the panel.</font>"
+			user << "<font color='#6F6FE2'>You close the panel.</font>"
 			is_open = 0
 		else
-			user << "<font color='blue'>You open the panel and expose the wiring.</font>"
+			user << "<font color='#6F6FE2'>You open the panel and expose the wiring.</font>"
 			is_open = 1
 
 	else if(istype(W, /obj/item/stack/cable_coil) && malfunction && is_open)
@@ -308,15 +308,15 @@
 			return
 		if(anchored)
 			playsound(src, W.usesound, 100, 1)
-			user << "<font color='blue'>You unsecure the [src] from the floor!</font>"
+			user << "<font color='#6F6FE2'>You unsecure the [src] from the floor!</font>"
 			if(active)
-				user << "<font color='blue'>The [src] shuts off!</font>"
+				user << "<font color='#6F6FE2'>The [src] shuts off!</font>"
 				src.shields_down()
 			anchored = 0
 		else
 			if(istype(get_turf(src), /turf/space)) return //No wrenching these in space!
 			playsound(src, W.usesound, 100, 1)
-			user << "<font color='blue'>You secure the [src] to the floor!</font>"
+			user << "<font color='#6F6FE2'>You secure the [src] to the floor!</font>"
 			anchored = 1
 
 

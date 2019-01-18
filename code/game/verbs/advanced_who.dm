@@ -60,7 +60,7 @@
 				if(isobserver(O))
 					entry += " - <font color='gray'>Observing</font>"
 				else if(istype(O,/mob/new_player))
-					entry += " - <font color='blue'>In Lobby</font>"
+					entry += " - <font color='#6F6FE2'>In Lobby</font>"
 				else
 					entry += " - <font color='green'>Playing</font>"
 				Lines += entry
@@ -70,7 +70,7 @@
 				if(isobserver(O)) //Woo, players can see
 					entry += " - <font color='gray'>Observing</font>"
 				else if(istype(O,/mob/new_player))
-					entry += " - <font color='blue'>In Lobby</font>"
+					entry += " - <font color='#6F6FE2'>In Lobby</font>"
 				else
 					entry += " - <font color='green'>Playing</font>"
 				Lines += entry

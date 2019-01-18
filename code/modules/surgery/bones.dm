@@ -27,15 +27,15 @@
 /datum/surgery_step/glue_bone/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if (affected.stage == 0)
-		user.visible_message("<font color='blue'>[user] starts applying medication to the damaged bones in [target]'s [affected.name] with \the [tool].</font>" , \
-		"<font color='blue'>You start applying medication to the damaged bones in [target]'s [affected.name] with \the [tool].</font>")
+		user.visible_message("<font color='#6F6FE2'>[user] starts applying medication to the damaged bones in [target]'s [affected.name] with \the [tool].</font>" , \
+		"<font color='#6F6FE2'>You start applying medication to the damaged bones in [target]'s [affected.name] with \the [tool].</font>")
 	target.custom_pain("Something in your [affected.name] is causing you a lot of pain!", 50)
 	..()
 
 /datum/surgery_step/glue_bone/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<font color='blue'>[user] applies some [tool] to [target]'s bone in [affected.name]</font>", \
-		"<font color='blue'>You apply some [tool] to [target]'s bone in [affected.name] with \the [tool].</font>")
+	user.visible_message("<font color='#6F6FE2'>[user] applies some [tool] to [target]'s bone in [affected.name]</font>", \
+		"<font color='#6F6FE2'>You apply some [tool] to [target]'s bone in [affected.name] with \the [tool].</font>")
 	affected.stage = 1
 
 /datum/surgery_step/glue_bone/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -64,16 +64,16 @@
 
 /datum/surgery_step/set_bone/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<font color='blue'>[user] is beginning to set the bone in [target]'s [affected.name] in place with \the [tool].</font>" , \
-		"<font color='blue'>You are beginning to set the bone in [target]'s [affected.name] in place with \the [tool].</font>")
+	user.visible_message("<font color='#6F6FE2'>[user] is beginning to set the bone in [target]'s [affected.name] in place with \the [tool].</font>" , \
+		"<font color='#6F6FE2'>You are beginning to set the bone in [target]'s [affected.name] in place with \the [tool].</font>")
 	target.custom_pain("The pain in your [affected.name] is going to make you pass out!", 50)
 	..()
 
 /datum/surgery_step/set_bone/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if (affected.status & ORGAN_BROKEN)
-		user.visible_message("<font color='blue'>[user] sets the bone in [target]'s [affected.name] in place with \the [tool].</font>", \
-			"<font color='blue'>You set the bone in [target]'s [affected.name] in place with \the [tool].</font>")
+		user.visible_message("<font color='#6F6FE2'>[user] sets the bone in [target]'s [affected.name] in place with \the [tool].</font>", \
+			"<font color='#6F6FE2'>You set the bone in [target]'s [affected.name] in place with \the [tool].</font>")
 		affected.stage = 2
 	else
 		user.visible_message("[user] sets the bone in [target]'s [affected.name]<font color='red'> in the WRONG place with \the [tool].</font>", \
@@ -106,14 +106,14 @@
 	return affected && affected.organ_tag == BP_HEAD && (affected.robotic < ORGAN_ROBOT) && affected.open >= 2 && affected.stage == 1
 
 /datum/surgery_step/mend_skull/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<font color='blue'>[user] is beginning to piece together [target]'s skull with \the [tool].</font>"  , \
-		"<font color='blue'>You are beginning to piece together [target]'s skull with \the [tool].</font>")
+	user.visible_message("<font color='#6F6FE2'>[user] is beginning to piece together [target]'s skull with \the [tool].</font>"  , \
+		"<font color='#6F6FE2'>You are beginning to piece together [target]'s skull with \the [tool].</font>")
 	..()
 
 /datum/surgery_step/mend_skull/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<font color='blue'>[user] sets [target]'s skull with \the [tool].</font>" , \
-		"<font color='blue'>You set [target]'s skull with \the [tool].</font>")
+	user.visible_message("<font color='#6F6FE2'>[user] sets [target]'s skull with \the [tool].</font>" , \
+		"<font color='#6F6FE2'>You set [target]'s skull with \the [tool].</font>")
 	affected.stage = 2
 
 /datum/surgery_step/mend_skull/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -147,14 +147,14 @@
 
 /datum/surgery_step/finish_bone/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<font color='blue'>[user] starts to finish mending the damaged bones in [target]'s [affected.name] with \the [tool].</font>", \
-	"<font color='blue'>You start to finish mending the damaged bones in [target]'s [affected.name] with \the [tool].</font>")
+	user.visible_message("<font color='#6F6FE2'>[user] starts to finish mending the damaged bones in [target]'s [affected.name] with \the [tool].</font>", \
+	"<font color='#6F6FE2'>You start to finish mending the damaged bones in [target]'s [affected.name] with \the [tool].</font>")
 	..()
 
 /datum/surgery_step/finish_bone/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<font color='blue'>[user] has mended the damaged bones in [target]'s [affected.name] with \the [tool].</font>"  , \
-		"<font color='blue'>You have mended the damaged bones in [target]'s [affected.name] with \the [tool].</font>" )
+	user.visible_message("<font color='#6F6FE2'>[user] has mended the damaged bones in [target]'s [affected.name] with \the [tool].</font>"  , \
+		"<font color='#6F6FE2'>You have mended the damaged bones in [target]'s [affected.name] with \the [tool].</font>" )
 	affected.status &= ~ORGAN_BROKEN
 	affected.stage = 0
 
@@ -186,15 +186,15 @@
 /datum/surgery_step/clamp_bone/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if (affected.stage == 0)
-		user.visible_message("<font color='blue'>[user] starts repairing the damaged bones in [target]'s [affected.name] with \the [tool].</font>" , \
-		"<font color='blue'>You starts repairing the damaged bones in [target]'s [affected.name] with \the [tool].</font>")
+		user.visible_message("<font color='#6F6FE2'>[user] starts repairing the damaged bones in [target]'s [affected.name] with \the [tool].</font>" , \
+		"<font color='#6F6FE2'>You starts repairing the damaged bones in [target]'s [affected.name] with \the [tool].</font>")
 	target.custom_pain("Something in your [affected.name] is causing you a lot of pain!", 50)
 	..()
 
 /datum/surgery_step/clamp_bone/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<font color='blue'>[user] sets the bone in [target]'s [affected.name] with \the [tool].</font>", \
-		"<font color='blue'>You sets [target]'s bone in [affected.name] with \the [tool].</font>")
+	user.visible_message("<font color='#6F6FE2'>[user] sets the bone in [target]'s [affected.name] with \the [tool].</font>", \
+		"<font color='#6F6FE2'>You sets [target]'s bone in [affected.name] with \the [tool].</font>")
 	affected.status &= ~ORGAN_BROKEN
 
 /datum/surgery_step/clamp_bone/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

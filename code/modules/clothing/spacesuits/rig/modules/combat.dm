@@ -54,7 +54,7 @@
 		user << "<span class='danger'>Another grenade of that type will not fit into the module.</span>"
 		return 0
 
-	user << "<font color='blue'><b>You slot \the [input_device] into the suit module.</b></font>"
+	user << "<font color='#6F6FE2'><b>You slot \the [input_device] into the suit module.</b></font>"
 	user.drop_from_inventory(input_device)
 	qdel(input_device)
 	accepted_item.charges++
@@ -243,7 +243,7 @@
 		else
 			var/obj/item/new_weapon = new fabrication_type()
 			new_weapon.forceMove(H)
-			H << "<font color='blue'><b>You quickly fabricate \a [new_weapon].</b></font>"
+			H << "<font color='#6F6FE2'><b>You quickly fabricate \a [new_weapon].</b></font>"
 			H.put_in_hands(new_weapon)
 
 	return 1
