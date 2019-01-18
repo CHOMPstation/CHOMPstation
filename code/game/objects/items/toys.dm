@@ -879,6 +879,11 @@
 	icon_state = "beepskyplushie"
 	phrase = "Ping!"
 
+/obj/structure/plushie/silly_teshari
+	name = "teshari plushie"
+	desc = "It has a tag on the foot that says 'WHY'"
+	icon_state = "taaa_plush"
+
 //Small plushies.
 /obj/item/toy/plushie
 	name = "generic small plush"
@@ -985,11 +990,6 @@
 	name = "rainbow teshari plush"
 	desc = "Shiny!"
 	icon_state = "teshplush_rainbow"
-
-/obj/item/toy/plushie/silly_teshari
-	name = "teshari plushie"
-	desc = "It has a tag on the foot that says 'WHY'"
-	icon_state = "taaa_plush"
 
 //foxes are basically the best
 
