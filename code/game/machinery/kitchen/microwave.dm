@@ -167,6 +167,9 @@
 *   Microwave Menu
 ********************/
 
+/obj/machinery/microwave/AltClick()//chomp edit
+	cook()
+
 /obj/machinery/microwave/interact(mob/user as mob) // The microwave Menu
 	var/dat = ""
 	if(src.broken > 0)
