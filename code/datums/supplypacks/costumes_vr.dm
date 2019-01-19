@@ -271,4 +271,4 @@
 	
 /datum/supply_packs/costumes/wiggler/initialize()
 	starts_with = list(pick(/obj/item/clothing/head/wiggler;0.1,/obj/structure/closet/secure_closet/egg/shark;0.9))
-return ..()
+	return ..()
