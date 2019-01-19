@@ -265,9 +265,10 @@
 
 /datum/supply_packs/costumes/wiggler
 	name = "Secret Egg"
-	contains = list(
-			/obj/item/clothing/head/wiggler
-			)
-	cost = 100
+	cost = 60
 	containertype = /obj/structure/closet/secure_closet/egg/shark
 	containername = "Top Secret Egg"
+	
+/datum/supply_packs/costumes/wiggler/initialize()
+	starts_with = list(pick(/obj/item/clothing/head/wiggler;0.1,/obj/structure/closet/secure_closet/egg/shark;0.9))
+return ..()
