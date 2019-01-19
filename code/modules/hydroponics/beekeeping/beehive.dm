@@ -128,7 +128,7 @@
 			user << "<span class='notice'>The bees won't let you take the honeycombs out like this, smoke them first.</span>"
 			return
 		user.visible_message("<span class='notice'>[user] starts taking the honeycombs out of \the [src].</span>", "<span class='notice'>You start taking the honeycombs out of \the [src]...</span>")
-		while(honeycombs >= 100 && do_after(user, 30))
+		while(honeycombs >= 100 && do_after(user, 20))//Chomp edit. 30 -> 20ticks
 			new /obj/item/honey_frame/filled(loc)
 			honeycombs -= 100
 			--frames
@@ -157,7 +157,7 @@
 
 /obj/machinery/honey_extractor
 	name = "honey extractor"
-	desc = "A machine used to turn honeycombs on the frame into honey and wax."
+	desc = "A machine used to turn honeycombs on the frame into honey and wax. There is a tap used to empty the internal storage." //CHOMP EDIT. Added a snip to make it more evident."
 	icon = 'icons/obj/virology.dmi'
 	icon_state = "centrifuge"
 
@@ -180,6 +180,7 @@
 		spawn(50)
 			new /obj/item/honey_frame(loc)
 			new /obj/item/stack/wax(loc)
+			playsound(src,'sound/effects/weightdrop.ogg',30,1) //CHOMP EDIT. Soft sound so you know it is done.
 			honey += processing
 			processing = 0
 			icon_state = "centrifuge"
@@ -213,7 +214,7 @@
 /obj/item/honey_frame/filled
 	name = "filled beehive frame"
 	desc = "A frame for the beehive that the bees have filled with honeycombs."
-	honey = 20
+	honey = 30	//CHOMP EDIT. 20 -> 30
 
 /obj/item/honey_frame/filled/New()
 	..()
