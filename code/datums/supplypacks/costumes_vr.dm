@@ -262,3 +262,12 @@
 	cost = 60
 	containertype = /obj/structure/closet/crate
 	containername = "Saddlebags crate"
+
+/datum/supply_packs/costumes/wiggler
+	name = "Secret Egg"
+	contains = list(
+			/obj/item/clothing/head/wiggler
+			)
+	cost = 100
+	containertype = /obj/structure/closet/secure_closet/egg/shark
+	containername = "Top Secret Egg"

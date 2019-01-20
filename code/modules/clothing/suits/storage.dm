@@ -53,6 +53,8 @@
 			return
 		update_clothing_icon()	//so our overlays update
 
+/obj/item/clothing/suit/storage/toggle/AltClick()//chomp edit
+	toggle()
 
 /obj/item/clothing/suit/storage/hooded/toggle
 	flags_inv = HIDEHOLSTER
@@ -79,6 +81,8 @@
 			return
 		update_clothing_icon()	//so our overlays update
 
+/obj/item/clothing/suit/storage/hooded/AltClick()//chomp edit
+	ToggleHood()
 
 //New Vest 4 pocket storage and badge toggles, until suit accessories are a thing.
 /obj/item/clothing/suit/storage/vest/heavy/New()

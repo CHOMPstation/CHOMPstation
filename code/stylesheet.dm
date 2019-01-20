@@ -18,7 +18,7 @@ em						{font-style: normal;font-weight: bold;}
 .ooc					{font-weight: bold;}
 .ooc img.text_tag		{width: 32px; height: 10px;}
 
-.ooc .everyone			{color: #3064ff;}
+.ooc .everyone			{color: #386aff;}
 .ooc .looc				{color: #61c7ce;}
 .ooc .elevated			{color: #2e78d9;}
 .ooc .moderator			{color: #587AA3;}
@@ -46,13 +46,13 @@ em						{font-style: normal;font-weight: bold;}
 .newscaster				{color: #903232;}
 
 /* Radio Channels */
-.comradio				{color: #466194;}
+.comradio				{color: #546fa3;}
 .syndradio				{color: #8A6566;}
 .centradio				{color: #5C5C8A;}
 .airadio				{color: #FF00FF;}
 .entradio				{color: #5BAD84;}
 
-.secradio				{color: #A30000;}
+.secradio				{color: #d63131;}
 .engradio				{color: #A66300;}
 .medradio				{color: #2ca384;}
 .sciradio				{color: #AD5BAD;}
