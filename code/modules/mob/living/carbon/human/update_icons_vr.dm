@@ -67,6 +67,7 @@
 	if(QDESTROYING(src))
 		return
 	flying = FALSE
+	pass_flags = 0
 	return 1
 
 /mob/living/carbon/human/stop_flying()

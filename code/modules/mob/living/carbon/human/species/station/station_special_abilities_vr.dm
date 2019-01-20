@@ -810,6 +810,22 @@
 	else
 		return
 
+//chomp addition.
+/mob/living/proc/toggle_wings_agility()
+	set name = "Trigger flight agility"
+	set desc = "Allows you to start/stop flying over tables and other low obstacles. This will take a fair amount of nutrition to perform."
+	set category = "Abilities"
+
+	var/mob/living/carbon/human/C = src
+	if(C.flying)
+		pass_flags ^= PASSTABLE//This is a bit lazy but it should work for most things.
+		to_chat(C, "You [pass_flags&PASSTABLE ? "will" : "will NOT"] move over tables/railings/trays!")
+		return
+	else
+		to_chat(C, "You must be flying to trigger agility!")
+		return
+
+
 /mob/living/proc/toggle_pass_table()
 	set name = "Toggle Agility" //Dunno a better name for this. You have to be pretty agile to hop over stuff!!!
 	set desc = "Allows you to start/stop hopping over things such as hydroponics trays, tables, and railings."

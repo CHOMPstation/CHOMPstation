@@ -187,7 +187,7 @@
 	if(ismob(src))
 		var/mob/H = src //VOREStation Edit Start. Flight on mobs.
 		if(H.flying) //Some other checks are done in the wings_toggle proc
-			if(H.nutrition > 1)
+			if(H.nutrition > 2)
 				H.nutrition -= 1 //You use up 1 nutrition per TILE and tick of flying above open spaces.
 			if(H.incapacitated(INCAPACITATION_ALL))
 				H.stop_flying()
@@ -202,7 +202,7 @@
 			else if(H.nutrition < 100 && H.nutrition > 89)
 				to_chat(H, "<span class='danger'>You're seriously fatigued! You need to get to the ground immediately and eat before you fall!</span>")
 				return
-			else if(H.nutrition < 1) //Should have listened to the warnings!
+			else if(H.nutrition < 2) //Should have listened to the warnings!
 				to_chat(H, "<span class='danger'>You lack the strength to keep yourself up in the air...</span>")
 				H.stop_flying()
 			else

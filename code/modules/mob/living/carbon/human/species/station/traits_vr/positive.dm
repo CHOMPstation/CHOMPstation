@@ -97,12 +97,13 @@
 /datum/trait/winged_flight
 	name = "Winged Flight"
 	desc = "Allows you to fly by using your wings."
-	cost = 2 //Some in game value.
+	cost = 3
 
 /datum/trait/winged_flight/apply(var/datum/species/S,var/mob/living/carbon/human/H)
 	..(S,H)
 	H.verbs |= /mob/living/proc/flying_toggle
 	H.verbs |= /mob/living/proc/start_wings_hovering
+	H.verbs |= /mob/living/proc/toggle_wings_agility //Chomp addition. Allows you to fly over tables and stuff.
 
 /datum/trait/hardfeet
 	name = "Hard Feet"
