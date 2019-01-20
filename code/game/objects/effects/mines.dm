@@ -121,8 +121,6 @@
 	spawn(0)
 		qdel(src)
 
-// WHY?
-/*
 /obj/effect/mine/kick
 	mineitemtype = /obj/item/weapon/mine/kick
 
@@ -136,7 +134,7 @@
 	spawn(0)
 		qdel(s)
 		qdel(src)
-*/
+
 /obj/effect/mine/frag
 	mineitemtype = /obj/item/weapon/mine/frag
 	var/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment)
