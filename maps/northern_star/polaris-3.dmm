@@ -398,7 +398,7 @@
 "hH" = (/obj/structure/closet/malf/suits,/turf/simulated/floor/tiled/dark,/area/tcommsat/entrance)
 "hI" = (/obj/machinery/door/airlock/hatch{name = "Power Control"; req_access = list(61)},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/tcommsat/powercontrol)
 "hJ" = (/obj/item/device/radio/intercom{dir = 4; name = "Station Intercom (General)"; pixel_x = 21; pixel_y = 0},/turf/simulated/floor/tiled/dark,/area/tcommsat/entrance)
-"hK" = (/obj/effect/floor_decal/rust,/obj/effect/rune,/turf/simulated/floor/tiled/steel_ridged,/area/derelict/ship)
+"hK" = (/obj/effect/floor_decal/rust,/obj/effect/rune,/obj/effect/mine/emp{alpha = 30},/turf/simulated/floor/tiled/steel_ridged,/area/derelict/ship)
 "hL" = (/obj/effect/floor_decal/rust,/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled/techfloor/grid,/area/derelict/ship)
 "hM" = (/turf/space,/area/syndicate_station/commssat)
 "hN" = (/turf/simulated/wall/r_wall,/area/AIsattele)
