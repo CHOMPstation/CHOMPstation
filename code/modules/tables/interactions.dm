@@ -12,6 +12,7 @@
 		return 1
 	var/mob/M = mover //Chomp edit
 	if(istype(M) && M.flying)
+		playsound(M, 'sound/effects/wing1.ogg', 20, 1)
 		return 1
 	if(locate(/obj/structure/table/bench) in get_turf(mover))
 		return 0

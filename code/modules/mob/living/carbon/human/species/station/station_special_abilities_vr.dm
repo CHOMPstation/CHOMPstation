@@ -778,6 +778,8 @@
 	C.flying = !C.flying
 	update_floating()
 	to_chat(C, "<span class='notice'>You have [C.flying?"started":"stopped"] flying.</span>")
+	visible_message("<span class='notice'>[C] [C.flying?"started":"stopped"] flying!</span>")
+	playsound(usr.loc, 'sound/effects/wing2.ogg', 60, 1)
 
 //Proc to stop inertial_drift. Exchange nutrition in order to stop gliding around.
 /mob/living/proc/start_wings_hovering()
