@@ -25,7 +25,7 @@
 		if(!ispath(mob_path))
 			return 0
 		var/mob/living/L = new mob_path(get_turf(src))
-		L/simple_animal.vore_escape_time = 15 SECONDS
+			L/simple_animal.vore_escape_time = 15 SECONDS
 		L.source_spawner = src
 		spawned_mobs.Add(L)
 		last_spawn = world.time
