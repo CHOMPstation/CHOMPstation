@@ -103,7 +103,6 @@
 	..(S,H)
 	H.verbs |= /mob/living/proc/flying_toggle
 	H.verbs |= /mob/living/proc/start_wings_hovering
-	H.verbs |= /mob/living/proc/toggle_wings_agility //Chomp addition. Allows you to fly over tables and stuff.
 
 /datum/trait/hardfeet
 	name = "Hard Feet"

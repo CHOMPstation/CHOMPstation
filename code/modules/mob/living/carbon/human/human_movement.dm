@@ -210,7 +210,7 @@
 	if(!has_organ(BP_L_FOOT) && !has_organ(BP_R_FOOT))
 		return // no feet = no footsteps
 
-	if(buckled || lying || throwing)
+	if(buckled || lying || throwing || flying)
 		return // people flying, lying down or sitting do not step
 
 	if(!has_gravity(src) && prob(75))

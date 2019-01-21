@@ -10,6 +10,9 @@
 			return 1
 	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return 1
+	var/mob/M = mover //Chomp edit
+	if(istype(M) && M.flying)
+		return 1
 	if(locate(/obj/structure/table/bench) in get_turf(mover))
 		return 0
 	var/obj/structure/table/table = locate(/obj/structure/table) in get_turf(mover)

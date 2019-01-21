@@ -74,6 +74,8 @@ var/global/list/image/splatter_cache=list()
 		return
 	if(amount < 1)
 		return
+	if(perp.flying) //Flap flap. Chomp edit. Thanks KasparoVy 
+		return
 
 	var/obj/item/organ/external/l_foot = perp.get_organ("l_foot")
 	var/obj/item/organ/external/r_foot = perp.get_organ("r_foot")

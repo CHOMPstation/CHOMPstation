@@ -772,7 +772,9 @@
 	if(C.nutrition > 2200 && !C.flying) //Chomp edit. 1000 -> 2200
 		to_chat(C, "<span class='notice'>You have eaten too much to fly! You need to lose some nutrition.</span>")
 		return
-
+	if(C.weight > 325 && !C.flying) //Referencing the 'very fat' range from examine_weight() in examine_vr.dm.
+		to_chat(C, "<span class='notice'>You are too heavy to fly! You need to shed some weight.</span>")
+		return
 	C.flying = !C.flying
 	update_floating()
 	to_chat(C, "<span class='notice'>You have [C.flying?"started":"stopped"] flying.</span>")
@@ -803,28 +805,12 @@
 	if(!C.anchored && !C.pulledby) //Not currently anchored, and not pulled by anyone.
 		C.anchored = 1 //This is the only way to stop the inertial_drift.
 		C.nutrition -= 15 //Chomp edit. 25 -> 15
-		update_floating()
+		start_floating() //You do the floating animation when you toggle flight but don't move. Force it here for hovering as well. Chomp edit.
 		to_chat(C, "<span class='notice'>You hover in place.</span>")
 		spawn(6) //.6 seconds.
 			C.anchored = 0
 	else
 		return
-
-//chomp addition.
-/mob/living/proc/toggle_wings_agility()
-	set name = "Trigger flight agility"
-	set desc = "Allows you to start/stop flying over tables and other low obstacles. This will take a fair amount of nutrition to perform."
-	set category = "Abilities"
-
-	var/mob/living/carbon/human/C = src
-	if(C.flying)
-		pass_flags ^= PASSTABLE//This is a bit lazy but it should work for most things.
-		to_chat(C, "You [pass_flags&PASSTABLE ? "will" : "will NOT"] move over tables/railings/trays!")
-		return
-	else
-		to_chat(C, "You must be flying to trigger agility!")
-		return
-
 
 /mob/living/proc/toggle_pass_table()
 	set name = "Toggle Agility" //Dunno a better name for this. You have to be pretty agile to hop over stuff!!!
