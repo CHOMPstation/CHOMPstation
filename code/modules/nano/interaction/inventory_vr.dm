@@ -11,8 +11,6 @@
 
 	return STATUS_CLOSE
 
-//Chompstation Edit: Removing NIFs - Jon
-/*
 /var/global/datum/topic_state/nif_state/nif_state = new()
 
 /datum/topic_state/nif_state/can_use_topic(var/src_object, var/mob/user)
@@ -32,4 +30,3 @@
 			return user.shared_nano_interaction()
 
 	return STATUS_CLOSE
-*/

@@ -76,7 +76,7 @@
 		if("Anti-Hydrogen")
 			M.gib() //Yikes!
 		if("Hydrogen")
-			M << "<font color='blue'>You feel very light, as if you might just float away...</font>"
+			M << "<font color='#6F6FE2'>You feel very light, as if you might just float away...</font>"
 	qdel(src)
 	return
 

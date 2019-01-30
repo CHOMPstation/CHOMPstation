@@ -51,8 +51,8 @@
 
 /datum/surgery_step/generic/cut_open/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<font color='blue'>[user] has made an incision on [target]'s [affected.name] with \the [tool].</font>", \
-	"<font color='blue'>You have made an incision on [target]'s [affected.name] with \the [tool].</font>",)
+	user.visible_message("<font color='#6F6FE2'>[user] has made an incision on [target]'s [affected.name] with \the [tool].</font>", \
+	"<font color='#6F6FE2'>You have made an incision on [target]'s [affected.name] with \the [tool].</font>",)
 	affected.open = 1
 
 	if(istype(target) && target.should_have_organ(O_HEART))
@@ -96,8 +96,8 @@
 
 /datum/surgery_step/generic/cut_with_laser/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<font color='blue'>[user] has made a bloodless incision on [target]'s [affected.name] with \the [tool].</font>", \
-	"<font color='blue'>You have made a bloodless incision on [target]'s [affected.name] with \the [tool].</font>",)
+	user.visible_message("<font color='#6F6FE2'>[user] has made a bloodless incision on [target]'s [affected.name] with \the [tool].</font>", \
+	"<font color='#6F6FE2'>You have made a bloodless incision on [target]'s [affected.name] with \the [tool].</font>",)
 	//Could be cleaner ...
 	affected.open = 1
 
@@ -139,8 +139,8 @@
 
 /datum/surgery_step/generic/incision_manager/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<font color='blue'>[user] has constructed a prepared incision on and within [target]'s [affected.name] with \the [tool].</font>", \
-	"<font color='blue'>You have constructed a prepared incision on and within [target]'s [affected.name] with \the [tool].</font>",)
+	user.visible_message("<font color='#6F6FE2'>[user] has constructed a prepared incision on and within [target]'s [affected.name] with \the [tool].</font>", \
+	"<font color='#6F6FE2'>You have constructed a prepared incision on and within [target]'s [affected.name] with \the [tool].</font>",)
 	affected.open = 1
 
 	if(istype(target) && target.should_have_organ(O_HEART))
@@ -185,8 +185,8 @@
 
 /datum/surgery_step/generic/clamp_bleeders/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<font color='blue'>[user] clamps bleeders in [target]'s [affected.name] with \the [tool].</font>",	\
-	"<font color='blue'>You clamp bleeders in [target]'s [affected.name] with \the [tool].</font>")
+	user.visible_message("<font color='#6F6FE2'>[user] clamps bleeders in [target]'s [affected.name] with \the [tool].</font>",	\
+	"<font color='#6F6FE2'>You clamp bleeders in [target]'s [affected.name] with \the [tool].</font>")
 	affected.clamp()
 	spread_germs_to_organ(affected, user)
 
@@ -231,14 +231,14 @@
 
 /datum/surgery_step/generic/retract_skin/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	var/msg = "<font color='blue'>[user] keeps the incision open on [target]'s [affected.name] with \the [tool].</font>"
-	var/self_msg = "<font color='blue'>You keep the incision open on [target]'s [affected.name] with \the [tool].</font>"
+	var/msg = "<font color='#6F6FE2'>[user] keeps the incision open on [target]'s [affected.name] with \the [tool].</font>"
+	var/self_msg = "<font color='#6F6FE2'>You keep the incision open on [target]'s [affected.name] with \the [tool].</font>"
 	if (target_zone == BP_TORSO)
-		msg = "<font color='blue'>[user] keeps the ribcage open on [target]'s torso with \the [tool].</font>"
-		self_msg = "<font color='blue'>You keep the ribcage open on [target]'s torso with \the [tool].</font>"
+		msg = "<font color='#6F6FE2'>[user] keeps the ribcage open on [target]'s torso with \the [tool].</font>"
+		self_msg = "<font color='#6F6FE2'>You keep the ribcage open on [target]'s torso with \the [tool].</font>"
 	if (target_zone == BP_GROIN)
-		msg = "<font color='blue'>[user] keeps the incision open on [target]'s lower abdomen with \the [tool].</font>"
-		self_msg = "<font color='blue'>You keep the incision open on [target]'s lower abdomen with \the [tool].</font>"
+		msg = "<font color='#6F6FE2'>[user] keeps the incision open on [target]'s lower abdomen with \the [tool].</font>"
+		self_msg = "<font color='#6F6FE2'>You keep the incision open on [target]'s lower abdomen with \the [tool].</font>"
 	user.visible_message(msg, self_msg)
 	affected.open = 2
 
@@ -284,8 +284,8 @@
 
 /datum/surgery_step/generic/cauterize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<font color='blue'>[user] cauterizes the incision on [target]'s [affected.name] with \the [tool].</font>", \
-	"<font color='blue'>You cauterize the incision on [target]'s [affected.name] with \the [tool].</font>")
+	user.visible_message("<font color='#6F6FE2'>[user] cauterizes the incision on [target]'s [affected.name] with \the [tool].</font>", \
+	"<font color='#6F6FE2'>You cauterize the incision on [target]'s [affected.name] with \the [tool].</font>")
 	affected.open = 0
 	affected.germ_level = 0
 	affected.status &= ~ORGAN_BLEEDING
@@ -329,8 +329,8 @@
 
 /datum/surgery_step/generic/amputate/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<font color='blue'>[user] amputates [target]'s [affected.name] at the [affected.amputation_point] with \the [tool].</font>", \
-	"<font color='blue'>You amputate [target]'s [affected.name] with \the [tool].</font>")
+	user.visible_message("<font color='#6F6FE2'>[user] amputates [target]'s [affected.name] at the [affected.amputation_point] with \the [tool].</font>", \
+	"<font color='#6F6FE2'>You amputate [target]'s [affected.name] with \the [tool].</font>")
 	affected.droplimb(1,DROPLIMB_EDGE)
 
 /datum/surgery_step/generic/amputate/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

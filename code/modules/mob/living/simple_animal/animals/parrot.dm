@@ -417,7 +417,7 @@
 				if(!parrot_perch || parrot_interest.loc != parrot_perch.loc)
 					held_item = parrot_interest
 					parrot_interest.forceMove(src)
-					visible_message("[src] grabs the [held_item]!", "<font color='blue'>You grab the [held_item]!</font>", "You hear the sounds of wings flapping furiously.")
+					visible_message("[src] grabs the [held_item]!", "<font color='#6F6FE2'>You grab the [held_item]!</font>", "You hear the sounds of wings flapping furiously.")
 
 			parrot_interest = null
 			parrot_state = PARROT_SWOOP | PARROT_RETURN
@@ -590,7 +590,7 @@
 
 			held_item = I
 			I.forceMove(src)
-			visible_message("[src] grabs the [held_item]!", "<font color='blue'>You grab the [held_item]!</font>", "You hear the sounds of wings flapping furiously.")
+			visible_message("[src] grabs the [held_item]!", "<font color='#6F6FE2'>You grab the [held_item]!</font>", "You hear the sounds of wings flapping furiously.")
 			return held_item
 
 	to_chat(src, "<font color='red'>There is nothing of interest to take.</font>")
@@ -621,7 +621,7 @@
 			C.remove_from_mob(stolen_item)
 			held_item = stolen_item
 			stolen_item.forceMove(src)
-			visible_message("[src] grabs the [held_item] out of [C]'s hand!", "<font color='blue'>You snag the [held_item] out of [C]'s hand!</font>", "You hear the sounds of wings flapping furiously.")
+			visible_message("[src] grabs the [held_item] out of [C]'s hand!", "<font color='#6F6FE2'>You snag the [held_item] out of [C]'s hand!</font>", "You hear the sounds of wings flapping furiously.")
 			return held_item
 
 	to_chat(src, "<font color='red'>There is nothing of interest to take.</font>")

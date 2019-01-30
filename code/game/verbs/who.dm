@@ -22,9 +22,9 @@
 						if(O.started_as_observer)
 							entry += " - <font color='gray'>Observing</font>"
 						else
-							entry += " - <font color='black'><b>DEAD</b></font>"
+							entry += " - <font color='white'><b>DEAD</b></font>"
 					else
-						entry += " - <font color='black'><b>DEAD</b></font>"
+						entry += " - <font color='white'><b>DEAD</b></font>"
 
 			var/age
 			if(isnum(C.player_age))

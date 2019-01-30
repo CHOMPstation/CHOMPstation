@@ -14,7 +14,7 @@
 
 /datum/reagent/macrocillin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.size_multiplier < RESIZE_HUGE)
-		M.resize(M.size_multiplier+0.01)//Incrrease 1% per tick.
+		M.resize(M.size_multiplier+0.01, FALSE)//Increase 1% per tick. Don't animate for 1% size change.
 	return
 
 /datum/reagent/microcillin
@@ -28,7 +28,7 @@
 
 /datum/reagent/microcillin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.size_multiplier > RESIZE_TINY)
-		M.resize(M.size_multiplier-0.01) //Decrease 1% per tick.
+		M.resize(M.size_multiplier-0.01, FALSE) //Decrease 1% per tick. Don't animate for 1% size change.
 	return
 
 
@@ -43,9 +43,9 @@
 
 /datum/reagent/normalcillin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.size_multiplier > RESIZE_NORMAL)
-		M.resize(M.size_multiplier-0.01) //Decrease by 1% size per tick.
+		M.resize(M.size_multiplier-0.01, FALSE) //Decrease by 1% size per tick. Don't animate for 1% size change.
 	else if(M.size_multiplier < RESIZE_NORMAL)
-		M.resize(M.size_multiplier+0.01) //Increase 1% per tick.
+		M.resize(M.size_multiplier+0.01, FALSE) //Increase 1% per tick. Don't animate for 1% size change.
 	return
 
 

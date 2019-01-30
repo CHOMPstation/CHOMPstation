@@ -97,14 +97,11 @@ var/global/mob/living/carbon/human/dummy/mannequin/sleevemate_mob
 	else
 		output += "<span class='warning'>Unable</span><br>"
 
-//Chompstation Edit: Removing NIFs - Jon
-/*
 	//Soulcatcher transfer
 	if(stored_mind && H.nif)
 		var/datum/nifsoft/soulcatcher/SC = H.nif.imp_check(NIF_SOULCATCHER)
 		if(SC)
 			output += "<b>Store in Soulcatcher: </b>\[<a href='?src=\ref[src];target=\ref[H];mindput=1'>Perform</a>\]<br>"
-*/
 	to_chat(user,output)
 
 /obj/item/device/sleevemate/Topic(href, href_list)
@@ -131,17 +128,15 @@ var/global/mob/living/carbon/human/dummy/mannequin/sleevemate_mob
 			to_chat(usr,"<span class='warning'>Target seems totally braindead.</span>")
 			return
 
-//Chompstation Edit: Removing NIFs - Jon
-/*		var/nif
+		var/nif
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target
 			nif = H.nif
-			persist_nif_data(H)*/
+			persist_nif_data(H)
 
 		usr.visible_message("[usr] begins scanning [target]'s mind.","<span class='notice'>You begin scanning [target]'s mind.</span>")
 		if(do_after(usr,8 SECONDS,target))
-//			SStranscore.m_backup(target.mind,nif,one_time = TRUE) //Chompstation Edit: Removing NIFs - Jon
-			SStranscore.m_backup(target.mind,null,one_time = TRUE)
+			SStranscore.m_backup(target.mind,nif,one_time = TRUE)
 			to_chat(usr,"<span class='notice'>Mind backed up!</span>")
 		else
 			to_chat(usr,"<span class='warning'>You must remain close to your target!</span>")
@@ -184,8 +179,7 @@ var/global/mob/living/carbon/human/dummy/mannequin/sleevemate_mob
 
 		return
 
-//Chompstation Edit: Removing NIFs - Jon
-/*
+
 	if(href_list["mindput"])
 		if(!stored_mind)
 			to_chat(usr,"<span class='warning'>\The [src] no longer has a stored mind.</span>")
@@ -212,7 +206,7 @@ var/global/mob/living/carbon/human/dummy/mannequin/sleevemate_mob
 		stored_mind = null
 		to_chat(usr,"<span class='notice'>Mind transferred into Soulcatcher!</span>")
 		update_icon()
-*/
+
 
 /obj/item/device/sleevemate/update_icon()
 	if(stored_mind)

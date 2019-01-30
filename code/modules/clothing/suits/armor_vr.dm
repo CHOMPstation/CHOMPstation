@@ -29,10 +29,10 @@
 
 // HoS armor improved by Vorestation to be slightly better than normal security stuff.
 /obj/item/clothing/suit/storage/vest/hoscoat
-	armor = list(melee = 50, bullet = 40, laser = 40, energy = 25, bomb = 25, bio = 0, rad = 0)
+	armor = list(melee = 45, bullet = 35, laser = 35, energy = 30, bomb = 25, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/storage/vest/hos
-	armor = list(melee = 50, bullet = 40, laser = 40, energy = 25, bomb = 25, bio = 0, rad = 0)
+	armor = list(melee = 45, bullet = 40, laser = 40, energy = 30, bomb = 15, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/storage/vest/hoscoat/jensen
 	name = "armored trenchcoat"
@@ -59,7 +59,7 @@
 
 /obj/item/clothing/suit/armor/combat/USDF
 	name = "marine body armor"
-	desc = "When I joined the Corps, we didn't have any fancy-schmanzy armor. We had sticks! Two sticks, and a rock for the whole platoon–and we had to <i>share</i> the rock!"
+	desc = "When I joined the Corps, we didn't have any fancy-schmanzy armor. We had sticks! Two sticks, and a rock for the whole platoonâ€“and we had to <i>share</i> the rock!"
 	icon_state = "UNSC_armor"
 	icon = 'icons/obj/clothing/suits_vr.dmi'
 	icon_override = 'icons/mob/suit_vr.dmi'

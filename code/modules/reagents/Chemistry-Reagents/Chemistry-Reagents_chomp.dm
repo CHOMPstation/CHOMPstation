@@ -1,14 +1,14 @@
 /// Recipes
 
 /datum/chemical_reaction/aphrodisiac
-	name = "aphrodisiac"
+	name = "Aphrodisiac"
 	id = "aphrodisiac"
 	result = "aphrodisiac"
 	required_reagents = list("carbon" = 2, "hydrogen" = 2, "oxygen" = 2, "water" = 1)
 	result_amount = 6
 
 /datum/reagent/aphrodisiac
-	name = "aphrodisiac"
+	name = "Aphrodisiac"
 	id = "aphrodisiac"
 	description = "You so horny."
 	taste_description = "sweetness"

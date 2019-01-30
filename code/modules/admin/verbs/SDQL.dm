@@ -262,7 +262,7 @@
 
 
 
-	usr << "<font color='blue'>SQDL Query: [query_text]</font>"
+	usr << "<font color='#6F6FE2'>SQDL Query: [query_text]</font>"
 	message_admins("[usr] executed SDQL query: \"[query_text]\".")
 /*
 	for(var/t in types)

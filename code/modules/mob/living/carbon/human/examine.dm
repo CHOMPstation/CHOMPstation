@@ -294,7 +294,7 @@
 	msg += attempt_vr(src,"examine_bellies",args) //VOREStation Code
 	msg += attempt_vr(src,"examine_pickup_size",args) //VOREStation Code
 	msg += attempt_vr(src,"examine_step_size",args) //VOREStation Code
-//	msg += attempt_vr(src,"examine_nif",args) //VOREStation Code //removed due to removal of NIFs temporarily - Jon
+	msg += attempt_vr(src,"examine_nif",args) //VOREStation Code
 
 	if(mSmallsize in mutations)
 		msg += "[T.He] [T.is] very short!<br>"
