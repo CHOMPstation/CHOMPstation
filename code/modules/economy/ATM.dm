@@ -308,7 +308,7 @@ log transactions
 						T.time = stationtime2text()
 						authenticated_account.transaction_log.Add(T)
 
-						usr << "<font color='blue'>\icon[src] Access granted. Welcome user '[authenticated_account.owner_name].</font>'"
+						usr << "<font color='#6F6FE2'>\icon[src] Access granted. Welcome user '[authenticated_account.owner_name].</font>'"
 
 					previous_account_number = tried_account_num
 			if("e_withdrawal")
@@ -461,7 +461,7 @@ log transactions
 			if(I)
 				authenticated_account = attempt_account_access(I.associated_account_number)
 				if(authenticated_account)
-					human_user << "<font color='blue'>\icon[src] Access granted. Welcome user '[authenticated_account.owner_name].</font>'"
+					human_user << "<font color='#6F6FE2'>\icon[src] Access granted. Welcome user '[authenticated_account.owner_name].</font>'"
 
 					//create a transaction log entry
 					var/datum/transaction/T = new()

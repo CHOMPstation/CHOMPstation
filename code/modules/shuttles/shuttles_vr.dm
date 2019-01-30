@@ -22,3 +22,5 @@
 /obj/machinery/computer/shuttle_control/research
 	name = "research elevator control console"
 
+/obj/machinery/computer/shuttle_control/medical
+	name = "medical elevator control console"

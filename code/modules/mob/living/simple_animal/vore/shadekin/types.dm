@@ -290,9 +290,11 @@
 
 //"All your chickens are belong to me!" - Zylas
 /mob/living/simple_animal/shadekin/purple/zylas
-	name ="Zylas"
-	desc = " placerholder "
-	icon_state = "zylas"
-	eye_desc = "e_purple"
-	vore_stomach_flavor = " placeholder "
-	player_msg = " placeholder "
+    name ="Zylas"
+    desc = "He's a chubby looking creature, black and grey fur accompanied by purple eyes and a large hoody."
+    icon_state = "zylashoody"
+    eye_desc = "e_purple"
+    vore_stomach_flavor = "You are trapped in a cramped tight space. The color purple seems to dominate your vision. \
+    His walls rolled over your form as you lay trapped in his depths. There wasnt a drop of fluid in sight inside that	\
+    stomach. Instead, you could feel your energy slowly draining away over time, like... he was leeching off you."
+    player_msg = "You are Zylas. You enjoy scaring the local population and eating every chicken you find."

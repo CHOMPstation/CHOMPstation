@@ -86,7 +86,7 @@
 
 	unload(user, direction)
 
-	user << "<font color='blue'>You climb down from [src].</font>"
+	user << "<font color='#6F6FE2'>You climb down from [src].</font>"
 
 	return 1
 
@@ -160,7 +160,7 @@
 	set_dir(lead.dir)
 
 	if(user)
-		user << "<font color='blue'>You hitch [src] to [T].</font>"
+		user << "<font color='#6F6FE2'>You hitch [src] to [T].</font>"
 
 	update_stats()
 
@@ -174,7 +174,7 @@
 	lead.tow = null
 	lead.update_stats()
 
-	user << "<font color='blue'>You unhitch [src] from [lead].</font>"
+	user << "<font color='#6F6FE2'>You unhitch [src] from [lead].</font>"
 	lead = null
 
 	update_stats()

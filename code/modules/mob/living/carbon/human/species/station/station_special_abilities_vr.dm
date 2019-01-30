@@ -769,13 +769,17 @@
 	if(C.nutrition < 25 && !C.flying) //Don't have any food in you?" You can't fly.
 		to_chat(C, "<span class='notice'>You lack the nutrition to fly.</span>")
 		return
-	if(C.nutrition > 1000 && !C.flying)
+	if(C.nutrition > 2200 && !C.flying) //Chomp edit. 1000 -> 2200
 		to_chat(C, "<span class='notice'>You have eaten too much to fly! You need to lose some nutrition.</span>")
 		return
-
+	if(C.weight > 325 && !C.flying) //Referencing the 'very fat' range from examine_weight() in examine_vr.dm.
+		to_chat(C, "<span class='notice'>You are too heavy to fly! You need to shed some weight.</span>")
+		return
 	C.flying = !C.flying
 	update_floating()
 	to_chat(C, "<span class='notice'>You have [C.flying?"started":"stopped"] flying.</span>")
+	visible_message("<span class='notice'>[C] [C.flying?"started":"stopped"] flying!</span>")
+	playsound(usr.loc, 'sound/effects/wing2.ogg', 60, 1)
 
 //Proc to stop inertial_drift. Exchange nutrition in order to stop gliding around.
 /mob/living/proc/start_wings_hovering()
@@ -802,8 +806,8 @@
 
 	if(!C.anchored && !C.pulledby) //Not currently anchored, and not pulled by anyone.
 		C.anchored = 1 //This is the only way to stop the inertial_drift.
-		C.nutrition -= 25
-		update_floating()
+		C.nutrition -= 15 //Chomp edit. 25 -> 15
+		start_floating() //You do the floating animation when you toggle flight but don't move. Force it here for hovering as well. Chomp edit.
 		to_chat(C, "<span class='notice'>You hover in place.</span>")
 		spawn(6) //.6 seconds.
 			C.anchored = 0
@@ -878,7 +882,7 @@ mob/living/carbon/proc/charmed() //TODO
 
 	spawn(0)
 		for(var/i = 1,i > 0, i--)
-			src << "<font color='blue'><i>... [pick(charmed)] ...</i></font>"
+			src << "<font color='#6F6FE2'><i>... [pick(charmed)] ...</i></font>"
 		charmed = 0
 
 */

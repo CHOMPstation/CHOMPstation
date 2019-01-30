@@ -255,12 +255,12 @@ var/global/chicken_count = 0
 		var/obj/item/weapon/reagent_containers/food/snacks/grown/G = O
 		if(G.seed && G.seed.kitchen_tag == "wheat")
 			if(!stat && eggsleft < 8)
-				user.visible_message("<font color='blue'>[user] feeds [O] to [name]! It clucks happily.</font>","<font color='blue'>You feed [O] to [name]! It clucks happily.</font>")
+				user.visible_message("<font color='#6F6FE2'>[user] feeds [O] to [name]! It clucks happily.</font>","<font color='#6F6FE2'>You feed [O] to [name]! It clucks happily.</font>")
 				user.drop_item()
 				qdel(O)
 				eggsleft += rand(1, 4)
 			else
-				user << "<font color='blue'>[name] doesn't seem hungry!</font>"
+				user << "<font color='#6F6FE2'>[name] doesn't seem hungry!</font>"
 		else
 			user << "[name] doesn't seem interested in that."
 	else

@@ -232,7 +232,7 @@
 		if(user in target) //no wrapping closets that you are inside - it's not physically possible
 			return
 
-		user.attack_log += text("\[[time_stamp()]\] <font color='blue'>Has used [src.name] on \ref[target]</font>")
+		user.attack_log += text("\[[time_stamp()]\] <font color='#6F6FE2'>Has used [src.name] on \ref[target]</font>")
 
 
 		if (istype(target, /obj/item) && !(istype(target, /obj/item/weapon/storage) && !istype(target,/obj/item/weapon/storage/box)))
@@ -293,7 +293,7 @@
 			else if(src.amount < 3)
 				user << "<span class='warning'>You need more paper.</span>"
 		else
-			user << "<font color='blue'>The object you are trying to wrap is unsuitable for the sorting machinery!</font>"
+			user << "<font color='#6F6FE2'>The object you are trying to wrap is unsuitable for the sorting machinery!</font>"
 		if (src.amount <= 0)
 			new /obj/item/weapon/c_tube( src.loc )
 			qdel(src)
@@ -302,7 +302,7 @@
 
 	examine(mob/user)
 		if(..(user, 0))
-			user << "<font color='blue'>There are [amount] units of package wrap left!</font>"
+			user << "<font color='#6F6FE2'>There are [amount] units of package wrap left!</font>"
 
 		return
 

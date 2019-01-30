@@ -53,7 +53,7 @@
 	if(..())
 		return 1
 	if (using_map && !(src.z in using_map.contact_levels))
-		usr << "<font color='red'><b>Unable to establish a connection:</b></font> <font color='black'>You're too far away from the station!</font>"
+		usr << "<font color='red'><b>Unable to establish a connection:</b></font> <font color='white'>You're too far away from the station!</font>"
 		return
 	usr.set_machine(src)
 
@@ -186,7 +186,7 @@
 				if(!input || !(usr in view(1,src)))
 					return
 				CentCom_announce(input, usr)
-				usr << "<font color='blue'>Message transmitted.</font>"
+				usr << "<font color='#6F6FE2'>Message transmitted.</font>"
 				log_game("[key_name(usr)] has made an IA [using_map.boss_short] announcement: [input]")
 				centcomm_message_cooldown = 1
 				spawn(300)//10 minute cooldown
@@ -203,7 +203,7 @@
 				if(!input || !(usr in view(1,src)))
 					return
 				Syndicate_announce(input, usr)
-				usr << "<font color='blue'>Message transmitted.</font>"
+				usr << "<font color='#6F6FE2'>Message transmitted.</font>"
 				log_game("[key_name(usr)] has made an illegal announcement: [input]")
 				centcomm_message_cooldown = 1
 				spawn(300)//10 minute cooldown
@@ -275,7 +275,7 @@
 	if(..())
 		return
 	if (using_map && !(src.z in using_map.contact_levels))
-		user << "<font color='red'><b>Unable to establish a connection:</b></font> <font color='black'>You're too far away from the station!</font>"
+		user << "<font color='red'><b>Unable to establish a connection:</b></font> <font color='white'>You're too far away from the station!</font>"
 		return
 
 	user.set_machine(src)

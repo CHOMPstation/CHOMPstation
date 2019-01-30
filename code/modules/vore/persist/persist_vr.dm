@@ -82,12 +82,11 @@
 		WARNING("Persist (PID): Skipping [occupant] for persisting, as they have no prefs.")
 		return
 
-//Chompstation Edit: Removing NIFs - Jon
-/*
+
 	//This one doesn't rely on persistence prefs
 	if(ishuman(occupant) && occupant.stat != DEAD)
 		persist_nif_data(occupant, prefs)
-*/
+
 	if(!prefs.persistence_settings)
 		return // Persistence disabled by preference settings
 
@@ -220,14 +219,14 @@
 		var/loss = (MAX_NUTRITION_TO_LOSE - C.nutrition) * weight_per_nutrition * C.weight_loss/100
 		C.weight = max(MIN_MOB_WEIGHT, C.weight - loss)
 
-// Chompstation Edit: Removing NIFs temporarily - Jon
+
 
 /**
 * Persist any NIF data that needs to be persisted. It's stored in a list to make it more malleable
 * towards future shenanigans such as upgradable NIFs or different types or things of that nature,
 * without invoking the need for a bunch of different save file variables.
 */
-/*
+
 /proc/persist_nif_data(var/mob/living/carbon/human/H,var/datum/preferences/prefs)
 	if(!istype(H))
 		crash_with("Persist (NIF): Given a nonhuman: [H]")
@@ -262,4 +261,3 @@
 	if(!S) WARNING ("Persist (NIF): Couldn't load NIF save savefile? [prefs.real_name]")
 	S.cd = "/character[prefs.default_slot]"
 	nif_prefs.save_character(S)
-*/

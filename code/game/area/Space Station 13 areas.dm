@@ -228,6 +228,18 @@ area/space/atmosalert()
 /area/shuttle/mining/outpost
 	icon_state = "shuttle"
 
+/area/shuttle/medical
+	name = "\improper Medical Elevator"
+	music = "music/escape.ogg"
+	dynamic_lighting = 0
+	base_turf = /turf/simulated/mineral/floor/ignore_mapgen
+
+/area/shuttle/medical/station
+	icon_state = "shuttle2"
+
+/area/shuttle/medical/outpost
+	icon_state = "shuttle"
+
 /area/shuttle/transport1/centcom
 	icon_state = "shuttle"
 	name = "\improper Transport Shuttle CentCom"
@@ -844,6 +856,10 @@ area/space/atmosalert()
 /area/maintenance/research_shuttle
 	name = "Research Shuttle Dock Maintenance"
 	icon_state = "maint_research_shuttle"
+
+/area/maintenance/medical_shuttle
+	name = "Medical Shuttle Dock Maintenance"
+	icon_state = "maint_medical_shuttle"
 
 /area/maintenance/security_port
 	name = "Security Maintenance - Port"

@@ -230,13 +230,13 @@
 					prob(2);/obj/item/weapon/storage/box/syndie_kit/spy,
 					prob(2);/obj/item/weapon/grenade/anti_photon,
 					prob(1);/obj/item/clothing/suit/storage/vest/heavy/merc,
-//					prob(1);/obj/item/device/nif/bad, //Chompstation Edit: Removing NIFs - Jon
+					prob(1);/obj/item/device/nif/bad,
 					prob(1);/obj/item/device/radio_jammer,
 					prob(1);/obj/item/device/sleevemate,
 					prob(1);/obj/item/device/bodysnatcher,
 					prob(1);/obj/item/weapon/beartrap,
 					prob(1);/obj/item/weapon/cell/hyper/empty,
-//					prob(1);/obj/item/weapon/disk/nifsoft/compliance, //Chompstation Edit: Removing NIFs - Jon
+					prob(1);/obj/item/weapon/disk/nifsoft/compliance,
 					prob(1);/obj/item/weapon/material/knife/tacknife,
 					prob(1);/obj/item/weapon/reagent_containers/syringe/steroid)
 

@@ -196,10 +196,10 @@
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
 	active = !( active )
 	if (active)
-		user << "<font color='blue'>The reactive armor is now active.</font>"
+		user << "<font color='#6F6FE2'>The reactive armor is now active.</font>"
 		icon_state = "reactive"
 	else
-		user << "<font color='blue'>The reactive armor is now inactive.</font>"
+		user << "<font color='#6F6FE2'>The reactive armor is now inactive.</font>"
 		icon_state = "reactiveoff"
 		add_fingerprint(user)
 	return

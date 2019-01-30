@@ -116,6 +116,9 @@
 	user.update_action_buttons()
 	return 1
 
+/obj/item/device/flashlight/AltClick(mob/user)//chomp edit
+	attack_self(user)
+
 /obj/item/device/flashlight/emp_act(severity)
 	for(var/obj/O in contents)
 		O.emp_act(severity)

@@ -54,7 +54,7 @@
 	desc = "A partially digested card that has seen better days. The damage appears to be only cosmetic, but the access codes need to be reprogrammed at the HoP office."
 	icon = 'icons/obj/card_vr.dmi'
 	icon_state = "[initial(icon_state)]_digested"
-	access = list() // No access
+	// access = list() // No access /Removing this because everyone thinks it's dumb. -Erik
 	return FALSE
 
 /obj/item/weapon/reagent_containers/food/digest_act(var/atom/movable/item_storage = null)

@@ -221,6 +221,9 @@ var/global/list/obj/item/device/communicator/all_communicators = list()
 	if(video_source)
 		watch_video(user)
 
+/obj/item/device/communicator/AltClick(mob/user) //Chomp edit.
+	attack_self(user) //wow big skill
+
 // Proc: MouseDrop()
 //Same thing PDAs do
 /obj/item/device/communicator/MouseDrop(obj/over_object as obj)

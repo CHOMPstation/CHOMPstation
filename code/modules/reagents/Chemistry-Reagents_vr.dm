@@ -27,8 +27,6 @@
 	result_amount = 30
 	required = /obj/item/slime_extract/sapphire
 
-//Chompstation Edit: Removing NIFs - Jon
-/*
 /datum/reagent/nif_repair_nanites
 	name = "Programmed Nanomachines"
 	id = "nifrepairnanites"
@@ -46,4 +44,32 @@
 			if(nif.stat == NIF_TEMPFAIL)
 				nif.stat = NIF_INSTALLING
 			nif.durability = min(nif.durability + removed, initial(nif.durability))
-*/
+
+
+
+//////SAP IN UNREFINED FORM////
+
+/datum/reagent/toxin/bluesap //This is the first sap. Blue one.
+	name = "Blue Sap"
+	id = "bluesap"
+	description = "Glowing blue liquid."
+	reagent_state = LIQUID
+	color = "#91f9ff" // rgb(145, 249, 255)
+	metabolism = 0.01
+	strength = 10//Don't drink it
+	mrate_static = TRUE
+
+/datum/reagent/purplesap 
+	name = "Purple sap"
+	id = "purplesap"
+	description = "Purple liquid. It is very sticky and smells of amonia."
+	color = "#7a48a0"
+	taste_description = "Amonia"
+
+/datum/reagent/orangesap 
+	name = "Orange sap"
+	id = "orangesap"
+	description = "Orange liquid. It wobbles around a bit like jelly."
+	color = "#e0962f"
+	taste_description = "Amonia"
+

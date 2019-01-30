@@ -66,6 +66,8 @@
 	opacity = 0
 	glass = 1
 	assembly_type = /obj/structure/door_assembly/multi_tile
+	open_sound_powered = 'sound/machines/WideOpen.ogg'
+	close_sound_powered = 'sound/machines/WideClose.ogg'
 
 /obj/machinery/door/airlock/multi_tile/metal
 	name = "Airlock"
