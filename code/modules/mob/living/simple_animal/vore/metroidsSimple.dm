@@ -36,7 +36,7 @@
 	..()
 
 
-
+/*
 /mob/living/simple_animal/hostile/metroid/super
 	name = "super metroid"
 	desc = "Some sort of person eaty thing!"
@@ -69,12 +69,12 @@
 	emote_hear = list("makes a wooshing sound")
 	emote_see = list("SKREE's")
 
-
+/mob/living/simple_animal/hostile/metroid/super
 	vore_active = 1
 	vore_pounce_chance = 75 //Pro Tip: Don't let them touch you.
 	vore_icons = SA_ICON_LIVING
 	swallowTime = 10 SECONDS //Hungry little bastards.
-
+*/
 
 
 /mob/living/simple_animal/hostile/metroid/mine
@@ -119,9 +119,9 @@
 
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
 
-
+/mob/living/simple_animal/hostile/metroid/mine
 	vore_active = 1
-	vore_pounce_chance = 50 //Pro Tip: Don't let them touch you.
+	vore_pounce_chance = 50
 	vore_icons = SA_ICON_LIVING
 	swallowTime = 10 SECONDS //Hungry little bastards.
 
@@ -130,8 +130,8 @@
 	..()
 
 
-
-	/mob/living/simple_animal/hostile/metroid/alpha
+/*
+/mob/living/simple_animal/hostile/metroid/alpha
 	name = "super metroid"
 	desc = "Some sort of person rammy thing!"
 	icon = 'icons/mob/vore.dmi'
@@ -172,7 +172,7 @@
 
 
 
-	/mob/living/simple_animal/hostile/metroid/gamma
+/mob/living/simple_animal/hostile/metroid/gamma
 	name = "super metroid"
 	desc = "Some sort of person zappy thing!"
 	icon = 'icons/mob/vore.dmi'
@@ -211,7 +211,7 @@
 
 
 
-	/mob/living/simple_animal/hostile/metroid/zeta
+/mob/living/simple_animal/hostile/metroid/zeta
 	name = "super metroid"
 	desc = "Some sort of person stompy thing!"
 	icon = 'icons/mob/vore.dmi'
@@ -250,7 +250,7 @@
 
 
 
-	/mob/living/simple_animal/hostile/metroid/omega
+/mob/living/simple_animal/hostile/metroid/omega
 	name = "super metroid"
 	desc = "Some sort of person smashy thing!"
 	icon = 'icons/mob/vore.dmi'
@@ -289,7 +289,7 @@
 
 
 
-	/mob/living/simple_animal/hostile/metroid/queen
+/mob/living/simple_animal/hostile/metroid/queen
 	name = "super metroid"
 	desc = "How the hell could you let this happen."
 	icon = 'icons/mob/vore.dmi'
@@ -325,3 +325,4 @@
 	vore_pounce_chance = 75 //Pro Tip: Don't let them touch you.
 	vore_icons = SA_ICON_LIVING
 	swallowTime = 10 SECONDS //Hungry little bastards.
+*/
