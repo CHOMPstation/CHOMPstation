@@ -64,6 +64,7 @@
 
 /obj/structure/largecrate/animal/dangerous/initialize()
 	starts_with = list(pick(/mob/living/simple_animal/hostile/carp/pike,
+						/mob/living/simple_animal/chocobo,
 						/mob/living/simple_animal/hostile/deathclaw,
 						/mob/living/simple_animal/hostile/dino,
 						/mob/living/simple_animal/hostile/alien,
