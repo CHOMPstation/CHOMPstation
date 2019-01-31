@@ -36,7 +36,7 @@
 	..()
 
 
-/*
+
 /mob/living/simple_animal/hostile/metroid/super
 	name = "super metroid"
 	desc = "Some sort of person eaty thing!"
@@ -74,7 +74,7 @@
 	vore_pounce_chance = 75 //Pro Tip: Don't let them touch you.
 	vore_icons = SA_ICON_LIVING
 	swallowTime = 10 SECONDS //Hungry little bastards.
-*/
+
 
 
 /mob/living/simple_animal/hostile/metroid/mine
@@ -130,7 +130,7 @@
 	..()
 
 
-/*
+
 	/mob/living/simple_animal/hostile/metroid/alpha
 	name = "super metroid"
 	desc = "Some sort of person rammy thing!"
@@ -325,4 +325,3 @@
 	vore_pounce_chance = 75 //Pro Tip: Don't let them touch you.
 	vore_icons = SA_ICON_LIVING
 	swallowTime = 10 SECONDS //Hungry little bastards.
-	*/
