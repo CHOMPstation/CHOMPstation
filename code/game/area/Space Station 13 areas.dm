@@ -304,6 +304,16 @@ area/space/atmosalert()
 	name = "\improper Trade Shuttle"
 	icon_state = "shuttlered"
 
+/area/shuttle/casino/
+	name = "\improper Casino Shuttle"
+	dynamic_lighting = 0
+
+/area/shuttle/casino/ship
+	icon_state = "shuttlegrn"
+
+/area/shuttle/casino/station
+	icon_state = "shuttlegrn2"
+
 /area/shuttle/thunderdome
 	name = "honk"
 
@@ -473,9 +483,10 @@ area/space/atmosalert()
 
 
 
-
-
-
+/area/casino/casino_ship
+	name = "\improper Casino Ship"
+	icon_state = "yellow"
+	requires_power = 0
 
 /area/planet/clown
 	name = "\improper Clown Planet"

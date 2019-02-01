@@ -1,4 +1,4 @@
-/*/datum/job/centcom_officer //For Business //Removing because I really cannot be fucking assed anymore holy fucking shit this is retarded I'm gonna fucking flip shit in a sec
+/datum/job/centcom_officer
 	title = "CentCom Officer"
 	department = "Command"
 	head_position = 1
@@ -80,7 +80,7 @@
 
 	get_access()
 		var/access = get_all_accesses()
-		return access*/
+		return access
 
 /datum/job/clown
 	title = "Clown"

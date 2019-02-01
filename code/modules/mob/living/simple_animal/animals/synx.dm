@@ -43,22 +43,68 @@
 	attack_sharp = 1
 	attack_edge = 1
 
-	//will be affected by atmos soon
+//Vore stuff
+	vore_active = 1
+	vore_capacity = 2
+	vore_pounce_chance = 50
+	vore_bump_chance = 10
+	vore_bump_emote = "Slowly wraps its tongue around, and slides its drooling maw over the head of"
+	vore_standing_too = 1 //I believe this lets it vore standing people, rather than only resting.
+	vore_ignores_undigestable = 0 //Synx don't care if you digest or not, you squirm fine either way.
+	vore_default_mode = DM_HOLD
+	vore_digest_chance = 20		// Chance to switch to digest mode if resisted
+	vore_absorb_chance = 0
+	vore_escape_chance = 10
+	vore_icons = SA_ICON_LIVING
+
+/mob/living/simple_animal/retaliate/synx/init_vore()
+	..()
+	var/obj/belly/B = vore_selected
+	B.human_prey_swallow_time = 6
+	B.nonhuman_prey_swallow_time = 3
+	B.vore_verb = "swallow"
+	B.name = "stomach"
+	B.desc	= "You're pulled into the snug stomach of the synx. The walls knead weakly around you, coating you in thick, viscous fluids that cling to your body, that soon starts to tingle and burn..."
+	B.digest_burn = 1
+	B.digest_brute = 0
+	B.emote_lists[DM_HOLD] = list(
+	"The walls churn around you, soaking you in thick, smelling fluid as you're kneaded and rolled about in the surprisingly roomy, but still snug, space.",
+	"The unusually cool stomach rolls around you slowly and lazily, trying to almost knead you to sleep gently as the synx pulses around you.",
+	"The thick, viscous fluids cling to your body soaking in deep, giving you a full bath with the kneading of the walls helping to make sure you'll be smelling like synx stomach for days."
+	)
+	B.emote_lists[DM_DIGEST] = list(
+	"The stomach kneads roughly around you, suqishing and moulding to your shape, with the thick fluids clinging to your body and tingling, making it hard to breathe.",
+	"Firm churns of the stomach roll and knead you around, yoru body tingling as fur sizzles all around you, your body getting nice and tenderized for the stomach.",
+	"Your body tingles and the air smells strongly of acid, as the stomach churns around you firmly and slowly, eager to break you down.",
+	"You're jostled in the stomach as the synx lets out what can only described as an alien belch, the space around you getting even more snug as the thick acids rise further up your body."
+	)
+	B.digest_messages_prey = list(
+	"Your eyes grow heavy as the air grows thin in the stomach, the burning of the acids slowly putting you into a final slumber, adding you to the synx's hips and tail.",
+	"Slowly, the stinging and burning of the acids, and the constant churning is just too much, and with a few final clenches, your body is broken down into fuel for the synx.",
+	"The acids and fluids rise up above your head, quickly putting an end to your squirming and conciousness.. the stomach eager to break you down completely.",
+	"The synx lets out an audible belch, the last of your air going with it, and with a few audible crunches from the outside, the stomach claims you as food for the parasite."
+	)
+
+//Shouldn't be affected by lack of atmos, it's a space eel.
 	min_oxy = 0
-	max_oxy = 0
+	max_oxy = 0 //Maybe add a max
 	min_tox = 0
 	max_tox = 0
 	min_co2 = 0
-	max_co2 = 0
+	max_co2 = 0 //Maybe add a max
 	min_n2 = 0
-	max_n2 = 0
+	max_n2 = 0 //Maybe add a max
 	minbodytemp = 0
-    //to be added
-	/*speak_chance = 1
+	// TODO: Set a max temperature of about 20-30 above room temperatures. Synx don't like the heat.
+
+
+//    to be added
+/*	speak_chance = 2
 	speak = list()
 	speak_emote = list()
 	emote_hear = list()
-	emote_see = list()*/
+	emote_see = list()
+	*/
 
 /mob/living/simple_animal/retaliate/synx/New()
     ..()
@@ -129,3 +175,38 @@ mob/living/simple_animal/synx/PunchTarget()
 
 	transformed = !transformed
 	update_icons()
+
+
+////////////////////////////////////////
+////////////////PET VERSION/////////////
+////////////////////////////////////////
+/mob/living/simple_animal/retaliate/synx/pet
+	name = "Grins"
+	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small collar on it that reads 'Grins' with a bell that doesn't seem to work."
+	tt_desc = "synxus pergulus"
+
+	glow_range = 2
+	glow_toggle = 1
+
+	player_msg = "You aren't supposed to be in this. Wrong mob."
+
+/mob/living/simple_animal/retaliate/synx/pet/init_vore()
+    ..()
+    var/obj/belly/B = vore_selected
+    B.human_prey_swallow_time = 4
+    B.nonhuman_prey_swallow_time = 1
+    B.vore_verb = "swallow"
+    B.digest_burn = 1
+    B.digest_brute = 0
+
+/mob/living/simple_animal/retaliate/synx/pet
+	speak_chance = 0.5
+	speak = list()
+
+/mob/living/simple_animal/retaliate/synx/pet/hear_say(message)
+    . = ..()
+    if(!message)    return
+    if(message)
+        if(speak.len==3)
+            clearlist(speak)
+        speak += message
