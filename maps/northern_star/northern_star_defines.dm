@@ -4,7 +4,8 @@
 #define Z_LEVEL_TELECOMMS_NORTHERN_STAR				3
 #define Z_LEVEL_ABANDONED_ASTEROID_NORTHERN_STAR	4
 #define Z_LEVEL_MINING_NORTHERN_STAR				5
-#define Z_LEVEL_EMPTY_NORTHERN_STAR					6
+#define Z_LEVEL_EVENT_AREAS							6
+#define Z_LEVEL_EMPTY_NORTHERN_STAR					7
 
 /datum/map/northern_star
 	name = "Northern Star"
@@ -99,6 +100,11 @@
 	flags = MAP_LEVEL_STATION|MAP_LEVEL_CONTACT|MAP_LEVEL_PLAYER
 	transit_chance = 10
 	base_turf = /turf/simulated/mineral/floor
+
+/datum/map_z_level/northern_star/event_areas
+	z = Z_LEVEL_EVENT_AREAS
+	name = "Event and Ships"
+	flags = MAP_LEVEL_PLAYER|MAP_LEVEL_CONTACT|MAP_LEVEL_CONSOLES
 
 /datum/map_z_level/northern_star/empty
 	z = Z_LEVEL_EMPTY_NORTHERN_STAR

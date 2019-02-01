@@ -82,6 +82,7 @@ var/global/list/hunger_sounds = list(
 
 var/global/list/vore_sounds = list(
 		"Gulp" = 'sound/vore/gulp.ogg',
+		"Gulp2" = 'sound/vore/glrp.ogg',
 		"Insert" = 'sound/vore/insert.ogg',
 		"Insertion1" = 'sound/vore/insertion1.ogg',
 		"Insertion2" = 'sound/vore/insertion2.ogg',
