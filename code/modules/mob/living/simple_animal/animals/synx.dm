@@ -55,7 +55,7 @@
 	vore_digest_chance = 20		// Chance to switch to digest mode if resisted
 	vore_absorb_chance = 0
 	vore_escape_chance = 10
-	vore_icons = SA_ICON_LIVING
+	vore_icons = 0 //no vore icons
 
 /mob/living/simple_animal/retaliate/synx/init_vore()
 	..()
