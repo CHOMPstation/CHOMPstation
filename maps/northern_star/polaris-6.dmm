@@ -159,7 +159,7 @@
 "dc" = (/obj/structure/window/phoronreinforced,/obj/structure/window/phoronreinforced{icon_state = "phoronrwindow"; dir = 1},/obj/structure/window/phoronreinforced{icon_state = "phoronrwindow"; dir = 8},/obj/structure/grille,/turf/simulated/floor/wood/sif,/area/casino/casino_ship)
 "dd" = (/obj/structure/grille,/obj/structure/window/phoronreinforced{icon_state = "phoronrwindow"; dir = 1},/obj/structure/window/phoronreinforced,/turf/simulated/floor/wood/sif,/area/casino/casino_ship)
 "de" = (/obj/structure/window/phoronreinforced,/obj/structure/window/phoronreinforced{icon_state = "phoronrwindow"; dir = 1},/obj/structure/grille,/obj/structure/window/phoronreinforced{icon_state = "phoronrwindow"; dir = 4},/turf/simulated/floor/wood/sif,/area/casino/casino_ship)
-"df" = (/obj/machinery/door/airlock/multi_tile/glass{name = "Exit door"; req_access = list(160); tag = "casino_exit_door"},/turf/simulated/floor/carpet/blucarpet,/area/casino/casino_ship)
+"df" = (/obj/machinery/door/airlock/multi_tile/glass{id_tag = "casino_exit_door"; name = "Exit door"},/turf/simulated/floor/carpet/blucarpet,/area/casino/casino_ship)
 "dg" = (/obj/structure/table/steel,/obj/item/weapon/storage/box/lights/mixed,/obj/item/weapon/storage/box/lights/mixed,/turf/simulated/floor/tiled/freezer,/area/casino/casino_ship)
 "dh" = (/obj/structure/sink{icon_state = "sink"; dir = 8; pixel_x = -12; pixel_y = 2},/turf/simulated/floor/tiled/freezer,/area/casino/casino_ship)
 "di" = (/obj/structure/bed/chair/wood,/turf/simulated/floor/wood,/area/casino/casino_ship)
