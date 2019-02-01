@@ -1,3 +1,6 @@
+/*  //commented out until this can be fixed.
+
+
 /datum/job/centcom_officer
 	title = "CentCom Officer"
 	department = "Command"
@@ -81,6 +84,7 @@
 	get_access()
 		var/access = get_all_accesses()
 		return access
+*/
 
 /datum/job/clown
 	title = "Clown"
