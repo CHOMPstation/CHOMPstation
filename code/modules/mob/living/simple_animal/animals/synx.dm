@@ -209,4 +209,4 @@ mob/living/simple_animal/synx/PunchTarget()
     if(message)
         if(speak.len==3)
             clearlist(speak)
-        speak += message
+        speak.Add(message)
