@@ -216,9 +216,9 @@ mob/living/simple_animal/synx/PunchTarget()
 
 //PET speechcode, simplistic but more than enough for the PET
 /mob/living/simple_animal/retaliate/synx/pet/hear_say(message)
-    . = ..()
-    if(!message)    return
-    if(message)
-        if(speak.len==memorysize)
-            speak.remove(pick(speak))//making the list more dynamic
+	. = ..()
+	if(!message)    return
+	if(message)
+		if(speak.len==memorysize)
+			speak.remove(pick(speak))//making the list more dynamic
 	speak += message
