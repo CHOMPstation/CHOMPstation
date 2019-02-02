@@ -5,12 +5,15 @@
 
 	 //Synx species belongs to ChimeraSynx , Sprites by: SpitefulCrow
 	icon = 'icons/mob/synx.dmi'//giving synxes their own DMI file!
-	icon_state = "synx"
-	icon_living = "synx"
+	icon_state = "synx_living"
+	icon_living = "synx_living"
+	icon_dead = "synx_dead"
 
 	var/transformed_state = "synx_transformed"
 
 	var/transformed = FALSE
+
+	var/memorysize = 50
 
 	faction = "Synx"
 	intelligence_level = SA_ANIMAL
@@ -52,16 +55,17 @@
 	vore_standing_too = 1 //I believe this lets it vore standing people, rather than only resting.
 	vore_ignores_undigestable = 0 //Synx don't care if you digest or not, you squirm fine either way.
 	vore_default_mode = DM_HOLD
-	vore_digest_chance = 20		// Chance to switch to digest mode if resisted
+	vore_digest_chance = 45		// Chance to switch to digest mode if resisted
 	vore_absorb_chance = 0
-	vore_escape_chance = 10
+	vore_escape_chance = 20
 	vore_icons = 0 //no vore icons
+//	swallowTime = 6 SECONDS //Enter the eel you nerd
 
 /mob/living/simple_animal/retaliate/synx/init_vore()
 	..()
 	var/obj/belly/B = vore_selected
-	B.human_prey_swallow_time = 6
-	B.nonhuman_prey_swallow_time = 3
+	B.human_prey_swallow_time = 6 SECONDS
+	B.nonhuman_prey_swallow_time = 3 SECONDS
 	B.vore_verb = "swallow"
 	B.name = "stomach"
 	B.desc	= "You're pulled into the snug stomach of the synx. The walls knead weakly around you, coating you in thick, viscous fluids that cling to your body, that soon starts to tingle and burn..."
@@ -73,8 +77,8 @@
 	"The thick, viscous fluids cling to your body soaking in deep, giving you a full bath with the kneading of the walls helping to make sure you'll be smelling like synx stomach for days."
 	)
 	B.emote_lists[DM_DIGEST] = list(
-	"The stomach kneads roughly around you, suqishing and moulding to your shape, with the thick fluids clinging to your body and tingling, making it hard to breathe.",
-	"Firm churns of the stomach roll and knead you around, yoru body tingling as fur sizzles all around you, your body getting nice and tenderized for the stomach.",
+	"The stomach kneads roughly around you, squishing and molding to your shape, with the thick fluids clinging to your body and tingling, making it hard to breathe.",
+	"Firm churns of the stomach roll and knead you around, your body tingling as fur sizzles all around you, your body getting nice and tenderized for the stomach.",
 	"Your body tingles and the air smells strongly of acid, as the stomach churns around you firmly and slowly, eager to break you down.",
 	"You're jostled in the stomach as the synx lets out what can only described as an alien belch, the space around you getting even more snug as the thick acids rise further up your body."
 	)
@@ -185,10 +189,17 @@ mob/living/simple_animal/synx/PunchTarget()
 	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small collar on it that reads 'Grins' with a bell that doesn't seem to work."
 	tt_desc = "synxus pergulus"
 
+	icon = 'icons/mob/synx.dmi'
+	icon_state = "synx_pet_living"
+	icon_living = "synx_pet_living"
+	icon_dead = "synx_pet_dead"
+
 	glow_range = 2
 	glow_toggle = 1
 
 	player_msg = "You aren't supposed to be in this. Wrong mob."
+
+	var/goodboy = "no"
 
 /mob/living/simple_animal/retaliate/synx/pet/init_vore()
     ..()
@@ -200,13 +211,13 @@ mob/living/simple_animal/synx/PunchTarget()
     B.digest_brute = 0
 
 /mob/living/simple_animal/retaliate/synx/pet
-	speak_chance = 0.5
+	speak_chance = 1
 	speak = list()
 
 /mob/living/simple_animal/retaliate/synx/pet/hear_say(message)
     . = ..()
     if(!message)    return
     if(message)
-        if(speak.len==3)
+        if(speak.len==memorysize)
             clearlist(speak)
-        speak.Add(message)
+        speak += message
