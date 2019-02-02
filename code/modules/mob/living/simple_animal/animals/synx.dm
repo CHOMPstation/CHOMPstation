@@ -13,7 +13,7 @@
 
 	var/transformed = FALSE
 
-	var/memorysize = 50
+	var/memorysize = 50 //Var for how many messages synxes remember if they know speechcode
 
 	faction = "Synx"
 	intelligence_level = SA_ANIMAL
@@ -32,7 +32,7 @@
 				"bomb" = 10,
 				"bio" = 100,
 				"rad" = 100)
-	//has_hands = TRUE
+	has_hands = TRUE
 
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
@@ -57,15 +57,15 @@
 	vore_default_mode = DM_HOLD
 	vore_digest_chance = 45		// Chance to switch to digest mode if resisted
 	vore_absorb_chance = 0
-	vore_escape_chance = 20
+	vore_escape_chance = 10
 	vore_icons = 0 //no vore icons
-//	swallowTime = 6 SECONDS //Enter the eel you nerd
+	swallowTime = 6 SECONDS //Enter the eel you nerd
 
 /mob/living/simple_animal/retaliate/synx/init_vore()
 	..()
 	var/obj/belly/B = vore_selected
-	B.human_prey_swallow_time = 6 SECONDS
-	B.nonhuman_prey_swallow_time = 3 SECONDS
+	//B.human_prey_swallow_time = 6 SECONDS //doesnt work
+	//B.nonhuman_prey_swallow_time = 3 SECONDS //doesnt work
 	B.vore_verb = "swallow"
 	B.name = "stomach"
 	B.desc	= "You're pulled into the snug stomach of the synx. The walls knead weakly around you, coating you in thick, viscous fluids that cling to your body, that soon starts to tingle and burn..."
@@ -152,7 +152,7 @@ mob/living/simple_animal/synx/PunchTarget()
 		status_flags &= ~HIDING
 		reset_plane_and_layer()
 		to_chat(src,"<span class='notice'>You have stopped hiding.</span>")
-		//speed = -3, to be balanced
+		speed = -3
 	else
 		status_flags |= HIDING
 		layer = HIDING_LAYER //Just above cables with their 2.44
@@ -211,13 +211,14 @@ mob/living/simple_animal/synx/PunchTarget()
     B.digest_brute = 0
 
 /mob/living/simple_animal/retaliate/synx/pet
-	speak_chance = 1
+	speak_chance = 1.0666
 	speak = list()
 
+//PET speechcode, simplistic but more than enough for the PET
 /mob/living/simple_animal/retaliate/synx/pet/hear_say(message)
     . = ..()
     if(!message)    return
     if(message)
-        if(speak.len==memorysize)
-            clearlist(speak)
+        if(speak.len>=memorysize)
+            speak -= (pick(speak))//making the list more dynamic
         speak += message
