@@ -220,5 +220,5 @@ mob/living/simple_animal/synx/PunchTarget()
     if(!message)    return
     if(message)
         if(speak.len==memorysize)
-            clearlist(speak)
-        speak += message
+            speak.remove(pick(speak))//making the list more dynamic
+	speak += message
