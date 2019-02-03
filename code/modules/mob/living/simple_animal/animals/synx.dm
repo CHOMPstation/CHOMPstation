@@ -32,7 +32,7 @@
 				"bomb" = 10,
 				"bio" = 100,
 				"rad" = 100)
-	has_hands = TRUE
+	has_hands = 1
 
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
