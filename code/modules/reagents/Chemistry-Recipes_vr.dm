@@ -129,6 +129,12 @@
 	required_reagents = list("dermaline" = 1, "orangesap" = 1, "Copper" = 1)
 	result_amount = 1
 
+/datum/chemical_reaction/nutrient
+	name = "Nutriment"
+	id = "nutriment"
+	result = "nutriment"
+	required_reagents = list("purplesap" = 1, "orangesap" = 1, "bluesap" = 1)
+	result_amount = 3
 
 ///////////////////////////////////////////////////////////////////////////////////
 /// Special drinks
