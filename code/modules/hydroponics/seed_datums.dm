@@ -736,7 +736,7 @@
 	name = "soybean"
 	seed_name = "soybean"
 	display_name = "soybeans"
-	mutants = list("Orangesapbean","Purplesapbean")
+	mutants = list("Orangesapbean","Purplesapbean") //CHOMPEDIT: Adding sappy beanies to mutation
 	chems = list("nutriment" = list(1,20), "soymilk" = list(10,20))
 	kitchen_tag = "soybeans"
 
