@@ -185,8 +185,14 @@ mob/living/simple_animal/synx/PunchTarget()
 ////////////////PET VERSION/////////////
 ////////////////////////////////////////
 /mob/living/simple_animal/retaliate/synx/pet
-	name = "Grins"
-	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small collar on it that reads 'Grins' with a bell that doesn't seem to work."
+	var/names = list("Grins","Greed")
+	name = pick(names)
+	if (name == "Grins")
+	    desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small collar on it that reads 'Grins' with a bell that doesn't seem to work."
+	if (name == "Greed")
+	    desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has the name Greed burnt into its back."
+	
+	
 	tt_desc = "synxus pergulus"
 
 	icon = 'icons/mob/synx.dmi'
