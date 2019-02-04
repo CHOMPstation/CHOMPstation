@@ -761,21 +761,21 @@
 /datum/seed/soybean/sapbean/orange
 	name = "orangesapbean"
 	mutants = list("Purplesapbean","bluesapbean","blacksapbean")
-	chems = list("orangesap" = list(10,20))
+	chems = list("orangesap" = list(0,10))
 
 /datum/seed/soybean/sapbean/purple
 	name = "purplesapbean"
 	mutants = list("Orangesapbean","bluesapbean","blacksapbean")
-	chems = list("purplesap" = list(10,20))
+	chems = list("purplesap" = list(0,10))
 
 /datum/seed/soybean/sapbean/blue
 	name = "bluesapbean"
 	mutants = list("orangesapbean","purplesapbean","blacksapbean")
-	chems = list("bluesap" = list(10,20))
+	chems = list("bluesap" = list(0,10))
 
 /datum/seed/soybean/sapbean/black //A bean with all the power but in so little quanitity
 	name = "blacksapbean"
-	chems = list("bluesap" = list(1,5),"orangesap" = list(1,5),"purplesap" = list(1,5))
+	chems = list("bluesap" = list(1,2),"orangesap" = list(1,2),"purplesap" = list(1,2))
 
 /datum/seed/soybean/sapbean/orange/New()
 	..()
@@ -791,10 +791,11 @@
 	set_trait(TRAIT_PLANT_COLOUR,"#0000FF")
 /datum/seed/soybean/sapbean/black/New() //the only real positive is that its 1 plant to care for rather than 3
 	..()
+	set_trait(TRAIT_PRODUCT_ICON,"treefruit")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#333333")
 	set_trait(TRAIT_PLANT_COLOUR,"#333333")
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_MATURATION,7)
+	set_trait(TRAIT_PRODUCTION,3)
+	set_trait(TRAIT_MATURATION,8)
 	set_trait(TRAIT_POTENCY,10)
 	set_trait(TRAIT_YIELD,2)
 	
