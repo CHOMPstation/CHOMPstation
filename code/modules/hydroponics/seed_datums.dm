@@ -736,6 +736,7 @@
 	name = "soybean"
 	seed_name = "soybean"
 	display_name = "soybeans"
+	mutants = list("Orangesapbean","Purplesapbean")
 	chems = list("nutriment" = list(1,20), "soymilk" = list(10,20))
 	kitchen_tag = "soybeans"
 
@@ -750,6 +751,30 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#EBE7C0")
 	set_trait(TRAIT_PLANT_ICON,"stalk")
 
+// CHOMPSTATION EDIT: Making soybeans viable in this meta by giving them sappy mutations
+/datum/seed/soybean/sapbean
+	name = "sapbean"
+	seed_name = "sapbean"
+	display_name = "sapbeans"
+	chems = list()
+
+/datum/seed/soybean/sapbean/orange
+	name = "Orangesapbean"
+	mutants = list("Purplesapbean")
+	chems = list("orangesap" = list(10,20))
+
+/datum/seed/soybean/sapbean/purple
+	name = "Purplesapbean"
+	mutants = list("Orangesapbean")
+	chems = list("purplesap" = list(10,20))
+
+/datum/seed/soybean/sapbean/orange/New()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#FF8700")
+/datum/seed/soybean/sapbean/purple/New()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#FF00FF")
+// CHOMPSTATION EDIT: END
 /datum/seed/wheat
 	name = "wheat"
 	seed_name = "wheat"
