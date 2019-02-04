@@ -736,6 +736,7 @@
 	name = "soybean"
 	seed_name = "soybean"
 	display_name = "soybeans"
+	mutants = list("orangesapbean","purplesapbean","bluesapbean") //CHOMPEDIT: Adding sappy beanies to mutation
 	chems = list("nutriment" = list(1,20), "soymilk" = list(10,20))
 	kitchen_tag = "soybeans"
 
@@ -750,6 +751,55 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#EBE7C0")
 	set_trait(TRAIT_PLANT_ICON,"stalk")
 
+// CHOMPSTATION EDIT: Making soybeans viable in this meta by giving them sappy mutations
+/datum/seed/soybean/sapbean
+	name = "sapbean"
+	seed_name = "sapbean"
+	display_name = "sapbeans"
+	chems = list()
+
+/datum/seed/soybean/sapbean/orange
+	name = "orangesapbean"
+	mutants = list("Purplesapbean","bluesapbean","blacksapbean")
+	chems = list("orangesap" = list(0,10))
+
+/datum/seed/soybean/sapbean/purple
+	name = "purplesapbean"
+	mutants = list("Orangesapbean","bluesapbean","blacksapbean")
+	chems = list("purplesap" = list(0,10))
+
+/datum/seed/soybean/sapbean/blue
+	name = "bluesapbean"
+	mutants = list("orangesapbean","purplesapbean","blacksapbean")
+	chems = list("bluesap" = list(0,10))
+
+/datum/seed/soybean/sapbean/black //A bean with all the power but in so little quanitity
+	name = "blacksapbean"
+	chems = list("bluesap" = list(1,2),"orangesap" = list(1,2),"purplesap" = list(1,2))
+
+/datum/seed/soybean/sapbean/orange/New()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#FF8700")
+	set_trait(TRAIT_PLANT_COLOUR,"#FF8700")
+/datum/seed/soybean/sapbean/purple/New()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#FF00FF")
+	set_trait(TRAIT_PLANT_COLOUR,"#FF00FF")
+/datum/seed/soybean/sapbean/blue/New()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#0000FF")
+	set_trait(TRAIT_PLANT_COLOUR,"#0000FF")
+/datum/seed/soybean/sapbean/black/New() //the only real positive is that its 1 plant to care for rather than 3
+	..()
+	set_trait(TRAIT_PRODUCT_ICON,"treefruit")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#333333")
+	set_trait(TRAIT_PLANT_COLOUR,"#333333")
+	set_trait(TRAIT_PRODUCTION,3)
+	set_trait(TRAIT_MATURATION,8)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_YIELD,2)
+	
+// CHOMPSTATION EDIT: END
 /datum/seed/wheat
 	name = "wheat"
 	seed_name = "wheat"
