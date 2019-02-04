@@ -760,28 +760,44 @@
 
 /datum/seed/soybean/sapbean/orange
 	name = "orangesapbean"
-	mutants = list("Purplesapbean","bluesapbean")
+	mutants = list("Purplesapbean","bluesapbean","blacksapbean")
 	chems = list("orangesap" = list(10,20))
 
 /datum/seed/soybean/sapbean/purple
 	name = "purplesapbean"
-	mutants = list("Orangesapbean","bluesapbean")
+	mutants = list("Orangesapbean","bluesapbean","blacksapbean")
 	chems = list("purplesap" = list(10,20))
 
 /datum/seed/soybean/sapbean/blue
 	name = "bluesapbean"
-	mutants = list("orangesapbean","purplesapbean")
+	mutants = list("orangesapbean","purplesapbean","blacksapbean")
 	chems = list("bluesap" = list(10,20))
+
+/datum/seed/soybean/sapbean/black //A bean with all the power but in so little quanitity
+	name = "blacksapbean"
+	chems = list("bluesap" = list(1,5),"orangesap" = list(1,5),"purplesap" = list(1,5))
 
 /datum/seed/soybean/sapbean/orange/New()
 	..()
 	set_trait(TRAIT_PRODUCT_COLOUR,"#FF8700")
+	set_trait(TRAIT_PLANT_COLOUR,"#FF8700")
 /datum/seed/soybean/sapbean/purple/New()
 	..()
 	set_trait(TRAIT_PRODUCT_COLOUR,"#FF00FF")
+	set_trait(TRAIT_PLANT_COLOUR,"#FF00FF")
 /datum/seed/soybean/sapbean/blue/New()
 	..()
 	set_trait(TRAIT_PRODUCT_COLOUR,"#0000FF")
+	set_trait(TRAIT_PLANT_COLOUR,"#0000FF")
+/datum/seed/soybean/sapbean/black/New() //the only real positive is that its 1 plant to care for rather than 3
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#333333")
+	set_trait(TRAIT_PLANT_COLOUR,"#333333")
+	set_trait(TRAIT_PRODUCTION,6)
+	set_trait(TRAIT_MATURATION,7)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_YIELD,2)
+	
 // CHOMPSTATION EDIT: END
 /datum/seed/wheat
 	name = "wheat"
