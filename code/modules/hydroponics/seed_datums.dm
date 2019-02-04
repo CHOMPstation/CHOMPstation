@@ -736,7 +736,7 @@
 	name = "soybean"
 	seed_name = "soybean"
 	display_name = "soybeans"
-	mutants = list("Orangesapbean","Purplesapbean") //CHOMPEDIT: Adding sappy beanies to mutation
+	mutants = list("orangesapbean","purplesapbean","bluesapbean") //CHOMPEDIT: Adding sappy beanies to mutation
 	chems = list("nutriment" = list(1,20), "soymilk" = list(10,20))
 	kitchen_tag = "soybeans"
 
@@ -759,14 +759,19 @@
 	chems = list()
 
 /datum/seed/soybean/sapbean/orange
-	name = "Orangesapbean"
-	mutants = list("Purplesapbean")
+	name = "orangesapbean"
+	mutants = list("Purplesapbean","bluesapbean")
 	chems = list("orangesap" = list(10,20))
 
 /datum/seed/soybean/sapbean/purple
-	name = "Purplesapbean"
-	mutants = list("Orangesapbean")
+	name = "purplesapbean"
+	mutants = list("Orangesapbean","bluesapbean")
 	chems = list("purplesap" = list(10,20))
+
+/datum/seed/soybean/sapbean/blue
+	name = "bluesapbean"
+	mutants = list("orangesapbean","purplesapbean")
+	chems = list("bluesap" = list(10,20))
 
 /datum/seed/soybean/sapbean/orange/New()
 	..()
@@ -774,6 +779,9 @@
 /datum/seed/soybean/sapbean/purple/New()
 	..()
 	set_trait(TRAIT_PRODUCT_COLOUR,"#FF00FF")
+/datum/seed/soybean/sapbean/blue/New()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#0000FF")
 // CHOMPSTATION EDIT: END
 /datum/seed/wheat
 	name = "wheat"
