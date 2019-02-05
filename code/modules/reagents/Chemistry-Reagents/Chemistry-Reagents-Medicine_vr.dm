@@ -134,18 +134,11 @@
 	scannable = 1 // Mechs can scan this ye
 	metabolism = 0.03 //Slow metabolism. This value was plucked out of nowhere. Can be changed.
 
-/datum/reagent/bullvalene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) //Credit to Cameron for making my life easier with getFireLoss and such!
-	if(alien == IS_SLIME)
+/datum/reagent/bullvalene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_SLIME || alien == IS_DIONA) 
 		return
-	if(alien != IS_DIONA)
-		return
-	else
-		if(M.getOxyLoss()) //OXYGEN | This check if there is oxygen damage
-			M.adjustOxyLoss(-1) //This remove the oxygen damage
-			M.adjustToxLoss(0.8) //This add toxin damage
-		if(M.getFireLoss()) //BURN
-			M.adjustFireLoss(-1)
-			M.adjustToxLoss(0.8)
-		if(M.getBruteLoss()) //BRUTE
-			M.adjustBruteLoss(-1)
-			M.adjustToxLoss(0.8)
+	if(getdamagebrute || getdamageburn || getdamageoxy)
+		M.adjustOxyLoss(-1)
+		M.adjustFireLoss(-1)
+		M.adjustBruteLoss(-1)
+		M.adjustToxLoss(0.8)
