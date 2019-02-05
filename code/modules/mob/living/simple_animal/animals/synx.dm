@@ -185,6 +185,11 @@ mob/living/simple_animal/synx/PunchTarget()
 ////////////////PET VERSION/////////////
 ////////////////////////////////////////
 /mob/living/simple_animal/retaliate/synx/pet
+	var/GRINS_LIVING = "synx_pet_living" //let's set up these vars to change em more easily later
+	var/GRINS_DEAD = "synx_pet_dead"
+	var/GREED_LIVING = "synx_pet_living"
+	var/GREED_DEAD = "synx_pet_dead"
+	
 	faction = "Cargonia" //Should not share a faction with those pesky non station synxes.//This is so newspaper has a failchance
 	name = "Prototype pet synx"
 	desc = "if you see this tell a a dev"
@@ -220,9 +225,9 @@ mob/living/simple_animal/synx/PunchTarget()
 		name = "Greed"
 		desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has the name Greed burnt into its back, the burnt in name seems to be luminescent making it harder for it to blend into the dark."
 		//icon= //icon= would just set what DMI we are using, we already have our special one set.
-		//icon_state = "synx_pet_living"//unique skin
-		//icon_living = "synx_pet_living"//unique skin
-		//icon_dead = "synx_pet_dead"//unique skin
+		icon_state = GREED_LIVING
+		icon_living = GREED_LIVING
+		icon_dead = GREED_DEAD
 		speak = list("Who is there?")//preset unique words Greed remembers, to be defined more
 		player_msg = "You Hunger."
 		health = 100//Slightly lower health due to being damaged permanently.
@@ -243,7 +248,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	else
 		name = "Grins"
 		desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small collar on it that reads 'Grins' with a bell that doesn't seem to work."
-		icon_state = "synx_pet_living"
-		icon_living = "synx_pet_living"
-		icon_dead = "synx_pet_dead"
+		icon_state = GRINS_LIVING
+		icon_living = GRINS_LIVING
+		icon_dead = GRINS_DEAD
 	..()
