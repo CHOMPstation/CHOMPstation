@@ -21,7 +21,7 @@
 	maxHealth = 150
 	health = 120
 	//turns_per_move = 2 //to be balanced, default for now
-	//speed = -2 //to be balanced, default for now
+	speed = -2 //Re enabled custom speed
 	see_in_dark = 6
 	stop_when_pulled = 0
 	armor = list(			// will be determined
@@ -185,7 +185,7 @@ mob/living/simple_animal/synx/PunchTarget()
 ////////////////PET VERSION/////////////
 ////////////////////////////////////////
 /mob/living/simple_animal/retaliate/synx/pet
-	//var/names = ["Grins","Greed"]
+	faction = "Cargonia" //Should not share a faction with those pesky non station synxes.
 	name = "Grins"
 	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small collar on it that reads 'Grins' with a bell that doesn't seem to work."
 	//Greed: desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has the name Greed burnt into its back."
@@ -195,7 +195,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	icon_state = "synx_pet_living"
 	icon_living = "synx_pet_living"
 	icon_dead = "synx_pet_dead"
-	glow_range = 2
+	glow_range = 4
 	glow_toggle = 1
 
 	player_msg = "You aren't supposed to be in this. Wrong mob."
@@ -205,8 +205,6 @@ mob/living/simple_animal/synx/PunchTarget()
 /mob/living/simple_animal/retaliate/synx/pet/init_vore()
     ..()
     var/obj/belly/B = vore_selected
-    B.human_prey_swallow_time = 4
-    B.nonhuman_prey_swallow_time = 1
     B.vore_verb = "swallow"
     B.digest_burn = 1
     B.digest_brute = 0
@@ -223,3 +221,28 @@ mob/living/simple_animal/synx/PunchTarget()
         if(speak.len>=memorysize)
             speak -= (pick(speak))//making the list more dynamic
         speak += message
+
+//////////////////////////////////////////////////////
+////////////////PET RANDOMISATION/////////////////////
+//////////////////////////////////////////////////////
+/mob/living/simple_animal/retaliate/synx/pet/new()
+	if(prob(50))
+		name = "Greed"
+		desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has the name Greed burnt into its back, the burnt in name seems to be luminescent making it harder for it to blend into the dark."
+		//icon= //icon= would just set what DMI we are using, we already have our special one set.
+		//icon_state = "synx_pet_living"//unique skin
+		//icon_living = "synx_pet_living"//unique skin
+		//icon_dead = "synx_pet_dead"//unique skin
+		speak = list("Who is there?")//preset unique words Greed remembers, to be defined more
+		player_msg = "You Hunger."
+		health = 100//Slightly lower health due to being damaged permanently.
+		speak_chance = 2
+		
+		//Vore Section
+		vore_capacity = 4 //What a fat noodle.
+		vore_digest_chance = 1	//Multivore but lower digest chance
+		vore_pounce_chance = 90 //Fighting is effort, engulf them whole.
+		vore_bump_chance = 2 //lowered bump chance
+		vore_escape_chance = 5 //Multivore allows for people to shove eachother out so lower normal escape chance.
+		
+		
