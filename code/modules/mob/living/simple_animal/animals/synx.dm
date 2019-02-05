@@ -225,7 +225,7 @@ mob/living/simple_animal/synx/PunchTarget()
 //////////////////////////////////////////////////////
 ////////////////PET RANDOMISATION/////////////////////
 //////////////////////////////////////////////////////
-/mob/living/simple_animal/retaliate/synx/pet/new()
+/mob/living/simple_animal/retaliate/synx/pet/New()
 	if(prob(50))
 		name = "Greed"
 		desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has the name Greed burnt into its back, the burnt in name seems to be luminescent making it harder for it to blend into the dark."
