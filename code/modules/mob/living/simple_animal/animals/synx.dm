@@ -185,23 +185,13 @@ mob/living/simple_animal/synx/PunchTarget()
 ////////////////PET VERSION/////////////
 ////////////////////////////////////////
 /mob/living/simple_animal/retaliate/synx/pet
-	faction = "Cargonia" //Should not share a faction with those pesky non station synxes.
-	name = "Grins"
-	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small collar on it that reads 'Grins' with a bell that doesn't seem to work."
-	//Greed: desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has the name Greed burnt into its back."
-	
+	faction = "Cargonia" //Should not share a faction with those pesky non station synxes.//This is so newspaper has a failchance
+	name = "Prototype pet synx"
+	desc = "if you see this tell a a dev"
 	tt_desc = "synxus pergulus"
-	icon = 'icons/mob/synx.dmi'
-	icon_state = "synx_pet_living"
-	icon_living = "synx_pet_living"
-	icon_dead = "synx_pet_dead"
 	glow_range = 4
 	glow_toggle = 1
-
 	player_msg = "You aren't supposed to be in this. Wrong mob."
-
-	var/goodboy = "no"
-
 /mob/living/simple_animal/retaliate/synx/pet/init_vore()
     ..()
     var/obj/belly/B = vore_selected
@@ -249,4 +239,10 @@ mob/living/simple_animal/synx/PunchTarget()
 		icon_state = "synx_living"
 		icon_living = "synx_living"
 		icon_dead = "synx_dead"
+	else
+		name = "Grins"
+		desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small collar on it that reads 'Grins' with a bell that doesn't seem to work."
+		icon_state = "synx_pet_living"
+		icon_living = "synx_pet_living"
+		icon_dead = "synx_pet_dead"
 	..()
