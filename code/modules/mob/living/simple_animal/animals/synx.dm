@@ -243,4 +243,10 @@ mob/living/simple_animal/synx/PunchTarget()
 		vore_pounce_chance = 90 //Fighting is effort, engulf them whole.
 		vore_bump_chance = 2 //lowered bump chance
 		vore_escape_chance = 5 //Multivore allows for people to shove eachother out so lower normal escape chance.
+	else if(prob(1))
+		name = "Bob"
+		desc = "A cold blooded, genderless, parasitic eel. This one is Bob. Bob is pretty normal, for a thing that might live inside you."
+		icon_state = "synx_living"
+		icon_living = "synx_living"
+		icon_dead = "synx_dead"
 	..()
