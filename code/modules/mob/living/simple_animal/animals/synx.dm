@@ -239,6 +239,7 @@ mob/living/simple_animal/synx/PunchTarget()
 		icon_state = "synx_living"
 		icon_living = "synx_living"
 		icon_dead = "synx_dead"
+		faction = "Station"//Bob can be safely bapped with newspaper.
 	else
 		name = "Grins"
 		desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small collar on it that reads 'Grins' with a bell that doesn't seem to work."
