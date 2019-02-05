@@ -237,12 +237,10 @@ mob/living/simple_animal/synx/PunchTarget()
 		player_msg = "You Hunger."
 		health = 100//Slightly lower health due to being damaged permanently.
 		speak_chance = 2
-		
 		//Vore Section
 		vore_capacity = 4 //What a fat noodle.
 		vore_digest_chance = 1	//Multivore but lower digest chance
 		vore_pounce_chance = 90 //Fighting is effort, engulf them whole.
 		vore_bump_chance = 2 //lowered bump chance
 		vore_escape_chance = 5 //Multivore allows for people to shove eachother out so lower normal escape chance.
-		
-		
+	..()
