@@ -5,6 +5,7 @@
 	maxcharge = 2000//Trade in charge for recharge
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 100)
 	description_info = "This 'cell' holds a max charge of 1k and self recharges over time."
+	self_recharge = TRUE
 
 /obj/item/weapon/cell/high/hightech/empty/New()
 	..()
