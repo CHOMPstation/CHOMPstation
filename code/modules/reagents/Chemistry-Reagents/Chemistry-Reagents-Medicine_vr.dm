@@ -137,7 +137,7 @@
 /datum/reagent/bullvalene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_SLIME || alien == IS_DIONA) 
 		return
-	if(getdamagebrute || getdamageburn || getdamageoxy)
+	if(M.getBruteLoss() || M.getFireLoss() || M.getOxyLoss())
 		M.adjustOxyLoss(-1)
 		M.adjustFireLoss(-1)
 		M.adjustBruteLoss(-1)
