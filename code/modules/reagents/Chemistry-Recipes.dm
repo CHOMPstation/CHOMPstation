@@ -2271,7 +2271,14 @@
 	result = "banana bubble tea"
 	required_reagents = list("gelatin" = 2, "tea" = 5, "banana" = 1, "milk" = 2)
 	result_amount = 10
-	
+
+/datum/chemical_reaction/drinks/horchata
+	name = "Horchata"
+	id = "horchata"
+	result = "horchata"
+	required_reagents = list("milk" = 1, "sugar" = 2, "rice" = 2)
+	result_amount = 5	
+
 //R-UST Port
 /datum/chemical_reaction/hyrdophoron
 	name = "Hydrophoron"

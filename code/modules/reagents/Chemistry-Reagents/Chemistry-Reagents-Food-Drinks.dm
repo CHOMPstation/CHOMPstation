@@ -1582,6 +1582,17 @@
 	glass_name = "banana bubble tea"
 	glass_desc = "A sweet tea with tasty little flavoured gelatin balls in it, this one is with banana."
 
+/datum/reagent/drink/horchata
+	name = "Horchata"
+	id = "horchata"
+	description = "A sweet and cold rice milk beverage."
+	taste_description = "sweet rice milk and cinnamon"
+	color = "#ebcdc1"
+	adj_temp = -5
+
+	glass_name = "horchata"
+	glass_desc = "A sweet and cold rice milk beverage."
+	
 /* Alcohol */
 
 // Basic

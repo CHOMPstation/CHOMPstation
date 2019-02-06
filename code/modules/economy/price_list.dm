@@ -54,6 +54,8 @@
 /datum/reagent/drink/collins_mix
 	price_tag = 2
 
+/datum/reagent/drink/horchata
+	price_tag = 2
 
 // Beer //
 

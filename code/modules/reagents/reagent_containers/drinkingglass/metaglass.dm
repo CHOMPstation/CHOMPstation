@@ -534,3 +534,7 @@ Drinks Data
 /datum/reagent/bubbletea/watermelon
 	glass_icon_state = "bubbleteabananaglass"
 	glass_center_of_mass = list("x"=16, "y"=9)
+	
+/datum/reagent/drink/horchata
+	glass_icon_state = "horchata"
+	glass_center_of_mass = list("x"=16, "y"=7)
