@@ -279,7 +279,7 @@
 
 /obj/item/weapon/card/id/engineering/spare //CHOMPEDIT: So in case of emergency solars can be set up
 	name = "Spare Electrical access card"
-	esc = "A spare for the case that power related issues arise without engineers aboard."
+	desc = "A spare for the case that power related issues arise without engineers aboard."
 	primary_color = rgb(0,0,0)
 
 /obj/item/weapon/card/id/engineering/engineer
