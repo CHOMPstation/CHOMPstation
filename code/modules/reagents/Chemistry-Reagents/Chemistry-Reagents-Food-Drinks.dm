@@ -3124,7 +3124,7 @@
 	description = "A drink only a fool or a very desperate creature would consume."
 	taste_description = "someone decided to pour ice cold motor oil down your throat and finish it off with a large shot of burning pure alcohol."
 	color = "#c8a5dc"
-	adj_temp = -10
+	adj_temp = -5
 	strength = 10
 	
 	glass_name = "blue train"
