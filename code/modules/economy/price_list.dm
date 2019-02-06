@@ -138,6 +138,8 @@
 /datum/reagent/ethanol/coffee/brave_bull // Not an original liquor in its own. But since it's a mix of purely Tequila
 	price_tag = 5						 // and Kahlua, it's basically just another one and gets the same price.
 
+/datum/reagent/ethanol/snaps
+	price_tag = 5
 
 // Wines //
 
@@ -486,6 +488,8 @@
 /obj/item/weapon/reagent_containers/food/drinks/bottle/grenadine
 	price_tag = 15
 
+/obj/item/weapon/reagent_containers/food/drinks/bottle/snaps
+	price_tag = 15
 
 // Wines //
 
