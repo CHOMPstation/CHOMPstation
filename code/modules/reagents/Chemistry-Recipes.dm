@@ -1899,6 +1899,20 @@
 	required_reagents = list("tea" = 5, "berryjuice" = 1)
 	result_amount = 6
 
+/datum/chemical_reaction/drinks/cherrytea
+	name = "Cherry Tea"
+	id = "cherrytea"
+	result = "cherrytea"
+	required_reagents = list("tea" = 5, "cherryjelly" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drinks/watermelontea
+	name = "Watermelon Tea"
+	id = "watermelontea"
+	result = "watermelontea"
+	required_reagents = list("tea" = 5, "watermelonjuice" = 1)
+	result_amount = 6
+	
 /datum/chemical_reaction/drinks/sakebomb
 	name = "Sake Bomb"
 	id = "sakebomb"
@@ -2227,7 +2241,7 @@
 	name = "Watermelon bubble tea"
 	id = "bubbleteawatermelon"
 	result = "watermelon bubble tea"
-	required_reagents = list("gelatin" = 2, "tea" = 5, "watermelonjuice" = 1, "milk" = 2)
+	required_reagents = list("gelatin" = 2, "watermelontea" = 6, "milk" = 2)
 	result_amount = 10
 	
 /datum/chemical_reaction/drinks/bubbletea/strawberry
@@ -2241,7 +2255,7 @@
 	name = "Cherry bubble tea"
 	id = "bubbleteacherry"
 	result = "cherry bubble tea"
-	required_reagents = list("gelatin" = 2, "tea" = 5, "cherryjelly" = 1, "milk" = 2)
+	required_reagents = list("gelatin" = 2, "cherrytea" = 6, "milk" = 2)
 	result_amount = 10
 	
 /datum/chemical_reaction/drinks/bubbletea/coffee

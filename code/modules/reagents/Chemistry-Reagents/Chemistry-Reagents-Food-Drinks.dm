@@ -894,6 +894,32 @@
 	cup_name = "cup of berry tea"
 	cup_desc = "A tasty mixture of berries and tea. It's apparently good for you!"
 
+/datum/reagent/drink/tea/cherrytea
+	name = "Cherry Tea"
+	id = "cherrytea"
+	description = "A tasty mixture of cherries and tea. It's apparently good for you!"
+	color = "#c15962"
+	taste_description = "black tea with lots of cherries"
+
+	glass_name = "cherry tea"
+	glass_desc = "A tasty mixture of cherries and tea. It's apparently good for you!"
+
+	cup_name = "cup of cherry tea"
+	cup_desc = "A tasty mixture of cherries and tea. It's apparently good for you!"
+	
+/datum/reagent/drink/tea/watermelontea
+	name = "Watermelon Tea"
+	id = "watermelontea"
+	description = "A tasty mixture of watermelon and tea. It's apparently good for you!"
+	color = "#9f2c2c"
+	taste_description = "black tea with sweet watermelon for flavouring"
+
+	glass_name = "watermelon tea"
+	glass_desc = "A tasty mixture of watermelon and tea. It's apparently good for you!"
+
+	cup_name = "cup of watermelon tea"
+	cup_desc = "A tasty mixture of watermelon and tea. It's apparently good for you!"
+	
 /datum/reagent/drink/coffee
 	name = "Coffee"
 	id = "coffee"
