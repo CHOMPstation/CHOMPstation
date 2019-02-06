@@ -321,7 +321,8 @@
     icon_state = "muninn"
     eye_desc = "e_purple"
     vore_stomach_flavor = "You're stuck in a warm, tight stomach. A purple glow, as soft as the walls surrounding you, \
-    illuminates the cramped chamber. \ Muninn's walls gently squeeze over your form, like a tight, yet comfortable hug. \
+    illuminates the cramped chamber. \ 
+    Muninn's walls gently squeeze over your form, like a tight hug. \
     The gut itself was relatively dry, only slightly damp.  \
     It didn't seem that Muninn was digesting you. More like... sapping your energy. \
     A nap in this comfortable chamber wouldn't be the worst thing, would it?"
