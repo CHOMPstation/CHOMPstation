@@ -210,12 +210,14 @@ mob/living/simple_animal/synx/PunchTarget()
 
 //PET speechcode, simplistic but more than enough for the PET
 /mob/living/simple_animal/retaliate/synx/pet/hear_say(message)
-    . = ..()
-    if(!message)    return
-    if(message)
-        if(speak.len>=memorysize)
-            speak -= (pick(speak))//making the list more dynamic
-        speak += message
+	. = ..()
+	if(resting)
+		resting = !resting
+	if(!message)    return
+	if(message)
+	if(speak.len>=memorysize)
+		speak -= (pick(speak))//making the list more dynamic
+	speak += message
 
 //////////////////////////////////////////////////////
 ////////////////PET RANDOMISATION/////////////////////
@@ -231,7 +233,7 @@ mob/living/simple_animal/synx/PunchTarget()
 		speak = list("Who is there?")//preset unique words Greed remembers, to be defined more
 		player_msg = "You Hunger."
 		health = 100//Slightly lower health due to being damaged permanently.
-		speak_chance = 2
+		speak_chance = 5
 		//Vore Section
 		vore_capacity = 4 //What a fat noodle.
 		vore_digest_chance = 1	//Multivore but lower digest chance
