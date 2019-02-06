@@ -538,3 +538,7 @@ Drinks Data
 /datum/reagent/drink/horchata
 	glass_icon_state = "horchata"
 	glass_center_of_mass = list("x"=16, "y"=7)
+	
+/datum/reagent/toxin/bluetrain
+	glass_icon_state = "bluetrain"
+	glass_center_of_mass = list("x"=16, "y"=8)

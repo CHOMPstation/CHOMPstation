@@ -2279,6 +2279,13 @@
 	required_reagents = list("milk" = 1, "sugar" = 2, "rice" = 2)
 	result_amount = 5	
 
+/datum/chemical_reaction/drinks/bluetrain
+	name = "Blue train"
+	id = "bluetrain"
+	result = "bluetrain"
+	required_reagents = list("coolant" = 2, "ethanol" = 2, "nutriment" = 1)
+	result_amount = 5
+	
 //R-UST Port
 /datum/chemical_reaction/hyrdophoron
 	name = "Hydrophoron"

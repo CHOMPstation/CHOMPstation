@@ -3117,3 +3117,15 @@
 
 	glass_name = "akvavit"
 	glass_desc = "Burns the nose and throat, and soothes it with a herby aftertaste...Barely."
+	
+/datum/reagent/toxin/bluetrain
+	name = "blue train"
+	id = "bluetrain"
+	description = "A drink only a fool or a very desperate creature would consume."
+	taste_description = "someone decided to pour ice cold motor oil down your throat and finish it off with a large shot of burning pure alcohol."
+	color = "#c8a5dc"
+	adj_temp = -10
+	strength = 10
+	
+	glass_name = "blue train"
+	glass_desc = "A glass of what can only be described as the bastard child between coolant and alcohol made by a madman."
