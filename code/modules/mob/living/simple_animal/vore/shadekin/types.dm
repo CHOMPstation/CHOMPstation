@@ -298,3 +298,32 @@
     His walls rolled over your form as you lay trapped in his depths. There wasnt a drop of fluid in sight inside that	\
     stomach. Instead, you could feel your energy slowly draining away over time, like... he was leeching off you."
     player_msg = "You are Zylas. You enjoy scaring the local population and eating every chicken you find."
+    
+//"Two scarves. No more, No Less." -Muninn
+/mob/living/simple_animal/shadekin/blue/muninn
+    name ="Muninn"
+    desc = "A gray furred shadekin, a little on the hefty side. Rocks two scarves, one on the neck, one on the tail. \
+    He's eager to take in the sights."
+    icon_state = "muninn"
+    eye_desc = "e_blue"
+    vore_stomach_flavor = "You're stuck in a warm, tight stomach. \ 
+    A blue glow, as soft as the walls surrounding you, illuminates the cramped chamber. \
+    Muninn's walls gently squeeze over your form, like a tight, yet comfortable hug.  \
+    The gut itself was relatively dry, only slightly damp. \
+    As Muninn ambles along, you'd gently sway within. It's quite the nice place to stay for a while."
+    player_msg = "You are Muninn. Today you feel... Curious."
+    
+//"Here's a little lesson in the trickeries" -Muninn
+/mob/living/simple_animal/shadekin/purple/muninn
+    name ="Muninn"
+    desc = "A gray furred shadekin, a little on the hefty side. Rocks two scarves, one on the neck, one on the tail. \
+    Seems a little mischevious... better keep an eye on him."
+    icon_state = "muninn"
+    eye_desc = "e_purple"
+    vore_stomach_flavor = "You're stuck in a warm, tight stomach. A purple glow, as soft as the walls surrounding you, \
+    illuminates the cramped chamber. \ 
+    Muninn's walls gently squeeze over your form, like a tight hug. \
+    The gut itself was relatively dry, only slightly damp.  \
+    It didn't seem that Muninn was digesting you. More like... sapping your energy. \
+    A nap in this comfortable chamber wouldn't be the worst thing, would it?"
+    player_msg = "You are Muninn. Today you feel... Mischevious."
