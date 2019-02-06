@@ -152,3 +152,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/makaroni
+
+/datum/recipe/gelbowl
+	reagents = list("potatojuice" = 5, "sugar" = 5, "water" = 5, "flour" = 5)
+	result = /obj/item/weapon/reagent_containers/food/snacks/gelbowl

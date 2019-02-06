@@ -2223,6 +2223,41 @@
 	required_reagents = list("spidertoxin" = 1, "clonexadone" = 5, "absinthe" = 4)
 	result_amount = 10
 
+/datum/chemical_reaction/drinks/bubbletea/watermelon
+	name = "Watermelon bubble tea"
+	id = "bubbleteawatermelon"
+	result = "watermelon bubble tea"
+	required_reagents = list("gelatin" = 2, "tea" = 5, "watermelonjuice" = 1, "milk" = 2)
+	result_amount = 10
+	
+/datum/chemical_reaction/drinks/bubbletea/strawberry
+	name = "Strawberry bubble tea"
+	id = "bubbleteastrawberry"
+	result = "strawberry bubble tea"
+	required_reagents = list("gelatin" = 2, "berrytea" = 6, "milk" = 2)
+	result_amount = 10
+	
+/datum/chemical_reaction/drinks/bubbletea/cherry
+	name = "Cherry bubble tea"
+	id = "bubbleteacherry"
+	result = "cherry bubble tea"
+	required_reagents = list("gelatin" = 2, "tea" = 5, "cherryjelly" = 1, "milk" = 2)
+	result_amount = 10
+	
+/datum/chemical_reaction/drinks/bubbletea/coffee
+	name = "Coffee bubble tea"
+	id = "bubbleteacoffee"
+	result = "coffee bubble tea"
+	required_reagents = list("gelatin" = 2, "tea" = 5, "cafe_latte" = 3)
+	result_amount = 10
+	
+/datum/chemical_reaction/drinks/bubbletea/banana
+	name = "Banana bubble tea"
+	id = "bubbleteabanana"
+	result = "banana bubble tea"
+	required_reagents = list("gelatin" = 2, "tea" = 5, "banana" = 1, "milk" = 2)
+	result_amount = 10
+	
 //R-UST Port
 /datum/chemical_reaction/hyrdophoron
 	name = "Hydrophoron"
