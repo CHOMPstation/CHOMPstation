@@ -237,11 +237,11 @@ mob/living/simple_animal/synx/PunchTarget()
 		//icon_state = "synx_pet_rainbow"
 		//icon_living = "synx_pet_rainbow"
 		return
-	if(message=="Schock on")//Voice activated collar
-		canmove=0 //Shocked nerd
+	if(message=="Shock on"||"shock on")//Voice activated collar
+		anchored=1 //Shocked nerd
 		return//dont want the synx to start shocking itself
-	if(message=="Schock off")
-		canmove=1
+	if(message=="schock off"||"Schock off")
+		anchored=0
 		return
 	if(message)
 		if(speak.len>=memorysize)
