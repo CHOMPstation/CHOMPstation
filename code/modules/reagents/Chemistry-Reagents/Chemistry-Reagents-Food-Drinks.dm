@@ -1532,7 +1532,7 @@
 	glass_name = "Gelatin"
 	glass_desc = "It's like flavourless slime."
 
-/datum/reagent/bubbletea/watermelon
+/datum/reagent/drink/bubbletea/watermelon
 	name = "Watermelon bubble tea"
 	id = "bubbleteawatermelon"
 	description = "A tea with milk and watermelon in it and gelatin balls as well."
@@ -1542,7 +1542,7 @@
 	glass_name = "watermelon bubble tea"
 	glass_desc = "A sweet tea with tasty little flavoured gelatin balls in it, this one is with watermelon."
 
-/datum/reagent/bubbletea/strawberry
+/datum/reagent/drink/bubbletea/strawberry
 	name = "Strawberry bubble tea"
 	id = "bubbleteastrawberry"
 	description = "A tea with milk and strawberry in it and gelatin balls as well."
@@ -1552,7 +1552,7 @@
 	glass_name = "strawberry bubble tea"
 	glass_desc = "A sweet tea with tasty little flavoured gelatin balls in it, this one is with strawberry."
 
-/datum/reagent/bubbletea/cherry
+/datum/reagent/drink/bubbletea/cherry
 	name = "Cherry bubble tea"
 	id = "bubbleteacherry"
 	description = "A tea with milk and cherry in it and gelatin balls as well."
@@ -1562,7 +1562,7 @@
 	glass_name = "cherry bubble tea"
 	glass_desc = "A sweet tea with tasty little flavoured gelatin balls in it, this one is with cherry."
 
-/datum/reagent/bubbletea/coffee
+/datum/reagent/drink/bubbletea/coffee
 	name = "Coffee bubble tea"
 	id = "bubbleteacoffee"
 	description = "A tea with milk and coffee in it and gelatin balls as well."
@@ -1572,7 +1572,7 @@
 	glass_name = "coffee bubble tea"
 	glass_desc = "A sweet tea with tasty little flavoured gelatin balls in it, this one is with coffee."
 
-/datum/reagent/bubbletea/banana
+/datum/reagent/drink/bubbletea/banana
 	name = "Banana bubble tea"
 	id = "bubbleteabanana"
 	description = "A tea with milk and banana in it and gelatin balls as well."
