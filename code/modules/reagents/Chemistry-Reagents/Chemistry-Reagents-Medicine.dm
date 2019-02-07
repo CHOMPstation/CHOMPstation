@@ -15,6 +15,28 @@
 	if(alien != IS_DIONA)
 		M.add_chemical_effect(CE_STABLE, 15)
 		M.add_chemical_effect(CE_PAINKILLER, 10)
+		
+//CHOMPSTATION ADDITION Chemical based on inaprovalin
+/datum/reagent/inaprovaline/synxchem 
+	name = "Alien nerveinhibitor"
+	id = "symxchem"
+	metabolism = REM * 0.01 //Slow metabolization to try and mimic permanent nerve damage without actually being too cruel to people
+	color = "#FFFFFF"
+	overdose = REAGENTS_OVERDOSE * 8 //But takes a lot to OD
+
+/datum/reagent/inaprovaline/synxchem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien != IS_DIONA)
+		M.add_chemical_effect(CE_STABLE, 15)
+		M.add_chemical_effect(CE_PAINKILLER, 50)
+		M.adjustBruteLoss(-0.2)//slowly killing your nerves
+		M.adjustToxLoss(0.5)
+		
+/datum/reagent/inaprovaline/synxchem/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(alien != IS_DIONA)
+		M.adjustToxLoss(1)
+		M.make_dizzy(30)
+//CHOMPSTATION EDIT END
 
 /datum/reagent/bicaridine
 	name = "Bicaridine"
