@@ -20,7 +20,7 @@
 /datum/reagent/inaprovaline/synxchem 
 	name = "Alien nerveinhibitor"
 	id = "symxchem"
-	metabolism = REM * 0.05 //Slow metabolization
+	metabolism = REM * 0.01 //Slow metabolization to try and mimic permanent nerve damage without actually being too cruel to people
 	color = "#FFFFFF"
 	overdose = REAGENTS_OVERDOSE * 8 //But takes a lot to OD
 
