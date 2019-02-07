@@ -28,8 +28,10 @@
 	if(alien != IS_DIONA)
 		if(prob(5))
 			H.custom_pain("You feel no pain despite the clear signs of damage to your body",60)
-		if(prob(2))
-			M.AdjustParalysis(1)
+		if(prob(30))
+			M.AdjustParalysis(-1)
+			if(prob(2))
+				M.AdjustParalysis(1)
 		M.add_chemical_effect(CE_STABLE, 15)
 		M.add_chemical_effect(CE_PAINKILLER, 50)
 		M.adjustBruteLoss(-0.2)//slowly killing your nerves
