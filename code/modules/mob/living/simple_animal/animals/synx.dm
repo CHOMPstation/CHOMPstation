@@ -204,12 +204,7 @@ mob/living/simple_animal/synx/PunchTarget()
 ////////////////PET VERSION/////////////
 ////////////////////////////////////////
 /mob/living/simple_animal/retaliate/synx/pet
-	var/GRINS_LIVING = "synx_grins_living" //let's set up these vars to change em more easily later
-	var/GRINS_DEAD = "synx_grins_dead"
-	var/GREED_LIVING = "synx_greed_living"
-	var/GREED_DEAD = "synx_greed_dead"
-	var/HOLO_LIVING = "synx_hardlight_living"
-	var/HOLO_DEAD = "synx_hardlight_shards"
+
 
 	faction = "Cargonia" //Should not share a faction with those pesky non station synxes.//This is so newspaper has a failchance
 	name = "Prototype pet synx"
@@ -250,79 +245,20 @@ mob/living/simple_animal/synx/PunchTarget()
 		if(speak.len>=memorysize)
 			speak -= (pick(speak))//making the list more dynamic
 	speak += message
+	return
 
-//////////////////////////////////////////////////////
-////////////////PET RANDOMISATION/////////////////////
-//////////////////////////////////////////////////////
-/mob/living/simple_animal/retaliate/synx/pet/New()
-	if(prob(50))
-		name = "Greed"
-		desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has the name Greed burnt into its back, the burnt in name seems to be luminescent making it harder for it to blend into the dark."
-		//icon= //icon= would just set what DMI we are using, we already have our special one set.
-		icon_state = GREED_LIVING
-		icon_living = GREED_LIVING
-		icon_dead = GREED_DEAD
-		speak = list("Who is there?")//preset unique words Greed remembers, to be defined more
-		player_msg = "You Hunger."
-		health = 100//Slightly lower health due to being damaged permanently.
-		speak_chance = 5
-		//Vore Section
-		vore_capacity = 4 //What a fat noodle.
-		vore_digest_chance = 1	//Multivore but lower digest chance
-		vore_pounce_chance = 90 //Fighting is effort, engulf them whole.
-		vore_bump_chance = 2 //lowered bump chance
-		vore_escape_chance = 5 //Multivore allows for people to shove eachother out so lower normal escape chance.
-	else if(prob(1))
-		name = "Hardlight synx"
-		desc = "A cold blooded, genderless, space eel.. or a hologram of one. Guess the current synx are undergoing re-training? Either way this one is probably infinitely more friendly.. and less deadly."
-		icon_state = HOLO_LIVING
-		icon_living = HOLO_LIVING
-		icon_dead = HOLO_DEAD
-		icon_gib = null
-		speak = list("SX Unit online", "SX Mimicri nominal", "SX Systems nominal", "SX backup generator dormant")
-		contents = /datum/seed/hardlightseed/typesx
-		alpha = 127
-		set_light(2) //hologram lighting
-		faction = "Station"//Can be safely bapped with newspaper.
-		melee_damage_lower = 0 //Holos do no damage
-		melee_damage_upper = 0
-		environment_smash = 0
-		destroy_surroundings = 0
-		//Vore Section
-		vore_capacity = 2
-		vore_digest_chance = 0	//Holos cannot digest
-		vore_pounce_chance = 90 //Shouldn't fight
-		vore_bump_chance = 1 //lowered bump chance
-		vore_escape_chance = 30 //Much higher escape chance.. it's a hologram.
-		swallowTime = 10 SECONDS //Much more time to run.
-	else
-		name = "Grins"
-		desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small shock collar on it that reads 'Grins' with a bell that doesn't seem to work."
-		icon_state = GRINS_LIVING
-		icon_living = GRINS_LIVING
-		icon_dead = GRINS_DEAD
-		speak = list("What are you?", "Strange.", "Let me out!", "No, you." ) //custom favorite messages
-		emote_hear = list("gurgles.","screams!", "glrks.")
-		emote_see = list("stares intently", "pulses slowly", "stretches its jaws", "flops")
-		player_msg = "You want to watch, learn... and eat..."
-		//Vore Section
-		vore_capacity = 2 //Might lower to 1
-	..()
 
-///////////////////////////////////////////
-/////////////PET HARDECODED////////////////
-///////////////////////////////////////////
-
-/mob/living/simple_animal/retaliate/synx/pet/holo/New()
-	..()
+//Hardcoded pets
+/mob/living/simple_animal/retaliate/synx/pet/holo
+	//var/HOLO_LIVING = "synx_hardlight_living"
+	//var/HOLO_DEAD = "synx_hardlight_shards"
 	name = "Hardlight synx"
 	desc = "A cold blooded, genderless, space eel.. or a hologram of one. Guess the current synx are undergoing re-training? Either way this one is probably infinitely more friendly.. and less deadly."
-	icon_state = HOLO_LIVING
-	icon_living = HOLO_LIVING
-	icon_dead = HOLO_DEAD
+	icon_state = "synx_hardlight_living"
+	icon_living = "synx_hardlight_living"
+	icon_dead = "synx_hardlight_shards"
 	icon_gib = null
 	alpha = 127
-	set_light(2) //hologram lighting
 	faction = "Station"//Can be safely bapped with newspaper.
 	melee_damage_lower = 0 //Holos do no damage
 	melee_damage_upper = 0
@@ -334,4 +270,52 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_pounce_chance = 90 //Shouldn't fight
 	vore_bump_chance = 1 //lowered bump chance
 	vore_escape_chance = 30 //Much higher escape chance.. it's a hologram.
-	swallowTime = 10 SECONDS //Much more time to run.
+	swallowTime = 10 SECONDS //Much more time to run
+
+/mob/living/simple_animal/retaliate/synx/pet/holo/New()
+	set_light(2, 2, "#00FFFF") //hologram lighting
+
+
+/mob/living/simple_animal/retaliate/synx/pet/greed
+	//var/GREED_LIVING = "synx_greed_living"
+	//var/GREED_DEAD = "synx_greed_dead"
+	name = "Greed"
+	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has the name Greed burnt into its back, the burnt in name seems to be luminescent making it harder for it to blend into the dark."
+	//icon= //icon= would just set what DMI we are using, we already have our special one set.
+	icon_state = "synx_greed_living"
+	icon_living = "synx_greed_living"
+	icon_dead = "synx_greed_dead"
+	speak = list("Who is there?")//preset unique words Greed remembers, to be defined more
+	player_msg = "You Hunger."
+	health = 100//Slightly lower health due to being damaged permanently.
+	speak_chance = 5
+	//Vore Section
+	vore_capacity = 4 //What a fat noodle.
+	vore_digest_chance = 1	//Multivore but lower digest chance
+	vore_pounce_chance = 90 //Fighting is effort, engulf them whole.
+	vore_bump_chance = 2 //lowered bump chance
+	vore_escape_chance = 5 //Multivore allows for people to shove eachother out so lower normal escape chance.
+
+/mob/living/simple_animal/retaliate/synx/pet/grins
+	//var/GRINS_LIVING = "synx_grins_living"
+	//var/GRINS_DEAD = "synx_grins_dead"
+	name = "Grins"
+	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small shock collar on it that reads 'Grins' with a bell that doesn't seem to work."
+	icon_state = "synx_grins_living"
+	icon_living = "synx_grins_living"
+	icon_dead = "synx_grins_dead"
+	speak = list("What are you?", "Strange.", "Let me out!", "No, you." ) //custom favorite messages
+	emote_hear = list("gurgles.","screams!", "glrks.")
+	emote_see = list("stares intently", "pulses slowly", "stretches its jaws", "flops")
+	player_msg = "You want to watch, learn... and eat..."
+	//Vore Section
+	vore_capacity = 2 //Might lower to 1
+
+//SPAWNING
+/obj/random/mob/synx
+	name = "This is synxes"
+
+/obj/random/mob/synx/item_to_spawn()
+	return pick(prob(50);/mob/living/simple_animal/retaliate/synx/pet/greed,
+		prob(50);/mob/living/simple_animal/retaliate/synx/pet/grins,
+		prob(1);/mob/living/simple_animal/retaliate/synx/pet/holo,)
