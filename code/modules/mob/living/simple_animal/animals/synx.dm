@@ -277,15 +277,9 @@ mob/living/simple_animal/synx/PunchTarget()
 		icon_state = HOLO_LIVING
 		icon_living = HOLO_LIVING
 		icon_dead = HOLO_DEAD
-/*
-		/mob/living/simple_animal/retaliate/synx/pet/holosynx/gib()
-			derez() //holograms can't gib
-
-		/mob/living/simple_animal/retaliate/synx/pet/holosynx/death()
-			..()
-			derez()
-*/ // Code from holocarp for de-rezzing when killed. Needs testing/rewriting to work right.
 		icon_gib = null
+		speak = list("SX Unit online", "SX Mimicri nominal", "SX Systems nominal", "SX backup generator dormant")
+		contents = /datum/seed/hardlightseed/typesx
 		alpha = 127
 		set_light(2) //hologram lighting
 		faction = "Station"//Can be safely bapped with newspaper.
@@ -312,4 +306,31 @@ mob/living/simple_animal/synx/PunchTarget()
 		player_msg = "You want to watch, learn... and eat..."
 		//Vore Section
 		vore_capacity = 2 //Might lower to 1
+	..()
+
+///////////////////////////////////////////
+/////////////PET HARDECODED////////////////
+///////////////////////////////////////////
+
+/mob/living/simple_animal/retaliate/synx/pet/holo/New()
+	name = "Hardlight synx"
+	desc = "A cold blooded, genderless, space eel.. or a hologram of one. Guess the current synx are undergoing re-training? Either way this one is probably infinitely more friendly.. and less deadly."
+	icon_state = HOLO_LIVING
+	icon_living = HOLO_LIVING
+	icon_dead = HOLO_DEAD
+	icon_gib = null
+	alpha = 127
+	set_light(2) //hologram lighting
+	faction = "Station"//Can be safely bapped with newspaper.
+	melee_damage_lower = 0 //Holos do no damage
+	melee_damage_upper = 0
+	environment_smash = 0
+	destroy_surroundings = 0
+	//Vore Section
+	vore_capacity = 2
+	vore_digest_chance = 0    //Holos cannot digest
+	vore_pounce_chance = 90 //Shouldn't fight
+	vore_bump_chance = 1 //lowered bump chance
+	vore_escape_chance = 30 //Much higher escape chance.. it's a hologram.
+	swallowTime = 10 SECONDS //Much more time to run.
 	..()
