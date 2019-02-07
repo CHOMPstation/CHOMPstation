@@ -23,7 +23,7 @@
 	maxHealth = 150
 	health = 120
 	//turns_per_move = 2 //to be balanced, default for now
-	//speed = -2 //to be balanced, default for now
+	speed = -2 //Re enabled custom speed
 	see_in_dark = 6
 	stop_when_pulled = 0
 	armor = list(			// will be determined
@@ -204,28 +204,21 @@ mob/living/simple_animal/synx/PunchTarget()
 ////////////////PET VERSION/////////////
 ////////////////////////////////////////
 /mob/living/simple_animal/retaliate/synx/pet
-	//var/names = ["Grins","Greed"]
-	name = "Grins"
-	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small collar on it that reads 'Grins' with a bell that doesn't seem to work."
-	//Greed: desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has the name Greed burnt into its back."
+	var/GRINS_LIVING = "synx_pet_living" //let's set up these vars to change em more easily later
+	var/GRINS_DEAD = "synx_pet_dead"
+	var/GREED_LIVING = "synx_pet_living"
+	var/GREED_DEAD = "synx_pet_dead"
 	
+	faction = "Cargonia" //Should not share a faction with those pesky non station synxes.//This is so newspaper has a failchance
+	name = "Prototype pet synx"
+	desc = "if you see this tell a a dev"
 	tt_desc = "synxus pergulus"
-	icon = 'icons/mob/synx.dmi'
-	icon_state = "synx_pet_living"
-	icon_living = "synx_pet_living"
-	icon_dead = "synx_pet_dead"
-	glow_range = 2
+	glow_range = 4
 	glow_toggle = 1
-
 	player_msg = "You aren't supposed to be in this. Wrong mob."
-
-	var/goodboy = "no"
-
 /mob/living/simple_animal/retaliate/synx/pet/init_vore()
     ..()
     var/obj/belly/B = vore_selected
-    B.human_prey_swallow_time = 4
-    B.nonhuman_prey_swallow_time = 1
     B.vore_verb = "swallow"
     B.digest_burn = 1
     B.digest_brute = 0
@@ -245,7 +238,7 @@ mob/living/simple_animal/synx/PunchTarget()
 		//icon_living = "synx_pet_rainbow"
 		return
 	if(message=="Schock on")//Voice activated collar
-		canmove=0
+		canmove=0 //Shocked nerd
 		return//dont want the synx to start shocking itself
 	if(message=="Schock off")
 		canmove=1
@@ -254,3 +247,39 @@ mob/living/simple_animal/synx/PunchTarget()
 		if(speak.len>=memorysize)
 			speak -= (pick(speak))//making the list more dynamic
         speak += message
+
+//////////////////////////////////////////////////////
+////////////////PET RANDOMISATION/////////////////////
+//////////////////////////////////////////////////////
+/mob/living/simple_animal/retaliate/synx/pet/New()
+	if(prob(50))
+		name = "Greed"
+		desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has the name Greed burnt into its back, the burnt in name seems to be luminescent making it harder for it to blend into the dark."
+		//icon= //icon= would just set what DMI we are using, we already have our special one set.
+		icon_state = GREED_LIVING
+		icon_living = GREED_LIVING
+		icon_dead = GREED_DEAD
+		speak = list("Who is there?")//preset unique words Greed remembers, to be defined more
+		player_msg = "You Hunger."
+		health = 100//Slightly lower health due to being damaged permanently.
+		speak_chance = 5
+		//Vore Section
+		vore_capacity = 4 //What a fat noodle.
+		vore_digest_chance = 1	//Multivore but lower digest chance
+		vore_pounce_chance = 90 //Fighting is effort, engulf them whole.
+		vore_bump_chance = 2 //lowered bump chance
+		vore_escape_chance = 5 //Multivore allows for people to shove eachother out so lower normal escape chance.
+	else if(prob(1))
+		name = "Bob"
+		desc = "A cold blooded, genderless, parasitic eel. This one is Bob. Bob is pretty normal, for a thing that might live inside you."
+		icon_state = "synx_living"
+		icon_living = "synx_living"
+		icon_dead = "synx_dead"
+		faction = "Station"//Bob can be safely bapped with newspaper.
+	else
+		name = "Grins"
+		desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small collar on it that reads 'Grins' with a bell that doesn't seem to work."
+		icon_state = GRINS_LIVING
+		icon_living = GRINS_LIVING
+		icon_dead = GRINS_DEAD
+	..()

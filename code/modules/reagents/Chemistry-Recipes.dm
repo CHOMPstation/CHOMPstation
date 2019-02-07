@@ -1899,6 +1899,20 @@
 	required_reagents = list("tea" = 5, "berryjuice" = 1)
 	result_amount = 6
 
+/datum/chemical_reaction/drinks/cherrytea
+	name = "Cherry Tea"
+	id = "cherrytea"
+	result = "cherrytea"
+	required_reagents = list("tea" = 5, "cherryjelly" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drinks/watermelontea
+	name = "Watermelon Tea"
+	id = "watermelontea"
+	result = "watermelontea"
+	required_reagents = list("tea" = 5, "watermelonjuice" = 1)
+	result_amount = 6
+	
 /datum/chemical_reaction/drinks/sakebomb
 	name = "Sake Bomb"
 	id = "sakebomb"
@@ -2223,6 +2237,55 @@
 	required_reagents = list("spidertoxin" = 1, "clonexadone" = 5, "absinthe" = 4)
 	result_amount = 10
 
+/datum/chemical_reaction/drinks/bubbletea/watermelon
+	name = "Watermelon bubble tea"
+	id = "bubbleteawatermelon"
+	result = "watermelon bubble tea"
+	required_reagents = list("gelatin" = 2, "watermelontea" = 6, "milk" = 2)
+	result_amount = 10
+	
+/datum/chemical_reaction/drinks/bubbletea/strawberry
+	name = "Strawberry bubble tea"
+	id = "bubbleteastrawberry"
+	result = "strawberry bubble tea"
+	required_reagents = list("gelatin" = 2, "berrytea" = 6, "milk" = 2)
+	result_amount = 10
+	
+/datum/chemical_reaction/drinks/bubbletea/cherry
+	name = "Cherry bubble tea"
+	id = "bubbleteacherry"
+	result = "cherry bubble tea"
+	required_reagents = list("gelatin" = 2, "cherrytea" = 6, "milk" = 2)
+	result_amount = 10
+	
+/datum/chemical_reaction/drinks/bubbletea/coffee
+	name = "Coffee bubble tea"
+	id = "bubbleteacoffee"
+	result = "coffee bubble tea"
+	required_reagents = list("gelatin" = 2, "tea" = 5, "cafe_latte" = 3)
+	result_amount = 10
+	
+/datum/chemical_reaction/drinks/bubbletea/banana
+	name = "Banana bubble tea"
+	id = "bubbleteabanana"
+	result = "banana bubble tea"
+	required_reagents = list("gelatin" = 2, "tea" = 5, "banana" = 1, "milk" = 2)
+	result_amount = 10
+
+/datum/chemical_reaction/drinks/horchata
+	name = "Horchata"
+	id = "horchata"
+	result = "horchata"
+	required_reagents = list("milk" = 1, "sugar" = 2, "rice" = 2)
+	result_amount = 5	
+
+/datum/chemical_reaction/drinks/bluetrain
+	name = "Blue train"
+	id = "bluetrain"
+	result = "bluetrain"
+	required_reagents = list("coolant" = 2, "ethanol" = 2, "nutriment" = 1)
+	result_amount = 5
+	
 //R-UST Port
 /datum/chemical_reaction/hyrdophoron
 	name = "Hydrophoron"

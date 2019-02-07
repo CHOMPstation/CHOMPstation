@@ -514,3 +514,31 @@ Drinks Data
 	
 /datum/reagent/ethanol/spiderdrink
 	glass_icon_state = "glassofspiders"
+	
+/datum/reagent/bubbletea/watermelon
+	glass_icon_state = "bubbleteawatermelonglass"
+	glass_center_of_mass = list("x"=16, "y"=9)
+
+/datum/reagent/bubbletea/watermelon
+	glass_icon_state = "bubbleteastrawberryglass"
+	glass_center_of_mass = list("x"=16, "y"=9)
+
+/datum/reagent/bubbletea/watermelon
+	glass_icon_state = "bubbleteacherryglass"
+	glass_center_of_mass = list("x"=16, "y"=9)
+
+/datum/reagent/bubbletea/watermelon
+	glass_icon_state = "bubbleteacoffeeglass"
+	glass_center_of_mass = list("x"=16, "y"=9)
+
+/datum/reagent/bubbletea/watermelon
+	glass_icon_state = "bubbleteabananaglass"
+	glass_center_of_mass = list("x"=16, "y"=9)
+	
+/datum/reagent/drink/horchata
+	glass_icon_state = "horchata"
+	glass_center_of_mass = list("x"=16, "y"=7)
+	
+/datum/reagent/toxin/bluetrain
+	glass_icon_state = "bluetrain"
+	glass_center_of_mass = list("x"=16, "y"=8)

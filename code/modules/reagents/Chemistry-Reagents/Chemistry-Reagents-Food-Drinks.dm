@@ -894,6 +894,32 @@
 	cup_name = "cup of berry tea"
 	cup_desc = "A tasty mixture of berries and tea. It's apparently good for you!"
 
+/datum/reagent/drink/tea/cherrytea
+	name = "Cherry Tea"
+	id = "cherrytea"
+	description = "A tasty mixture of cherries and tea. It's apparently good for you!"
+	color = "#c15962"
+	taste_description = "black tea with lots of cherries"
+
+	glass_name = "cherry tea"
+	glass_desc = "A tasty mixture of cherries and tea. It's apparently good for you!"
+
+	cup_name = "cup of cherry tea"
+	cup_desc = "A tasty mixture of cherries and tea. It's apparently good for you!"
+	
+/datum/reagent/drink/tea/watermelontea
+	name = "Watermelon Tea"
+	id = "watermelontea"
+	description = "A tasty mixture of watermelon and tea. It's apparently good for you!"
+	color = "#9f2c2c"
+	taste_description = "black tea with sweet watermelon for flavouring"
+
+	glass_name = "watermelon tea"
+	glass_desc = "A tasty mixture of watermelon and tea. It's apparently good for you!"
+
+	cup_name = "cup of watermelon tea"
+	cup_desc = "A tasty mixture of watermelon and tea. It's apparently good for you!"
+	
 /datum/reagent/drink/coffee
 	name = "Coffee"
 	id = "coffee"
@@ -1495,7 +1521,78 @@
 	glass_name = "Love Potion"
 	glass_desc = "Love me tender, love me sweet."
 
+/datum/reagent/drink/juice/gelatin
+	name = "Gelatin"
+	id = "gelatin"
+	description = "It doesnt taste like anything."
+	taste_description = "nothing"
+	nutrition = 0
+	color = "#aaabcf"
 
+	glass_name = "Gelatin"
+	glass_desc = "It's like flavourless slime."
+
+/datum/reagent/bubbletea/watermelon
+	name = "Watermelon bubble tea"
+	id = "bubbleteawatermelon"
+	description = "A tea with milk and watermelon in it and gelatin balls as well."
+	taste_description = "creamy tea and watermelon"
+	color = "#b83333"
+
+	glass_name = "watermelon bubble tea"
+	glass_desc = "A sweet tea with tasty little flavoured gelatin balls in it, this one is with watermelon."
+
+/datum/reagent/bubbletea/strawberry
+	name = "Strawberry bubble tea"
+	id = "bubbleteastrawberry"
+	description = "A tea with milk and strawberry in it and gelatin balls as well."
+	taste_description = "creamy tea and strawberry"
+	color = "#eb6c77"
+
+	glass_name = "strawberry bubble tea"
+	glass_desc = "A sweet tea with tasty little flavoured gelatin balls in it, this one is with strawberry."
+
+/datum/reagent/bubbletea/cherry
+	name = "Cherry bubble tea"
+	id = "bubbleteacherry"
+	description = "A tea with milk and cherry in it and gelatin balls as well."
+	taste_description = "creamy tea and cherry"
+	color = "#801e28"
+
+	glass_name = "cherry bubble tea"
+	glass_desc = "A sweet tea with tasty little flavoured gelatin balls in it, this one is with cherry."
+
+/datum/reagent/bubbletea/coffee
+	name = "Coffee bubble tea"
+	id = "bubbleteacoffee"
+	description = "A tea with milk and coffee in it and gelatin balls as well."
+	taste_description = "creamy tea and coffee"
+	color = "#482910"
+
+	glass_name = "coffee bubble tea"
+	glass_desc = "A sweet tea with tasty little flavoured gelatin balls in it, this one is with coffee."
+
+/datum/reagent/bubbletea/banana
+	name = "Banana bubble tea"
+	id = "bubbleteabanana"
+	description = "A tea with milk and banana in it and gelatin balls as well."
+	taste_description = "creamy tea and banana"
+	color = "#c3af00"
+
+	glass_name = "banana bubble tea"
+	glass_desc = "A sweet tea with tasty little flavoured gelatin balls in it, this one is with banana."
+
+/datum/reagent/drink/horchata
+	name = "Horchata"
+	id = "horchata"
+	description = "A sweet and cold rice milk beverage."
+	taste_description = "sweet rice milk and cinnamon"
+	color = "#ebcdc1"
+	adj_temp = -5
+
+	glass_name = "horchata"
+	glass_desc = "A sweet and cold rice milk beverage."
+	
 /* Alcohol */
 
 // Basic
@@ -3009,3 +3106,28 @@
 
 	glass_name = "Brimming glass of spiders"
 	glass_desc = "A glass filled to the brim with tiny drunk spiderlings. Lets hope they dont escape."
+	
+/datum/reagent/ethanol/snaps
+	name = "Akvavit"
+	id = "snaps"
+	description = "Burns the nose and throat and soothes it with a herby aftertaste...Barely."
+	taste_description = "strong spirit and a little dill"
+	color = "e6d670" // rgb: 230, 214, 112
+	strength = 15
+
+	glass_name = "akvavit"
+	glass_desc = "Burns the nose and throat, and soothes it with a herby aftertaste...Barely."
+	
+/datum/reagent/ethanol/bluetrain
+	name = "blue train"
+	id = "bluetrain"
+	description = "A drink only a fool or a very desperate creature would consume."
+	taste_description = "someone who decided to pour ice cold motor oil down your throat and finish it off with a large shot of burning pure alcohol."
+	color = "#c8a5dc"
+	adj_temp = -10
+	targ_temp = 220
+	strength = 10
+	
+	glass_name = "blue train"
+	glass_desc = "A glass of what can only be described as the bastard child between coolant and alcohol made by a madman."
+	

@@ -277,6 +277,20 @@
 	reagents.add_reagent("shockchem", 6)
 	bitesize = 7
 
+/obj/item/weapon/reagent_containers/food/snacks/gelbowl
+	name = "bowl of gelatin"
+	desc = "This bowl contains boring and flavourless gelatin, its probably better to make something tasty with it rather than eat it like this."
+	icon = 'icons/obj/food_vr.dmi'
+	icon_state = "gelbowl"
+	trash = /obj/item/trash/snack_bowl
+	nutriment_amt = 0
+	nutriment_desc = list("something?" = 1, "nothing" = 4)
+	
+/obj/item/weapon/reagent_containers/food/snacks/gelbowl/New()
+	..()
+	reagents.add_reagent("gelatin", 15)
+	bitesize = 2
+
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube/sobakacube
 	name = "sobaka cube"
 	monkey_type = "Sobaka"
