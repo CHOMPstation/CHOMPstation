@@ -26,6 +26,11 @@
 
 /datum/reagent/inaprovaline/synxchem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
+		if(prob(5))
+			M.custom_pain("You feel no pain despite the clear signs of damage to your body!",60)
+		if(prob(2))
+			M.custom_pain("You suddenly lose control over your body!",60)
+			M.AdjustParalysis(1)
 		M.add_chemical_effect(CE_STABLE, 15)
 		M.add_chemical_effect(CE_PAINKILLER, 50)
 		M.adjustBruteLoss(-0.2)//slowly killing your nerves
@@ -36,6 +41,9 @@
 	if(alien != IS_DIONA)
 		M.adjustToxLoss(1)
 		M.make_dizzy(30)
+		M.AdjustStunned(1)
+		if(prob(30))
+			M.AdjustParalysis(1)
 //CHOMPSTATION EDIT END
 
 /datum/reagent/bicaridine
