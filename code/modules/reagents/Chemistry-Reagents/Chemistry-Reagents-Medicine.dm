@@ -28,8 +28,8 @@
 	if(alien != IS_DIONA)
 		M.add_chemical_effect(CE_STABLE, 15)
 		M.add_chemical_effect(CE_PAINKILLER, 50)
-		M.adjustBruteLoss(-0.02)
-		M.adjustToxLoss(0.05)
+		M.adjustBruteLoss(-0.2)//slowly killing your nerves
+		M.adjustToxLoss(0.5)
 		
 /datum/reagent/inaprovaline/synxchem/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
