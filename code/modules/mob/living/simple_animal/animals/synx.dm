@@ -238,6 +238,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	if(message=="Up up down down left right left right b a select start")//shhh no spoilers yet
 		icon_state = "synx_pet_rainbow"
 		icon_living = "synx_pet_rainbow"
+		playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 		return
 	if(message=="Shock on"||"shock on")//Voice activated collar//new
 		anchored=1 //Shocked nerd
