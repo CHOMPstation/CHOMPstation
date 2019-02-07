@@ -280,7 +280,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/gelbowl
 	name = "bowl of gelatin"
 	desc = "This bowl contains boring and flavourless gelatin, its probably better to make something tasty with it rather than eat it like this."
-	icon = 'icons/obj/food_vr.dmi'
+	icon = 'icons/obj/food.dmi'
 	icon_state = "gelbowl"
 	trash = /obj/item/trash/snack_bowl
 	nutriment_amt = 0
@@ -290,6 +290,34 @@
 	..()
 	reagents.add_reagent("gelatin", 15)
 	bitesize = 2
+	
+/obj/item/weapon/reagent_containers/food/snacks/sauerkraut
+	name = "Sauerkraut"
+	desc = "What happens when you mix salt and minced cabbage and forget it on a shelf."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "sauerkraut"
+	trash = /obj/item/trash/snack_bowl
+	nutriment_amt = 3
+	nutriment_desc = list("sour cabbage" = 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/sauerkraut/New()
+	..()
+	bitesize = 3
+	
+/obj/item/weapon/reagent_containers/food/snacks/bigos
+	name = "Bigos"
+	desc = "What happens when you put minced sour cabbage and whats left in the fridge in a pot, start slowcooking it and then forget it for three hours."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "bigos"
+	trash = /obj/item/trash/snack_bowl
+	nutriment_amt = 6
+	nutriment_desc = list("sour cabbage" = 4, "sausage" = 3, "mildly sweet vegetables" = 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/stew/New()
+	..()
+	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("water", 3)
+	bitesize = 7
 
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube/sobakacube
 	name = "sobaka cube"
