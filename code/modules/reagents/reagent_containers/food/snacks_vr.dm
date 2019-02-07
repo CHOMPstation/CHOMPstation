@@ -313,11 +313,35 @@
 	nutriment_amt = 6
 	nutriment_desc = list("sour cabbage" = 4, "sausage" = 3, "mildly sweet vegetables" = 3)
 
-/obj/item/weapon/reagent_containers/food/snacks/stew/New()
+/obj/item/weapon/reagent_containers/food/snacks/bigos/New()
 	..()
 	reagents.add_reagent("protein", 4)
 	reagents.add_reagent("water", 3)
 	bitesize = 7
+	
+/obj/item/weapon/reagent_containers/food/snacks/concha
+	name = "concha"
+	desc = "A sweet bread roll baked with a strawberry topping thats crunchy and delicious, it kinda looks like a shell."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "concha"
+	nutriment_amt = 2
+	nutriment_desc = list("sweet bread" = 3, "strawberry" = 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/concha/New()
+	..()
+	bitesize = 3
+	
+/obj/item/weapon/reagent_containers/food/snacks/pandenata
+	name = "Pan de nata"
+	desc = "Large spongy and soft biscuits that taste creamy and sweet, a treat like this would be perfect on a lazy day."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "pandenata"
+	nutriment_amt = 2
+	nutriment_desc = list("sweet creamy bread" = 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/pandenata/New()
+	..()
+	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube/sobakacube
 	name = "sobaka cube"

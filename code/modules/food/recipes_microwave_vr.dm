@@ -170,3 +170,19 @@
 		/obj/item/weapon/reagent_containers/food/snacks/sausage
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/bigos
+	
+/datum/recipe/concha
+	reagents = list("flour" = 5, "sugar" = 5, "berryjuice" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/bread
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/concha
+	
+/datum/recipe/pandenata
+	reagents = list("sugar" = 10, "cream" = 5, "egg" = 3)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice),
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice),
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice)
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/pandenata
