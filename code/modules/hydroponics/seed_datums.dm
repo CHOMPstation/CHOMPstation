@@ -798,7 +798,7 @@
 	set_trait(TRAIT_MATURATION,8)
 	set_trait(TRAIT_POTENCY,10)
 	set_trait(TRAIT_YIELD,2)
-	
+
 // CHOMPSTATION EDIT: END
 /datum/seed/wheat
 	name = "wheat"
@@ -1290,7 +1290,7 @@
 	name = "Type-SX Hardlight Generator"
 	seed_name = "Biomechanical Hardlight generator seed SX"
 	display_name = "Biomechanical Hardlight stem SX"//PLant that is part mechanical part biological
-	//has_mob_product = mob to be added to the game
+	has_mob_product = /mob/living/simple_animal/retaliate/synx/pet/holo/
 
 /datum/seed/hardlightseed/New()
 	..()

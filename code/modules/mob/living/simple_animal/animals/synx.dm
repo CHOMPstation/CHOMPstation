@@ -3,7 +3,7 @@
 	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration."
 	tt_desc = "synxus pergulus"
 
-	 //Synx species belongs to ChimeraSynx , Sprites by: SpitefulCrow
+	 //Synx species belongs to ChimeraSynx , Base sprites by: SpitefulCrow
 	icon = 'icons/mob/synx.dmi'//giving synxes their own DMI file!
 	icon_state = "synx_living"
 	icon_living = "synx_living"
@@ -21,8 +21,8 @@
 	intelligence_level = SA_ANIMAL
 
 	maxHealth = 150
-	health = 120
-	//turns_per_move = 2 //to be balanced, default for now
+	health = 150
+	turns_per_move = 5 //Should just affect how often it wanders, subject to change.
 	speed = -2 //Re enabled custom speed
 	see_in_dark = 6
 	stop_when_pulled = 0
@@ -44,7 +44,7 @@
 
 	melee_damage_lower = 5 //Massive damage reduction, will be balanced with toxin injection
 	melee_damage_upper = 5
-	attack_armor_pen = 25			// How much armor pen this attack has.
+	attack_armor_pen = 40			// How much armor pen this attack has.
 	attack_sharp = 1
 	attack_edge = 1
 
@@ -204,11 +204,13 @@ mob/living/simple_animal/synx/PunchTarget()
 ////////////////PET VERSION/////////////
 ////////////////////////////////////////
 /mob/living/simple_animal/retaliate/synx/pet
-	var/GRINS_LIVING = "synx_pet_living" //let's set up these vars to change em more easily later
-	var/GRINS_DEAD = "synx_pet_dead"
-	var/GREED_LIVING = "synx_pet_living"
-	var/GREED_DEAD = "synx_pet_dead"
-	
+	var/GRINS_LIVING = "synx_grins_living" //let's set up these vars to change em more easily later
+	var/GRINS_DEAD = "synx_grins_dead"
+	var/GREED_LIVING = "synx_greed_living"
+	var/GREED_DEAD = "synx_greed_dead"
+	var/HOLO_LIVING = "synx_hardlight_living"
+	var/HOLO_DEAD = "synx_hardlight_shards"
+
 	faction = "Cargonia" //Should not share a faction with those pesky non station synxes.//This is so newspaper has a failchance
 	name = "Prototype pet synx"
 	desc = "if you see this tell a a dev"
@@ -234,13 +236,14 @@ mob/living/simple_animal/synx/PunchTarget()
 	if(resting)
 		resting = !resting
 	if(message=="Up up down down left right left right b a select start")//shhh no spoilers yet
-		//icon_state = "synx_pet_rainbow"
-		//icon_living = "synx_pet_rainbow"
+		icon_state = "synx_pet_rainbow"
+		icon_living = "synx_pet_rainbow"
+		playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 		return
-	if(message=="Shock on"||"shock on")//Voice activated collar
+	if(message=="Shock on"||"shock on")//Voice activated collar//new
 		anchored=1 //Shocked nerd
 		return//dont want the synx to start shocking itself
-	if(message=="schock off"||"Schock off")
+	if(message=="shock off"||"Shock off")//new
 		anchored=0
 		return
 	if(message)
@@ -270,16 +273,65 @@ mob/living/simple_animal/synx/PunchTarget()
 		vore_bump_chance = 2 //lowered bump chance
 		vore_escape_chance = 5 //Multivore allows for people to shove eachother out so lower normal escape chance.
 	else if(prob(1))
-		name = "Bob"
-		desc = "A cold blooded, genderless, parasitic eel. This one is Bob. Bob is pretty normal, for a thing that might live inside you."
-		icon_state = "synx_living"
-		icon_living = "synx_living"
-		icon_dead = "synx_dead"
-		faction = "Station"//Bob can be safely bapped with newspaper.
+		name = "Hardlight synx"
+		desc = "A cold blooded, genderless, space eel.. or a hologram of one. Guess the current synx are undergoing re-training? Either way this one is probably infinitely more friendly.. and less deadly."
+		icon_state = HOLO_LIVING
+		icon_living = HOLO_LIVING
+		icon_dead = HOLO_DEAD
+		icon_gib = null
+		speak = list("SX Unit online", "SX Mimicri nominal", "SX Systems nominal", "SX backup generator dormant")
+		contents = /datum/seed/hardlightseed/typesx
+		alpha = 127
+		set_light(2) //hologram lighting
+		faction = "Station"//Can be safely bapped with newspaper.
+		melee_damage_lower = 0 //Holos do no damage
+		melee_damage_upper = 0
+		environment_smash = 0
+		destroy_surroundings = 0
+		//Vore Section
+		vore_capacity = 2
+		vore_digest_chance = 0	//Holos cannot digest
+		vore_pounce_chance = 90 //Shouldn't fight
+		vore_bump_chance = 1 //lowered bump chance
+		vore_escape_chance = 30 //Much higher escape chance.. it's a hologram.
+		swallowTime = 10 SECONDS //Much more time to run.
 	else
 		name = "Grins"
-		desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small collar on it that reads 'Grins' with a bell that doesn't seem to work."
+		desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small shock collar on it that reads 'Grins' with a bell that doesn't seem to work."
 		icon_state = GRINS_LIVING
 		icon_living = GRINS_LIVING
 		icon_dead = GRINS_DEAD
+		speak = list("What are you?", "Strange.", "Let me out!", "No, you." ) //custom favorite messages
+		emote_hear = list("gurgles.","screams!", "glrks.")
+		emote_see = list("stares intently", "pulses slowly", "stretches its jaws", "flops")
+		player_msg = "You want to watch, learn... and eat..."
+		//Vore Section
+		vore_capacity = 2 //Might lower to 1
 	..()
+
+///////////////////////////////////////////
+/////////////PET HARDECODED////////////////
+///////////////////////////////////////////
+
+/mob/living/simple_animal/retaliate/synx/pet/holo/New()
+	..()
+	name = "Hardlight synx"
+	desc = "A cold blooded, genderless, space eel.. or a hologram of one. Guess the current synx are undergoing re-training? Either way this one is probably infinitely more friendly.. and less deadly."
+	icon_state = HOLO_LIVING
+	icon_living = HOLO_LIVING
+	icon_dead = HOLO_DEAD
+	icon_gib = null
+	alpha = 127
+	set_light(2) //hologram lighting
+	faction = "Station"//Can be safely bapped with newspaper.
+	melee_damage_lower = 0 //Holos do no damage
+	melee_damage_upper = 0
+	environment_smash = 0
+	destroy_surroundings = 0
+	//Vore Section
+	vore_capacity = 2
+	vore_digest_chance = 0    //Holos cannot digest
+	vore_pounce_chance = 90 //Shouldn't fight
+	vore_bump_chance = 1 //lowered bump chance
+	vore_escape_chance = 30 //Much higher escape chance.. it's a hologram.
+	swallowTime = 10 SECONDS //Much more time to run.
