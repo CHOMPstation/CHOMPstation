@@ -54,6 +54,8 @@
 /datum/reagent/drink/collins_mix
 	price_tag = 2
 
+/datum/reagent/drink/horchata
+	price_tag = 2
 
 // Beer //
 
@@ -87,6 +89,24 @@
 /obj/item/weapon/reagent_containers/food/drinks/h_chocolate
 	price_tag = 3
 
+/datum/reagent/bubbletea/watermelon
+	price_tag = 5
+
+price_list.dm
+/datum/reagent/bubbletea/strawberry
+	price_tag = 5
+	
+price_list.dm
+/datum/reagent/bubbletea/cherry
+	price_tag = 5
+	
+price_list.dm
+/datum/reagent/bubbletea/coffee
+	price_tag = 5
+	
+price_list.dm
+/datum/reagent/bubbletea/banana
+	price_tag = 5
 
 // Spirituous liquors //
 
