@@ -215,8 +215,8 @@ mob/living/simple_animal/synx/PunchTarget()
 	if(resting)
 		resting = !resting
 	if(message)
-	if(speak.len>=memorysize)
-		speak -= (pick(speak))//making the list more dynamic
+		if(speak.len>=memorysize)
+			speak -= (pick(speak))//making the list more dynamic
 	speak += message
 
 //////////////////////////////////////////////////////
