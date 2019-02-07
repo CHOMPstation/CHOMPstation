@@ -22,7 +22,7 @@
 
 	maxHealth = 150
 	health = 150
-	//turns_per_move = 2 //to be balanced, default for now
+	turns_per_move = 5 //Should just affect how often it wanders, subject to change.
 	speed = -2 //Re enabled custom speed
 	see_in_dark = 6
 	stop_when_pulled = 0
@@ -314,6 +314,7 @@ mob/living/simple_animal/synx/PunchTarget()
 ///////////////////////////////////////////
 
 /mob/living/simple_animal/retaliate/synx/pet/holo/New()
+	..()
 	name = "Hardlight synx"
 	desc = "A cold blooded, genderless, space eel.. or a hologram of one. Guess the current synx are undergoing re-training? Either way this one is probably infinitely more friendly.. and less deadly."
 	icon_state = HOLO_LIVING
@@ -334,4 +335,3 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_bump_chance = 1 //lowered bump chance
 	vore_escape_chance = 30 //Much higher escape chance.. it's a hologram.
 	swallowTime = 10 SECONDS //Much more time to run.
-	..()
