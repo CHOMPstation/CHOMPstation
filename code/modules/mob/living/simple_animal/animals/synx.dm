@@ -9,10 +9,12 @@
 	icon_living = "synx_living"
 	icon_dead = "synx_dead"
 
+	//VAR$ SETUP
+	var/poison_per_bite = 5
+	var/poison_chance = 99.666
+	var/poison_type = "synxchem"//inaprovalin, but evil
 	var/transformed_state = "synx_transformed"
-
 	var/transformed = FALSE
-
 	var/memorysize = 50 //Var for how many messages synxes remember if they know speechcode
 
 	faction = "Synx"
@@ -40,9 +42,9 @@
 
 	pass_flags = PASSTABLE
 
-	melee_damage_lower = 20
-	melee_damage_upper = 30
-	attack_armor_pen = 50			// How much armor pen this attack has.
+	melee_damage_lower = 5 //Massive damage reduction, will be balanced with toxin injection
+	melee_damage_upper = 5
+	attack_armor_pen = 25			// How much armor pen this attack has.
 	attack_sharp = 1
 	attack_edge = 1
 
@@ -135,6 +137,23 @@ mob/living/simple_animal/synx/PunchTarget()
 		return L
 	else
 		..()
+
+//////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////// PASSIVE POWERS!!!! /////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+/mob/living/simple_animal/retaliate/synx/DoPunch(var/atom/A)
+	. = ..()
+	if(.) // If we succeeded in hitting.
+		if(isliving(A))
+			var/mob/living/L = A
+			if(L.reagents)
+				var/target_zone = pick(BP_TORSO,BP_TORSO,BP_TORSO,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_HEAD)
+				if(L.can_inject(src, null, target_zone))
+					L.reagents.add_reagent(poison_type, poison_per_bite)
+					if(prob(poison_chance))
+						to_chat(L, "<span class='warning'>You feel a strange substance on you.</span>")
+						L.reagents.add_reagent(poison_type, poison_per_bite)
+
 
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// POWERS!!!! /////////////////////////////////////
