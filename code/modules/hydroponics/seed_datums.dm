@@ -1276,3 +1276,33 @@
 	set_trait(TRAIT_YIELD,-1)
 	set_trait(TRAIT_SPREAD,2)
 	set_trait(TRAIT_POTENCY,50)
+
+//CHOMPSTATION EDIT Adding a new seed type
+/datum/seed/hardlightseed/
+	name = "Type NULL Hardlight Generator"
+	seed_name = "Biomechanical Hardlight generator seed"
+	display_name = "Biomechanical Hardlight stem"
+	mutants = null
+	can_self_harvest = 1
+	has_mob_product = null
+
+/datum/seed/hardlightseed/typesx
+	name = "Type-SX Hardlight Generator"
+	seed_name = "Biomechanical Hardlight generator seed SX"
+	display_name = "Biomechanical Hardlight stem SX"//PLant that is part mechanical part biological
+	//has_mob_product = mob to be added to the game
+
+/datum/seed/hardlightseed/New()
+	..()
+	set_trait(TRAIT_IMMUTABLE,1) //Normal genetics wont be able to do much with the mechanical parts, its more a machine than a real plant
+	set_trait(TRAIT_MATURATION,1)
+	set_trait(TRAIT_PRODUCTION,1)
+	set_trait(TRAIT_YIELD,1)
+	set_trait(TRAIT_POTENCY,1)
+	set_trait(TRAIT_PRODUCT_ICON,"alien4")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#00FFFF")
+	set_trait(TRAIT_PLANT_COLOUR,"#00FFFF")
+	set_trait(TRAIT_PLANT_ICON,"alien4") //spooky pods
+	set_trait(TRAIT_IDEAL_HEAT, 283)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0)
+	set_trait(TRAIT_WATER_CONSUMPTION, 0)
