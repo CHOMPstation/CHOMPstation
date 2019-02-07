@@ -236,9 +236,21 @@ mob/living/simple_animal/synx/PunchTarget()
 
 //PET speechcode, simplistic but more than enough for the PET
 /mob/living/simple_animal/retaliate/synx/pet/hear_say(message)
-    . = ..()
-    if(!message)    return
-    if(message)
-        if(speak.len>=memorysize)
-            speak -= (pick(speak))//making the list more dynamic
+	. = ..()
+	if(!message)    return
+	if(resting)
+		resting = !resting
+	if(message=="Up up down down left right left right b a select start")//shhh no spoilers yet
+		//icon_state = "synx_pet_rainbow"
+		//icon_living = "synx_pet_rainbow"
+		return
+	if(message=="Schock on")//Voice activated collar
+		canmove=0
+		return//dont want the synx to start shocking itself
+	if(message=="Schock off")
+		canmove=1
+		return
+	if(message)
+		if(speak.len>=memorysize)
+			speak -= (pick(speak))//making the list more dynamic
         speak += message
