@@ -181,8 +181,8 @@
 /datum/recipe/pandenata
 	reagents = list("sugar" = 10, "cream" = 5, "egg" = 3)
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/doughslice),
-		/obj/item/weapon/reagent_containers/food/snacks/doughslice),
-		/obj/item/weapon/reagent_containers/food/snacks/doughslice)
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/pandenata
