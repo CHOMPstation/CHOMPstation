@@ -63,3 +63,25 @@
 	for(var/i = 1, i <= created_volume, i++)
 		new /obj/item/weapon/reagent_containers/food/snacks/monkeycube/sarucube(location)
 	return
+////////////////////////////////////
+////////////That good shit/////////
+//////////////////////////////////
+/datum/reagent/claridyl
+	name = "Claridyl Natural Remedy"
+	id = "claridyl"
+	description = "Claridyl is an advanced medicine that cures all of your problems. Notice: Clarydil does not claim to actually treat any problems and may cause severe pain."
+	taste_description = "sugar"
+	reagent_state = LIQUID
+	color = "#AAAAFF"
+	overdose = REAGENTS_OVERDOSE * 100
+	metabolism = REM * 0.1
+	scannable = 1
+
+/datum/reagent/claridyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien != IS_DIONA)
+		M.add_chemical_effect(CE_PAINKILLER, 10)
+		M.adjustHalLoss(1.3)
+		if(prob(10))
+			M.make_dizzy(2)
+		if(prob(0.1))
+			M.hallucination(4)
