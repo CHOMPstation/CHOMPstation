@@ -296,26 +296,10 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_bump_chance = 2 //lowered bump chance
 	vore_escape_chance = 5 //Multivore allows for people to shove eachother out so lower normal escape chance.
 
-/mob/living/simple_animal/retaliate/synx/pet/grins
-	//var/GRINS_LIVING = "synx_grins_living"
-	//var/GRINS_DEAD = "synx_grins_dead"
-	name = "Grins"
-	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small shock collar on it that reads 'Grins' with a bell that doesn't seem to work."
-	icon_state = "synx_grins_living"
-	icon_living = "synx_grins_living"
-	icon_dead = "synx_grins_dead"
-	speak = list("What are you?", "Strange.", "Let me out!", "No, you." ) //custom favorite messages
-	emote_hear = list("gurgles.","screams!", "glrks.")
-	emote_see = list("stares intently", "pulses slowly", "stretches its jaws", "flops")
-	player_msg = "You want to watch, learn... and eat..."
-	//Vore Section
-	vore_capacity = 2 //Might lower to 1
-
 //SPAWNING
 /obj/random/mob/synx
 	name = "This is synxes"
 
 /obj/random/mob/synx/item_to_spawn()
-	return pick(prob(50);/mob/living/simple_animal/retaliate/synx/pet/greed,
-		prob(50);/mob/living/simple_animal/retaliate/synx/pet/grins,
+	return pick(prob(99);/mob/living/simple_animal/retaliate/synx/pet/greed,
 		prob(1);/mob/living/simple_animal/retaliate/synx/pet/holo,)

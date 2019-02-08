@@ -208,7 +208,7 @@
 	docking_controller_tag = "trade_shuttle"
 	dock_target_station = "trade_shuttle_dock_airlock"
 	dock_target_offsite = "trade_shuttle_bay"
-
+/*
 //Casino
 /datum/shuttle/ferry/casino
 	name = "Casino"
@@ -219,6 +219,7 @@
 	docking_controller_tag = "casino_shuttle"
 	dock_target_offsite = "casino_shuttle_bay"
 	dock_target_station = "casino_shuttle_dock_airlock"
+*/
 
 // Is this even used?
 /datum/shuttle/ferry/alien

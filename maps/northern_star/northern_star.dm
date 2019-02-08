@@ -5,7 +5,7 @@
 	#include "polaris-3.dmm"
 	#include "polaris-4.dmm"
 	#include "polaris-5.dmm"
-	#include "polaris-6.dmm"
+//	#include "polaris-6.dmm"
 
 	#include "northern_star_defines.dm"
 	#include "northern_star_areas.dm"
