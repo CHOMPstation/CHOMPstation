@@ -1286,12 +1286,6 @@
 	can_self_harvest = 1
 	has_mob_product = null
 
-/datum/seed/hardlightseed/typesx
-	name = "Type-SX Hardlight Generator"
-	seed_name = "Biomechanical Hardlight generator seed SX"
-	display_name = "Biomechanical Hardlight stem SX"//PLant that is part mechanical part biological
-	has_mob_product = /mob/living/simple_animal/retaliate/synx/pet/holo/
-
 /datum/seed/hardlightseed/New()
 	..()
 	set_trait(TRAIT_IMMUTABLE,1) //Normal genetics wont be able to do much with the mechanical parts, its more a machine than a real plant
