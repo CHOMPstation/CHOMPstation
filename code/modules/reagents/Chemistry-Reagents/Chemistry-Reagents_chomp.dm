@@ -84,4 +84,4 @@
 		if(prob(10))
 			M.make_dizzy(2)
 		if(prob(0.1))
-			M.hallucination(4)
+			M.hallucination = max(M.hallucination, 2)
