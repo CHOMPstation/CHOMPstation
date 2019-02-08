@@ -207,12 +207,13 @@ mob/living/simple_animal/synx/PunchTarget()
 
 
 	faction = "Cargonia" //Should not share a faction with those pesky non station synxes.//This is so newspaper has a failchance
-	name = "Prototype pet synx"
-	desc = "if you see this tell a a dev"
+	name = "Bob"
+	desc = "A very regular pet."
 	tt_desc = "synxus pergulus"
 	glow_range = 4
 	glow_toggle = 1
 	player_msg = "You aren't supposed to be in this. Wrong mob."
+
 /mob/living/simple_animal/retaliate/synx/pet/init_vore()
     ..()
     var/obj/belly/B = vore_selected
