@@ -213,7 +213,6 @@ mob/living/simple_animal/synx/PunchTarget()
 	glow_range = 4
 	glow_toggle = 1
 	player_msg = "You aren't supposed to be in this. Wrong mob."
-
 /mob/living/simple_animal/retaliate/synx/pet/init_vore()
     ..()
     var/obj/belly/B = vore_selected
@@ -257,7 +256,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	desc = "A cold blooded, genderless, space eel.. or a hologram of one. Guess the current synx are undergoing re-training? Either way this one is probably infinitely more friendly.. and less deadly."
 	icon_state = "synx_hardlight_living"
 	icon_living = "synx_hardlight_living"
-	icon_dead = "synx_hardlight_shards"
+	icon_dead = "synx_hardlight_dead"
 	icon_gib = null
 	alpha = 127
 	faction = "Station"//Can be safely bapped with newspaper.
@@ -297,10 +296,23 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_bump_chance = 2 //lowered bump chance
 	vore_escape_chance = 5 //Multivore allows for people to shove eachother out so lower normal escape chance.
 
+/mob/living/simple_animal/retaliate/synx/pet/diablo
+	//var/diablo_LIVING = "synx_diablo_living"
+	//var/diablo_DEAD = "synx_diablo_dead"
+	name = "diablo"
+	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small shock collar on it that reads 'diablo'."
+	icon_state = "synx_diablo_living"
+	icon_living = "synx_diablo_living"
+	icon_dead = "synx_diablo_dead"
+	speak = list( ) 
+	//Vore Section
+	vore_capacity = 2
+
 //SPAWNING
 /obj/random/mob/synx
 	name = "This is synxes"
 
 /obj/random/mob/synx/item_to_spawn()
-	return pick(prob(99);/mob/living/simple_animal/retaliate/synx/pet/greed,
+	return pick(prob(50);/mob/living/simple_animal/retaliate/synx/pet/greed,
+		prob(50);/mob/living/simple_animal/retaliate/synx/pet/diablo,
 		prob(1);/mob/living/simple_animal/retaliate/synx/pet/holo,)
