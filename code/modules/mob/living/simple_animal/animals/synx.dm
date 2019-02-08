@@ -138,6 +138,46 @@ mob/living/simple_animal/synx/PunchTarget()
 	else
 		..()
 
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////// SPECIAL ITEMS/REAGENTS !!!! ////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+
+/datum/seed/hardlightseed/typesx //Respawn mechanism for the synx
+	name = "Type-SX Hardlight Generator"
+	seed_name = "Biomechanical Hardlight generator seed SX"
+	display_name = "Biomechanical Hardlight stem SX"//PLant that is part mechanical part biological
+	has_mob_product = /mob/living/simple_animal/retaliate/synx/pet/holo/
+
+/datum/reagent/inaprovaline/synxchem 
+	name = "Alien nerveinhibitor"
+	id = "synxchem"
+	metabolism = REM * 0.1 //Slow metabolization to try and mimic permanent nerve damage without actually being too cruel to people
+	color = "#FFFFFF"
+	overdose = REAGENTS_OVERDOSE * 8 //But takes a lot to OD
+
+/datum/reagent/inaprovaline/synxchem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien != IS_DIONA)
+		if(prob(5))
+			M.custom_pain("You feel no pain despite the clear signs of damage to your body!",60)
+		if(prob(2))
+			M.custom_pain("You suddenly lose control over your body!",60)
+			M.AdjustParalysis(1)
+		M.add_chemical_effect(CE_STABLE, 15)
+		M.add_chemical_effect(CE_PAINKILLER, 50)
+		M.adjustBruteLoss(-0.2)//slowly killing your nerves
+		M.adjustToxLoss(0.5)
+		
+/datum/reagent/inaprovaline/synxchem/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(alien != IS_DIONA)
+		M.adjustToxLoss(1)
+		M.make_dizzy(30)
+		M.AdjustStunned(1)
+		if(prob(30))
+			M.AdjustParalysis(1)
+
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////// PASSIVE POWERS!!!! /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
