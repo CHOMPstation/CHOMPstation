@@ -155,7 +155,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	id = "synxchem"
 	metabolism = REM * 0.1 //Slow metabolization to try and mimic permanent nerve damage without actually being too cruel to people
 	color = "#FFFFFF"
-	overdose = REAGENTS_OVERDOSE * 8 //But takes a lot to OD
+	overdose = REAGENTS_OVERDOSE * 4 //But takes a lot to OD
 
 /datum/reagent/inaprovaline/synxchem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
@@ -176,10 +176,11 @@ mob/living/simple_animal/synx/PunchTarget()
 	..()
 	if(alien != IS_DIONA)
 		M.adjustHalLoss(-3)//im too nice
-		M.adjustToxLoss(1)
-		M.make_dizzy(30)
-		M.AdjustStunned(1)
-		if(prob(30))
+		M.adjustToxLoss(0.4)
+		M.make_dizzy(10)
+		if(prob(5))
+			M.AdjustStunned(1)
+		if(prob(2))
 			M.AdjustParalysis(1)
 
 //////////////////////////////////////////////////////////////////////////////////////
