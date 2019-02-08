@@ -166,12 +166,16 @@ mob/living/simple_animal/synx/PunchTarget()
 			M.AdjustParalysis(1)
 		M.add_chemical_effect(CE_STABLE, 15)
 		M.add_chemical_effect(CE_PAINKILLER, 50)
-		M.adjustBruteLoss(-0.2)//slowly killing your nerves
-		M.adjustToxLoss(0.5)
-		
+		M.adjustBruteLoss(-0.2)//healing brute
+		M.adjustToxLoss(0.1) //Dealing half of it as tox
+		M.adjustHalLoss(1) //dealing 5 times the amount of brute healed as halo, but we cant feel pain yet
+		// ^ I have no idea what this might cause, my ideal plan is that once the pain killer wears off you suddenly collapse;
+		//Since Halloss is not "real" damage this should not cause death
+
 /datum/reagent/inaprovaline/synxchem/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
+		M.adjustHalLoss(-3)//im too nice
 		M.adjustToxLoss(1)
 		M.make_dizzy(30)
 		M.AdjustStunned(1)
