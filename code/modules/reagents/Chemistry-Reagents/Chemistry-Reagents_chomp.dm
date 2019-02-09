@@ -63,3 +63,44 @@
 	for(var/i = 1, i <= created_volume, i++)
 		new /obj/item/weapon/reagent_containers/food/snacks/monkeycube/sarucube(location)
 	return
+////////////////////////////////////
+////////////That good shit/////////
+//////////////////////////////////
+/datum/reagent/claridyl
+	name = "Claridyl Natural Remedy"
+	id = "claridyl"
+	description = "Claridyl is an advanced medicine that cures all of your problems. Notice: Clarydil does not claim to actually treat any problems and may cause severe pain."
+	taste_description = "sugar"
+	reagent_state = LIQUID
+	color = "#AAAAFF"
+	overdose = REAGENTS_OVERDOSE * 100
+	metabolism = REM * 0.1
+	scannable = 1
+
+/datum/reagent/claridyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien != IS_DIONA)
+		M.add_chemical_effect(CE_PAINKILLER, 10)
+		M.adjustHalLoss(1.3)
+		//many many side effects all listed in AS Commercial
+		if(prob(0.001))//Side effects incluide death, this seems like a good "balanced" inclusion of it
+			M.adjustToxLoss(50)//instant crit for tesh
+		if(prob(0.5))
+			M.AdjustParalysis(5)
+		if(prob(0.7))
+			M.AdjustStunned(10)
+		if(prob(5))
+			M.AdjustWeakened(10)
+		if(prob(5))
+			M.make_dizzy(2)
+		if(prob(10))
+			M.add_chemical_effect(CE_ALCOHOL, 5)
+			if(prob(50))
+				M.custom_pain("Your vision becomes blurred!",30)
+		if(prob(10))
+			M.custom_pain("Your mouth feels dry!",30)
+		if(prob(1))
+			M.custom_pain("You suddenly feel inexplicably angry!",30)
+		if(prob(2))
+			M.custom_pain("You suddenly lose your train of thought!",30)
+		if(prob(0.1))
+			M.hallucination = max(M.hallucination, 2)
