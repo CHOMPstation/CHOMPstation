@@ -342,6 +342,19 @@
 /obj/item/weapon/reagent_containers/food/snacks/pandenata/New()
 	..()
 	bitesize = 3
+	
+/obj/item/weapon/reagent_containers/food/snacks/tocino
+	name = "Tocino"
+	desc = "A form of bacon made from cuts of pork that has cured in wine, sugar and salt for a while, best served on a hot skillet so remains warm and tasty til the last bite."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "tocino"
+	trash = /obj/item/trash/plate
+	nutriment_amt = 2
+	nutriment_desc = list("crispy sweet meat" = 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/tocino/New()
+	..()
+	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube/sobakacube
 	name = "sobaka cube"

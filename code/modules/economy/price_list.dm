@@ -89,19 +89,19 @@
 /obj/item/weapon/reagent_containers/food/drinks/h_chocolate
 	price_tag = 3
 
-/datum/reagent/drink/bubbletea/watermelon
+/datum/reagent/drink/bubbleteawatermelon
 	price_tag = 5
 
-/datum/reagent/drink/bubbletea/strawberry
+/datum/reagent/drink/bubbleteastrawberry
 	price_tag = 5
 	
-/datum/reagent/drink/bubbletea/cherry
+/datum/reagent/drink/bubbleteacherry
 	price_tag = 5
 	
-/datum/reagent/drink/bubbletea/coffee
+/datum/reagent/drink/bubbleteacoffee
 	price_tag = 5
 	
-/datum/reagent/drink/bubbletea/banana
+/datum/reagent/drink/bubbleteabanana
 	price_tag = 5
 
 // Spirituous liquors //

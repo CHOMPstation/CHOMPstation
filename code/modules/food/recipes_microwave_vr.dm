@@ -186,3 +186,10 @@
 		/obj/item/weapon/reagent_containers/food/snacks/doughslice
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/pandenata
+	
+/datum/recipe/tocino
+	reagents = list("sodiumchloride" = 5, "wine" = 5, "sugar" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/rawcutlet
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/tocino
