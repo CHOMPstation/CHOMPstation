@@ -193,3 +193,13 @@
 		/obj/item/weapon/reagent_containers/food/snacks/rawcutlet
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/tocino
+	
+/datum/recipe/garlicbread
+	reagents = list("sodiumchloride" = 2, "blackpepper" = 2)
+	fruit = list("onion" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/weapon/reagent_containers/food/snacks/slice/bread,
+		/obj/item/weapon/reagent_containers/food/snacks/slice/bread
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/garlicbread

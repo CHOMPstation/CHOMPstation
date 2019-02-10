@@ -356,6 +356,18 @@
 	..()
 	bitesize = 3
 
+/obj/item/weapon/reagent_containers/food/snacks/garlicbread
+	name = "Garlic bread"
+	desc = "Two slices of bread cooked with garlic, cheese and herbs on top to make a delicious sidedish."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "garlicbread"
+	nutriment_amt = 2
+	nutriment_desc = list("onions and melted cheese" = 2, "bread and seasonings" = 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/garlicbread/New()
+	..()
+	bitesize = 3
+	
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube/sobakacube
 	name = "sobaka cube"
 	monkey_type = "Sobaka"
