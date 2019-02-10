@@ -2202,6 +2202,7 @@
 #include "code\modules\mob\living\simple_animal\animals\parrot.dm"
 #include "code\modules\mob\living\simple_animal\animals\penguin.dm"
 #include "code\modules\mob\living\simple_animal\animals\pike_vr.dm"
+#include "code\modules\mob\living\simple_animal\animals\sculpture.dm"
 #include "code\modules\mob\living\simple_animal\animals\slime.dm"
 #include "code\modules\mob\living\simple_animal\animals\snake_vr.dm"
 #include "code\modules\mob\living\simple_animal\animals\spiderbot.dm"
