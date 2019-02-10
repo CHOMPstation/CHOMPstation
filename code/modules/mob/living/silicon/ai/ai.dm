@@ -591,7 +591,8 @@ var/list/ai_verbs_default = list(
 				"male tesharii",
 				"female tesharii",
 				"male skrell",
-				"female skrell"
+				"female skrell",
+				"synx"
 			)
 			input = input("Please select a hologram:") as null|anything in icon_list
 			if(input)
@@ -641,6 +642,8 @@ var/list/ai_verbs_default = list(
 						holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holoskrm"))
 					if("female skrell")
 						holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holoskrf"))
+					if("synx")
+						holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holosynx"))
 
 //Toggles the luminosity and applies it by re-entereing the camera.
 /mob/living/silicon/ai/proc/toggle_camera_light()

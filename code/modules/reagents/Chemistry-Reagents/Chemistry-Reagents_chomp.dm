@@ -48,3 +48,62 @@
 		T.add_vomit_floor(src, 1)
 */
 
+//////////////////////////////////////////////
+////////////////C U B E S////////////////////
+////////////////////////////////////////////
+/datum/chemical_reaction/cube/sagaru
+	name = "Saguwu"
+	id = "cubedsagaru"
+	result = null
+	required_reagents = list("cheese" = 1, "blood" = 1, "clonexadone" = 10,)
+	result_amount = 1
+
+/datum/chemical_reaction/cube/sagaru/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = 1, i <= created_volume, i++)
+		new /obj/item/weapon/reagent_containers/food/snacks/monkeycube/sarucube(location)
+	return
+////////////////////////////////////
+////////////That good shit/////////
+//////////////////////////////////
+/datum/reagent/claridyl
+	name = "Claridyl Natural Remedy"
+	id = "claridyl"
+	description = "Claridyl is an advanced medicine that cures all of your problems. Notice: Clarydil does not claim to fix marriages, car loans, student debt or insomnia and may cause severe pain."
+	taste_description = "sugar"
+	reagent_state = LIQUID
+	color = "#AAAAFF"
+	overdose = REAGENTS_OVERDOSE * 100
+	metabolism = REM * 0.1
+	scannable = 1
+
+/datum/reagent/claridyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien != IS_DIONA)
+		M.add_chemical_effect(CE_STABLE, 30)
+		M.add_chemical_effect(CE_PAINKILLER, 40)
+		if(M.getBruteLoss()) //Probably should just do the conversion instead of being such a massive crippling downside
+			M.adjustBruteLoss(-1)
+			M.adjustHalLoss(2) //A single unit could make you bedridden shortly if you have a lot of brute
+		//many many side effects all listed in AS Commercial
+		if(prob(0.0001))//Side effects incluide death, this seems like a good "balanced" inclusion of it
+			M.adjustToxLoss(50)//instant crit for tesh
+		if(prob(0.1))
+			M.AdjustParalysis(0.5)
+		if(prob(0.1))
+			M.AdjustStunned(10)
+		if(prob(5))
+			M.AdjustWeakened(10)
+		if(prob(5))
+			M.make_dizzy(2)
+		if(prob(10))
+			M.add_chemical_effect(CE_ALCOHOL, 5)
+			if(prob(50))
+				M.custom_pain("Your vision becomes blurred!",30)
+		if(prob(10))
+			M.custom_pain("Your mouth feels dry!",30)
+		if(prob(1))
+			M.custom_pain("You suddenly feel inexplicably angry!",30)
+		if(prob(2))
+			M.custom_pain("You suddenly lose your train of thought!",30)
+		if(prob(0.1))
+			M.hallucination = max(M.hallucination, 2)

@@ -114,6 +114,14 @@
 	result = "myelamine"
 	required_reagents = list("bicaridine" = 1, "iron" = 2, "kelotane" = 1, "bluesap" = 1)
 	result_amount = 1
+//Old version of above slightly modified
+/datum/chemical_reaction/myelamineold //This is the clotting agent used by clotting packs.
+	name = "Myelamineold"
+	id = "myelamineold"
+	result = "myelamine"
+	required_reagents = list("bicaridine" = 1, "iron" = 2, "kelotane" = 1, "spidertoxin" = 1)
+	result_amount = 1
+
 
 /datum/chemical_reaction/hannoa
 	name = "Hannoa"
@@ -129,6 +137,12 @@
 	required_reagents = list("dermaline" = 1, "orangesap" = 1, "Copper" = 1)
 	result_amount = 1
 
+/datum/chemical_reaction/nutrient
+	name = "Nutriment"
+	id = "nutriment"
+	result = "nutriment"
+	required_reagents = list("purplesap" = 1, "orangesap" = 1, "bluesap" = 1)
+	result_amount = 3
 
 ///////////////////////////////////////////////////////////////////////////////////
 /// Special drinks

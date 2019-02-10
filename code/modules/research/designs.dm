@@ -260,6 +260,15 @@ other types of metals and chemistry for reagents).
 	category = "Misc"
 	sort_string = "DAAAD"
 
+/datum/design/item/powercell/high/hightech
+	name = "Self-charging power cell"
+	id = "selfch_cell"
+	req_tech = list(TECH_POWER = 5, TECH_MATERIAL = 4,TECH_BLUESPACE = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000,"glass" = 500)
+	build_path = /obj/item/weapon/cell/high/hightech
+	category = "Misc"
+	sort_string = "DAAAE"
+
 /datum/design/item/powercell/device
 	name = "device"
 	build_type = PROTOLATHE

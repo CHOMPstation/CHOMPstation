@@ -478,6 +478,18 @@ item_path: /obj/item/device/modkit_conversion/fluff/harmonyspace
 
 # ######## K CKEYS
 {
+ckey: kazzc
+character_name: Kassc Zeravla
+item_path: /obj/item/weapon/storage/box/fluff/Kassc
+}
+
+{
+ckey: keithwinters
+character_name: Keith Winters
+item_path: /obj/item/weapon/storage/box/fluff/Keith_Winters
+}
+
+{
 ckey: ketrai
 character_name: Ketrai
 item_path: /obj/item/clothing/head/fluff/ketrai
@@ -595,6 +607,12 @@ req_titles: Head of Security
 }
 
 # ######## N CKEYS
+
+{
+ckey: nadyr
+character_name: Taaa
+item_path: /obj/item/weapon/storage/box/fluff/Taaa
+}
 
 {
 ckey: natje
