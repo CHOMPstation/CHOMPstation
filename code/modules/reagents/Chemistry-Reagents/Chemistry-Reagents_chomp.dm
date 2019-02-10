@@ -69,7 +69,7 @@
 /datum/reagent/claridyl
 	name = "Claridyl Natural Remedy"
 	id = "claridyl"
-	description = "Claridyl is an advanced medicine that cures all of your problems. Notice: Clarydil does not claim to actually treat any problems and may cause severe pain."
+	description = "Claridyl is an advanced medicine that cures all of your problems. Notice: Clarydil does not claim to fix marriages, car loans, student debt or insomnia and may cause severe pain."
 	taste_description = "sugar"
 	reagent_state = LIQUID
 	color = "#AAAAFF"
