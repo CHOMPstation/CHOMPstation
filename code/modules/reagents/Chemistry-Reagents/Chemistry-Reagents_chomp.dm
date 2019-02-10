@@ -69,7 +69,7 @@
 /datum/reagent/claridyl
 	name = "Claridyl Natural Remedy"
 	id = "claridyl"
-	description = "Claridyl is an advanced medicine that cures all of your problems. Notice: Clarydil does not claim to actually treat any problems and may cause severe pain."
+	description = "Claridyl is an advanced medicine that cures all of your problems. Notice: Clarydil does not claim to fix marriages, car loans, student debt or insomnia and may cause severe pain."
 	taste_description = "sugar"
 	reagent_state = LIQUID
 	color = "#AAAAFF"
@@ -81,8 +81,9 @@
 	if(alien != IS_DIONA)
 		M.add_chemical_effect(CE_STABLE, 30)
 		M.add_chemical_effect(CE_PAINKILLER, 40)
-		M.adjustBruteLoss(-1)
-		M.adjustHalLoss(3)
+		if(M.getBruteLoss()) //Probably should just do the conversion instead of being such a massive crippling downside
+			M.adjustBruteLoss(-1)
+			M.adjustHalLoss(2) //A single unit could make you bedridden shortly if you have a lot of brute
 		//many many side effects all listed in AS Commercial
 		if(prob(0.0001))//Side effects incluide death, this seems like a good "balanced" inclusion of it
 			M.adjustToxLoss(50)//instant crit for tesh
