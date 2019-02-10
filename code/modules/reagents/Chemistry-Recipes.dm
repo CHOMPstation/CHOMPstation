@@ -2240,35 +2240,35 @@
 /datum/chemical_reaction/drinks/bubbleteawatermelon
 	name = "Watermelon bubble tea"
 	id = "bubbleteawatermelon"
-	result = "watermelonbubbletea"
+	result = "bubbleteawatermelon"
 	required_reagents = list("gelatin" = 2, "watermelontea" = 6, "milk" = 2)
 	result_amount = 10
 	
 /datum/chemical_reaction/drinks/bubbleteastrawberry
 	name = "Strawberry bubble tea"
 	id = "bubbleteastrawberry"
-	result = "strawberrybubbletea"
+	result = "bubbleteastrawberry"
 	required_reagents = list("gelatin" = 2, "berrytea" = 6, "milk" = 2)
 	result_amount = 10
 	
 /datum/chemical_reaction/drinks/bubbleteacherry
 	name = "Cherry bubble tea"
 	id = "bubbleteacherry"
-	result = "cherrybubbletea"
+	result = "bubbleteacherry"
 	required_reagents = list("gelatin" = 2, "cherrytea" = 6, "milk" = 2)
 	result_amount = 10
 	
 /datum/chemical_reaction/drinks/bubbleteacoffee
 	name = "Coffee bubble tea"
 	id = "bubbleteacoffee"
-	result = "coffeebubbletea"
+	result = "bubbleteacoffee"
 	required_reagents = list("gelatin" = 2, "tea" = 5, "cafe_latte" = 3)
 	result_amount = 10
 	
 /datum/chemical_reaction/drinks/bubbleteabanana
 	name = "Banana bubble tea"
 	id = "bubbleteabanana"
-	result = "bananabubbletea"
+	result = "bubbleteabanana"
 	required_reagents = list("gelatin" = 2, "tea" = 5, "banana" = 1, "milk" = 2)
 	result_amount = 10
 
