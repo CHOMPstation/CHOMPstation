@@ -290,7 +290,6 @@ mob/living/simple_animal/synx/PunchTarget()
 		if(speak.len>=memorysize)
 			speak -= (pick(speak))//making the list more dynamic
 	speak += message
-	return
 
 
 //Hardcoded pets
