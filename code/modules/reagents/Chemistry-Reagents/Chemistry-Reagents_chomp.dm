@@ -79,14 +79,16 @@
 
 /datum/reagent/claridyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
-		M.add_chemical_effect(CE_PAINKILLER, 10)
-		M.adjustHalLoss(1.3)
+		M.add_chemical_effect(CE_STABLE, 30)
+		M.add_chemical_effect(CE_PAINKILLER, 40)
+		M.adjustBruteLoss(-1)
+		M.adjustHalLoss(3)
 		//many many side effects all listed in AS Commercial
-		if(prob(0.001))//Side effects incluide death, this seems like a good "balanced" inclusion of it
+		if(prob(0.0001))//Side effects incluide death, this seems like a good "balanced" inclusion of it
 			M.adjustToxLoss(50)//instant crit for tesh
-		if(prob(0.5))
-			M.AdjustParalysis(5)
-		if(prob(0.7))
+		if(prob(0.1))
+			M.AdjustParalysis(0.5)
+		if(prob(0.1))
 			M.AdjustStunned(10)
 		if(prob(5))
 			M.AdjustWeakened(10)
