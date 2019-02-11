@@ -30,6 +30,15 @@
 	pixel_x = -16
 	pixel_y = 0
 
+//CHOMPEDIT Just an easteregg on a mob that isnt really used but still.
+/mob/living/simple_animal/hostile/dragon/New()
+	..()
+	if(prob(1))//almost forgot this woops
+		name = "Slackwyrm" //Just an itty bitty easteregg dont mind me
+		desc = "A fierce dragon, well this one seems a bit more lazy. http://www.joshuawright.net/slack-wyrm-001.html" //
+		//Thanks to Josh Wright, the maker of slackwyrm for allowing this easteregg to exist.
+
+		
 /mob/living/simple_animal/hostile/dragon/Process_Spacemove(var/check_drift = 0)
 	return 1 //No drifting in space for space dragons!
 
