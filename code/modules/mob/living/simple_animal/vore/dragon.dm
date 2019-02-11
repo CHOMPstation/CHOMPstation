@@ -31,7 +31,8 @@
 	pixel_y = 0
 /mob/living/simple_animal/hostile/dragon/New()
 	..()
-	name = "Slackwyrm" //Just an itty bitty easteregg dont mind me
+	if(prob(1))//almost forgot this woops
+		name = "Slackwyrm" //Just an itty bitty easteregg dont mind me
 
 /mob/living/simple_animal/hostile/dragon/Process_Spacemove(var/check_drift = 0)
 	return 1 //No drifting in space for space dragons!
