@@ -49,6 +49,8 @@
 
 /mob/living/simple_animal/hostile/scarybat/New(loc, mob/living/L as mob)
 	..()
+	if(prob(30))//30% should be nice for a tiny bonus of silver, at least gives fighting mobs more purpose
+		contents += "/obj/item/weapon/ore/silver" //CHOMP EDIT: Random chance for bats to carry silver
 	if(istype(L))
 		owner = L
 
