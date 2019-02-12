@@ -303,6 +303,13 @@ mob/living/simple_animal/synx/PunchTarget()
     B.vore_verb = "swallow"
     B.digest_burn = 1
     B.digest_brute = 0
+    
+/mob/living/simple_animal/retaliate/synx/pet/holo/init_vore()
+	..()
+	var/obj/belly/B = vore_selected
+	B.vore_verb = "swallow"
+	B.digest_burn = 5
+	B.digest_brute = 5
 
 /mob/living/simple_animal/retaliate/synx/pet
 	speak_chance = 1.0666
@@ -350,10 +357,11 @@ mob/living/simple_animal/synx/PunchTarget()
 	environment_smash = 0
 	destroy_surroundings = 0
 	//Vore Section
+	vore_default_mode = DM_HEAL
 	vore_capacity = 2
 	vore_digest_chance = 0    //Holos cannot digest
-	vore_pounce_chance = 90 //Shouldn't fight
-	vore_bump_chance = 1 //lowered bump chance
+	vore_pounce_chance = 40 //Shouldn't fight
+	vore_bump_chance = 0 //lowered bump chance
 	vore_escape_chance = 30 //Much higher escape chance.. it's a hologram.
 	swallowTime = 10 SECONDS //Much more time to run
 
