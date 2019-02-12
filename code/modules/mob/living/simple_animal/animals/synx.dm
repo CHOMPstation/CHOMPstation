@@ -148,10 +148,11 @@ mob/living/simple_animal/synx/PunchTarget()
 	name = "Type-SX Hardlight Generator"
 	seed_name = "Biomechanical Hardlight generator seed SX"
 	display_name = "Biomechanical Hardlight stem SX"//PLant that is part mechanical part biological
-	has_mob_product = /mob/living/simple_animal/retaliate/synx/pet/holo/
+	has_mob_product = /mob/living/simple_animal/retaliate/synx/pet/holo
 
-/datum/reagent/inaprovaline/synxchem 
+/datum/reagent/inaprovaline/synxchem
 	name = "Alien nerveinhibitor"
+	description = "I mean you could have gotten this through dialysis but was it honestly worth for this easteregg?"
 	id = "synxchem"
 	metabolism = REM * 0.1 //Slow metabolization to try and mimic permanent nerve damage without actually being too cruel to people
 	color = "#FFFFFF"
@@ -167,11 +168,47 @@ mob/living/simple_animal/synx/PunchTarget()
 		M.add_chemical_effect(CE_STABLE, 15)
 		M.add_chemical_effect(CE_PAINKILLER, 50)
 		M.adjustBruteLoss(-0.2)//healing brute
+		M.adjustToxLoss(0.4) //Dealing twice of it as tox, even if you have no brute, its not true conversion.
+		//M.adjustHalLoss(1) //REMOVED since halloss seems to override painkillers >:(
+
+/datum/reagent/inaprovaline/synxchem/holo
+	name = "SX type simulation nanomachines" //Educational!
+	description = "Type SX nanomachines to simulate what it feels like to come in contact with a synx, minus the damage"
+	id = "fakesynxchem"
+	metabolism = REM * 1 //ten times faster for convenience of testers.
+	color = "#00FFFF"
+	overdose = REAGENTS_OVERDOSE * 20 //it's all fake. But having nanomachines move through you is not good at a certain amount.
+	
+/datum/reagent/inaprovaline/synxchem/holo/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien != IS_DIONA)
+		if(prob(5))
+			M.custom_pain("You feel no pain!",60)
+		if(prob(2))
+			M.custom_pain("You suddenly lose control over your body!",60)
+			M.AdjustParalysis(1)
+		M.add_chemical_effect(CE_STABLE, 15)
+		M.add_chemical_effect(CE_PAINKILLER, 50)
+		M.adjustBruteLoss(-0.2)//Made to simulate combat, also useful as very odd healer.
+		M.adjustToxLoss(-0.2) //HELP ITS MAULING ME!
+		M.adjustBurnLoss(-0.2) //huh this mauling aint so bad
+		M.adjustHalLoss(10) //OH MY GOD END MY PAIN NOW WHO MADE THIS SIMULATION
+	
+/datum/reagent/inaprovaline/synxchem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien != IS_DIONA)
+		if(prob(5))
+			M.custom_pain("You feel no pain despite the clear signs of damage to your body!",60)
+		if(prob(2))
+			M.custom_pain("You suddenly lose control over your body!",60)
+			M.AdjustParalysis(1)
+		M.add_chemical_effect(CE_STABLE, 15)
+		M.add_chemical_effect(CE_PAINKILLER, 50)
+		M.adjustBruteLoss(-0.2)//healing brute
 		M.adjustToxLoss(0.1) //Dealing half of it as tox
 		M.adjustHalLoss(1) //dealing 5 times the amount of brute healed as halo, but we cant feel pain yet
 		// ^ I have no idea what this might cause, my ideal plan is that once the pain killer wears off you suddenly collapse;
 		//Since Halloss is not "real" damage this should not cause death
-
+	
+	
 /datum/reagent/inaprovaline/synxchem/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
@@ -182,6 +219,9 @@ mob/living/simple_animal/synx/PunchTarget()
 			M.AdjustStunned(1)
 		if(prob(2))
 			M.AdjustParalysis(1)
+			
+/datum/reagent/inaprovaline/synxchem/holo/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	return
 
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////// PASSIVE POWERS!!!! /////////////////////////////////////
@@ -198,8 +238,7 @@ mob/living/simple_animal/synx/PunchTarget()
 					if(prob(poison_chance))
 						to_chat(L, "<span class='warning'>You feel a strange substance on you.</span>")
 						L.reagents.add_reagent(poison_type, poison_per_bite)
-
-
+						
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// POWERS!!!! /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
@@ -292,10 +331,12 @@ mob/living/simple_animal/synx/PunchTarget()
 	speak += message
 
 
-//Hardcoded pets
+////////////////////////////////////////
+////////////////SYNX VARIATIONS/////////
+////////////////////////////////////////
 /mob/living/simple_animal/retaliate/synx/pet/holo
-	//var/HOLO_LIVING = "synx_hardlight_living"
-	//var/HOLO_DEAD = "synx_hardlight_shards"
+	poison_chance = 100
+	poison_type = "fakesynxchem" //unlike synxchem this one heals!
 	name = "Hardlight synx"
 	desc = "A cold blooded, genderless, space eel.. or a hologram of one. Guess the current synx are undergoing re-training? Either way this one is probably infinitely more friendly.. and less deadly."
 	icon_state = "synx_hardlight_living"
@@ -324,7 +365,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	//var/GREED_LIVING = "synx_greed_living"
 	//var/GREED_DEAD = "synx_greed_dead"
 	name = "Greed"
-	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has the name Greed burnt into its back, the burnt in name seems to be luminescent making it harder for it to blend into the dark."
+	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. black, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has the name Greed burnt into its back, the burnt in name seems to be luminescent making it harder for it to blend into the dark."
 	//icon= //icon= would just set what DMI we are using, we already have our special one set.
 	icon_state = "synx_greed_living"
 	icon_living = "synx_greed_living"
@@ -344,7 +385,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	//var/diablo_LIVING = "synx_diablo_living"
 	//var/diablo_DEAD = "synx_diablo_dead"
 	name = "diablo"
-	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small shock collar on it that reads 'diablo'."
+	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. grey, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small shock collar on it that reads 'diablo'."
 	icon_state = "synx_diablo_living"
 	icon_living = "synx_diablo_living"
 	icon_dead = "synx_diablo_dead"
@@ -352,11 +393,14 @@ mob/living/simple_animal/synx/PunchTarget()
 	//Vore Section
 	vore_capacity = 2
 
-//SPAWNING
+
+////////////////////////////////////////
+////////////////SYNX SPAWNER////////////
+////////////////////////////////////////
 /obj/random/mob/synx
 	name = "This is synxes"
 
 /obj/random/mob/synx/item_to_spawn()
 	return pick(prob(50);/mob/living/simple_animal/retaliate/synx/pet/greed,
 		prob(50);/mob/living/simple_animal/retaliate/synx/pet/diablo,
-		prob(1);/mob/living/simple_animal/retaliate/synx/pet/holo,)
+		prob(50);/mob/living/simple_animal/retaliate/synx/pet/holo,)
