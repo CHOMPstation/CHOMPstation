@@ -62,14 +62,14 @@
 /datum/reagent/purplesap 
 	name = "Purple sap"
 	id = "purplesap"
-	description = "Purple liquid. It is very sticky and smells of amonia."
+	description = "Purple liquid. It is very sticky and smells of ammonia."
 	color = "#7a48a0"
-	taste_description = "Amonia"
+	taste_description = "Ammonia"
 
 /datum/reagent/orangesap 
 	name = "Orange sap"
 	id = "orangesap"
 	description = "Orange liquid. It wobbles around a bit like jelly."
 	color = "#e0962f"
-	taste_description = "Amonia"
+	taste_description = "Ammonia"
 
