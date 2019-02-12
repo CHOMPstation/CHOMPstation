@@ -288,8 +288,6 @@ mob/living/simple_animal/synx/PunchTarget()
 ////////////////PET VERSION/////////////
 ////////////////////////////////////////
 /mob/living/simple_animal/retaliate/synx/pet
-
-
 	faction = "Cargonia" //Should not share a faction with those pesky non station synxes.//This is so newspaper has a failchance
 	name = "Bob"
 	desc = "A very regular pet."
@@ -297,6 +295,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	glow_range = 4
 	glow_toggle = 1
 	player_msg = "You aren't supposed to be in this. Wrong mob."
+	
 /mob/living/simple_animal/retaliate/synx/pet/init_vore()
     ..()
     var/obj/belly/B = vore_selected
@@ -312,7 +311,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	B.digest_brute = 5
 
 /mob/living/simple_animal/retaliate/synx/pet
-	speak_chance = 1.0666
+	speak_chance = 2.0666
 	speak = list()
 
 //PET speechcode, simplistic but more than enough for the PET
@@ -364,7 +363,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_bump_chance = 0 //lowered bump chance
 	vore_escape_chance = 30 //Much higher escape chance.. it's a hologram.
 	swallowTime = 10 SECONDS //Much more time to run
-	contents += "/datum/seed/hardlightseed/typesx"
+	contents = list("/datum/seed/hardlightseed/typesx") //Dont read this.
 
 /mob/living/simple_animal/retaliate/synx/pet/holo/New()
 	set_light(2, 2, "#00FFFF") //hologram lighting
