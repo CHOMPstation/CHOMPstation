@@ -117,6 +117,7 @@
     verbs |= /mob/living/proc/ventcrawl
     verbs |= /mob/living/simple_animal/proc/contort
     verbs +=  /mob/living/simple_animal/retaliate/synx/proc/disguise
+    verbs +=  /mob/living/simple_animal/retaliate/synx/proc/honk
 
 mob/living/simple_animal/synx/PunchTarget()
 	if(!Adjacent(target_mob))
@@ -323,12 +324,15 @@ mob/living/simple_animal/synx/PunchTarget()
 		speak -= (pick(speak))//making the list more dynamic
 	if(resting)
 		resting = !resting
-		//icon_state = "synx_pet_rainbow"
-		//icon_living = "synx_pet_rainbow"
-		//playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 
+ /mob/living/simple_animal/retaliate/synx/proc/honk()
+ 	set name = "HONK"
+	set desc = "TAAA RAINBOW"
+	set category = "Abilities"
+	icon_state = "synx_pet_rainbow"
+	icon_living = "synx_pet_rainbow"
+	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 	
-
 
 ////////////////////////////////////////
 ////////////////SYNX VARIATIONS/////////
