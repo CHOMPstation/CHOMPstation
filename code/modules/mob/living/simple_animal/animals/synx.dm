@@ -190,7 +190,7 @@ mob/living/simple_animal/synx/PunchTarget()
 		M.add_chemical_effect(CE_PAINKILLER, 50)
 		M.adjustBruteLoss(-0.2)//Made to simulate combat, also useful as very odd healer.
 		M.adjustToxLoss(-0.2) //HELP ITS MAULING ME!
-		M.heal_organ_damage(1.5 * removed, 1.5 * removed * chem_effective) //huh this mauling aint so bad
+		M.adjustFireLoss(-0.2) //huh this mauling aint so bad
 		M.adjustHalLoss(10) //OH MY GOD END MY PAIN NOW WHO MADE THIS SIMULATION
 	
 /datum/reagent/inaprovaline/synxchem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
