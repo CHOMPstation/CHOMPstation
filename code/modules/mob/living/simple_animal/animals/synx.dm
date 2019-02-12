@@ -364,6 +364,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_bump_chance = 0 //lowered bump chance
 	vore_escape_chance = 30 //Much higher escape chance.. it's a hologram.
 	swallowTime = 10 SECONDS //Much more time to run
+	contents += "/datum/seed/hardlightseed/typesx"
 
 /mob/living/simple_animal/retaliate/synx/pet/holo/New()
 	set_light(2, 2, "#00FFFF") //hologram lighting
