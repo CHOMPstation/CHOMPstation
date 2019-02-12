@@ -318,23 +318,16 @@ mob/living/simple_animal/synx/PunchTarget()
 /mob/living/simple_animal/retaliate/synx/pet/hear_say(message)
 	. = ..()
 	if(!message)    return
+	speak += message
+	if(speak.len>=memorysize)
+		speak -= (pick(speak))//making the list more dynamic
 	if(resting)
 		resting = !resting
-	if(message=="Up up down down left right left right b a select start")//shhh no spoilers yet
-		icon_state = "synx_pet_rainbow"
-		icon_living = "synx_pet_rainbow"
-		playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
-		return
-	if(message=="Shock on"||"shock on")//Voice activated collar//new
-		anchored=1 //Shocked nerd
-		return//dont want the synx to start shocking itself
-	if(message=="shock off"||"Shock off")//new
-		anchored=0
-		return
-	if(message)
-		if(speak.len>=memorysize)
-			speak -= (pick(speak))//making the list more dynamic
-		speak += message
+		//icon_state = "synx_pet_rainbow"
+		//icon_living = "synx_pet_rainbow"
+		//playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
+
+	
 
 
 ////////////////////////////////////////
