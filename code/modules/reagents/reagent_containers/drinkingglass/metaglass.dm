@@ -519,19 +519,19 @@ Drinks Data
 	glass_icon_state = "bubbleteawatermelonglass"
 	glass_center_of_mass = list("x"=16, "y"=9)
 
-/datum/reagent/drink/bubbleteawatermelon
+/datum/reagent/drink/bubbleteastrawberry
 	glass_icon_state = "bubbleteastrawberryglass"
 	glass_center_of_mass = list("x"=16, "y"=9)
 
-/datum/reagent/drink/bubbleteawatermelon
+/datum/reagent/drink/bubbleteacherry
 	glass_icon_state = "bubbleteacherryglass"
 	glass_center_of_mass = list("x"=16, "y"=9)
 
-/datum/reagent/drink/bubbleteawatermelon
+/datum/reagent/drink/bubbleteacoffee
 	glass_icon_state = "bubbleteacoffeeglass"
 	glass_center_of_mass = list("x"=16, "y"=9)
 
-/datum/reagent/drink/bubbleteawatermelon
+/datum/reagent/drink/bubbleteabanana
 	glass_icon_state = "bubbleteabananaglass"
 	glass_center_of_mass = list("x"=16, "y"=9)
 	
@@ -542,3 +542,15 @@ Drinks Data
 /datum/reagent/toxin/bluetrain
 	glass_icon_state = "bluetrain"
 	glass_center_of_mass = list("x"=16, "y"=8)
+	
+/datum/reagent/drink/lovepotion
+	glass_icon_state = "lovepotion"
+	
+/datum/reagent/drink/lowpower
+	glass_icon_state = "lowpower"
+	
+/datum/reagent/ethanol/coffee/jackbrew
+	glass_icon_state = "jackbrew"
+	
+/datum/reagent/ethanol/bookwyrm
+	glass_icon_state = "bookwyrm"

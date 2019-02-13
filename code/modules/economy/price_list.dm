@@ -103,6 +103,9 @@
 	
 /datum/reagent/drink/bubbleteabanana
 	price_tag = 5
+	
+/datum/reagent/drink/lowpower
+	price_tag = 4
 
 // Spirituous liquors //
 
@@ -269,6 +272,9 @@
 
 /datum/reagent/ethanol/coffee/irishcoffee
 	price_tag = 4
+	
+/datum/reagent/ethanol/coffee/jackbrew
+	price_tag = 6
 
 /datum/reagent/ethanol/longislandicedtea
 	price_tag = 4
@@ -371,7 +377,14 @@
 
 /datum/reagent/ethanol/erebusmoonrise
 	price_tag = 4
+	
+/datum/reagent/ethanol/coldfront
+	price_tag = 4
 
+/datum/reagent/ethanol/bookwyrm
+	price_tag = 4
+
+	
 // The Cheap Shit //
 
 /datum/reagent/ethanol/hooch
