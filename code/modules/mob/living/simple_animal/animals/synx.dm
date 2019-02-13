@@ -198,12 +198,16 @@ mob/living/simple_animal/synx/PunchTarget()
 	name = "HONK"
 	description = "HONK"
 	id = "clownsynxchem"
-	metabolism = REM * 0.2 //ten times faster for convenience of testers.
+	metabolism = REM * 0.5
 	color = "#FFFFFF"
 	overdose = REAGENTS_OVERDOSE * 200
 
 /datum/reagent/inaprovaline/synxchem/clown/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustToxLoss(0.01)
 	playsound(M.loc, 'sound/items/bikehorn.ogg', 50, 1)
+	var/location = get_turf(M)
+	new /obj/item/weapon/bikehorn(location)
+	M.custom_pain("You suddenly cough up a bikehorn!",60)
 
 /datum/reagent/inaprovaline/synxchem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
@@ -378,7 +382,6 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_bump_chance = 0 //lowered bump chance
 	vore_escape_chance = 30 //Much higher escape chance.. it's a hologram.
 	swallowTime = 10 SECONDS //Much more time to run
-	contents = list("/datum/seed/hardlightseed/typesx") //Dont read this.
 
 /mob/living/simple_animal/retaliate/synx/pet/holo/New()
 	set_light() //hologram lighting
