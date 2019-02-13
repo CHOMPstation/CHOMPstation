@@ -107,3 +107,37 @@
 			M.custom_pain("You suddenly lose your train of thought!",30)
 		if(prob(0.1))
 			M.hallucination = max(M.hallucination, 2)
+
+////////////////////////////////////////////////
+/////////DRINKS////////////////////////////////
+//////////////////////////////////////////////
+
+/datum/reagent/drink/tea/dyloteane
+	name = "The Anti-Irish"
+	id = "dyloteane"
+	glass_name = "Medicinal tea cup"
+	glass_desc = "Goes perfectly with alcohol poisoning!"
+	taste_description = "The sweet taste of multidepartment cooperation!"
+	cup_desc = glass_desc
+	cup_name = glass_name
+	color = "#00FF00"
+	
+
+/datum/reagent/drink/tea/dyloteane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_DIONA)
+		return
+	if(M.ingested)
+		for(var/datum/reagent/R in M.ingested.reagent_list)
+			if(istype(R, /datum/reagent/ethanol))
+				R.remove_self(removed * 3)
+	if(M.bloodstr)
+		for(var/datum/reagent/R in M.bloodstr.reagent_list)
+			if(istype(R, /datum/reagent/ethanol))
+				R.remove_self(removed * 10)
+
+/datum/reagent/drink/tea/dyloteane/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	var/chem_effective = 1
+	if(alien != IS_DIONA)
+		M.drowsyness = max(0, M.drowsyness - 6 * removed * chem_effective)
+		M.hallucination = max(0, M.hallucination - 9 * removed * chem_effective)
+		M.adjustToxLoss(-1 * removed * chem_effective)
