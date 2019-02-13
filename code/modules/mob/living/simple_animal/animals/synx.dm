@@ -203,7 +203,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	overdose = REAGENTS_OVERDOSE * 200
 
 /datum/reagent/inaprovaline/synxchem/clown/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
+	playsound(M.loc, 'sound/items/bikehorn.ogg', 50, 1)
 
 /datum/reagent/inaprovaline/synxchem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
