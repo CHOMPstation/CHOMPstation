@@ -420,6 +420,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_capacity = 2
 
 /mob/living/simple_animal/retaliate/synx/pet/clown
+	hostile = true
 	poison_chance = 100
 	poison_type = "clownsynxchem" //unlike synxchem this one HONKS
 	name = "Hardlight synx"
