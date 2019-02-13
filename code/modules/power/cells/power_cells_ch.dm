@@ -56,4 +56,4 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 2000,"glass" = 500, "silver" = 500)
 	build_path = /obj/item/weapon/cell/device/hightech
 	category = "Misc"
-	sort_string = "DAAAE" //Unique Letter String, this decides how the list of printable items is arranged
+	sort_string = "DAAAG" //Unique Letter String, this decides how the list of printable items is arranged
