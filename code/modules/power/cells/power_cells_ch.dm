@@ -32,6 +32,6 @@
 	id = "selfch_cell_weapon"
 	req_tech = list(TECH_POWER = 5, TECH_MATERIAL = 5,TECH_BLUESPACE = 5,TECH_COMBAT = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000,"glass" = 500, "silver" = 500)
-	build_path = /obj/item/weapon/cell/high/hightech
+	build_path = /obj/item/weapon/cell/device/weapon/hightech
 	category = "Misc"
 	sort_string = "DAAAF" //Unique Letter String, this decides how the list of printable items is arranged
