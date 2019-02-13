@@ -118,8 +118,8 @@
 	glass_name = "Medicinal tea cup"
 	glass_desc = "Goes perfectly with alcohol poisoning!"
 	taste_description = "The sweet taste of multidepartment cooperation!"
-	cup_desc = glass_desc
-	cup_name = glass_name
+	cup_desc = "Goes perfectly with alcohol poisoning!"
+	cup_name = "Medicinal tea cup"
 	color = "#00FF00"
 	
 
