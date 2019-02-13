@@ -2286,6 +2286,27 @@
 	required_reagents = list("coolant" = 2, "ethanol" = 2, "nutriment" = 1)
 	result_amount = 5
 	
+/datum/chemical_reaction/drinks/lowpower
+	name = "The low power"
+	id = "lowpower"
+	result = "lowpower"
+	required_reagents = list("lemonade" = 1, "cream" = 1, "limejuice" = 1)
+	result_amount = 3
+	
+/datum/chemical_reaction/drinks/jackbrew
+	name = "Jack's brew"
+	id = "jackbrew"
+	result = "jackbrew"
+	required_reagents = list("irishcoffee" = 1, "hyperzine" = 1)
+	result_amount = 2
+	
+/datum/chemical_reaction/drinks/bookwyrm
+	name = "Bookwyrm's bite"
+	id = "bookwyrm"
+	result = "bookwyrm"
+	required_reagents = list("coldfront" = 1, "limejuice" = 1, "stoxin" = 1)
+	result_amount = 3
+	
 //R-UST Port
 /datum/chemical_reaction/hyrdophoron
 	name = "Hydrophoron"

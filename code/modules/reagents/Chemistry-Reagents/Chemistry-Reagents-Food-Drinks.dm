@@ -3131,3 +3131,93 @@
 	glass_name = "blue train"
 	glass_desc = "A glass of what can only be described as the bastard child between coolant and alcohol made by a madman."
 	
+/datum/reagent/drink/lowpower
+	name = "The low power"
+	id = "lowpower"
+	description = "Smells, and tastes like lemon.. with a hint of Ozone, for whatever reason. It glows softly."
+	taste_description = "creamy lemonade, with some zest"
+	color = "#5d8d39"
+
+	glass_name = "lowpower"
+	glass_desc = "Smells, and tastes like lemon.. with a hint of Ozone, for whatever reason. It glows softly."
+	
+/datum/reagent/drink/lowpower/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(alien == IS_DIONA)
+		return
+	M.adjustToxLoss(-0.5 * removed)
+	
+/datum/reagent/ethanol/coffee/jackbrew
+	name = "Jack's brew"
+	id = "jackbrew"
+	description = "Irish coffee, and hyperzine. A common mix for panicked drinkers, EMTS, Paramedics, and CMOs alone on the job."
+	taste_description = "wishing you could give up on the day"
+	color = "#4C3100"
+	strength = 15
+
+	glass_name = "Jack's brew"
+	glass_desc = "Irish coffee, and hyperzine. A common mix for panicked drinkers, EMTS, Paramedics, and CMOs alone on the job."
+
+/datum/reagent/ethanol/coffee/jackbrew/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_TAJARA)
+		removed *= 1.25
+	if(alien == IS_SLIME)
+		M.make_jittery(4) //Hyperactive fluid pumping results in unstable 'skeleton', resulting in vibration.
+		if(dose >= 5)
+			M.nutrition = (M.nutrition - (removed * 2)) //Sadly this movement starts burning food in higher doses.
+	..()
+	if(prob(5))
+		M.emote(pick("twitch", "blink_r", "shiver", "weh"))
+	M.add_chemical_effect(CE_SPEEDBOOST, 1)
+	
+/datum/reagent/ethanol/bookwyrm
+	name = "Bookwyrm's bite"
+	id = "bookwyrm"
+	description = "You'd probably fancy a nice nap by the fireplace after drinking this."
+	taste_description = "Mint, lime and a cold cozy nap"
+	color = "#5678c3"
+	strength = 20
+	adj_temp = -10
+	targ_temp = 273 //Dilluted cold front wont be the death of anyone who cant handle sipping liquid nitrogen.
+
+	glass_name = "Bookwyrm's bite"
+	glass_desc = "A cold lime mint drink. Dont drink to much or you might fall asleep."
+	
+/datum/reagent/ethanol/bookwyrm/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_DIONA)
+		return
+
+	var/threshold = 1
+	if(alien == IS_SKRELL)
+		threshold = 1.2
+
+	if(alien == IS_SLIME)
+		threshold = 6	//Evens to 3 due to the fact they are considered 'small' for flaps.
+
+	var/effective_dose = dose
+	if(issmall(M))
+		effective_dose *= 2
+
+	if(effective_dose < 1 * threshold)
+		if(effective_dose == metabolism * 2 || prob(5))
+			M.emote("yawn")
+	else if(effective_dose < 1.5 * threshold)
+		M.eye_blurry = max(M.eye_blurry, 10)
+	else if(effective_dose < 5 * threshold)
+		if(prob(50))
+			M.Weaken(2)
+		M.drowsyness = max(M.drowsyness, 20)
+	else
+		if(alien == IS_SLIME) //They don't have eyes, and they don't really 'sleep'. Fumble their general senses.
+			M.eye_blurry = max(M.eye_blurry, 30)
+			if(prob(20))
+				M.ear_deaf = max(M.ear_deaf, 4)
+				M.Confuse(2)
+			else
+				M.Weaken(2)
+		else
+			M.sleeping = max(M.sleeping, 20)
+		M.drowsyness = max(M.drowsyness, 60)
+		
+
+	
