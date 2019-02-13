@@ -337,7 +337,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	..()
 	var/location = get_turf(src)
 	new /datum/seed/hardlightseed/typesx(location)
-
+	qdel(src)
 ////////////////////////////////////////
 ////////////////SYNX VARIATIONS/////////
 ////////////////////////////////////////
