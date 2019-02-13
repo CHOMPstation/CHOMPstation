@@ -333,7 +333,11 @@ mob/living/simple_animal/synx/PunchTarget()
 	icon_living = "synx_pet_rainbow"
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 	
-
+/mob/living/simple_animal/retaliate/synx/pet/holo/death()
+	..()
+	var/location = get_turf(src)
+	new /datum/seed/hardlightseed/typesx(location)
+	qdel(src)
 ////////////////////////////////////////
 ////////////////SYNX VARIATIONS/////////
 ////////////////////////////////////////
