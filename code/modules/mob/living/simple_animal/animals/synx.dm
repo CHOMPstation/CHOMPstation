@@ -423,7 +423,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	hostile = true
 	poison_chance = 100
 	poison_type = "clownsynxchem" //unlike synxchem this one HONKS
-	name = "Hardlight synx"
+	name = "Inflatable Clown Synx"
 	desc = "Honk!, made this here with all the fun on in the booth. At the gate outside, when they pull up, they get me loose. Yeah, Jump Out Clowns, that's Clown gang, hoppin' out tiny cars. This shit way too funny, when we pull up give them the honk hard!"
 	icon_state = "synx_pet_rainbow"
 	icon_living = "synx_pet_rainbow"
