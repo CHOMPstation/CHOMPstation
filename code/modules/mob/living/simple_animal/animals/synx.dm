@@ -193,7 +193,22 @@ mob/living/simple_animal/synx/PunchTarget()
 		M.adjustToxLoss(-0.2) //HELP ITS MAULING ME!
 		M.adjustFireLoss(-0.2) //huh this mauling aint so bad
 		M.adjustHalLoss(10) //OH MY GOD END MY PAIN NOW WHO MADE THIS SIMULATION
-	
+
+/datum/reagent/inaprovaline/synxchem/clown
+	name = "HONK"
+	description = "HONK"
+	id = "clownsynxchem"
+	metabolism = REM * 0.5
+	color = "#FFFFFF"
+	overdose = REAGENTS_OVERDOSE * 200
+
+/datum/reagent/inaprovaline/synxchem/clown/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustToxLoss(0.01)
+	playsound(M.loc, 'sound/items/bikehorn.ogg', 50, 1)
+	var/location = get_turf(M)
+	new /obj/item/weapon/bikehorn(location)
+	M.custom_pain("You suddenly cough up a bikehorn!",60)
+
 /datum/reagent/inaprovaline/synxchem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
 		if(prob(5))
@@ -222,6 +237,9 @@ mob/living/simple_animal/synx/PunchTarget()
 			M.AdjustParalysis(1)
 			
 /datum/reagent/inaprovaline/synxchem/holo/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	return
+
+/datum/reagent/inaprovaline/synxchem/clown/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	return
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -364,10 +382,9 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_bump_chance = 0 //lowered bump chance
 	vore_escape_chance = 30 //Much higher escape chance.. it's a hologram.
 	swallowTime = 10 SECONDS //Much more time to run
-	contents = list("/datum/seed/hardlightseed/typesx") //Dont read this.
 
 /mob/living/simple_animal/retaliate/synx/pet/holo/New()
-	set_light(2, 2, "#00FFFF") //hologram lighting
+	set_light() //hologram lighting
 
 
 /mob/living/simple_animal/retaliate/synx/pet/greed
@@ -402,6 +419,28 @@ mob/living/simple_animal/synx/PunchTarget()
 	//Vore Section
 	vore_capacity = 2
 
+/mob/living/simple_animal/retaliate/synx/pet/clown
+	hostile = 1
+	poison_chance = 100
+	poison_type = "clownsynxchem" //unlike synxchem this one HONKS
+	name = "Inflatable Clown Synx"
+	desc = "Honk!, made this here with all the fun on in the booth. At the gate outside, when they pull up, they get me loose. Yeah, Jump Out Clowns, that's Clown gang, hoppin' out tiny cars. This shit way too funny, when we pull up give them the honk hard!"
+	icon_state = "synx_pet_rainbow"
+	icon_living = "synx_pet_rainbow"
+	//icon_dead = "synx_hardlight_dead"
+	icon_gib = null
+	faction = "Clown"
+	melee_damage_lower = 0
+	melee_damage_upper = 0
+	environment_smash = 0
+	destroy_surroundings = 0
+	//Vore Section
+	vore_default_mode = DM_HEAL
+	vore_capacity = 10
+	vore_digest_chance = 0 
+	vore_pounce_chance = 1 //MAKE THEM HONK
+	vore_bump_chance = 0 //lowered bump chance
+	vore_escape_chance = 100 //Much higher escape chance.. it's a hologram.
 
 ////////////////////////////////////////
 ////////////////SYNX SPAWNER////////////
