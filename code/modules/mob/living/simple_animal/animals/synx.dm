@@ -325,8 +325,8 @@ mob/living/simple_animal/synx/PunchTarget()
 	if(resting)
 		resting = !resting
 
- /mob/living/simple_animal/retaliate/synx/proc/honk()
- 	set name = "HONK"
+/mob/living/simple_animal/retaliate/synx/proc/honk()
+	set name = "HONK"
 	set desc = "TAAA RAINBOW"
 	set category = "Abilities"
 	icon_state = "synx_pet_rainbow"
