@@ -3234,8 +3234,9 @@
 		return
 	if(prob(5))
 		M.say("!skin's crackles with energy and seems to be in pain.")
-		M.custom_pain("You feel painful electricity running through your body, like adrenaline, and like your blood's boiling!",60)
-		M.AdjustWeakened(1)		//Getting sapped makes the victim fall
+		M.custom_pain("You feel painful electricity running through your body, like adrenaline, and like your blood's boiling!",30)
+		M.AdjustWeakened(3)		//Getting sapped makes the victim fall
+		M.Stun(3)
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		
 /datum/reagent/ethanol/flapper
