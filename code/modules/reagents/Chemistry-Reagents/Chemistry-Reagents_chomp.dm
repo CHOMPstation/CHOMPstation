@@ -107,7 +107,10 @@
 				R.remove_self(removed * 15)
 
 /datum/reagent/claridyl/bloodburn/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	M.clear_reagents()
+	if(M.ingested)
+		for(var/datum/reagent/R in M.ingested.reagent_list)
+			if(istype(R, /datum/reagent/ethanol))
+				R.remove_self(removed * 5)
 
 /datum/reagent/claridyl/bloodburn
 	name = "Bloodburn"
