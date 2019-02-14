@@ -3219,5 +3219,43 @@
 			M.sleeping = max(M.sleeping, 20)
 		M.drowsyness = max(M.drowsyness, 60)
 		
+/datum/reagent/drink/highpower
+	name = "The High power"
+	id = "highpower"
+	description = "A strange, softly crackling drink, smelling just like lightning's just struck, twice. It's rather difficult to make this without busting the lights."
+	taste_description = "copper, ozone, and pain"
+	color = "#a2f563"
 
+	glass_name = "highpower"
+	glass_desc = "A strange, softly crackling drink, smelling just like lightning's just struck, twice. It's rather difficult to make this without busting the lights."
+	
+/datum/reagent/drink/highpower/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_DIONA)
+		return
+	if(prob(5))
+		M.say("!skin's crackles with energy and seems to be in pain.")
+		M.custom_pain("You feel painful electricity running through your body, like adrenaline, and like your blood's boiling!",60)
+		M.AdjustWeakened(1)		//Getting sapped makes the victim fall
+	M.add_chemical_effect(CE_SPEEDBOOST, 1)
+		
+/datum/reagent/ethanol/flapper
+	name = "Flapper"
+	id = "flapper"
+	description = "A common drink among blood-drinkers, and those who just wanna drink. Tinnibat be damned."
+	taste_description = "a bloody good time"
+	color = "#763424"
+	strength = 15
+
+	glass_name = "flapper"
+	glass_desc = "A common drink among blood-drinkers, and those who just wanna drink. Tinnibat be damned."
+	
+/datum/reagent/toxin/oilslide
+	name = "Oil slide"
+	id = "oilslide"
+	description = "Tasty, if you're a synth, not so much for organics."
+	taste_description = "oil, slime, and fuel! Tastes also like synthetic backwash"
+	color = "#331a1a"
+	
+	glass_name = "oilslide"
+	glass_desc = "Tasty, if you're a synth, not so much for organics."
 	

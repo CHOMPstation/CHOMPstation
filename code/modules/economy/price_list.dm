@@ -107,6 +107,9 @@
 /datum/reagent/drink/lowpower
 	price_tag = 4
 
+/datum/reagent/drink/highpower
+	price_tag = 7
+	
 // Spirituous liquors //
 
 /datum/reagent/ethanol/irish_cream
@@ -384,6 +387,11 @@
 /datum/reagent/ethanol/bookwyrm
 	price_tag = 4
 
+/datum/reagent/ethanol/flapper
+	price_tag = 4
+	
+/datum/reagent/toxin/oilslide
+	price_tag = 5
 	
 // The Cheap Shit //
 
