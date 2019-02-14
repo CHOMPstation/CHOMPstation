@@ -81,32 +81,44 @@
 	if(alien != IS_DIONA)
 		M.add_chemical_effect(CE_STABLE, 30)
 		M.add_chemical_effect(CE_PAINKILLER, 40)
-		if(M.getBruteLoss()) //Probably should just do the conversion instead of being such a massive crippling downside
+		if(M.getBruteLoss())
 			M.adjustBruteLoss(-1)
-			M.adjustHalLoss(2) //A single unit could make you bedridden shortly if you have a lot of brute
-		//many many side effects all listed in AS Commercial
-		if(prob(0.0001))//Side effects incluide death, this seems like a good "balanced" inclusion of it
+			M.adjustHalLoss(1.5)
+		if(prob(0.0001))
 			M.adjustToxLoss(50)//instant crit for tesh
+			
 		if(prob(0.1))
-			M.AdjustParalysis(0.5)
-		if(prob(0.1))
-			M.AdjustStunned(10)
-		if(prob(5))
-			M.AdjustWeakened(10)
-		if(prob(5))
-			M.make_dizzy(2)
-		if(prob(10))
-			M.add_chemical_effect(CE_ALCOHOL, 5)
-			if(prob(50))
-				M.custom_pain("Your vision becomes blurred!",30)
-		if(prob(10))
-			M.custom_pain("Your mouth feels dry!",30)
-		if(prob(1))
-			M.custom_pain("You suddenly feel inexplicably angry!",30)
-		if(prob(2))
-			M.custom_pain("You suddenly lose your train of thought!",30)
-		if(prob(0.1))
-			M.hallucination = max(M.hallucination, 2)
+			pick(M.custom_pain("You suddenly feel inexplicably angry!",30),
+			M.custom_pain("You suddenly lose your train of thought!",30),
+			M.custom_pain("Your mouth feels dry!",30),
+			M.make_dizzy(2),
+			M.AdjustWeakened(10),
+			M.AdjustStunned(1),
+			M.AdjustParalysis(0.1),
+			M.hallucination = max(M.hallucination, 2),
+			M.flash_eyes(),
+			M.custom_pain("Your vision becomes blurred!",30),
+			M.add_chemical_effect(CE_ALCOHOL, 5),)
+
+/datum/reagent/claridyl/bloodburn/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(M.bloodstr)//No seriously dont inject this wtf is wrong with you.
+		for(var/datum/reagent/R in M.bloodstr.reagent_list)
+			if(istype(R, /datum/reagent/blood))
+				R.remove_self(removed * 15)
+
+/datum/reagent/claridyl/bloodburn/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(M.ingested)
+		for(var/datum/reagent/R in M.ingested.reagent_list)
+			if(istype(R, /datum/reagent/ethanol))
+				R.remove_self(removed * 5)
+
+/datum/reagent/claridyl/bloodburn
+	name = "Bloodburn"
+	id = "bloodburn"
+	description = "A chemical used to soak up any reagents inside someones stomach, injection is not advised, if you need to ask why please seek a new job."
+	taste_description = "liquid void"
+	color = "#000000"
+	metabolism = REM * 5
 
 ////////////////////////////////////////////////
 /////////DRINKS////////////////////////////////
