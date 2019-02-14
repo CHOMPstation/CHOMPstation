@@ -2307,6 +2307,27 @@
 	required_reagents = list("coldfront" = 1, "limejuice" = 1, "stoxin" = 1)
 	result_amount = 3
 	
+/datum/chemical_reaction/drinks/highpower
+	name = "The high power"
+	id = "highpower"
+	result = "highpower"
+	required_reagents = list("lowpower" = 1, "iron" = 1, "uranium" = 1)
+	result_amount = 3
+	
+/datum/chemical_reaction/drinks/flapper
+	name = "Flapper"
+	id = "flapper"
+	result = "flapper"
+	required_reagents = list("whiskey" = 1, "blood" = 1, "ice" = 1)
+	result_amount = 3
+	
+/datum/chemical_reaction/toxin/oilslide
+	name = "Oil slide"
+	id = "oilslide"
+	result = "oilslide"
+	required_reagents = list("moonshine" = 1, "lube" = 1, "fuel" = 1)
+	result_amount = 3
+	
 //R-UST Port
 /datum/chemical_reaction/hyrdophoron
 	name = "Hydrophoron"

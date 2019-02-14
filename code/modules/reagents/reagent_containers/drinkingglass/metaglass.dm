@@ -554,3 +554,12 @@ Drinks Data
 	
 /datum/reagent/ethanol/bookwyrm
 	glass_icon_state = "bookwyrm"
+	
+/datum/reagent/drink/highpower
+	glass_icon_state = "highpower"
+	
+/datum/reagent/ethanol/flapper
+	glass_icon_state = "flapper"
+	
+/datum/reagent/toxin/oilslide
+	glass_icon_state = "oilslide"
