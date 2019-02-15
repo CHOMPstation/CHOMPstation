@@ -205,9 +205,12 @@ mob/living/simple_animal/synx/PunchTarget()
 /datum/reagent/inaprovaline/synxchem/clown/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(0.01)
 	playsound(M.loc, 'sound/items/bikehorn.ogg', 50, 1)
-	var/location = get_turf(M)
-	new /obj/item/weapon/bikehorn(location)
-	M.custom_pain("You suddenly cough up a bikehorn!",60)
+	if(prob(1))
+		M.custom_pain("I have no horn but i must honk!",40)
+	if(prob(2))
+		var/location = get_turf(M)
+		new /obj/item/weapon/bikehorn(location)
+		M.custom_pain("You suddenly cough up a bikehorn!",60)
 
 /datum/reagent/inaprovaline/synxchem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
@@ -431,8 +434,8 @@ mob/living/simple_animal/synx/PunchTarget()
 	//icon_dead = "synx_hardlight_dead"
 	icon_gib = null
 	faction = "clown"
-	melee_damage_lower = 0
-	melee_damage_upper = 0
+	melee_damage_lower = 0.001
+	melee_damage_upper = 0.001
 	environment_smash = 0
 	destroy_surroundings = 0
 	//Vore Section
