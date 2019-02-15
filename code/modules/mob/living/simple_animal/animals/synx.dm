@@ -384,7 +384,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	swallowTime = 10 SECONDS //Much more time to run
 
 /mob/living/simple_animal/retaliate/synx/pet/holo/New()
-	set_light() //hologram lighting
+	set_light(3, 3, "#CC00CC") //hologram lighting
 
 
 /mob/living/simple_animal/retaliate/synx/pet/greed
