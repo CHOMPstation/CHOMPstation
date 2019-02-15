@@ -157,7 +157,7 @@
 /mob/living/simple_animal/mouse/event/proc/rat()
 	visible_message("<span class='warning'>\The [src] suddenly evolves!</span>")
 	if(prob(99.5))
-		new /mob/living/simple_animal/hostile/rat(get_turf(src))
+		new /mob/living/simple_animal/hostile/rat/event(get_turf(src))
 		qdel(src)
 	else	
 		new /mob/living/simple_animal/hostile/chungus(get_turf(src))
