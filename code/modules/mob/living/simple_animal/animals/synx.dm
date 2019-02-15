@@ -430,7 +430,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	icon_living = "synx_pet_rainbow"
 	//icon_dead = "synx_hardlight_dead"
 	icon_gib = null
-	faction = "Clown"
+	faction = "clown"
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	environment_smash = 0
