@@ -158,3 +158,8 @@
 /mob/living/simple_animal/hostile/rat/death()
 	playsound(src, 'sound/effects/mouse_squeak_loud.ogg', 50, 1)
 	..()
+
+/mob/living/simple_animal/hostile/rat/event
+	maxHealth = 60
+	health = 60
+	vore_pounce_chance = 1
