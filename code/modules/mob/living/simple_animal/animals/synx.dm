@@ -369,6 +369,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	icon_dead = "synx_hardlight_dead"
 	icon_gib = null
 	alpha = 127
+	speak = list("SX System Online")
 	faction = "Station"//Can be safely bapped with newspaper.
 	melee_damage_lower = 0 //Holos do no damage
 	melee_damage_upper = 0
@@ -384,7 +385,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	swallowTime = 10 SECONDS //Much more time to run
 
 /mob/living/simple_animal/retaliate/synx/pet/holo/New()
-	set_light() //hologram lighting
+	set_light(3, 3, "#CC00CC") //hologram lighting
 
 
 /mob/living/simple_animal/retaliate/synx/pet/greed
