@@ -66,7 +66,7 @@
 	switch(vermin)
 		if(VERM_MICE)
 			spawn_types = list(/mob/living/simple_animal/mouse/event)
-			max_number = 12
+			max_number = 6
 			vermstring = "mice"
 		if(VERM_LIZARDS)
 			spawn_types = list(/mob/living/simple_animal/lizard)
