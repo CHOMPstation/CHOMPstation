@@ -369,6 +369,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	icon_dead = "synx_hardlight_dead"
 	icon_gib = null
 	alpha = 127
+	speak = list("SX System Online")
 	faction = "Station"//Can be safely bapped with newspaper.
 	melee_damage_lower = 0 //Holos do no damage
 	melee_damage_upper = 0
