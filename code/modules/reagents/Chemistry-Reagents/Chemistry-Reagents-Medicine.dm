@@ -369,7 +369,7 @@
 /datum/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_TAJARA)
 		removed *= 1.25
-		M.druggy = max(M.druggy, 5)
+		M.druggy = max(M.druggy, 5) //CHOMPEDIT Tajara drugs yo
 	if(alien == IS_SLIME)
 		M.make_jittery(4) //Hyperactive fluid pumping results in unstable 'skeleton', resulting in vibration.
 		if(dose >= 5)
