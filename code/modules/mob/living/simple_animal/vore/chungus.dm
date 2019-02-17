@@ -16,6 +16,7 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 15
 	grab_resist = 100
+	attack_sound = 'sound/weapons/bite.ogg'
 
 	speak_chance = 4
 	speak = list("Eenhhhhhhh...","What's up, doc?","Wabbit season?")
