@@ -29,13 +29,12 @@
 	else
 		..()
 
-/obj/item/weapon/paperplane/attack_self(var/mob/user)
+/obj/item/weapon/paperplane/proc/clear_mobs(var/mob/user)
 	for(var/mob/M in src)
 		M.forceMove(get_turf(user))
 		to_chat(M,"<span class='warning'>[user] shakes you out of \the [src]!</span>")
 		to_chat(user,"<span class='notice'>You shake [M] out of \the [src]!</span>")
 
-	..()
 
 
 //END CHOMPEDIT
@@ -76,6 +75,7 @@
 			overlays += stampoverlay
 
 /obj/item/weapon/paperplane/attack_self(mob/user)
+	clear_mobs()
 	to_chat(user, "<span class='notice'>You unfold [src].</span>")
 	var/atom/movable/internal_paper_tmp = internalPaper
 	internal_paper_tmp.forceMove(loc)
