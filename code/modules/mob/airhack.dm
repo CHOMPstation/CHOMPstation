@@ -94,20 +94,15 @@
 					user << "<span class='notice'>You connect \the [src] to the port.</span>"
 					update_icon()
 					playsound(src, W.usesound, 50, 1)
-					return
+					return 1
 				else
 					user << "<span class='notice'>\The [src] failed to connect to the port.</span>"
-					return
+					return 0
 			else
-				user << "<span class='notice'>Nothing happens.</span>"
-				return 1
-
-	else if ((istype(W, /obj/item/device/analyzer)) && Adjacent(user))
-		var/obj/item/device/analyzer/A = W
-		A.analyze_gases(src, user)
-		return 1
-	return 0
-
-/mob/living/hit_with_weapon(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
-	user.Airattackby(I,src)
-	..(I,user,effective_force,hit_zone)
+				return 0
+	else return 0
+	//else if ((istype(W, /obj/item/device/analyzer)) && Adjacent(user))
+	//	var/obj/item/device/analyzer/A = W
+	//	A.analyze_gases(src, user)
+	//	return 1
+	//return 0
