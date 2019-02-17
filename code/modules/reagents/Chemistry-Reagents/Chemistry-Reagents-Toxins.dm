@@ -401,7 +401,9 @@
 
 /datum/reagent/mutagen/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
-		M.monkeyize()//CHOMPEDIT: Primal forms!
+		if(istype(M,/mob/living/carbon/human))
+			var/mob/living/carbon/human/h = M
+			h.monkeyize()//CHOMPEDIT: Primal forms!
 
 /datum/reagent/mutagen/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(67))
