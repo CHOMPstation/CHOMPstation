@@ -100,9 +100,10 @@
 					return 0
 			else
 				return 0
-	else return 0
-	//else if ((istype(W, /obj/item/device/analyzer)) && Adjacent(user))
-	//	var/obj/item/device/analyzer/A = W
-	//	A.analyze_gases(src, user)
-	//	return 1
-	//return 0
+	else if ((istype(W, /obj/item/device/analyzer)) && Adjacent(user))
+		var/obj/item/device/analyzer/A = W
+		A.analyze_gases(src, user)
+		return 1
+	return 0
+/mob/proc/atmosanalyze(var/mob/user)
+	return atmosanalyzer_scan(src, src.air_contents, user)
