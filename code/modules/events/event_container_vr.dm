@@ -78,6 +78,8 @@
 		// Pure RP fun, no mechanical effects.
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Ion Storm",				/datum/event/ionstorm, 					-50,	list(ASSIGNMENT_AI = 200, ASSIGNMENT_CYBORG = 100, ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_SCIENTIST = 5), 0),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Shower",			/datum/event/meteor_wave,				-15,	list(ASSIGNMENT_ENGINEER = 5), 1),
+		//New CHOMPStation event. Mice grow into rats.
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Mutants",					/datum/event/mutants,					0,		list(ASSIGNMENT_SECURITY = 50, ASSIGNMENT_ENGINEER = 50), 1),
 		// Opens doors in brig.  So just RP fun
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Prison Break",				/datum/event/prison_break,				-50,	list(ASSIGNMENT_SECURITY = 30, ASSIGNMENT_ENGINEER = 50), 1),
 		// Not bad (dorms are shielded) but inconvenient
