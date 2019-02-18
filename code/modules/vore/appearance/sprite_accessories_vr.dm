@@ -705,6 +705,11 @@
 	desc = ""
 	icon_state = "beethorax"
 
+/datum/sprite_accessory/tail/beethorax_color
+	name = "bee thorax (colorable)"
+	desc = ""
+	icon_state = "beethorax2"
+
 /datum/sprite_accessory/tail/doublekitsune
 	name = "double kitsune tail, colorable"
 	desc = ""
