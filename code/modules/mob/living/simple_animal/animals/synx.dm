@@ -359,7 +359,6 @@ mob/living/simple_animal/synx/PunchTarget()
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 
 /mob/living/simple_animal/retaliate/synx/proc/bikehorn()
-	src.say("Honk!")
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 	
 /mob/living/simple_animal/retaliate/synx/pet/holo/death()
