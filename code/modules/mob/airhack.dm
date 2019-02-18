@@ -9,6 +9,9 @@
 
 	var/start_pressure = ONE_ATMOSPHERE
 	var/maximum_pressure = 90 * ONE_ATMOSPHERE
+	var/inflatable = 1
+/mob/living
+	inflatable= 0
 /mob/New()
 	..()
 
@@ -80,6 +83,8 @@
 		network.update = 1
 
 /mob/proc/Airattackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+	if(src.inflatable == 0)
+		return 0
 	if (istype(W, /obj/item/weapon/wrench))
 		if(connected_port)
 			disconnect()
@@ -105,5 +110,14 @@
 		A.analyze_gases(src, user)
 		return 1
 	return 0
+
 /mob/proc/atmosanalyze(var/mob/user)
 	return atmosanalyzer_scan(src, src.air_contents, user)
+
+/datum/trait/inflatable
+	name = "Inflatable"
+	desc = "You were born with an unusual ability to store air like a portable canister"
+	cost = 0
+/datum/trait/inflatable/apply(var/datum/species/S,var/mob/living/carbon/human/H)
+	H.inflatable = 1
+	..(S,H)
