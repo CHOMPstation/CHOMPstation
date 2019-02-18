@@ -263,9 +263,14 @@
 	containertype = /obj/structure/closet/crate
 	containername = "Saddlebags crate"
 
+//EGG
 /obj/structure/closet/secure_closet/egg/shark/secret
 	name = "Secret Egg"
 	desc = "There is no yolk"
+
+/obj/structure/closet/secure_closet/egg/shark/secret/initialize()
+	starts_with = list(pick(/obj/item/clothing/head/wiggler;0.1,/obj/structure/closet/secure_closet/egg/shark;0.9))
+	return ..()
 
 /datum/supply_packs/costumes/wiggler
 	name = "Secret Egg"
