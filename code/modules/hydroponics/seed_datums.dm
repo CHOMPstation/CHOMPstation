@@ -615,7 +615,7 @@
 	name = "peanut"
 	seed_name = "peanut"
 	display_name = "peanut vines"
-	chems = list("nutriment" = list(1,10))
+	chems = list("nutriment" = list(1,10),"nutbutter" = list(1,10))
 
 /datum/seed/peanuts/New()
 	..()

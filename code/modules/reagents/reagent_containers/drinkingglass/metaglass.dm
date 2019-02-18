@@ -563,3 +563,6 @@ Drinks Data
 	
 /datum/reagent/toxin/oilslide
 	glass_icon_state = "oilslide"
+	
+/datum/reagent/ethanol/sitonmyface
+	glass_icon_state = "sitonmyface"
