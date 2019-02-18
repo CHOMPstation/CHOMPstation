@@ -709,6 +709,7 @@
 	name = "bee thorax (colorable)"
 	desc = ""
 	icon_state = "beethorax2"
+	do_colouration = 1
 
 /datum/sprite_accessory/tail/doublekitsune
 	name = "double kitsune tail, colorable"
