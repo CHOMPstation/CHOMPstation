@@ -35,6 +35,8 @@
 	return(BRUTELOSS)
 //CHOMPEDIT CHAPLAIN SWORD OF ~~The honkmother~~
 /obj/item/weapon/material/sword/chaplain
+	name = "chaplains claymore"
+	desc = "There can only honk one!"
 	force_divisor = 0.0
 	thrown_force_divisor = 0.0
 	sharp = 0
