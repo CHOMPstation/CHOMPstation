@@ -75,7 +75,7 @@
 			overlays += stampoverlay
 
 /obj/item/weapon/paperplane/attack_self(mob/user)
-	clear_mobs()
+	clear_mobs(user)
 	to_chat(user, "<span class='notice'>You unfold [src].</span>")
 	var/atom/movable/internal_paper_tmp = internalPaper
 	internal_paper_tmp.forceMove(loc)
