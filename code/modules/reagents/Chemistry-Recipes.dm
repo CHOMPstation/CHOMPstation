@@ -2332,7 +2332,7 @@
 	name = "Sit on my face"
 	id = "sitonmyface"
 	result = "sitonmyface"
-	required_reagents = list("kahlua" = 1, "irish_cream" = 1, "nutbutter" = 1)
+	required_reagents = list("kahlua" = 1, "irishcream" = 1, "nutbutter" = 1)
 	result_amount = 3
 
 //R-UST Port
