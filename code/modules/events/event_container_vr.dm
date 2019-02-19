@@ -43,7 +43,7 @@
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Shipping Error",	/datum/event/shipping_error	, 	30, 	list(ASSIGNMENT_ANY = 2), 0),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Supply Demand",		/datum/event/supply_demand,		-15,	list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_MEDICAL = 5), 1),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Trivial News",		/datum/event/trivial_news, 		400),
-		// Spawns mice, lizards, or dud spiderlings
+		// Spawns mice, lizards, or dud spiderlings //Dud spiderlings HAHAHAHAHAHAH no. No they are not duds. Have fun without security. The Janitor will mop them to death.
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Vermin Infestation",/datum/event/infestation, 		100,	list(ASSIGNMENT_JANITOR = 100), 1),
 		// Rot only weakens walls, not destroy them
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot",			/datum/event/wallrot, 			30,		list(ASSIGNMENT_ENGINEER = 30, ASSIGNMENT_GARDENER = 50), 1),
@@ -78,6 +78,8 @@
 		// Pure RP fun, no mechanical effects.
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Ion Storm",				/datum/event/ionstorm, 					-50,	list(ASSIGNMENT_AI = 200, ASSIGNMENT_CYBORG = 100, ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_SCIENTIST = 5), 0),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Shower",			/datum/event/meteor_wave,				-15,	list(ASSIGNMENT_ENGINEER = 5), 1),
+		//New CHOMPStation event. Mice grow into rats.
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Mutants",					/datum/event/mutants,					0,		list(ASSIGNMENT_ANY = 1, ASSIGNMENT_SECURITY = 50), 1),
 		// Opens doors in brig.  So just RP fun
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Prison Break",				/datum/event/prison_break,				-50,	list(ASSIGNMENT_SECURITY = 30, ASSIGNMENT_ENGINEER = 50), 1),
 		// Not bad (dorms are shielded) but inconvenient

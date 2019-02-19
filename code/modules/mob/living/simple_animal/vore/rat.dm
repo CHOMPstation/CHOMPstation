@@ -160,6 +160,7 @@
 	..()
 
 /mob/living/simple_animal/hostile/rat/event
-	maxHealth = 60
-	health = 60
+	maxHealth = 50
+	health = 50
+	speed = 4
 	vore_pounce_chance = 1

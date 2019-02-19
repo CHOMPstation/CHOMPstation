@@ -8,19 +8,18 @@
 #define LOC_TECH 7
 #define LOC_GARDEN 8
 
-#define VERM_MICE 0
-#define VERM_LIZARDS 1
-#define VERM_SPIDERS 2
+#define VERM_RATS 0
+#define VERM_LIZARDMEN 1
 
-/datum/event/infestation
-	announceWhen = 10
-	endWhen = 11
+/datum/event/mutants
+	announceWhen = 25
+	endWhen = 26
 	var/location
 	var/locstring
 	var/vermin
 	var/vermstring
 
-/datum/event/infestation/start()
+/datum/event/mutants/start()
 
 	location = rand(0,8)
 	var/list/turf/simulated/floor/turfs = list()
@@ -64,37 +63,27 @@
 	var/max_number
 	vermin = rand(0,2)
 	switch(vermin)
-		if(VERM_MICE)
-			spawn_types = list(/mob/living/simple_animal/mouse)
-			max_number = 12
-			vermstring = "mice"
-		if(VERM_LIZARDS)
+		if(VERM_RATS)
+			spawn_types = list(/mob/living/simple_animal/mouse/event)
+			max_number = 6
+			vermstring = "mutant mice"
+		if(VERM_LIZARDMEN)
 			spawn_types = list(/mob/living/simple_animal/lizard)
 			max_number = 6
-			vermstring = "lizards"
-		if(VERM_SPIDERS)
-			spawn_types = list(/obj/effect/spider/spiderling)
-//			rand(2,8) //Not sure if this would work instead
-			max_number = 8
-			vermstring = "spiders"
-
+			vermstring = "mutant lizards"
+			
 	spawn(0)
 		var/num = rand(2,max_number)
 		while(turfs.len > 0 && num > 0)
 			var/turf/simulated/floor/T = pick(turfs)
 			turfs.Remove(T)
 			num--
-
-			if(vermin == VERM_SPIDERS)
-				var/obj/effect/spider/spiderling/S = new(T)
-				S.amount_grown = 0
-			else
-				var/spawn_type = pick(spawn_types)
-				new spawn_type(T)
+			var/spawn_type = pick(spawn_types)
+			new spawn_type(T)
 
 
-/datum/event/infestation/announce()
-	command_announcement.Announce("Bioscans indicate that [vermstring] have been breeding in [locstring]. Clear them out, before this starts to affect productivity.", "Vermin infestation")
+/datum/event/mutants/announce()
+	command_announcement.Announce("Bioscans indicate... What are those? It looks like [vermstring] have been breeding in [locstring]. Clear them out, just in case.", "Vermin infestation")
 
 #undef LOC_KITCHEN
 #undef LOC_ATMOS
