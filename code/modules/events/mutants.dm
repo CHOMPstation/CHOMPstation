@@ -61,14 +61,14 @@
 
 	var/list/spawn_types = list()
 	var/max_number
-	vermin = rand(0,2)
+	vermin = rand(0,1)
 	switch(vermin)
 		if(VERM_RATS)
 			spawn_types = list(/mob/living/simple_animal/mouse/event)
 			max_number = 6
 			vermstring = "mutant mice"
 		if(VERM_LIZARDMEN)
-			spawn_types = list(/mob/living/simple_animal/lizard)
+			spawn_types = list(/mob/living/simple_animal/lizard/event)
 			max_number = 6
 			vermstring = "mutant lizards"
 			
