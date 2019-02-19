@@ -2328,6 +2328,13 @@
 	required_reagents = list("moonshine" = 1, "lube" = 1, "fuel" = 1)
 	result_amount = 3
 	
+/datum/chemical_reaction/drinks/sitonmyface
+	name = "Sit on my face"
+	id = "sitonmyface"
+	result = "sitonmyface"
+	required_reagents = list("kahlua" = 1, "irish_cream" = 1, "nutbutter" = 1)
+	result_amount = 3
+
 //R-UST Port
 /datum/chemical_reaction/hyrdophoron
 	name = "Hydrophoron"

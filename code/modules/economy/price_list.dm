@@ -393,6 +393,9 @@
 /datum/reagent/toxin/oilslide
 	price_tag = 5
 	
+/datum/reagent/ethanol/sitonmyface
+	price_tag = 4
+	
 // The Cheap Shit //
 
 /datum/reagent/ethanol/hooch

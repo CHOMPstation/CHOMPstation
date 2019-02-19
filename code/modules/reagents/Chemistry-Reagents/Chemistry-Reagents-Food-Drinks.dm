@@ -705,6 +705,16 @@
 	glass_name = "watermelon juice"
 	glass_desc = "Delicious juice made from watermelon."
 
+/datum/reagent/drink/juice/nutbutter
+	name = "Peanut paste"
+	id = "nutbutter"
+	description = "Raw extracts from peanuts, got a creamy nutty flavour."
+	taste_description = "peanut extract"
+	color = "#853333"
+
+	glass_name = "Peanut paste"
+	glass_desc = "Raw extracts from peanuts, got a creamy nutty flavour."
+	
 // Everything else
 
 /datum/reagent/drink/milk
@@ -3260,3 +3270,13 @@
 	glass_name = "oilslide"
 	glass_desc = "Tasty, if you're a synth, not so much for organics."
 	
+/datum/reagent/ethanol/sitonmyface
+	name = "Sit on my face"
+	id = "sitonmyface"
+	description = "A drink made of irish coffee and nuts, mostly known for its vulgar name. Makes for a great pickup line though!"
+	taste_description = "creamy coffee and alcohol, and nuts"
+	color = "#896750"
+	strength = 15
+
+	glass_name = "Sit on my face"
+	glass_desc = "A drink made of irish coffee and nuts, mostly known for its vulgar name. Makes for a great pickup line though!"
