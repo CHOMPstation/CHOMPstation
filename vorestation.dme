@@ -1898,6 +1898,7 @@
 #include "code\modules\mining\orm_vr\construction.dm"
 #include "code\modules\mining\orm_vr\equipment_vendor.dm"
 #include "code\modules\mining\orm_vr\mine_point_items.dm"
+#include "code\modules\mob\airhack.dm"
 #include "code\modules\mob\animations.dm"
 #include "code\modules\mob\death.dm"
 #include "code\modules\mob\emote.dm"
