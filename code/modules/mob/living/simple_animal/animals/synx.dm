@@ -146,10 +146,13 @@ mob/living/simple_animal/synx/PunchTarget()
 //////////////////////////////////////////////////////////////////////////////////////
 
 /datum/seed/hardlightseed/typesx //Respawn mechanism for the synx
-	name = "Type-SX Hardlight Generator"
-	seed_name = "Biomechanical Hardlight generator seed SX"
-	display_name = "Biomechanical Hardlight stem SX"//PLant that is part mechanical part biological
+	name = "hardlightseedsx"
+	seed_name = "hardlightseedsx"
+	display_name = "Biomechanical Hardlight Generator SX"//PLant that is part mechanical part biological
 	has_mob_product = /mob/living/simple_animal/retaliate/synx/pet/holo
+
+/obj/item/seeds/hardlightseed/typesx
+	seed_type = "hardlightseedsx"
 
 /datum/reagent/inaprovaline/synxchem
 	name = "Alien nerveinhibitor"
@@ -360,18 +363,19 @@ mob/living/simple_animal/synx/PunchTarget()
 
 /mob/living/simple_animal/retaliate/synx/proc/bikehorn()
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
-	
+
+//HOLOSEEDSPAWNCODE
 /mob/living/simple_animal/retaliate/synx/pet/holo/death()
 	..()
 	visible_message("<span class='notice'>\The [src] fades away!</span>")
 	var/location = get_turf(src)
-	new /datum/seed/hardlightseed/typesx(location)
+	new /obj/item/seeds/hardlightseed/typesx(location)
 	qdel(src)
 	
 /mob/living/simple_animal/retaliate/synx/pet/holo/gib()
 	visible_message("<span class='notice'>\The [src] fades away!</span>")
 	var/location = get_turf(src)
-	new /datum/seed/hardlightseed/typesx(location)
+	new /obj/item/seeds/hardlightseed/typesx(location)
 	qdel(src)
 
 ////////////////////////////////////////
