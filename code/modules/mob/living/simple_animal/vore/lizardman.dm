@@ -9,6 +9,7 @@
 
 	maxHealth = 50
 	health = 50
+	speed = 4
 
 	investigates = TRUE
 	melee_damage_lower = 5
