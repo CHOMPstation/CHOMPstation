@@ -346,7 +346,10 @@ mob/living/simple_animal/synx/PunchTarget()
 		speak -= (pick(speak))//making the list more dynamic
 	if(resting)
 		resting = !resting
+	if(message=="Honk!")
+		bikehorn()
 
+//HONKMOTHER Code.
 /mob/living/simple_animal/retaliate/synx/proc/honk()
 	set name = "HONK"
 	set desc = "TAAA RAINBOW"
@@ -354,12 +357,23 @@ mob/living/simple_animal/synx/PunchTarget()
 	icon_state = "synx_pet_rainbow"
 	icon_living = "synx_pet_rainbow"
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
+
+/mob/living/simple_animal/retaliate/synx/proc/bikehorn()
+	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 	
 /mob/living/simple_animal/retaliate/synx/pet/holo/death()
 	..()
+	visible_message("<span class='notice'>\The [src] fades away!</span>")
 	var/location = get_turf(src)
 	new /datum/seed/hardlightseed/typesx(location)
 	qdel(src)
+	
+/mob/living/simple_animal/retaliate/synx/pet/holo/gib()
+	visible_message("<span class='notice'>\The [src] fades away!</span>")
+	var/location = get_turf(src)
+	new /datum/seed/hardlightseed/typesx(location)
+	qdel(src)
+
 ////////////////////////////////////////
 ////////////////SYNX VARIATIONS/////////
 ////////////////////////////////////////
@@ -374,11 +388,11 @@ mob/living/simple_animal/synx/PunchTarget()
 	icon_gib = null
 	alpha = 127
 	speak = list("SX System Online")
-	faction = "Station"//Can be safely bapped with newspaper.
+	faction = "station"//Can be safely bapped with newspaper.
 	melee_damage_lower = 0 //Holos do no damage
 	melee_damage_upper = 0
-	environment_smash = 0
-	destroy_surroundings = 0
+	meat_amount = 0
+	meat_type = null
 	//Vore Section
 	vore_default_mode = DM_HEAL
 	vore_capacity = 2
@@ -387,10 +401,6 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_bump_chance = 0 //lowered bump chance
 	vore_escape_chance = 30 //Much higher escape chance.. it's a hologram.
 	swallowTime = 10 SECONDS //Much more time to run
-
-/mob/living/simple_animal/retaliate/synx/pet/holo/New()
-	set_light(3, 3, "#CC00CC") //hologram lighting
-
 
 /mob/living/simple_animal/retaliate/synx/pet/greed
 	//var/GREED_LIVING = "synx_greed_living"
