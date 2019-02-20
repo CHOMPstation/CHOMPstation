@@ -49,10 +49,15 @@
 
 /mob/living/simple_animal/hostile/scarybat/New(loc, mob/living/L as mob)
 	..()
-	if(prob(30))//30% should be nice for a tiny bonus of silver, at least gives fighting mobs more purpose
-		contents += "/obj/item/weapon/ore/silver" //CHOMP EDIT: Random chance for bats to carry silver
 	if(istype(L))
 		owner = L
+
+/mob/living/simple_animal/hostile/scarybat/death()
+	..()
+	if(prob(40))
+		visible_message("<span class='notice'>\The [src] dropped some ore!</span>")
+		var/location = get_turf(src)
+		new /obj/item/weapon/ore/silver(location)//CHOMP EDIT: Random chance for bats to carry silver
 
 /mob/living/simple_animal/hostile/scarybat/Process_Spacemove(var/check_drift = 0)
 	return ..()
