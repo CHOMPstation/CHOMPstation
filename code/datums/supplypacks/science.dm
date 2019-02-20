@@ -5,14 +5,6 @@
 /datum/supply_packs/sci
 	group = "Science"
 
-/datum/supply_packs/sci/virus
-	name = "Virus sample crate"
-	contains = list(/obj/item/weapon/virusdish/random = 4)
-	cost = 25
-	containertype = "/obj/structure/closet/crate/secure"
-	containername = "Virus sample crate"
-	access = access_cmo
-
 /datum/supply_packs/sci/coolanttank
 	name = "Coolant tank crate"
 	contains = list(/obj/structure/reagent_dispensers/coolanttank)
