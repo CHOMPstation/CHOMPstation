@@ -22,3 +22,27 @@
 
 	speak_chance = 1
 	speak_emote = list("hisses")
+	var/amount_grown = 0
+
+	
+	
+/mob/living/simple_animal/lizard/event
+	desc = "This one looks like it is growing huge!"
+	
+/mob/living/simple_animal/lizard/event/Life()
+	. = ..()
+	if(amount_grown >= 0)
+		amount_grown += rand(0,2)
+	if(amount_grown >= 100)
+		lizardman()
+		return
+
+/mob/living/simple_animal/lizard/event/proc/lizardman()
+	visible_message("<span class='warning'>\The [src] suddenly evolves!</span>")
+	if(prob(99.999))
+		new /mob/living/simple_animal/hostile/lizardman(get_turf(src))
+		qdel(src)
+	else	
+		new /mob/living/simple_animal/hostile/deathclaw(get_turf(src))
+		qdel(src)
+		
