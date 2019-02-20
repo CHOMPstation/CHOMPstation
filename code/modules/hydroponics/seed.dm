@@ -731,6 +731,8 @@
 			//Handle spawning in living, mobile products (like dionaea).
 			if(istype(product,/mob/living))
 				product.visible_message("<span class='notice'>The pod disgorges [product]!</span>")
+				if(istype(product,/mob/living/simple_animal/retaliate/synx)) //CHOMPEDIT trying to make it not kill synxes
+					return
 				handle_living_product(product)
 
 // When the seed in this machine mutates/is modified, the tray seed value
