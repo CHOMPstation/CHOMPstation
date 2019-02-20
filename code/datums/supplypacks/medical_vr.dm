@@ -14,6 +14,14 @@
 			)
 	cost = 40
 
+/datum/supply_packs/med/virus
+	name = "Virus sample crate"
+	contains = list(/obj/item/weapon/virusdish/random = 4)
+	cost = 25
+	containertype = "/obj/structure/closet/crate/secure"
+	containername = "Virus sample crate"
+	access = access_virology
+
 /datum/supply_packs/med/virologybiosuits
 	name = "Virology biohazard gear"
 	contains = list(
