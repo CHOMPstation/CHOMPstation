@@ -6,6 +6,7 @@
 	icon_state = "lizardman"
 	icon_living = "lizardman"
 	icon_dead = "lizardman-dead"
+	faction = "lizard"
 
 	maxHealth = 50
 	health = 50
