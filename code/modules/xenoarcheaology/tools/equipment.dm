@@ -18,7 +18,6 @@
 	icon_state = "cespace_suit"
 	item_state = "cespace_suit"
 	armor = list(melee = 50, bullet = 5, laser = 20, energy = 5, bomb = 0, bio = 100, rad = 100)
-	var/can_breach = 0
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit)
 	slowdown = 1
 
@@ -28,4 +27,10 @@
 	icon_state = "cespace_helmet"
 	item_state = "cespace_helmet"
 	armor = list(melee = 50, bullet = 5, laser = 20, energy = 5, bomb = 0, bio = 100, rad = 100)
-	var/can_breach = 0
+
+/obj/item/clothing/head/helmet/space/anomaly/New()
+	..()
+	can_breach = 0
+/obj/item/clothing/suit/space/anomaly/New()
+	..()
+	can_breach = 0
