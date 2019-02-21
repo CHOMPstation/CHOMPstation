@@ -578,8 +578,8 @@
 					else
 						source_turf.visible_message("<span class='notice'>\The [display_name]'s glow dims...</span>")
 				if(prob(10))
-						set_trait(TRAIT_PRODUCES_POWER, 1)
-						source_turf.visible_message("<span class='notice'>We got power!</span>")
+					set_trait(TRAIT_PRODUCES_POWER, 1)
+					source_turf.visible_message("<span class='notice'>We got power!</span>")
 
 			if(11)
 				source_turf.visible_message("<span class='notice'>Mutation 11!</span>")
