@@ -1,6 +1,7 @@
 /mob/living/simple_animal/lizard
 	name = "Lizard"
 	desc = "A cute tiny lizard."
+	faction = "lizard"
 	tt_desc = "E Anolis cuvieri"
 	icon = 'icons/mob/critter.dmi'
 	icon_state = "lizard"
@@ -33,7 +34,7 @@
 	. = ..()
 	if(amount_grown >= 0)
 		amount_grown += rand(0,2)
-	if(amount_grown >= 100)
+	if(amount_grown >= 100 && icon_state != icon_dead)
 		lizardman()
 		return
 
