@@ -17,7 +17,8 @@
 	desc = "A pressure resistant excavation suit partially capable of insulating against exotic alien energies."
 	icon_state = "cespace_suit"
 	item_state = "cespace_suit"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 100)
+	armor = list(melee = 50, bullet = 5, laser = 20, energy = 5, bomb = 0, bio = 100, rad = 100)
+	can_breach = 0
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit)
 	slowdown = 1
 
@@ -26,4 +27,5 @@
 	desc = "A pressure resistant excavation hood partially capable of insulating against exotic alien energies."
 	icon_state = "cespace_helmet"
 	item_state = "cespace_helmet"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 100)
+	armor = list(melee = 50, bullet = 5, laser = 20, energy = 5, bomb = 0, bio = 100, rad = 100)
+	can_breach = 0
