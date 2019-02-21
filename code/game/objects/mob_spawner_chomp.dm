@@ -20,7 +20,7 @@
 		/mob/living/simple_animal/hostile/goose = 60,
 		/mob/living/simple_animal/retaliate/bee = 50,
 		/mob/living/simple_animal/hostile/metroid/mine = 20,
-	)
+	) 
 
 /obj/structure/mob_spawner/scanner/mining_animals/do_spawn(var/mob_path)
 	if(!ispath(mob_path))
