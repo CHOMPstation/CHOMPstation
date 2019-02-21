@@ -43,3 +43,16 @@
 /mob/living/simple_animal/retaliate/bee
 	vore_active = 1
 	vore_icons = SA_ICON_LIVING
+
+
+//CHOMPEDIT Hook in for loot drop code.
+/mob/living/simple_animal/retaliate/bee/death()
+	..()
+	if(prob(50))
+		visible_message("<span class='notice'>\The [src] dropped some ore!</span>")
+		var/location = get_turf(src)
+		new /obj/item/weapon/ore/iron(location)
+	if(prob(20))
+		visible_message("<span class='notice'>\The [src] dropped some ore!</span>")
+		var/location = get_turf(src)
+		new /obj/item/weapon/ore/silver(location)
