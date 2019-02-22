@@ -44,7 +44,8 @@
 	update_icon()
 	return
 //Gonna turn these procs into a list to pic from instead later since letting people choose this much is silly
-/obj/item/clothing/suit/space/rig/override/rename2() //Possible making Override suit into a protofursuit that can turn into any
+//Possible making Override suit into a protofursuit that can turn into any
+/obj/item/clothing/suit/space/rig/override/rename2()
 	set name = "Change icon"
 	set category = "Abilities"
 	set src in usr
