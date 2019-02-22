@@ -27,6 +27,23 @@
 	//modular setup
 	req_access = list()
 	initial_modules = list()
+	var/thingamount = 1
+
+/obj/item/weapon/rig/override/New()
+	..()
+	verbs +=  /obj/item/weapon/rig/override/proc/honk()
+	
+/obj/item/weapon/rig/override/proc/makething()
+	set name = "Dispense Cooling unit"
+	set desc = "Yeah so like this makes a cooling unit"
+	set category = "Hardsuit"
+	var/location = get_turf(src)
+	if(thingamount)
+		new /obj/item/device/suit_cooling_unit(location)
+		thingamount=!thingamount
+	else
+		src << "<span class='notice'>There are no units left in this dispenser.</span>"
+	
 
 /obj/item/clothing/suit/space/rig/override
 	species_restricted = list(SPECIES_UNATHI) //to be refined~
