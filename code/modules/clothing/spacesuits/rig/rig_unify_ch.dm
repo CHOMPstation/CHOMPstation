@@ -34,9 +34,12 @@
 
 /obj/item/weapon/rig/override/New()
 	..()
-	verbs += /obj/item/weapon/rig/override/proc/makething()
-	verbs += /obj/item/clothing/suit/space/rig/override/proc/rename()
-	verbs += /obj/item/clothing/suit/space/rig/override/proc/rename2()
+	verbs |= /obj/item/weapon/rig/override/proc/makething()
+
+/obj/item/clothing/suit/space/rig/override/New()
+	..()
+	verbs |= /obj/item/clothing/suit/space/rig/override/proc/rename()
+	verbs |= /obj/item/clothing/suit/space/rig/override/proc/rename2()
 	
 /obj/item/clothing/suit/space/rig/override/proc/rename() //Possible making Override suit into a protofursuit that can turn into any
 	set name = "Change icon"
