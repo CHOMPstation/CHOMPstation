@@ -1581,6 +1581,7 @@
 #include "code\modules\clothing\spacesuits\rig\suits\merc.dm"
 #include "code\modules\clothing\spacesuits\rig\suits\station.dm"
 #include "code\modules\clothing\spacesuits\rig\suits\station_vr.dm"
+#include "code\modules\clothing\spacesuits\rig\rig_unify_ch.dm"
 #include "code\modules\clothing\spacesuits\void\merc.dm"
 #include "code\modules\clothing\spacesuits\void\military_vr.dm"
 #include "code\modules\clothing\spacesuits\void\station.dm"
