@@ -29,6 +29,9 @@
 	initial_modules = list()
 	var/thingamount = 1
 
+	//Gonna turn these procs into a list to pic from instead later since letting people choose this much is silly
+	//Possible making Override suit into a protofursuit that can turn into any
+
 /obj/item/weapon/rig/override/New()
 	..()
 	verbs += /obj/item/weapon/rig/override/proc/makething()
@@ -43,8 +46,7 @@
 	item_state = n_name
 	update_icon()
 	return
-//Gonna turn these procs into a list to pic from instead later since letting people choose this much is silly
-//Possible making Override suit into a protofursuit that can turn into any
+
 /obj/item/clothing/suit/space/rig/override/rename2()
 	set name = "Change icon"
 	set category = "Abilities"
