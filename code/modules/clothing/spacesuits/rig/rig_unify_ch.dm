@@ -29,6 +29,7 @@
 	initial_modules = list()
 
 /obj/item/clothing/suit/space/rig/override
+	species_restricted = list(SPECIES_UNATHI) //to be refined~
 	icon_override = 'icons/obj/rig_override_modules.dmi'
 	item_state = "override_worn_suit"
 	sprite_sheets = list(
