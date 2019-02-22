@@ -28,19 +28,75 @@
 	initial_modules = list()
 
 /obj/item/clothing/suit/space/rig/override
+	sprite_sheets = list(
+		SPECIES_TAJ 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_SKRELL 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_UNATHI 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_NEVREAN			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_AKULA 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_SERGAL			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_ZORREN_FLAT		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_ZORREN_HIGH	 	= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_VULPKANI 		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_PROMETHEAN		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_XENOHYBRID		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_VOX 			= 'icons/obj/rig_override_modules.dmi',
+		)
 	icon_state = "override_rig_suit" //this is experimental
 	name = "suit"
 	breach_threshold = 0
 	
 /obj/item/clothing/head/helmet/space/rig/override
+	sprite_sheets = list(
+		SPECIES_TAJ 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_SKRELL 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_UNATHI 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_NEVREAN			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_AKULA 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_SERGAL			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_ZORREN_FLAT		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_ZORREN_HIGH	 	= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_VULPKANI 		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_PROMETHEAN		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_XENOHYBRID		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_VOX 			= 'icons/obj/rig_override_modules.dmi',
+		)
 	icon_state = "override_rig_hood" //this is experimental
 	name = "hood"
 	
 /obj/item/clothing/shoes/magboots/rig/override
+	sprite_sheets = list(
+		SPECIES_TAJ 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_SKRELL 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_UNATHI 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_NEVREAN			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_AKULA 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_SERGAL			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_ZORREN_FLAT		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_ZORREN_HIGH	 	= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_VULPKANI 		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_PROMETHEAN		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_XENOHYBRID		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_VOX 			= 'icons/obj/rig_override_modules.dmi',
+		)
 	icon_state = "override_rig_boots" //this is experimental
 	name = "shoes"
 	step_volume_mod = 1
 	
 /obj/item/clothing/gloves/gauntlets/rig/override
+	sprite_sheets = list(
+		SPECIES_TAJ 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_SKRELL 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_UNATHI 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_NEVREAN			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_AKULA 			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_SERGAL			= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_ZORREN_FLAT		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_ZORREN_HIGH	 	= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_VULPKANI 		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_PROMETHEAN		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_XENOHYBRID		= 'icons/obj/rig_override_modules.dmi',
+		SPECIES_VOX 			= 'icons/obj/rig_override_modules.dmi',
+		)
 	icon_state = "override_rig_gauntlets" //this is experimental
 	name = "gloves"
