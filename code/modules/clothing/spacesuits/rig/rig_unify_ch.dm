@@ -4,6 +4,7 @@
 //This will be the groundwork for mechanical Fursuits
 
 /obj/item/weapon/rig/override
+	icon_override = 'icons/obj/rig_override_modules.dmi'
 	name = "override control module"
 	desc = "A Prototype suit not made for space, not made for combat, basically an expensive toy."
 	icon = 'icons/obj/rig_override_modules.dmi' //the look of the module itself
@@ -28,6 +29,8 @@
 	initial_modules = list()
 
 /obj/item/clothing/suit/space/rig/override
+	icon_override = 'icons/obj/rig_override_modules.dmi'
+	item_state = "override_worn_suit"
 	sprite_sheets = list(
 		SPECIES_TAJ 			= 'icons/obj/rig_override_modules.dmi',
 		SPECIES_SKRELL 			= 'icons/obj/rig_override_modules.dmi',
@@ -42,11 +45,14 @@
 		SPECIES_XENOHYBRID		= 'icons/obj/rig_override_modules.dmi',
 		SPECIES_VOX 			= 'icons/obj/rig_override_modules.dmi',
 		)
+	icon = 'icons/obj/rig_override_modules.dmi'
 	icon_state = "override_rig_suit" //this is experimental
 	name = "suit"
 	breach_threshold = 0
 	
 /obj/item/clothing/head/helmet/space/rig/override
+	icon_override = 'icons/obj/rig_override_modules.dmi'
+	item_state = "override_worn_helmet"
 	sprite_sheets = list(
 		SPECIES_TAJ 			= 'icons/obj/rig_override_modules.dmi',
 		SPECIES_SKRELL 			= 'icons/obj/rig_override_modules.dmi',
@@ -61,10 +67,13 @@
 		SPECIES_XENOHYBRID		= 'icons/obj/rig_override_modules.dmi',
 		SPECIES_VOX 			= 'icons/obj/rig_override_modules.dmi',
 		)
+	icon = 'icons/obj/rig_override_modules.dmi'
 	icon_state = "override_rig_hood" //this is experimental
 	name = "hood"
 	
 /obj/item/clothing/shoes/magboots/rig/override
+	item_state = "override_worn_boots"
+	icon_override = 'icons/obj/rig_override_modules.dmi'
 	sprite_sheets = list(
 		SPECIES_TAJ 			= 'icons/obj/rig_override_modules.dmi',
 		SPECIES_SKRELL 			= 'icons/obj/rig_override_modules.dmi',
@@ -79,11 +88,14 @@
 		SPECIES_XENOHYBRID		= 'icons/obj/rig_override_modules.dmi',
 		SPECIES_VOX 			= 'icons/obj/rig_override_modules.dmi',
 		)
+	icon = 'icons/obj/rig_override_modules.dmi'
 	icon_state = "override_rig_boots" //this is experimental
 	name = "shoes"
 	step_volume_mod = 1
 	
 /obj/item/clothing/gloves/gauntlets/rig/override
+	item_state = "override_worn_gauntlets"
+	icon_override = 'icons/obj/rig_override_modules.dmi'
 	sprite_sheets = list(
 		SPECIES_TAJ 			= 'icons/obj/rig_override_modules.dmi',
 		SPECIES_SKRELL 			= 'icons/obj/rig_override_modules.dmi',
@@ -98,5 +110,6 @@
 		SPECIES_XENOHYBRID		= 'icons/obj/rig_override_modules.dmi',
 		SPECIES_VOX 			= 'icons/obj/rig_override_modules.dmi',
 		)
+	icon = 'icons/obj/rig_override_modules.dmi'
 	icon_state = "override_rig_gauntlets" //this is experimental
 	name = "gloves"
