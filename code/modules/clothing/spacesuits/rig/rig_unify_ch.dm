@@ -31,7 +31,7 @@
 
 /obj/item/weapon/rig/override/New()
 	..()
-	verbs +=  /obj/item/weapon/rig/override/proc/honk()
+	verbs +=  /obj/item/weapon/rig/override/proc/makething()
 	
 /obj/item/weapon/rig/override/proc/makething()
 	set name = "Dispense Cooling unit"
