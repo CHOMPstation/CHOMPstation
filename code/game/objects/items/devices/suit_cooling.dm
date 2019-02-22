@@ -195,12 +195,12 @@
 		user << "It doesn't have a power cell installed."
 
 //CHOMPEDIT hey you wanna go out into space here i got you a spacesuit, even got a cooling module :) trust me friend.
-//Tampered Cooling unit, or also "Heating unit"
+//Tampered Cooling unit, or also "Heating unit" //this was the original intent, but i accidentally invented supra cooling
 /obj/item/device/suit_cooling_unit/tampered
 	name = "modified portable suit cooling unit"
 	origin_tech = list(TECH_MAGNET = 4, TECH_MATERIAL = 4)
-	max_cooling = 30 //doubled
-	thermostat = T20C*10 //tenfold
+	max_cooling = 10 
+	thermostat = T20C 
 	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's existing temperature controls to provide industrial levels of cooling. This ones panel seems a bit loose and wires are hanging out."
 
 /obj/item/device/suit_cooling_unit/tampered/process()
