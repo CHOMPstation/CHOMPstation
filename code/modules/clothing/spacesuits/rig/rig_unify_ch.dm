@@ -29,48 +29,6 @@
 	initial_modules = list()
 	var/thingamount = 1
 
-	//Gonna turn these procs into a list to pic from instead later since letting people choose this much is silly
-	//Possible making Override suit into a protofursuit that can turn into any
-
-/obj/item/weapon/rig/override/New()
-	..()
-	verbs |= /obj/item/weapon/rig/override/proc/makething()
-
-/obj/item/clothing/suit/space/rig/override/New()
-	..()
-	verbs |= /obj/item/clothing/suit/space/rig/override/proc/rename()
-	verbs |= /obj/item/clothing/suit/space/rig/override/proc/rename2()
-	
-/obj/item/clothing/suit/space/rig/override/proc/rename() //Possible making Override suit into a protofursuit that can turn into any
-	set name = "Change icon"
-	set category = "Abilities"
-	set src in usr
-	var/n_name = sanitizeSafe(input(usr, "What state would you like to swap to?", "Icon hotswap", null)  as text, MAX_NAME_LEN)
-	item_state = n_name
-	update_icon()
-	return
-
-/obj/item/clothing/suit/space/rig/override/proc/rename2()
-	set name = "Change icon"
-	set category = "Abilities"
-	set src in usr
-	var/n_name = sanitizeSafe(input(usr, "What dmi would you like to swap to?", "Icon hotswap", null)  as text, MAX_NAME_LEN)
-	icon_override = n_name
-	update_icon()
-	return
-
-/obj/item/weapon/rig/override/proc/makething()
-	set name = "Dispense Cooling unit"
-	set desc = "Yeah so like this makes a cooling unit"
-	set category = "Hardsuit"
-	var/location = get_turf(src)
-	if(thingamount)
-		new /obj/item/device/suit_cooling_unit(location)
-		thingamount=!thingamount
-	else
-		src << "<span class='notice'>There are no units left in this dispenser.</span>"
-	
-
 /obj/item/clothing/suit/space/rig/override
 	species_restricted = list(SPECIES_UNATHI) //to be refined~
 	icon_override = 'icons/obj/rig_override_modules.dmi'
