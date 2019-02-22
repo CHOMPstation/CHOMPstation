@@ -38,7 +38,7 @@
 	verbs += /obj/item/clothing/suit/space/rig/override/rename()
 	verbs += /obj/item/clothing/suit/space/rig/override/rename2()
 	
-/obj/item/clothing/suit/space/rig/override/rename()/ /Possible making Override suit into a protofursuit that can turn into any
+/obj/item/clothing/suit/space/rig/override/rename() //Possible making Override suit into a protofursuit that can turn into any
 	set name = "Change icon"
 	set category = "Abilities"
 	set src in usr
