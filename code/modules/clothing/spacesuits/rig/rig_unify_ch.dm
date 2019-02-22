@@ -31,8 +31,28 @@
 
 /obj/item/weapon/rig/override/New()
 	..()
-	verbs +=  /obj/item/weapon/rig/override/proc/makething()
+	verbs += /obj/item/weapon/rig/override/proc/makething()
+	verbs += /obj/item/clothing/suit/space/rig/override/rename()
+	verbs += /obj/item/clothing/suit/space/rig/override/rename2()
 	
+/obj/item/clothing/suit/space/rig/override/rename()/ /Possible making Override suit into a protofursuit that can turn into any
+	set name = "Change icon"
+	set category = "Abilities"
+	set src in usr
+	var/n_name = sanitizeSafe(input(usr, "What state would you like to swap to?", "Icon hotswap", null)  as text, MAX_NAME_LEN)
+	item_state = n_name
+	update_icon()
+	return
+//Gonna turn these procs into a list to pic from instead later since letting people choose this much is silly
+/obj/item/clothing/suit/space/rig/override/rename2() //Possible making Override suit into a protofursuit that can turn into any
+	set name = "Change icon"
+	set category = "Abilities"
+	set src in usr
+	var/n_name = sanitizeSafe(input(usr, "What dmi would you like to swap to?", "Icon hotswap", null)  as text, MAX_NAME_LEN)
+	icon_override = n_name
+	update_icon()
+	return
+
 /obj/item/weapon/rig/override/proc/makething()
 	set name = "Dispense Cooling unit"
 	set desc = "Yeah so like this makes a cooling unit"
