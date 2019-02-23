@@ -150,7 +150,7 @@
 	. = ..()
 	if(amount_grown >= 0)
 		amount_grown += rand(0,2)
-	if(amount_grown >= 100&& icon_state != icon_dead)
+	if(amount_grown >= 100 && icon_state != icon_dead)
 		rat()
 		return
 
