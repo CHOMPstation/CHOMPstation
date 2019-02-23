@@ -13,8 +13,7 @@
 	var/im_contacts_ui[0]			//List of communicators that have been messaged.
 	var/im_list_ui[0]				//List of messages.
 
-	var/weather[0]
-	var/injection = null
+	// var/weather[0] //Unneeded variable since there's no weather at all!
 	var/modules_ui[0]				//Home screen info.
 
 	//First we add other 'local' communicators.
@@ -68,7 +67,7 @@
 	for(var/I in im_list)
 		im_list_ui[++im_list_ui.len] = list("address" = I["address"], "to_address" = I["to_address"], "im" = I["im"])
 
-	//Weather reports.
+	/*//Weather reports.
 	if(planet_controller)
 		for(var/datum/planet/planet in planet_controller.planets)
 			if(planet.weather_holder && planet.weather_holder.current_weather)
@@ -80,9 +79,11 @@
 					"High" = planet.weather_holder.current_weather.temp_high - T0C,
 					"Low" = planet.weather_holder.current_weather.temp_low - T0C)
 				weather[++weather.len] = W
-
-	injection = "<div>Test</div>"
-
+	*/ //No planets with an atmosphere, doofus!
+	
+	// Update manifest
+	data_core.get_manifest_list()
+	
 	//Modules for homescreen.
 	for(var/list/R in modules)
 		modules_ui[++modules_ui.len] = R
@@ -107,19 +108,22 @@
 	data["ring"] = ringer
 	data["homeScreen"] = modules_ui
 	data["note"] = note					// current notes
-	data["weather"] = weather
+	//data["weather"] = weather //Unneeded portion: no planets with an atmosphere that HAS weather!
 	data["aircontents"] = src.analyze_air()
 	data["flashlight"] = fon
-	data["injection"] = injection
+	data["manifest"] = PDA_Manifest
 
 	// update the ui if it exists, returns null if no ui is passed/found
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
+		data["currentTab"] = 1 // Reset the current tab, because we're going to home page //TFF VOREStation port
 		ui = new(user, src, ui_key, "communicator.tmpl", "Communicator", 475, 700, state = key_state)
 		// add templates for screens in common with communicator.
 		ui.add_template("atmosphericScan", "atmospheric_scan.tmpl")
+		// TheFurryFeline: Adds Manifest listing
+		ui.add_template("crewManifest","crew_manifest.tmpl")
 		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)
 		// open the new ui window
@@ -244,6 +248,14 @@
 		else
 			note = ""
 			notehtml = note
+	if(href_list["switch_template"])
+		var/datum/nanoui/ui = nanomanager.get_open_ui(usr, src, "main")
+		if(ui)
+			switch(href_list["switch_template"])
+				if("1")
+					ui.reinitialise("communicator.tmpl")
+				if("2")
+					ui.reinitialise("comm2.tmpl")
 
 	if(href_list["Light"])
 		fon = !fon
