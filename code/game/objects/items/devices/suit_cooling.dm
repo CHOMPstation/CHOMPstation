@@ -193,3 +193,47 @@
 		user << "The charge meter reads [round(cell.percent())]%."
 	else
 		user << "It doesn't have a power cell installed."
+
+//CHOMPEDIT hey you wanna go out into space here i got you a spacesuit, even got a cooling module :) trust me friend.
+//Tampered Cooling unit, or also "Heating unit" //this was the original intent, but i accidentally invented supra cooling
+/obj/item/device/suit_cooling_unit/tampered
+	name = "modified portable suit cooling unit"
+	origin_tech = list(TECH_MAGNET = 4, TECH_MATERIAL = 4)
+	max_cooling = 10 
+	thermostat = T20C 
+	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's existing temperature controls to provide industrial levels of cooling. This ones panel seems a bit loose and wires are hanging out."
+
+/obj/item/device/suit_cooling_unit/tampered/process()
+	if (!on || !cell)
+		return
+
+	if (!ismob(loc))
+		return
+
+	if (!attached_to_suit(loc))		//make sure they have a suit and we are attached to it
+		return
+
+	var/mob/living/carbon/human/H = loc
+
+	var/efficiency = 1 - H.get_pressure_weakness()			// You need to have a good seal for effective "cooling"
+	var/temp_adj = 0						// How much the unit heats you. Adjusted later on.
+	var/env_temp = get_environment_temperature()			// This won't save you from a fire, yup
+	var/thermal_protection = H.get_heat_protection(env_temp)	// ... unless you've got a good suit. not even then
+
+	if(thermal_protection < 0.99)		//For some reason, < 1 returns false if the value is 1.
+		temp_adj = min(H.bodytemperature - max(thermostat, env_temp), max_cooling)
+	else
+		temp_adj = min(H.bodytemperature - thermostat, max_cooling)
+
+	//if (temp_adj < 0.5)	//no safety
+	//	return
+
+	var/charge_usage = (temp_adj/max_cooling)*charge_consumption
+
+	H.bodytemperature += temp_adj*efficiency //plus instead of minus
+
+	cell.use(charge_usage)
+
+	if(cell.charge <= 0)
+		turn_off(1)
+	

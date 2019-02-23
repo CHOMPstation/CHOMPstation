@@ -21,10 +21,12 @@
 	name = "Tasald Ajax Corlethian's Sidearm Permit"
 	desc = "A card indicating that the owner is allowed to carry a sidearm. It is issued by CentCom, so it is valid until it expires on August 2nd, 2562."
 
+/*
 //tomtyph: Sarika
 /obj/item/clothing/accessory/permit/gun/fluff/tomtyph
 	name = "Sarika's Sidearm Permit"
 	desc = "A card indicating that the owner is allowed to carry a sidearm. It is issued by CentCom, so it is valid until it expires on December 7th, 2563."
+*/ //LE expired
 
 // dhaeleena:Dhaeleena M'iar
 /obj/item/clothing/accessory/permit/gun/fluff/dhaeleena_miar

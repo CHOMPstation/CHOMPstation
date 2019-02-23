@@ -863,19 +863,20 @@ ckey: tonyvld
 character_name: Tony Bingham
 item_path: /obj/item/clothing/head/fluff/runac
 }
-{
-ckey: tomtyph
-character_name: Sarika
-item_path: /obj/item/weapon/gun/projectile/revolver/mateba/fluff/tasald_corlethian/tomtyph
 
-}
-{
-ckey: tomtyph
-character_name: Sarika
-item_path: /obj/item/clothing/accessory/permit/gun/fluff/tomtyph
-item_name: Sarika's Sidearm Permit
-item_desc: A card indicating that the owner is allowed to carry a sidearm. It is issued by CentCom, registered to Sarika for a single-action revolver.
-}
+# {
+# ckey: tomtyph
+# character_name: Sarika
+# item_path: /obj/item/weapon/gun/projectile/revolver/mateba/fluff/tasald_corlethian/tomtyph
+# 
+# }
+# {
+# ckey: tomtyph
+# character_name: Sarika
+# item_path: /obj/item/clothing/accessory/permit/gun/fluff/tomtyph
+# item_name: Sarika's Sidearm Permit
+# item_desc: A card indicating that the owner is allowed to carry a sidearm. It is issued by CentCom, registered to Sarika for a single-action revolver.
+# } # Expiry
 
 # ######## U CKEYS
 # ######## V CKEYS
