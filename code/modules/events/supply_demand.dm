@@ -70,6 +70,7 @@
 		endWhen = activeFor  // End early becuase we're done already!
 
 /datum/event/supply_demand/end()
+	var/Cargo_points = null
 	running_demand_events -= src
 	// Check if the crew succeeded or failed!
 	if(required_items.len == 0)
