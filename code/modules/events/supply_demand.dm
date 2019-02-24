@@ -14,11 +14,11 @@
 	var/end_time
 	announceWhen = 1
 	startWhen = 2
-	endWhen = 1800 // Aproximately 1 hour in master controller ticks, refined by end_time
+	endWhen = 2700 // Aproximately 1.5 hour in master controller ticks, refined by end_time
 
 /datum/event/supply_demand/setup()
 	my_department = "[using_map.company_name] Supply Division" // Can't have company name in initial value (not const)
-	end_time = world.time + 1 HOUR + (severity * 30 MINUTES)
+	end_time = world.time + 1.5 HOUR + (severity * 30 MINUTES)
 	running_demand_events += src
 	// Decide what items are requried!
 	// We base this on what departmets are most active, excluding departments we don't have
@@ -33,7 +33,7 @@
 				choose_chemistry_items(roll(severity, 2))
 			if(ROLE_RESEARCH) // Would be nice to differentiate between research diciplines
 				choose_research_items(roll(severity, 2))
-				choose_robotics_items(roll(1, severity))
+//				choose_robotics_items(roll(1, severity)) //TFF: Goodbye, silly Gygax requests.....
 			if(ROLE_CARGO)
 				choose_alloy_items(rand(1, severity))
 			if(ROLE_CIVILIAN) // Would be nice to separate out chef/gardener/bartender
@@ -52,7 +52,7 @@
 		message += "has a warehouse full of empty crates! "
 	message += "We have to fill that gap quick before anyone starts asking questions. "
 	message += "You'd better have this stuff here by [worldtime2stationtime(end_time)]<br>"
-	message += "The requested items are as follows"
+	message += "The requested items are as follows: "
 	message += "<hr>"
 	for (var/datum/supply_demand_order/req in required_items)
 		message += req.describe() + "<br>"
@@ -70,11 +70,17 @@
 		endWhen = activeFor  // End early becuase we're done already!
 
 /datum/event/supply_demand/end()
+	var/Cargo_points = null
 	running_demand_events -= src
 	// Check if the crew succeeded or failed!
 	if(required_items.len == 0)
 		// Success!
-		supply_controller.points += 500 * severity
+		if(severity <= EVENT_LEVEL_MUNDANE)
+			supply_controller.points += Cargo_points = rand(1, 10) * 2 //TFF: Give lower points for minor event
+		else if(severity == EVENT_LEVEL_MODERATE)
+			supply_controller.points += Cargo_points = rand(1, 25) * 2 //TFF: Give moderate points for moderate event
+		else
+			supply_controller.points += Cargo_points = rand(1, 50) * 2 //TFF: Give huge amount of points for major event
 		var/msg = "Great work! With those items you delivered our inventory levels all match up. "
 		msg += "[capitalize(pick(first_names_female))] from accounting will have nothing to complain about. "
 		msg += "I think you'll find a little something in your supply account."
@@ -103,7 +109,7 @@
 
 	for(var/atom/movable/MA in area_shuttle)
 		// Special case to allow us to count mechs!
-		if(MA.anchored && !istype(MA, /obj/mecha))	continue // Ignore anchored stuff
+//		if(MA.anchored && !istype(MA, /obj/mecha))	continue // Ignore anchored stuff //TFF: Mechs sometimes ridiculous to ask, like come on... Multiple Gygaxes? Nah.
 
 		// If its a crate, search inside of it for matching items.
 		if(istype(MA, /obj/structure/closet/crate))
@@ -115,7 +121,7 @@
 
 	if(match_found && required_items.len >= 1)
 		// Okay we delivered SOME.  Lets give an update, but only if not finished.
-		var/message = "Shipment Received.  As a reminder, the following items are still requried:"
+		var/message = "Shipment Received.  As a reminder, the following items are still requried: "
 		message += "<hr>"
 		for (var/datum/supply_demand_order/req in required_items)
 			message += req.describe() + "<br>"
@@ -310,7 +316,7 @@
 		var/chosen_qty = rand(1, 20) * 5
 		required_items += new /datum/supply_demand_order/reagent(chosen_qty, R)
 	return
-
+/*
 /datum/event/supply_demand/proc/choose_robotics_items(var/differentTypes)
 	// Do not make mechs dynamic, its too silly
 	var/list/types = list(
@@ -322,9 +328,9 @@
 		var/T = pick(types)
 		types -= T // Don't pick the same thing twice
 		required_items += new /datum/supply_demand_order/thing(rand(1, 2), T)
-	return
+	return //TFF: Some of the time, these end up being too much. 2 Gygaxes? Nope, ask somewhere else, Central.
 
-/* // Commented out, same reason as the above. Broken event
+// Commented out, same reason as the above. Broken event
 /datum/event/supply_demand/proc/choose_atmos_items(var/differentTypes)
 	var/datum/gas_mixture/mixture = new
 	mixture.temperature = T20C
