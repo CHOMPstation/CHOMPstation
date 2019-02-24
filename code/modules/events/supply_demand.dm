@@ -327,9 +327,9 @@
 		var/T = pick(types)
 		types -= T // Don't pick the same thing twice
 		required_items += new /datum/supply_demand_order/thing(rand(1, 2), T)
-	return
-*/ //TFF: Some of the time, these end up being too much. 2 Gygaxes? Nope, ask somewhere else, Central.
-/* // Commented out, same reason as the above. Broken event
+	return //TFF: Some of the time, these end up being too much. 2 Gygaxes? Nope, ask somewhere else, Central.
+
+// Commented out, same reason as the above. Broken event
 /datum/event/supply_demand/proc/choose_atmos_items(var/differentTypes)
 	var/datum/gas_mixture/mixture = new
 	mixture.temperature = T20C
