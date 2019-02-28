@@ -39,8 +39,8 @@
 	melee_damage_upper = 1
 	melee_damage_lower = 1
 	attacktext = list("chomped","bit","hompfed","crunched","cronched")
-	anchored =1
 	meat_type = null
+
 	//Vore stuff
 	vore_active = 1
 	vore_capacity = 1
@@ -54,5 +54,13 @@
 	vore_icons = 0 //no vore icons
 	swallowTime = 10 SECONDS //CHOMPED
 
+	//Movement Stuff
+	wander = 0		// Does the mob wander around when idle?
+	wander_distance = 0	// How far the mob will wander before going home (assuming they are allowed to do that)
+	returns_home = 1	// Mob knows how to return to wherever it started
+	turns_per_move = 1	// How many life() cycles to wait between each wander mov?
+	stop_when_pulled = 0 	// When set to 1 this stops the animal from moving when someone is pulling it.
+	follow_dist = 2		// Distance the mob tries to follow a friend
+	speed = 4		// Higher speed is slower, negative speed is faster.
+
 //When I stop being lazy I'll give this its own file -Shark
-//Chompeddit end
