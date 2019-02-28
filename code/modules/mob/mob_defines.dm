@@ -7,6 +7,7 @@
 	var/datum/mind/mind
 
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
+	var/location = null //CHOMPEDIT the variable that death() stores the place the mob died in
 
 	//Not in use yet
 	var/obj/effect/organstructure/organStructure = null
