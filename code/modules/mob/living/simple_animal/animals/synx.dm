@@ -336,7 +336,7 @@ mob/living/simple_animal/synx/PunchTarget()
 		spawn(10)
 			src.say(pick(speak))
 	else 
-		M.custom_pain("YOU NEED TO HEAR THINGS FIRST, try using Ventcrawl to eevesdrop on nerds",30)
+		src.custom_pain("YOU NEED TO HEAR THINGS FIRST, try using Ventcrawl to eevesdrop on nerds",30)
 	spawn(20)
 		name = realname
 
