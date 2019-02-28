@@ -269,7 +269,7 @@ mob/living/simple_animal/synx/PunchTarget()
 						to_chat(L, "<span class='warning'>You feel a strange substance on you.</span>")
 						L.reagents.add_reagent(poison_type, poison_per_bite)
 
-/mob/living/simple_animal/retaliate/synx/hear_say(message,,,,speaker)
+/mob/living/simple_animal/retaliate/synx/hear_say(message,verb,language,fakename,speaker)
 	. = ..()
 	if(!message)    return
 	speak += message
@@ -282,6 +282,15 @@ mob/living/simple_animal/synx/PunchTarget()
 		resting = !resting
 	if(message=="Honk!")
 		bikehorn()
+
+/mob/living/simple_animal/retaliate/synx/pet/clown/Life()
+	..()
+	if(vore_fullness)
+		size_multiplier = 1+(0.5*vore_fullness)
+		update_icons()
+	if(!vore_fullness && size_multiplier != 1)
+		size_multiplier = 1
+		update_icons()
 
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// POWERS!!!! /////////////////////////////////////
