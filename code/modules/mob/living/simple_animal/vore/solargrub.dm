@@ -128,6 +128,6 @@ List of things solar grubs should be able to do:
 	icon_dead = "smes"
 
 /mob/living/simple_animal/retaliate/solargrub/smes/death()
-	..()
+	. = ..()
 	new /obj/machinery/power/smes(location)
 	qdel(src)
