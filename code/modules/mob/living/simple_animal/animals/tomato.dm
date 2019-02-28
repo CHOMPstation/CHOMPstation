@@ -84,4 +84,13 @@
 	grab_resist = 100	// Chance of me resisting a grab attempt.
 	taser_kill = 1		// Is the mob weak to tasers
 
+	/* //Attack ranged settings, This will be used for the second time, the piranha spitters
+	var/ranged = 1		// Do I attack at range?
+	var/shoot_range = 5	// How far away do I start shooting from?
+	var/rapid = 0		// Three-round-burst fire mode
+	var/firing_lines = 0	// Avoids shooting allies
+	var/projectiletype	// The projectiles I shoot
+	var/projectilesound	// The sound I make when I do it
+	var/casingtype		// What to make the hugely laggy casings pile out of*/
+	
 //When I stop being lazy I'll give this its own file -Shark
