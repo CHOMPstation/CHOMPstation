@@ -26,16 +26,22 @@
 //CHOMPEDIT PIRANHA PLANT.
 //Yes I'm basing this shit on the tomato, sue me. -shark
 /mob/living/simple_animal/hostile/tomato/piranha
-	//icon = overridefile to be made
-	//icon_state = "piranha" //to be made
-	//icon_living = "piranha" //to be made
-	//icon_dead = "piranha_dead" //to be made
+	
 	name = "Piranha Plant"
 	desc = "It's a plant, that eats people!"
 	tt_desc = "Packun Flower"
 	maxHealth = 100
 	health = 100
 	meat_type = null
+
+	//Mob icon/appearance settings
+	//icon = overridefile to be made
+	//icon_living = "piranha" 	//to be made
+	//icon_dead = "piranha_dead" 	//to be made
+	icon_gib = "generic_gib"	// The iconstate for being gibbed, optional. Defaults to a generic gib animation.
+	icon_rest = null		// The iconstate for resting, optional
+	attack_icon = 'icons/effects/effects.dmi' //Just the default, played like the weapon attack anim
+	attack_icon_state = "slash" 	//Just the default //gonna have to make teeth chomping version
 
 	//Vore stuff
 	vore_active = 1
@@ -103,5 +109,17 @@
 	attack_armor_pen = 100		// How much armor pen this attack has.
 	attack_sharp = 1		// Is the attack sharp?
 	attack_edge = 0			// Does the attack have an edge?
+
+	//Stuff for people wanting to be a fucking plant. Weirdos
+	show_stat_health = 1	// Does the percentage health show in the stat panel for the mob
+	ai_inactive = 0 	// Set to 1 to turn off most AI actions
+	has_hands = 1		// Set to 1 to enable the use of hands and the hands hud
+	humanoid_hands = 0	// Can a player in this mob use things like guns or AI cards?
+	//hand_form = "hands"	// Used in IsHumanoidToolUser. 'Your X are not fit-'.
+	//hud_gears		// Slots to show on the hud (typically none)
+	//ui_icons		// Icon file path to use for the HUD, otherwise generic icons are used
+	//r_hand_sprite = "piranha_r" // If they have hands, //TODO make a leaf sprite for this
+	//l_hand_sprite = "piranha_l" // they could use some icons.
+	player_msg = "PLANT GO CHOMP" // Message to print to players about 'how' to play this mob on login.
 
 //When I stop being lazy I'll give this its own file -Shark
