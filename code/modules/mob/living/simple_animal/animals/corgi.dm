@@ -44,6 +44,18 @@
 	response_disarm = "bops"
 	response_harm   = "kicks"
 
+//CHOMPEDIT: what if ian wasn't kill
+/mob/living/simple_animal/corgi/Ian/death()
+	..()
+	var/location = get_turf(src) //lets just define this here once instead of ewverytime an if is true, less work.
+	visible_message("<span class='notice'>\The [src] refuses death.</span>")
+	new /mob/living/simple_animal/corgi/Ian/reincarnated(location)
+	qdel(src)
+
+/mob/living/simple_animal/corgi/Ian/reincarnated
+	name = "Ian the undying"
+	desc = "It's a corgi. It defies death, through the power of cute."
+
 /mob/living/simple_animal/corgi/Ian/Life()
 	..()
 
