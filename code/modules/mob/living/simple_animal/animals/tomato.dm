@@ -63,4 +63,16 @@
 	follow_dist = 2		// Distance the mob tries to follow a friend
 	speed = 4		// Higher speed is slower, negative speed is faster.
 
+	//Talk/Emote stuff
+	speak_chance = 0		// Probability that I talk (this is 'X in 200' chance since even 1/100 is pretty noisy)
+	reacts = 1			// Reacts to some things being said
+	speak = list()			// Things I might say if I talk
+	emote_hear = list("chomps","snaps at the air")	// Hearable emotes I might perform
+	emote_see = list()		// Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
+	say_understood = list()		// List of things to say when accepting an order
+	say_cannot = list()		// List of things to say when they cannot comply
+	say_maybe_target = list()	// List of things to say when they spot something barely
+	say_got_target = list()		// List of things to say when they engage a target
+	reactions = list("chomp" = "!chomps",)	// List of "string" = "reaction" and things they hear will be searched for string.
+
 //When I stop being lazy I'll give this its own file -Shark
