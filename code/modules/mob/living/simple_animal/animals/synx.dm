@@ -331,10 +331,12 @@ mob/living/simple_animal/synx/PunchTarget()
 	set name = "speak"
 	set desc = "Takes a sentence you heard and says it"
 	set category = "Abilities"
-	name = pick(voices)
-	if(speak)
+	if(speak && voices)
+		name = pick(voices)
 		spawn(10)
 			src.say(pick(speak))
+	else 
+		M.custom_pain("YOU NEED TO HEAR THINGS FIRST, try using Ventcrawl to eevesdrop on nerds",30)
 	spawn(20)
 		name = realname
 
