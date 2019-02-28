@@ -336,7 +336,7 @@ mob/living/simple_animal/synx/PunchTarget()
 		spawn(10)
 			src.say(pick(speak))
 	else 
-		self_message("YOU NEED TO HEAR THINGS FIRST, try using Ventcrawl to eevesdrop on nerds")
+		usr << "<span class='warning'>YOU NEED TO HEAR THINGS FIRST, try using Ventcrawl to eevesdrop on nerds</span>"
 	spawn(20)
 		name = realname
 
