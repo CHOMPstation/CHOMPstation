@@ -273,7 +273,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	. = ..()
 	if(!message)    return
 	speak += message
-	voice += speaker
+	voices += speaker
 	if(voices.len>=memorysize)
 		voices -= (pick(voices))//making the list more dynamic
 	if(speak.len>=memorysize)
