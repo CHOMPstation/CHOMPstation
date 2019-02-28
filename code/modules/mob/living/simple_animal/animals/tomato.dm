@@ -35,10 +35,6 @@
 	tt_desc = "Packun Flower"
 	maxHealth = 100
 	health = 100
-	harm_intent_damage = 1
-	melee_damage_upper = 1
-	melee_damage_lower = 1
-	attacktext = list("chomped","bit","hompfed","crunched","cronched")
 	meat_type = null
 
 	//Vore stuff
@@ -92,5 +88,20 @@
 	var/projectiletype	// The projectiles I shoot
 	var/projectilesound	// The sound I make when I do it
 	var/casingtype		// What to make the hugely laggy casings pile out of*/
-	
+
+	//Melee behaviour
+	melee_damage_lower = 1		// Lower bound of randomized melee damage
+	melee_damage_upper = 5		// Upper bound of randomized melee damage
+	attacktext = list("chomped","bit","hompfed","crunched","cronched") // "You are [attacktext] by the mob!"
+	friendly = list("nuzzles")	// "The mob [friendly] the person."
+	//attack_sound = null		// Sound to play when I attack
+	environment_smash = 0		// How much environment damage do I do when I hit stuff?
+	melee_miss_chance = 1		// percent chance to miss a melee attack.
+	melee_attack_minDelay = 5	// How long between attacks at least
+	melee_attack_maxDelay = 20	// How long between attacks at most
+	attack_armor_type = "melee"	// What armor does this check?
+	attack_armor_pen = 100		// How much armor pen this attack has.
+	attack_sharp = 1		// Is the attack sharp?
+	attack_edge = 0			// Does the attack have an edge?
+
 //When I stop being lazy I'll give this its own file -Shark
