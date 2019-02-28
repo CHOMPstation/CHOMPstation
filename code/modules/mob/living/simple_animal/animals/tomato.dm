@@ -156,3 +156,13 @@
 	filling_color = "#B8E6B5"
 	center_of_mass = list("x"=15, "y"=11)
 
+//VORE FLUFF section and extended gut settings
+/mob/living/simple_animal/hostile/piranhaplant/init_vore()
+	..()
+	var/obj/belly/B = vore_selected
+	B.vore_verb = "chomp up"
+	B.name = "stomach"
+	B.desc	= "You're pulled into the tight stomach of the plant. The walls knead weakly around you, coating you in thick, viscous fluids that cling to your body, that soon starts to tingle and burn..."
+	B.digest_burn = 3
+	B.digest_brute = 3
+
