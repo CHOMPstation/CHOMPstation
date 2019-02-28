@@ -151,7 +151,7 @@
 	
 /obj/item/weapon/reagent_containers/food/snacks/soylentgreen/piranha
 	name = "Soylent"
-	desc = "This was spat out by a strange plantt hat eats people."
+	desc = "This was spat out by a strange plant that eats people."
 	icon_state = "soylent_green"
 	filling_color = "#B8E6B5"
 	center_of_mass = list("x"=15, "y"=11)
