@@ -269,7 +269,7 @@ mob/living/simple_animal/synx/PunchTarget()
 						to_chat(L, "<span class='warning'>You feel a strange substance on you.</span>")
 						L.reagents.add_reagent(poison_type, poison_per_bite)
 
-/mob/living/simple_animal/retaliate/synx/hear_say(message,speaker)
+/mob/living/simple_animal/retaliate/synx/hear_say(message,,,,speaker)
 	. = ..()
 	if(!message)    return
 	speak += message
