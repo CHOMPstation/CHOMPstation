@@ -31,7 +31,7 @@
 	emote_see = list("undulates quietly")
 
 //CHOMPEDIT ACTIVATING LOOT DROPS FOR JELLO NERDS
-/mob/living/simple_animal/hostile/scarybat/death()
+/mob/living/simple_animal/hostile/jelly/death()
 	..()
 	var/location = get_turf(src) //lets just define this here once instead of ewverytime an if is true, less work.
 	if(prob(99))
