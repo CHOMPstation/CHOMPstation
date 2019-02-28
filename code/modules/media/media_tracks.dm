@@ -35,7 +35,10 @@ var/global/list/all_lobby_tracks = list()
 
 // Read the jukebox configuration file on system startup.
 /hook/startup/proc/load_jukebox_tracks()
-	var/jukebox_track_file = "config/jukebox.json"
+	if(Holiday == "April Fool's Day")
+		var/jukebox_track_file = "config/apriljukebox.json"
+	else
+		var/jukebox_track_file = "config/jukebox.json"
 	if(!fexists(jukebox_track_file))
 		warning("File not found: [jukebox_track_file]")
 		return
