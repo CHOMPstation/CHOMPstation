@@ -75,4 +75,13 @@
 	say_got_target = list()		// List of things to say when they engage a target
 	reactions = list("chomp" = "!chomps",)	// List of "string" = "reaction" and things they hear will be searched for string.
 
+	//Hostility war bloodshed, RAWR
+	hostile = 1		// Do I even attack?
+	view_range = 2		// Scan for targets in this range.
+	investigates = 1	// Do I investigate if I saw someone briefly?
+	cooperative = 1		// Do I ask allies to help me?
+	assist_distance = 2	// Radius in which I'll ask my comrades for help.
+	grab_resist = 100	// Chance of me resisting a grab attempt.
+	taser_kill = 1		// Is the mob weak to tasers
+
 //When I stop being lazy I'll give this its own file -Shark
