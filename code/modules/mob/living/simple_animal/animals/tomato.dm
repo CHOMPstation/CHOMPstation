@@ -123,11 +123,11 @@
 		//might snatch the code for that uranium ray for this since it should poison
 	name = "Piranha Spitter"
 	
-	/* //Attack ranged settings, This will be used for the second time, the piranha spitters
+	//Attack ranged settings, This will be used for the second time, the piranha spitters
 	ranged = 1		// Do I attack at range?
 	shoot_range = 5		// How far away do I start shooting from?
 	rapid = 0		// Three-round-burst fire mode
 	firing_lines = 0	// Avoids shooting allies
-	projectiletype		// The projectiles I shoot
-	projectilesound		// The sound I make when I do it
-	casingtype		// What to make the hugely laggy casings pile out of*/
+	//projectiletype		// The projectiles I shoot
+	//projectilesound		// The sound I make when I do it
+	//casingtype		// What to make the hugely laggy casings pile out of
