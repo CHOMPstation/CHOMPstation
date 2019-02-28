@@ -126,8 +126,28 @@
 	//Attack ranged settings, This will be used for the second time, the piranha spitters
 	ranged = 1		// Do I attack at range?
 	shoot_range = 5		// How far away do I start shooting from?
+	view_range = 5		//More range, more hurt, more... plant?
 	rapid = 0		// Three-round-burst fire mode
 	firing_lines = 0	// Avoids shooting allies
-	//projectiletype		// The projectiles I shoot
-	//projectilesound		// The sound I make when I do it
-	//casingtype		// What to make the hugely laggy casings pile out of
+	projectiletype	= "piranhaspit"	// The projectiles I shoot
+	projectilesound = 'sound/weapons/thudswoosh.ogg' // The sound I make when I do it
+	casingtype = /obj/item/weapon/reagent_containers/food/snacks/soylentgreen/piranha // What to make the hugely laggy casings pile out of
+
+//Piranha unique projectile
+/obj/item/projectile/energy/piranhaspit
+	name = "piranhaspit"
+	icon_state = "neurotoxin"
+	damage = 10
+	damage_type = TOX
+	check_armour = "bio" //yup biohazard protection works here
+	flash_strength = 0
+	agony = 10
+	combustion = FALSE
+	
+/obj/item/weapon/reagent_containers/food/snacks/soylentgreen/piranha
+	name = "Soylent"
+	desc = "This was spat out by a strange plantt hat eats people."
+	icon_state = "soylent_green"
+	filling_color = "#B8E6B5"
+	center_of_mass = list("x"=15, "y"=11)
+
