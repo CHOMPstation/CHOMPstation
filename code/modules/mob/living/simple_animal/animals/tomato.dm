@@ -24,6 +24,7 @@
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/tomatomeat
 
 //CHOMPEDIT PIRANHA PLANT.
+//When I stop being lazy I'll give this its own file -shark
 //Yes I'm basing this shit on the tomato, sue me. -shark
 //No longer based on tomato because evolved too far -shark
 /mob/living/simple_animal/hostile/piranhaplant
@@ -130,6 +131,3 @@
 	projectiletype		// The projectiles I shoot
 	projectilesound		// The sound I make when I do it
 	casingtype		// What to make the hugely laggy casings pile out of*/
-
-
-//When I stop being lazy I'll give this its own file -Shark
