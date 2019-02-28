@@ -459,7 +459,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_digest_chance = 0 
 	vore_pounce_chance = 1 //MAKE THEM HONK
 	vore_bump_chance = 0 //lowered bump chance
-	vore_escape_chance = 100 //Much higher escape chance.. it's a hologram.
+	vore_escape_chance = 100
 
 ////////////////////////////////////////
 ////////////////SYNX SPAWNER////////////
@@ -468,6 +468,8 @@ mob/living/simple_animal/synx/PunchTarget()
 	name = "This is synxes"
 
 /obj/random/mob/synx/item_to_spawn()
-	return pick(prob(50);/mob/living/simple_animal/retaliate/synx/pet/greed,
+	if(Holiday == "April Fool's Day") //WE WISH YOU A MERRY CLOWNMAS
+		return /mob/living/simple_animal/retaliate/synx/pet/clown
+	else return pick(prob(50);/mob/living/simple_animal/retaliate/synx/pet/greed,
 		prob(50);/mob/living/simple_animal/retaliate/synx/pet/diablo,
 		prob(50);/mob/living/simple_animal/retaliate/synx/pet/holo,)
