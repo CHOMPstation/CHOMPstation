@@ -25,7 +25,7 @@
 	maxHealth = 150
 	health = 150
 	turns_per_move = 5 //Should just affect how often it wanders, subject to change.
-	speed = -2 //Re enabled custom speed
+	speed = 2 //Re enabled custom speed
 	see_in_dark = 6
 	stop_when_pulled = 0
 	armor = list(			// will be determined
@@ -299,13 +299,13 @@ mob/living/simple_animal/synx/PunchTarget()
 		status_flags &= ~HIDING
 		reset_plane_and_layer()
 		to_chat(src,"<span class='notice'>You have stopped hiding.</span>")
-		speed = -3
+		speed = 2
 	else
 		status_flags |= HIDING
 		layer = HIDING_LAYER //Just above cables with their 2.44
 		plane = OBJ_PLANE
 		to_chat(src,"<span class='notice'>You are now hiding.</span>")
-		speed = 2
+		speed = 4
 
 /mob/living/simple_animal/retaliate/synx/proc/disguise()
 	set name = "Toggle Form"
