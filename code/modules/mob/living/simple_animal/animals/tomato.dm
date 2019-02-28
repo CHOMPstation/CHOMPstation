@@ -32,6 +32,11 @@
 	desc = "It's a plant, that eats people!"
 	tt_desc = "Packun Flower"
 	
+	//remove this thing once we got our own sprites to use.
+	icon_state = "tomato"
+	icon_living = "tomato"
+	icon_dead = "tomato_dead"
+	
 	faction = "plants"
 	intelligence_level = SA_PLANT
 	
