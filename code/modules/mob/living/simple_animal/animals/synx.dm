@@ -10,12 +10,14 @@
 	icon_dead = "synx_dead"
 
 	//VAR$ SETUP
+	var/realname = null
 	var/poison_per_bite = 5
 	var/poison_chance = 99.666
 	var/poison_type = "synxchem"//inaprovalin, but evil
 	var/transformed_state = "synx_transformed"
 	var/transformed = FALSE
 	var/memorysize = 50 //Var for how many messages synxes remember if they know speechcode
+	var/list/voices = list()
 
 	faction = "Synx"
 	intelligence_level = SA_ANIMAL
@@ -113,11 +115,13 @@
 	*/
 
 /mob/living/simple_animal/retaliate/synx/New()
-    ..()
-    verbs |= /mob/living/proc/ventcrawl
-    verbs |= /mob/living/simple_animal/proc/contort
-    verbs +=  /mob/living/simple_animal/retaliate/synx/proc/disguise
-    verbs +=  /mob/living/simple_animal/retaliate/synx/proc/honk
+	..()
+	verbs |= /mob/living/proc/ventcrawl
+	verbs |= /mob/living/simple_animal/proc/contort
+	verbs += /mob/living/simple_animal/retaliate/synx/proc/disguise
+	verbs += /mob/living/simple_animal/retaliate/synx/proc/honk
+	verbs += /mob/living/simple_animal/retaliate/synx/proc/randomspeech
+	realname = name
 
 mob/living/simple_animal/synx/PunchTarget()
 	if(!Adjacent(target_mob))
@@ -264,7 +268,21 @@ mob/living/simple_animal/synx/PunchTarget()
 					if(prob(poison_chance))
 						to_chat(L, "<span class='warning'>You feel a strange substance on you.</span>")
 						L.reagents.add_reagent(poison_type, poison_per_bite)
-						
+
+/mob/living/simple_animal/retaliate/synx/hear_say(message,speaker)
+	. = ..()
+	if(!message)    return
+	speak += message
+	voice += speaker
+	if(voices.len>=memorysize)
+		voices -= (pick(voices))//making the list more dynamic
+	if(speak.len>=memorysize)
+		speak -= (pick(speak))//making the list more dynamic
+	if(resting)
+		resting = !resting
+	if(message=="Honk!")
+		bikehorn()
+
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// POWERS!!!! /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
@@ -309,6 +327,16 @@ mob/living/simple_animal/synx/PunchTarget()
 	transformed = !transformed
 	update_icons()
 
+/mob/living/simple_animal/retaliate/synx/proc/randomspeech()
+	set name = "speak"
+	set desc = "Takes a sentence you heard and says it"
+	set category = "Abilities"
+	name = pick(voices)
+	if(speak)
+		spawn(10)
+			src.say(pick(speak))
+	spawn(20)
+		name = realname
 
 ////////////////////////////////////////
 ////////////////PET VERSION/////////////
@@ -339,18 +367,6 @@ mob/living/simple_animal/synx/PunchTarget()
 /mob/living/simple_animal/retaliate/synx/pet
 	speak_chance = 2.0666
 	speak = list()
-
-//PET speechcode, simplistic but more than enough for the PET
-/mob/living/simple_animal/retaliate/synx/pet/hear_say(message)
-	. = ..()
-	if(!message)    return
-	speak += message
-	if(speak.len>=memorysize)
-		speak -= (pick(speak))//making the list more dynamic
-	if(resting)
-		resting = !resting
-	if(message=="Honk!")
-		bikehorn()
 
 //HONKMOTHER Code.
 /mob/living/simple_animal/retaliate/synx/proc/honk()
