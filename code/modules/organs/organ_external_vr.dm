@@ -1,7 +1,8 @@
 //Sideways override for nanoform limbs (ugh)
+/obj/item/organ/external
+	var/transparent = 0 //For better slime limbs
 /obj/item/organ/external/robotize(var/company, var/skip_prosthetics = FALSE, var/keep_organs = FALSE)
 	var/original_robotic = robotic
-	var/transparent = 0 //For better slime limbs
 	if(original_robotic >= ORGAN_NANOFORM)
 		var/o_encased = encased
 		var/o_max_damage = max_damage
