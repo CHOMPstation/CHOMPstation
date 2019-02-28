@@ -10,12 +10,14 @@
 	icon_dead = "synx_dead"
 
 	//VAR$ SETUP
+	var/realname = null
 	var/poison_per_bite = 5
 	var/poison_chance = 99.666
 	var/poison_type = "synxchem"//inaprovalin, but evil
 	var/transformed_state = "synx_transformed"
 	var/transformed = FALSE
 	var/memorysize = 50 //Var for how many messages synxes remember if they know speechcode
+	var/list/voices = list()
 
 	faction = "Synx"
 	intelligence_level = SA_ANIMAL
@@ -23,7 +25,7 @@
 	maxHealth = 150
 	health = 150
 	turns_per_move = 5 //Should just affect how often it wanders, subject to change.
-	speed = -2 //Re enabled custom speed
+	speed = 2 //Re enabled custom speed
 	see_in_dark = 6
 	stop_when_pulled = 0
 	armor = list(			// will be determined
@@ -113,11 +115,13 @@
 	*/
 
 /mob/living/simple_animal/retaliate/synx/New()
-    ..()
-    verbs |= /mob/living/proc/ventcrawl
-    verbs |= /mob/living/simple_animal/proc/contort
-    verbs +=  /mob/living/simple_animal/retaliate/synx/proc/disguise
-    verbs +=  /mob/living/simple_animal/retaliate/synx/proc/honk
+	..()
+	verbs |= /mob/living/proc/ventcrawl
+	verbs |= /mob/living/simple_animal/proc/contort
+	verbs += /mob/living/simple_animal/retaliate/synx/proc/disguise
+	verbs += /mob/living/simple_animal/retaliate/synx/proc/honk
+	verbs += /mob/living/simple_animal/retaliate/synx/proc/randomspeech
+	realname = name
 
 mob/living/simple_animal/synx/PunchTarget()
 	if(!Adjacent(target_mob))
@@ -264,7 +268,21 @@ mob/living/simple_animal/synx/PunchTarget()
 					if(prob(poison_chance))
 						to_chat(L, "<span class='warning'>You feel a strange substance on you.</span>")
 						L.reagents.add_reagent(poison_type, poison_per_bite)
-						
+
+/mob/living/simple_animal/retaliate/synx/hear_say(message,speaker)
+	. = ..()
+	if(!message)    return
+	speak += message
+	voices += speaker
+	if(voices.len>=memorysize)
+		voices -= (pick(voices))//making the list more dynamic
+	if(speak.len>=memorysize)
+		speak -= (pick(speak))//making the list more dynamic
+	if(resting)
+		resting = !resting
+	if(message=="Honk!")
+		bikehorn()
+
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// POWERS!!!! /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
@@ -281,13 +299,13 @@ mob/living/simple_animal/synx/PunchTarget()
 		status_flags &= ~HIDING
 		reset_plane_and_layer()
 		to_chat(src,"<span class='notice'>You have stopped hiding.</span>")
-		speed = -3
+		speed = 2
 	else
 		status_flags |= HIDING
 		layer = HIDING_LAYER //Just above cables with their 2.44
 		plane = OBJ_PLANE
 		to_chat(src,"<span class='notice'>You are now hiding.</span>")
-		speed = 2
+		speed = 4
 
 /mob/living/simple_animal/retaliate/synx/proc/disguise()
 	set name = "Toggle Form"
@@ -309,6 +327,18 @@ mob/living/simple_animal/synx/PunchTarget()
 	transformed = !transformed
 	update_icons()
 
+/mob/living/simple_animal/retaliate/synx/proc/randomspeech()
+	set name = "speak"
+	set desc = "Takes a sentence you heard and says it"
+	set category = "Abilities"
+	if(speak && voices)
+		name = pick(voices)
+		spawn(10)
+			src.say(pick(speak))
+	else 
+		usr << "<span class='warning'>YOU NEED TO HEAR THINGS FIRST, try using Ventcrawl to eevesdrop on nerds</span>"
+	spawn(20)
+		name = realname
 
 ////////////////////////////////////////
 ////////////////PET VERSION/////////////
@@ -339,18 +369,6 @@ mob/living/simple_animal/synx/PunchTarget()
 /mob/living/simple_animal/retaliate/synx/pet
 	speak_chance = 2.0666
 	speak = list()
-
-//PET speechcode, simplistic but more than enough for the PET
-/mob/living/simple_animal/retaliate/synx/pet/hear_say(message)
-	. = ..()
-	if(!message)    return
-	speak += message
-	if(speak.len>=memorysize)
-		speak -= (pick(speak))//making the list more dynamic
-	if(resting)
-		resting = !resting
-	if(message=="Honk!")
-		bikehorn()
 
 //HONKMOTHER Code.
 /mob/living/simple_animal/retaliate/synx/proc/honk()
