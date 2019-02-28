@@ -25,11 +25,15 @@
 
 //CHOMPEDIT PIRANHA PLANT.
 //Yes I'm basing this shit on the tomato, sue me. -shark
-/mob/living/simple_animal/hostile/tomato/piranha
-	
+//No longer based on tomato because evolved too far -shark
+/mob/living/simple_animal/hostile/piranhaplant
 	name = "Piranha Plant"
 	desc = "It's a plant, that eats people!"
 	tt_desc = "Packun Flower"
+	
+	faction = "plants"
+	intelligence_level = SA_PLANT
+	
 	maxHealth = 100
 	health = 100
 	meat_type = null
@@ -86,15 +90,6 @@
 	grab_resist = 100	// Chance of me resisting a grab attempt.
 	taser_kill = 1		// Is the mob weak to tasers
 
-	/* //Attack ranged settings, This will be used for the second time, the piranha spitters
-	var/ranged = 1		// Do I attack at range?
-	var/shoot_range = 5	// How far away do I start shooting from?
-	var/rapid = 0		// Three-round-burst fire mode
-	var/firing_lines = 0	// Avoids shooting allies
-	var/projectiletype	// The projectiles I shoot
-	var/projectilesound	// The sound I make when I do it
-	var/casingtype		// What to make the hugely laggy casings pile out of*/
-
 	//Melee behaviour
 	melee_damage_lower = 1		// Lower bound of randomized melee damage
 	melee_damage_upper = 5		// Upper bound of randomized melee damage
@@ -121,5 +116,20 @@
 	//r_hand_sprite = "piranha_r" // If they have hands, //TODO make a leaf sprite for this
 	//l_hand_sprite = "piranha_l" // they could use some icons.
 	player_msg = "PLANT GO CHOMP" // Message to print to players about 'how' to play this mob on login.
+
+//Ranged variation
+/mob/living/simple_animal/hostile/piranhaplant/spitter
+		//might snatch the code for that uranium ray for this since it should poison
+	name = "Piranha Spitter"
+	
+	/* //Attack ranged settings, This will be used for the second time, the piranha spitters
+	ranged = 1		// Do I attack at range?
+	shoot_range = 5		// How far away do I start shooting from?
+	rapid = 0		// Three-round-burst fire mode
+	firing_lines = 0	// Avoids shooting allies
+	projectiletype		// The projectiles I shoot
+	projectilesound		// The sound I make when I do it
+	casingtype		// What to make the hugely laggy casings pile out of*/
+
 
 //When I stop being lazy I'll give this its own file -Shark
