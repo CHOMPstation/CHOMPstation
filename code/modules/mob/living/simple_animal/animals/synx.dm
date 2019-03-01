@@ -272,6 +272,7 @@ mob/living/simple_animal/synx/PunchTarget()
 /mob/living/simple_animal/retaliate/synx/hear_say(message,verb,language,fakename,speaker)
 	. = ..()
 	if(!message)    return
+	speaker = speaker.name
 	speak += message
 	voices += speaker
 	if(voices.len>=memorysize)
