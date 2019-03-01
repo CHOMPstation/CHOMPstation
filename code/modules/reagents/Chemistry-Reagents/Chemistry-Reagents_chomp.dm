@@ -64,7 +64,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/monkeycube/sarucube(location)
 	return
 ////////////////////////////////////
-////////////That good shit/////////
+////////////   MEDICINE   /////////
 //////////////////////////////////
 /datum/reagent/claridyl
 	name = "Claridyl Natural Remedy"
@@ -119,6 +119,37 @@
 	taste_description = "liquid void"
 	color = "#000000"
 	metabolism = REM * 5
+
+/datum/reagent/eden
+	name = "Eden"
+	id = "eden"
+	description = "The ultimate anti toxin unrivaled, it corrects impurities within the body but punishes those who attain them with a burning sensation"
+	taste_description = "peace"
+	color = "#00FFBE"
+	overdose = REAGENTS_OVERDOSE * 1
+	metabolism = 0
+
+/datum/reagent/eden/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_SLIME || alien == IS_DIONA) 
+		return
+	if(M.getToxLoss())
+		M.adjustFireLoss(1.2)
+		M.adjustToxLoss(-1)
+
+/datum/reagent/eden/snake
+	name = "Tainted Eden"
+	id = "eden_snake"
+	metabolism = 0.1
+	description = "It used to be an anti toxin until it was tainted."
+	taste_description = "hellfire"
+	color = "#FF0000"
+
+/datum/reagent/eden/snake/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustOxyLoss(1)
+	M.adjustFireLoss(1)
+	M.adjustBruteLoss(1)
+	M.adjustToxLoss(1)
+
 
 ////////////////////////////////////////////////
 /////////DRINKS////////////////////////////////
