@@ -115,6 +115,8 @@
 	realname = name
 	voices += "Garbled voice"
 	voices += "Unidentifiable Voice"
+	speak += "Who is there?"
+	speak += "What is that thing?!"
 
 mob/living/simple_animal/synx/PunchTarget()
 	if(!Adjacent(target_mob))
