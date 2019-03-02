@@ -5,6 +5,11 @@
 	icon_state = "taperoll"
 	w_class = ITEMSIZE_TINY
 
+/obj/item/weapon/tape_roll/New()
+	..()
+	if(Holiday == "April Fool's Day")
+		name = "flextape roll"
+
 /obj/item/weapon/tape_roll/attack(var/mob/living/carbon/human/H, var/mob/user)
 	if(istype(H))
 		var/can_place = 0
@@ -143,6 +148,8 @@
 /obj/item/weapon/ducttape/New()
 	..()
 	flags |= NOBLUDGEON
+	if(Holiday == "April Fool's Day")
+		name = "flextape"
 
 /obj/item/weapon/ducttape/examine(mob/user)
 	return stuck.examine(user)
