@@ -105,15 +105,6 @@
 	minbodytemp = 0
 	// TODO: Set a max temperature of about 20-30 above room temperatures. Synx don't like the heat.
 
-
-//    to be added
-/*	speak_chance = 2
-	speak = list()
-	speak_emote = list()
-	emote_hear = list()
-	emote_see = list()
-	*/
-
 /mob/living/simple_animal/retaliate/synx/New()
 	..()
 	verbs |= /mob/living/proc/ventcrawl
@@ -179,7 +170,7 @@ mob/living/simple_animal/synx/PunchTarget()
 		M.add_chemical_effect(CE_PAINKILLER, 50)
 		M.adjustBruteLoss(-0.2)//healing brute
 		M.adjustToxLoss(0.4) //Dealing twice of it as tox, even if you have no brute, its not true conversion.
-		//M.adjustHalLoss(1) //REMOVED since halloss seems to override painkillers >:(
+		M.adjustHalLoss(1)
 
 /datum/reagent/inaprovaline/synxchem/holo
 	name = "SX type simulation nanomachines" //Educational!
@@ -271,14 +262,14 @@ mob/living/simple_animal/synx/PunchTarget()
 						to_chat(L, "<span class='warning'>You feel a strange substance on you.</span>")
 						L.reagents.add_reagent(poison_type, poison_per_bite)
 
-/mob/living/simple_animal/retaliate/synx/hear_say(message,verb,language,fakename,speaker)
+/mob/living/simple_animal/retaliate/synx/hear_say(message,verb,language,fakename,var/mob/living/speaker)
 	. = ..()
 	if(!message)    return
-	//speaker = speaker.name
+	speaker = speaker.GetVoice())
 	speak += message
-	//voices += speaker
-	//if(voices.len>=memorysize)
-	//	voices -= (pick(voices))//making the list more dynamic
+	voices += speaker
+	if(voices.len>=memorysize)
+		voices -= (pick(voices))//making the list more dynamic
 	if(speak.len>=memorysize)
 		speak -= (pick(speak))//making the list more dynamic
 	if(resting)
