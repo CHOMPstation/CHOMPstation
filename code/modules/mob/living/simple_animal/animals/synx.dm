@@ -122,6 +122,8 @@
 	verbs += /mob/living/simple_animal/retaliate/synx/proc/honk
 	verbs += /mob/living/simple_animal/retaliate/synx/proc/randomspeech
 	realname = name
+	voices += "Garbled voice"
+	voices += "Unidentifiable Voice"
 
 mob/living/simple_animal/synx/PunchTarget()
 	if(!Adjacent(target_mob))
@@ -269,14 +271,14 @@ mob/living/simple_animal/synx/PunchTarget()
 						to_chat(L, "<span class='warning'>You feel a strange substance on you.</span>")
 						L.reagents.add_reagent(poison_type, poison_per_bite)
 
-/mob/living/simple_animal/retaliate/synx/hear_say(message,verb,language,fakename,var/mob/living/speaker)
+/mob/living/simple_animal/retaliate/synx/hear_say(message,verb,language,fakename,speaker)
 	. = ..()
 	if(!message)    return
-	speaker = speaker.name
+	//speaker = speaker.name
 	speak += message
-	voices += speaker
-	if(voices.len>=memorysize)
-		voices -= (pick(voices))//making the list more dynamic
+	//voices += speaker
+	//if(voices.len>=memorysize)
+	//	voices -= (pick(voices))//making the list more dynamic
 	if(speak.len>=memorysize)
 		speak -= (pick(speak))//making the list more dynamic
 	if(resting)
