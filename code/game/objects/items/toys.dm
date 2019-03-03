@@ -746,7 +746,7 @@
 
 /obj/item/toy/figure/paramedic
 	name = "Paramedic action figure"
-	desc = "A \"Space Life\" brand Paramedic action figure."
+	desc = "A \"Space Life\" brand space bounty hunter action figure."
 	icon_state = "paramedic"
 	toysay = "WHERE ARE YOU??"
 
@@ -755,6 +755,12 @@
 	desc = "A \"Space Life\" brand Emergency Response Team Commander action figure."
 	icon_state = "ert"
 	toysay = "We're probably the good guys!"
+	
+/obj/item/toy/figure/samus
+	name = "Space bounty hunter action figure"
+	desc = "A \"Space Life\" brand Emergency Response Team Commander action figure."
+	icon_state = "samus"
+	toysay = "The last greytide is in captivity. The station is at peace."
 
 /*
  * Plushies
