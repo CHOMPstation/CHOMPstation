@@ -118,7 +118,7 @@
 	emote_hear = list("makes a wooshing sound")
 	emote_see = list("SKREE's")
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/toy/figure/samus
 
 /mob/living/simple_animal/hostile/metroid/mine
 	vore_active = 1
@@ -129,6 +129,10 @@
 /mob/living/simple_animal/hostile/metroid/mine/death()
 	playsound(src, 'sound/effects/metroiddeath.ogg', 50, 1)
 	..()
+	if(prob(20))
+		visible_message("<span class='notice'>\The [src] dropped some toy!</span>")
+		var/location = get_turf(src)
+		new /obj/item/toy/figure/samus(location)
 
 
 /*
