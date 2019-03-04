@@ -2262,6 +2262,7 @@
 #include "code\modules\mob\living\simple_animal\vore\snake.dm"
 #include "code\modules\mob\living\simple_animal\vore\solargrub.dm"
 #include "code\modules\mob\living\simple_animal\vore\solargrub_larva.dm"
+#include "code\modules\mob\living\simple_animal\vore\solargrub_subtype.dm"
 #include "code\modules\mob\living\simple_animal\vore\wolf.dm"
 #include "code\modules\mob\living\simple_animal\vore\zz_vore_overrides.dm"
 #include "code\modules\mob\living\simple_animal\vore\shadekin\_defines.dm"
