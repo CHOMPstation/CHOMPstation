@@ -242,7 +242,7 @@
 	//might make a blue icon someday, not priority this is debug stuff
 	var/cooling = 5	//variable cooling
 
-/mob/living/simple_animal/hostile/jelly/cold/life()
+/mob/living/simple_animal/hostile/jelly/cold/Life()
 	..()
 	if(icon_state != icon_dead)
 		src.bodytemperature -= cooling
