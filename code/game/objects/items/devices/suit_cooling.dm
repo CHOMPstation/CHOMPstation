@@ -260,7 +260,7 @@
 		handle_cooling(environment)
 		src.bodytemperature -= cooling
 	if(src.bodytemperature<=-500)
-		iscooling = 0
+		isCooling = 0
 	if(src.bodytemperature>=-499)
-		iscooling = 1
+		isCooling = 1
 	
