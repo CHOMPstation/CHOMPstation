@@ -245,7 +245,7 @@
 	var/cooling = -5	//variable cooling
 	var/isCooling = 1
 	cold_damage_per_tick = 0
-	var/maxbodytemp = 1000
+	maxbodytemp = 1000
 
 /mob/living/simple_animal/hostile/jelly/cold/proc/toggle_cooling()	
 	isCooling=!isCooling
