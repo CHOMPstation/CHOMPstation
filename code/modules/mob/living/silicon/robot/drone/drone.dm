@@ -343,6 +343,12 @@ var/list/mob_hat_cache = list()
 	src << "Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."
 	src << "<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."
 
+/mob/living/silicon/robot/drone/mining/welcome_drone()
+	src << "<b>You are a mining drone, an autonomous supply and mining system.</b>."
+	src << "You are assigned to a Sol Central mining project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."
+	src << "Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."
+	src << "<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."
+
 /mob/living/silicon/robot/drone/construction/init()
 	..()
 	flavor_text = "It's a bulky construction drone stamped with a Sol Central glyph."
