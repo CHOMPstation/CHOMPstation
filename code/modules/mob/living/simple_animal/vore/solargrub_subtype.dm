@@ -25,5 +25,5 @@
 
 /mob/living/simple_animal/retaliate/solargrub/smes/death()
 	..()
-	new /obj/machinery/power/smes/buildable/SMES(location)
+	new /obj/machinery/power/smes/buildable(location)
 	qdel(src)
