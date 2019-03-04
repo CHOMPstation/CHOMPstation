@@ -241,10 +241,14 @@
 	name = "Frostbite Jelly"
 	//might make a blue icon someday, not priority this is debug stuff
 	var/cooling = 5	//variable cooling
+	var/isCooling = 1
+
+/mob/living/simple_animal/hostile/jelly/cold/proc/toggle_cooling()
+	isCooling=!isCooling
 
 /mob/living/simple_animal/hostile/jelly/cold/Life()
 	..()
-	if(icon_state != icon_dead)
+	if(icon_state != icon_dead &&  isCooling)
 		src.bodytemperature -= cooling
 		
 		
