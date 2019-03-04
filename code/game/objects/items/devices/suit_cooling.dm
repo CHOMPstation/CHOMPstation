@@ -248,10 +248,10 @@
 
 /mob/living/simple_animal/hostile/jelly/cold/proc/handle_cooling(var/datum/gas_mixture/environment)
 	var/datum/gas_mixture/gas
-		gas = environment.remove(0.25 * environment.total_moles)
-		if(gas)
-			gas.add_thermal_energy(cooling)
-		environment.merge(gas)
+	gas = environment.remove(0.25 * environment.total_moles)
+	if(gas)
+		gas.add_thermal_energy(cooling)
+	environment.merge(gas)
 
 /mob/living/simple_animal/hostile/jelly/cold/Life()
 	..()
