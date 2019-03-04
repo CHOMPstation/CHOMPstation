@@ -23,7 +23,14 @@
 	size_multiplier = size
 	update_icons()
 
+/obj/machinery/power/smes/buildable/outpost_substation/grub/New()
+	..(0)
+	component_parts += new /obj/item/weapon/smes_coil/weak(src)
+	RCon_tag = "Unidentified_Power_Storage"
+	recalc_coils()
+	charge = 600000 //Let's do this after recalc to avoid overload issues
+
 /mob/living/simple_animal/retaliate/solargrub/smes/death()
 	..()
-	new /obj/machinery/power/smes/buildable(location)
+	new /obj/machinery/power/smes/buildable/outpost_substation/grub(location)
 	qdel(src)
