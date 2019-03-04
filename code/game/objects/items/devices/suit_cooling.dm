@@ -244,7 +244,7 @@
 
 /mob/living/simple_animal/hostile/jelly/cold/life()
 	..()
-	if(alive)
+	if(icon_state == icon_dead)
 		src.bodytemperature -= cooling
 		
 		
