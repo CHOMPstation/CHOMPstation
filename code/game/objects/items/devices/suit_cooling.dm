@@ -244,6 +244,7 @@
 	//might make a blue icon someday, not priority this is debug stuff
 	var/cooling = -5	//variable cooling
 	var/isCooling = 1
+	cold_damage_per_tick = 0
 
 /mob/living/simple_animal/hostile/jelly/cold/proc/toggle_cooling()	
 	isCooling=!isCooling
