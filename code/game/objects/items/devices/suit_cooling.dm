@@ -240,7 +240,6 @@
 /mob/living/simple_animal/hostile/jelly/cold //you are my test mob now fug you
 	name = "Frostbite Jelly"
 	//might make a blue icon someday, not priority this is debug stuff
-	var/obj/item/weapon/cell/cell
 	var/cooling = 5	//variable cooling
 
 /mob/living/simple_animal/hostile/jelly/cold/life()
