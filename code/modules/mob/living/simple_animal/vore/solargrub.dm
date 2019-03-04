@@ -117,18 +117,3 @@ List of things solar grubs should be able to do:
 	if(. == 0 && !is_dead())
 		set_light(2.5, 1, COLOR_YELLOW)
 		return 1
-
-//CHOMPEDIT SMESgrubs
-/mob/living/simple_animal/retaliate/solargrub/smes
-	name = "juvenile SMESgrub"
-	desc = "A young sparkling SMESgrub"
-	icon = 'icons/obj/power.dmi'
-	icon_state = "smes"
-	icon_living = "smes"
-	icon_dead = "smes"
-
-/mob/living/simple_animal/retaliate/solargrub/smes/death()
-	..()
-	var/location = get_turf(src)
-	new /obj/machinery/power/smes(location)
-	qdel(src)
