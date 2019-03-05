@@ -61,6 +61,19 @@ var/list/mob_hat_cache = list()
 	holder_type = /obj/item/weapon/holder/drone
 
 	can_be_antagged = FALSE
+	
+	//CHOMPEDIT: CHAISS storage
+	var/chassis = "repairbot"   // A record of your chosen chassis.
+	var/global/list/possible_chassis = list(
+		"Maintenance" = "repairbot",
+		"Mining" = "mining",
+		"Construction" = "constructiondrone",
+		"White Spider" = "whitespider",
+		"Crawler" = "crawler",
+		"Gravekeeper" = "drone-gravekeeper",
+		"Egg" = "peaceborg",
+		"Ball" = "omoikane",
+		)
 
 /mob/living/silicon/robot/drone/Destroy()
 	if(hat)
@@ -333,6 +346,7 @@ var/list/mob_hat_cache = list()
 
 /mob/living/silicon/robot/drone/add_robot_verbs()
 	src.verbs |= silicon_subsystems
+	src.verbs |= /mob/living/silicon/robot/drone/proc/choose_chassis()
 
 /mob/living/silicon/robot/drone/remove_robot_verbs()
 	src.verbs -= silicon_subsystems
@@ -364,3 +378,23 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/mining/updatename()
 	real_name = "mining drone ([rand(100,999)])"
 	name = real_name
+
+//CHOMPEDIT: Porting pai chasis selector onto Drones
+
+/mob/living/silicon/robot/drone/proc/choose_chassis()
+	set category ="Robot Commands"
+	set name = "Choose Chassis"
+
+	var/choice
+	var/finalized = "No"
+	while(finalized == "No" && src.client)
+
+		choice = input(usr,"What would you like to use for your mobile chassis icon?") as null|anything in possible_chassis
+		if(!choice) return
+
+		icon_state = possible_chassis[choice]
+		finalized = alert("Look at your sprite. Is this what you wish to use?",,"No","Yes")
+
+	chassis = possible_chassis[choice]
+	verbs |= /mob/living/proc/hide
+
