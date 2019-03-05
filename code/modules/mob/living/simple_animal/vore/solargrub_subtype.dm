@@ -32,6 +32,6 @@
 
 /mob/living/simple_animal/retaliate/solargrub/smes/death()
 	..()
-	var//obj/machinery/power/drop = new /obj/machinery/power/smes/buildable/outpost_substation/grub(location)
+	var/obj/machinery/power/drop = new /obj/machinery/power/smes/buildable/outpost_substation/grub(location)
 	drop.charge = charge
 	qdel(src)
