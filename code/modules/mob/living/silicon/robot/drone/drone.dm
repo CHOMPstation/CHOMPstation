@@ -319,7 +319,7 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/proc/question(var/client/C)
 	spawn(0)
 		if(!C || jobban_isbanned(C,"Cyborg"))	return
-		var/response = alert(C, "Someone is attempting to reboot a maintenance drone. Would you like to play as one?", "Maintenance drone reboot", "Yes", "No", "Never for this round")
+		var/response = alert(C, "Someone is attempting to reboot a "+src+". Would you like to play as one?", src+" reboot", "Yes", "No", "Never for this round")
 		if(!C || ckey)
 			return
 		if(response == "Yes")
