@@ -242,17 +242,17 @@
 	retaliate=1
 	name = "Frostbite Jelly"
 	//might make a blue icon someday, not priority this is debug stuff
-	var/cooling = -5	//variable cooling
+	var/cooling = -500	//variable cooling
 	var/isCooling = 1
 	cold_damage_per_tick = 0
-	maxbodytemp = 1000
+	maxbodytemp = 2000
 
 /mob/living/simple_animal/hostile/jelly/cold/proc/toggle_cooling()	
 	isCooling=!isCooling
 
 /mob/living/simple_animal/hostile/jelly/cold/proc/handle_cooling(var/datum/gas_mixture/environment)
 	var/datum/gas_mixture/gas
-	gas = environment.remove(0.25 * environment.total_moles)
+	gas = environment.remove(0.5 * environment.total_moles)
 	if(gas)
 		gas.add_thermal_energy(cooling)
 	environment.merge(gas)
@@ -262,7 +262,7 @@
 	var/datum/gas_mixture/environment = src.loc.return_air()
 	if(icon_state != icon_dead &&  isCooling)
 		handle_cooling(environment)
-		src.bodytemperature -= cooling
+		src.bodytemperature += cooling
 	if(src.bodytemperature<=-500)
 		isCooling = 0
 	if(src.bodytemperature>=-499)
