@@ -61,6 +61,19 @@ var/list/mob_hat_cache = list()
 	holder_type = /obj/item/weapon/holder/drone
 
 	can_be_antagged = FALSE
+	
+	//CHOMPEDIT: CHAISS storage
+	var/chassis = "repairbot"   // A record of your chosen chassis.
+	var/global/list/possible_chassis = list(
+		"Maintenance" = "repairbot",
+		"Mining" = "mining",
+		"Construction" = "constructiondrone",
+		"White Spider" = "whitespider",
+		"Crawler" = "crawler",
+		"Gravekeeper" = "drone-gravekeeper",
+		"Egg" = "peaceborg",
+		"Ball" = "omoikane",
+		)
 
 /mob/living/silicon/robot/drone/Destroy()
 	if(hat)
@@ -77,6 +90,7 @@ var/list/mob_hat_cache = list()
 	hat_x_offset = 1
 	hat_y_offset = -12
 	can_pull_mobs = MOB_PULL_SAME
+	chassis = "constructiondrone" //CHOMPEDIT: Initial chasis
 
 /mob/living/silicon/robot/drone/mining
 	icon_state = "miningdrone"
@@ -86,12 +100,14 @@ var/list/mob_hat_cache = list()
 	hat_x_offset = 1
 	hat_y_offset = -12
 	can_pull_mobs = MOB_PULL_SAME
+	chassis = "mining" //CHOMPEDIT: Initial chasis
 
 /mob/living/silicon/robot/drone/New()
 
 	..()
 	verbs += /mob/living/proc/ventcrawl
 	verbs += /mob/living/proc/hide
+	verbs |= /mob/living/silicon/robot/drone/proc/choose_chassis //CHOMPEDIT verb addition
 	remove_language("Robot Talk")
 	add_language("Robot Talk", 0)
 	add_language("Drone Talk", 1)
@@ -343,6 +359,12 @@ var/list/mob_hat_cache = list()
 	src << "Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."
 	src << "<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."
 
+/mob/living/silicon/robot/drone/mining/welcome_drone()
+	src << "<b>You are a mining drone, an autonomous supply and mining system.</b>."
+	src << "You are assigned to a Sol Central mining project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."
+	src << "Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."
+	src << "<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."
+
 /mob/living/silicon/robot/drone/construction/init()
 	..()
 	flavor_text = "It's a bulky construction drone stamped with a Sol Central glyph."
@@ -358,3 +380,23 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/mining/updatename()
 	real_name = "mining drone ([rand(100,999)])"
 	name = real_name
+
+//CHOMPEDIT: Porting pai chasis selector onto Drones
+
+/mob/living/silicon/robot/drone/proc/choose_chassis()
+	set category ="Robot Commands"
+	set name = "Choose Chassis"
+
+	var/choice
+	var/finalized = "No"
+	while(finalized == "No" && src.client)
+
+		choice = input(usr,"What would you like to use for your mobile chassis icon?") as null|anything in possible_chassis
+		if(!choice) return
+
+		icon_state = possible_chassis[choice]
+		finalized = alert("Look at your sprite. Is this what you wish to use?",,"No","Yes")
+
+	chassis = possible_chassis[choice]
+	verbs |= /mob/living/proc/hide
+
