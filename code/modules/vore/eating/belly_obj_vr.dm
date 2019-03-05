@@ -259,9 +259,9 @@
 	if(owner.stat == DEAD)
 		return
 	if(!prey.isEdible) //CHOMPEDIT: Trying to make pred mobs prey? N O U
+		var/mob/living/simple_animal/preydator = prey
 		user.Weaken(5)
-		if (will_eat(user))
-			var/mob/living/simple_animal/preydator = prey
+		if (preydator.will_eat(user))
 			preydator.stop_automated_movement = 1
 			preydator.animal_nom(user)
 			preydator.update_icon()
