@@ -90,6 +90,7 @@ var/list/mob_hat_cache = list()
 	hat_x_offset = 1
 	hat_y_offset = -12
 	can_pull_mobs = MOB_PULL_SAME
+	chassis = "constructiondrone" //CHOMPEDIT: Initial chasis
 
 /mob/living/silicon/robot/drone/mining
 	icon_state = "miningdrone"
@@ -99,12 +100,14 @@ var/list/mob_hat_cache = list()
 	hat_x_offset = 1
 	hat_y_offset = -12
 	can_pull_mobs = MOB_PULL_SAME
+	chassis = "mining" //CHOMPEDIT: Initial chasis
 
 /mob/living/silicon/robot/drone/New()
 
 	..()
 	verbs += /mob/living/proc/ventcrawl
 	verbs += /mob/living/proc/hide
+	verbs |= /mob/living/silicon/robot/drone/proc/choose_chassis //CHOMPEDIT verb addition
 	remove_language("Robot Talk")
 	add_language("Robot Talk", 0)
 	add_language("Drone Talk", 1)
@@ -346,7 +349,6 @@ var/list/mob_hat_cache = list()
 
 /mob/living/silicon/robot/drone/add_robot_verbs()
 	src.verbs |= silicon_subsystems
-	src.verbs |= /mob/living/silicon/robot/drone/proc/choose_chassis()
 
 /mob/living/silicon/robot/drone/remove_robot_verbs()
 	src.verbs -= silicon_subsystems
