@@ -260,6 +260,7 @@
 		return
 	if(!prey.isEdible) //CHOMPEDIT: Trying to make pred mobs prey? N O U
 		var/mob/living/simple_animal/preydator = prey
+		user.visible_message("<span class='danger'>\the [user] promptly gets tackled by \the [prey] for trying to break their prefs! !</span>!")
 		user.Weaken(5)
 		if (preydator.will_eat(user))
 			preydator.stop_automated_movement = 1
