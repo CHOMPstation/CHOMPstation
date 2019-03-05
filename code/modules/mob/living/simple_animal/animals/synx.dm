@@ -256,7 +256,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	if(.) // If we succeeded in hitting.
 		if(isliving(A))
 			var/mob/living/L = A
-			prob(20)
+			if(prob(20))
 				L.Weaken(5)
 				src.feed_self_to_grabbed(L)
 			if(L.reagents)
