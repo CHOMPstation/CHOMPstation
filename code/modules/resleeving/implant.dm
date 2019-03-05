@@ -95,7 +95,7 @@
 /obj/item/weapon/backup_implanter/attack(mob/M as mob, mob/user as mob)
 	if (!istype(M, /mob/living/carbon))
 		return
-	var//mob/living/carbon/implantee = M//CHOMPEDIT implant check
+	var/mob/living/carbon/implantee = M//CHOMPEDIT implant check
 	if (implantee.hasImplant)
 		return
 	if (user && imps.len)
