@@ -259,7 +259,7 @@ mob/living/simple_animal/synx/PunchTarget()
 			if(prob(20))//Forcefeeding code
 				L.Weaken(5)
 				stop_automated_movement = 1
-				src.feed_self_to_grabbed(L)
+				src.feed_self_to_grabbed(src,L)
 				update_icon()
 				stop_automated_movement = 0
 			if(L.reagents)
