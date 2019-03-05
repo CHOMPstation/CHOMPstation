@@ -93,7 +93,7 @@
 			user << "<span class='warning'>\The [src] is already full!</span>"
 
 /obj/item/weapon/backup_implanter/attack(mob/M as mob, mob/user as mob)
-	if (!istype(M, /mob/living/carbon))
+	if (!istype(M, /mob/living/carbon) || hasImplant)
 		return
 	if (user && imps.len)
 		M.visible_message("<span class='notice'>[user] is injecting a backup implant into [M].</span>")
@@ -115,13 +115,7 @@
 					add_attack_logs(user,M,"Implanted backup implant")
 					if (ishuman(M))
 						var/mob/living/carbon/human/H = M
-						var/obj/item/organ/external/affected = H.get_organ(/obj/item/organ/external/chest)//CHOMPEDIT Hard coding implant location
-						if(affected.implants) //Not just a backup implant, ANY.
-							imp.imp_in = null //implant is not implanted
-							imp.implanted = 0 //resetting implanted to 0
-							imps += imp //readding the implant to the implants
-							M.visible_message("<span class='notice'>The implant rejects [user].</span>")
-						else
+						var/obj/item/organ/external/affected = H.get_organ(user.zone_sel.selecting)
 							affected.implants += imp
 							imp.part = affected
 							BITSET(H.hud_updateflag, BACKUP_HUD)
