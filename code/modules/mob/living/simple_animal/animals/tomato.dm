@@ -127,14 +127,13 @@
 /mob/living/simple_animal/hostile/piranhaplant/spitter
 		//might snatch the code for that uranium ray for this since it should poison
 	name = "Piranha Spitter"
-	
-	//Attack ranged settings, This will be used for the second time, the piranha spitters
+	//Attack ranged settings.
 	ranged = 1		// Do I attack at range?
 	shoot_range = 5		// How far away do I start shooting from?
 	view_range = 5		//More range, more hurt, more... plant?
 	rapid = 0		// Three-round-burst fire mode
 	firing_lines = 0	// Avoids shooting allies
-	projectiletype	= "piranhaspit"	// The projectiles I shoot
+	projectiletype	= /obj/item/projectile/energy/piranhaspit	// The projectiles I shoot
 	projectilesound = 'sound/weapons/thudswoosh.ogg' // The sound I make when I do it
 	casingtype = /obj/item/weapon/reagent_containers/food/snacks/soylentgreen/piranha // What to make the hugely laggy casings pile out of
 
