@@ -8,6 +8,7 @@
 	icon_state = "corgi"
 	icon_living = "corgi"
 	icon_dead = "corgi_dead"
+	isEdible = 0
 
 	run_at_them = 0
 	turns_per_move = 10
