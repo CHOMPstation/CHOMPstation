@@ -256,6 +256,12 @@ mob/living/simple_animal/synx/PunchTarget()
 	if(.) // If we succeeded in hitting.
 		if(isliving(A))
 			var/mob/living/L = A
+			if(prob(20))//Forcefeeding code
+				L.Weaken(5)
+				stop_automated_movement = 1
+				src.feed_self_to_grabbed(src,L)
+				update_icon()
+				stop_automated_movement = 0
 			if(L.reagents)
 				var/target_zone = pick(BP_TORSO,BP_TORSO,BP_TORSO,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_HEAD)
 				if(L.can_inject(src, null, target_zone))
