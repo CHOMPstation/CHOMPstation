@@ -260,11 +260,12 @@
 		return
 	if(!prey.isEdible) //CHOMPEDIT: Trying to make pred mobs prey? N O U
 		user.Weaken(5)
-		var/mob/living/simple_animal/preydator = prey
-		preydator.stop_automated_movement = 1
-		preydator.animal_nom(user)
-		preydator.update_icon()
-		preydator.stop_automated_movement = 0
+		if (will_eat(user))
+			var/mob/living/simple_animal/preydator = prey
+			preydator.stop_automated_movement = 1
+			preydator.animal_nom(user)
+			preydator.update_icon()
+			preydator.stop_automated_movement = 0
 		return
 	if (prey.buckled)
 		prey.buckled.unbuckle_mob()
