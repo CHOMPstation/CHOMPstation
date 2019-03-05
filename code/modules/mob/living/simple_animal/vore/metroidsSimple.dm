@@ -6,7 +6,8 @@
 	icon_dead = "metroid_dead"
 	icon_living = "metroidbaby"
 	icon_state = "metroidbaby"
-
+	isEdible = 0
+	
 	faction = "metroids"
 	maxHealth = 50
 	health = 50
