@@ -42,7 +42,7 @@
 	/mob/living/silicon/robot/drone/construction,
 	/mob/living/silicon/robot/drone,)
 
-/obj/machinery/drone_fabricator/proc/create_drone() //Proc where we inject our randomizer code
+/obj/machinery/drone_fabricator/random/create_drone() //Proc where we inject our randomizer code
 	drone_type = pick(dronetypes)
 	..()
 
