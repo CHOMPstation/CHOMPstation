@@ -5,6 +5,7 @@
 	icon_dead = "deathclaw-dead"
 	icon_living = "deathclaw"
 	icon_state = "deathclaw"
+	isEdible = 0
 
 	attacktext = list("mauled")
 
