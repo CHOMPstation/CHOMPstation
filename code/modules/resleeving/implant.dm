@@ -108,6 +108,7 @@
 
 				var/obj/item/weapon/implant/backup/imp = imps[imps.len]
 				if(imp.implanted(M))
+					M.hasImplant = 1
 					imp.forceMove(M)
 					imps -= imp
 					imp.imp_in = M
@@ -116,9 +117,9 @@
 					if (ishuman(M))
 						var/mob/living/carbon/human/H = M
 						var/obj/item/organ/external/affected = H.get_organ(user.zone_sel.selecting)
-							affected.implants += imp
-							imp.part = affected
-							BITSET(H.hud_updateflag, BACKUP_HUD)
+						affected.implants += imp
+						imp.part = affected
+						BITSET(H.hud_updateflag, BACKUP_HUD)
 
 				update()
 
