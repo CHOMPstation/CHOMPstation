@@ -256,7 +256,7 @@
 // The purpose of this method is to avoid duplicate code, and ensure that all necessary
 // steps are taken.
 /obj/belly/proc/nom_mob(var/mob/prey, var/mob/user)
-	if(owner.stat == DEAD || !isEdible)
+	if(owner.stat == DEAD || !prey.isEdible)
 		return
 	if (prey.buckled)
 		prey.buckled.unbuckle_mob()
