@@ -260,6 +260,7 @@
 		return
 	if(!prey.isEdible) //CHOMPEDIT: Trying to make pred mobs prey? N O U
 		prey.animal_nom(user)
+		return
 	if (prey.buckled)
 		prey.buckled.unbuckle_mob()
 
