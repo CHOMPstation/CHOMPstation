@@ -125,6 +125,16 @@
 
 				continue
 
+			//CHOMPEDIT: Snowflake synx hook
+			if(istype(M,/mob/living/simple_animal/retaliate/synx))
+				var/syntox = digest_brute+digest_burn
+				var/old_tox = owner.getToxLoss()
+				owner.adjustToxLoss(syntox)
+				var/actual_tox = M.getToxLoss() - old_tox
+				var/damage_gain = syntox
+				if(M.health <= M.maxHealth)
+					M.health = M.health + syntox*2
+			
 			// Deal digestion damage (and feed the pred)
 			var/old_brute = M.getBruteLoss()
 			var/old_burn = M.getFireLoss()
