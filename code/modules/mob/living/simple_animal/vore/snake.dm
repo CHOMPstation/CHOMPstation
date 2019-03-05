@@ -5,6 +5,7 @@
 	icon_dead = "snake-dead"
 	icon_living = "snake"
 	icon_state = "snake"
+	isEdible = 0
 
 	faction = "snake"
 	maxHealth = 200
