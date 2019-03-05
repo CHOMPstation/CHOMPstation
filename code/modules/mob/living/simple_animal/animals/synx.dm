@@ -291,7 +291,15 @@ mob/living/simple_animal/synx/PunchTarget()
 /mob/living/simple_animal/retaliate/synx/handle_idle_speaking()
 	if(voices && prob(speak_chance/2))
 		randomspeech()
-		
+
+//DIGESTION
+/mob/living/simple_animal/retaliate/synx/digest_act(var/atom/movable/item_storage = null)
+	if(isbelly(item_storage))
+		var/obj/belly/B = item_storage
+		if(ishuman(B.owner))
+			var/mob/living/carbon/human/H = B.owner
+			H.adjustToxLoss(1.5)
+
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// POWERS!!!! /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
