@@ -63,6 +63,44 @@
 	for(var/i = 1, i <= created_volume, i++)
 		new /obj/item/weapon/reagent_containers/food/snacks/monkeycube/sarucube(location)
 	return
+
+//this kinda counts
+//LIQUID EGG
+/datum/chemical_reaction/liquidspideregg
+	name = "spider eggs"
+	id = "spideregg"
+	description = "These are eggs, spiders crawl out of these.. probably not healthy inside of a person."
+	taste_description = "SO MANY LEGS"
+	reagent_state = LIQUID
+	color = "#FFFFFF"
+	overdose = REAGENTS_OVERDOSE * 100
+	metabolism = REM * 0.1
+	scannable = 1
+	var/amount_grown = 0
+	var/min_growth = 0
+	var/max_growth = 2
+	var/spiders_min = 6
+	var/spiders_max = 24
+	var/spider_type = /obj/effect/spider/spiderling
+
+/datum/reagent/liquidspideregg/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(1))
+		M.custom_pain("You can feel movement within your body!",45)
+	amount_grown += rand(min_growth,max_growth)
+	if(amount_grown >= 100)
+		min_growth++
+		max_growth++
+		amount_grown = 0
+		var/num = rand(spiders_min, spiders_max)
+		var/obj/item/organ/external/O = null
+		if(istype(loc, /obj/item/organ/external))
+			O = loc
+
+		for(var/i=0, i<num, i++)
+			var/spiderling = new spider_type(src.loc, src)
+			if(O)
+				O.implants += spiderling
+
 ////////////////////////////////////
 ////////////   MEDICINE   /////////
 //////////////////////////////////
