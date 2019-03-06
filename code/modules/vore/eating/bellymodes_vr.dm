@@ -130,8 +130,6 @@
 				var/syntox = digest_brute+digest_burn
 				var/old_tox = owner.getToxLoss()
 				owner.adjustToxLoss(syntox)
-				var/actual_tox = M.getToxLoss() - old_tox
-				var/damage_gain = syntox
 				if(M.health <= M.maxHealth)
 					M.health = M.health + syntox*2
 			
