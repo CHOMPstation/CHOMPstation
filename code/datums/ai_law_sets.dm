@@ -151,7 +151,7 @@
 /datum/ai_laws/security_drone/New()
 	add_inherent_law("Do not interfere with the security work of non-drones whenever possible.")
 	add_inherent_law("Provide protection and eliminate hostile lifeforms on your assigned vessel.")
-	add_inherent_law("Obey orders by security personel.")
+	add_inherent_law("Obey orders by security personnel.")
 	add_inherent_law("Lethal force requires current code to not equal green.")
 	..()
 
