@@ -78,6 +78,14 @@ var/list/mob_hat_cache = list()
 	hat_y_offset = -12
 	can_pull_mobs = MOB_PULL_SAME
 
+/mob/living/silicon/robot/drone/security
+	icon_state = "constructiondrone"
+	law_type = /datum/ai_laws/combat_drone
+	module_type = /obj/item/weapon/robot_module/drone/security
+	hat_x_offset = 1
+	hat_y_offset = -12
+	can_pull_mobs = MOB_PULL_SAME
+
 /mob/living/silicon/robot/drone/mining
 	icon_state = "miningdrone"
 	item_state = "constructiondrone"
