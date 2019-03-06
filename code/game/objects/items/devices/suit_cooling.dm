@@ -35,6 +35,9 @@
 	cell.loc = src
 
 /obj/item/device/suit_cooling_unit/process()
+	if (emagged)
+		emagprocess() //CHOMPEDIT Should be good enough to override natural process
+		return
 	if (!on || !cell)
 		return
 
@@ -195,7 +198,7 @@
 		user << "It doesn't have a power cell installed."
 
 //CHOMPEDIT hey you wanna go out into space here i got you a spacesuit, even got a cooling module :) trust me friend.
-//Tampered Cooling unit, or also "Heating unit" //this was the original intent, but i accidentally invented supra cooling
+//Tampered Cooling unit, or also "Heating unit" 
 /obj/item/device/suit_cooling_unit/tampered
 	name = "modified portable suit cooling unit"
 	origin_tech = list(TECH_MAGNET = 4, TECH_MATERIAL = 4)
@@ -204,6 +207,9 @@
 	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's existing temperature controls to provide industrial levels of cooling. This ones panel seems a bit loose and wires are hanging out."
 
 /obj/item/device/suit_cooling_unit/tampered/process()
+	emagprocess()
+
+/obj/item/device/suit_cooling_unit/emagprocess()
 	if (!on || !cell)
 		return
 
@@ -236,7 +242,17 @@
 
 	if(cell.charge <= 0)
 		turn_off(1)
-	
+
+//CHOMPEDIT Let's go rogue bb
+/obj/item/device/suit_cooling_unit/emag_act(var/remaining_charges, var/mob/user)
+	if(!emagged)
+		user << "<span class='danger'>You stealthily swipe the cryptographic sequencer through \the [src].</span>"
+		playsound(src, "sparks", 50, 1)
+		emagged = 1
+		if (!on)
+			on = 1 //automatically turns it on
+
+
 /mob/living/simple_animal/hostile/jelly/cold //you are my test mob now fug you
 	hostile=0
 	retaliate=1
