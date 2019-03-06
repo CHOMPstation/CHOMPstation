@@ -66,7 +66,7 @@
 
 //this kinda counts
 //LIQUID EGG
-/datum/chemical_reaction/liquidspideregg
+/datum/reagent/liquidspideregg
 	name = "spider eggs"
 	id = "spideregg"
 	description = "These are eggs, spiders crawl out of these.. probably not healthy inside of a person."
