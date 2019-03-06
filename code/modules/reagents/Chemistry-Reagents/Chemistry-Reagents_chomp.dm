@@ -88,6 +88,7 @@
 		M.custom_pain("You can feel movement within your body!",45)
 	amount_grown += rand(min_growth,max_growth)
 	if(amount_grown >= 100)
+		src = M
 		min_growth++
 		max_growth++
 		amount_grown = 0
