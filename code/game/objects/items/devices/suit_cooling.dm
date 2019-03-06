@@ -5,7 +5,9 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "suitcooler0"
 	slot_flags = SLOT_BACK
-
+	
+	var/emagged = 0 //CHOMPEDIT Cooling suit emagging
+	
 	//copied from tank.dm
 	flags = CONDUCT
 	force = 5.0
