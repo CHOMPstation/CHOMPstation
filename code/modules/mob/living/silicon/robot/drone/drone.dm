@@ -66,7 +66,7 @@ var/list/mob_hat_cache = list()
 	var/chassis = "repairbot"   // A record of your chosen chassis.
 	var/global/list/possible_chassis = list(
 		"Maintenance" = "repairbot",
-		"Mining" = "mining",
+		"Mining" = "miningdrone",
 		"Construction" = "constructiondrone",
 		"White Spider" = "whitespider",
 		"Crawler" = "crawler",
@@ -87,6 +87,17 @@ var/list/mob_hat_cache = list()
 	icon_state = "constructiondrone"
 	law_type = /datum/ai_laws/construction_drone
 	module_type = /obj/item/weapon/robot_module/drone/construction
+	hat_x_offset = 1
+	hat_y_offset = -12
+	can_pull_mobs = MOB_PULL_SAME
+	chassis = "constructiondrone" //CHOMPEDIT: Initial chasis
+	
+/mob/living/silicon/robot/drone/security
+	maxHealth = 100
+	health = 100
+	icon_state = "constructiondrone"
+	law_type = /datum/ai_laws/security_drone
+	module_type = /obj/item/weapon/robot_module/drone/security
 	hat_x_offset = 1
 	hat_y_offset = -12
 	can_pull_mobs = MOB_PULL_SAME
@@ -342,10 +353,10 @@ var/list/mob_hat_cache = list()
 	welcome_drone()
 
 /mob/living/silicon/robot/drone/proc/welcome_drone()
-	src << "<b>You are a maintenance drone, a tiny-brained robotic repair machine</b>."
-	src << "You have no individual will, no personality, and no drives or urges other than your laws."
-	src << "Remember,  you are <b>lawed against interference with the crew</b>. Also remember, <b>you DO NOT take orders from the AI.</b>"
-	src << "Use <b>say ;Hello</b> to talk to other drones and <b>say Hello</b> to speak silently to your nearby fellows."
+	src << "<b>You are a maintenance drone, an autonomous maintenance and fabrication system.</b>."
+	src << "You are assigned to a Sol Central maintenance project. The name is irrelevant. Your task is to complete maintenance and subsystem integration as soon as possible."
+	src << "Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."
+	src << "<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."
 
 /mob/living/silicon/robot/drone/add_robot_verbs()
 	src.verbs |= silicon_subsystems
@@ -364,6 +375,12 @@ var/list/mob_hat_cache = list()
 	src << "You are assigned to a Sol Central mining project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."
 	src << "Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."
 	src << "<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."
+
+/mob/living/silicon/robot/drone/security/welcome_drone()
+	src << "<b>You are a security drone, an autonomous law enforcement system.</b>."
+	src << "You are assigned to a Sol Central security project. The name is irrelevant. Your task is to complete law enforcement and subsystem integration as soon as possible."
+	src << "Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."
+	src << "<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics. Except security.</b>."
 
 /mob/living/silicon/robot/drone/construction/init()
 	..()
