@@ -144,14 +144,15 @@
 	add_inherent_law("Prevent unplanned damage to your assigned excavation equipment wherever possible.")
 	..()
 
-/datum/ai_laws/combat_drone
-	name = "Combat Protocols"
-	law_header = "Combat Protocols"
+/datum/ai_laws/security_drone
+	name = "Security Protocols"
+	law_header = "Security Protocols"
 	
-/datum/ai_laws/combat_drone/New()
+/datum/ai_laws/security_drone/New()
 	add_inherent_law("Do not interfere with the security work of non-drones whenever possible.")
 	add_inherent_law("Provide protection and eliminate hostile lifeforms on your assigned vessel.")
-	add_inherent_law("Prevent damage to your assigned vessel and the crew assigned to it.")
+	add_inherent_law("Obey orders by security personel.")
+	add_inherent_law("Lethal force requires current code to not equal green.")
 	..()
 
 /******************** T.Y.R.A.N.T. ********************/
