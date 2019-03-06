@@ -34,6 +34,11 @@
 	fabricator_tag = "Outpost Mining"
 	drone_type = /mob/living/silicon/robot/drone/mining
 
+/obj/machinery/drone_fabricator/security
+	name = "Security drone fabricator"
+	fabricator_tag =  "Security"
+	drone_type = /mob/living/silicon/robot/drone/security
+
 /obj/machinery/drone_fabricator/random
 	name = "Backup drone fabricator"
 	fabricator_tag = "Backup Drone Fabricator"
