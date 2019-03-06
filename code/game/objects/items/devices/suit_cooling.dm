@@ -209,7 +209,7 @@
 /obj/item/device/suit_cooling_unit/tampered/process()
 	emagprocess()
 
-/obj/item/device/suit_cooling_unit/emagprocess()
+/obj/item/device/suit_cooling_unit/proc/emagprocess()
 	if (!on || !cell)
 		return
 
