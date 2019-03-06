@@ -494,6 +494,36 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_escape_chance = 100
 
 ////////////////////////////////////////
+////////////////SYNX DEBUG//////////////
+////////////////////////////////////////
+/mob/living/simple_animal/retaliate/synx/pet/debug
+	name = "Syntox"
+	desc = "ERROR Connection to translation server could not be established!"
+
+/mob/living/simple_animal/retaliate/synx/pet/debug/proc/rename()
+	set name = "rename"
+	set desc = "Renames the synx"
+	set category = "DEBUG"
+	name = input(usr, "What would you like to change name to?", "Renaming", null)
+
+/mob/living/simple_animal/retaliate/synx/pet/debug/proc/redesc()
+	set name = "redesc"
+	set desc = "Redescribes the synx"
+	set category = "DEBUG"
+	desc = input(usr, "What would you like to change desc to?", "Redescribing", null)
+
+/mob/living/simple_animal/retaliate/synx/pet/debug/proc/resprite()
+	set name = "resprite"
+	set desc = "Resprite the synx"
+	set category = "DEBUG"
+	icon_state = input(usr, "What would you like to change icon_state to?", "Respriting", null)
+
+/mob/living/simple_animal/retaliate/synx/pet/debug/New()
+	verbs |= /mob/living/simple_animal/retaliate/synx/pet/debug/proc/rename
+	verbs |= /mob/living/simple_animal/retaliate/synx/pet/debug/proc/resprite
+	verbs |= /mob/living/simple_animal/retaliate/synx/pet/debug/proc/redesc
+
+////////////////////////////////////////
 ////////////////SYNX SPAWNER////////////
 ////////////////////////////////////////
 /obj/random/mob/synx
