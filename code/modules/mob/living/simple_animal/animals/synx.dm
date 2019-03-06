@@ -109,9 +109,9 @@
 	..()
 	verbs |= /mob/living/proc/ventcrawl
 	verbs |= /mob/living/simple_animal/proc/contort
-	verbs += /mob/living/simple_animal/retaliate/synx/proc/disguise
-	verbs += /mob/living/simple_animal/retaliate/synx/proc/honk
-	verbs += /mob/living/simple_animal/retaliate/synx/proc/randomspeech
+	verbs |= /mob/living/simple_animal/retaliate/synx/proc/disguise
+	//verbs += /mob/living/simple_animal/retaliate/synx/proc/honk
+	verbs |= /mob/living/simple_animal/retaliate/synx/proc/randomspeech
 	realname = name
 	voices += "Garbled voice"
 	voices += "Unidentifiable Voice"
@@ -347,13 +347,14 @@ mob/living/simple_animal/synx/PunchTarget()
 	set desc = "Takes a sentence you heard and says it"
 	set category = "Abilities"
 	if(speak && voices)
-		name = pick(voices)
-		spawn(10)
-			src.say(pick(speak))
+		handle_mimic()
 	else 
 		usr << "<span class='warning'>YOU NEED TO HEAR THINGS FIRST, try using Ventcrawl to eevesdrop on nerds</span>"
-	spawn(20)
-		name = realname
+
+/mob/living/simple_animal/retaliate/synx/proc/handle_mimic()
+	name = pick(voices)
+	src.say(pick(speak))
+	name = realname
 
 ////////////////////////////////////////
 ////////////////PET VERSION/////////////
@@ -386,14 +387,14 @@ mob/living/simple_animal/synx/PunchTarget()
 	speak = list()
 
 //HONKMOTHER Code.
-/mob/living/simple_animal/retaliate/synx/proc/honk()
+/*/mob/living/simple_animal/retaliate/synx/proc/honk()
 	set name = "HONK"
 	set desc = "TAAA RAINBOW"
 	set category = "Abilities"
 	icon_state = "synx_pet_rainbow"
 	icon_living = "synx_pet_rainbow"
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
-
+*/
 /mob/living/simple_animal/retaliate/synx/proc/bikehorn()
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 
@@ -425,7 +426,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	icon_gib = null
 	alpha = 127
 	speak = list("SX System Online")
-	faction = "station"//Can be safely bapped with newspaper.
+	faction = "neutral"//Can be safely bapped with newspaper.
 	melee_damage_lower = 0 //Holos do no damage
 	melee_damage_upper = 0
 	meat_amount = 0
@@ -440,8 +441,6 @@ mob/living/simple_animal/synx/PunchTarget()
 	swallowTime = 10 SECONDS //Much more time to run
 
 /mob/living/simple_animal/retaliate/synx/pet/greed
-	//var/GREED_LIVING = "synx_greed_living"
-	//var/GREED_DEAD = "synx_greed_dead"
 	name = "Greed"
 	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. black, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has the name Greed burnt into its back, the burnt in name seems to be luminescent making it harder for it to blend into the dark."
 	//icon= //icon= would just set what DMI we are using, we already have our special one set.
