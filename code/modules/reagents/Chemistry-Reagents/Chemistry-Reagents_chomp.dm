@@ -88,18 +88,16 @@
 		M.custom_pain("You can feel movement within your body!",45)
 	amount_grown += rand(min_growth,max_growth)
 	if(amount_grown >= 100)
-		src = M
-		loc = M.loc
 		min_growth++
 		max_growth++
 		amount_grown = 0
 		var/num = rand(spiders_min, spiders_max)
 		var/obj/item/organ/external/O = null
-		if(istype(loc, /obj/item/organ/external))
-			O = loc
+		if(istype(M.loc, /obj/item/organ/external))
+			O = M.loc
 
 		for(var/i=0, i<num, i++)
-			var/spiderling = new spider_type(src.loc, src)
+			var/spiderling = new spider_type(M.loc, M)
 			if(O)
 				O.implants += spiderling
 
