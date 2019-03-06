@@ -66,7 +66,7 @@ var/list/mob_hat_cache = list()
 	var/chassis = "repairbot"   // A record of your chosen chassis.
 	var/global/list/possible_chassis = list(
 		"Maintenance" = "repairbot",
-		"Mining" = "mining",
+		"Mining" = "miningdrone",
 		"Construction" = "constructiondrone",
 		"White Spider" = "whitespider",
 		"Crawler" = "crawler",
@@ -87,6 +87,15 @@ var/list/mob_hat_cache = list()
 	icon_state = "constructiondrone"
 	law_type = /datum/ai_laws/construction_drone
 	module_type = /obj/item/weapon/robot_module/drone/construction
+	hat_x_offset = 1
+	hat_y_offset = -12
+	can_pull_mobs = MOB_PULL_SAME
+	chassis = "constructiondrone" //CHOMPEDIT: Initial chasis
+	
+/mob/living/silicon/robot/drone/security
+	icon_state = "constructiondrone"
+	law_type = /datum/ai_laws/security_drone
+	module_type = /obj/item/weapon/robot_module/drone/security
 	hat_x_offset = 1
 	hat_y_offset = -12
 	can_pull_mobs = MOB_PULL_SAME
