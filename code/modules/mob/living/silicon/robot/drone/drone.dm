@@ -156,6 +156,18 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/updatename()
 	real_name = "maintenance drone ([rand(100,999)])"
 	name = real_name
+/mob/living/silicon/robot/drone/mining/updatename()
+	real_name = "mining drone ([rand(100,999)])"
+	name = real_name
+/mob/living/silicon/robot/drone/security/updatename()
+	real_name = "security drone ([rand(100,999)])"
+	name = real_name
+/mob/living/silicon/robot/drone/construction/updatename()
+	real_name = "construction drone ([rand(100,999)])"
+	name = real_name
+
+
+
 
 /mob/living/silicon/robot/drone/updateicon()
 
