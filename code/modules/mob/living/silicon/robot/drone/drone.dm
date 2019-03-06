@@ -93,6 +93,8 @@ var/list/mob_hat_cache = list()
 	chassis = "constructiondrone" //CHOMPEDIT: Initial chasis
 	
 /mob/living/silicon/robot/drone/security
+	maxHealth = 100
+	health = 100
 	icon_state = "constructiondrone"
 	law_type = /datum/ai_laws/security_drone
 	module_type = /obj/item/weapon/robot_module/drone/security
