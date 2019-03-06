@@ -89,6 +89,7 @@
 	amount_grown += rand(min_growth,max_growth)
 	if(amount_grown >= 100)
 		src = M
+		loc = M.loc
 		min_growth++
 		max_growth++
 		amount_grown = 0
