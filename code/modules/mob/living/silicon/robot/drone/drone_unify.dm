@@ -23,7 +23,7 @@
 	
 	holder_type = /obj/item/weapon/holder/drone
 	//var/selected_icon = null //Can be compared to "Wideborg" will tell us in the future if we ar eusing non standardized icon.
-	possible_chassis = list(
+	var/global/list/possible_chassis = list(
 		"Maintenance" = "repairbot",
 		"Mining" = "miningdrone",
 		"Construction" = "constructiondrone",
@@ -50,7 +50,7 @@
 //DRONE HELLO WORLD
 ////////////////////////////////////////
 //TODO: Rewrite all hello worlds to be more accurate to our lore. Make Drone spawntext more lore heavy in general
-/mob/living/silicon/robot/drone/unify/proc/welcome_drone()
+/mob/living/silicon/robot/drone/unify/welcome_drone()
 	src << "<b>You are a Unified Drone Module, an autonomous maintenance and fabrication system.</b>."
 	src << "You are assigned to a Sol Central maintenance project. The name is irrelevant. Your task is to complete maintenance and subsystem integration as soon as possible."
 	src << "Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."
@@ -71,23 +71,25 @@
 	fabricator_tag = "Prototype UNIFY Fabricator"
 	desc = "A large automated factory for producing Unified Drone Modules."
 	drone_type = null //Gonna try to set this later
-	var/list/possible_drones = list("UNIFY Module" = /obj/item/weapon/robot_module/drone/unify,
+	var/global/list/possible_drones = list("UNIFY Module" = /obj/item/weapon/robot_module/drone/unify,
 	"Construction Module" = /mob/living/silicon/robot/drone/construction,)
 
 
 ////////////////////////////////////////
 //DRONE PROCS
 ////////////////////////////////////////
+//Drone Drone Procs
 /mob/living/silicon/robot/drone/unify/updatename()
 	real_name = "Unified Drone Module ([rand(100,999)])" //UDMs, sounds kinda nice, maybe call them this Lore wise?
 	name = real_name
 
+//Fabricator procs
 /obj/machinery/drone_fabricator/unify/create_drone(var/client/player)
 	choose_dronetype()//code for dronetypes goes here
 	..()
 
-/mob/living/silicon/robot/drone/proc/choose_dronetype()
+/obj/machinery/drone_fabricator//proc/choose_dronetype()
 	var/choice
 	choice = input(usr,"What module would you like to use?") as null|anything in possible_drones
 	if(!choice) return
-	drone_type = possible_chassis[choice]
+	drone_type = possible_drones[choice]
