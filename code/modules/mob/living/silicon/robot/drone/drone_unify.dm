@@ -59,6 +59,13 @@
 	create_reagents(tile_clean_amount)
 	wet(tile_clean_amount)
 
+//Drone Control Presets;
+/obj/machinery/computer/drone_control/engineering
+	req_access = list(access_engine_equip)
+/obj/machinery/computer/drone_control/security
+	req_access = list(access_security)
+/obj/machinery/computer/drone_control/mining
+	req_access = list(access_mining)
 
 ////////////////////////////////////////
 //DRONE FABRICATOR, ONE FOR ALL SYSTEM.
