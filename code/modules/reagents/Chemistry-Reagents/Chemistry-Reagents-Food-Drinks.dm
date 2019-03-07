@@ -279,6 +279,21 @@
 	ingest_met = REM
 	color = "#000000"
 
+/datum/reagent/hotwater
+	name = "Hot Water"
+	id = "hotwater"
+	description = "A ubiquitous chemical substance that is composed of hydrogen and oxygen, now heated."
+	taste_description = "water"
+	reagent_state = LIQUID
+	ingest_met = REM * 10
+	color = "#0064C877"
+
+	cup_name = "cup of hot water"
+	cup_desc = "Good for brewing tea."
+
+	glass_name = "hot water"
+	glass_desc = "Good for brewing tea."
+
 /datum/reagent/enzyme
 	name = "Universal Enzyme"
 	id = "enzyme"
@@ -714,7 +729,7 @@
 
 	glass_name = "Peanut paste"
 	glass_desc = "Raw extracts from peanuts, got a creamy nutty flavour."
-	
+
 // Everything else
 
 /datum/reagent/drink/milk
@@ -916,7 +931,7 @@
 
 	cup_name = "cup of cherry tea"
 	cup_desc = "A tasty mixture of cherries and tea. It's apparently good for you!"
-	
+
 /datum/reagent/drink/tea/watermelontea
 	name = "Watermelon Tea"
 	id = "watermelontea"
@@ -929,7 +944,7 @@
 
 	cup_name = "cup of watermelon tea"
 	cup_desc = "A tasty mixture of watermelon and tea. It's apparently good for you!"
-	
+
 /datum/reagent/drink/coffee
 	name = "Coffee"
 	id = "coffee"
@@ -1602,7 +1617,7 @@
 
 	glass_name = "horchata"
 	glass_desc = "A sweet and cold rice milk beverage."
-	
+
 /* Alcohol */
 
 // Basic
@@ -3105,7 +3120,7 @@
 
 	glass_name = "Eggnog"
 	glass_desc = "A seasonal drink made from egg, alcohol, dairy products and sugar."
-	
+
 /datum/reagent/ethanol/spiderdrink
 	name = "Brimming glass of spiders"
 	id = "spiderdrink"
@@ -3116,7 +3131,7 @@
 
 	glass_name = "Brimming glass of spiders"
 	glass_desc = "A glass filled to the brim with tiny drunk spiderlings. Lets hope they dont escape."
-	
+
 /datum/reagent/ethanol/snaps
 	name = "Akvavit"
 	id = "snaps"
@@ -3127,7 +3142,7 @@
 
 	glass_name = "akvavit"
 	glass_desc = "Burns the nose and throat, and soothes it with a herby aftertaste...Barely."
-	
+
 /datum/reagent/ethanol/bluetrain
 	name = "blue train"
 	id = "bluetrain"
@@ -3137,10 +3152,10 @@
 	adj_temp = -10
 	targ_temp = 220
 	strength = 10
-	
+
 	glass_name = "blue train"
 	glass_desc = "A glass of what can only be described as the bastard child between coolant and alcohol made by a madman."
-	
+
 /datum/reagent/drink/lowpower
 	name = "The low power"
 	id = "lowpower"
@@ -3150,13 +3165,13 @@
 
 	glass_name = "lowpower"
 	glass_desc = "Smells, and tastes like lemon.. with a hint of Ozone, for whatever reason. It glows softly."
-	
+
 /datum/reagent/drink/lowpower/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien == IS_DIONA)
 		return
 	M.adjustToxLoss(-0.5 * removed)
-	
+
 /datum/reagent/ethanol/coffee/jackbrew
 	name = "Jack's brew"
 	id = "jackbrew"
@@ -3179,7 +3194,7 @@
 	if(prob(5))
 		M.emote(pick("twitch", "blink_r", "shiver", "weh"))
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
-	
+
 /datum/reagent/ethanol/bookwyrm
 	name = "Bookwyrm's bite"
 	id = "bookwyrm"
@@ -3192,7 +3207,7 @@
 
 	glass_name = "Bookwyrm's bite"
 	glass_desc = "A cold lime mint drink. Dont drink to much or you might fall asleep."
-	
+
 /datum/reagent/ethanol/bookwyrm/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
@@ -3228,7 +3243,7 @@
 		else
 			M.sleeping = max(M.sleeping, 20)
 		M.drowsyness = max(M.drowsyness, 60)
-		
+
 /datum/reagent/drink/highpower
 	name = "The High power"
 	id = "highpower"
@@ -3238,7 +3253,7 @@
 
 	glass_name = "highpower"
 	glass_desc = "A strange, softly crackling drink, smelling just like lightning's just struck, twice. It's rather difficult to make this without busting the lights."
-	
+
 /datum/reagent/drink/highpower/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
@@ -3248,7 +3263,7 @@
 		M.AdjustWeakened(3)		//Getting sapped makes the victim fall
 		M.Stun(3)
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
-		
+
 /datum/reagent/ethanol/flapper
 	name = "Flapper"
 	id = "flapper"
@@ -3259,17 +3274,17 @@
 
 	glass_name = "flapper"
 	glass_desc = "A common drink among blood-drinkers, and those who just wanna drink. Tinnibat be damned."
-	
+
 /datum/reagent/toxin/oilslide
 	name = "Oil slide"
 	id = "oilslide"
 	description = "Tasty, if you're a synth, not so much for organics."
 	taste_description = "oil, slime, and fuel! Tastes also like synthetic backwash"
 	color = "#331a1a"
-	
+
 	glass_name = "oilslide"
 	glass_desc = "Tasty, if you're a synth, not so much for organics."
-	
+
 /datum/reagent/ethanol/sitonmyface
 	name = "Sit on my face"
 	id = "sitonmyface"
