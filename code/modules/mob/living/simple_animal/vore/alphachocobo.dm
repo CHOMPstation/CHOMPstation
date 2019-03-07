@@ -5,7 +5,6 @@
 	icon_state = "alpha_chocobo"
 	icon_living = "alpha_chocobo"
 	icon_dead = "alpha_chocobo_dead"
-	isEdible = 0
 
 	faction = "chocobo"
 	maxHealth = 350
@@ -16,7 +15,7 @@
 	melee_damage_upper = 30
 	attack_armor_pen = 25
 	attacktext = list("bit")
-	
+
 	pixel_x = -16
 	pixel_y = -16
 	old_x = -16
@@ -25,7 +24,7 @@
 	response_help = "rubs the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
-	
+
 	speak_chance = 1
 	speak = list("Wark!",
 				"Chrp?",
@@ -41,9 +40,10 @@
 	vore_pounce_chance = 100
 	vore_default_mode = DM_HOLD
 	vore_icons = SA_ICON_LIVING
-	
-/mob/living/simple_animal/alpha_chocobo/init_vore()	
-	..()	
+	vore_capacity = 2
+
+/mob/living/simple_animal/alpha_chocobo/init_vore()
+	..()
 	var/obj/belly/B = vore_selected
 	B.name = "Stomach"
 	B.desc = "With a quick gulp youre squeezed down into the large roc's spacious belly, though the stomach seems to be able to stretch a lot it still hugs you tightly in an almost possesive way and its owner lets out a satisfied squak."
