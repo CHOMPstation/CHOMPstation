@@ -50,6 +50,15 @@
 //DRONE ITEMS (mostly mods of other items)
 ////////////////////////////////////////
 //TODO: Move Advanced soap here.
+/obj/item/weapon/soap/drone
+	name = "Advanced Soap"
+	var/tile_clean_amount = 100
+
+/obj/item/weapon/soap/drone/New()
+	..()
+	create_reagents(tile_clean_amount)
+	wet(tile_clean_amount)
+
 
 ////////////////////////////////////////
 //DRONE FABRICATOR, ONE FOR ALL SYSTEM.
