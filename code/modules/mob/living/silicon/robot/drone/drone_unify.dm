@@ -76,6 +76,11 @@
 	fabricator_tag = "Prototype UNIFY Fabricator"
 	desc = "A large automated factory for producing Unified Drone Modules."
 	drone_type = null //Gonna try to set this later
+	var/list/possible_drones = list("UNIFY Module (Same as Maintenance)" = /mob/living/silicon/robot/drone/unify,
+	"Construction Module" = /mob/living/silicon/robot/drone/construction,
+	"Mining Module" = /mob/living/silicon/robot/drone/mining,
+	"Security Module" = /mob/living/silicon/robot/drone/security,
+	"Maintenance Module" = /mob/living/silicon/robot/drone,)
 
 ////////////////////////////////////////
 //DRONE PROCS
@@ -87,16 +92,10 @@
 
 //Fabricator procs
 /obj/machinery/drone_fabricator/unify/create_drone(var/client/player)
-	choose_dronetype()//code for dronetypes goes here
+	choose_dronetype(possible_drones)//code for dronetypes goes here
 	..()
 
-/obj/machinery/drone_fabricator/proc/choose_dronetype()
-	var/list/possible_drones = list("UNIFY Module (Same as Maintenance)" = /mob/living/silicon/robot/drone/unify,
-	"Construction Module" = /mob/living/silicon/robot/drone/construction,
-	"Mining Module" = /mob/living/silicon/robot/drone/mining,
-	"Security Module" = /mob/living/silicon/robot/drone/security,
-	"Maintenance Module" = /mob/living/silicon/robot/drone,)
-	
+/obj/machinery/drone_fabricator/proc/choose_dronetype(possible_drones)
 	var/choice
 	choice = input(usr,"What module would you like to use?") as null|anything in possible_drones
 	if(!choice) return

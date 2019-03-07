@@ -150,7 +150,7 @@
 	
 /datum/ai_laws/security_drone/New()
 	add_inherent_law("Do not interfere with the security work of non-drones whenever possible.")
-	add_inherent_law("Provide protection to crew and eliminate hostile lifeforms on your assigned vessel.")
+	add_inherent_law("Provide protection to the crew and eliminate hostile lifeforms on your assigned vessel.")
 	add_inherent_law("Obey orders by security personnel except if they violate law 4.")
 	add_inherent_law("Lethal force requires a code higher than green AND orders by security to use it to authorize it.")
 	add_inherent_law("You must outfit yourself with a security beret.")
