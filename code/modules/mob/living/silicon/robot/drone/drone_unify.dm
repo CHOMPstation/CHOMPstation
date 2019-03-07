@@ -83,7 +83,7 @@
 	choose_dronetype()//code for dronetypes goes here
 	..()
 
-/obj/machinery/drone_fabricator//proc/choose_dronetype()
+/obj/machinery/drone_fabricator/proc/choose_dronetype()
 	var/choice
 	choice = input(usr,"What module would you like to use?") as null|anything in possible_drones
 	if(!choice) return
