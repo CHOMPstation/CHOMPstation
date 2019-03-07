@@ -55,7 +55,7 @@
 	var/poison_type = "shockchem"
 	var/poison_chance = 50
 	var/emp_chance = 20 // Beware synths
-	var/isEdible = 0
+	isEdible = 0 //You can look, but you can't lick.
 	
 	
 	
