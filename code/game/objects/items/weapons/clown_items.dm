@@ -18,10 +18,10 @@
 /obj/item/weapon/soap/New()
 	..()
 	create_reagents(5)
-	wet()
- 
-/obj/item/weapon/soap/proc/wet()
-	reagents.add_reagent("cleaner", 5)
+	wet(5)
+
+/obj/item/weapon/soap/proc/wet(var/amount)
+	reagents.add_reagent("cleaner", amount)
 
 /obj/item/weapon/soap/Crossed(AM as mob|obj)
 	if (istype(AM, /mob/living))

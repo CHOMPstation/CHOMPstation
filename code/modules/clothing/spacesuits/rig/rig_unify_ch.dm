@@ -115,3 +115,20 @@
 	icon = 'icons/obj/rig_override_modules.dmi'
 	icon_state = "override_rig_gauntlets" //this is experimental
 	name = "gloves"
+//Will be modified once we start adding actual fursuits in here
+/obj/item/weapon/rig/override/New()
+	..()
+	icon_state = "override_rig_suit" //for now
+/obj/item/clothing/head/helmet/space/rig/override/New()
+	..()
+	icon_state = item_state
+/obj/item/clothing/suit/space/rig/override/New()
+	..()
+	icon_state = item_state
+/obj/item/clothing/gloves/gauntlets/rig/override/New()
+	..()
+	icon_state = item_state
+/obj/item/clothing/shoes/magboots/rig/override/New()
+	..()
+	icon_state = item_state
+//Lazy sprite fix end

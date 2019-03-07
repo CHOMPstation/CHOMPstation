@@ -5,6 +5,7 @@
 	icon_state = "alpha_chocobo"
 	icon_living = "alpha_chocobo"
 	icon_dead = "alpha_chocobo_dead"
+	isEdible = 0
 
 	faction = "chocobo"
 	maxHealth = 350
