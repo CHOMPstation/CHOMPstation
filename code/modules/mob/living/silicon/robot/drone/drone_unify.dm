@@ -23,9 +23,6 @@
 	
 	holder_type = /obj/item/weapon/holder/drone
 	//var/selected_icon = null //Can be compared to "Wideborg" will tell us in the future if we ar eusing non standardized icon.
-	possible_chassis +=  "PROTOTYPE" = "miningdrone" 
-	//This list populates the drone sprite selection, Left side is Displayed names, Right side is icon_state names.
-	//TODO: Find someone willing to sell their soul to actively document the PX offset for each of these for hatcode
 ////////////////////////////////////////
 //DRONE MODULES
 ////////////////////////////////////////
@@ -71,6 +68,12 @@
 //DRONE PROCS
 ////////////////////////////////////////
 //Drone Drone Procs
+/mob/living/silicon/robot/drone/unify/New()
+	..()
+	possible_chassis +=  "PROTOTYPE" = "miningdrone" 
+	//This list populates the drone sprite selection, Left side is Displayed names, Right side is icon_state names.
+	//TODO: Find someone willing to sell their soul to actively document the PX offset for each of these for hatcode
+
 /mob/living/silicon/robot/drone/unify/updatename()
 	real_name = "Unified Drone Module ([rand(100,999)])" //UDMs, sounds kinda nice, maybe call them this Lore wise?
 	name = real_name
