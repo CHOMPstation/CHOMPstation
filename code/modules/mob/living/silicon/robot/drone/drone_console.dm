@@ -11,14 +11,6 @@
 	//Used to enable or disable drone fabrication.
 	var/obj/machinery/drone_fabricator/dronefab
 
-
-/obj/machinery/computer/drone_control/New()
-	..()
-	for(var/obj/machinery/drone_fabricator/fab in oview(3,src))
-		dronefab = fab
-	if(istype(dronefab, /obj/machinery/drone_fabricator/mining))
-		req_access = list(access_mining)
-
 /obj/machinery/computer/drone_control/attack_ai(var/mob/user as mob)
 	return src.attack_hand(user)
 
