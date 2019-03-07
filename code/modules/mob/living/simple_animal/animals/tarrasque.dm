@@ -84,6 +84,10 @@
 	new scale(location)
 	qdel(src)
 
+/mob/living/simple_animal/hostile/tarrasque/New()
+	..()
+	world << "<font size='15' color='red'><b>[uppertext(name)] HAS EMERGED</b></font>"
+
 /obj/item/clothing/accessory/medal/tarrasque //IF we ever to make a siege event with this, this will be a permanent medal to win for people that survived
 	name = "Scale medal"
 	desc = "A T'rasq scale fashioned into a medal."
