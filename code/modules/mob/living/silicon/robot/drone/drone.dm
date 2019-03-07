@@ -119,6 +119,7 @@ var/list/mob_hat_cache = list()
 	verbs += /mob/living/proc/ventcrawl
 	verbs += /mob/living/proc/hide
 	verbs |= /mob/living/silicon/robot/drone/proc/choose_chassis //CHOMPEDIT verb addition
+	verbs -= /mob/living/silicon/robot/verb/self_diagnosis_verb //Drones dont take component based damage.
 	remove_language("Robot Talk")
 	add_language("Robot Talk", 0)
 	add_language("Drone Talk", 1)
