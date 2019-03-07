@@ -24,7 +24,7 @@
 					LANGUAGE_SIIK		= 1,
 					LANGUAGE_SKRELLIAN	= 1,
 					LANGUAGE_ROOTLOCAL	= 0,
-					LANGUAGE_GUTTER		= 1,
+					LANGUAGE_GUTTER		= 0,
 					LANGUAGE_SCHECHI	= 1,
 					LANGUAGE_EAL		= 1,
 					LANGUAGE_SIGN		= 0,
@@ -126,10 +126,12 @@
 
 /obj/item/weapon/robot_module/robot/knine
 	name = "k9 robot module"
+	can_buckle = 1
 	sprites = list(
 					"K9 hound" = "k9",
 					"K9 Alternative (Static)" = "k92",
-					"Secborg model V-2" = "secborg"
+					"Secborg model V-2" = "secborg",
+					"Secborg model V-3" = "SecVale"
 					)
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
@@ -193,6 +195,7 @@
 
 /obj/item/weapon/robot_module/robot/medihound
 	name = "MediHound module"
+	can_buckle = 1
 	channels = list("Medical" = 1)
 	networks = list(NETWORK_MEDICAL)
 	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
@@ -200,7 +203,8 @@
 	sprites = list(
 					"Medical Hound" = "medihound",
 					"Dark Medical Hound (Static)" = "medihounddark",
-					"Mediborg model V-2" = "vale"
+					"Mediborg model V-2" = "vale",
+					"Mediborg model V-3" = "vale2"
 					)
 
 /obj/item/weapon/robot_module/robot/medihound/New(var/mob/living/silicon/robot/R)
@@ -233,7 +237,7 @@
 
 	//CHOMPStation Edit Begin
 	//Adds tools for medihound to treat patients without sleeper. Traumakits, Advance Ointment, and Splints.
-	
+
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(15000)
 	synths += medicine
 
@@ -266,7 +270,8 @@
 	..()
 
 /obj/item/weapon/robot_module/robot/ert
-	name = "Emergency Responce module"
+	name = "Emergency Response module"
+	can_buckle = 1
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
 	can_be_pushed = 0
@@ -312,6 +317,7 @@
 
 /obj/item/weapon/robot_module/robot/scrubpup
 	name = "Custodial Hound module"
+	can_buckle = 1
 	sprites = list(
 					"Custodial Hound" = "scrubpup",
 					)
@@ -391,6 +397,7 @@
 
 /obj/item/weapon/robot_module/robot/science
 	name = "Research Hound Module"
+	can_buckle = 1
 	sprites = list(
 					"Research Hound" = "science",
 					)
@@ -436,6 +443,7 @@
 
 /obj/item/weapon/robot_module/robot/engiedog
 	name = "Construction Hound module"
+	can_buckle = 1
 	sprites = list(
 					"Pupdozer" = "pupdozer",
 					)

@@ -50,6 +50,11 @@
 	icon_state = "oracarpet"
 	initial_flooring = /decl/flooring/carpet/oracarpet
 
+/turf/simulated/floor/carpet/rainbowcarpet
+	name = "rainbow carpet"
+	icon_state = "rainbowcarpet"
+	initial_flooring = /decl/flooring/carpet/rainbowcarpet
+
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'

@@ -47,3 +47,27 @@
 	speak_chance = 1
 	speak = list("HONK", "Honk!", "Welcome to clown planet!")
 	emote_see = list("honks")
+
+//CHOMPEDIT: ALL RISE FOR CLOWN CARS, NEVER FEAR BOBO IS HERE
+/mob/living/simple_animal/hostile/clown/glorious
+	name = "клоун"
+	desc = "Zhitel' slavnoy planety-klouna"
+	tt_desc = "slav klouna"
+	faction = "russian"
+	cold_damage_per_tick = 0 //slav fear no cold
+	attacktext = list("atakovan")
+	var/matryoshka = 1
+
+/mob/living/simple_animal/hostile/clown/glorious/lesser
+	matryoshka = 0
+	melee_damage_lower = 5
+	melee_damage_upper = 5
+	run_at_them = 1
+
+/mob/living/simple_animal/hostile/clown/glorious/death()
+	..()
+	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 10)
+	if(matryoshka)
+		visible_message("<span class='notice'>\The [src] opens up revealing another kloun!</span>")
+		var/location = get_turf(src)
+		new /mob/living/simple_animal/hostile/clown/glorious/lesser(location)

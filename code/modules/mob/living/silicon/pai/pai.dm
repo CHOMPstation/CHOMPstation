@@ -97,7 +97,7 @@
 	//Default languages without universal translator software
 	add_language(LANGUAGE_SOL_COMMON, 1)
 	add_language(LANGUAGE_TRADEBAND, 1)
-	add_language(LANGUAGE_GUTTER, 1)
+	add_language(LANGUAGE_GUTTER, 0)
 	add_language(LANGUAGE_EAL, 1)
 	add_language(LANGUAGE_TERMINUS, 1)
 	add_language(LANGUAGE_SIGN, 0)
@@ -231,7 +231,7 @@
 				cameralist[C.network] = C.network
 
 	src.network = input(usr, "Which network would you like to view?") as null|anything in cameralist
-	src << "<font color='blue'>Switched to [src.network] camera network.</font>"
+	src << "<font color='#6F6FE2'>Switched to [src.network] camera network.</font>"
 //End of code by Mord_Sith
 */
 

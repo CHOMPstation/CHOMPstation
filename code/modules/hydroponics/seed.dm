@@ -534,13 +534,13 @@
 				set_trait(TRAIT_TOXINS_TOLERANCE,    get_trait(TRAIT_TOXINS_TOLERANCE)+(rand(-2,2)*degree),10,0)
 			if(5)
 				set_trait(TRAIT_WEED_TOLERANCE,      get_trait(TRAIT_WEED_TOLERANCE)+(rand(-2,2)*degree),10, 0)
-				if(prob(degree*5))
+				if(prob(5))
 					set_trait(TRAIT_CARNIVOROUS,     get_trait(TRAIT_CARNIVOROUS)+rand(-degree,degree),2, 0)
 					if(get_trait(TRAIT_CARNIVOROUS))
 						source_turf.visible_message("<span class='notice'>\The [display_name] shudders hungrily.</span>")
 			if(6)
 				set_trait(TRAIT_WEED_TOLERANCE,      get_trait(TRAIT_WEED_TOLERANCE)+(rand(-2,2)*degree),10, 0)
-				if(prob(degree*5))
+				if(prob(5))
 					set_trait(TRAIT_PARASITE,!get_trait(TRAIT_PARASITE))
 			if(7)
 				if(get_trait(TRAIT_YIELD) != -1)
@@ -548,24 +548,27 @@
 			if(8)
 				set_trait(TRAIT_ENDURANCE,           get_trait(TRAIT_ENDURANCE)+(rand(-5,5)*degree),100,10)
 				set_trait(TRAIT_PRODUCTION,          get_trait(TRAIT_PRODUCTION)+(rand(-1,1)*degree),10, 1)
-				set_trait(TRAIT_POTENCY,             get_trait(TRAIT_POTENCY)+(rand(-20,20)*degree),200, 0)
-				if(prob(degree*5))
+				set_trait(TRAIT_POTENCY,             get_trait(TRAIT_POTENCY)+(rand(-15,20)*degree),200, 0)
+				if(prob(5))
 					set_trait(TRAIT_SPREAD,          get_trait(TRAIT_SPREAD)+rand(-1,1),2, 0)
 					source_turf.visible_message("<span class='notice'>\The [display_name] spasms visibly, shifting in the tray.</span>")
 			if(9)
 				set_trait(TRAIT_MATURATION,          get_trait(TRAIT_MATURATION)+(rand(-1,1)*degree),30, 0)
-				if(prob(degree*5))
+				if(prob(5))
 					set_trait(TRAIT_HARVEST_REPEAT, !get_trait(TRAIT_HARVEST_REPEAT))
 			if(10)
-				if(prob(degree*2))
+				if(prob(10))
 					set_trait(TRAIT_BIOLUM,         !get_trait(TRAIT_BIOLUM))
 					if(get_trait(TRAIT_BIOLUM))
 						source_turf.visible_message("<span class='notice'>\The [display_name] begins to glow!</span>")
-						if(prob(degree*2))
+						if(prob(25))
 							set_trait(TRAIT_BIOLUM_COLOUR,"#[get_random_colour(0,75,190)]")
 							source_turf.visible_message("<span class='notice'>\The [display_name]'s glow </span><font color='[get_trait(TRAIT_BIOLUM_COLOUR)]'>changes colour</font>!")
 					else
 						source_turf.visible_message("<span class='notice'>\The [display_name]'s glow dims...</span>")
+				if(prob(10))
+					set_trait(TRAIT_PRODUCES_POWER, 1)
+
 			if(11)
 				set_trait(TRAIT_TELEPORTING,1)
 
@@ -731,6 +734,8 @@
 			//Handle spawning in living, mobile products (like dionaea).
 			if(istype(product,/mob/living))
 				product.visible_message("<span class='notice'>The pod disgorges [product]!</span>")
+				if(istype(product,/mob/living/simple_animal/retaliate/synx)) //CHOMPEDIT trying to make it not kill synxes
+					return
 				handle_living_product(product)
 
 // When the seed in this machine mutates/is modified, the tray seed value

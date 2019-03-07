@@ -25,6 +25,13 @@
 		if ("nme")
 			nme()
 			return TRUE
+		if ("airflip")
+			if(!flying)
+				to_chat(src, "<span class='warning'>You can't *flip when you are on the ground!</span>")
+			else
+				src.SpinAnimation(-7,1)
+				message = "flips backwards in the air!"
+				m_type = 1
 		if ("flip")
 			var/danger = 1 //Base 1% chance to break something.
 			var/list/involved_parts = list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)

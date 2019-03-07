@@ -199,19 +199,151 @@
 
 // Sif trees
 
-/obj/structure/flora/tree/sif
+/obj/structure/flora/tree/sif //CHOMP edit. The tree gives you tap.
 	name = "glowing tree"
 	desc = "It's a tree, except this one seems quite alien.  It glows a deep blue."
 	icon = 'icons/obj/flora/deadtrees.dmi'
-	icon_state = "tree_sif"
-	base_state = "tree_sif"
 	product = /obj/item/stack/material/log/sif
+	var/obj/item/weapon/t_t = null
+	var/tap = 0 //Variable used to start production or stop it.
+	var/sap = 1 //The actual liquid. Trees aren't reagents containers so i hacked this quickly.
+	var/sap_amount = 0 //Placeholder. Actually important.
+	var/sap_type = 1//this is a sort of variable used for appearance and reagent selection.
+
+/obj/structure/flora/tree/sif/attackby(var/obj/item/weapon/I, var/mob/user)
+	if(istype(I, /obj/item/weapon/reagent_containers/))
+		if(!tap)
+			user << "<span class='notice'>There is no tap in \the [src].</span>"
+			return
+		if(!sap && tap)
+			user << "<span class='notice'>There is no sap in \the [src].</span>"
+			return
+		if(sap && tap)
+			if(sap_type == 1)
+				var/obj/item/weapon/reagent_containers/G = I
+				var/transferred = min(G.reagents.maximum_volume - G.reagents.total_volume, sap)
+				sap -= transferred
+				G.reagents.add_reagent("phoron", transferred)//badly done yeah. Ideally, you would have a list of reagents to pull from then to add.
+				G.reagents.add_reagent("bluesap", transferred)
+				sap_amount = transferred * 2
+				user.visible_message("<span class='notice'>[user] collects [sap_amount] from \the [src] into \the [G].</span>", "<span class='notice'>You collect [sap_amount] units of sap from \the [src] into \the [G].</span>")
+				return 1
+			if(sap_type == 2)
+				var/obj/item/weapon/reagent_containers/G = I
+				var/transferred = min(G.reagents.maximum_volume - G.reagents.total_volume, sap)
+				sap -= transferred
+				G.reagents.add_reagent("phoron", transferred)
+				G.reagents.add_reagent("purplesap", transferred)
+				sap_amount = transferred * 2
+				user.visible_message("<span class='notice'>[user] collects [sap_amount] from \the [src] into \the [G].</span>", "<span class='notice'>You collect [sap_amount] units of sap from \the [src] into \the [G].</span>")
+				return 1
+			if(sap_type == 3)
+				var/obj/item/weapon/reagent_containers/G = I
+				var/transferred = min(G.reagents.maximum_volume - G.reagents.total_volume, sap)
+				sap -= transferred
+				G.reagents.add_reagent("phoron", transferred)
+				G.reagents.add_reagent("orangesap", transferred)
+				sap_amount = transferred * 2
+				user.visible_message("<span class='notice'>[user] collects [sap_amount] from \the [src] into \the [G].</span>", "<span class='notice'>You collect [sap_amount] units of sap from \the [src] into \the [G].</span>")
+				return 1
+
+	if(istype(I, /obj/item/weapon/tree_tap))
+		if(!tap)
+			user.drop_item()
+			I.loc = src
+			t_t = I
+			user << "<span class='notice'>You install a tap in [src].</span>"
+			tap = 1
+			produce_sap()
+		else
+			user << "<span class='notice'>[src] already has a tap.</span>"
+		return 1
+
+	visible_message("<span class='danger'>\The [user] hits \the [src] with \the [I]!</span>")
+
+	var/damage_to_do = I.force
+	if(!I.sharp && !I.edge)
+		damage_to_do = round(damage_to_do / 4)
+	if(damage_to_do > 0)
+		if(I.sharp && I.edge)
+			playsound(get_turf(src), 'sound/effects/woodcutting.ogg', 50, 1)
+		else
+			playsound(get_turf(src), I.hitsound, 50, 1)
+		if(damage_to_do > 5)
+			adjust_health(-damage_to_do)
+		else
+			to_chat(user, "<span class='warning'>\The [I] is ineffective at harming \the [src].</span>")
+
+	hit_animation()
+	user.setClickCooldown(user.get_attack_speed(I))
+	user.do_attack_animation(src)
+
+/obj/structure/flora/tree/sif/attack_hand(mob/user as mob)
+	if(tap == 1)
+		user.put_in_hands(t_t)
+		t_t = null
+		user << "<span class='notice'>You remove the tap from [src].</span>"
+		tap = 0
+		return
+
+/obj/structure/flora/tree/sif/proc/produce_sap()
+	if(tap)
+		sap = (sap + 0.01)
+		return
+
+/obj/structure/flora/tree/sif/process()
+	produce_sap()
+
+/obj/structure/flora/tree/sif/examine(mob/user)
+	if(!..(user, 1))
+		return
+	if(tap)
+		user <<"<span class='notice'>[src] has a tap wedged in.</span>"
+	if(!tap)
+		user <<"<span class='notice'>[src] looks health and normal.</span>"
+
+/*	if(sap_type == 1)//Debug stuff. Don't turn on.
+		user <<"<span class='notice'>[src] 1</span>"
+	if(sap_type == 2)
+		user <<"<span class='notice'>[src] 2</span>"
+	if(sap_type == 3)
+		user <<"<span class='notice'>[src] 3</span>"
+*/
 
 /obj/structure/flora/tree/sif/New()
+	sap_type = rand(1,3)
+//	..()
+//	processing_objects |= src
+	if(sap_type == 1)//first sap
+		icon_state = "tree_sif1"
+		desc = "It's a tree, except this one seems quite alien.  It glows a deep blue."
+	if(sap_type == 2)//second sap
+		icon_state = "tree_sif2"
+		desc = "It's a tree, except this one seems quite alien.  It glows a deep violet."
+	if(sap_type == 3)//third sap
+		icon_state = "tree_sif3"
+		desc = "It's a tree, except this one seems quite alien.  It glows a low brownish orange."
+//	else
+//		icon_state = "tree_sif"
 	update_icon()
+	processing_objects |= src
 
 /obj/structure/flora/tree/sif/update_icon()
-	set_light(5, 1, "#33ccff")
+	if(sap_type == 1)
+		set_light(5, 1, "#33ccff")//first sap
+	if(sap_type == 2)
+		set_light(5, 1, "#7a48a0")//second sap
+	if(sap_type == 3)
+		set_light(5, 1, "#e9955c")//third sap
 	var/image/glow = image(icon = 'icons/obj/flora/deadtrees.dmi', icon_state = "[icon_state]_glow")
 	glow.plane = PLANE_LIGHTING_ABOVE
+	//debug_glow = glow
 	overlays = list(glow)
+
+/obj/item/weapon/tree_tap//I put it here because where else?
+	name = "Tree Tap"
+	desc = "A small metal tap with a crude faucet. Sturdy enough to be rammed in a tree."
+	icon = 'icons/obj/flora/deadtrees.dmi'
+	icon_state = "treetap0"
+	w_class = ITEMSIZE_SMALL
+	force = 3

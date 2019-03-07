@@ -554,6 +554,10 @@
 					message = "makes a noise."
 					m_type = 2
 
+		if ("weh")
+			message = "lets out a weh."
+			m_type = 1
+					
 		if ("whimper")
 			if (miming)
 				message = "appears hurt."
@@ -727,10 +731,10 @@
 			src << "blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, collapse, cough, cry, custom, deathgasp, drool, eyebrow, fastsway/qwag, \
 					frown, gasp, giggle, glare-(none)/mob, grin, groan, grumble, handshake, hug-(none)/mob, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, \
 					raise, salute, scream, sneeze, shake, shiver, shrug, sigh, signal-#1-10, slap-(none)/mob, smile, sneeze, sniff, snore, stare-(none)/mob, stopsway/swag, sway/wag, swish, tremble, twitch, \
-					twitch_v, vomit, whimper, wink, yawn. Synthetics: beep, buzz, yes, no, rcough, rsneeze, ping"
+					twitch_v, vomit, weh, whimper, wink, yawn. Synthetics: beep, buzz, yes, no, rcough, rsneeze, ping"
 
 		else
-			src << "<font color='blue'>Unusable emote '[act]'. Say *help for a list.</font>"
+			src << "<font color='#6F6FE2'>Unusable emote '[act]'. Say *help for a list.</font>"
 
 	if (message)
 		custom_emote(m_type,message)

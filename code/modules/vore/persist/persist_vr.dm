@@ -58,7 +58,7 @@
 
 		// For now as a safety measure we will only save if the name matches.
 		if(prefs.real_name != persister.real_name)
-			log_debug("Persist (P4P): Skipping [persister] becuase ORIG:[persister.real_name] != CURR:[prefs.real_name].")
+			log_debug("Persist (P4P): Skipping [persister] because ORIG:[persister.real_name] != CURR:[prefs.real_name].")
 			return
 
 		return prefs
@@ -81,6 +81,7 @@
 	if(!prefs)
 		WARNING("Persist (PID): Skipping [occupant] for persisting, as they have no prefs.")
 		return
+
 
 	//This one doesn't rely on persistence prefs
 	if(ishuman(occupant) && occupant.stat != DEAD)
@@ -218,11 +219,14 @@
 		var/loss = (MAX_NUTRITION_TO_LOSE - C.nutrition) * weight_per_nutrition * C.weight_loss/100
 		C.weight = max(MIN_MOB_WEIGHT, C.weight - loss)
 
+
+
 /**
 * Persist any NIF data that needs to be persisted. It's stored in a list to make it more malleable
 * towards future shenanigans such as upgradable NIFs or different types or things of that nature,
 * without invoking the need for a bunch of different save file variables.
 */
+
 /proc/persist_nif_data(var/mob/living/carbon/human/H,var/datum/preferences/prefs)
 	if(!istype(H))
 		crash_with("Persist (NIF): Given a nonhuman: [H]")

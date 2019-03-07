@@ -152,3 +152,54 @@
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/makaroni
+
+/datum/recipe/gelbowl
+	reagents = list("potatojuice" = 5, "sugar" = 5, "water" = 5, "flour" = 5)
+	result = /obj/item/weapon/reagent_containers/food/snacks/gelbowl
+	
+/datum/recipe/sauerkraut
+	reagents = list("sodiumchloride" = 3)
+	fruit = list("cabbage" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sauerkraut
+	
+/datum/recipe/bigos
+	reagents = list("flour" = 5, "water" = 5)
+	fruit = list("onion" = 1, "carrot" = 1, "mushroom" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sauerkraut,
+		/obj/item/weapon/reagent_containers/food/snacks/sausage
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bigos
+	
+/datum/recipe/concha
+	reagents = list("flour" = 5, "sugar" = 5, "berryjuice" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/bread
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/concha
+	
+/datum/recipe/pandenata
+	reagents = list("sugar" = 10, "cream" = 5, "egg" = 3)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/pandenata
+	
+/datum/recipe/tocino
+	reagents = list("sodiumchloride" = 5, "wine" = 5, "sugar" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/rawcutlet
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/tocino
+	
+/datum/recipe/garlicbread
+	reagents = list("sodiumchloride" = 2, "blackpepper" = 2)
+	fruit = list("onion" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/weapon/reagent_containers/food/snacks/slice/bread,
+		/obj/item/weapon/reagent_containers/food/snacks/slice/bread
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/garlicbread

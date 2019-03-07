@@ -22,6 +22,7 @@
 	else
 		//Okay, we can breathe, now check if we can get air
 		breath = get_breath_from_internal() //First, check for air from internals
+
 		//VOREStation Add - Respirocytes as a NIF implant
 		if(!breath && ishuman(src))
 			var/mob/living/carbon/human/H = src

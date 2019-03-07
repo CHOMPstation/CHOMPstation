@@ -11,7 +11,7 @@
 	cost = 25
 	containertype = /obj/structure/closet/crate/freezer
 	containername = "Burger crate"
-/*
+
 /datum/supply_packs/randomised/hospitality/bakery_vr
 	num_contained = 5
 	contains = list(
@@ -52,7 +52,7 @@
 			/obj/item/weapon/reagent_containers/food/snacks/sliceable/plaincake
 			)
 	name = "Cake crate"
-	cost = 100
+	cost = 20
 	containertype = /obj/structure/closet/crate/freezer
 	containername = "Cake crate"
 
@@ -68,7 +68,7 @@
 	cost = 50
 	containertype = /obj/structure/closet/crate/freezer
 	containername = "Mexican takeout crate"
-*/
+
 /datum/supply_packs/randomised/hospitality/asian_vr
 	num_contained = 5
 	contains = list(

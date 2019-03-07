@@ -2,8 +2,10 @@
 	name = "Cleanbot"
 	desc = "A little cleaning robot, it looks so excited!"
 	icon_state = "cleanbot0"
+	maxHealth = 100
+	health = 100
 	req_one_access = list(access_robotics, access_janitor)
-	botcard_access = list(access_janitor, access_maint_tunnels)
+	botcard_access = list(access_janitor)
 
 	locked = 0 // Start unlocked so roboticist can set them to patrol.
 	wait_if_pulled = 1
@@ -14,6 +16,18 @@
 	var/oddbutton = 0
 	var/blood = 1
 	var/list/target_types = list()
+
+//Chompstation addition.
+/mob/living/bot/cleanbot/sweepsky
+	name = "Sweepsky"
+	desc = "He swore an oath to protect the station from dirt!"
+	icon_state = "sweepsky0"
+	locked = 1
+	will_patrol = 1
+	patrol_speed = 2
+	target_speed = 3
+
+	var/default_icon_state = "sweepsky1"
 
 /mob/living/bot/cleanbot/New()
 	..()
@@ -104,6 +118,13 @@
 		icon_state = "cleanbot-c"
 	else
 		icon_state = "cleanbot[on]"
+
+//Chomp addition: Icons for sweepsky.
+/mob/living/bot/cleanbot/sweepsky/update_icons()
+	if(busy)
+		icon_state = "sweepsky-c"
+	else
+		icon_state = "sweepsky[on]"
 
 /mob/living/bot/cleanbot/attack_hand(var/mob/user)
 	var/dat

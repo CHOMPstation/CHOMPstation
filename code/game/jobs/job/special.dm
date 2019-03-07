@@ -1,4 +1,7 @@
-/datum/job/centcom_officer //For Business
+/*  //commented out until this can be fixed.
+
+
+/datum/job/centcom_officer
 	title = "CentCom Officer"
 	department = "Command"
 	head_position = 1
@@ -40,7 +43,7 @@
 		var/access = get_all_accesses()
 		return access
 
-/*/datum/job/centcom_visitor //For Pleasure // You mean for admin abuse... -Ace
+/datum/job/centcom_visitor //For Pleasure // You mean for admin abuse... -Ace
 	title = "CentCom Visitor"
 	department = "Civilian"
 	head_position = 1
@@ -80,7 +83,8 @@
 
 	get_access()
 		var/access = get_all_accesses()
-		return access*/
+		return access
+*/
 
 /datum/job/clown
 	title = "Clown"

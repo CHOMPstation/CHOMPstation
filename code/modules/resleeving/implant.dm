@@ -95,6 +95,9 @@
 /obj/item/weapon/backup_implanter/attack(mob/M as mob, mob/user as mob)
 	if (!istype(M, /mob/living/carbon))
 		return
+	var/mob/living/carbon/implantee = M//CHOMPEDIT implant check
+	if (implantee.hasImplant)
+		return
 	if (user && imps.len)
 		M.visible_message("<span class='notice'>[user] is injecting a backup implant into [M].</span>")
 
@@ -108,6 +111,7 @@
 
 				var/obj/item/weapon/implant/backup/imp = imps[imps.len]
 				if(imp.implanted(M))
+					implantee.hasImplant = 1 //CHOMPEDIT Chanigng our hasimplant var to 1 to symbolize we were backed up
 					imp.forceMove(M)
 					imps -= imp
 					imp.imp_in = M

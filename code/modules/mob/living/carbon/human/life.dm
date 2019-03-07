@@ -83,7 +83,10 @@
 		handle_medical_side_effects()
 
 		handle_heartbeat()
+
+
 		handle_nif() //VOREStation Add
+
 		if(!client)
 			species.handle_npc(src)
 
@@ -688,6 +691,7 @@
 		pressure_alert = -1
 	else
 		if( !(COLD_RESISTANCE in mutations))
+
 			if(!isSynthetic() || !nif || !nif.flag_check(NIF_O_PRESSURESEAL,NIF_FLAGS_OTHER)) //VOREStation Edit - NIF pressure seals
 				take_overall_damage(brute=LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
 			if(getOxyLoss() < 55) // 11 OxyLoss per 4 ticks when wearing internals;    unconsciousness in 16 ticks, roughly half a minute
@@ -726,6 +730,7 @@
 
 	// FBPs will overheat, prosthetic limbs are fine.
 	if(robobody_count)
+
 		if(!nif || !nif.flag_check(NIF_O_HEATSINKS,NIF_FLAGS_OTHER)) //VOREStation Edit - NIF heatsinks
 			bodytemperature += round(robobody_count*1.75)
 
@@ -945,10 +950,15 @@
 				adjustBrainLoss(brainOxPercent * oxyloss)
 
 		if(halloss >= species.total_health)
-			src << "<span class='notice'>You're in too much pain to keep going...</span>"
-			src.visible_message("<B>[src]</B> slumps to the ground, too weak to continue fighting.")
-			Paralyse(10)
-			setHalLoss(species.total_health - 1)
+			if (chem_effects[CE_PAINKILLER])
+				setHalLoss(species.total_health - 1)
+			else 
+				Paralyse(10)
+				setHalLoss(species.total_health - 1)
+			if (!paralysis && !sleeping || !chem_effects[CE_PAINKILLER]) //CHOMPEDIT only display slump if we werent slumped already to prevent spam, sleeping counts as slump state for this matter
+				src << "<span class='notice'>You're in too much pain to keep going...</span>"
+				src.visible_message("<B>[src]</B> slumps to the ground, too weak to continue fighting.")
+			
 
 		if(paralysis || sleeping)
 			blinded = 1
@@ -1304,6 +1314,7 @@
 				var/obj/item/clothing/glasses/G = glasses
 				if(!G.prescription)
 					set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
+
 			else if (!nif || !nif.flag_check(NIF_V_CORRECTIVE,NIF_FLAGS_VISION))	//VOREStation Edit - NIF
 				set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
 
@@ -1319,6 +1330,7 @@
 					var/obj/item/clothing/glasses/welding/O = glasses
 					if(!O.up)
 						found_welder = 1
+
 				if(!found_welder && nif && nif.flag_check(NIF_V_UVFILTER,NIF_FLAGS_VISION))	found_welder = 1 //VOREStation Add - NIF
 				if(!found_welder && istype(head, /obj/item/clothing/head/welding))
 					var/obj/item/clothing/head/welding/O = head

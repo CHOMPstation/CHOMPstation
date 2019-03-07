@@ -58,12 +58,12 @@ client/verb/tcscompile()
 
 
 				else
-					src << output("<font color = blue>TCS compilation successful!</font>", "tcserror")
+					src << output("<font color = #6F6FE2>TCS compilation successful!</font>", "tcserror")
 					src << output("(0 errors)", "tcserror")
 
 					for(var/mob/M in Machine.viewingcode)
 						if(M.client)
-							M << output("<font color = blue>TCS compilation successful!</font>", "tcserror")
+							M << output("<font color = #6F6FE2>TCS compilation successful!</font>", "tcserror")
 							M << output("(0 errors)", "tcserror")
 
 			else
@@ -109,12 +109,12 @@ client/verb/tcsrun()
 
 				else
 					// Finally, we run the code!
-					src << output("<font color = blue>TCS compilation successful! Code executed.</font>", "tcserror")
+					src << output("<font color = #6F6FE2>TCS compilation successful! Code executed.</font>", "tcserror")
 					src << output("(0 errors)", "tcserror")
 
 					for(var/mob/M in Machine.viewingcode)
 						if(M.client)
-							M << output("<font color = blue>TCS compilation successful!</font>", "tcserror")
+							M << output("<font color = #6F6FE2>TCS compilation successful!</font>", "tcserror")
 							M << output("(0 errors)", "tcserror")
 
 					var/datum/signal/signal = new()
@@ -196,10 +196,10 @@ client/verb/tcsclearmem()
 				Server.memory = list() // clear the memory
 				// Show results
 				src << output(null, "tcserror")
-				src << output("<font color = blue>Server memory cleared!</font>", "tcserror")
+				src << output("<font color = #6F6FE2>Server memory cleared!</font>", "tcserror")
 				for(var/mob/M in Machine.viewingcode)
 					if(M.client)
-						M << output("<font color = blue>Server memory cleared!</font>", "tcserror")
+						M << output("<font color = #6F6FE2>Server memory cleared!</font>", "tcserror")
 			else
 				src << output(null, "tcserror")
 				src << output("<font color = red>Failed to clear memory: Unable to locate server machine.</font>", "tcserror")

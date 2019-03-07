@@ -153,7 +153,7 @@
 	usr << browse(out, "window=edit_memory[src]")
 
 /datum/mind/Topic(href, href_list)
-	if(!check_rights(R_ADMIN))	return
+	if(!check_rights(R_ADMIN||R_EVENT||R_MOD))	return
 
 	if(href_list["add_antagonist"])
 		var/datum/antagonist/antag = all_antag_types[href_list["add_antagonist"]]
@@ -410,7 +410,7 @@
 
 	else if (href_list["obj_announce"])
 		var/obj_count = 1
-		current << "<font color='blue'>Your current objectives:</font>"
+		current << "<font color='#6F6FE2'>Your current objectives:</font>"
 		for(var/datum/objective/objective in objectives)
 			current << "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
 			obj_count++

@@ -1086,7 +1086,7 @@ I said no!
 	result = /obj/item/weapon/reagent_containers/food/snacks/eggroll
 
 /datum/recipe/fruitsalad
-	fruit = list("orange" = 1, "apple" = 1, "grapes" = 1, "watermelon" = 1)
+	fruit = list("orange" = 1, "apple" = 1, "grape" = 1, "watermelon" = 1)//Chompstation edit, fixed grapes to grape
 	result = /obj/item/weapon/reagent_containers/food/snacks/fruitsalad
 
 /datum/recipe/eggbowl

@@ -28,6 +28,7 @@
 	for(var/u_type in unarmed_types)
 		unarmed_attacks += new u_type()
 
+
 /datum/species/create_organs(var/mob/living/carbon/human/H)
 	if(H.nif)
 		var/type = H.nif.type

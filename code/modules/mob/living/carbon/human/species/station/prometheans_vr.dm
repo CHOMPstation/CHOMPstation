@@ -16,7 +16,7 @@
 
 	color_mult = 1
 	mob_size = MOB_MEDIUM //As of writing, original was MOB_SMALL - Allows normal swapping (good)
-	num_alternate_languages = 1 //Might be outdated: They currently have 3 in the other file
+	num_alternate_languages = 3 //Might be outdated: They currently have 3 in the other file
 	trashcan = 1 //They have goopy bodies. They can just dissolve things within them.
 
 	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_HAIR_COLOR | RADIATION_GLOWS | HAS_UNDERWEAR
@@ -33,5 +33,6 @@
 		/mob/living/carbon/human/proc/succubus_drain_finalize,
 		/mob/living/carbon/human/proc/succubus_drain_lethal,
 		/mob/living/carbon/human/proc/slime_feed,
-		/mob/living/proc/eat_trash
+		/mob/living/proc/eat_trash,
+		/mob/living/carbon/human/proc/promethean_select_opaqueness
 		)

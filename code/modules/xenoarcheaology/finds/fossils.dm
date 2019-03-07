@@ -94,11 +94,13 @@
 	icon_state = "shell"
 	desc = "It's a fossilised shell."
 
-/obj/item/weapon/fossil/plant
-	name = "Fossilised plant"
-	icon_state = "plant1"
-	desc = "It's fossilised plant remains."
-	animal = 0
-
 /obj/item/weapon/fossil/plant/New()
 	icon_state = "plant[rand(1,4)]"
+	
+/obj/item/weapon/fossil/plant/attackby(var/obj/item/I, var/mob/user)
+	if(istype(I, /obj/item/weapon/pickaxe/brush))
+		new /obj/item/seeds/random(get_turf(user),name)
+		if(prob(25))
+			new /obj/item/seeds/random(get_turf(user),name)	
+		visible_message("<span class='info'>\The [src] is brushed away, revealing ancient seeds.</span>")
+		qdel(src)

@@ -76,6 +76,8 @@ var/list/event_last_fired = list()
 
 	if(active_with_role["Medical"] > 0)
 		possibleEvents[/datum/event/radiation_storm] = active_with_role["Medical"] * 10
+	// Chompstation edit - Requiring 2 medical staff for appendicitis to call :)
+	if(active_with_role["Medical"] > 1)
 		possibleEvents[/datum/event/spontaneous_appendicitis] = active_with_role["Medical"] * 10
 
 	possibleEvents[/datum/event/prison_break] = active_with_role["Security"] * 50

@@ -257,6 +257,13 @@
 	icon_opened = "trashcartopen"
 	icon_closed = "trashcart"
 
+/obj/structure/closet/crate/gaycrate
+	name = "rainbow crate"
+	desc = "It hurts to look at."
+	icon_state = "rainbowcrate"
+	icon_opened = "rainbowcrate_open"
+	icon_closed = "rainbowcrate"
+
 /*these aren't needed anymore
 /obj/structure/closet/crate/hat
 	desc = "A crate filled with Valuable Collector's Hats!."

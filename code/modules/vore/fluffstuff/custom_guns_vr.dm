@@ -59,7 +59,7 @@
 // For general use
 /obj/item/weapon/gun/projectile/shotgun/pump/USDF
 	name = "\improper USDF tactical shotgun"
-	desc = "All you greenhorns who wanted to see Xenomorphs up close... this is your lucky day. Uses 12g rounds."
+	desc = "All you greenhorns who wanted to see Xenomorphs up close... this is gunna be your lucky day. Uses 12g rounds."
 	icon = 'icons/obj/gun_vr.dmi'
 	icon_state = "haloshotgun"
 	icon_override = 'icons/obj/gun_vr.dmi'
@@ -156,6 +156,14 @@
 		unload_ammo(user, allow_dump = 1)
 	else
 		..()
+
+//Tomtyph : Sarika
+/obj/item/weapon/gun/projectile/revolver/mateba/fluff/tasald_corlethian/tomtyph
+	name =  "\improper \"Black Iron\" revolver"
+	desc =	"A single-action .357 revolver with a wooden grip and black iron receiver. A faded name is etched onto the handle. All you can make out is a single T. "
+	icon_state = "black_iron"
+	item_state = "revolver"
+	fire_sound = 'sound/weapons/pistol.ogg'
 
 // wankersonofjerkin : Glenn Pink
 /obj/item/weapon/gun/projectile/revolver/fluff/admiral_pink_revolver

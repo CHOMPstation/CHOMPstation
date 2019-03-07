@@ -68,7 +68,7 @@
 // Criminal language.
 /datum/language/gutter
 	name = LANGUAGE_GUTTER
-	desc = "Gutter originated as a Thieves' Cant of sorts during the early colonization era. The language eventually spread from the cartels and triads to the disenfranchised people of the Bowl."
+	desc = "Gutter originated as a Thieves' Cant of sorts during the early colonization era. The language eventually spread from the cartels and triads to the disenfranchised people of the Bowl. It's clevery designed so not even AI can crack it."
 	speech_verb = "growls"
 	colour = "rough"
 	key = "3"

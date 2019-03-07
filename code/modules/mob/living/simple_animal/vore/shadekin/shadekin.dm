@@ -267,7 +267,7 @@
 		dark_gains = 0
 	else
 		//Heal (very) slowly in good darkness
-		if(darkness >= 0.75)
+		if(darkness >= 1)
 			adjustFireLoss(-0.05)
 			adjustBruteLoss(-0.05)
 			adjustToxLoss(-0.05)
@@ -288,8 +288,8 @@
 				dark_gains = round((darkness - 0.5) * 4, 0.1)
 			//Similar to blues, but passive is less, and affected by dark
 			if(GREEN_EYES)
-				dark_gains = 0.25
-				dark_gains += round((darkness - 0.5), 0.1)
+				dark_gains = 0.4
+				dark_gains += round((darkness - 0.20), 0.1)
 			//More able to get energy out of the dark, worse attack gains tho
 			if(ORANGE_EYES)
 				if(darkness >= 0.65)
@@ -394,7 +394,7 @@
 			var/gains = 0
 			switch(eye_state)
 				if(RED_EYES)
-					gains = 8
+					gains = 15
 				if(BLUE_EYES)
 					gains = 1
 				if(PURPLE_EYES)
@@ -404,7 +404,7 @@
 				if(GREEN_EYES)
 					gains = 1
 				if(ORANGE_EYES)
-					gains = 5
+					gains = 10
 
 			energy += gains
 

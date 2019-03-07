@@ -583,7 +583,7 @@ var/global/list/robot_modules = list(
 					LANGUAGE_SKRELLIANFAR = 0,
 					LANGUAGE_ROOTLOCAL	= 0,
 					LANGUAGE_TRADEBAND	= 1,
-					LANGUAGE_GUTTER		= 1,
+					LANGUAGE_GUTTER		= 0,
 					LANGUAGE_SCHECHI	= 1,
 					LANGUAGE_EAL		= 1,
 					LANGUAGE_TERMINUS	= 1,
@@ -817,7 +817,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/multitool(src)
 	src.modules += new /obj/item/device/lightreplacer(src)
 	src.modules += new /obj/item/weapon/gripper(src)
-	src.modules += new /obj/item/weapon/soap(src)
+	src.modules += new /obj/item/weapon/soap/drone(src)
 	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
 	src.modules += new /obj/item/weapon/extinguisher(src)
 	src.modules += new /obj/item/device/pipe_painter(src)
@@ -911,3 +911,18 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/storage/bag/ore(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.emag = new /obj/item/weapon/pickaxe/diamonddrill(src)
+
+/obj/item/weapon/robot_module/drone/security
+	name = "security drone module"
+	channels = list("Security" = 1)
+	networks = list(NETWORK_SECURITY)
+
+
+/obj/item/weapon/robot_module/drone/security/New()
+	..()
+	src.modules += new /obj/item/weapon/handcuffs/cyborg(src)
+	src.modules += new /obj/item/weapon/melee/baton/robot(src)
+	src.modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg(src)
+	src.modules += new /obj/item/taperoll/police(src)
+	src.modules += new /obj/item/weapon/reagent_containers/spray/pepper(src)
+	src.modules += new /obj/item/weapon/gun/energy/laser/mounted(src)

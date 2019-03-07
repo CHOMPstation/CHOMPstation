@@ -503,3 +503,66 @@ Drinks Data
 /datum/reagent/ethanol/specialwhiskey
 	glass_icon_state = "whiskeyglass"
 	glass_center_of_mass = list("x"=16, "y"=12)
+
+/datum/reagent/ethanol/cloverclub
+	glass_icon_state = "cloverclub"
+	glass_center_of_mass = list("x"=16, "y"=8)
+
+/datum/reagent/ethanol/eggnog
+	glass_icon_state = "eggnogglass"
+	glass_center_of_mass = list("x"=16, "y"=6)
+	
+/datum/reagent/ethanol/spiderdrink
+	glass_icon_state = "glassofspiders"
+	
+/datum/reagent/drink/bubbleteawatermelon
+	glass_icon_state = "bubbleteawatermelonglass"
+	glass_center_of_mass = list("x"=16, "y"=9)
+
+/datum/reagent/drink/bubbleteastrawberry
+	glass_icon_state = "bubbleteastrawberryglass"
+	glass_center_of_mass = list("x"=16, "y"=9)
+
+/datum/reagent/drink/bubbleteacherry
+	glass_icon_state = "bubbleteacherryglass"
+	glass_center_of_mass = list("x"=16, "y"=9)
+
+/datum/reagent/drink/bubbleteacoffee
+	glass_icon_state = "bubbleteacoffeeglass"
+	glass_center_of_mass = list("x"=16, "y"=9)
+
+/datum/reagent/drink/bubbleteabanana
+	glass_icon_state = "bubbleteabananaglass"
+	glass_center_of_mass = list("x"=16, "y"=9)
+	
+/datum/reagent/drink/horchata
+	glass_icon_state = "horchata"
+	glass_center_of_mass = list("x"=16, "y"=7)
+	
+/datum/reagent/toxin/bluetrain
+	glass_icon_state = "bluetrain"
+	glass_center_of_mass = list("x"=16, "y"=8)
+	
+/datum/reagent/drink/lovepotion
+	glass_icon_state = "lovepotion"
+	
+/datum/reagent/drink/lowpower
+	glass_icon_state = "lowpower"
+	
+/datum/reagent/ethanol/coffee/jackbrew
+	glass_icon_state = "jackbrew"
+	
+/datum/reagent/ethanol/bookwyrm
+	glass_icon_state = "bookwyrm"
+	
+/datum/reagent/drink/highpower
+	glass_icon_state = "highpower"
+	
+/datum/reagent/ethanol/flapper
+	glass_icon_state = "flapper"
+	
+/datum/reagent/toxin/oilslide
+	glass_icon_state = "oilslide"
+	
+/datum/reagent/ethanol/sitonmyface
+	glass_icon_state = "sitonmyface"

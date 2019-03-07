@@ -102,7 +102,7 @@ var/global/list/round_voters = list() // Keeps track of the individuals voting f
 					else
 						factor = 1.4
 				choices["Initiate Crew Transfer"] = round(choices["Initiate Crew Transfer"] * factor)
-				world << "<font color='purple'>Crew Transfer Factor: [factor]</font>"
+				world << "<font color='#AD5AAD'>Crew Transfer Factor: [factor]</font>"
 				greatest_votes = max(choices["Initiate Crew Transfer"], choices["Continue The Round"])
 
 	. = list() // Get all options with that many votes and return them in a list
@@ -135,7 +135,7 @@ var/global/list/round_voters = list() // Keeps track of the individuals voting f
 		if(mode == VOTE_ADD_ANTAGONIST)
 			antag_add_failed = 1
 	log_vote(text)
-	world << "<font color='purple'>[text]</font>"
+	world << "<font color='#AD5AAD'>[text]</font>"
 
 /datum/controller/vote/proc/result()
 	. = announce_result()
@@ -249,7 +249,7 @@ var/global/list/round_voters = list() // Keeps track of the individuals voting f
 
 		log_vote(text)
 
-		world << "<font color='purple'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src]'>here</a> to place your votes.\nYou have [config.vote_period / 10] seconds to vote.</font>"
+		world << "<font color='#AD5AAD'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src]'>here</a> to place your votes.\nYou have [config.vote_period / 10] seconds to vote.</font>"
 		if(vote_type == VOTE_CREW_TRANSFER || vote_type == VOTE_GAMEMODE || vote_type == VOTE_CUSTOM)
 			world << sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = 3)
 

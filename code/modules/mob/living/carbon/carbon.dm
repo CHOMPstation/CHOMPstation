@@ -143,8 +143,8 @@
 			var/mob/living/carbon/human/H = src
 			var/datum/gender/T = gender_datums[H.get_visible_gender()]
 			src.visible_message( \
-				"<font color='blue'>[src] examines [T.himself].</font>", \
-				"<font color='blue'>You check yourself for injuries.</font>" \
+				"<font color='#6F6FE2'>[src] examines [T.himself].</font>", \
+				"<font color='#6F6FE2'>You check yourself for injuries.</font>" \
 				)
 
 			for(var/obj/item/organ/external/org in H.organs)
@@ -360,6 +360,8 @@
 
 /mob/living/carbon/slip(var/slipped_on,stun_duration=8)
 	if(buckled)
+		return 0
+	if(flying) //chomp edit. Thanks Kasparo
 		return 0
 	stop_pulling()
 	src << "<span class='warning'>You slipped on [slipped_on]!</span>"

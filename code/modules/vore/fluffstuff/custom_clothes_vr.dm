@@ -1789,13 +1789,13 @@ Departamental Swimsuits, for general use
 	item_state = "hasd_suit"
 	pixel_x = -16
 
-	mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
-		if(..())
-			if(istype(H) && istype(H.tail_style, /datum/sprite_accessory/tail/taur))
-				return ..()
-		else
-			to_chat(H,"<span class='warning'>This suit is not designed for taurs, and doesn't fit on your body in the slightest.</span>")
-			return 0
+//	mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
+//		if(..())
+//			if(istype(H) && istype(H.tail_style, /datum/sprite_accessory/tail/taur))
+//				return ..()
+//		else
+//			to_chat(H,"<span class='warning'>This suit is designed for taurs, and doesn't fit on your body in the slightest.</span>")
+//			return 0
 
 //Zigfe:Zaoozaoo Xrimxuqmqixzix
 /obj/item/clothing/head/fluff/zao

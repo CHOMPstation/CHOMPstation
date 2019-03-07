@@ -469,7 +469,7 @@
 					C.brute_damage = WC.brute
 					C.electronics_damage = WC.burn
 
-				usr << "<font color='blue'>You install the [W.name].</font>"
+				usr << "<font color='#6F6FE2'>You install the [W.name].</font>"
 
 				return
 

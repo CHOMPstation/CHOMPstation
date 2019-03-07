@@ -106,6 +106,45 @@
 	result_amount = 3
 
 ///////////////////////////////////////////////////////////////////////////////////
+/// Sap recipes
+
+/datum/chemical_reaction/myelamine //This is the clotting agent used by clotting packs.
+	name = "Myelamine"
+	id = "myelamine"
+	result = "myelamine"
+	required_reagents = list("bicaridine" = 1, "iron" = 2, "kelotane" = 1, "bluesap" = 1)
+	result_amount = 1
+//Old version of above slightly modified
+/datum/chemical_reaction/myelamineold //This is the clotting agent used by clotting packs.
+	name = "Myelamineold"
+	id = "myelamineold"
+	result = "myelamine"
+	required_reagents = list("bicaridine" = 1, "iron" = 2, "kelotane" = 1, "spidertoxin" = 1)
+	result_amount = 1
+
+
+/datum/chemical_reaction/hannoa
+	name = "Hannoa"
+	id = "hannoa"
+	result = "hannoa"
+	required_reagents = list("purplesap" = 1, "iron" = 2, "kelotane" = 1, "carbon" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/bullvalene
+	name = "Bullvalene"
+	id = "bullvalene"
+	result = "bullvalene"
+	required_reagents = list("dermaline" = 1, "orangesap" = 1, "Copper" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/nutrient
+	name = "Nutriment"
+	id = "nutriment"
+	result = "nutriment"
+	required_reagents = list("purplesap" = 1, "orangesap" = 1, "bluesap" = 1)
+	result_amount = 3
+
+///////////////////////////////////////////////////////////////////////////////////
 /// Special drinks
 /datum/chemical_reaction/drinks/grubshake
 	name = "Grub protein drink"
@@ -158,8 +197,6 @@
 				if(prob(50))
 					for(var/j = 1, j <= rand(1, 3), j++)
 						step(B, pick(NORTH,SOUTH,EAST,WEST))
-
-
 
 
 /datum/chemical_reaction/materials
@@ -244,16 +281,12 @@
 			M << "<span class='notice'> You suddenly feel a chill!</span>"
 
 
-
-
 /datum/chemical_reaction/slimefrost
 	name = "Slime Frost Oil"
 	id = "m_frostoil"
 	result = "frostoil"
 	required_reagents = list("phoron" = 5, "slimejelly" = 5, "water" = 5, "coolant" = 5)
 	result_amount = 10
-
-
 
 
 /datum/chemical_reaction/slimefire
@@ -280,9 +313,6 @@
 	result_amount = 1
 
 
-
-
-
 /datum/chemical_reaction/slimeheal //A slime healing mixture. Why not.
 	name = "Slime Health"
 	id = "slimeheal"
@@ -299,15 +329,13 @@
 			C.adjustCloneLoss(-25)
 			C.updatehealth()
 
+
 /datum/chemical_reaction/slimejelly
 	name = "Slime Jam"
 	id = "m_jam"
 	result = "slimejelly"
 	required_reagents = list("phoron" = 20, "sugar" = 50, "lithium" = 50) //In case a xenobiologist is impatient and is willing to drain their dispenser resources, along with plasma!
 	result_amount = 5
-
-
-
 
 
 /datum/chemical_reaction/slimevore

@@ -4,14 +4,15 @@
 #define Z_LEVEL_TELECOMMS_NORTHERN_STAR				3
 #define Z_LEVEL_ABANDONED_ASTEROID_NORTHERN_STAR	4
 #define Z_LEVEL_MINING_NORTHERN_STAR				5
-#define Z_LEVEL_EMPTY_NORTHERN_STAR					6
+#define Z_LEVEL_EVENT_AREAS							6
+#define Z_LEVEL_EMPTY_NORTHERN_STAR					7
 
 /datum/map/northern_star
 	name = "Northern Star"
 	full_name = "NCS Northern Star"
 	path = "northern_star"
 
-	lobby_icon = 'icons/misc/title.dmi'
+	lobby_icon = 'icons/misc/title.dmi' // Amazing title screen made by Jareix, kudos to him! <3
 	lobby_screens = list("mockingjay00")
 
 	zlevel_datum_type = /datum/map_z_level/northern_star
@@ -50,7 +51,8 @@
 							NETWORK_ROBOTS,
 							NETWORK_PRISON,
 							NETWORK_SECURITY,
-							NETWORK_INTERROGATION
+							NETWORK_INTERROGATION,
+							NETWORK_SOLARS
 							)
 
 	allowed_spawns = list("Arrivals Shuttle","Gateway", "Cryogenic Storage", "Cyborg Storage", "Elevator")
@@ -98,6 +100,11 @@
 	flags = MAP_LEVEL_STATION|MAP_LEVEL_CONTACT|MAP_LEVEL_PLAYER
 	transit_chance = 10
 	base_turf = /turf/simulated/mineral/floor
+
+/datum/map_z_level/northern_star/event_areas
+	z = Z_LEVEL_EVENT_AREAS
+	name = "Event and Ships"
+	flags = MAP_LEVEL_PLAYER|MAP_LEVEL_CONTACT|MAP_LEVEL_CONSOLES
 
 /datum/map_z_level/northern_star/empty
 	z = Z_LEVEL_EMPTY_NORTHERN_STAR

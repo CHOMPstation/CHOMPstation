@@ -102,7 +102,6 @@ var/global/mob/living/carbon/human/dummy/mannequin/sleevemate_mob
 		var/datum/nifsoft/soulcatcher/SC = H.nif.imp_check(NIF_SOULCATCHER)
 		if(SC)
 			output += "<b>Store in Soulcatcher: </b>\[<a href='?src=\ref[src];target=\ref[H];mindput=1'>Perform</a>\]<br>"
-
 	to_chat(user,output)
 
 /obj/item/device/sleevemate/Topic(href, href_list)
@@ -180,6 +179,7 @@ var/global/mob/living/carbon/human/dummy/mannequin/sleevemate_mob
 
 		return
 
+
 	if(href_list["mindput"])
 		if(!stored_mind)
 			to_chat(usr,"<span class='warning'>\The [src] no longer has a stored mind.</span>")
@@ -189,7 +189,6 @@ var/global/mob/living/carbon/human/dummy/mannequin/sleevemate_mob
 
 		if(!istype(target))
 			return //href hacking only
-
 		if(!H.nif)
 			return //Lost it? or href hacking
 
@@ -207,6 +206,7 @@ var/global/mob/living/carbon/human/dummy/mannequin/sleevemate_mob
 		stored_mind = null
 		to_chat(usr,"<span class='notice'>Mind transferred into Soulcatcher!</span>")
 		update_icon()
+
 
 /obj/item/device/sleevemate/update_icon()
 	if(stored_mind)

@@ -7,4 +7,5 @@
 	food_color = "#A34719"
 	on_icon = "grill_on"
 	off_icon = "grill_off"
-	can_burn_food = 1
+	can_burn_food = 0
+	cooked_sound = 'sound/machines/ding.ogg'

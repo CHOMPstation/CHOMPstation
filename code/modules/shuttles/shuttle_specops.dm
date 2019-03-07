@@ -64,14 +64,14 @@
 		var/obj/machinery/computer/C = user
 
 		if(world.time <= reset_time)
-			C.visible_message("<font color='blue'>[using_map.boss_name] will not allow the Special Operations shuttle to launch yet.</font>")
+			C.visible_message("<font color='#6F6FE2'>[using_map.boss_name] will not allow the Special Operations shuttle to launch yet.</font>")
 			if (((world.time - reset_time)/10) > 60)
-				C.visible_message("<font color='blue'>[-((world.time - reset_time)/10)/60] minutes remain!</font>")
+				C.visible_message("<font color='#6F6FE2'>[-((world.time - reset_time)/10)/60] minutes remain!</font>")
 			else
-				C.visible_message("<font color='blue'>[-(world.time - reset_time)/10] seconds remain!</font>")
+				C.visible_message("<font color='#6F6FE2'>[-(world.time - reset_time)/10] seconds remain!</font>")
 			return
 
-		C.visible_message("<font color='blue'>The Special Operations shuttle will depart in [(specops_countdown_time/10)] seconds.</font>")
+		C.visible_message("<font color='#6F6FE2'>The Special Operations shuttle will depart in [(specops_countdown_time/10)] seconds.</font>")
 
 	if (location)	//returning
 		radio_announce("THE SPECIAL OPERATIONS SHUTTLE IS PREPARING TO RETURN")

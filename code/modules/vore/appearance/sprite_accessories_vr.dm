@@ -502,6 +502,13 @@
 	desc = ""
 	icon_state = "moth_full"
 
+/datum/sprite_accessory/wing/moth_full_colorable
+	name = "moth antenna and wings (colorable)"
+	desc = ""
+	icon_state = "moth_full_colorable"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+
 /datum/sprite_accessory/wing/kerena
 	name = "wingwolf wings (Kerena)"
 	desc = ""
@@ -697,6 +704,12 @@
 	name = "bee thorax"
 	desc = ""
 	icon_state = "beethorax"
+
+/datum/sprite_accessory/tail/beethorax_color
+	name = "bee thorax (colorable)"
+	desc = ""
+	icon_state = "beethorax2"
+	do_colouration = 1
 
 /datum/sprite_accessory/tail/doublekitsune
 	name = "double kitsune tail, colorable"

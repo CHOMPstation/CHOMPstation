@@ -163,7 +163,10 @@
 	icon_state = "collar_holo"
 	item_state = "collar_holo_overlay"
 	overlay_state = "collar_holo_overlay"
+	matter = list(DEFAULT_WALL_MATERIAL = 50)
 
+// Chompstation edit - Deprecated, implementing a custom method of renaming collars.
+/*
 /obj/item/clothing/accessory/collar/holo/attack_self(mob/user as mob)
 	to_chat(user,"<span class='notice'>[name]'s interface is projected onto your hand.</span>")
 
@@ -177,6 +180,26 @@
 		to_chat(user,"<span class='notice'>You set the [name]'s tag to '[str]'.</span>")
 		name = initial(name) + " ([str])"
 		desc = initial(desc) + " The tag says \"[str]\"."
+*/
+
+// Chompstation add: Adding in a button to allow anyone to change any tag on their collar.
+/obj/item/clothing/accessory/collar/verb/changeTag()
+	set name = "Change collar tag"
+	set category = "Object"
+	set src in usr
+	if(!istype(usr, /mob/living))	return
+	if(usr.stat)	return
+
+	var/str = copytext(reject_bad_text(input(usr,"Tag text?","Set tag","")),1,MAX_NAME_LEN)
+
+	if(!str || !length(str))
+		to_chat(usr,"<span class='notice'>[name]'s tag set to be blank.</span>")
+		name = initial(name)
+		desc = initial(desc)
+	else
+		to_chat(usr,"<span class='notice'>You set the [name]'s tag to '[str]'.</span>")
+		name = initial(name) + " ([str])"
+		desc = initial(desc) + " The tag says \"[str]\"."
 
 //Machete Holsters
 /obj/item/clothing/accessory/holster/machete
@@ -188,3 +211,4 @@
 	can_hold = list(/obj/item/weapon/material/knife/machete)
 	//sound_in = 'sound/effects/holster/sheathin.ogg'
 	//sound_out = 'sound/effects/holster/sheathout.ogg'
+

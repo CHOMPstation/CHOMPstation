@@ -38,7 +38,7 @@
 	if(!injectable && alien != IS_SLIME)
 		M.adjustToxLoss(0.1 * removed)
 		return
-	affect_ingest(M, alien, removed) 
+	affect_ingest(M, alien, removed)
 	*/ //VOREStation Removal End
 	if(injectable) //vorestation addition/replacement
 		affect_ingest(M, alien, removed)
@@ -705,6 +705,16 @@
 	glass_name = "watermelon juice"
 	glass_desc = "Delicious juice made from watermelon."
 
+/datum/reagent/drink/juice/nutbutter
+	name = "Peanut paste"
+	id = "nutbutter"
+	description = "Raw extracts from peanuts, got a creamy nutty flavour."
+	taste_description = "peanut extract"
+	color = "#853333"
+
+	glass_name = "Peanut paste"
+	glass_desc = "Raw extracts from peanuts, got a creamy nutty flavour."
+	
 // Everything else
 
 /datum/reagent/drink/milk
@@ -894,6 +904,32 @@
 	cup_name = "cup of berry tea"
 	cup_desc = "A tasty mixture of berries and tea. It's apparently good for you!"
 
+/datum/reagent/drink/tea/cherrytea
+	name = "Cherry Tea"
+	id = "cherrytea"
+	description = "A tasty mixture of cherries and tea. It's apparently good for you!"
+	color = "#c15962"
+	taste_description = "black tea with lots of cherries"
+
+	glass_name = "cherry tea"
+	glass_desc = "A tasty mixture of cherries and tea. It's apparently good for you!"
+
+	cup_name = "cup of cherry tea"
+	cup_desc = "A tasty mixture of cherries and tea. It's apparently good for you!"
+	
+/datum/reagent/drink/tea/watermelontea
+	name = "Watermelon Tea"
+	id = "watermelontea"
+	description = "A tasty mixture of watermelon and tea. It's apparently good for you!"
+	color = "#9f2c2c"
+	taste_description = "black tea with sweet watermelon for flavouring"
+
+	glass_name = "watermelon tea"
+	glass_desc = "A tasty mixture of watermelon and tea. It's apparently good for you!"
+
+	cup_name = "cup of watermelon tea"
+	cup_desc = "A tasty mixture of watermelon and tea. It's apparently good for you!"
+	
 /datum/reagent/drink/coffee
 	name = "Coffee"
 	id = "coffee"
@@ -1495,7 +1531,78 @@
 	glass_name = "Love Potion"
 	glass_desc = "Love me tender, love me sweet."
 
+/datum/reagent/drink/juice/gelatin
+	name = "Gelatin"
+	id = "gelatin"
+	description = "It doesnt taste like anything."
+	taste_description = "nothing"
+	nutrition = 0
+	color = "#aaabcf"
 
+	glass_name = "Gelatin"
+	glass_desc = "It's like flavourless slime."
+
+/datum/reagent/drink/bubbleteawatermelon
+	name = "Watermelon bubble tea"
+	id = "bubbleteawatermelon"
+	description = "A tea with milk and watermelon in it and gelatin balls as well."
+	taste_description = "creamy tea and watermelon"
+	color = "#b83333"
+
+	glass_name = "watermelon bubble tea"
+	glass_desc = "A sweet tea with tasty little flavoured gelatin balls in it, this one is with watermelon."
+
+/datum/reagent/drink/bubbleteastrawberry
+	name = "Strawberry bubble tea"
+	id = "bubbleteastrawberry"
+	description = "A tea with milk and strawberry in it and gelatin balls as well."
+	taste_description = "creamy tea and strawberry"
+	color = "#eb6c77"
+
+	glass_name = "strawberry bubble tea"
+	glass_desc = "A sweet tea with tasty little flavoured gelatin balls in it, this one is with strawberry."
+
+/datum/reagent/drink/bubbleteacherry
+	name = "Cherry bubble tea"
+	id = "bubbleteacherry"
+	description = "A tea with milk and cherry in it and gelatin balls as well."
+	taste_description = "creamy tea and cherry"
+	color = "#801e28"
+
+	glass_name = "cherry bubble tea"
+	glass_desc = "A sweet tea with tasty little flavoured gelatin balls in it, this one is with cherry."
+
+/datum/reagent/drink/bubbleteacoffee
+	name = "Coffee bubble tea"
+	id = "bubbleteacoffee"
+	description = "A tea with milk and coffee in it and gelatin balls as well."
+	taste_description = "creamy tea and coffee"
+	color = "#482910"
+
+	glass_name = "coffee bubble tea"
+	glass_desc = "A sweet tea with tasty little flavoured gelatin balls in it, this one is with coffee."
+
+/datum/reagent/drink/bubbleteabanana
+	name = "Banana bubble tea"
+	id = "bubbleteabanana"
+	description = "A tea with milk and banana in it and gelatin balls as well."
+	taste_description = "creamy tea and banana"
+	color = "#c3af00"
+
+	glass_name = "banana bubble tea"
+	glass_desc = "A sweet tea with tasty little flavoured gelatin balls in it, this one is with banana."
+
+/datum/reagent/drink/horchata
+	name = "Horchata"
+	id = "horchata"
+	description = "A sweet and cold rice milk beverage."
+	taste_description = "sweet rice milk and cinnamon"
+	color = "#ebcdc1"
+	adj_temp = -5
+
+	glass_name = "horchata"
+	glass_desc = "A sweet and cold rice milk beverage."
+	
 /* Alcohol */
 
 // Basic
@@ -2876,13 +2983,13 @@
 /datum/reagent/ethanol/cloverclub
 	name = "Clover Club"
 	id = "cloverclub"
-	description = "A light and refreshing rasberry cocktail."
-	taste_description = "sweet raspberry"
+	description = "A light and refreshing raspberry cocktail."
+	taste_description = "sweet raspberry and gin"
 	color = "#dd00a6" // rgb(221, 0, 166)
 	strength = 30
 
 	glass_name = "Clover Club"
-	glass_desc = "A light and refreshing rasberry cocktail."
+	glass_desc = "A light and refreshing cocktail garnished with skewered raspberries."
 
 /datum/reagent/ethanol/negroni
 	name = "Negroni"
@@ -2987,3 +3094,189 @@
 
 	glass_name = "Mint Julep"
 	glass_desc = "Minty and refreshing, perfect for a hot day."
+
+/datum/reagent/ethanol/eggnog
+	name = "Eggnog"
+	id = "eggnog"
+	description = "A creamy mixture with eggs and cognac to spice it up."
+	taste_description = "creamy yolk and cognac"
+	color = "#d5cbbf" // rgb(213, 203, 191)
+	strength = 30
+
+	glass_name = "Eggnog"
+	glass_desc = "A seasonal drink made from egg, alcohol, dairy products and sugar."
+	
+/datum/reagent/ethanol/spiderdrink
+	name = "Brimming glass of spiders"
+	id = "spiderdrink"
+	description = "A fresh drink consisting of cloned spiderlings who are intoxicated by a healthy dose of absinthe."
+	taste_description = "TOO MANY LEGS"
+	color = "#526062" // rgb(82, 96, 98)
+	strength = 15
+
+	glass_name = "Brimming glass of spiders"
+	glass_desc = "A glass filled to the brim with tiny drunk spiderlings. Lets hope they dont escape."
+	
+/datum/reagent/ethanol/snaps
+	name = "Akvavit"
+	id = "snaps"
+	description = "Burns the nose and throat and soothes it with a herby aftertaste...Barely."
+	taste_description = "strong spirit and a little dill"
+	color = "e6d670" // rgb: 230, 214, 112
+	strength = 15
+
+	glass_name = "akvavit"
+	glass_desc = "Burns the nose and throat, and soothes it with a herby aftertaste...Barely."
+	
+/datum/reagent/ethanol/bluetrain
+	name = "blue train"
+	id = "bluetrain"
+	description = "A drink only a fool or a very desperate creature would consume."
+	taste_description = "someone who decided to pour ice cold motor oil down your throat and finish it off with a large shot of burning pure alcohol."
+	color = "#c8a5dc"
+	adj_temp = -10
+	targ_temp = 220
+	strength = 10
+	
+	glass_name = "blue train"
+	glass_desc = "A glass of what can only be described as the bastard child between coolant and alcohol made by a madman."
+	
+/datum/reagent/drink/lowpower
+	name = "The low power"
+	id = "lowpower"
+	description = "Smells, and tastes like lemon.. with a hint of Ozone, for whatever reason. It glows softly."
+	taste_description = "creamy lemonade, with some zest"
+	color = "#5d8d39"
+
+	glass_name = "lowpower"
+	glass_desc = "Smells, and tastes like lemon.. with a hint of Ozone, for whatever reason. It glows softly."
+	
+/datum/reagent/drink/lowpower/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(alien == IS_DIONA)
+		return
+	M.adjustToxLoss(-0.5 * removed)
+	
+/datum/reagent/ethanol/coffee/jackbrew
+	name = "Jack's brew"
+	id = "jackbrew"
+	description = "Irish coffee, and hyperzine. A common mix for panicked drinkers, EMTS, Paramedics, and CMOs alone on the job."
+	taste_description = "wishing you could give up on the day"
+	color = "#4C3100"
+	strength = 15
+
+	glass_name = "Jack's brew"
+	glass_desc = "Irish coffee, and hyperzine. A common mix for panicked drinkers, EMTS, Paramedics, and CMOs alone on the job."
+
+/datum/reagent/ethanol/coffee/jackbrew/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_TAJARA)
+		removed *= 1.25
+	if(alien == IS_SLIME)
+		M.make_jittery(4) //Hyperactive fluid pumping results in unstable 'skeleton', resulting in vibration.
+		if(dose >= 5)
+			M.nutrition = (M.nutrition - (removed * 2)) //Sadly this movement starts burning food in higher doses.
+	..()
+	if(prob(5))
+		M.emote(pick("twitch", "blink_r", "shiver", "weh"))
+	M.add_chemical_effect(CE_SPEEDBOOST, 1)
+	
+/datum/reagent/ethanol/bookwyrm
+	name = "Bookwyrm's bite"
+	id = "bookwyrm"
+	description = "You'd probably fancy a nice nap by the fireplace after drinking this."
+	taste_description = "Mint, lime and a cold cozy nap"
+	color = "#5678c3"
+	strength = 20
+	adj_temp = -10
+	targ_temp = 273 //Dilluted cold front wont be the death of anyone who cant handle sipping liquid nitrogen.
+
+	glass_name = "Bookwyrm's bite"
+	glass_desc = "A cold lime mint drink. Dont drink to much or you might fall asleep."
+	
+/datum/reagent/ethanol/bookwyrm/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_DIONA)
+		return
+
+	var/threshold = 1
+	if(alien == IS_SKRELL)
+		threshold = 1.2
+
+	if(alien == IS_SLIME)
+		threshold = 6	//Evens to 3 due to the fact they are considered 'small' for flaps.
+
+	var/effective_dose = dose
+	if(issmall(M))
+		effective_dose *= 2
+
+	if(effective_dose < 1 * threshold)
+		if(effective_dose == metabolism * 2 || prob(5))
+			M.emote("yawn")
+	else if(effective_dose < 1.5 * threshold)
+		M.eye_blurry = max(M.eye_blurry, 10)
+	else if(effective_dose < 5 * threshold)
+		if(prob(50))
+			M.Weaken(2)
+		M.drowsyness = max(M.drowsyness, 20)
+	else
+		if(alien == IS_SLIME) //They don't have eyes, and they don't really 'sleep'. Fumble their general senses.
+			M.eye_blurry = max(M.eye_blurry, 30)
+			if(prob(20))
+				M.ear_deaf = max(M.ear_deaf, 4)
+				M.Confuse(2)
+			else
+				M.Weaken(2)
+		else
+			M.sleeping = max(M.sleeping, 20)
+		M.drowsyness = max(M.drowsyness, 60)
+		
+/datum/reagent/drink/highpower
+	name = "The High power"
+	id = "highpower"
+	description = "A strange, softly crackling drink, smelling just like lightning's just struck, twice. It's rather difficult to make this without busting the lights."
+	taste_description = "copper, ozone, and pain"
+	color = "#a2f563"
+
+	glass_name = "highpower"
+	glass_desc = "A strange, softly crackling drink, smelling just like lightning's just struck, twice. It's rather difficult to make this without busting the lights."
+	
+/datum/reagent/drink/highpower/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_DIONA)
+		return
+	if(prob(5))
+		M.say("!skin's crackles with energy and seems to be in pain.")
+		M.custom_pain("You feel painful electricity running through your body, like adrenaline, and like your blood's boiling!",30)
+		M.AdjustWeakened(3)		//Getting sapped makes the victim fall
+		M.Stun(3)
+	M.add_chemical_effect(CE_SPEEDBOOST, 1)
+		
+/datum/reagent/ethanol/flapper
+	name = "Flapper"
+	id = "flapper"
+	description = "A common drink among blood-drinkers, and those who just wanna drink. Tinnibat be damned."
+	taste_description = "a bloody good time"
+	color = "#763424"
+	strength = 15
+
+	glass_name = "flapper"
+	glass_desc = "A common drink among blood-drinkers, and those who just wanna drink. Tinnibat be damned."
+	
+/datum/reagent/toxin/oilslide
+	name = "Oil slide"
+	id = "oilslide"
+	description = "Tasty, if you're a synth, not so much for organics."
+	taste_description = "oil, slime, and fuel! Tastes also like synthetic backwash"
+	color = "#331a1a"
+	
+	glass_name = "oilslide"
+	glass_desc = "Tasty, if you're a synth, not so much for organics."
+	
+/datum/reagent/ethanol/sitonmyface
+	name = "Sit on my face"
+	id = "sitonmyface"
+	description = "A drink made of irish coffee and nuts, mostly known for its vulgar name. Makes for a great pickup line though!"
+	taste_description = "creamy coffee and alcohol, and nuts"
+	color = "#896750"
+	strength = 15
+
+	glass_name = "Sit on my face"
+	glass_desc = "A drink made of irish coffee and nuts, mostly known for its vulgar name. Makes for a great pickup line though!"

@@ -162,6 +162,7 @@
 /obj/machinery/body_scanconsole
 	var/obj/machinery/bodyscanner/scanner
 	var/known_implants = list(/obj/item/weapon/implant/health, /obj/item/weapon/implant/chem, /obj/item/weapon/implant/death_alarm, /obj/item/weapon/implant/loyalty, /obj/item/weapon/implant/tracking, /obj/item/weapon/implant/language, /obj/item/weapon/implant/language/eal, /obj/item/weapon/implant/backup, /obj/item/device/nif) //VOREStation Add - Backup Implant, NIF
+
 	var/delete
 	var/temphtml
 	name = "Body Scanner Console"
@@ -423,7 +424,7 @@
 
 	if(scanner)
 		var/mob/living/carbon/human/occupant = scanner.occupant
-		dat = "<font color='blue'><b>Occupant Statistics:</b></font><br>" //Blah obvious
+		dat = "<font color='#6F6FE2'><b>Occupant Statistics:</b></font><br>" //Blah obvious
 		if(istype(occupant)) //is there REALLY someone in there?
 			var/t1
 			switch(occupant.stat) // obvious, see what their status is
