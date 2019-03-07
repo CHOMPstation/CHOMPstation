@@ -92,10 +92,10 @@
 
 //Fabricator procs
 /obj/machinery/drone_fabricator/unify/create_drone(var/client/player)
-	choose_dronetype()//code for dronetypes goes here
+	choose_dronetype(possible_drones)//code for dronetypes goes here
 	..()
 
-/obj/machinery/drone_fabricator/proc/choose_dronetype()
+/obj/machinery/drone_fabricator/proc/choose_dronetype(possible_drones)
 	var/choice
 	choice = input(usr,"What module would you like to use?") as null|anything in possible_drones
 	if(!choice) return
