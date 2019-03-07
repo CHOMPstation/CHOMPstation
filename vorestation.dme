@@ -2156,6 +2156,7 @@
 #include "code\modules\mob\living\silicon\robot\dogborg\dog_modules_vr.dm"
 #include "code\modules\mob\living\silicon\robot\dogborg\dog_sleeper_vr.dm"
 #include "code\modules\mob\living\silicon\robot\drone\drone.dm"
+#include "code\modules\mob\living\silicon\robot\drone\drone_unify.dm"
 #include "code\modules\mob\living\silicon\robot\drone\drone_abilities.dm"
 #include "code\modules\mob\living\silicon\robot\drone\drone_console.dm"
 #include "code\modules\mob\living\silicon\robot\drone\drone_damage.dm"
