@@ -287,7 +287,6 @@
 	reagent_state = LIQUID
 	ingest_met = REM * 10
 	color = "#0064C877"
-	adj_temp = 2
 
 	cup_name = "cup of hot water"
 	cup_desc = "Good for brewing tea."
