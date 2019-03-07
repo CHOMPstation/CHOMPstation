@@ -47,7 +47,7 @@
 	unsuitable_atoms_damage = 0
 
 	//Hostility settings
-	view_range = 14 //HE knows when you're awake, and also when you sleep, he butchers all of your best friends and churns them to gains
+	view_range = 28 //HE knows when you're awake, and also when you sleep, he butchers all of your best friends and churns them to gains
 	investigates = 1 //Clever girl
 	attack_same = 1 //There can only be one
 	grab_resist = 100 //It's a collosal creature... you arent just grabbing that...
