@@ -69,7 +69,7 @@
 	fabricator_tag = "Prototype UNIFY Fabricator"
 	desc = "A large automated factory for producing Unified Drone Modules."
 	drone_type = null //Gonna try to set this later
-	var/global/list/possible_drones = list("UNIFY Module" = /obj/item/weapon/robot_module/drone/unify,
+	var/global/list/possible_drones = list("UNIFY Module" = /mob/living/silicon/robot/drone/unify,
 	"Construction Module" = /mob/living/silicon/robot/drone/construction,)
 
 
@@ -77,12 +77,6 @@
 //DRONE PROCS
 ////////////////////////////////////////
 //Drone Drone Procs
-/mob/living/silicon/robot/drone/unify/New()
-	..()
-	possible_chassis +=  "PROTOTYPE" = "miningdrone" 
-	//This list populates the drone sprite selection, Left side is Displayed names, Right side is icon_state names.
-	//TODO: Find someone willing to sell their soul to actively document the PX offset for each of these for hatcode
-
 /mob/living/silicon/robot/drone/unify/updatename()
 	real_name = "Unified Drone Module ([rand(100,999)])" //UDMs, sounds kinda nice, maybe call them this Lore wise?
 	name = real_name
