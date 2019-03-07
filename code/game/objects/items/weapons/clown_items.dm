@@ -19,17 +19,7 @@
 	..()
 	create_reagents(5)
 	wet(5)
- 
- 
-/obj/item/weapon/soap/drone
-	name = "Advanced Soap"
-	var/tile_clean_amount = 100
 
-/obj/item/weapon/soap/drone/New()
-	..()
-	create_reagents(tile_clean_amount)
-	wet(tile_clean_amount)
- 
 /obj/item/weapon/soap/proc/wet(var/amount)
 	reagents.add_reagent("cleaner", amount)
 
