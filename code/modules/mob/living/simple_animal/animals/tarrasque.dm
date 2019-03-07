@@ -1,5 +1,13 @@
 /mob/living/simple_animal/hostile/tarrasque
 	//icon = bigboygains.dmi
+	
+	//temporarily gonna use Deathclaw
+	icon = 'icons/mob/vore64x64.dmi'
+	icon_dead = "deathclaw-dead"
+	icon_living = "deathclaw"
+	icon_state = "deathclaw"
+	size_multiplier = 2
+	
 	isEdible = 0
 	name = "T'rasq"
 	desc = "The most dreaded monster. Its purpose is to devour the worlds 1 waking cycle at a time, all it knows is, eat, sleep, repeat."
