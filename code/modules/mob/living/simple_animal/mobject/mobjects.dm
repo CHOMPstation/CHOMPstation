@@ -3,13 +3,14 @@
 //Basically this will set some vars to use across them like "obj_icon" and "obj_on"
 
 mob/living/simple_animal/mobject
-	name = "Mobject"
+	name = "Metamorphic fox"
 	desc = "Something about this seems, off."
 	var/animal_icon = 'icons/mob/vore.dmi'
 	var/animal_icon_state = "fennec"
 	var/obj_icon = 'icons/mob/pai.dmi'
 	var/obj_icon_state = "fox"
 	var/obj_on
+	var/PandL = 1 //Run both Process() and Life //Since Process takes Priority turning the mob off will also turn off Life()
 	var/willanchor = 0 //Var that decides if obj state is anchored or not 
 	var/norest = 1 //Var that makes mobject in animal state unrest automatically //simple workaround to infinite resting
 	var/on = 1 //Just another var to turn off the mob object processing
@@ -59,6 +60,8 @@ mob/living/simple_animal/mobject/Life()
 		if(willanchor)
 			anchored = 1
 		process()
+		if(PandL)
+			..()
 	else
 		if(norest && resting)
 			resting = !resting
@@ -68,6 +71,6 @@ mob/living/simple_animal/mobject/Life()
 
 mob/living/simple_animal/mobject/proc/process() //proccess performed instead of Life in OBJ form.
 	if(!on)
-		return //A way to disable process()
+		return //A way to disable process() //for PandL this will also disable Life()
 
 //Mobject engineering will Probably be first, basically a Synthetic Mob that can be wrenched into active object mode
