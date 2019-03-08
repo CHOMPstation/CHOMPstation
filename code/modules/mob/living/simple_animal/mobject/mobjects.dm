@@ -16,9 +16,10 @@ mob/living/simple_animal/mobject
 	var/on = 1 //Just another var to turn off the mob object processing
 	var/morphitem = /obj/item/weapon/wrench //Since its the most used item for anchoring this wil be default
 	var/powertoggle //off by default
-	var/altpowertoggle = 1 //on by default, turn of/an on click by hand
+	var/altpowertoggle = 1 //on by default, turn off/on on click by hand
 	hostile = 0
 	retaliate = 0
+	icon_dead = "fennec_dead" //oof
 
 mob/living/simple_animal/mobject/New()
 	..()
