@@ -39,8 +39,6 @@ mob/living/simple_animal/mobject/Life()
 
 mob/living/simple_animal/mobject/proc/process() //proccess performed instead of Life in OBJ form.
 	if(!on)
-		return
-		//A way to disable process()
-	return //Currently does nothing
+		return //A way to disable process()
 
 //Mobject engineering will Probably be first, basically a Synthetic Mob that can be wrenched into active object mode
