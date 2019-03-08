@@ -17,6 +17,8 @@ mob/living/simple_animal/mobject
 	var/morphitem = /obj/item/weapon/wrench //Since its the most used item for anchoring this wil be default
 	var/powertoggle //off by default
 	var/altpowertoggle = 1 //on by default, turn of/an on click by hand
+	hostile = 0
+	retaliate = 0
 
 mob/living/simple_animal/mobject/New()
 	..()
