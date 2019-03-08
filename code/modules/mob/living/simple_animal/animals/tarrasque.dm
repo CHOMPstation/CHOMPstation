@@ -25,11 +25,11 @@
 
 	//Mob movement settings
 	wander = 1
-	wander_distance = 100
+	wander_distance = 999
 	returns_home = 1
-	turns_per_move = 15
-	follow_dist = 200
-	speed = 20
+	turns_per_move = 7
+	follow_dist = 999
+	speed = 7
 	
 	//Mob interaction
 	response_help   = "Sacrifices self to"
@@ -57,20 +57,20 @@
 	melee_damage_lower = 10 //huh not so bad
 	melee_damage_upper = 45 //oh, oh no
 	attacktext = list("bites","claws","slashes")
-	environment_smash = 1000 //It's made for destroying things
+	environment_smash = 99999 //It's made for destroying things
 	melee_miss_chance = 0
-	melee_attack_minDelay = 5
-	melee_attack_maxDelay = 30
+	melee_attack_minDelay = 0
+	melee_attack_maxDelay = 5
 	attack_armor_pen = 20
 	attack_sharp = 1
 
 	//Attack movement settings
-	move_to_delay = 20
+	move_to_delay = 7
 	destroy_surroundings = 1
 
 	//Damage resistances
 	shock_resistance = 1
-	resistance = 75
+	resistance = 99
 
 /mob/living/simple_animal/hostile/tarrasque/death()
 	..()
