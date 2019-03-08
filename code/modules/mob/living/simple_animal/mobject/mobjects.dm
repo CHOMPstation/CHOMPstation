@@ -1,32 +1,61 @@
 //Mobs that may be USED like objects but are actually internally Mobs
 //So the MAIN purpose of this would be something like a Mimic who turns into a crate 
-//Basically this will set some vars to use across them like "obj_icon" and "obj_form"
+//Basically this will set some vars to use across them like "obj_icon" and "obj_on"
 
 mob/living/simple_animal/mobject
 	name = "Mobject"
 	desc = "Something about this seems, off."
-	var/animal_icon
-	var/animal_icon_state
-	var/obj_icon
-	var/obj_icon_state
+	var/animal_icon = 'icons/mob/vore.dmi'
+	var/animal_icon_state = "fennec"
+	var/obj_icon = 'icons/mob/pai.dmi'
+	var/obj_icon_state = "fox"
 	var/obj_on
-	var/willanchor = 1 //Var that decides if obj state is anchored or not //Unanchored mobjects will wander in object mode.
+	var/willanchor = 0 //Var that decides if obj state is anchored or not 
 	var/norest = 1 //Var that makes mobject in animal state unrest automatically //simple workaround to infinite resting
 	var/on = 1 //Just another var to turn off the mob object processing
+	var/morphitem = /obj/item/weapon/wrench //Since its the most used item for anchoring this wil be default
+	var/powertoggle //off by default
+	var/altpowertoggle = 1 //on by default, turn of/an on click by hand
 
 mob/living/simple_animal/mobject/New()
 	..()
 	animal_icon = icon
 	animal_icon_state = icon_state
 
+mob/living/simple_animal/mobject/attack_hand(mob/user as mob) //Togglecode
+	if(obj_on)
+		if(altpowertoggle)
+			if(on)
+				on = !on
+			else
+				on = 1
+
+mob/living/simple_animal/mobject/attackby(obj/item/I, mob/user) //Togglecode
+	if(istype(I,morphitem))
+		if(obj_on)
+			obj_on = !obj_on
+		else
+			obj_on = 1
+	else if(istype(I,powertoggle))
+		if(obj_on)
+			if(on)
+				on = !on
+			else
+				on = 1
+	else
+		..()
+
+//Life() process() Duality
 mob/living/simple_animal/mobject/Life()
 	if(!obj_on && icon != animal_icon)
 		icon = animal_icon
 		icon_state = animal_icon_state
+		update_icons()
 	if(obj_on)
 		if(icon!=obj_icon)
 			icon = obj_icon
 			icon_state = obj_icon_state
+			update_icons()
 		if(willanchor)
 			anchored = 1
 		process()
