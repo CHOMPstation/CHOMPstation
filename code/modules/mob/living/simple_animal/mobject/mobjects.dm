@@ -71,6 +71,10 @@ mob/living/simple_animal/mobject/proc/process() //proccess performed instead of 
 	if(!on)
 		return //A way to disable process() //for PandL this will also disable Life()
 
+mob/living/simple_animal/mobject/death()
+	..()
+	icon = animal_icon
+	playsound(location, 'sound/effects/sparks1.ogg', 100, 0)
 
 mob/living/simple_animal/mobject/metamorphicfennec
 	name = "Metamorphic fox"
