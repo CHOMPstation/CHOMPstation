@@ -17,16 +17,17 @@ mob/living/simple_animal/mobject/New()
 	animal_icon_state = icon_state
 
 mob/living/simple_animal/mobject/Life()
+	if(!obj_on && anchored)
+		icon = animal_icon
+		icon_state = animal_icon_state
+		anchored = !anchored
 	if(obj_on)
 		icon = obj_icon
 		icon_state = obj_icon_sate
 		anchored = 1
 		process()
-	if(!obj_on && anchored)
-		icon = animal_icon
-		icon_state = animal_icon_state
-		anchored = !anchored
-	..()
+	else
+		..()
 
 mob/living/simple_animal/mobject/proc/process()
 	//proccess performed instead of Life in OBJ form.
