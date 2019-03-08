@@ -12,6 +12,7 @@ mob/living/simple_animal/mobject
 	var/obj_on
 	var/willanchor = 1 //Var that decides if obj state is anchored or not //Unanchored mobjects will wander in object mode.
 	var/norest = 1 //Var that makes mobject in animal state unrest automatically //simple workaround to infinite resting
+	var/on
 
 mob/living/simple_animal/mobject/New()
 	..()
@@ -37,6 +38,8 @@ mob/living/simple_animal/mobject/Life()
 		..()
 
 mob/living/simple_animal/mobject/proc/process()
+	if(on)
+		//A way to disable process()
 	//proccess performed instead of Life in OBJ form.
 	return //Currently does nothing
 
