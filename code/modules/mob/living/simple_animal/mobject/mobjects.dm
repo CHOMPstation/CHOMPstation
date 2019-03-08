@@ -11,7 +11,7 @@ mob/living/simple_animal/mobject
 	var/obj_icon_state = "fox"
 	var/obj_on
 	var/PandL = 1 //Run both Process() and Life //Since Process takes Priority turning the mob off will also turn off Life()
-	var/willanchor = 0 //Var that decides if obj state is anchored or not 
+	var/willanchor = 0 //Var that decides if obj state is anchored or not //for PandL this means the mob will wander if 0
 	var/norest = 1 //Var that makes mobject in animal state unrest automatically //simple workaround to infinite resting
 	var/on = 1 //Just another var to turn off the mob object processing
 	var/morphitem = /obj/item/weapon/wrench //Since its the most used item for anchoring this wil be default
