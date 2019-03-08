@@ -18,8 +18,8 @@ mob/living/simple_animal/mobject
 
 mob/living/simple_animal/mobject/New()
 	..()
-	animal_icon = icon
-	animal_icon_state = icon_state
+	icon = animal_icon
+	icon_living = animal_icon_state
 
 mob/living/simple_animal/mobject/attack_hand(mob/user as mob) //Togglecode
 	if(obj_on)
@@ -48,12 +48,12 @@ mob/living/simple_animal/mobject/attackby(obj/item/I, mob/user) //Togglecode
 mob/living/simple_animal/mobject/Life()
 	if(!obj_on && icon != animal_icon)
 		icon = animal_icon
-		icon_state = animal_icon_state
+		icon_living = animal_icon_state
 		update_icons()
 	if(obj_on)
 		if(icon!=obj_icon)
 			icon = obj_icon
-			icon_state = obj_icon_state
+			icon_living = obj_icon_state
 			update_icons()
 		if(willanchor)
 			anchored = 1
@@ -74,6 +74,7 @@ mob/living/simple_animal/mobject/proc/process() //proccess performed instead of 
 mob/living/simple_animal/mobject/death()
 	..()
 	icon = animal_icon
+	update_icons()
 	playsound(location, 'sound/effects/sparks1.ogg', 100, 0)
 
 mob/living/simple_animal/mobject/metamorphicfennec
