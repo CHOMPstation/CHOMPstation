@@ -25,7 +25,7 @@ mob/living/simple_animal/mobject/Life()
 	if(obj_on)
 		if(icon!=obj_icon)
 			icon = obj_icon
-			icon_state = obj_icon_sate
+			icon_state = obj_icon_state
 		if(willanchor)
 			anchored = 1
 		process()
