@@ -10,6 +10,8 @@ mob/living/simple_animal/mobject
 	var/obj_icon
 	var/obj_icon_state
 	var/obj_on
+	var/willanchor = 1 //Var that decides if obj state is anchored or not
+	var/norest = 1 //Var that makes mobject in animal state unrest automatically //simple workaround to infinite resting
 
 mob/living/simple_animal/mobject/New()
 	..()
@@ -17,16 +19,21 @@ mob/living/simple_animal/mobject/New()
 	animal_icon_state = icon_state
 
 mob/living/simple_animal/mobject/Life()
-	if(!obj_on && anchored)
+	if(!obj_on && icon != animal_icon)
 		icon = animal_icon
 		icon_state = animal_icon_state
-		anchored = !anchored
 	if(obj_on)
-		icon = obj_icon
-		icon_state = obj_icon_sate
-		anchored = 1
+		if(icon!=obj_icon)
+			icon = obj_icon
+			icon_state = obj_icon_sate
+		if(willanchor)
+			anchored = 1
 		process()
 	else
+		if(norest && resting)
+			resting = !resting
+		if(anchored)
+			anchored = !anchored
 		..()
 
 mob/living/simple_animal/mobject/proc/process()
