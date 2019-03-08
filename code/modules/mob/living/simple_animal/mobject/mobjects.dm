@@ -39,6 +39,7 @@ mob/living/simple_animal/mobject/Life()
 
 mob/living/simple_animal/mobject/proc/process()
 	if(on)
+		return
 		//A way to disable process()
 	//proccess performed instead of Life in OBJ form.
 	return //Currently does nothing
