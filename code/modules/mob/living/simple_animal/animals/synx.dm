@@ -118,6 +118,7 @@
 	speak += "Who is there?"
 	speak += "What is that thing?!"
 
+/* This literally is just the normal proc, why does this exist wh
 mob/living/simple_animal/synx/PunchTarget()
 	if(!Adjacent(target_mob))
 		return
@@ -137,9 +138,7 @@ mob/living/simple_animal/synx/PunchTarget()
 		return L
 	else
 		..()
-
-
-
+*/
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////// SPECIAL ITEMS/REAGENTS !!!! ////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
