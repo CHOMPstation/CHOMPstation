@@ -3,23 +3,18 @@
 //Basically this will set some vars to use across them like "obj_icon" and "obj_on"
 
 mob/living/simple_animal/mobject
-	name = "Metamorphic fox"
-	desc = "Something about this seems, off."
-	var/animal_icon = 'icons/mob/vore.dmi'
-	var/animal_icon_state = "fennec"
-	var/obj_icon = 'icons/mob/pai.dmi'
-	var/obj_icon_state = "fox"
+	var/animal_icon
+	var/animal_icon_state
+	var/obj_icon
+	var/obj_icon_state
 	var/obj_on
-	var/PandL = 1 //Run both Process() and Life //Since Process takes Priority turning the mob off will also turn off Life()
-	var/willanchor = 0 //Var that decides if obj state is anchored or not //for PandL this means the mob will wander if 0
+	var/PandL = 0 //Run both Process() and Life //Since Process takes Priority turning the mob off will also turn off Life()
+	var/willanchor = 1 //Var that decides if obj state is anchored or not //for PandL this means the mob will wander if 0
 	var/norest = 1 //Var that makes mobject in animal state unrest automatically //simple workaround to infinite resting
 	var/on = 1 //Just another var to turn off the mob object processing
 	var/morphitem = /obj/item/weapon/wrench //Since its the most used item for anchoring this wil be default
 	var/powertoggle //off by default
 	var/altpowertoggle = 1 //on by default, turn off/on on click by hand
-	hostile = 0
-	retaliate = 0
-	icon_dead = "fennec_dead" //oof
 
 mob/living/simple_animal/mobject/New()
 	..()
@@ -76,4 +71,17 @@ mob/living/simple_animal/mobject/proc/process() //proccess performed instead of 
 	if(!on)
 		return //A way to disable process() //for PandL this will also disable Life()
 
-//Mobject engineering will Probably be first, basically a Synthetic Mob that can be wrenched into active object mode
+
+mob/living/simple_animal/mobject/metamorphicfennec
+	name = "Metamorphic fox"
+	desc = "Something about this seems, off."
+	animal_icon = 'icons/mob/vore.dmi'
+	animal_icon_state = "fennec"
+	obj_icon = 'icons/mob/pai.dmi'
+	obj_icon_state = "fox"
+	//Process handling
+	PandL = 1
+	willanchor = 0
+	hostile = 0
+	retaliate = 0
+	icon_dead = "fennec_dead" //oof
