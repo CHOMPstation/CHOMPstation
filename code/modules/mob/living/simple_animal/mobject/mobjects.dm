@@ -10,7 +10,7 @@ mob/living/simple_animal/mobject
 	var/obj_icon
 	var/obj_icon_state
 	var/obj_on
-	var/willanchor = 1 //Var that decides if obj state is anchored or not
+	var/willanchor = 1 //Var that decides if obj state is anchored or not //Unanchored mobjects will wander in object mode.
 	var/norest = 1 //Var that makes mobject in animal state unrest automatically //simple workaround to infinite resting
 
 mob/living/simple_animal/mobject/New()
