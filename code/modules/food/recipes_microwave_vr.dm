@@ -207,3 +207,15 @@
 /datum/recipe/hotwater
 	reagents = list("water" = 60)
 	result = /obj/item/weapon/reagent_containers/glass/bottle/hotwater
+
+/datum/recipe/steamtealeaf
+	reagents = list("water" = 5)
+	fruit = list("tea" = 1)
+
+	result = /obj/item/weapon/reagent_containers/food/snacks/steamtealeaf
+
+/datum/recipe/greentealeaf //TODO: Figure out how to make this recipe with a drying rack.
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/tealeafsteamroll
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/greentealeaf

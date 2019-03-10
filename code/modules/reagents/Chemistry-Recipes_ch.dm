@@ -11,12 +11,12 @@
 	result = "dyloteane"
 	required_reagents = list("anti_toxin" = 1, "tea" = 1)
 	result_amount = 1
-	
+
 /datum/chemical_reaction/dyloteane/super
 	name = "dyloteanesuper"
 	id = "dyloteanesuper"
 	result = "dyloteane"
-	required_reagents = list("anti_toxin" = 1, "tea" = 1,"sugar" = 1) 
+	required_reagents = list("anti_toxin" = 1, "tea" = 1,"sugar" = 1)
 	result_amount = 10 //by the powers of england for sugaring your tea you gain *10 result
 
 /datum/chemical_reaction/eden
@@ -30,5 +30,21 @@
 	id = "eden_snake"
 	result = "eden_snake"
 	required_reagents = list("eden" = 1, "ethanol" = 1)
-	
-	
+
+/datum/chemical_reaction/freshtea/green
+	id = "freshteagreen"
+	result = "freshteagreen"
+	required_reagents = list ("tealeavesgreen" = 1, "hotwater" = 9)
+	result_amount = 10
+
+/datum/chemical_reaction/instantteapowder/green
+	id = "instantteapowdergreen"
+	result = "instantteapowdergreen"
+	required_reagents = list ("teamush" = 10, "frostoil" = 1)
+	result_amount = 10
+
+/datum/chemical_reaction/instanttea/green
+	id = "instantteagreen"
+	result = "instantteagreen"
+	required_reagents = list ("instantteapowdergreen" = 1, "water" = 9)
+	result_amount = 10
