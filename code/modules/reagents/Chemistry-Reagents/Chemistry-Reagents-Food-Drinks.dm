@@ -3295,3 +3295,85 @@
 
 	glass_name = "Sit on my face"
 	glass_desc = "A drink made of irish coffee and nuts, mostly known for its vulgar name. Makes for a great pickup line though!"
+
+/datum/reagent/drink/freshtea
+	name = "Green tea"
+	id = "freshtea" //Not meant to be obtainable, this is to define effects for teas made from grown teas.
+	description = "Tasty green tea, it has antioxidants, it's good for you! Fresh means it's even healthier!"
+	taste_description = "green tea"
+	color = "#cac162"
+	adj_dizzy = -4
+	adj_drowsy = -1
+	adj_sleepy = -3
+	adj_temp = 20
+
+	glass_name = "green tea"
+	glass_desc = "Tasty green tea, it has antioxidants, it's good for you!"
+
+	cup_icon_state = "cup_tea"
+	cup_name = "cup of tea"
+	cup_desc = "Tasty green tea, it has antioxidants, it's good for you!"
+
+/datum/reagent/drink/freshtea/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(alien == IS_DIONA)
+		return
+	M.adjustToxLoss(-2 * removed) //Higher toxin removal than other tea to reflect difficulty in preparing, still worse than dylovene.
+
+/datum/reagent/drink/freshtea/green
+	name = "Green tea"
+	id = "freshteagreen"
+	description = "Floral green tea, it has antioxidants, it's good for you! Fresh means it's even healthier!"
+	taste_description = "floral with vegetal notes and a slightly bitter aftertaste"
+	color = "#cac162"
+
+	glass_name = "green tea"
+	glass_desc = "Floral green tea, it has antioxidants, it's fresh and good for you!"
+
+	cup_icon_state = "cup_tea"
+	cup_name = "cup of tea"
+	cup_desc = "Floral green tea, it has antioxidants, it's fresh and good for you!"
+
+/datum/reagent/drink/tealeavesgreen
+	name = "Green tea leaves"
+	id = "tealeavesgreen"
+	description = "Prepared green tea, just waiting for hot water."
+	taste_description = "overwhelmingly bitter with faint floral notes"
+	color = "#56761d"
+
+	glass_name = "tea leaves"
+	glass_desc = "Dry tea leaves in a cup. Just add hot water!"
+
+/datum/reagent/drink/teamush
+	name = "Tea mush"
+	id = "teamush"
+	description = "Mashed tea leaves, a bit like grass clippings. You can't make proper tea out of this now."
+	taste_description = "overwhelmingly bitter plant"
+	color = "#7db72d"
+
+	glass_name = "blended plant"
+	glass_desc = "Chunky, mashed up plant of some sort. Looks kinda gross."
+
+/datum/reagent/drink/instantteapowdergreen
+	name = "Instant green tea powder"
+	id = "instantteapowdergreen"
+	description = "Green tea powder missing all the goodness of green tea." //Heathen.
+	taste_description = "strongly bitter with a subtle chemical aftertaste"
+	color = "#56761d"
+
+	glass_name = "tea powder"
+	glass_desc = "Instant green tea powder. Just add water for imitation green tea!"
+
+/datum/reagent/drink/instantteagreen
+	name = "Instant green tea"
+	id = "instantteagreen"
+	description = "Convenient green tea missing all the goodness of actual green tea." //It's not even hot.
+	taste_description = "bitter with a subtle chemical aftertaste"
+	color = "#cac162"
+
+	glass_name = "green tea"
+	glass_desc = "Green tea. It smells a bit off."
+
+	cup_icon_state = "cup_tea"
+	cup_name = "cup of tea"
+	cup_desc = "Green tea. It smells a bit off."
