@@ -3307,7 +3307,7 @@
 	adj_sleepy = -3
 	adj_temp = 20
 
-	glass_name = "cup of tea"
+	glass_name = "green tea"
 	glass_desc = "Tasty green tea, it has antioxidants, it's good for you!"
 
 	cup_icon_state = "cup_tea"
@@ -3327,7 +3327,7 @@
 	taste_description = "floral with vegetal notes and a slightly bitter aftertaste"
 	color = "#cac162"
 
-	glass_name = "cup of tea"
+	glass_name = "green tea"
 	glass_desc = "Floral green tea, it has antioxidants, it's fresh and good for you!"
 
 	cup_icon_state = "cup_tea"
@@ -3341,7 +3341,7 @@
 	taste_description = "overwhelmingly bitter with faint floral notes"
 	color = "#56761d"
 
-	glass_name = "cup of tea leaves"
+	glass_name = "tea leaves"
 	glass_desc = "Dry tea leaves in a cup. Just add hot water!"
 
 /datum/reagent/drink/teamush
@@ -3361,7 +3361,7 @@
 	taste_description = "strongly bitter with a subtle chemical aftertaste"
 	color = "#56761d"
 
-	glass_name = "cup of tea powder"
+	glass_name = "tea powder"
 	glass_desc = "Instant green tea powder. Just add water for imitation green tea!"
 
 /datum/reagent/drink/instantteagreen
@@ -3371,7 +3371,7 @@
 	taste_description = "bitter with a subtle chemical aftertaste"
 	color = "#cac162"
 
-	glass_name = "cup of tea"
+	glass_name = "green tea"
 	glass_desc = "Green tea. It smells a bit off."
 
 	cup_icon_state = "cup_tea"

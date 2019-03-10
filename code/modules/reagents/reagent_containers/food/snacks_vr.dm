@@ -397,7 +397,6 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/steamrolltealeaf/New()
 	..()
-	reagents.add_reagent("teamush", 3)
 	bitesize = 1
 
 /obj/item/weapon/reagent_containers/food/snacks/greentealeaf
