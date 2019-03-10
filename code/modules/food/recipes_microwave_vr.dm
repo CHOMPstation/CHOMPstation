@@ -216,6 +216,6 @@
 
 /datum/recipe/greentealeaf //TODO: Figure out how to make this recipe with a drying rack.
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/tealeafsteamroll
+		/obj/item/weapon/reagent_containers/food/snacks/steamrolltealeaf
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/greentealeaf
