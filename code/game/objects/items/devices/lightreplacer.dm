@@ -88,7 +88,7 @@
 			if(uses < max_uses)
 				if(!user.unEquip(W))
 					return
-				AddUses(1)
+				add_uses(1)
 				qdel(L)
 		else
 			if(!user.unEquip(W))
@@ -97,7 +97,7 @@
 			qdel(L)
 		if(new_bulbs != 0)
 			playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>You insert the [L.name] into the [src.name]. " + status_string() + "</span>")
+		to_chat(user, "You insert \the [L.name] into \the [src.name]. You have [uses] light\s remaining.")
 		return
 
 	if(istype(W, /obj/item/weapon/storage))
@@ -113,7 +113,7 @@
 					break
 				if(L.status == LIGHT_OK)
 					replaced_something = TRUE
-					AddUses(1)
+					add_uses(1)
 					qdel(L)
 
 				else if(L.status == LIGHT_BROKEN || L.status == LIGHT_BURNED)
@@ -129,7 +129,7 @@
 			to_chat(user, "<span class='warning'>\The [src] is full!</span>")
 			return
 
-		to_chat(user, "<span class='notice'>You fill \the [src] with lights from \the [S]. " + status_string() + "</span>")
+		to_chat(user, "<span class='notice'>You fill \the [src] with lights from \the [S].</span>")
 
 /obj/item/device/lightreplacer/attack_self(mob/user)
 	/* // This would probably be a bit OP. If you want it though, uncomment the code.
@@ -161,7 +161,7 @@
 	bulb_shards += amount
 	var/new_bulbs = round(bulb_shards / shards_required)
 	if(new_bulbs > 0)
-		AddUses(new_bulbs)
+		add_uses(new_bulbs)
 	bulb_shards = bulb_shards % shards_required
 	return new_bulbs
 
