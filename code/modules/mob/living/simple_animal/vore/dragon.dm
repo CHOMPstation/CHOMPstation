@@ -5,6 +5,7 @@
 	icon_dead = "reddragon-dead"
 	icon_living = "reddragon"
 	icon_state = "reddragon"
+	isEdible = 0
 
 	faction = "dragon"
 	maxHealth = 500 // Boss

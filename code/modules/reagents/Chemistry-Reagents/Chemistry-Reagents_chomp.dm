@@ -63,8 +63,46 @@
 	for(var/i = 1, i <= created_volume, i++)
 		new /obj/item/weapon/reagent_containers/food/snacks/monkeycube/sarucube(location)
 	return
+
+//this kinda counts
+//LIQUID EGG
+/datum/reagent/liquidspideregg
+	name = "spider eggs"
+	id = "spideregg"
+	description = "These are eggs, spiders crawl out of these.. probably not healthy inside of a person."
+	taste_description = "SO MANY LEGS"
+	reagent_state = LIQUID
+	color = "#FFFFFF"
+	overdose = REAGENTS_OVERDOSE * 100
+	metabolism = REM * 0.1
+	scannable = 1
+	var/amount_grown = 0
+	var/min_growth = 0
+	var/max_growth = 2
+	var/spiders_min = 6
+	var/spiders_max = 24
+	var/spider_type = /obj/effect/spider/spiderling
+
+/datum/reagent/liquidspideregg/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(1))
+		M.custom_pain("You can feel movement within your body!",45)
+	amount_grown += rand(min_growth,max_growth)
+	if(amount_grown >= 100)
+		min_growth++
+		max_growth++
+		amount_grown = 0
+		var/num = rand(spiders_min, spiders_max)
+		var/obj/item/organ/external/O = null
+		if(istype(M.loc, /obj/item/organ/external))
+			O = M.loc
+
+		for(var/i=0, i<num, i++)
+			var/spiderling = new spider_type(M.loc, M)
+			if(O)
+				O.implants += spiderling
+
 ////////////////////////////////////
-////////////That good shit/////////
+////////////   MEDICINE   /////////
 //////////////////////////////////
 /datum/reagent/claridyl
 	name = "Claridyl Natural Remedy"
@@ -119,6 +157,37 @@
 	taste_description = "liquid void"
 	color = "#000000"
 	metabolism = REM * 5
+
+/datum/reagent/eden
+	name = "Eden"
+	id = "eden"
+	description = "The ultimate anti toxin unrivaled, it corrects impurities within the body but punishes those who attain them with a burning sensation"
+	taste_description = "peace"
+	color = "#00FFBE"
+	overdose = REAGENTS_OVERDOSE * 1
+	metabolism = 0
+
+/datum/reagent/eden/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_SLIME || alien == IS_DIONA) 
+		return
+	if(M.getToxLoss())
+		M.adjustFireLoss(1.2)
+		M.adjustToxLoss(-1)
+
+/datum/reagent/eden/snake
+	name = "Tainted Eden"
+	id = "eden_snake"
+	metabolism = 0.1
+	description = "It used to be an anti toxin until it was tainted."
+	taste_description = "hellfire"
+	color = "#FF0000"
+
+/datum/reagent/eden/snake/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustOxyLoss(1)
+	M.adjustFireLoss(1)
+	M.adjustBruteLoss(1)
+	M.adjustToxLoss(1)
+
 
 ////////////////////////////////////////////////
 /////////DRINKS////////////////////////////////

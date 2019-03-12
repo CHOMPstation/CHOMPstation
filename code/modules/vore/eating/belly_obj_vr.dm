@@ -258,6 +258,18 @@
 /obj/belly/proc/nom_mob(var/mob/prey, var/mob/user)
 	if(owner.stat == DEAD)
 		return
+	if(!prey.isEdible) //CHOMPEDIT: Trying to make pred mobs prey? N O U
+		
+		var/mob/living/simple_animal/preydator = prey
+		if(preydator.icon_state == preydator.icon_living)
+			user.visible_message("<span class='danger'>\the [user] promptly gets tackled by \the [prey] for trying to break their prefs! !</span>!")
+			user.Weaken(5)
+			if (preydator.will_eat(user))
+				preydator.stop_automated_movement = 1
+				preydator.animal_nom(user)
+				preydator.update_icon()
+				preydator.stop_automated_movement = 0
+			return
 	if (prey.buckled)
 		prey.buckled.unbuckle_mob()
 

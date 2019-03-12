@@ -126,6 +126,7 @@
 
 /obj/item/weapon/robot_module/robot/knine
 	name = "k9 robot module"
+	can_buckle = 1
 	sprites = list(
 					"K9 hound" = "k9",
 					"K9 Alternative (Static)" = "k92",
@@ -194,6 +195,7 @@
 
 /obj/item/weapon/robot_module/robot/medihound
 	name = "MediHound module"
+	can_buckle = 1
 	channels = list("Medical" = 1)
 	networks = list(NETWORK_MEDICAL)
 	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
@@ -268,7 +270,8 @@
 	..()
 
 /obj/item/weapon/robot_module/robot/ert
-	name = "Emergency Responce module"
+	name = "Emergency Response module"
+	can_buckle = 1
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
 	can_be_pushed = 0
@@ -314,6 +317,7 @@
 
 /obj/item/weapon/robot_module/robot/scrubpup
 	name = "Custodial Hound module"
+	can_buckle = 1
 	sprites = list(
 					"Custodial Hound" = "scrubpup",
 					)
@@ -393,6 +397,7 @@
 
 /obj/item/weapon/robot_module/robot/science
 	name = "Research Hound Module"
+	can_buckle = 1
 	sprites = list(
 					"Research Hound" = "science",
 					)
@@ -438,6 +443,7 @@
 
 /obj/item/weapon/robot_module/robot/engiedog
 	name = "Construction Hound module"
+	can_buckle = 1
 	sprites = list(
 					"Pupdozer" = "pupdozer",
 					)

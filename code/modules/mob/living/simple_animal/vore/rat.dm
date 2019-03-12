@@ -128,6 +128,30 @@
 		food = null
 		return
 	. = ..()
+	//TFF - Time to let rats, specifically our dear Jenner, react to newspapers. Yayyyyyyy!
+	if(istype(O, /obj/item/weapon/newspaper))
+		if (retaliate && prob(vore_pounce_chance/2)) // This is a gamble!
+			user.Weaken(5) //They get tackled anyway whether they're edible or not.
+			user.visible_message("<span class='danger'>\the [user] swats \the [src] with \the [O] and promptly gets tackled!</span>!")
+			if (will_eat(user))
+				stop_automated_movement = 1
+				animal_nom(user)
+				update_icon()
+				stop_automated_movement = 0
+			else if (!target_mob) // no using this to clear a retaliate mob's target
+				target_mob = user //just because you're not tasty doesn't mean you get off the hook. A swat for a swat.
+				AttackTarget()
+				LoseTarget() // only make one attempt at an attack rather than going into full rage mode
+		else
+			user.visible_message("<span class='info'>\the [user] swats \the [src] with \the [O]!</span>!")
+			release_vore_contents()
+			for(var/mob/living/L in living_mobs(0)) //add everyone on the tile to the do-not-eat list for a while
+				if(!(L in prey_excludes)) // Unless they're already on it, just to avoid fuckery.
+					prey_excludes += L
+					spawn(3600)
+						if(src && L)
+							prey_excludes -= L
+		..()
 
 /mob/living/simple_animal/hostile/rat/passive/Found(var/atom/found_atom)
 	if(!SA_attackable(found_atom))

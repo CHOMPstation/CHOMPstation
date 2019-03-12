@@ -12,6 +12,7 @@
 	icon_state = "guard"
 	icon_living = "guard"
 	icon_dead = "guard_dead"
+	isEdible = 0
 
 	faction = "spiders"
 	intelligence_level = SA_ANIMAL
@@ -582,6 +583,19 @@ Spider Procs
 		busy = 0
 		stop_automated_movement = 0
 
+//CHOMPEDIT LIQUID EGG INJECTORS
+/mob/living/simple_animal/hostile/giant_spider/frost/liquidegg
+	desc = "Icy and blue. This one has brilliant blue eyes, to seduce you into accepting its eggs."
+	tt_desc = "X Brachypelma ovum pruinae"
+	icon_state = "frost"
+	icon_living = "frost"
+	icon_dead = "frost_dead"
+
+	maxHealth = 175
+	health = 175
+
+	poison_per_bite = 7
+	poison_type = "spideregg"
 
 #undef SPINNING_WEB
 #undef LAYING_EGGS
