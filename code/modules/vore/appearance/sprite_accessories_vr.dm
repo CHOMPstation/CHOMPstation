@@ -93,10 +93,13 @@
 	desc = ""
 	icon_state = "oni-h1"
 
+	
 /datum/sprite_accessory/ears/demon_horns1
-	name = "demon horns"
+	name = "demon/unathi horns"
 	desc = ""
 	icon_state = "demon-horns1"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/ears/demon_horns2
 	name = "demon horns, colorable(outward)"
@@ -294,6 +297,10 @@
 	color_blend_mode = ICON_MULTIPLY
 	extra_overlay = "tesharilowinner"
 
+/datum/sprite_accessory/ears/zangoose
+	name = "Mongoose cat Ears" //Definitely not a pokemon nope. -Shark
+	desc = ""
+	icon_state = "test"
 
 // Special snowflake ears go below here.
 
