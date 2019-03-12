@@ -297,6 +297,10 @@
 	color_blend_mode = ICON_MULTIPLY
 	extra_overlay = "tesharilowinner"
 
+/datum/sprite_accessory/ears/zangoose
+	name = "Mongoose cat Ears" //Definitely not a pokemon nope. -Shark
+	desc = ""
+	icon_state = "zangoose_ear"
 
 // Special snowflake ears go below here.
 
