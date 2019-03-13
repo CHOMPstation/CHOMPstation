@@ -69,7 +69,7 @@
 			if (!M.client || istype(M, /mob/new_player))
 				continue //skip monkeys, leavers, and new_players
 			if(M.stat == DEAD && M.is_preference_enabled(/datum/client_preference/ghost_sight) && !(M in viewers(src,null)))
-				if(src.ghostcansee)
+				if(src.ghostcansee) //Chompedit: Anti ghost prefs.
 					M.show_message(message)
 				else
 					M.show_message()
