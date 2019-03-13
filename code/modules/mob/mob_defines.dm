@@ -7,6 +7,10 @@
 	var/datum/mind/mind
 
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
+	
+	var/ghostcanhear = 1 //CHOMPEDIT GHOST HEAR GHOST SEE
+	var/ghostcansee = 1 //CHOMPEDIT GHOST HEAR GHOST SEE
+	
 	var/location = null //CHOMPEDIT the variable that death() stores the place the mob died in
 	var/isEdible = 1 //CHOMPEDIT switch to enable/disable mob vore for mobs, RESPECT THEIR PREFS
 
