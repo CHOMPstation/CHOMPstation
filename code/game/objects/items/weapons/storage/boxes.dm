@@ -57,7 +57,7 @@
 	desc = "A survival box issued to crew members for use in emergency situations."
 	starts_with = list(
 		/obj/item/clothing/glasses/goggles, //VOREStation Add - Goggles for the phoron atmosphere,
-		/obj/item/weapon/prybar/red, //TFF: Ports prybar addition from VOREStation.
+		/obj/item/weapon/prybar/red, //TFF: Ports prybar addition from VOREStation,
 		/obj/item/clothing/mask/breath
 	)
 
@@ -66,7 +66,7 @@
 	desc = "A survival box issued to synthetic crew members for use in emergency situations."
 	starts_with = list(
 		/obj/item/clothing/glasses/goggles, //VOREStation Add - Goggles for the phoron atmosphere,
-		/obj/item/weapon/prybar/red //TFF: Ports prybar addition from VOREStation.
+		/obj/item/weapon/prybar/red //TFF: Ports prybar addition from VOREStation,
 	)
 
 /obj/item/weapon/storage/box/survival/comp
@@ -75,7 +75,7 @@
 	icon_state = "survival"
 	starts_with = list(
 		/obj/item/clothing/glasses/goggles, //VOREStation Add - Goggles for the phoron atmosphere,
-		/obj/item/weapon/prybar/red, //TFF: Ports prybar addition from VOREStation.
+		/obj/item/weapon/prybar/red, //TFF: Ports prybar addition from VOREStation,
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector,
 		/obj/item/stack/medical/bruise_pack,
 		/obj/item/device/flashlight/glowstick,
