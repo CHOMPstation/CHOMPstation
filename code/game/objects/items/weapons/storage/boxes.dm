@@ -65,8 +65,8 @@
 	name = "synthetic supply box"
 	desc = "A survival box issued to synthetic crew members for use in emergency situations."
 	starts_with = list(
-		/obj/item/clothing/glasses/goggles //VOREStation Add - Goggles for the phoron atmosphere,
-		/obj/item/weapon/prybar/red, //TFF: Ports prybar addition from VoreStation
+		/obj/item/clothing/glasses/goggles, //VOREStation Add - Goggles for the phoron atmosphere,
+		/obj/item/weapon/prybar/red //TFF: Ports prybar addition from VoreStation
 	)
 
 /obj/item/weapon/storage/box/survival/comp
