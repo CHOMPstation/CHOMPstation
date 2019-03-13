@@ -91,6 +91,9 @@ var/image/gurgled_overlay = image('icons/effects/sludgeoverlay_vr.dmi')
 		return
 	..()
 
+/obj/item/device/pda/gurgle_contaminate(var/atom/movable/item_storage = null)
+	return FALSE
+
 //////////////
 // Special handling of gurgle_contaminate
 //////////////
