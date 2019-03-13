@@ -69,8 +69,10 @@
 			if (!M.client || istype(M, /mob/new_player))
 				continue //skip monkeys, leavers, and new_players
 			if(M.stat == DEAD && M.is_preference_enabled(/datum/client_preference/ghost_sight) && !(M in viewers(src,null)))
-				M.show_message(message)
-
+				if(src.ghostcansee)
+					M.show_message(message)
+				else
+					M.show_message()
 
 		if (m_type & 1)
 			for (var/mob/O in viewers(src, null))
