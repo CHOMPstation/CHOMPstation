@@ -42,3 +42,8 @@
 /datum/category_item/autolathe/tools/welder_industrial
 	name = "industrial welding tool"
 	path =/obj/item/weapon/weldingtool/largetank
+
+//TFF: Ports VoreStation edit, add printable prybars to autolathes
+/datum/category_item/autolathe/tools/prybar
+	name = "prybar"
+	path =/obj/item/weapon/prybar
