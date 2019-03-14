@@ -96,6 +96,7 @@
 	icon = 'icons/mob/animal.dmi'
 	name = "X"
 	desc = "He's gonna give it to you."
+	hasdrops = 0
 	health = 2000
 	maxHealth = 2000
 	attack_sharp = 0
