@@ -154,7 +154,7 @@ mob/living/simple_animal/synx/PunchTarget()
 
 /datum/reagent/inaprovaline/synxchem
 	name = "Alien nerveinhibitor"
-	description = "I mean you could have gotten this through dialysis but was it honestly worth for this easteregg?"
+	description = "A toxin that slowly metabolizes damaging the person, but makes them unable to feel pain"
 	id = "synxchem"
 	metabolism = REM * 0.1 //Slow metabolization to try and mimic permanent nerve damage without actually being too cruel to people
 	color = "#FFFFFF"
@@ -352,8 +352,10 @@ mob/living/simple_animal/synx/PunchTarget()
 
 /mob/living/simple_animal/retaliate/synx/proc/handle_mimic()
 	name = pick(voices)
-	src.say(pick(speak))
-	name = realname
+	spawn(2)
+		src.say(pick(speak))
+	spawn(5)
+		name = realname
 
 ////////////////////////////////////////
 ////////////////PET VERSION/////////////
