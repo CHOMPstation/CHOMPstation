@@ -352,8 +352,10 @@ mob/living/simple_animal/synx/PunchTarget()
 
 /mob/living/simple_animal/retaliate/synx/proc/handle_mimic()
 	name = pick(voices)
-	src.say(pick(speak))
-	name = realname
+	spawn(2)
+		src.say(pick(speak))
+	spawn(5)
+		name = realname
 
 ////////////////////////////////////////
 ////////////////PET VERSION/////////////
