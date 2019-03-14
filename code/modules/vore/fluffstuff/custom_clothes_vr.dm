@@ -799,7 +799,7 @@
 			H.update_inv_head()
 
 /obj/item/weapon/rig/light/hacker/fluff/aronai
-	name = "KHI-99-AAR suit module"
+	name = "VM-99-AAR suit module"
 	suit_type = "nano"
 	desc = "A thin collapsable spacesuit for synths from Kitsuhana Heavy Industries."
 	airtight = 1 //Not because it should be airtight but because suit coolers don't work w/o it.
@@ -892,8 +892,8 @@
 	desc = "ROW ROW, FIGHT THE POWER."
 	flash_prot = 1 //Why not.
 
-//Kitsuhana Uniforms
-/obj/item/clothing/under/rank/khi
+//Gilthari Uniforms
+/obj/item/clothing/under/rank/ge
 	name = "Delete Me"
 	desc = "Why did you spawn this one? Dork."
 	sensor_mode = 3
@@ -904,49 +904,49 @@
 	icon_override = 'icons/vore/custom_clothes_vr.dmi'
 	item_state = ""
 
-/obj/item/clothing/under/rank/khi/cmd //Command version
-	name = "KHI command suit"
-	desc = "Kitsuhana Heavy Industries uniform. An extra-comfortable command one, at that. I guess if you DON'T want anarchy for some reason."
+/obj/item/clothing/under/rank/ge/cmd //Command version
+	name = "GE command suit"
+	desc = "Gilthari Exports uniform. An extra-comfortable command one, at that."
 	icon_state = "khi_uniform_cmd_i"
 	item_state = "khi_uniform_cmd"
 	worn_state = "khi_uniform_cmd"
 	armor = list(melee = 5, bullet = 10, laser = 10, energy = 0, bomb = 0, bio = 0, rad = 0)
 
-/obj/item/clothing/under/rank/khi/sec //Security version
-	name = "KHI security suit"
-	desc = "Kitsuhana Heavy Industries uniform. This one has angry red security stripes. Keepin' the peace in style."
+/obj/item/clothing/under/rank/ge/sec //Security version
+	name = "GE security suit"
+	desc = "Gilthari Exports uniform. This one has angry red security stripes. Keepin' the peace in style."
 	icon_state = "khi_uniform_sec_i"
 	item_state = "khi_uniform_sec"
 	worn_state = "khi_uniform_sec"
 	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
-/obj/item/clothing/under/rank/khi/med //Medical version
-	name = "KHI medical suit"
-	desc = "Kitsuhana Heavy Industries uniform. The medical version. Why not just get a new body, anyway?"
+/obj/item/clothing/under/rank/ge/med //Medical version
+	name = "GE medical suit"
+	desc = "Gilthari Exports uniform. The medical version. Why not just get a new body, anyway?"
 	icon_state = "khi_uniform_med_i"
 	item_state = "khi_uniform_med"
 	worn_state = "khi_uniform_med"
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 50, rad = 5)
 
-/obj/item/clothing/under/rank/khi/eng //Engineering version
-	name = "KHI engineering suit"
-	desc = "Kitsuhana Heavy Industries uniform. One fit for an engineer, by the looks of it. Building the future, one disaster at a time."
+/obj/item/clothing/under/rank/ge/eng //Engineering version
+	name = "GE engineering suit"
+	desc = "Gilthari Exports uniform. One fit for an engineer, by the looks of it. Building the future, one disaster at a time."
 	icon_state = "khi_uniform_eng_i"
 	item_state = "khi_uniform_eng"
 	worn_state = "khi_uniform_eng"
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 10)
 
-/obj/item/clothing/under/rank/khi/sci //Science version
-	name = "KHI science suit"
-	desc = "Kitsuhana Heavy Industries uniform. For performing science in, based on the color! Only SCIENCE can save us now."
+/obj/item/clothing/under/rank/ge/sci //Science version
+	name = "GE science suit"
+	desc = "Gilthari Exports uniform. For performing science in, based on the color! Only SCIENCE can save us now."
 	icon_state = "khi_uniform_sci_i"
 	item_state = "khi_uniform_sci"
 	worn_state = "khi_uniform_sci"
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 5, bio = 0, rad = 5)
 
-/obj/item/clothing/under/rank/khi/fluff/aronai //Aro fluff version
-	name = "KHI meditech suit"
-	desc = "Kitsuhana Heavy Industries uniform. This one has the colors of a resleeving or mnemonics engineer. It has 'Aronai' written inside the top."
+/obj/item/clothing/under/rank/ge/fluff/aronai //Aro fluff version
+	name = "GE meditech suit"
+	desc = "Gilthari Exports uniform. This one has the colors of a resleeving or mnemonics engineer. It has 'Aronai' written inside the top."
 	icon_state = "khi_uniform_aro_i"
 	item_state = "khi_uniform_aro"
 	worn_state = "khi_uniform_aro"
