@@ -285,12 +285,12 @@
 	trash = /obj/item/trash/snack_bowl
 	nutriment_amt = 0
 	nutriment_desc = list("something?" = 1, "nothing" = 4)
-	
+
 /obj/item/weapon/reagent_containers/food/snacks/gelbowl/New()
 	..()
 	reagents.add_reagent("gelatin", 15)
 	bitesize = 2
-	
+
 /obj/item/weapon/reagent_containers/food/snacks/sauerkraut
 	name = "Sauerkraut"
 	desc = "What happens when you mix salt and minced cabbage and forget it on a shelf."
@@ -303,7 +303,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/sauerkraut/New()
 	..()
 	bitesize = 3
-	
+
 /obj/item/weapon/reagent_containers/food/snacks/bigos
 	name = "Bigos"
 	desc = "What happens when you put minced sour cabbage and whats left in the fridge in a pot, start slowcooking it and then forget it for three hours."
@@ -318,7 +318,7 @@
 	reagents.add_reagent("protein", 4)
 	reagents.add_reagent("water", 3)
 	bitesize = 7
-	
+
 /obj/item/weapon/reagent_containers/food/snacks/concha
 	name = "concha"
 	desc = "A sweet bread roll baked with a strawberry topping thats crunchy and delicious, it kinda looks like a shell."
@@ -330,7 +330,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/concha/New()
 	..()
 	bitesize = 3
-	
+
 /obj/item/weapon/reagent_containers/food/snacks/pandenata
 	name = "Pan de nata"
 	desc = "Large spongy and soft biscuits that taste creamy and sweet, a treat like this would be perfect on a lazy day."
@@ -342,7 +342,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/pandenata/New()
 	..()
 	bitesize = 3
-	
+
 /obj/item/weapon/reagent_containers/food/snacks/tocino
 	name = "Tocino"
 	desc = "A form of bacon made from cuts of pork that has cured in wine, sugar and salt for a while, best served on a hot skillet so remains warm and tasty til the last bite."
@@ -367,7 +367,51 @@
 /obj/item/weapon/reagent_containers/food/snacks/garlicbread/New()
 	..()
 	bitesize = 3
-	
+
+/obj/item/weapon/reagent_containers/food/snacks/steamtealeaf
+	name = "Steamed tea leaf"
+	desc = "A freshly picked tea leaf steamed to inhibit oxidation. Needs rolling."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "tealeafsteam"
+	nutriment_amt = 0
+	nutriment_desc = list("nothing" = 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/steamtealeaf/New()
+	..()
+	reagents.add_reagent("teamush", 3)
+	bitesize = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/steamtealeaf/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/weapon/material/kitchen/rollingpin))
+		new /obj/item/weapon/reagent_containers/food/snacks/steamrolltealeaf(src)
+		user << "You roll the steamed tea leaf."
+		qdel(src)
+
+/obj/item/weapon/reagent_containers/food/snacks/steamrolltealeaf
+	name = "Rolled steamed tea leaf"
+	desc = "A steamed tea leaf ready for drying."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "tealeafsteamroll"
+	nutriment_amt = 0
+	nutriment_desc = list("nothing" = 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/steamrolltealeaf/New()
+	..()
+	bitesize = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/greentealeaf
+	name = "Green tea leaf"
+	desc = "Green tea! Just grind and mix with hot water."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "greentealeaf"
+	nutriment_amt = 0
+	nutriment_desc = list("nothing" = 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/greentealeaf/New()
+	..()
+	reagents.add_reagent("tealeavesgreen", 6)
+	bitesize = 1
+
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube/sobakacube
 	name = "sobaka cube"
 	monkey_type = "Sobaka"

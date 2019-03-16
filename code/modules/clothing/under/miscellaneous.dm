@@ -94,6 +94,7 @@
 	desc = "A short-sleeved black uniform, paired with grey digital-camo cargo pants. It looks very tactical."
 	icon_state = "ert_uniform"
 	item_state_slots = list(slot_r_hand_str = "black", slot_l_hand_str = "black")
+	armor = list(melee = 10, bullet = 5, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/under/gov
 	desc = "A neat proper uniform of someone on offical business. The collar is <i>immaculately</i> starched."
