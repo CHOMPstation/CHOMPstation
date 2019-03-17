@@ -31,7 +31,7 @@
 
 /obj/machinery/chem_master/New()
 	..()
-	var/datum/reagents/R = new/datum/reagents(120)
+	var/datum/reagents/R = new/datum/reagents(900) //TFF: Ports Polaris edit to prevent the ChemMaster from ever losing a ton of chems.
 	reagents = R
 	R.my_atom = src
 

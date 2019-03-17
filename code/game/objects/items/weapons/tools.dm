@@ -978,6 +978,35 @@
 	user.put_in_active_hand(counterpart)
 	to_chat(user, "<span class='notice'>You attach the cutting jaws to [src].</span>")
 
+//TFF: Add new tool, prybar, ported from VOREStation.
+/obj/item/weapon/prybar
+	name = "pry bar"
+	desc = "A steel bar with a wedge, designed specifically for opening unpowered doors in an emergency. It comes in a variety of configurations - collect them all!"
+	icon = 'icons/obj/tools_vr.dmi'
+	icon_state = "prybar"
+	flags = CONDUCT
+	slot_flags = SLOT_BELT
+	force = 4
+	throwforce = 5
+	pry = 1
+	item_state = "crowbar"
+	w_class = ITEMSIZE_SMALL
+	origin_tech = list(TECH_ENGINEERING = 1)
+	matter = list(DEFAULT_WALL_MATERIAL = 30)
+	attack_verb = list("whapped", "smacked", "swatted", "thwacked", "hit")
+	usesound = 'sound/items/crowbar.ogg'
+	toolspeed = 1
+	var/random_color = TRUE
+
+/obj/item/weapon/prybar/red
+	icon_state = "prybar_red"
+	item_state = "crowbar_red"
+	random_color = FALSE
+
+/obj/item/weapon/prybar/New()
+	if(random_color)
+		icon_state = "prybar[pick("","_green","_aubergine","_blue")]"
+	. = ..()
 
 /*/obj/item/weapon/combitool
 	name = "combi-tool"

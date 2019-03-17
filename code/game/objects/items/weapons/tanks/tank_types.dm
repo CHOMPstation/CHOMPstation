@@ -133,13 +133,13 @@
 
 /obj/item/weapon/tank/emergency/oxygen
 	name = "emergency oxygen tank"
-	desc = "Used for emergencies. Contains very little oxygen, so try to conserve it until you actually need it."
+	desc = "Used for emergencies. Use sparingly if you need it." //TFF: Changes desc since it's got a full tank now.
 	icon_state = "emergency"
 	gauge_icon = "indicator_emergency"
 
 /obj/item/weapon/tank/emergency/oxygen/New()
 		..()
-		src.air_contents.adjust_gas("oxygen", (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+		src.air_contents.adjust_gas("oxygen", (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)) //TFF: Ports full tank version from Polaris.
 
 		return
 
@@ -167,7 +167,7 @@
 
 /obj/item/weapon/tank/emergency/nitrogen/New()
 	..()
-	src.air_contents.adjust_gas("nitrogen", (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+	src.air_contents.adjust_gas("nitrogen", (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)) //TFF: Ports Polaris's full tank edit. Note: Not sure why this is needed. Or more specifically was done. Probably isn't needed. 
 
 /obj/item/weapon/tank/emergency/nitrogen/double
 	name = "double emergency nitrogen tank"
@@ -183,7 +183,7 @@
 
 /obj/item/weapon/tank/emergency/phoron/New()
 	..()
-	src.air_contents.adjust_gas("phoron", (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+	src.air_contents.adjust_gas("phoron", (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)) //TFF: Ports Polaris's full tank edit.
 
 /obj/item/weapon/tank/emergency/phoron/double
 	name = "double emergency phoron tank"

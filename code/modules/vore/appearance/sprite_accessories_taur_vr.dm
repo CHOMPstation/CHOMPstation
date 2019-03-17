@@ -326,6 +326,11 @@
 /datum/sprite_accessory/tail/taur/feline
 	name = "Feline (Taur)"
 	icon_state = "feline_s"
+	
+/datum/sprite_accessory/tail/taur/feline_wag
+	name = "Feline (Taur) (vwag)"
+	icon_state = "feline_s"
+	ani_state = "feline_w"
 
 /datum/sprite_accessory/tail/taur/feline/feline_2c
 	name = "Feline dual-color (Taur)"
@@ -336,6 +341,13 @@
 	name = "Feline spots (Taur)"
 	icon_state = "feline_s"
 	extra_overlay = "feline_spots"
+	
+/datum/sprite_accessory/tail/taur/feline/feline_spots_wag
+	name = "Feline spots (Taur) (vwag)"
+	icon_state = "feline_s"
+	ani_state = "feline_w"
+	extra_overlay = "feline_spots"
+	extra_overlay_w = "feline_spots_w"
 	
 /datum/sprite_accessory/tail/taur/feline/synthfeline
 	name = "SynthFeline dual-color (Taur)"

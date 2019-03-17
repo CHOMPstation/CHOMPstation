@@ -297,6 +297,13 @@
 	color_blend_mode = ICON_MULTIPLY
 	extra_overlay = "tesharilowinner"
 
+/datum/sprite_accessory/ears/headpaint
+	name = "Head Paint"
+	desc = ""
+	icon_state = "paint"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+	extra_overlay = "paintfront"
 
 // Special snowflake ears go below here.
 

@@ -5,8 +5,8 @@
 
 //////////////// For-specific-character fluff ones /////////////////
 // arokha : Aronai Kadigan
-/datum/robolimb/kitsuhana
-	company = "Kitsuhana"
+/datum/robolimb/dsi_aronai
+	company = "DSI - Aronai"
 	desc = "This limb seems rather vulpine and fuzzy, with realistic-feeling flesh."
 	icon = 'icons/mob/human_races/cyberlimbs/_fluff_vr/aronai.dmi'
 	blood_color = "#5dd4fc"
@@ -16,8 +16,8 @@
 	suggested_species = "Tajara"
 	whitelisted_to = list("arokha")
 
-/obj/item/weapon/disk/limb/kitsuhana
-	company = "Kitsuhana"
+/obj/item/weapon/disk/limb/dsi_aronai
+	company = "DSI - Aronai"
 
 // silencedmp5a5 : Serdykov Antoz
 /datum/robolimb/white_kryten
