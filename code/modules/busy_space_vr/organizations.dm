@@ -437,6 +437,7 @@
 						"the SolGov embassy in Vilous"
 						)// autogen will add a lot of other places as well.
 
+/* //Removed ships in Virgo space because we're not in Virgo space. Perhaps revert back to Polaris later since we're in Vir.
 /datum/lore/organization/gov/sifgov // Overrides Polaris stuff
 	name = "Virgo-Erigone Governmental Authority"
 	short_name = ""
@@ -468,6 +469,7 @@
 						"a telecommunications satellite near Virgo-3B",
 						"a telecommunications satellite near Virgo-Prime"
 						)
+*/
 
 /* // Waiting for lore to be updated.
 /datum/lore/organization/gov/federation
@@ -677,6 +679,7 @@
 							"... wait, why am I even telling you this? Just let me pass",
 							"stop asking questions")
 
+/* //KHI does not exist in our canon.
 /datum/lore/organization/gov/kitsuhana
 	name = "Kitsuhana Heavy Industries"
 	short_name = "Kitsuhana"
@@ -730,6 +733,7 @@
 						"a Kitsuhana ringworld in Lund VI",
 						"a Kitsuhana ringworld in Dais IX",
 						"a Kitsuhana ringworld in Leibert II-b")
+*/
 
 /datum/lore/organization/gov/ares
 	name = "Ares Confederation"
@@ -788,6 +792,7 @@
 						"a settlement needing our help",
 						"Forward Base Sigma-Alpha in ArCon space")
 
+/* //Also commiting this out because we don't have space elves.
 /datum/lore/organization/gov/imperial
 	name = "Auream Imperium"
 	short_name = "Imperial"
@@ -884,3 +889,4 @@
 							"near Cor Galaxia",
 							"Segmentum Obscurum", // Basically their home territory, where our telescopes can't see. They prefer to keep it that way. They call it something else internally.
 							)
+*/
