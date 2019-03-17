@@ -547,6 +547,7 @@
 	name = "sunflowers"
 	seed_name = "sunflower"
 	display_name = "sunflowers"
+	mutants = list("solarflower")
 
 /datum/seed/flower/sunflower/New()
 	..()
@@ -558,10 +559,27 @@
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
+/datum/seed/flower/sunflower/solarflower
+	name = "solarflower"
+	seed_name = "solarflower"
+	display_name = "solarflowers"
+	mutants = null
+
+/datum/seed/flower/sunflower/solarflower/New()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#4466b3")
+	set_trait(TRAIT_BIOLUM,1)
+	set_trait(TRAIT_BIOLUM_COLOUR,"#4e74cc")
+	set_trait(TRAIT_POTENCY,25)
+	set_trait(TRAIT_MATURATION,10)
+	set_trait(TRAIT_YIELD,1)
+	set_trait(TRAIT_SPREAD,1)
+
 /datum/seed/flower/lavender
 	name = "lavender"
 	seed_name = "lavender"
 	display_name = "lavender"
+	mutants = list("milkdew")
 	chems = list("nutriment" = list(1,20), "bicaridine" = list(1,10))
 
 /datum/seed/flower/lavender/New()
@@ -576,6 +594,34 @@
 	set_trait(TRAIT_IDEAL_LIGHT, 7)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.05)
 	set_trait(TRAIT_WATER_CONSUMPTION, 0.5)
+	
+/datum/seed/flower/lavender/milkdew
+	name = "milkdew"
+	seed_name = "milk dew"
+	display_name = "milk dew"
+	chems = list("nutriment" = list(1,10), "milk" = list(4,5))
+	mutants = list("sweetbreeze")
+
+/datum/seed/flower/lavender/milkdew/New()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#DFDFDF")
+	set_trait(TRAIT_POTENCY,5)
+	set_trait(TRAIT_YIELD,3)
+
+/datum/seed/flower/lavender/sweetbreeze
+	name = "sweetbreeze"
+	seed_name = "sweet breeze"
+	display_name = "sweet breeze"
+	chems = list("nutriment" = list(1,10), "serazine" = list(1,10))
+	mutants = null
+
+/datum/seed/flower/lavender/sweetbreeze/New()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#df9898")
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_MATURATION,20)
+	set_trait(TRAIT_PRODUCTION,7)
+	set_trait(TRAIT_YIELD,3)
 
 //Grapes/varieties
 /datum/seed/grapes
@@ -699,6 +745,7 @@
 	name = "potato"
 	seed_name = "potato"
 	display_name = "potatoes"
+	mutants = list("voltato")
 	chems = list("nutriment" = list(1,10), "potatojuice" = list(10,10))
 	kitchen_tag = "potato"
 
@@ -713,6 +760,21 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#D4CAB4")
 	set_trait(TRAIT_PLANT_ICON,"bush2")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	
+/datum/seed/potato/voltato
+	name = "voltato"
+	seed_name = "voltato"
+	display_name = "voltatos"
+	chems = list("nutriment" = list(1,10), "shockchem" = list(0,10))
+	mutants = null
+
+/datum/seed/potato/voltato/New()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#E4EC2F")
+	set_trait(TRAIT_POTENCY,30)
+	set_trait(TRAIT_MATURATION,12)
+	set_trait(TRAIT_PRODUCTION,3)
+	set_trait(TRAIT_YIELD,3)
 
 /datum/seed/onion
     name = "onion"
