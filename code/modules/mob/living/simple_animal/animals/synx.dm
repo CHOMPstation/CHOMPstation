@@ -9,6 +9,8 @@
 	icon_living = "synx_living"
 	icon_dead = "synx_dead"
 
+	speak_chance = 10 //MAy have forgotten to readd that.
+	//Synx speech code overrides normal speech code but is still a x in 200 chance of triggereing, as all mobs do.
 	//VAR$ SETUP
 	var/realname = null
 	var/poison_per_bite = 5
