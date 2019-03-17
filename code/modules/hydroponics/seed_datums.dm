@@ -1300,3 +1300,28 @@
 	set_trait(TRAIT_IDEAL_HEAT, 283)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0)
 	set_trait(TRAIT_WATER_CONSUMPTION, 0)
+
+// Tea plants/variants.
+/datum/seed/tea
+	name = "tea"
+	seed_name = "tea"
+	display_name = "tea plant"
+	chems = list("teamush" = list(3,10))
+	mutants = null
+	kitchen_tag = "tea"
+
+/datum/seed/tea/New()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,5)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,6)
+	set_trait(TRAIT_POTENCY,20)
+	set_trait(TRAIT_PRODUCT_ICON,"tea")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#b7e496")
+	set_trait(TRAIT_PLANT_COLOUR,"#b7e496")
+	set_trait(TRAIT_PLANT_ICON,"bush4")
+	set_trait(TRAIT_IDEAL_HEAT, 298)
+	set_trait(TRAIT_IDEAL_LIGHT, 7)
+	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.25)

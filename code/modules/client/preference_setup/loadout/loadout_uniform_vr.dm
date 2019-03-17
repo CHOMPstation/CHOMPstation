@@ -7,30 +7,30 @@
 	display_name = "pt uniform, planetside sec"
 	path = /obj/item/clothing/under/pt/sifguard
 
-//KHI Uniforms
-/datum/gear/uniform/job_khi/cmd
-	display_name = "khi uniform, cmd"
-	path = /obj/item/clothing/under/rank/khi/cmd
+//GE Uniforms
+/datum/gear/uniform/job_ge/cmd
+	display_name = "ge uniform, cmd"
+	path = /obj/item/clothing/under/rank/ge/cmd
 	allowed_roles = list("Head of Security","Colony Director","Head of Personnel","Chief Engineer","Research Director","Chief Medical Officer")
 
-/datum/gear/uniform/job_khi/sec
-	display_name = "khi uniform, sec"
-	path = /obj/item/clothing/under/rank/khi/sec
+/datum/gear/uniform/job_ge/sec
+	display_name = "ge uniform, sec"
+	path = /obj/item/clothing/under/rank/ge/sec
 	allowed_roles = list("Head of Security", "Warden", "Detective", "Security Officer")
 
-/datum/gear/uniform/job_khi/med
-	display_name = "khi uniform, med"
-	path = /obj/item/clothing/under/rank/khi/med
+/datum/gear/uniform/job_ge/med
+	display_name = "ge uniform, med"
+	path = /obj/item/clothing/under/rank/ge/med
 	allowed_roles = list("Chief Medical Officer","Medical Doctor","Chemist","Paramedic","Geneticist")
 
-/datum/gear/uniform/job_khi/eng
-	display_name = "khi uniform, eng"
-	path = /obj/item/clothing/under/rank/khi/eng
+/datum/gear/uniform/job_ge/eng
+	display_name = "ge uniform, eng"
+	path = /obj/item/clothing/under/rank/ge/eng
 	allowed_roles = list("Chief Engineer","Atmospheric Technician","Station Engineer")
 
-/datum/gear/uniform/job_khi/sci
-	display_name = "khi uniform, sci"
-	path = /obj/item/clothing/under/rank/khi/sci
+/datum/gear/uniform/job_ge/sci
+	display_name = "ge uniform, sci"
+	path = /obj/item/clothing/under/rank/ge/sci
 	allowed_roles = list("Research Director","Scientist", "Roboticist", "Xenobiologist")
 
 //Federation jackets

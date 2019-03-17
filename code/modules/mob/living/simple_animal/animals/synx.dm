@@ -109,15 +109,16 @@
 	..()
 	verbs |= /mob/living/proc/ventcrawl
 	verbs |= /mob/living/simple_animal/proc/contort
-	verbs += /mob/living/simple_animal/retaliate/synx/proc/disguise
-	verbs += /mob/living/simple_animal/retaliate/synx/proc/honk
-	verbs += /mob/living/simple_animal/retaliate/synx/proc/randomspeech
+	verbs |= /mob/living/simple_animal/retaliate/synx/proc/disguise
+	//verbs += /mob/living/simple_animal/retaliate/synx/proc/honk
+	verbs |= /mob/living/simple_animal/retaliate/synx/proc/randomspeech
 	realname = name
 	voices += "Garbled voice"
 	voices += "Unidentifiable Voice"
 	speak += "Who is there?"
 	speak += "What is that thing?!"
 
+/* This literally is just the normal proc, why does this exist wh
 mob/living/simple_animal/synx/PunchTarget()
 	if(!Adjacent(target_mob))
 		return
@@ -137,9 +138,7 @@ mob/living/simple_animal/synx/PunchTarget()
 		return L
 	else
 		..()
-
-
-
+*/
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////// SPECIAL ITEMS/REAGENTS !!!! ////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
@@ -155,7 +154,7 @@ mob/living/simple_animal/synx/PunchTarget()
 
 /datum/reagent/inaprovaline/synxchem
 	name = "Alien nerveinhibitor"
-	description = "I mean you could have gotten this through dialysis but was it honestly worth for this easteregg?"
+	description = "A toxin that slowly metabolizes damaging the person, but makes them unable to feel pain"
 	id = "synxchem"
 	metabolism = REM * 0.1 //Slow metabolization to try and mimic permanent nerve damage without actually being too cruel to people
 	color = "#FFFFFF"
@@ -256,6 +255,12 @@ mob/living/simple_animal/synx/PunchTarget()
 	if(.) // If we succeeded in hitting.
 		if(isliving(A))
 			var/mob/living/L = A
+			if(prob(20))//Forcefeeding code
+				L.Weaken(5)
+				stop_automated_movement = 1
+				src.feed_self_to_grabbed(src,L)
+				update_icon()
+				stop_automated_movement = 0
 			if(L.reagents)
 				var/target_zone = pick(BP_TORSO,BP_TORSO,BP_TORSO,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_HEAD)
 				if(L.can_inject(src, null, target_zone))
@@ -341,12 +346,15 @@ mob/living/simple_animal/synx/PunchTarget()
 	set desc = "Takes a sentence you heard and says it"
 	set category = "Abilities"
 	if(speak && voices)
-		name = pick(voices)
-		spawn(10)
-			src.say(pick(speak))
+		handle_mimic()
 	else 
 		usr << "<span class='warning'>YOU NEED TO HEAR THINGS FIRST, try using Ventcrawl to eevesdrop on nerds</span>"
-	spawn(20)
+
+/mob/living/simple_animal/retaliate/synx/proc/handle_mimic()
+	name = pick(voices)
+	spawn(2)
+		src.say(pick(speak))
+	spawn(5)
 		name = realname
 
 ////////////////////////////////////////
@@ -380,14 +388,14 @@ mob/living/simple_animal/synx/PunchTarget()
 	speak = list()
 
 //HONKMOTHER Code.
-/mob/living/simple_animal/retaliate/synx/proc/honk()
+/*/mob/living/simple_animal/retaliate/synx/proc/honk()
 	set name = "HONK"
 	set desc = "TAAA RAINBOW"
 	set category = "Abilities"
 	icon_state = "synx_pet_rainbow"
 	icon_living = "synx_pet_rainbow"
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
-
+*/
 /mob/living/simple_animal/retaliate/synx/proc/bikehorn()
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 
@@ -419,7 +427,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	icon_gib = null
 	alpha = 127
 	speak = list("SX System Online")
-	faction = "station"//Can be safely bapped with newspaper.
+	faction = "neutral"//Can be safely bapped with newspaper.
 	melee_damage_lower = 0 //Holos do no damage
 	melee_damage_upper = 0
 	meat_amount = 0
@@ -434,8 +442,6 @@ mob/living/simple_animal/synx/PunchTarget()
 	swallowTime = 10 SECONDS //Much more time to run
 
 /mob/living/simple_animal/retaliate/synx/pet/greed
-	//var/GREED_LIVING = "synx_greed_living"
-	//var/GREED_DEAD = "synx_greed_dead"
 	name = "Greed"
 	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. black, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has the name Greed burnt into its back, the burnt in name seems to be luminescent making it harder for it to blend into the dark."
 	//icon= //icon= would just set what DMI we are using, we already have our special one set.
@@ -487,6 +493,36 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_pounce_chance = 1 //MAKE THEM HONK
 	vore_bump_chance = 0 //lowered bump chance
 	vore_escape_chance = 100
+
+////////////////////////////////////////
+////////////////SYNX DEBUG//////////////
+////////////////////////////////////////
+/mob/living/simple_animal/retaliate/synx/pet/debug
+	name = "Syntox"
+	desc = "ERROR Connection to translation server could not be established!"
+
+/mob/living/simple_animal/retaliate/synx/pet/debug/proc/rename()
+	set name = "rename"
+	set desc = "Renames the synx"
+	set category = "DEBUG"
+	name = input(usr, "What would you like to change name to?", "Renaming", null)
+
+/mob/living/simple_animal/retaliate/synx/pet/debug/proc/redesc()
+	set name = "redesc"
+	set desc = "Redescribes the synx"
+	set category = "DEBUG"
+	desc = input(usr, "What would you like to change desc to?", "Redescribing", null)
+
+/mob/living/simple_animal/retaliate/synx/pet/debug/proc/resprite()
+	set name = "resprite"
+	set desc = "Resprite the synx"
+	set category = "DEBUG"
+	icon_state = input(usr, "What would you like to change icon_state to?", "Respriting", null)
+
+/mob/living/simple_animal/retaliate/synx/pet/debug/New()
+	verbs |= /mob/living/simple_animal/retaliate/synx/pet/debug/proc/rename
+	verbs |= /mob/living/simple_animal/retaliate/synx/pet/debug/proc/resprite
+	verbs |= /mob/living/simple_animal/retaliate/synx/pet/debug/proc/redesc
 
 ////////////////////////////////////////
 ////////////////SYNX SPAWNER////////////

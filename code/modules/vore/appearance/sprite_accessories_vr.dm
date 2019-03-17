@@ -93,10 +93,13 @@
 	desc = ""
 	icon_state = "oni-h1"
 
+	
 /datum/sprite_accessory/ears/demon_horns1
-	name = "demon horns"
+	name = "demon/unathi horns"
 	desc = ""
 	icon_state = "demon-horns1"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/ears/demon_horns2
 	name = "demon horns, colorable(outward)"
@@ -294,6 +297,13 @@
 	color_blend_mode = ICON_MULTIPLY
 	extra_overlay = "tesharilowinner"
 
+/datum/sprite_accessory/ears/headpaint
+	name = "Head Paint"
+	desc = ""
+	icon_state = "paint"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+	extra_overlay = "paintfront"
 
 // Special snowflake ears go below here.
 

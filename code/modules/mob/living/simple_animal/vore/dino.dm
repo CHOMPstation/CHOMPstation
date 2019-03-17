@@ -5,6 +5,7 @@
 	icon_dead = "dino-dead"
 	icon_living = "dino"
 	icon_state = "dino"
+	isEdible = 0
 
 	// By default, this is what most vore mobs are capable of.
 	response_help = "pets"
