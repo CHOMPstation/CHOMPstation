@@ -193,4 +193,4 @@
 	set desc = "Hacker Voice: Im in"
 	set category = "X Powers"
 	for(var/obj/machinery/light/light in range(5, src))
-		light.flicker(2)
+		light.flicker(2) 
