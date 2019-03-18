@@ -51,6 +51,24 @@
 					if(W.damage <= 0)
 						O.wounds -= W
 
+/datum/reagent/alizene
+	name = "Alizene"
+	id = "alizene"
+	description = "A derivative from bicaridine enhanced by serazine to more effectively mend flesh, but is ineffective against internal hemorrhage."
+	taste_description = "bittersweet"
+	taste_mult = 3
+	reagent_state = LIQUID
+	color = "#b37979"
+	overdose = REAGENTS_OVERDOSE
+	scannable = 1
+
+/datum/reagent/alizene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	var/chem_effective = 1
+	if(alien == IS_SLIME)
+		chem_effective = 0.75
+	if(alien != IS_DIONA)
+		M.heal_organ_damage(12 * removed * chem_effective, 0)
+
 /datum/reagent/kelotane
 	name = "Kelotane"
 	id = "kelotane"
@@ -107,6 +125,22 @@
 		M.hallucination = max(0, M.hallucination - 9 * removed * chem_effective)
 		M.adjustToxLoss(-4 * removed * chem_effective)
 
+/datum/reagent/serazine
+	name = "Serazine"
+	id = "serazine"
+	description = "A sweet tasting flower extract, it has very mild anti toxic properties and can be used to make potent drugs."
+	taste_description = "sweet nectar"
+	reagent_state = LIQUID
+	color = "#df9898"
+	scannable = 1
+
+/datum/reagent/serazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	var/chem_effective = 1
+	if(alien != IS_DIONA)
+		M.drowsyness = max(0, M.drowsyness - 3 * removed * chem_effective)
+		M.hallucination = max(0, M.hallucination - 6 * removed * chem_effective)
+		M.adjustToxLoss(-2 * removed * chem_effective)
+		
 /datum/reagent/carthatoline
 	name = "Carthatoline"
 	id = "carthatoline"
