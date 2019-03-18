@@ -127,7 +127,7 @@
 	if (anchored)
 		set_light(l_range = 1.5, l_power = 2, l_color = COLOR_RED)
 	for(/obj/machinery/door/airlock/door in range(3, src))
-			door.open()
+		door.open()
 
 //time for special MR X kick you in the shins and stands there code
 /mob/living/simple_animal/hostile/tarrasque/mrx/DoPunch(var/atom/A)
