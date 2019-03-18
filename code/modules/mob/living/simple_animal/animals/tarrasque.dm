@@ -135,6 +135,7 @@
 	
 /mob/living/simple_animal/hostile/tarrasque/mrx/New()
 	..()
+	src.sight |= SEE_MOBS //To be balanced. May be a bit OP but he'S slow
 	add_language("Xenomorph")
 	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/hackervoice
 	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/scarethelights
@@ -187,15 +188,3 @@
 	set category = "X Powers"
 	for(var/obj/machinery/light/light in range(5, src))
 		light.flicker(2)
-
-
-
-
-
-
-
-
-
-
-
-
