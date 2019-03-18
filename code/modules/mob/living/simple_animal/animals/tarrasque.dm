@@ -125,10 +125,11 @@
 				"rad" = 100)
 //Vore stuff
 	vore_active = 1
-	vore_capacity = 5
+	vore_capacity = 2
 	vore_pounce_chance = 10 //Rare
 	vore_default_mode = DM_DIGEST
 	vore_standing_too = 1
+	vore_icons = 0//SA_ICON_LIVING | SA_ICON_REST //Will enable this once i paste the belly sizes from Chocobo
 /mob/living/simple_animal/hostile/tarrasque/mrx/init_vore()
 	..()
 	var/obj/belly/B = vore_selected
@@ -137,6 +138,7 @@
 	
 /mob/living/simple_animal/hostile/tarrasque/mrx/New()
 	..()
+	update_icon()
 	seedarkness = 0
 	src.sight |= SEE_OBJS
 	src.sight |= SEE_TURFS
