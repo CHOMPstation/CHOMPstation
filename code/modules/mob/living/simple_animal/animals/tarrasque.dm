@@ -119,11 +119,10 @@
 				"bomb" = 99,
 				"bio" = 100,
 				"rad" = 100)
-	var/litaf = 0
 
 /mob/living/simple_animal/hostile/tarrasque/mrx/Life()
 	..()
-	if (litaf)
+	if (anchored)
 		set_light(l_range = 1.5, l_power = 2, l_color = COLOR_RED)
 	for(/obj/machinery/door/airlock/door in range(3, src))
 			door.open()
@@ -140,8 +139,6 @@
 			L.Weaken(5)
 			stop_automated_movement = 1
 			anchored = 1
-			litaf = 1
 			spawn(100)
 				stop_automated_movement = 0
 				anchored = 0
-				litaf = 0
