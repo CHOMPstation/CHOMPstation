@@ -93,7 +93,7 @@
 	
 //MRX Variation
 /mob/living/simple_animal/hostile/tarrasque/mrx
-	icon = 'icons/mob/64x64'
+	icon = 'icons/mob/64x64.dmi'
 	name = "Entity X"
 	desc = "The call of the abyss manifested."
 	hasdrops = 0
