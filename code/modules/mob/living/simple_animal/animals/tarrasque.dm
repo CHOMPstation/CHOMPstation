@@ -95,7 +95,7 @@
 /mob/living/simple_animal/hostile/tarrasque/mrx
 	icon = 'icons/mob/64x64.dmi'
 	name = "Entity X"
-	desc = "The call of the abyss manifested."
+	desc = "The call of the abyss manifested. Doors have proven inefective against it."
 	hasdrops = 0
 	health = 2000
 	maxHealth = 2000
@@ -127,9 +127,8 @@
 	if (anchored)
 		set_light(l_range = 1.5, l_power = 2, l_color = COLOR_RED)
 	for(var/obj/machinery/door/airlock/door in range(3, src))
-		door.open()
-		spawn(4)
-			door.lock()
+		door.open(1)
+		door.lock(1)
 
 //time for special MR X kick you in the shins and stands there code
 /mob/living/simple_animal/hostile/tarrasque/mrx/DoPunch(var/atom/A)
