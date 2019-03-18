@@ -133,7 +133,7 @@
 	B.digest_burn = 10 //Normally this can only be 6 but since we are in code we can override this to be 10 so we dont need brute.
 	B.digest_brute = 0
 	
-/mob/living/simple_animal/hostile/tarrasque/mrx/new()
+/mob/living/simple_animal/hostile/tarrasque/mrx/New()
 	add_language("Xenomorph")
 
 /mob/living/simple_animal/hostile/tarrasque/mrx/Life()
