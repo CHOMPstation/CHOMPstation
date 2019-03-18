@@ -119,6 +119,18 @@
 				"bomb" = 99,
 				"bio" = 100,
 				"rad" = 100)
+//Vore stuff
+	vore_active = 1
+	vore_capacity = 5
+	vore_pounce_chance = 10 //Rare
+	vore_default_mode = DM_DIGEST
+	vore_standing_too = 1
+/mob/living/simple_animal/hostile/tarrasque/mrx/init_vore()
+	..()
+	var/obj/belly/B = vore_selected
+	B.digest_burn = 10 //Normally this can only be 6 but since we are in code we can override this to be 10 so we dont need brute.
+	B.digest_brute = 0
+	
 
 /mob/living/simple_animal/hostile/tarrasque/mrx/Life()
 	..()
@@ -129,6 +141,8 @@
 	for(var/obj/machinery/door/airlock/door in range(3, src))
 		door.open(1)
 		door.lock(1)
+	if(buckled)
+		resist()
 
 //time for special MR X kick you in the shins and stands there code
 /mob/living/simple_animal/hostile/tarrasque/mrx/DoPunch(var/atom/A)
@@ -137,6 +151,7 @@
 		for(var/obj/machinery/light/light in range(5, src))
 			light.flicker(10)
 		if(isliving(A))
+			src.say("Run tasty treat, run~", speaking, var/verb="chitters")
 			var/mob/living/L = A
 			L.Weaken(5)
 			stop_automated_movement = 1
