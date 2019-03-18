@@ -122,6 +122,8 @@
 
 /mob/living/simple_animal/hostile/tarrasque/mrx/Life()
 	..()
+	if(resting)
+		resting = !resting
 	if (anchored)
 		set_light(l_range = 1.5, l_power = 2, l_color = COLOR_RED)
 	for(/obj/machinery/door/airlock/door in range(3, src))
