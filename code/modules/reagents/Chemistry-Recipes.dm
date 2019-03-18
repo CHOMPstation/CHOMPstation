@@ -365,6 +365,13 @@
 	required_reagents = list("inaprovaline" = 1, "carbon" = 1)
 	inhibitors = list("sugar" = 1) // Messes up with inaprovaline
 	result_amount = 2
+	
+/datum/chemical_reaction/alizine
+	name = "Alizine"
+	id = "alizine"
+	result = "alizine"
+	required_reagents = list("bicaridine" = 1, "serazine" = 1, "tungsten" = 1)
+	result_amount = 3
 
 /datum/chemical_reaction/myelamine
 	name = "Myelamine"

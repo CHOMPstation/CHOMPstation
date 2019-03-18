@@ -93,9 +93,9 @@
 	
 //MRX Variation
 /mob/living/simple_animal/hostile/tarrasque/mrx
-	icon = 'icons/mob/animal.dmi'
-	name = "X"
-	desc = "He's gonna give it to you."
+	icon = 'icons/mob/64x64.dmi'
+	name = "Entity X"
+	desc = "The call of the abyss manifested. Doors have proven inefective against it."
 	hasdrops = 0
 	health = 2000
 	maxHealth = 2000
@@ -104,19 +104,43 @@
 	melee_attack_maxDelay = 1
 	view_range = 420
 	size_multiplier = 1.5
-	icon_living = "faithless" //possibly gonna give him a new sprite in the future
-	icon_dead = "faithless_dead"
+	icon_state = "arachnid"
+	icon_living = "arachnid"
+	icon_dead = "arachnid_dead"
 	tt_desc = "Unknown Specimen"
-	attacktext = list("whacks","punches","smashes")
+	attacktext = list("whacks","slashes","smashes")
+	melee_damage_lower = 0 //huh not so bad
+	melee_damage_upper = 50 //oh, oh no
+	armor = list(
+				"melee" = 99,
+				"bullet" = 99,
+				"laser" = 99,
+				"energy" = 99,
+				"bomb" = 99,
+				"bio" = 100,
+				"rad" = 100)
+
+/mob/living/simple_animal/hostile/tarrasque/mrx/Life()
+	..()
+	if(resting)
+		resting = !resting
+	if (anchored)
+		set_light(l_range = 1.5, l_power = 2, l_color = COLOR_RED)
+	for(var/obj/machinery/door/airlock/door in range(3, src))
+		door.open(1)
+		door.lock(1)
 
 //time for special MR X kick you in the shins and stands there code
 /mob/living/simple_animal/hostile/tarrasque/mrx/DoPunch(var/atom/A)
 	. = ..()
 	if(.) // If we succeeded in hitting.
+		for(var/obj/machinery/light/light in range(5, src))
+			light.flicker(10)
 		if(isliving(A))
 			var/mob/living/L = A
-			L.Weaken(10)
+			L.Weaken(5)
 			stop_automated_movement = 1
-			spawn(20)
+			anchored = 1
+			spawn(100)
 				stop_automated_movement = 0
-	
+				anchored = 0
