@@ -135,6 +135,7 @@
 	
 /mob/living/simple_animal/hostile/tarrasque/mrx/New()
 	..()
+	seedarkness = 0
 	src.sight |= SEE_OBJS
 	src.sight |= SEE_TURFS
 	src.sight |= SEE_MOBS //To be balanced. May be a bit OP but he'S slow
