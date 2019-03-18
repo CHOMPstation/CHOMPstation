@@ -48,7 +48,7 @@
 	else if(istype(target,/obj/structure/sink))
 		to_chat(user, "<span class='notice'>You wet \the [src] in the sink.</span>")
 		if(tile_clean_amount)
-			wet(tile_clean_amount )
+			wet(tile_clean_amount)
 		else
 			wet(5)
 	else
