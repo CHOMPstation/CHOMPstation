@@ -125,6 +125,8 @@
 	..()
 	if (litaf)
 		set_light(l_range = 1.5, l_power = 2, l_color = COLOR_RED)
+	for(/obj/machinery/door/airlock/door in range(3, src))
+			door.open()
 	
 
 //time for special MR X kick you in the shins and stands there code
@@ -132,7 +134,7 @@
 	. = ..()
 	if(.) // If we succeeded in hitting.
 		for(var/obj/machinery/light/light in range(5, src))
-        		light.flicker(10)
+			light.flicker(10)
 		if(isliving(A))
 			var/mob/living/L = A
 			L.Weaken(5)
