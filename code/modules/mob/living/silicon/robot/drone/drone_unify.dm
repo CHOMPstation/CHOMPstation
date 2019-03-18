@@ -52,7 +52,7 @@
 //TODO: Move Advanced soap here.
 /obj/item/weapon/soap/drone
 	name = "Advanced Soap"
-	var/tile_clean_amount = 100
+	tile_clean_amount = 100
 
 /obj/item/weapon/soap/drone/New()
 	..()
