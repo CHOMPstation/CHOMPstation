@@ -108,7 +108,7 @@
 	icon_living = "arachnid"
 	icon_dead = "arachnid_dead"
 	tt_desc = "Unknown Specimen"
-	attacktext = list("whacks","punches","smashes")
+	attacktext = list("whacks","slashes","smashes")
 	melee_damage_lower = 0 //huh not so bad
 	melee_damage_upper = 50 //oh, oh no
 	armor = list(
@@ -119,17 +119,27 @@
 				"bomb" = 99,
 				"bio" = 100,
 				"rad" = 100)
+	var/litaf = 0
+
+/mob/living/simple_animal/hostile/tarrasque/mrx/Life()
+	..()
+	if (litaf)
+		set_light(l_range = 1.5, l_power = 2, l_color = COLOR_RED)
+	
 
 //time for special MR X kick you in the shins and stands there code
 /mob/living/simple_animal/hostile/tarrasque/mrx/DoPunch(var/atom/A)
 	. = ..()
 	if(.) // If we succeeded in hitting.
+		for(var/obj/machinery/light/light in range(5, src))
+        		light.flicker(10)
 		if(isliving(A))
 			var/mob/living/L = A
 			L.Weaken(5)
 			stop_automated_movement = 1
 			anchored = 1
+			litaf = 1
 			spawn(100)
 				stop_automated_movement = 0
 				anchored = 0
-	
+				litaf = 0
