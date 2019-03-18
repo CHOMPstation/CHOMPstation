@@ -154,7 +154,7 @@
 	if(.) // If we succeeded in hitting.
 		if(alang==LANGUAGE_GALCOM)
 			alang="Xenomorph"
-		if(alang=="Xenomorph")
+		else if(alang=="Xenomorph")
 			alang=LANGUAGE_GALCOM
 		for(var/obj/machinery/light/light in range(5, src))
 			light.flicker(10)
