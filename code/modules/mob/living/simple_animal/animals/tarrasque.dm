@@ -106,7 +106,9 @@
 	size_multiplier = 1.5
 	icon_state = "arachnid"
 	icon_living = "arachnid"
-	icon_dead = "arachnid_dead"
+	//icon_dead = "arachnid_dead"
+	icon_dead = "arachnid_stunned" //Same as dead but no blood
+	icon_rest = "arachnid_sleeping"
 	tt_desc = "Unknown Specimen"
 	attacktext = list("whacks","slashes","smashes")
 	melee_damage_lower = 0 //huh not so bad
