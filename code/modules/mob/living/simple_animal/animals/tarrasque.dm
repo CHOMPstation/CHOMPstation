@@ -134,7 +134,10 @@
 	B.digest_brute = 0
 	
 /mob/living/simple_animal/hostile/tarrasque/mrx/New()
+	..()
 	add_language("Xenomorph")
+	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/hackervoice
+	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/scarethelights
 
 /mob/living/simple_animal/hostile/tarrasque/mrx/Life()
 	..()
@@ -167,3 +170,32 @@
 			spawn(100)
 				stop_automated_movement = 0
 				anchored = 0
+
+/////////////////////////////////////////
+//////////////Special EX PRocs go here // Mostly for playercontrolled stuff
+/////////////////////////////////////////
+/mob/living/simple_animal/hostile/tarrasque/mrx/proc/hackervoice()
+	set name = "Door Override"
+	set desc = "Hacker Voice: Im in"
+	set category = "X Powers"
+	for(var/obj/machinery/door/airlock/door in range(5, src))
+		door.open(1)
+		door.lock(1)
+/mob/living/simple_animal/hostile/tarrasque/mrx/proc/scarethelights()
+	set name = "Light Flicker"
+	set desc = "Hacker Voice: Im in"
+	set category = "X Powers"
+	for(var/obj/machinery/light/light in range(5, src))
+		light.flicker(2)
+
+
+
+
+
+
+
+
+
+
+
+
