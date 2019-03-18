@@ -105,8 +105,9 @@
 					dat += "<A href='?src=\ref[src];action=activate'>Activate Biogenerator!</A><BR>"
 					dat += "<A href='?src=\ref[src];action=detach'>Detach Container</A><BR><BR>"
 					dat += "Food<BR>"
-					dat += "<A href='?src=\ref[src];action=create;item=milk;cost=20'>10 milk</A> <FONT COLOR=blue>([round(20/build_eff)])</FONT><BR>"
-					dat += "<A href='?src=\ref[src];action=create;item=meat;cost=50'>Slab of meat</A> <FONT COLOR=blue>([round(50/build_eff)])</FONT><BR>"
+					dat += "<A href='?src=\ref[src];action=create;item=milk;cost=20'>10 milk</A> <FONT COLOR=blue>([round(20/build_eff)])</FONT> | <A href='?src=\ref[src];action=create;item=milk30;cost=60'>x3</A> | <A href='?src=\ref[src];action=create;item=milk60;cost=120'>x6</A><BR>"
+					dat += "<A href='?src=\ref[src];action=create;item=cream;cost=20'>10 cream</A> <FONT COLOR=blue>([round(20/build_eff)])</FONT> | <A href='?src=\ref[src];action=create;item=cream30;cost=60'>x3</A> | <A href='?src=\ref[src];action=create;item=cream60;cost=120'>x6</A><BR>"
+					dat += "<A href='?src=\ref[src];action=create;item=meat;cost=50'>Slab of meat</A> <FONT COLOR=blue>([round(50/build_eff)])</FONT> | <A href='?src=\ref[src];action=create;item=meat5;cost=250'>x5</A> | <A href='?src=\ref[src];action=create;item=meat10;cost=500'>x10</A><BR>"
 					dat += "Nutrient<BR>"
 					dat += "<A href='?src=\ref[src];action=create;item=ez;cost=60'>E-Z-Nutrient</A> <FONT COLOR=blue>([round(60/build_eff)])</FONT> | <A href='?src=\ref[src];action=create;item=ez5;cost=300'>x5</A><BR>"
 					dat += "<A href='?src=\ref[src];action=create;item=l4z;cost=120'>Left 4 Zed</A> <FONT COLOR=blue>([round(120/build_eff)])</FONT> | <A href='?src=\ref[src];action=create;item=l4z5;cost=600'>x5</A><BR>"
@@ -126,8 +127,8 @@
 					dat += "<A href='?src=\ref[src];action=create;item=leatherjacket;cost=500'>Leather Jacket</A> <FONT COLOR=blue>([round(500/build_eff)])</FONT><BR>"
 					dat += "<A href='?src=\ref[src];action=create;item=wintercoat;cost=500'>Winter Coat</A> <FONT COLOR=blue>([round(500/build_eff)])</FONT><BR>"
 					dat += "<A href='?src=\ref[src];action=create;item=algae;cost=400'>4 Algae Sheets</A> <FONT COLOR=blue>([round(400/build_eff)])</FONT><BR>" //VOREStation Edit - Algae for oxygen generator
-					//dat += "Other<BR>"
-					//dat += "<A href='?src=\ref[src];action=create;item=monkey;cost=500'>Monkey</A> <FONT COLOR=blue>(500)</FONT><BR>"
+					dat += "Other<BR>"
+					dat += "<A href='?src=\ref[src];action=create;item=monkey;cost=500'>Monkey</A> <FONT COLOR=blue>(500)</FONT><BR>"
 				else
 					dat += "<BR><FONT COLOR=red>No beaker inside. Please insert a beaker.</FONT><BR>"
 			if("nopoints")
@@ -187,7 +188,34 @@
 	switch(item)
 		if("milk")
 			beaker.reagents.add_reagent("milk", 10)
+		if("milk30")
+			beaker.reagents.add_reagent("milk", 30)
+		if("milk60")
+			beaker.reagents.add_reagent("milk", 60)
+		if("cream")
+			beaker.reagents.add_reagent("cream", 10)
+		if("cream30")
+			beaker.reagents.add_reagent("cream", 30)
+		if("cream60")
+			beaker.reagents.add_reagent("cream", 60)
 		if("meat")
+			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+		if("meat5")
+			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+		if("meat10")
+			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
 			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
 		if("ez")
 			new/obj/item/weapon/reagent_containers/glass/bottle/eznutrient(loc)
