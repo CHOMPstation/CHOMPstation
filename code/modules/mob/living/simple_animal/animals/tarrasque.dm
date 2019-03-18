@@ -165,6 +165,9 @@
 			alang=LANGUAGE_GALCOM
 		for(var/obj/machinery/light/light in range(5, src))
 			light.flicker(10)
+		if(istype(A,/turf/simulated/wall))
+			var//turf/simulated/wall/L = A
+			L.dismantle_wall(null,null,1)
 		if(isliving(A))
 			src.say("Run tasty treat, run~", alang,"chitters") //may hiss may not, balanced
 			var/mob/living/L = A
