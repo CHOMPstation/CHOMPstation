@@ -130,7 +130,7 @@
 	vore_default_flags = null
 	vore_default_mode = DM_DIGEST
 	vore_standing_too = 1
-	vore_icons = 0//SA_ICON_LIVING | SA_ICON_REST //Will enable this once i paste the belly sizes from Chocobo
+	vore_icons = SA_ICON_LIVING | SA_ICON_REST
 /mob/living/simple_animal/hostile/tarrasque/mrx/init_vore()
 	..()
 	var/obj/belly/B = vore_selected
