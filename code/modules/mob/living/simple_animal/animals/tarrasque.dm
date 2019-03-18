@@ -135,6 +135,8 @@
 	
 /mob/living/simple_animal/hostile/tarrasque/mrx/New()
 	..()
+	src.sight |= SEE_OBJS
+	src.sight |= SEE_TURFS
 	src.sight |= SEE_MOBS //To be balanced. May be a bit OP but he'S slow
 	add_language("Xenomorph")
 	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/hackervoice
