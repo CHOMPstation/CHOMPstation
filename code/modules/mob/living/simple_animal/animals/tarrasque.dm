@@ -111,6 +111,8 @@
 	attacktext = list("whacks","slashes","smashes")
 	melee_damage_lower = 0 //huh not so bad
 	melee_damage_upper = 50 //oh, oh no
+	universal_speak = 1
+	var/alang = LANGUAGE_GALCOM
 	armor = list(
 				"melee" = 99,
 				"bullet" = 99,
@@ -131,6 +133,8 @@
 	B.digest_burn = 10 //Normally this can only be 6 but since we are in code we can override this to be 10 so we dont need brute.
 	B.digest_brute = 0
 	
+/mob/living/simple_animal/hostile/tarrasque/mrx/new()
+	add_language("Xenomorph")
 
 /mob/living/simple_animal/hostile/tarrasque/mrx/Life()
 	..()
@@ -148,10 +152,14 @@
 /mob/living/simple_animal/hostile/tarrasque/mrx/DoPunch(var/atom/A)
 	. = ..()
 	if(.) // If we succeeded in hitting.
+		if(alang==LANGUAGE_GALCOM)
+			alang="Xenomorph"
+		if(alang=="Xenomorph")
+			alang=LANGUAGE_GALCOM
 		for(var/obj/machinery/light/light in range(5, src))
 			light.flicker(10)
 		if(isliving(A))
-			src.say("Run tasty treat, run~", speaking, var/verb="chitters")
+			src.say("Run tasty treat, run~", alang,"chitters") //may hiss may not, balanced
 			var/mob/living/L = A
 			L.Weaken(5)
 			stop_automated_movement = 1
