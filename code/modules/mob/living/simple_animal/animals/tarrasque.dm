@@ -163,6 +163,7 @@
 			door.lock(1)
 	if(buckled)
 		resist()
+		buckled = null
 
 //time for special MR X kick you in the shins and stands there code
 /mob/living/simple_animal/hostile/tarrasque/mrx/DoPunch(var/atom/A)
