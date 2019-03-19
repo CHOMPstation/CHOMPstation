@@ -28,15 +28,21 @@
 	return FALSE
 
 /mob/living/simple_animal/hostile/hivebot/zerg/larva/proc/evolve()
-	//TODDO
+	//TODDO MAke this work nicely
 	
 	var/location = get_turf(src)
 	chosentype = input(usr,"What type would you like to be?") as null|anything in zerg_types
 	if(!chosentype) return
-	var/myuser = src.key
-	death()
-	var//mob/living/simple_animal/hostile/newmob = new chosentype(location)
-	newmob.ckey = myuser
+	if(!src.ckey) 
+		death()
+		qdel(src)
+		new /mob/living/simple_animal/hostile/hivebot/zerg/worker(location)
+	else
+		var/myuser = src.key
+		death()
+		qdel(src)
+		var/mob/living/simple_animal/hostile/newmob = new chosentype(location)
+		newmob.ckey = myuser
 
 /mob/living/simple_animal/hostile/hivebot/zerg/larva
 	name = "zerg larva"
@@ -46,6 +52,11 @@
 	maxHealth = 0.2 LASERS_TO_KILL
 	health = 0.2 LASERS_TO_KILL
 	var/chosentype = null
+/mob/living/simple_animal/hostile/hivebot/zerg/larva/Life()
+	..()
+	spawn(1200)
+		if(!src.ckey)
+			evolve()
 
 /mob/living/simple_animal/hostile/hivebot/zerg/worker
 	name = "Zerg Drone"
