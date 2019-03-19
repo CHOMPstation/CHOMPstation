@@ -151,7 +151,8 @@
 
 /mob/living/simple_animal/hostile/tarrasque/mrx/Life()
 	..()
-	if(resting)
+	
+	if(resting && !client)
 		resting = !resting
 	if (anchored)
 		set_light(l_range = 1.5, l_power = 2, l_color = COLOR_RED)
