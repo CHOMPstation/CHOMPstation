@@ -32,7 +32,7 @@
 	
 	var/location = get_turf(src)
 	chosentype = input(usr,"What type would you like to be?") as null|anything in zerg_types
-	if(!choosetype) return
+	if(!chosentype) return
 	var/myuser = src.key
 	death()
 	var/newmob = new chosentype(location)
