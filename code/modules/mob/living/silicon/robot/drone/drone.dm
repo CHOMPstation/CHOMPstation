@@ -438,7 +438,7 @@ var/list/mob_hat_cache = list()
 	if(power<=0 || power>=cell.maxcharge || power>=cell.charge) return //Safeties to not kill ourselves, also safeties to not use this to drain.
 	for(var/obj/item/weapon/cell/remotecell in range(1, src)) //assuming 1 = 1 tile next to us, if this works will lower to 0
 		if(power>=cell.charge) return //rechecking our initial safety so if we mass charge we dont die.
-		newcharge = remotecell.charge + power //What the battery is at after charge
+		var/newcharge = remotecell.charge + power //What the battery is at after charge
 		if(newcharge<=remotecell.maxcharge) //Making sure we arent wasting power 
 			remotecell.give(power) //give is a proc native to cells that increases charge and updates the iconstate if needed
 			cell.give(-power)//TO BE TESTED, no idea if negative give works, once i've tested this i'll add this as a verb-shark
