@@ -60,6 +60,8 @@
 /mob/living/simple_animal/hostile/hivebot/zerg/larva/New()
 	..()
 	verbs |= /mob/living/simple_animal/hostile/hivebot/zerg/larva/proc/evolve
+	
+/mob/living/simple_animal/hostile/hivebot/zerg/larva/init()
 	spawn(1200)
 		if(!src.ckey)
 			evolve()
