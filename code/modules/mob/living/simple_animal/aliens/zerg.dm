@@ -35,7 +35,7 @@
 	if(!chosentype) return
 	var/myuser = src.key
 	death()
-	var/newmob = new chosentype(location)
+	var//mob/living/simple_animal/hostile/newmob = new chosentype(location)
 	newmob.ckey = myuser
 
 /mob/living/simple_animal/hostile/hivebot/zerg/larva
