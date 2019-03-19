@@ -8,7 +8,7 @@
 	melee_damage_lower = 2
 	melee_damage_upper = 2
 	
-	//zergoverride  = 1
+	zergoverride  = 1
 	
 	projectilesound = 'sound/effects/splat.ogg'
 	projectiletype = /obj/item/projectile/energy/acid
