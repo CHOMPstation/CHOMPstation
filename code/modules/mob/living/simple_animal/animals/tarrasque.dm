@@ -154,6 +154,7 @@
 	
 	if(resting && !client)
 		resting = !resting
+		update_icon()
 	if (anchored)
 		set_light(l_range = 1.5, l_power = 2, l_color = COLOR_RED)
 	if(!client)
