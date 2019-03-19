@@ -125,8 +125,8 @@ var/list/mob_hat_cache = list()
 	add_language("Drone Talk", 1)
 
 	//They are unable to be upgraded, so let's give them a bit of a better battery.
-	cell.maxcharge = 10000
-	cell.charge = 10000
+	cell.maxcharge = 20000 //Original val 10000, doubled for ease of use of powertransmission circuit.
+	cell.charge = 20000
 
 	// NO BRAIN.
 	mmi = null
@@ -429,4 +429,19 @@ var/list/mob_hat_cache = list()
 
 	chassis = possible_chassis[choice]
 	verbs |= /mob/living/proc/hide
+
+//POWER Transmission code
+/mob/living/silicon/robot/drone/proc/transmitpower(var/power=250)
+	set category ="Robot Commands"
+	set name = "Transmit Power"
+	power = input(usr, "How much would you like to transmit? Keep in mind this is multiplied for each cell near you.", "Power Transmission", null)
+	if(power<=0 || power>=cell.maxcharge || power>=cell.charge) return //Safeties to not kill ourselves, also safeties to not use this to drain.
+	for(var/obj/item/weapon/cell/remotecell in range(1, src)) //assuming 1 = 1 tile next to us, if this works will lower to 0
+		if(power>=cell.charge) return //rechecking our initial safety so if we mass charge we dont die.
+		newcharge = remotecell.charge + power //What the battery is at after charge
+		if(newcharge<=remotecell.maxcharge) //Making sure we arent wasting power 
+			remotecell.give(power) //give is a proc native to cells that increases charge and updates the iconstate if needed
+			cell.give(-power)//TO BE TESTED, no idea if negative give works, once i've tested this i'll add this as a verb-shark
+		else return
+
 
