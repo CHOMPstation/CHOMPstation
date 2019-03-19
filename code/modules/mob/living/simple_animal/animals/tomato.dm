@@ -31,25 +31,26 @@
 	name = "Piranha Plant"
 	desc = "It's a plant, that eats people!"
 	tt_desc = "Packun Flower"
-	
+
 	//remove this thing once we got our own sprites to use.
 	icon_state = "tomato"
 	icon_living = "tomato"
 	icon_dead = "tomato_dead"
-	
+
 	faction = "plants"
 	intelligence_level = SA_PLANT
-	
+
 	maxHealth = 100
 	health = 100
 	meat_type = null
 
 	//Mob icon/appearance settings
-	//icon = overridefile to be made
-	//icon_living = "piranha" 	//to be made
-	//icon_dead = "piranha_dead" 	//to be made
+	icon = 'icons/mob/plantmobs32x32.dmi' //Thanks to vorebound mod and Estelle
+	icon_living = "piranha-plant"
+	icon_state = "piranha-plant"
+	icon_dead = "piranha-plant_dead"
 	icon_gib = "generic_gib"	// The iconstate for being gibbed, optional. Defaults to a generic gib animation.
-	icon_rest = null		// The iconstate for resting, optional
+	//icon_rest = null		// The iconstate for resting, optional
 	attack_icon = 'icons/effects/effects.dmi' //Just the default, played like the weapon attack anim
 	attack_icon_state = "slash" 	//Just the default //gonna have to make teeth chomping version
 
@@ -58,12 +59,12 @@
 	vore_capacity = 1
 	vore_pounce_chance = 80
 	vore_standing_too = 1
-	vore_ignores_undigestable = 0 
+	vore_ignores_undigestable = 0
 	vore_default_mode = DM_DIGEST
-	vore_digest_chance = 99	
+	vore_digest_chance = 99
 	vore_absorb_chance = 0
 	vore_escape_chance = 5
-	vore_icons = 0 //no vore icons
+	vore_icons = SA_ICON_LIVING
 	swallowTime = 10 SECONDS //CHOMPED
 
 	//Movement Stuff
@@ -147,7 +148,7 @@
 	flash_strength = 0
 	agony = 10
 	combustion = FALSE
-	
+
 /obj/item/weapon/reagent_containers/food/snacks/soylentgreen/piranha
 	name = "Soylent"
 	desc = "This was spat out by a strange plant that eats people."
