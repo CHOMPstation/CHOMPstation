@@ -47,6 +47,7 @@
 	//Mob icon/appearance settings
 	icon = 'icons/mob/plantmobs32x32.dmi' //Thanks to vorebound mod and Estelle
 	icon_living = "piranha-plant"
+	icon_state = "piranha-plant"
 	icon_dead = "piranha-plant_dead"
 	icon_gib = "generic_gib"	// The iconstate for being gibbed, optional. Defaults to a generic gib animation.
 	//icon_rest = null		// The iconstate for resting, optional
