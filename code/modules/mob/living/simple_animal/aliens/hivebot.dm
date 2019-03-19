@@ -10,7 +10,9 @@
 	icon_state = "basic"
 	icon_living = "basic"
 	icon_dead = "basic"
-
+	
+	var/zergoverride=0
+	
 	faction = "hivebot"
 	intelligence_level = SA_ROBOTIC
 	maxHealth = 3 LASERS_TO_KILL
@@ -137,12 +139,13 @@
 
 /mob/living/simple_animal/hostile/hivebot/death()
 	..()
-	visible_message("<b>[src]</b> blows apart!")
-	new /obj/effect/decal/cleanable/blood/gibs/robot(src.loc)
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(3, 1, src)
-	s.start()
-	qdel(src)
+	if(!zergoverride)//CHOMPEDIT OVerriding death for zerg
+		visible_message("<b>[src]</b> blows apart!")
+		new /obj/effect/decal/cleanable/blood/gibs/robot(src.loc)
+		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+		s.set_up(3, 1, src)
+		s.start()
+		qdel(src)
 
 /mob/living/simple_animal/hostile/hivebot/speech_bubble_appearance()
 	return "synthetic_evil"
