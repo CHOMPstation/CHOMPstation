@@ -142,9 +142,7 @@
 	..()
 	update_icon()
 	seedarkness = 0
-	src.sight |= SEE_OBJS
-	src.sight |= SEE_TURFS
-	src.sight |= SEE_MOBS //To be balanced. May be a bit OP but he'S slow
+	src.sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
 	add_language("Xenomorph")
 	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/hackervoice
 	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/scarethelights
@@ -184,10 +182,17 @@
 			L.Weaken(5)
 			stop_automated_movement = 1
 			anchored = 1
+			hostile = 0
 			spawn(100)
 				stop_automated_movement = 0
 				anchored = 0
+				hostile = 1
 
+/mob/living/simple_animal/hostile/tarrasque/mrx/handle_regular_hud_updates()
+	..()
+	sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_LEVEL_TWO
 /////////////////////////////////////////
 //////////////Special EX PRocs go here // Mostly for playercontrolled stuff
 /////////////////////////////////////////
