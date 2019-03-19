@@ -56,13 +56,13 @@
 	var/chosentype = null
 /mob/living/simple_animal/hostile/hivebot/zerg/larva/Life()
 	..()
-	spawn(1200)
-		if(!src.ckey)
-			evolve()
+
 /mob/living/simple_animal/hostile/hivebot/zerg/larva/New()
 	..()
 	verbs |= /mob/living/simple_animal/hostile/hivebot/zerg/larva/proc/evolve
-
+	spawn(1200)
+		if(!src.ckey)
+			evolve()
 /mob/living/simple_animal/hostile/hivebot/zerg/worker
 	name = "Zerg Drone"
 	desc = "Drones are fundamental to economic and tech development, as they harvest resources and construct buildings."
