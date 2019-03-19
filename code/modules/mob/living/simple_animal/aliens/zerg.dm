@@ -20,7 +20,7 @@
 	say_cannot = list("Denied.", "Negative.")
 	say_maybe_target = list("Possible threat detected.  Investigating.", "Motion detected.", "Investigating.")
 	say_got_target = list("Threat detected.", "Threat removal engaged.", "Engaging target.")
-
+	
 	var/zerg_types = list("Zerg Drone" = /mob/living/simple_animal/hostile/hivebot/zerg/worker,)
 
 
@@ -31,11 +31,11 @@
 	//TODDO
 	
 	var/location = get_turf(src)
-	var/chosentype = input(usr,"What type would you like to be?") as null|anything in zerg_types
+	chosentype = input(usr,"What type would you like to be?") as null|anything in zerg_types
 	if(!choosetype) return
 	var/myuser = src.key
 	death()
-	newmob = new chosentype(location)
+	var/newmob = new chosentype(location)
 	newmob.ckey = myuser
 
 /mob/living/simple_animal/hostile/hivebot/zerg/larva
@@ -45,6 +45,7 @@
 	melee_damage_upper = 0
 	maxHealth = 0.2 LASERS_TO_KILL
 	health = 0.2 LASERS_TO_KILL
+	var/chosentype = null
 
 /mob/living/simple_animal/hostile/hivebot/zerg/worker
 	name = "Zerg Drone"
