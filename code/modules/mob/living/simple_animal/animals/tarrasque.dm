@@ -190,6 +190,13 @@
 				anchored = 0
 				hostile = 1
 
+/mob/living/simple_animal/hostile/tarrasque/mrx/handle_regular_hud_updates()
+	..()
+	sight |= SEE_TURFS
+	sight |= SEE_MOBS
+	sight |= SEE_OBJS
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_LEVEL_TWO
 /////////////////////////////////////////
 //////////////Special EX PRocs go here // Mostly for playercontrolled stuff
 /////////////////////////////////////////
