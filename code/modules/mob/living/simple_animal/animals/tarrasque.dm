@@ -184,9 +184,11 @@
 			L.Weaken(5)
 			stop_automated_movement = 1
 			anchored = 1
+			hostile = 0
 			spawn(100)
 				stop_automated_movement = 0
 				anchored = 0
+				hostile = 1
 
 /////////////////////////////////////////
 //////////////Special EX PRocs go here // Mostly for playercontrolled stuff
