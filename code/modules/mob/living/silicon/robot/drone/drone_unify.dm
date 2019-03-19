@@ -43,8 +43,7 @@
 /obj/item/weapon/robot_module/drone/powerbank/New() //Trading in the RCD for a Powergenerating device
 	..()
 	src.modules += new /obj/item/device/dogborg/sleeper/compactor/drone(src)
-	cell.maxcharge = 100000
-	cell.charge = 100000
+
 
 ////////////////////////////////////////
 //DRONE LAWS
@@ -128,6 +127,12 @@
 //DRONE PROCS
 ////////////////////////////////////////
 //Drone Drone Procs
+/mob/living/silicon/robot/drone/unify/powerengineering/New()
+	..()
+	cell.maxcharge = 100000
+	cell.charge = 100000
+	verbs |= /mob/living/silicon/robot/drone/proc/transmitpower
+
 /mob/living/silicon/robot/drone/unify/powerengineering/updatename()
 	real_name = "engineering drone ([rand(100,999)])"
 	name = real_name
