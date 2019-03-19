@@ -142,9 +142,7 @@
 	..()
 	update_icon()
 	seedarkness = 0
-	src.sight |= SEE_OBJS
-	src.sight |= SEE_TURFS
-	src.sight |= SEE_MOBS //To be balanced. May be a bit OP but he'S slow
+	src.sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
 	add_language("Xenomorph")
 	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/hackervoice
 	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/scarethelights
@@ -192,9 +190,7 @@
 
 /mob/living/simple_animal/hostile/tarrasque/mrx/handle_regular_hud_updates()
 	..()
-	sight |= SEE_TURFS
-	sight |= SEE_MOBS
-	sight |= SEE_OBJS
+	sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_LEVEL_TWO
 /////////////////////////////////////////
