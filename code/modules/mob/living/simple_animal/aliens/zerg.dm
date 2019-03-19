@@ -29,7 +29,9 @@
 
 /mob/living/simple_animal/hostile/hivebot/zerg/larva/proc/evolve()
 	//TODDO MAke this work nicely
-	
+	set name = "EVOLVE"
+	set desc = "Performs larva evolution."
+	set category = "Abilities"
 	var/location = get_turf(src)
 	chosentype = input(usr,"What type would you like to be?") as null|anything in zerg_types
 	if(!chosentype) return
@@ -57,6 +59,9 @@
 	spawn(1200)
 		if(!src.ckey)
 			evolve()
+/mob/living/simple_animal/hostile/hivebot/zerg/larva/New()
+	..()
+	verbs |= /mob/living/simple_animal/hostile/hivebot/zerg/larva/proc/evolve
 
 /mob/living/simple_animal/hostile/hivebot/zerg/worker
 	name = "Zerg Drone"
