@@ -93,9 +93,10 @@
 	
 //MRX Variation
 /mob/living/simple_animal/hostile/tarrasque/mrx
-	icon = 'icons/mob/animal.dmi'
-	name = "X"
-	desc = "He's gonna give it to you."
+	icon = 'icons/mob/64x64.dmi'
+	name = "Entity X"
+	pixel_x = -15
+	desc = "The call of the abyss manifested. Doors have proven inefective against it."
 	hasdrops = 0
 	health = 2000
 	maxHealth = 2000
@@ -104,19 +105,102 @@
 	melee_attack_maxDelay = 1
 	view_range = 420
 	size_multiplier = 1.5
-	icon_living = "faithless" //possibly gonna give him a new sprite in the future
-	icon_dead = "faithless_dead"
+	icon_state = "arachnid"
+	icon_living = "arachnid"
+	//icon_dead = "arachnid_dead"
+	icon_dead = "arachnid_stunned" //Same as dead but no blood
+	icon_rest = "arachnid_sleeping"
 	tt_desc = "Unknown Specimen"
-	attacktext = list("whacks","punches","smashes")
+	attacktext = list("whacks","slashes","smashes")
+	melee_damage_lower = 0 //huh not so bad
+	melee_damage_upper = 50 //oh, oh no
+	universal_speak = 1
+	var/alang = LANGUAGE_GALCOM
+	armor = list(
+				"melee" = 99,
+				"bullet" = 99,
+				"laser" = 99,
+				"energy" = 99,
+				"bomb" = 99,
+				"bio" = 100,
+				"rad" = 100)
+//Vore stuff
+	vore_active = 1
+	vore_capacity = 2
+	vore_pounce_chance = 10 //Rare
+	vore_default_flags = null
+	vore_default_mode = DM_DIGEST
+	vore_standing_too = 1
+	vore_icons = SA_ICON_LIVING | SA_ICON_REST
+/mob/living/simple_animal/hostile/tarrasque/mrx/init_vore()
+	..()
+	var/obj/belly/B = vore_selected
+	B.digest_burn = 10 //Normally this can only be 6 but since we are in code we can override this to be 10 so we dont need brute.
+	B.digest_brute = 0
+	
+/mob/living/simple_animal/hostile/tarrasque/mrx/New()
+	..()
+	update_icon()
+	seedarkness = 0
+	src.sight |= SEE_OBJS
+	src.sight |= SEE_TURFS
+	src.sight |= SEE_MOBS //To be balanced. May be a bit OP but he'S slow
+	add_language("Xenomorph")
+	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/hackervoice
+	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/scarethelights
+
+/mob/living/simple_animal/hostile/tarrasque/mrx/Life()
+	..()
+	
+	if(resting && !client)
+		resting = !resting
+		update_icon()
+	if (anchored)
+		set_light(l_range = 1.5, l_power = 2, l_color = COLOR_RED)
+	if(!client)
+		for(var/obj/machinery/door/airlock/door in range(3, src))
+			door.open(1)
+			door.lock(1)
+	if(buckled)
+		resist()
+		buckled = null
 
 //time for special MR X kick you in the shins and stands there code
 /mob/living/simple_animal/hostile/tarrasque/mrx/DoPunch(var/atom/A)
 	. = ..()
 	if(.) // If we succeeded in hitting.
+		if(alang==LANGUAGE_GALCOM)
+			alang="Xenomorph"
+		else if(alang=="Xenomorph")
+			alang=LANGUAGE_GALCOM
+		for(var/obj/machinery/light/light in range(5, src))
+			light.flicker(10)
+		if(istype(A,/turf/simulated/wall))
+			var/turf/simulated/wall/wall = A
+			wall.dismantle_wall(null,null,1)
 		if(isliving(A))
+			src.say("Run tasty treat, run~", alang,"chitters") //may hiss may not, balanced
 			var/mob/living/L = A
-			L.Weaken(10)
+			L.Weaken(5)
 			stop_automated_movement = 1
-			spawn(20)
+			anchored = 1
+			spawn(100)
 				stop_automated_movement = 0
-	
+				anchored = 0
+
+/////////////////////////////////////////
+//////////////Special EX PRocs go here // Mostly for playercontrolled stuff
+/////////////////////////////////////////
+/mob/living/simple_animal/hostile/tarrasque/mrx/proc/hackervoice()
+	set name = "Door Override"
+	set desc = "Hacker Voice: Im in"
+	set category = "X Powers"
+	for(var/obj/machinery/door/airlock/door in range(5, src))
+		door.open(1)
+		door.lock(1)
+/mob/living/simple_animal/hostile/tarrasque/mrx/proc/scarethelights()
+	set name = "Light Flicker"
+	set desc = "Hacker Voice: Im in"
+	set category = "X Powers"
+	for(var/obj/machinery/light/light in range(5, src))
+		light.flicker(2) 
