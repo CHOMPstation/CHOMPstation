@@ -431,10 +431,11 @@ var/list/mob_hat_cache = list()
 	verbs |= /mob/living/proc/hide
 
 //POWER Transmission code
-/mob/living/silicon/robot/drone/proc/transmitpower(var/power=250)
+/mob/living/silicon/robot/drone/proc/transmitpower(var/power=0)
 	set category ="Robot Commands"
 	set name = "Transmit Power"
-	power = input(usr, "How much would you like to transmit? Keep in mind this is multiplied for each cell near you.", "Power Transmission", null)
+	if(!power)
+		power=250
 	if(power<=0 || power>=cell.maxcharge || power>=cell.charge) return //Safeties to not kill ourselves, also safeties to not use this to drain.
 	for(var/obj/item/weapon/cell/remotecell in range(1, src)) //assuming 1 = 1 tile next to us, if this works will lower to 0
 		if(power>=cell.charge) return //rechecking our initial safety so if we mass charge we dont die.
