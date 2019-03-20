@@ -52,7 +52,7 @@
 	//Vore stuff
 	vore_active = 1
 	vore_capacity = 1
-	vore_pounce_chance = 30
+	vore_pounce_chance = 10
 	vore_standing_too = 1
 	vore_ignores_undigestable = 0
 	vore_default_mode = DM_DIGEST
