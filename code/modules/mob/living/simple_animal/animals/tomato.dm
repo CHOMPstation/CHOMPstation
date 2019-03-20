@@ -35,8 +35,8 @@
 	faction = "plants"
 	intelligence_level = SA_PLANT
 
-	maxHealth = 100
-	health = 100
+	maxHealth = 50
+	health = 50
 	meat_type = null
 
 	//Mob icon/appearance settings
@@ -52,7 +52,7 @@
 	//Vore stuff
 	vore_active = 1
 	vore_capacity = 1
-	vore_pounce_chance = 80
+	vore_pounce_chance = 30
 	vore_standing_too = 1
 	vore_ignores_undigestable = 0
 	vore_default_mode = DM_DIGEST
@@ -66,9 +66,9 @@
 	wander = 0		// Does the mob wander around when idle?
 	wander_distance = 0	// How far the mob will wander before going home (assuming they are allowed to do that)
 	returns_home = 1	// Mob knows how to return to wherever it started
-	turns_per_move = 1	// How many life() cycles to wait between each wander mov?
+	turns_per_move = 4	// How many life() cycles to wait between each wander mov?
 	stop_when_pulled = 0 	// When set to 1 this stops the animal from moving when someone is pulling it.
-	follow_dist = 2		// Distance the mob tries to follow a friend
+	follow_dist = 0		// Distance the mob tries to follow a friend
 	speed = 4		// Higher speed is slower, negative speed is faster.
 
 	//Talk/Emote stuff
@@ -94,7 +94,7 @@
 
 	//Melee behaviour
 	melee_damage_lower = 1		// Lower bound of randomized melee damage
-	melee_damage_upper = 5		// Upper bound of randomized melee damage
+	melee_damage_upper = 10		// Upper bound of randomized melee damage
 	attacktext = list("chomped","bit","hompfed","crunched","cronched") // "You are [attacktext] by the mob!"
 	friendly = list("nuzzles")	// "The mob [friendly] the person."
 	//attack_sound = null		// Sound to play when I attack
@@ -103,7 +103,7 @@
 	melee_attack_minDelay = 5	// How long between attacks at least
 	melee_attack_maxDelay = 20	// How long between attacks at most
 	attack_armor_type = "melee"	// What armor does this check?
-	attack_armor_pen = 100		// How much armor pen this attack has.
+	attack_armor_pen = 50		// How much armor pen this attack has.
 	attack_sharp = 1		// Is the attack sharp?
 	attack_edge = 0			// Does the attack have an edge?
 
@@ -111,7 +111,7 @@
 	show_stat_health = 1	// Does the percentage health show in the stat panel for the mob
 	ai_inactive = 0 	// Set to 1 to turn off most AI actions
 	has_hands = 1		// Set to 1 to enable the use of hands and the hands hud
-	humanoid_hands = 0	// Can a player in this mob use things like guns or AI cards?
+	humanoid_hands = 1	// Can a player in this mob use things like guns or AI cards?
 	//hand_form = "hands"	// Used in IsHumanoidToolUser. 'Your X are not fit-'.
 	//hud_gears		// Slots to show on the hud (typically none)
 	//ui_icons		// Icon file path to use for the HUD, otherwise generic icons are used
@@ -125,7 +125,7 @@
 	name = "Piranha Spitter"
 	//Attack ranged settings.
 	ranged = 1		// Do I attack at range?
-	shoot_range = 5		// How far away do I start shooting from?
+	shoot_range = 6		// How far away do I start shooting from?
 	view_range = 5		//More range, more hurt, more... plant?
 	rapid = 1		// Three-round-burst fire mode
 	firing_lines = 0	// Avoids shooting allies
@@ -166,14 +166,14 @@
 	B.vore_verb = "chomp up"
 	B.name = "stomach"
 	B.desc	= "You're pulled into the tight stomach of the plant. The walls knead weakly around you, coating you in thick, viscous fluids that cling to your body, that soon starts to tingle and burn..."
-	B.digest_burn = 3
-	B.digest_brute = 3
+	B.digest_burn = 0
+	B.digest_brute = 12
 
 /mob/living/simple_animal/hostile/piranhaplant/pitcher
 	name = "Pitcher Plant"
 	desc = "It's a plant! How pretty"
 	tt_desc = "Brig Flower"
-	maxHealth = 500 //starts with 100
+	maxHealth = 500 //starts with 50
 	
 /mob/living/simple_animal/hostile/piranhaplant/pitcher/Life()
 	..()
