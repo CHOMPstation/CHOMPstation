@@ -332,6 +332,20 @@
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "rubberducky"
 
+/obj/item/weapon/bikehorn/rubberducky/evil
+	name = "Do not"
+	desc = "Evil fills the air, bath time will end, no one be spared."
+	
+/obj/item/weapon/bikehorn/rubberducky/evil/attack_self(mob/user as mob)
+	if (!spam_flag)
+		spam_flag = 1
+		playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
+		var/darkduckrising = null //placeholder
+		new darkduckrising(get_turf(user))
+		spawn(20)
+			qdel(src)
+	return
+	
 /obj/structure/sink
 	name = "sink"
 	icon = 'icons/obj/watercloset.dmi'
