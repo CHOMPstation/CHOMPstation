@@ -94,7 +94,7 @@
 
 	//Melee behaviour
 	melee_damage_lower = 1		// Lower bound of randomized melee damage
-	melee_damage_upper = 10		// Upper bound of randomized melee damage
+	melee_damage_upper = 25		// Upper bound of randomized melee damage
 	attacktext = list("chomped","bit","hompfed","crunched","cronched") // "You are [attacktext] by the mob!"
 	friendly = list("nuzzles")	// "The mob [friendly] the person."
 	//attack_sound = null		// Sound to play when I attack
