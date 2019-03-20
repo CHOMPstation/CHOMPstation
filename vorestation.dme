@@ -1874,6 +1874,7 @@
 #include "code\modules\metric\department.dm"
 #include "code\modules\metric\metric.dm"
 #include "code\modules\mining\abandonedcrates.dm"
+#include "code\modules\mining\mobcapsule_ch.dm"
 #include "code\modules\mining\abandonedcrates_vr.dm"
 #include "code\modules\mining\alloys.dm"
 #include "code\modules\mining\coins.dm"
