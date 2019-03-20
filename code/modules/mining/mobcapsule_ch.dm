@@ -25,7 +25,7 @@
 			if(mname)
 				contained_mob.name = mname
 				to_chat(user, "<span class='notice'>Renaming successful, say hello to [contained_mob]!</span>")
-				name = "lazarus capsule - [mname]"
+				name = "Morpheus capsule - [mname]"
 	..()
 
 /obj/item/device/mobcapsule/throw_impact(atom/A, speed, mob/user)
@@ -55,7 +55,7 @@
 		return 0
 	AM.forceMove(src)
 	contained_mob = AM
-	name = "lazarus capsule - [AM.name]"
+	name = "Morpheus capsule - [AM.name]"
 	return 1
 
 /obj/item/device/mobcapsule/pickup(mob/user)
@@ -88,7 +88,7 @@
 			contained_mob.client.eye = contained_mob.client.mob
 			contained_mob.client.perspective = MOB_PERSPECTIVE
 		contained_mob = null
-		name = "lazarus capsule"
+		name = "Morpheus capsule"
 
 /obj/item/device/mobcapsule/attack_self(mob/user)
 	colorindex += 1
