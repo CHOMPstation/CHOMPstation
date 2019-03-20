@@ -32,11 +32,6 @@
 	desc = "It's a plant, that eats people!"
 	tt_desc = "Packun Flower"
 
-	//remove this thing once we got our own sprites to use.
-	icon_state = "tomato"
-	icon_living = "tomato"
-	icon_dead = "tomato_dead"
-
 	faction = "plants"
 	intelligence_level = SA_PLANT
 
@@ -132,7 +127,7 @@
 	ranged = 1		// Do I attack at range?
 	shoot_range = 5		// How far away do I start shooting from?
 	view_range = 5		//More range, more hurt, more... plant?
-	rapid = 0		// Three-round-burst fire mode
+	rapid = 1		// Three-round-burst fire mode
 	firing_lines = 0	// Avoids shooting allies
 	projectiletype	= /obj/item/projectile/energy/piranhaspit	// The projectiles I shoot
 	projectilesound = 'sound/weapons/thudswoosh.ogg' // The sound I make when I do it
@@ -142,7 +137,7 @@
 /obj/item/projectile/energy/piranhaspit
 	name = "piranhaspit"
 	icon_state = "neurotoxin"
-	damage = 10
+	damage = 4 //Reduced damage to 4 from 10, 3 fired projectiles mean might do 12 total if all 3 hit
 	damage_type = TOX
 	check_armour = "bio" //yup biohazard protection works here
 	flash_strength = 0
@@ -156,6 +151,14 @@
 	filling_color = "#B8E6B5"
 	center_of_mass = list("x"=15, "y"=11)
 
+/obj/item/projectile/energy/piranhaspit/on_hit(var/atom/soyled)
+	soyl(soyled)
+	..()
+
+/obj/item/projectile/energy/piranhaspit/proc/soyl(var/mob/M)
+	var/location = get_turf(M)
+	new /obj/item/weapon/reagent_containers/food/snacks/soylentgreen/piranha(location)
+
 //VORE FLUFF section and extended gut settings
 /mob/living/simple_animal/hostile/piranhaplant/init_vore()
 	..()
@@ -166,3 +169,26 @@
 	B.digest_burn = 3
 	B.digest_brute = 3
 
+/mob/living/simple_animal/hostile/piranhaplant/pitcher
+	name = "Pitcher Plant"
+	desc = "It's a plant! How pretty"
+	tt_desc = "Brig Flower"
+	maxHealth = 500 //starts with 100
+	
+/mob/living/simple_animal/hostile/piranhaplant/pitcher/Life()
+	..()
+	if(!anchored)
+		anchored=1
+	if(vore_fullness)
+		health++
+	if(size_multiplier!=1*health/100)
+		size_multiplier=1*health/100
+		update_icon()
+
+/mob/living/simple_animal/hostile/piranhaplant/pitcher/init_vore()
+	..()
+	var/obj/belly/B = vore_selected
+	B.digest_burn = 0.5
+	B.digest_brute = 0
+	B.vore_verb = "slurped up"
+	B.name = "pitcher"
