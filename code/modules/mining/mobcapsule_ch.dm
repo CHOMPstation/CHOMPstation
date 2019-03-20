@@ -1,8 +1,8 @@
 /*********************Mob Capsule*************************/
 
 /obj/item/device/mobcapsule
-	name = "lazarus capsule"
-	desc = "It allows you to store and deploy lazarus-injected creatures easier."
+	name = "Morpheus capsule" //Whats a lazarus
+	desc = "It allows you to store and deploy Morpheus-injected creatures easier."
 	icon = 'icons/obj/mobcap.dmi'
 	icon_state = "mobcap0"
 	throwforce = 00
