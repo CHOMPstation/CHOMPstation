@@ -104,7 +104,7 @@
 	melee_attack_minDelay = 0
 	melee_attack_maxDelay = 1
 	view_range = 420
-	size_multiplier = 1.5
+	size_multiplier = 1.2
 	icon_state = "arachnid"
 	icon_living = "arachnid"
 	//icon_dead = "arachnid_dead"
@@ -114,7 +114,7 @@
 	attacktext = list("whacks","slashes","smashes")
 	melee_damage_lower = 0 //huh not so bad
 	melee_damage_upper = 50 //oh, oh no
-	universal_speak = 1
+	universal_speak = 0
 	var/alang = LANGUAGE_GALCOM
 	armor = list(
 				"melee" = 99,
@@ -149,7 +149,8 @@
 
 /mob/living/simple_animal/hostile/tarrasque/mrx/Life()
 	..()
-	
+	if(!pixel_x)
+		pixel_x = -15
 	if(resting && !client)
 		resting = !resting
 		update_icon()
@@ -177,6 +178,7 @@
 			var/turf/simulated/wall/wall = A
 			wall.dismantle_wall(null,null,1)
 		if(isliving(A))
+			LoseTarget()
 			src.say("Run tasty treat, run~", alang,"chitters") //may hiss may not, balanced
 			var/mob/living/L = A
 			L.Weaken(5)
