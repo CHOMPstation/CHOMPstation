@@ -44,8 +44,8 @@
 
 	if(istype(AM, /mob/living))
 		var/mob/living/L = AM
-		if(L.locked_to)
-			return 0
+		//if(L.locked_to)//locked_to doesnt seem to exist in our code/game/atoms_movable.dm
+		//	return 0
 		if(L.client)
 			L.client.perspective = EYE_PERSPECTIVE
 			L.client.eye = src
