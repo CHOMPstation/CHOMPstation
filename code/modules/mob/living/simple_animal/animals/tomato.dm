@@ -102,7 +102,7 @@
 	melee_miss_chance = 1		// percent chance to miss a melee attack.
 	melee_attack_minDelay = 5	// How long between attacks at least
 	melee_attack_maxDelay = 20	// How long between attacks at most
-	attack_armor_type = "melee"	// What armor does this check?
+	attack_armor_type = "bio"	// What armor does this check?
 	attack_armor_pen = 50		// How much armor pen this attack has.
 	attack_sharp = 1		// Is the attack sharp?
 	attack_edge = 0			// Does the attack have an edge?
