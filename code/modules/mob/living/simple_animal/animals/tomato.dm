@@ -123,6 +123,7 @@
 /mob/living/simple_animal/hostile/piranhaplant/spitter
 		//might snatch the code for that uranium ray for this since it should poison
 	name = "Piranha Spitter"
+	attack_armor_pen = 0	
 	//Attack ranged settings.
 	ranged = 1		// Do I attack at range?
 	shoot_range = 6		// How far away do I start shooting from?
