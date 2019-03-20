@@ -104,7 +104,7 @@
 	melee_attack_minDelay = 0
 	melee_attack_maxDelay = 1
 	view_range = 420
-	size_multiplier = 1.2
+	size_multiplier = 1
 	icon_state = "arachnid"
 	icon_living = "arachnid"
 	//icon_dead = "arachnid_dead"
