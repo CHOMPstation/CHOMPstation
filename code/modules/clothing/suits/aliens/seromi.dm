@@ -1,6 +1,6 @@
 /obj/item/clothing/suit/storage/seromi/cloak
 	name = "black and orange cloak "
-	desc = "It drapes over a Teshari's shoulders and closes at the neck with pockets convienently placed inside."
+	desc = "It drapes over a teshari's shoulders and closes at the neck with pockets convienently placed inside."
 	icon = 'icons/mob/species/seromi/teshari_cloak.dmi'
 	icon_override = 'icons/mob/species/seromi/teshari_cloak.dmi'
 	icon_state = "tesh_cloak_bo"
@@ -144,102 +144,102 @@
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/cargo
 	name = "Cargo cloak"
-	desc =  "A soft Teshari cloak made for the Cargo department"
+	desc =  "A soft teshari cloak made for the Cargo department"
 	icon_state = "tesh_cloak_car"
 	item_state = "tesh_cloak_car"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/mining
 	name = "Mining cloak"
-	desc =  "A soft Teshari cloak made for Mining"
+	desc =  "A soft teshari cloak made for Mining"
 	icon_state = "tesh_cloak_mine"
 	item_state = "tesh_cloak_mine"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/command
 	name = "Command cloak"
-	desc =  "A soft Teshari cloak made for the Command department"
+	desc =  "A soft teshari cloak made for the Command department"
 	icon_state = "tesh_cloak_comm"
 	item_state = "tesh_cloak_comm"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/ce
 	name = "Cheif Engineer's cloak"
-	desc =  "A soft Teshari cloak made the Chief Engineer"
+	desc =  "A soft teshari cloak made the Chief Engineer"
 	icon_state = "tesh_cloak_ce"
 	item_state = "tesh_cloak_ce"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/engineer
 	name = "Engineering cloak"
-	desc =  "A soft Teshari cloak made for the Engineering department"
+	desc =  "A soft teshari cloak made for the Engineering department"
 	icon_state = "tesh_cloak_engie"
 	item_state = "tesh_cloak_engie"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/atmos
 	name = "Atmos Tech cloak"
-	desc =  "A soft Teshari cloak made for the Atmos Tech"
+	desc =  "A soft teshari cloak made for the Atmos Tech"
 	icon_state = "tesh_cloak_atmos"
 	item_state = "tesh_cloak_atmos"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/cmo
 	name = "Chief Medical Officer cloak"
-	desc =  "A soft Teshari cloak made the Cheif Medical Officer"
+	desc =  "A soft teshari cloak made the Cheif Medical Officer"
 	icon_state = "tesh_cloak_cmo"
 	item_state = "tesh_cloak_cmo"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/medical
 	name = "Medical cloak"
-	desc =  "A soft Teshari cloak made for the Medical department"
+	desc =  "A soft teshari cloak made for the Medical department"
 	icon_state = "tesh_cloak_doc"
 	item_state = "tesh_cloak_doc"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/chemistry
 	name = "Chemistry cloak"
-	desc =  "A soft Teshari cloak made for the Chemist"
+	desc =  "A soft teshari cloak made for the Chemist"
 	icon_state = "tesh_cloak_chem"
 	item_state = "tesh_cloak_chem"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/viro
 	name = "Virologist cloak"
-	desc =  "A soft Teshari cloak made for the Virologist"
+	desc =  "A soft teshari cloak made for the Virologist"
 	icon_state = "tesh_cloak_viro"
 	item_state = "tesh_cloak_viro"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/para
 	name = "Paramedic cloak"
-	desc =  "A soft Teshari cloak made for the Paramedic"
+	desc =  "A soft teshari cloak made for the Paramedic"
 	icon_state = "tesh_cloak_para"
 	item_state = "tesh_cloak_para"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/sci
 	name = "Scientist cloak"
-	desc =  "A soft Teshari cloak made for the Science department"
+	desc =  "A soft teshari cloak made for the Science department"
 	icon_state = "tesh_cloak_sci"
 	item_state = "tesh_cloak_sci"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/robo
 	name = "Roboticist cloak"
-	desc =  "A soft Teshari cloak made for the Roboticist"
+	desc =  "A soft teshari cloak made for the Roboticist"
 	icon_state = "tesh_cloak_robo"
 	item_state = "tesh_cloak_robo"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/sec
 	name = "Security cloak"
-	desc =  "A soft Teshari cloak made for the Security department"
+	desc =  "A soft teshari cloak made for the Security department"
 	icon_state = "tesh_cloak_sec"
 	item_state = "tesh_cloak_sec"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/qm
 	name = "Quartermaster's cloak"
-	desc =  "A soft Teshari cloak made for the Quartermaster"
+	desc =  "A soft teshari cloak made for the Quartermaster"
 	icon_state = "tesh_cloak_qm"
 	item_state = "tesh_cloak_qm"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/service
 	name = "Service cloak"
-	desc =  "A soft Teshari cloak made for the Service department"
+	desc =  "A soft teshari cloak made for the Service department"
 	icon_state = "tesh_cloak_serv"
 	item_state = "tesh_cloak_serv"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/iaa
-	name = "Iaa cloak"
-	desc =  "A soft Teshari cloak made for the Internal Affairs Agent"
+	name = "IAA cloak"
+	desc =  "A soft teshari cloak made for the Internal Affairs Agent"
 	icon_state = "tesh_cloak_iaa"
 	item_state = "tesh_cloak_iaa"
