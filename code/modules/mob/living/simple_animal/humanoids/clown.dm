@@ -93,12 +93,10 @@
 	var/footstep=0 // For clownshoe noises
 	//deny_client_move=1 // HONK // Doesn't work right yet
 
-	stop_automated_movement_when_pulled = 1
+	stop_when_pulled = 1
 	maxHealth = 30
 	health = 30
 	speed = 11
-
-	var/brain_op_stage = 0.0 // Faking it
 
 	harm_intent_damage = 1
 	melee_damage_lower = 0
@@ -119,7 +117,6 @@
 	heat_damage_per_tick = 15	//amount of damage applied if animal's body temperature is higher than maxbodytemp
 	cold_damage_per_tick = 10	//same as heat_damage_per_tick, only if the bodytemperature it's lower than minbodytemp
 	unsuitable_atoms_damage = 10
-	mutations = list(M_CLUMSY)
 
 /mob/living/simple_animal/hostile/clown/cluwne/goblin
 	name = "clown goblin"
@@ -134,12 +131,24 @@
 	maxHealth = 100
 	health = 100
 	size = 1
-	environment_smash_flags = SMASH_LIGHT_STRUCTURES
 
 	speed = 1
 	turns_per_move = 1
 
-	melee_damage_type = "BRAIN"
+	//melee_damage_type = "BRAIN" //We dont have this for SA
+
+//Braindamage
+/mob/living/simple_animal/hostile/clown/cluwne/DoPunch(var/atom/A)
+	. = ..()
+	if(.) // If we succeeded in hitting.
+		for(var/obj/machinery/light/light in range(5, src))
+			light.flicker(10)
+			playsound(light.loc, 'sound/items/bikehorn.ogg', 50, 10)
+		if(isliving(A))
+			var/mob/living/L = A
+			L.adjustBrainLoss(rand(1,2))
+			L.say("HONK!")
+			playsound(L.loc, 'sound/items/bikehorn.ogg', 50, 10)
 
 /mob/living/simple_animal/hostile/retaliate/cluwne/goblin/attackby(obj/item/weapon/W, mob/user)
 	if(istype(W,/obj/item/weapon/pen)) //Renaming
