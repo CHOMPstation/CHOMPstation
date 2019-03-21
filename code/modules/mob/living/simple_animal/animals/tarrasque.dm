@@ -169,6 +169,8 @@
 		while(anchored)
 			playsound(src.loc, "[active_sound]", 100, 0, 4)
 			sleep(60)
+	if(!target)
+
 
 //time for special MR X kick you in the shins and stands there code
 /mob/living/simple_animal/hostile/tarrasque/mrx/DoPunch(var/atom/A)
@@ -223,6 +225,3 @@
 */
 /mob/living/simple_animal/hostile/tarrasque/mrx/react_to_attack(var/mob/living/M)
 	return //ONly one target at a time, if he dies, we move on.
-
-/mob/living/simple_animal/hostile/tarrasque/mrx/mobs_in_view()
-	mobs_in_xray_view()
