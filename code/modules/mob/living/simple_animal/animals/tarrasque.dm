@@ -182,7 +182,7 @@
 		if(istype(A,/turf/simulated/wall))
 			var/turf/simulated/wall/wall = A
 			wall.dismantle_wall(null,null,1)
-		if(isliving(A))
+		if(isliving(A) && !anchored)
 			src.say("Run tasty treat, run~", alang,"chitters") //may hiss may not, balanced
 			var/mob/living/L = A
 			L.Weaken(5)
