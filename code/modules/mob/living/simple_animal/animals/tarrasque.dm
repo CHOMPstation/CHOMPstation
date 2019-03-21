@@ -147,6 +147,7 @@
 	add_language("Xenomorph")
 	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/hackervoice
 	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/scarethelights
+	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/knocktheirfaces
 
 /mob/living/simple_animal/hostile/tarrasque/mrx/Life()
 	..()
@@ -210,7 +211,7 @@
 /mob/living/simple_animal/hostile/tarrasque/mrx/proc/stopfuckingkitingme()
 	for(var/mob/living/carbon/human/peasant in range(2, src))
 		DoPunch(peasant)
-/mob/living/simple_animal/hostile/tarrasque/mrx/proc/hackervoice()
+/mob/living/simple_animal/hostile/tarrasque/mrx/proc/knocktheirfaces()
 	set name = "Anti Kite"
 	set desc = "Fuck them up"
 	set category = "X Powers"
