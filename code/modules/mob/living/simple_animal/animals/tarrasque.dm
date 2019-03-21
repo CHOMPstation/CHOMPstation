@@ -30,7 +30,7 @@
 	returns_home = 1
 	turns_per_move = 7
 	follow_dist = 999
-	speed = 7
+	speed = 4
 	
 	//Mob interaction
 	response_help   = "Sacrifices self to"
@@ -101,8 +101,8 @@
 	health = 2000
 	maxHealth = 2000
 	attack_sharp = 0
-	melee_attack_minDelay = 0
-	melee_attack_maxDelay = 1
+	melee_attack_minDelay = 2
+	melee_attack_maxDelay = 10
 	view_range = 420
 	size_multiplier = 1
 	icon_state = "arachnid"
@@ -112,10 +112,11 @@
 	icon_rest = "arachnid_sleeping"
 	tt_desc = "Unknown Specimen"
 	attacktext = list("whacks","slashes","smashes")
-	melee_damage_lower = 0 //huh not so bad
-	melee_damage_upper = 50 //oh, oh no
+	melee_damage_lower = 0 
+	melee_damage_upper = 50
 	universal_speak = 0
 	var/alang = LANGUAGE_GALCOM
+	var/active_sound = 'sound/effects/kefka.ogg'
 	armor = list(
 				"melee" = 99,
 				"bullet" = 99,
@@ -146,6 +147,7 @@
 	add_language("Xenomorph")
 	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/hackervoice
 	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/scarethelights
+	verbs |= /mob/living/simple_animal/hostile/tarrasque/mrx/proc/knocktheirfaces
 
 /mob/living/simple_animal/hostile/tarrasque/mrx/Life()
 	..()
@@ -155,14 +157,19 @@
 		resting = !resting
 		update_icon()
 	if (anchored)
-		set_light(l_range = 1.5, l_power = 2, l_color = COLOR_RED)
+		melee_damage_upper = 0 //hacky way to stop attacks
+		set_light(l_range = 10, l_power = 5, l_color = COLOR_RED) //RUN BITCHES
+	if(!anchored && !melee_damage_upper)
+		melee_damage_upper = 50
 	if(!client)
-		for(var/obj/machinery/door/airlock/door in range(3, src))
-			door.open(1)
-			door.lock(1)
+		opensesame()
 	if(buckled)
 		resist()
 		buckled = null
+	if(active_sound)
+		while(anchored)
+			playsound(src.loc, "[active_sound]", 100, 0, 4)
+			sleep(60)
 
 //time for special MR X kick you in the shins and stands there code
 /mob/living/simple_animal/hostile/tarrasque/mrx/DoPunch(var/atom/A)
@@ -172,23 +179,19 @@
 			alang="Xenomorph"
 		else if(alang=="Xenomorph")
 			alang=LANGUAGE_GALCOM
-		for(var/obj/machinery/light/light in range(5, src))
-			light.flicker(10)
+		flicker()
 		if(istype(A,/turf/simulated/wall))
 			var/turf/simulated/wall/wall = A
 			wall.dismantle_wall(null,null,1)
-		if(isliving(A))
-			LoseTarget()
+		if(isliving(A) && !anchored)
 			src.say("Run tasty treat, run~", alang,"chitters") //may hiss may not, balanced
 			var/mob/living/L = A
 			L.Weaken(5)
 			stop_automated_movement = 1
 			anchored = 1
-			hostile = 0
-			spawn(100)
+			spawn(300)
 				stop_automated_movement = 0
 				anchored = 0
-				hostile = 1
 
 /mob/living/simple_animal/hostile/tarrasque/mrx/handle_regular_hud_updates()
 	..()
@@ -198,16 +201,31 @@
 /////////////////////////////////////////
 //////////////Special EX PRocs go here // Mostly for playercontrolled stuff
 /////////////////////////////////////////
+/mob/living/simple_animal/hostile/tarrasque/mrx/proc/opensesame()
+	for(var/obj/machinery/door/airlock/door in range(5, src))
+		door.open(1)
+		door.lock(1)
+/mob/living/simple_animal/hostile/tarrasque/mrx/proc/flicker()
+	for(var/obj/machinery/light/light in range(5, src))
+		light.flicker(2) 
+/mob/living/simple_animal/hostile/tarrasque/mrx/proc/stopfuckingkitingme()
+	for(var/mob/living/carbon/human/peasant in range(2, src))
+		DoPunch(peasant)
+/mob/living/simple_animal/hostile/tarrasque/mrx/proc/knocktheirfaces()
+	set name = "Anti Kite"
+	set desc = "Fuck them up"
+	set category = "X Powers"
+	stopfuckingkitingme()
 /mob/living/simple_animal/hostile/tarrasque/mrx/proc/hackervoice()
 	set name = "Door Override"
 	set desc = "Hacker Voice: Im in"
 	set category = "X Powers"
-	for(var/obj/machinery/door/airlock/door in range(5, src))
-		door.open(1)
-		door.lock(1)
+	opensesame()
 /mob/living/simple_animal/hostile/tarrasque/mrx/proc/scarethelights()
 	set name = "Light Flicker"
 	set desc = "Hacker Voice: Im in"
 	set category = "X Powers"
-	for(var/obj/machinery/light/light in range(5, src))
-		light.flicker(2) 
+	flicker()
+
+/mob/living/simple_animal/hostile/tarrasque/mrx/react_to_attack(var/mob/living/M)
+	return //ONly one target at a time, if he dies, we move on.
