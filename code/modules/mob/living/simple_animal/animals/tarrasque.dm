@@ -101,8 +101,8 @@
 	health = 2000
 	maxHealth = 2000
 	attack_sharp = 0
-	melee_attack_minDelay = 0
-	melee_attack_maxDelay = 1
+	melee_attack_minDelay = 10
+	melee_attack_maxDelay = 100
 	view_range = 420
 	size_multiplier = 1
 	icon_state = "arachnid"
@@ -178,14 +178,15 @@
 			var/turf/simulated/wall/wall = A
 			wall.dismantle_wall(null,null,1)
 		if(isliving(A))
-			LoseTarget()
 			src.say("Run tasty treat, run~", alang,"chitters") //may hiss may not, balanced
 			var/mob/living/L = A
 			L.Weaken(5)
 			stop_automated_movement = 1
 			anchored = 1
 			hostile = 0
-			spawn(100)
+			spawn(2)
+				lose_target() //should fix the bug with ORAORAORA
+			spawn(300)
 				stop_automated_movement = 0
 				anchored = 0
 				hostile = 1
