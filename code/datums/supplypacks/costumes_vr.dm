@@ -112,7 +112,8 @@
 			/obj/item/clothing/suit/storage/seromi/cloak/black_purple,
 			/obj/item/clothing/suit/storage/seromi/cloak/black_red,
 			/obj/item/clothing/suit/storage/seromi/cloak/black_white,
-			/obj/item/clothing/suit/storage/seromi/cloak/black_yellow
+			/obj/item/clothing/suit/storage/seromi/cloak/black_yellow,
+			/obj/item/clothing/suit/storage/seromi/cloak/black_glow
 			)
 	cost = 40
 	containertype = /obj/structure/closet/crate
