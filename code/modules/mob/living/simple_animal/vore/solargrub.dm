@@ -17,11 +17,11 @@ List of things solar grubs should be able to do:
 	icon_state = "solargrub"
 	icon_living = "solargrub"
 	icon_dead = "solargrub-dead"
-	
+
 	var/charge = null //CHOMPEDIT The amount of power we sucked off, in K as in THOUSANDS.
 	var/can_evolve = 1 //CHOMPEDIT VAR to decide whether this subspecies is allowed to become a queen
-	var/adult_form = null //CHOMPEDIT VAR that decides what mob the queen form is. ex /mob/living/simple_animal/retaliate/solarmoth
-	
+	var/adult_form = "/mob/living/simple_animal/retaliate/solarmoth" //CHOMPEDIT VAR that decides what mob the queen form is. ex /mob/living/simple_animal/retaliate/solarmoth
+
 	faction = "grubs"
 	maxHealth = 50 //grubs can take a lot of harm
 	health = 50
@@ -61,7 +61,8 @@ List of things solar grubs should be able to do:
 	//VARS that were previously in LIFE but why tho, im porting all comments the original coder did too.
 	var/apc_drain_rate = 750 //Going to see if grubs are better as a minimal bother. previous value : 4000
 	var/powerdraw = 100000 // previous value 150000
-	
+
+
 /mob/living/simple_animal/retaliate/solargrub/PunchTarget()
 	if(target_mob&& prob(emp_chance))
 		target_mob.emp_act(4) //The weakest strength of EMP
@@ -71,7 +72,6 @@ List of things solar grubs should be able to do:
 /mob/living/simple_animal/retaliate/solargrub/Life()
 	. = ..()
 	if(!. || ai_inactive) return
-
 	if(stance == STANCE_IDLE)
 			//first, check for potential cables nearby to powersink
 		var/turf/S = loc
@@ -86,7 +86,7 @@ List of things solar grubs should be able to do:
 			anchored = 1
 			PN = attached.powernet
 			PN.draw_power(powerdraw)
-			charge = charge + powerdraw/1000 //This adds raw powerdraw to charge(Charge is in Ks as in 1 = 1000)
+			charge = charge + (powerdraw/1000) //This adds raw powerdraw to charge(Charge is in Ks as in 1 = 1000)
 			for(var/obj/machinery/power/terminal/T in PN.nodes)
 				if(istype(T.master, /obj/machinery/power/apc))
 					var/obj/machinery/power/apc/A = T.master
@@ -97,6 +97,18 @@ List of things solar grubs should be able to do:
 		else if(!attached && anchored)
 			anchored = 0
 			PN = null
+
+
+		if(prob(2) && charge >= 16000 && can_evolve == 1 && moth_amount.len <= 2) //it's reading from the moth_amount global list to determine if it can evolve.
+			anchored = 0
+			PN = attached.powernet
+			death_star()
+
+
+/mob/living/simple_animal/retaliate/solargrub/proc/death_star()
+	visible_message("<span class='warning'>\The [src]'s shell rips open and evolves!</span>")
+	new adult_form(get_turf(src))
+	qdel(src)
 
 /mob/living/simple_animal/retaliate/solargrub //active noms
 	vore_bump_chance = 50
