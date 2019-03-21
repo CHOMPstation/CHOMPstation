@@ -15,8 +15,11 @@
 	move_to_delay = 2
 
 	run_at_them = 0
-	cooperative = 1
-
+	cooperative = TRUE
+	firing_lines = TRUE
+	investigates = TRUE
+	assist_distance = 100
+	
 	turns_per_move = 5
 	stop_when_pulled = 0
 
@@ -130,7 +133,9 @@
 	emote_hear = list("honks")
 	maxHealth = 100
 	health = 100
-
+	
+	view_range = 30//owo
+	
 	speed = 1
 	turns_per_move = 1
 
@@ -156,3 +161,22 @@
 			name = "[n_name]"
 		return
 	..()
+
+/mob/living/simple_animal/clowngang
+	name = "Pandoras box"
+	desc = "A honkmotherload of fun"
+	
+/mob/living/simple_animal/clowngang/Life()
+	death()
+/mob/living/simple_animal/clowngang/death()
+	..()
+	new /mob/living/simple_animal/retaliate/synx/pet/clown(location)
+	new /mob/living/simple_animal/hostile/clown(location)
+	new /mob/living/simple_animal/hostile/clown(location)
+	new /mob/living/simple_animal/hostile/clown(location)
+	new /mob/living/simple_animal/hostile/clown/glorious(location)
+	new /mob/living/simple_animal/hostile/clown/glorious(location)
+	new /mob/living/simple_animal/hostile/clown/cluwne(location)
+	new /mob/living/simple_animal/hostile/clown/cluwne/goblin(location)
+	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 10)
+	qdel(src)
