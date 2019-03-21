@@ -168,7 +168,7 @@
 	if(active_sound)
 		while(anchored)
 			playsound(src.loc, "[active_sound]", 100, 0, 4)
-			sleep(15)
+			sleep(60)
 
 //time for special MR X kick you in the shins and stands there code
 /mob/living/simple_animal/hostile/tarrasque/mrx/DoPunch(var/atom/A)
