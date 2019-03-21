@@ -318,7 +318,7 @@
 
 /datum/gear/suit/dept/cloak/engineer
 	display_name = "Teshari Engineer Cloak"
-	path = /obj/item/clothing/suit/storage/seromi/cloak/jobs/eningeer
+	path = /obj/item/clothing/suit/storage/seromi/cloak/jobs/engineer
 	allowed_roles = list("Chief Engineer","Station Engineer")
 
 /datum/gear/suit/dept/cloak/atmos

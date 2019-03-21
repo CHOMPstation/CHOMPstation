@@ -166,7 +166,7 @@
 	icon_state = "tesh_cloak_ce"
 	item_state = "tesh_cloak_ce"
 
-/obj/item/clothing/suit/storage/seromi/cloak/jobs/eningeer
+/obj/item/clothing/suit/storage/seromi/cloak/jobs/engineer
 	name = "Engineering cloak"
 	desc =  "A soft Teshari cloak made for the Engineering department"
 	icon_state = "tesh_cloak_engie"
@@ -227,7 +227,7 @@
 	item_state = "tesh_cloak_sec"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/qm
-	name = "Quarter master's cloak"
+	name = "Quartermaster's cloak"
 	desc =  "A soft Teshari cloak made for the Quartermaster"
 	icon_state = "tesh_cloak_qm"
 	item_state = "tesh_cloak_qm"
@@ -235,11 +235,11 @@
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/service
 	name = "Service cloak"
 	desc =  "A soft Teshari cloak made for the Service department"
-	icon_state = "tesh_uniform_serv"
-	item_state = "tesh_uniform_serv"
+	icon_state = "tesh_cloak_serv"
+	item_state = "tesh_cloak_serv"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/iaa
 	name = "Iaa cloak"
 	desc =  "A soft Teshari cloak made for the Internal Affairs Agent"
-	icon_state = "tesh_uniform_iaa"
-	item_state = "tesh_uniform_iaa"
+	icon_state = "tesh_cloak_iaa"
+	item_state = "tesh_cloak_iaa"
