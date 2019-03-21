@@ -217,5 +217,12 @@
 	set desc = "Hacker Voice: Im in"
 	set category = "X Powers"
 	flicker()
+/*
 /mob/living/simple_animal/hostile/tarrasque/mrx/in_range(source, user) //override
 	return 1
+*/
+/mob/living/simple_animal/hostile/tarrasque/mrx/react_to_attack(var/mob/living/M)
+	return //ONly one target at a time, if he dies, we move on.
+
+/mob/living/simple_animal/hostile/tarrasque/mrx/mobs_in_view()
+	mobs_in_xray_view()
