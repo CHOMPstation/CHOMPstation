@@ -130,7 +130,6 @@
 	emote_hear = list("honks")
 	maxHealth = 100
 	health = 100
-	size = 1
 
 	speed = 1
 	turns_per_move = 1
