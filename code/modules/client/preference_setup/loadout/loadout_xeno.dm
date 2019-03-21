@@ -208,7 +208,7 @@
 
 /datum/gear/uniform/dept/undercoat/mining
 	display_name = "Teshari Mining Undercoat"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/mining
+	path = /obj/item/clothing/under/seromi/undercoat/jobs/mining
 	allowed_roles = list("Quartermaster","Shaft Miner")
 
 /datum/gear/uniform/dept/undercoat/security
