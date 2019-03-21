@@ -116,7 +116,7 @@
 	melee_damage_upper = 50
 	universal_speak = 0
 	var/alang = LANGUAGE_GALCOM
-	var/active_sound = null //'sound/effects/kefka.ogg' //https://www.youtube.com/watch?v=CyZoe-r9qb0
+	var/active_sound = 'sound/effects/kefka.ogg'
 	armor = list(
 				"melee" = 99,
 				"bullet" = 99,
