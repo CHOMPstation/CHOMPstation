@@ -41,127 +41,127 @@
 	item_state = "tesh_uniform_bo"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
-/obj/item/clothing/under/seromi/undercoat/black_orange
+/obj/item/clothing/under/seromi/undercoat/standard/black_orange
 	name = "black and orange undercoat"
 	icon_state = "tesh_uniform_bo"
 	item_state = "tesh_uniform_bo"
 
-/obj/item/clothing/under/seromi/undercoat/black_grey
+/obj/item/clothing/under/seromi/undercoat/standard/black_grey
 	name = "black and grey undercoat"
 	icon_state = "tesh_uniform_bg"
 	item_state = "tesh_uniform_bg"
 
-/obj/item/clothing/under/seromi/undercoat/black_midgrey
+/obj/item/clothing/under/seromi/undercoat/standard/black_midgrey
 	name = "black and medium grey undercoat"
 	icon_state = "tesh_uniform_bmg"
 	item_state = "tesh_uniform_bmg"
 
-/obj/item/clothing/under/seromi/undercoat/black_lightgrey
+/obj/item/clothing/under/seromi/undercoat/standard/black_lightgrey
 	name = "black and light grey undercoat"
 	icon_state = "tesh_uniform_blg"
 	item_state = "tesh_uniform_blg"
 
-/obj/item/clothing/under/seromi/undercoat/black_white
+/obj/item/clothing/under/seromi/undercoat/standard/black_white
 	name = "black and white undercoat"
 	icon_state = "tesh_uniform_bw"
 	item_state = "tesh_uniform_bw"
 
-/obj/item/clothing/under/seromi/undercoat/black_red
+/obj/item/clothing/under/seromi/undercoat/standard/black_red
 	name = "black and red undercoat"
 	icon_state = "tesh_uniform_br"
 	item_state = "tesh_uniform_br"
 
-/obj/item/clothing/under/seromi/undercoat/black
+/obj/item/clothing/under/seromi/undercoat/standard/black
 	name = "black undercoat"
 	icon_state = "tesh_uniform_bn"
 	item_state = "tesh_uniform_bn"
 
-/obj/item/clothing/under/seromi/undercoat/black_yellow
+/obj/item/clothing/under/seromi/undercoat/standard/black_yellow
 	name = "black and yellow undercoat"
 	icon_state = "tesh_uniform_by"
 	item_state = "tesh_uniform_by"
 
-/obj/item/clothing/under/seromi/undercoat/black_green
+/obj/item/clothing/under/seromi/undercoat/standard/black_green
 	name = "black and green undercoat"
 	icon_state = "tesh_uniform_bgr"
 	item_state = "tesh_uniform_bgr"
 
-/obj/item/clothing/under/seromi/undercoat/black_blue
+/obj/item/clothing/under/seromi/undercoat/standard/black_blue
 	name = "black and blue undercoat"
 	icon_state = "tesh_uniform_bbl"
 	item_state = "tesh_uniform_bbl"
 
-/obj/item/clothing/under/seromi/undercoat/black_purple
+/obj/item/clothing/under/seromi/undercoat/standard/black_purple
 	name = "black and purple undercoat"
 	icon_state = "tesh_uniform_bp"
 	item_state = "tesh_uniform_bp"
 
-/obj/item/clothing/under/seromi/undercoat/black_pink
+/obj/item/clothing/under/seromi/undercoat/standard/black_pink
 	name = "black and pink undercoat"
 	icon_state = "tesh_uniform_bpi"
 	item_state = "tesh_uniform_bpi"
 
-/obj/item/clothing/under/seromi/undercoat/black_brown
+/obj/item/clothing/under/seromi/undercoat/standard/black_brown
 	name = "black and brown undercoat"
 	icon_state = "tesh_uniform_bbr"
 	item_state = "tesh_uniform_bbr"
 
-/obj/item/clothing/under/seromi/undercoat/orange_grey
+/obj/item/clothing/under/seromi/undercoat/standard/orange_grey
 	name = "orange and grey undercoat"
 	icon_state = "tesh_uniform_og"
 	item_state = "tesh_uniform_og"
 
-/obj/item/clothing/under/seromi/undercoat/rainbow
+/obj/item/clothing/under/seromi/undercoat/standard/rainbow
 	name = "rainbow undercoat"
 	icon_state = "tesh_uniform_rainbow"
 	item_state = "tesh_uniform_rainbow"
 
-/obj/item/clothing/under/seromi/undercoat/lightgrey_grey
+/obj/item/clothing/under/seromi/undercoat/standard/lightgrey_grey
 	name = "light grey and grey undercoat"
 	icon_state = "tesh_uniform_lgg"
 	item_state = "tesh_uniform_lgg"
 
-/obj/item/clothing/under/seromi/undercoat/white_grey
+/obj/item/clothing/under/seromi/undercoat/standard/white_grey
 	name = "white and grey undercoat"
 	icon_state = "tesh_uniform_wg"
 	item_state = "tesh_uniform_wg"
 
-/obj/item/clothing/under/seromi/undercoat/red_grey
+/obj/item/clothing/under/seromi/undercoat/standard/red_grey
 	name = "red and grey undercoat"
 	icon_state = "tesh_uniform_rg"
 	item_state = "tesh_uniform_rg"
 
-/obj/item/clothing/under/seromi/undercoat/orange
+/obj/item/clothing/under/seromi/undercoat/standard/orange
 	name = "orange undercoat"
 	icon_state = "tesh_uniform_on"
 	item_state = "tesh_uniform_on"
 
-/obj/item/clothing/under/seromi/undercoat/yellow_grey
+/obj/item/clothing/under/seromi/undercoat/standard/yellow_grey
 	name = "yellow and grey undercoat"
 	icon_state = "tesh_uniform_yg"
 	item_state = "tesh_uniform_yg"
 
-/obj/item/clothing/under/seromi/undercoat/green_grey
+/obj/item/clothing/under/seromi/undercoat/standard/green_grey
 	name = "green and grey undercoat"
 	icon_state = "tesh_uniform_gg"
 	item_state = "tesh_uniform_gg"
 
-/obj/item/clothing/under/seromi/undercoat/blue_grey
+/obj/item/clothing/under/seromi/undercoat/standard/blue_grey
 	name = "blue and grey undercoat"
 	icon_state = "tesh_uniform_blug"
 	item_state = "tesh_uniform_blug"
 
-/obj/item/clothing/under/seromi/undercoat/purple_grey
+/obj/item/clothing/under/seromi/undercoat/standard/purple_grey
 	name = "purple and grey undercoat"
 	icon_state = "tesh_uniform_pg"
 	item_state = "tesh_uniform_pg"
 
-/obj/item/clothing/under/seromi/undercoat/pink_grey
+/obj/item/clothing/under/seromi/undercoat/standard/pink_grey
 	name = "pink and grey undercoat"
 	icon_state = "tesh_uniform_pig"
 	item_state = "tesh_uniform_pig"
 
-/obj/item/clothing/under/seromi/undercoat/brown_grey
+/obj/item/clothing/under/seromi/undercoat/standard/brown_grey
 	name = "brown and grey undercoat"
 	icon_state = "tesh_uniform_brg"
 	item_state = "tesh_uniform_brg"

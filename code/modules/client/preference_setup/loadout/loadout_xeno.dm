@@ -107,28 +107,28 @@
 
 /datum/gear/uniform/undercoat
 	display_name = "undercoat selection (Teshari)"
-	path = /obj/item/clothing/under/seromi/undercoat
+	path = /obj/item/clothing/under/seromi/undercoat/standard
 	whitelisted = SPECIES_TESHARI
 	sort_category = "Xenowear"
 
 /datum/gear/uniform/undercoat/New()
 	..()
 	var/list/undercoats = list()
-	for(var/undercoat in typesof(/obj/item/clothing/under/seromi/undercoat))
+	for(var/undercoat in typesof(/obj/item/clothing/under/seromi/undercoat/standard))
 		var/obj/item/clothing/under/seromi/undercoat/undercoat_type = undercoat
 		undercoats[initial(undercoat_type.name)] = undercoat_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(undercoats))
 
 /datum/gear/suit/cloak
 	display_name = "cloak selection (Teshari)"
-	path = /obj/item/clothing/suit/storage/seromi/cloak
+	path = /obj/item/clothing/suit/storage/seromi/cloak/standard
 	whitelisted = SPECIES_TESHARI
 	sort_category = "Xenowear"
 
 /datum/gear/suit/cloak/New()
 	..()
 	var/list/cloaks = list()
-	for(var/cloak in typesof(/obj/item/clothing/suit/storage/seromi/cloak))
+	for(var/cloak in typesof(/obj/item/clothing/suit/storage/seromi/cloak/standard))
 		var/obj/item/clothing/suit/storage/seromi/cloak/cloak_type = cloak
 		cloaks[initial(cloak_type.name)] = cloak_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(cloaks))
