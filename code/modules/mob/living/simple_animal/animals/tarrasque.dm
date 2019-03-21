@@ -217,3 +217,5 @@
 	set desc = "Hacker Voice: Im in"
 	set category = "X Powers"
 	flicker()
+/mob/living/simple_animal/hostile/tarrasque/mrx/in_range(source, user) //override
+	return 1
