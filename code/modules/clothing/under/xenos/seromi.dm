@@ -167,7 +167,7 @@
 	item_state = "tesh_uniform_brg"
 
 /obj/item/clothing/under/seromi/undercoat/jobs
-		icon = 'icons/obj/clothing/species/seromi/deptjacket.dmi'
+	icon = 'icons/obj/clothing/species/seromi/deptjacket.dmi'
 	icon_override = 'icons/mob/species/seromi/deptjacket.dmi'
 
 /obj/item/clothing/under/seromi/undercoat/jobs/cargo

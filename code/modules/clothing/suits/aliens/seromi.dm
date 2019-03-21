@@ -136,7 +136,7 @@
 /obj/item/clothing/suit/storage/seromi/cloak/black_glow
  	name = "black and glowing cloak"
  	icon_state = "tesh_cloak_bglowing"
-	item_state = "tesh_cloak_bglowing"
+ 	item_state = "tesh_cloak_bglowing"
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs
 	icon = 'icons/mob/species/seromi/deptcloak.dmi'
