@@ -30,7 +30,7 @@
 	returns_home = 1
 	turns_per_move = 7
 	follow_dist = 999
-	speed = 7
+	speed = 4
 	
 	//Mob interaction
 	response_help   = "Sacrifices self to"
@@ -169,8 +169,6 @@
 		while(anchored)
 			playsound(src.loc, "[active_sound]", 100, 0, 4)
 			sleep(60)
-	if(!target)
-
 
 //time for special MR X kick you in the shins and stands there code
 /mob/living/simple_animal/hostile/tarrasque/mrx/DoPunch(var/atom/A)
@@ -209,6 +207,14 @@
 /mob/living/simple_animal/hostile/tarrasque/mrx/proc/flicker()
 	for(var/obj/machinery/light/light in range(5, src))
 		light.flicker(2) 
+/mob/living/simple_animal/hostile/tarrasque/mrx/proc/stopfuckingkitingme()
+	for(var/mob/living/carbon/human/peasant in range(2, src))
+		DoPunch(peasant)
+/mob/living/simple_animal/hostile/tarrasque/mrx/proc/hackervoice()
+	set name = "Anti Kite"
+	set desc = "Fuck them up"
+	set category = "X Powers"
+	stopfuckingkitingme()
 /mob/living/simple_animal/hostile/tarrasque/mrx/proc/hackervoice()
 	set name = "Door Override"
 	set desc = "Hacker Voice: Im in"
@@ -219,9 +225,6 @@
 	set desc = "Hacker Voice: Im in"
 	set category = "X Powers"
 	flicker()
-/*
-/mob/living/simple_animal/hostile/tarrasque/mrx/in_range(source, user) //override
-	return 1
-*/
+
 /mob/living/simple_animal/hostile/tarrasque/mrx/react_to_attack(var/mob/living/M)
 	return //ONly one target at a time, if he dies, we move on.
