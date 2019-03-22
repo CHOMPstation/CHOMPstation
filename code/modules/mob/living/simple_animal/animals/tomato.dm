@@ -171,22 +171,35 @@
 	B.digest_brute = 12
 
 /mob/living/simple_animal/hostile/piranhaplant/pitcher
+	icon_state = "pitcher"
+	icon_living = "pitcher"
 	name = "Pitcher Plant"
 	desc = "It's a plant! How pretty"
 	tt_desc = "Brig Flower"
-	health = 500
-	maxHealth = 500 //starts with 50
+	health = 50
+	maxHealth = 50 //starts with 50
+	var/antispam = 0
 
-/mob/living/simple_animal/hostile/piranhaplant/pitcher/New()
+/mob/living/simple_animal/hostile/piranhaplant/pitcher/death()
 	..()
-	health -= 450
+	new /obj/item/weapon/reagent_containers/food/snacks/aesirsalad(location)
+	new /obj/item/weapon/reagent_containers/food/snacks/aesirsalad(location)
+	new /obj/item/weapon/reagent_containers/food/snacks/aesirsalad(location)
+	new /obj/item/weapon/reagent_containers/food/snacks/aesirsalad(location)
 
 /mob/living/simple_animal/hostile/piranhaplant/pitcher/Life()
 	..()
 	if(!anchored)
 		anchored=1
-	if(vore_fullness)
-		health = health + 0.1
+	if(maxhealth <= 499) //Ok maybe there are limits
+		maxhealth = health //Limits are merely a suggestion
+	if(vore_fullness && !antispam)
+		antispam = 1
+		spawn(10)
+			maxHealth += 1
+			health += 1
+			antispam = !antispam
+		
 	if(size_multiplier!=1*health/100)
 		size_multiplier=1*health/100
 		update_icons()
