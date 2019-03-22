@@ -31,7 +31,7 @@
 	turns_per_move = 7
 	follow_dist = 999
 	speed = 4
-	
+
 	//Mob interaction
 	response_help   = "Sacrifices self to"
 	response_harm   = "Weakly flails at"
