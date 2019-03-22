@@ -111,7 +111,7 @@
 	icon_dead = "arachnid_stunned" //Same as dead but no blood
 	icon_rest = "arachnid_sleeping"
 	tt_desc = "Unknown Specimen"
-	attacktext = list("whacks","slashes","smashes")
+	attacktext = list("whacked","slashed","smashed")
 	melee_damage_lower = 0 
 	melee_damage_upper = 50
 	universal_speak = 0
@@ -159,7 +159,7 @@
 	if (anchored)
 		melee_damage_upper = 0 //hacky way to stop attacks
 		set_light(l_range = 10, l_power = 5, l_color = COLOR_RED) //RUN BITCHES
-	if(!anchored && !melee_damage_upper)
+	if(!anchored)
 		melee_damage_upper = 50
 	if(!client)
 		opensesame()
@@ -189,9 +189,11 @@
 			L.Weaken(5)
 			stop_automated_movement = 1
 			anchored = 1
-			spawn(300)
+			melee_damage_upper = 0
+			spawn(150)
 				stop_automated_movement = 0
 				anchored = 0
+				melee_damage_upper = 50
 
 /mob/living/simple_animal/hostile/tarrasque/mrx/handle_regular_hud_updates()
 	..()
