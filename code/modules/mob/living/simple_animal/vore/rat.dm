@@ -38,8 +38,9 @@
 	pixel_y = 0
 
 	vore_active = TRUE
-	vore_capacity = 1
+	vore_capacity = 2
 	vore_pounce_chance = 45
+	vore_ignores_undigestable = 0
 	vore_icons = SA_ICON_LIVING | SA_ICON_REST
 
 	var/life_since_foodscan = 0

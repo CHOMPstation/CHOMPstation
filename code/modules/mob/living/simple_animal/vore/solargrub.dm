@@ -114,7 +114,8 @@ List of things solar grubs should be able to do:
 	vore_bump_chance = 50
 	vore_bump_emote = "applies minimal effort to try and slurp up"
 	vore_active = 1
-	vore_capacity = 1
+	vore_capacity = 3 //Raising to three rather than two only due to how common they are
+	vore_ignores_undigestable = 0
 	vore_pounce_chance = 0 //grubs only eat incapacitated targets
 	vore_default_mode = DM_DIGEST
 
