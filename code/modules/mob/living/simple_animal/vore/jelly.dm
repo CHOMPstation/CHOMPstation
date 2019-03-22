@@ -48,5 +48,7 @@
 /mob/living/simple_animal/hostile/jelly
 	vore_active = 1
 	vore_pounce_chance = 20 //Should be a percentage
+	vore_capacity = 2
+	vore_ignores_undigestable = 0
 	vore_icons = SA_ICON_LIVING
 	swallowTime = 10 SECONDS //Hungry little bastards.
