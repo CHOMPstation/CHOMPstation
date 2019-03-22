@@ -197,7 +197,8 @@
 	if(vore_fullness && !antispam)
 		antispam = 1
 		spawn(10)
-			maxHealth += 1
+			if(maxhealth <= 499)
+				maxHealth += 1
 			health += 1
 			antispam = !antispam
 		
