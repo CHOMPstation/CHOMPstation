@@ -186,6 +186,7 @@
 	new /obj/item/weapon/reagent_containers/food/snacks/aesirsalad(location)
 	new /obj/item/weapon/reagent_containers/food/snacks/aesirsalad(location)
 	new /obj/item/weapon/reagent_containers/food/snacks/aesirsalad(location)
+	qdel(src)
 
 /mob/living/simple_animal/hostile/piranhaplant/pitcher/Life()
 	..()
