@@ -174,17 +174,22 @@
 	name = "Pitcher Plant"
 	desc = "It's a plant! How pretty"
 	tt_desc = "Brig Flower"
+	health = 500
 	maxHealth = 500 //starts with 50
-	
+
+/mob/living/simple_animal/hostile/piranhaplant/pitcher/New()
+	..()
+	health -= 450
+
 /mob/living/simple_animal/hostile/piranhaplant/pitcher/Life()
 	..()
 	if(!anchored)
 		anchored=1
 	if(vore_fullness)
-		health++
+		health = health + 0.1
 	if(size_multiplier!=1*health/100)
 		size_multiplier=1*health/100
-		update_icon()
+		update_icons()
 
 /mob/living/simple_animal/hostile/piranhaplant/pitcher/init_vore()
 	..()
