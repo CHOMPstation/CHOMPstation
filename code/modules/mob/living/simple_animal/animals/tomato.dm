@@ -192,12 +192,12 @@
 	..()
 	if(!anchored)
 		anchored=1
-	if(maxhealth <= 499) //Ok maybe there are limits
-		maxhealth = health //Limits are merely a suggestion
+	if(maxHealth <= 499) //Ok maybe there are limits
+		maxHealth = health //Limits are merely a suggestion
 	if(vore_fullness && !antispam)
 		antispam = 1
 		spawn(10)
-			if(maxhealth <= 499)
+			if(maxHealth <= 499)
 				maxHealth += 1
 			health += 1
 			antispam = !antispam
