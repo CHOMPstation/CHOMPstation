@@ -102,6 +102,9 @@ List of things solar grubs should be able to do:
 		if(prob(2) && charge >= 16000 && can_evolve == 1 && moth_amount.len <= 1) //it's reading from the moth_amount global list to determine if it can evolve.
 			anchored = 0
 			PN = attached.powernet
+			release_vore_contents()
+			prey_excludes.Cut()
+			stop_consumption()
 			death_star()
 					
 
