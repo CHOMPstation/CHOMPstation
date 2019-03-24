@@ -17,11 +17,11 @@ List of things solar grubs should be able to do:
 	icon_state = "solargrub"
 	icon_living = "solargrub"
 	icon_dead = "solargrub-dead"
-
+	
 	var/charge = null //CHOMPEDIT The amount of power we sucked off, in K as in THOUSANDS.
 	var/can_evolve = 1 //CHOMPEDIT VAR to decide whether this subspecies is allowed to become a queen
 	var/adult_form = "/mob/living/simple_animal/retaliate/solarmoth" //CHOMPEDIT VAR that decides what mob the queen form is. ex /mob/living/simple_animal/retaliate/solarmoth
-
+	
 	faction = "grubs"
 	maxHealth = 50 //grubs can take a lot of harm
 	health = 50
@@ -62,13 +62,13 @@ List of things solar grubs should be able to do:
 	var/apc_drain_rate = 750 //Going to see if grubs are better as a minimal bother. previous value : 4000
 	var/powerdraw = 100000 // previous value 150000
 
-
+	
 /mob/living/simple_animal/retaliate/solargrub/PunchTarget()
 	if(target_mob&& prob(emp_chance))
 		target_mob.emp_act(4) //The weakest strength of EMP
 		visible_message("<span class='danger'>The grub releases a powerful shock!</span>")
 	..()
-
+	
 /mob/living/simple_animal/retaliate/solargrub/Life()
 	. = ..()
 	if(!. || ai_inactive) return
@@ -97,13 +97,13 @@ List of things solar grubs should be able to do:
 		else if(!attached && anchored)
 			anchored = 0
 			PN = null
+			
 
-
-		if(prob(2) && charge >= 16000 && can_evolve == 1 && moth_amount.len <= 2) //it's reading from the moth_amount global list to determine if it can evolve.
+		if(prob(2) && charge >= 16000 && can_evolve == 1 && moth_amount.len <= 1) //it's reading from the moth_amount global list to determine if it can evolve.
 			anchored = 0
 			PN = attached.powernet
 			death_star()
-
+					
 
 /mob/living/simple_animal/retaliate/solargrub/proc/death_star()
 	visible_message("<span class='warning'>\The [src]'s shell rips open and evolves!</span>")
@@ -114,8 +114,7 @@ List of things solar grubs should be able to do:
 	vore_bump_chance = 50
 	vore_bump_emote = "applies minimal effort to try and slurp up"
 	vore_active = 1
-	vore_capacity = 3 //Raising to three rather than two only due to how common they are
-	vore_ignores_undigestable = 0
+	vore_capacity = 1
 	vore_pounce_chance = 0 //grubs only eat incapacitated targets
 	vore_default_mode = DM_DIGEST
 
