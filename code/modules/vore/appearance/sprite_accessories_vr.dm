@@ -530,6 +530,12 @@
 	desc = ""
 	icon_state = "snag-backplate"
 
+/datum/sprite_accessory/wing/snagc
+	name = "xenomorph backplate, colorable"
+	desc = ""
+	icon_state = "csnag-backplate"
+	do_colouration = 1
+
 /datum/sprite_accessory/wing/nevrean
 	name = "nevrean wings/fantail"
 	desc = ""
