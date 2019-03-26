@@ -45,6 +45,8 @@
 
 	ranged = 1
 	rapid = 1
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 	projectiletype = /obj/item/projectile/beam/midlaser
 	projectilesound = 'sound/weapons/laser.ogg'
 

@@ -146,6 +146,8 @@
 
 	ranged = 1
 	rapid = 1
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 	projectiletype = /obj/item/projectile/bullet/pistol/medium
 //	casingtype = /obj/item/ammo_casing/spent	//Makes infinite stacks of bullets when put in PoIs.
 	projectilesound = 'sound/weapons/Gunshot_light.ogg'
@@ -156,6 +158,8 @@
 	icon_state = "syndicateranged_laser"
 	icon_living = "syndicateranged_laser"
 	rapid = 0
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 	projectiletype = /obj/item/projectile/beam/midlaser
 	projectilesound = 'sound/weapons/Laser.ogg'
 
@@ -165,6 +169,8 @@
 	icon_state = "syndicateranged_ionrifle"
 	icon_living = "syndicateranged_ionrifle"
 	rapid = 0
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 	projectiletype = /obj/item/projectile/ion
 	projectilesound = 'sound/weapons/Laser.ogg'
 
@@ -174,7 +180,8 @@
 	name = "space mercenary" //VOREStation Edit
 	icon_state = "syndicaterangedpsace"
 	icon_living = "syndicaterangedpsace"
-
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 	speed = 0
 
 	min_oxy = 0
