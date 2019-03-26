@@ -1266,17 +1266,11 @@
 		PunchTarget()
 		return 1
 	//Open fire!
-	if(ranged && (distance <= shoot_range) && ranged_cooldown <= world.time)
-		stop_automated_movement = 0
+	else if(ranged && (distance <= shoot_range) && ranged_cooldown <= world.time)
 		ai_log("AttackTarget() ranged",3)
 		ShootTarget(target_mob)
 		return 1
 		
-	else if(ranged && !target_mob.canmove)
-		LostTarget()
-		ai_log("AttackTarget() resting, closing distance",3)
-		handle_stance(STANCE_ATTACK)
-		return 0
 		
 	//They ran away!
 	else
