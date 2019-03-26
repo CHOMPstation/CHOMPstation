@@ -10,9 +10,7 @@
 	icon_state = "basic"
 	icon_living = "basic"
 	icon_dead = "basic"
-	
-	var/zergoverride=0
-	
+
 	faction = "hivebot"
 	intelligence_level = SA_ROBOTIC
 	maxHealth = 3 LASERS_TO_KILL
@@ -73,6 +71,8 @@
 	name = "ranged hivebot"
 	desc = "A robot.  It has a simple ballistic weapon."
 	ranged = 1
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 	maxHealth = 2 LASERS_TO_KILL
 	health = 2 LASERS_TO_KILL
 
@@ -82,6 +82,8 @@
 	desc = "A robot.  It has a fast firing ballistic rifle."
 	icon_living = "strong"
 	rapid = 1
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 	maxHealth = 2 LASERS_TO_KILL
 	health = 2 LASERS_TO_KILL
 
@@ -93,6 +95,8 @@
 	projectilesound = 'sound/weapons/Laser.ogg'
 	icon_living = "engi"
 	ranged = TRUE
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 	maxHealth = 2 LASERS_TO_KILL
 	health = 2 LASERS_TO_KILL
 
@@ -114,6 +118,8 @@
 	health = 4 LASERS_TO_KILL
 	melee_damage_lower = 15
 	melee_damage_upper = 15
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 
 // Also beefy, but tries to stay at their 'home', ideal for base defense.
 /mob/living/simple_animal/hostile/hivebot/range/guard
@@ -139,13 +145,12 @@
 
 /mob/living/simple_animal/hostile/hivebot/death()
 	..()
-	if(!zergoverride)//CHOMPEDIT OVerriding death for zerg
-		visible_message("<b>[src]</b> blows apart!")
-		new /obj/effect/decal/cleanable/blood/gibs/robot(src.loc)
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
-		qdel(src)
+	visible_message("<b>[src]</b> blows apart!")
+	new /obj/effect/decal/cleanable/blood/gibs/robot(src.loc)
+	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+	s.set_up(3, 1, src)
+	s.start()
+	qdel(src)
 
 /mob/living/simple_animal/hostile/hivebot/speech_bubble_appearance()
 	return "synthetic_evil"

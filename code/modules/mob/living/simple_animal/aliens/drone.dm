@@ -22,6 +22,8 @@
 	a_intent = I_HURT
 	ranged = 1
 	rapid = 1
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 	projectiletype = /obj/item/projectile/beam/drone
 	projectilesound = 'sound/weapons/laser3.ogg'
 	destroy_surroundings = 0
@@ -274,9 +276,13 @@
 
 /obj/item/projectile/beam/drone
 	damage = 15
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 
 /obj/item/projectile/beam/pulse/drone
 	damage = 10
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 
 // A slightly easier drone, for POIs.
 // Difference is that it should not be faster than you.
@@ -284,3 +290,5 @@
 	desc = "An automated combat drone with an aged apperance."
 	returns_home = TRUE
 	move_to_delay = 6
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is

@@ -68,6 +68,8 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	ranged = 1
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 	projectiletype = /obj/item/projectile/energy/neurotoxin/toxic
 	projectilesound = 'sound/weapons/pierce.ogg'
 
@@ -81,6 +83,8 @@
 	move_to_delay = 5
 	maxHealth = 200
 	health = 200
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 
 	pixel_x = -16
 	old_x = -16
@@ -97,6 +101,8 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	ranged = 1
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 	move_to_delay = 3
 	projectiletype = /obj/item/projectile/energy/neurotoxin/toxic
 	projectilesound = 'sound/weapons/pierce.ogg'
@@ -115,6 +121,8 @@
 	health = 400
 	meat_amount = 5
 	speed = 1
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 
 	pixel_x = -16
 	old_x = -16
@@ -132,6 +140,8 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 25
 	speed = 2
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 
 	pixel_x = -32
 	old_x = -32
