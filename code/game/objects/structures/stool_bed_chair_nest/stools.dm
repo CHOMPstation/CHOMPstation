@@ -6,6 +6,7 @@ var/global/list/stool_cache = list() //haha stool
 	desc = "Apply butt."
 	icon = 'icons/obj/furniture_vr.dmi' //VOREStation Edit - new Icons
 	icon_state = "stool_preview" //set for the map
+	can_buckle = 1 //TFF: You can now throw people with your immense strength while they're sitting on the stool! >:3
 	force = 10
 	throwforce = 10
 	w_class = ITEMSIZE_HUGE
