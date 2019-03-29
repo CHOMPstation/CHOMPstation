@@ -926,6 +926,14 @@
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
+/datum/sprite_accessory/tail/snaketail_stripes
+	name = "snake tail with stripes, dual-color"
+	desc = ""
+	icon_state = "snaketail"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+	extra_overlay = "snaketail_stripes"
+	
 /datum/sprite_accessory/tail/vulpan_alt
 	name = "vulpkanin alt style, colorable"
 	desc = ""
