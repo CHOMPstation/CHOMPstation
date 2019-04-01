@@ -21,12 +21,14 @@
 	pixel_x = -16
 	pixel_y = -16
 	vore_capacity = 2
+	vore_ignores_undigestable = 0
 
 // Activate Noms!
 /mob/living/simple_animal/hostile/carp/large
 	icon = 'icons/mob/vore64x64.dmi'
 	vore_active = 1
 	vore_pounce_chance = 50
-	vore_capacity = 1
+	vore_capacity = 2
+	vore_ignores_undigestable = 0
 	vore_max_size = RESIZE_HUGE
 	vore_icons = SA_ICON_LIVING

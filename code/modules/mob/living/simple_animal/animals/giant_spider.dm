@@ -138,6 +138,8 @@ Nurse Family
 	projectilesound = 'sound/weapons/thudswoosh.ogg'
 	projectiletype = /obj/item/projectile/bola
 	ranged = 1
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 	firing_lines = 1
 	cooperative = 1
 	shoot_range = 5
@@ -347,6 +349,8 @@ Guard Family
 	melee_damage_upper = 25
 
 	ranged = 1
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 100 	//How long, in deciseconds, the cooldown of ranged attacks is
 	projectilesound = 'sound/weapons/taser2.ogg'
 	projectiletype = /obj/item/projectile/beam/stun/weak
 	firing_lines = 1

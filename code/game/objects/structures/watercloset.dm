@@ -332,6 +332,38 @@
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "rubberducky"
 
+//DUCK CODE START
+/obj/item/weapon/bikehorn/rubberducky/evil
+	name = "Do not"
+	desc = "Evil fills the air, bath time will end, no one be spared."
+	
+/obj/item/weapon/bikehorn/rubberducky/evil/attack_self(mob/user as mob)
+	if (!spam_flag)
+		spam_flag = 1
+		playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
+		var/darkduckrising = /mob/living/simple_animal/hostile/giant_spider/darkduck
+		new darkduckrising(get_turf(user))
+		spawn(100)
+			new darkduckrising(get_turf(user))
+			spawn(100)
+				new darkduckrising(get_turf(user))
+				spawn(100)
+					new darkduckrising(get_turf(user))
+					qdel(src)
+	return
+	
+/mob/living/simple_animal/hostile/giant_spider/darkduck
+	name = "The Duck"
+	desc = "Evil fills the air, bath time will end, no one be spared."
+	tt_desc = "Bath time stops"
+	icon = 'icons/mob/animal_VG.dmi'
+	icon_state = "Duck_lord"
+	icon_living = "Duck_lord_friendly"
+	icon_dead = "Duck_lord_dead"
+	isEdible = 1
+	poison_chance = 0
+//DUCK CODE END
+
 /obj/structure/sink
 	name = "sink"
 	icon = 'icons/obj/watercloset.dmi'

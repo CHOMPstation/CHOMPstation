@@ -8,7 +8,7 @@
 	melee_damage_lower = 2
 	melee_damage_upper = 2
 	
-	//zergoverride  = 1
+	zergoverride  = 1
 	
 	projectilesound = 'sound/effects/splat.ogg'
 	projectiletype = /obj/item/projectile/energy/acid
@@ -56,13 +56,15 @@
 	var/chosentype = null
 /mob/living/simple_animal/hostile/hivebot/zerg/larva/Life()
 	..()
-	spawn(1200)
-		if(!src.ckey)
-			evolve()
+
 /mob/living/simple_animal/hostile/hivebot/zerg/larva/New()
 	..()
 	verbs |= /mob/living/simple_animal/hostile/hivebot/zerg/larva/proc/evolve
-
+	
+/mob/living/simple_animal/hostile/hivebot/zerg/larva/initialize()
+	spawn(1200)
+		if(!src.ckey)
+			evolve()
 /mob/living/simple_animal/hostile/hivebot/zerg/worker
 	name = "Zerg Drone"
 	desc = "Drones are fundamental to economic and tech development, as they harvest resources and construct buildings."
