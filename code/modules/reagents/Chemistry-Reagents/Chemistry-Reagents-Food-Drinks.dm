@@ -3299,7 +3299,7 @@
 /datum/reagent/ethanol/hachi
 	name = "Hachi"
 	id = "hachi"
-	description = "An unusual fusion of bourbon and sake infused with lemon juice, and mushrooms. Sweet, savory, but mostly weird.
+	description = "An unusual fusion of bourbon and sake infused with lemon juice, and mushrooms. Sweet, savory, but mostly weird."
 	taste_description = "sweet lemons, black pepper, and savory mushroom"
 	color = "#DC971D"
 	strength = 20
