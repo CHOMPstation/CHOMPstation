@@ -100,7 +100,7 @@
 	supervisors = "the chief medical officer"
 	selection_color = "#013D3B"
 	idtype = /obj/item/weapon/card/id/medical/psychiatrist
-	access = list(access_medical, access_medical_equip, access_morgue, access_psychiatrist)
+	access = list(access_medical, access_medical_equip, access_morgue, access_psychiatrist, access_chemistry)
 	minimal_access = list(access_medical, access_medical_equip, access_psychiatrist)
 	outfit_type = /decl/hierarchy/outfit/job/medical/psychiatrist
 	alt_titles = list("Psychologist" = /decl/hierarchy/outfit/job/medical/psychiatrist/psychologist)
