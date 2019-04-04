@@ -280,7 +280,7 @@
 	var/datum/gas_mixture/environment = src.loc.return_air()
 	if(icon_state != icon_dead &&  isCooling)
 		handle_cooling(environment)
-		src.bodytemperature += cooling
+		//src.bodytemperature += cooling //Removing self nuke
 	if(src.bodytemperature<=-500)
 		isCooling = 0
 	if(src.bodytemperature>=-499)
