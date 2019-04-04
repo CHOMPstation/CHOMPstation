@@ -395,6 +395,9 @@
 	
 /datum/reagent/ethanol/sitonmyface
 	price_tag = 4
+
+/datum/reagent/ethanol/hachi
+	price_tag = 4
 	
 // The Cheap Shit //
 
