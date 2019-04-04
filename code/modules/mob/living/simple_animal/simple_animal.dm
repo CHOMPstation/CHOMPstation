@@ -75,6 +75,8 @@
 	var/recruit_cmd_str = "Hey,"	// The thing you prefix commands with when bossing them around
 	var/intelligence_level = SA_ANIMAL// How 'smart' the mob is ICly, used to deliniate between animal, robot, and humanoid SAs.
 
+	var/noresting = 1 //mob will automatically unrest if not player controlled.
+
 	//Mob environment settings
 	var/minbodytemp = 250			// Minimum "okay" temperature in kelvin
 	var/maxbodytemp = 350			// Maximum of above
@@ -359,7 +361,13 @@
 	if(life_disabled)
 		return 0
 	//VOREStation Edit End
-
+	
+	//CHOMPSTATION edit
+	if(resting && !client && noresting)
+		resting = !resting
+		update_icon()
+	//CHOMPSTATION EDIT END
+	
 	..()
 
 	//Health
