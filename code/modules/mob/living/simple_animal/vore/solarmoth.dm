@@ -161,7 +161,7 @@ var/global/list/moth_amount = list() //global moth list for the solargrub to rea
 	//light
 	mycolour = COLOR_WHITE
 
-/mob/living/simple_animal/hostile/tarrasque/mrx/proc/chilltheglass() //Why does a coldfusion moth do this? science -shark
+/mob/living/simple_animal/retaliate/solarmoth/lunarmoth/proc/chilltheglass() //Why does a coldfusion moth do this? science -shark
 	nospampls = 1
 	if(prob(25))
 		for(var/obj/machinery/light/light in range(5, src))
