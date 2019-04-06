@@ -3,3 +3,15 @@
 // Solars are 'sticking out' from the rock and so shouldn't have rock underneath them.
 /area/solar
 	base_turf = /turf/space
+
+//TFF: Add a new area for Synth Morgue we got here.
+/area/rnd/synth_morgue
+	name = "\improper Synthmorph Morgue"
+	icon_state = "research"
+
+//TFF: Add Mime/Clown areas so vines in this area don't spawn inside an inaccessible place.
+/area/Mime
+	name = "\improper Mime Office"
+
+/area/Clown
+	name = "\improper Clown Room"

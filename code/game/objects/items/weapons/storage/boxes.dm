@@ -482,3 +482,9 @@
 	name = "ambrosia deus seeds box"
 	desc = "Contains the seeds you need to get a proper healthy high."
 	starts_with = list(/obj/item/seeds/ambrosiadeusseed = 7)
+
+//TFF: Add special box for Command Secretaries' equipment.
+/obj/item/weapon/storage/box/command_sec
+	name = "clipboards and pens"
+	desc = "Contains a few clipboards and pens for your new secretary!"
+	starts_with = list(/obj/item/weapon/pen = 4, /obj/item/weapon/clipboard = 4)
