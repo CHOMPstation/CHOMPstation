@@ -138,6 +138,11 @@
  	icon_state = "tesh_cloak_bglowing"
  	item_state = "tesh_cloak_bglowing"
 
+/obj/item/clothing/suit/storage/seromi/cloak/standard/dark_retrowave
+ 	name = "dark aesthetic cloak"
+ 	icon_state = "tesh_cloak_dretrowave"
+ 	item_state = "tesh_cloak_dretrowave"
+
 /obj/item/clothing/suit/storage/seromi/cloak/jobs
 	icon = 'icons/mob/species/seromi/deptcloak.dmi'
 	icon_override = 'icons/mob/species/seromi/deptcloak.dmi'
