@@ -260,10 +260,10 @@
 	retaliate=1
 	name = "Frostbite Jelly"
 	//might make a blue icon someday, not priority this is debug stuff
-	var/cooling = -500	//variable cooling
+	var/cooling = -5000	//variable cooling
 	var/isCooling = 1
 	cold_damage_per_tick = 0
-	maxbodytemp = 2000
+	maxbodytemp = 20000000
 
 /mob/living/simple_animal/hostile/jelly/cold/proc/toggle_cooling()	
 	isCooling=!isCooling
@@ -280,7 +280,7 @@
 	var/datum/gas_mixture/environment = src.loc.return_air()
 	if(icon_state != icon_dead &&  isCooling)
 		handle_cooling(environment)
-		src.bodytemperature += cooling
+		//src.bodytemperature += cooling //Removing self nuke
 	if(src.bodytemperature<=-500)
 		isCooling = 0
 	if(src.bodytemperature>=-499)

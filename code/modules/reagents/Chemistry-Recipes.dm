@@ -2342,6 +2342,13 @@
 	required_reagents = list("kahlua" = 1, "irishcream" = 1, "nutbutter" = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/drinks/hachi
+	name = "Hachi"
+	id = "hachi"
+	result = "hachi"
+	required_reagents = list("burbon" = 2, "sake" = 1, "lemonjuice" = 1, "mushroom" = 1)
+	result_amount = 5
+
 //R-UST Port
 /datum/chemical_reaction/hyrdophoron
 	name = "Hydrophoron"

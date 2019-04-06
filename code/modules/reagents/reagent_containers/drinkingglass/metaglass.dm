@@ -566,3 +566,6 @@ Drinks Data
 
 /datum/reagent/ethanol/sitonmyface
 	glass_icon_state = "sitonmyface"
+
+/datum/reagent/ethanol/hachi
+	glass_icon_state = "hachi"
