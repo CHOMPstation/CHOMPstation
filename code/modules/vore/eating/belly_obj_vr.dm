@@ -258,7 +258,7 @@
 /obj/belly/proc/nom_mob(var/mob/prey, var/mob/user)
 	if(owner.stat == DEAD)
 		return
-	if(!prey.isEdible) //CHOMPEDIT: Trying to make pred mobs prey? N O U
+	if(!prey.isEdible && prey.size_multiplier >= 1) //CHOMPEDIT: Trying to make pred mobs prey? N O U
 		
 		var/mob/living/simple_animal/preydator = prey
 		if(preydator.icon_state == preydator.icon_living)
