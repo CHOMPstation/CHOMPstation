@@ -9,6 +9,11 @@
 	name = "\improper Synthmorph Morgue"
 	icon_state = "research"
 
+//TFF: Add Dorm Atmos Area, part of Engy areas.
+/area/engineering/dorm_atmos
+	name = "\improper Dormitory Atmospherics"
+	icon_state = "atmos"
+
 //TFF: Add Mime/Clown areas so vines in this area don't spawn inside an inaccessible place.
 /area/Mime
 	name = "\improper Mime Office"
