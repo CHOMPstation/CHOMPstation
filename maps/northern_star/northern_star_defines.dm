@@ -7,6 +7,10 @@
 #define Z_LEVEL_EVENT_AREAS							6
 #define Z_LEVEL_EMPTY_NORTHERN_STAR					7
 
+
+//TFF: Camera network defines
+#define NETWORK_MEDICAL_OUTPOST "Medical Outpost"
+
 /datum/map/northern_star
 	name = "Northern Star"
 	full_name = "NCS Northern Star"
@@ -42,8 +46,10 @@
 							NETWORK_ENGINE,
 							NETWORK_ENGINEERING,
 							NETWORK_ENGINEERING_OUTPOST,
-							NETWORK_DEFAULT,
+							//TFF: Unneeded network name, associated camera switched to Northern Star
+//							NETWORK_DEFAULT,
 							NETWORK_MEDICAL,
+							NETWORK_MEDICAL_OUTPOST,
 							NETWORK_MINE,
 							NETWORK_NORTHERN_STAR,
 							NETWORK_RESEARCH,
@@ -51,7 +57,8 @@
 							NETWORK_ROBOTS,
 							NETWORK_PRISON,
 							NETWORK_SECURITY,
-							NETWORK_INTERROGATION,
+							//TFF: One camera? Move to Security Network
+//							NETWORK_INTERROGATION,
 							NETWORK_SOLARS
 							)
 
