@@ -10,6 +10,8 @@
 	#include "northern_star_defines.dm"
 	#include "northern_star_areas.dm"
 	#include "northern_star_shuttles.dm"
+	//TFF: Include new file for new camera network.
+	#include "northern_star_things.dm"
 
 	#define USING_MAP_DATUM /datum/map/northern_star
 
