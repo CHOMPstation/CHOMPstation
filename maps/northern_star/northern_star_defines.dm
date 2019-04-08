@@ -59,7 +59,8 @@
 
 	unit_test_exempt_areas = list(
 		/area/Mime,
-		/area/Clown)
+		/area/Clown,
+		/area/engineering/dorm_atmos)
 
 /datum/map/northern_star/perform_map_generation()
 	new /datum/random_map/automata/cave_system(null, 1, 1, Z_LEVEL_MAIN_NORTHERN_STAR, world.maxx, world.maxy) // Create the mining Z-level.
