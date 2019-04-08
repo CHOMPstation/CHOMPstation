@@ -7,8 +7,8 @@
 	icon_dead = "solarmoth-dead"
 
 	faction = "grubs"
-	maxHealth = 500
-	health = 500
+	maxHealth = 400
+	health = 400
 	move_to_delay = 5
 
 	melee_damage_lower = 1
@@ -37,7 +37,7 @@
 	heat_damage_per_tick = 0 //Even if the atmos stuff doesn't work, at least it won't take any damage.
 
 	armor = list(			
-				"melee" = 50,
+				"melee" = 0,
 				"bullet" = 90,
 				"laser" = 100,
 				"energy" = 100,
