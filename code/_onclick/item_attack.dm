@@ -108,5 +108,15 @@ avoid code duplication. This includes items that may sometimes act as a standard
 			power *= M.outgoing_melee_damage_percent
 	if(HULK in user.mutations)
 		power *= 2
+	/CHOMPEDIT: Damage nulling code
+	if(iscarbon(user))
+		var/mob/living/carbon/nerd = user
+		var/mysize = nerd.size_multiplier
+		if(mysize <= 0.24)
+			power = 0
+		else if(mysize <= 0.50)
+			power = power/2
+	//CHOMPEDIT: smoll code end
+	
 	return target.hit_with_weapon(src, user, power, hit_zone)
 
