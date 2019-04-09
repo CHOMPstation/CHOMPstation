@@ -361,8 +361,8 @@
 	icon_living = "zeta"
 	icon_state = "zeta"
 	intelligence_level = SA_ANIMAL
-	health = 350
-	maxHealth = 350
+	health = 375
+	maxHealth = 375
 	melee_damage_lower = 15
 	melee_damage_upper = 25
 	melee_miss_chance = 5
@@ -428,8 +428,8 @@
 	icon_living = "omega"
 	icon_state = "omega"
 	intelligence_level = SA_ANIMAL
-	health = 450
-	maxHealth = 450
+	health = 550
+	maxHealth = 550
 	melee_damage_lower = 25
 	melee_damage_upper = 40
 	melee_miss_chance = 5
@@ -495,8 +495,8 @@
 	icon_living = "queen"
 	icon_state = "queen"
 	intelligence_level = SA_ANIMAL
-	health = 575
-	maxHealth = 575
+	health = 1000
+	maxHealth = 1000
 	melee_damage_lower = 30
 	melee_damage_upper = 60
 	melee_miss_chance = 5
