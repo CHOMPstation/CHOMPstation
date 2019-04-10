@@ -40,8 +40,8 @@
 			door.close(1)
 
 /obj/item/device/buttonofnormal
-	name = "Randomization button"
-	desc = "It radiates an aura of chaos."
+	name = "Chaos button"
+	desc = "It radiates an aura of chaotic size energy."
 	icon = 'icons/obj/mobcap.dmi'
 	icon_state = "mobcap0"
 
@@ -54,7 +54,7 @@
 	var/mob/living/capsuleowner = null //taken from Capsule Code
 	var/sizetouse = 0.25
 
-/obj/item/device/mobcapsule/pickup(mob/user)
+/obj/item/device/buttonofnormal/pickup(mob/user)
 	if(!capsuleowner)
 		capsuleowner = user
 
