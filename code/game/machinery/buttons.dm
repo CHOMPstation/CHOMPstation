@@ -60,7 +60,7 @@
 
 /obj/item/device/buttonofnormal/attack_self(mob/user)
 	if(colorindex)
-			nonrandom()
+		nonrandom()
 	sleep(10)
 	capsuleowner.resize(sizetouse)
 	sizetouse = rand(25,200)/100 //randmization occurs after press
@@ -77,11 +77,11 @@
 		
 /obj/item/device/buttonofnormal/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/weapon/pen))
-			colorindex += 1
-			if(colorindex >= 6)
-				colorindex = 0
-			icon_state = "mobcap[colorindex]"
-			update_icon()
+		colorindex += 1
+		if(colorindex >= 6)
+			colorindex = 0
+		icon_state = "mobcap[colorindex]"
+		update_icon()
 	..()
 
 /obj/item/device/buttonofnormal/proc/nonrandom() //Secret ball randmoizer rig code
