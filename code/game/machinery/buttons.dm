@@ -38,4 +38,42 @@
 		door.open(1)
 		spawn(600)
 			door.close(1)
+
+/obj/item/device/buttonofnormal
+	name = "Randomization button"
+	desc = "It radiates an aura of chaos."
+	icon = 'icons/obj/mobcap.dmi'
+	icon_state = "mobcap0"
+
+	throwforce = 00
+	throw_speed = 4
+	throw_range = 20
+	force = 0
 	
+	var/colorindex = 0
+	var/mob/living/capsuleowner = null //taken from Capsule Code
+	var/sizetouse = 0.25
+
+/obj/item/device/mobcapsule/pickup(mob/user)
+	if(!capsuleowner)
+		capsuleowner = user
+
+/obj/item/device/buttonofnormal/attack_self(mob/user)
+	capsuleowner.resize(sizetouse)
+	sizetouse = rand(25,200)/100 //randmization occurs after press
+	
+/obj/item/device/buttonofnormal/throw_impact(atom/A, speed, mob/user)
+	..()
+	if(isliving(A))
+		var/mob/living/capsulehit = A
+		capsulehit.resize(sizetouse)
+		sizetouse = rand(25,200)/100 //randmization occurs after press
+		
+/obj/item/device/buttonofnormal/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/weapon/pen))
+			colorindex += 1
+			if(colorindex >= 6)
+				colorindex = 0
+			icon_state = "mobcap[colorindex]"
+			update_icon()
+	..()
