@@ -45,6 +45,8 @@
 	icon = 'icons/obj/mobcap.dmi'
 	icon_state = "mobcap0"
 
+	matter = list(DEFAULT_WALL_MATERIAL = 1000)
+	
 	throwforce = 00
 	throw_speed = 4
 	throw_range = 20
