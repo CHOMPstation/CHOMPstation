@@ -23,3 +23,19 @@
 	if(..()) return 1
 	playsound(loc, 'sound/machines/button.ogg', 100, 1)
 // VOREStation Edit End
+
+/obj/machinery/button/emergencydoorpulse
+	name = "Emergency Door override"
+	desc = "A remote control for providing a short burst of power to all nearby doors and sending unbolt and open signals. Automatically recloses after 60 seconds. WARNING: System does not relock doors."
+	use_power = 0
+	idle_power_usage = 0
+	active_power_usage = 0
+
+/obj/machinery/button/emergencydoorpulse/attack_hand(obj/item/weapon/W, mob/user as mob)
+	for(var/obj/machinery/door/airlock/door in range(5, src))
+		door.unlock(1)
+		sleep(10)
+		door.open(1)
+		spawn(600)
+			door.close(1)
+	
