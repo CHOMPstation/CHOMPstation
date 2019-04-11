@@ -181,6 +181,9 @@
 		var/datum/preferences/B = O.client.prefs
 		for(var/language in B.alternate_languages)
 			O.add_language(language)
+//TFF: Ports VOREStation's resize module transformation proc.
+		O.resize(B.size_multiplier, animate = FALSE)	//TFF: Add size
+		O.fuzzy = B.fuzzy								//TFF: prefs for borgs.
 
 	callHook("borgify", list(O))
 	O.Namepick()

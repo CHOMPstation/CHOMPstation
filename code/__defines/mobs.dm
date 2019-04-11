@@ -261,6 +261,9 @@
 #define SPECIES_XENO_SENTINEL	"Xenomorph Sentinel"
 #define SPECIES_XENO_QUEEN		"Xenomorph Queen"
 
+// Metroid IDs
+#define SPECIES_METROIOD_QUEEN	"Metroid Queen"
+
 // Misc species. Mostly unused but might as well be complete.
 #define SPECIES_SHADOW			"Shadow"
 #define SPECIES_SKELETON		"Skeleton"

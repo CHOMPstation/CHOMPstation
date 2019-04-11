@@ -348,7 +348,7 @@ Guard Family
 	melee_damage_lower = 10
 	melee_damage_upper = 25
 
-	move_shoot = 0			//CHOMPEdit Originally, this was ranged, but it is now move_shoot which allows it to move and shoot.
+	move_shoot = 1			//CHOMPEdit Originally, this was ranged, but it is now move_shoot which allows it to move and shoot.
 	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
 	ranged_cooldown_time = 150 	//How long, in deciseconds, the cooldown of ranged attacks is. Get nerfed.
 	projectilesound = 'sound/weapons/taser2.ogg'

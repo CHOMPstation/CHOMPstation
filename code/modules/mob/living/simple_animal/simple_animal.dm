@@ -583,11 +583,13 @@
 			annoyed = 50
 			a_intent = I_HURT
 			RequestHelp()
-			MoveAndShoot()
+			if(move_shoot)
+				MoveAndShoot()
 			MoveToTarget()
 		if(STANCE_ATTACKING)
 			annoyed = 50
-			MoveAndShoot()
+			if(move_shoot)
+				MoveAndShoot()
 			AttackTarget()
 
 /mob/living/simple_animal/proc/handle_supernatural()
@@ -1262,12 +1264,7 @@
 	ai_log("AttackTarget() vs. [target_mob]",1)
 	var/distance = get_dist(src, target_mob)
 	face_atom(target_mob)
-/*	
-	if(move_shoot == 1 && distance <= shoot_range && distance >= 2 && ranged_cooldown <= world.time)
-		ai_log("AttackTarget() ranged",3)
-		ShootTarget(target_mob)
-		return 1
-*/
+
 	//Hadoooooken!
 	if(prob(spattack_prob) && (distance >= spattack_min_range) && (distance <= spattack_max_range))
 		ai_log("AttackTarget() special",3)
@@ -1296,7 +1293,7 @@
 	ai_log("MoveAndShoot() vs. [target_mob]",1)
 	var/distance = get_dist(src, target_mob)
 	face_atom(target_mob)
-	if(move_shoot == 1 && distance <= shoot_range && distance >= 2 && ranged_cooldown <= world.time)
+	if(distance <= shoot_range && distance >= 2 && ranged_cooldown <= world.time)
 		ai_log("MoveAndShoot() moving and shooting",3)
 		ShootTarget(target_mob)
 
