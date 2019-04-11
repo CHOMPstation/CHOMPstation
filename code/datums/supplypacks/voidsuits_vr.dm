@@ -1,4 +1,6 @@
-/datum/supply_packs/voidsuits/atmos
+//TFF: Polaris Refactor
+
+/datum/supply_pack/voidsuits/atmos
 	contains = list(
 			/obj/item/clothing/suit/space/void/atmos = 3,
 			/obj/item/clothing/head/helmet/space/void/atmos = 3,
@@ -7,7 +9,7 @@
 			/obj/item/weapon/tank/oxygen = 3,
 			)
 
-/datum/supply_packs/voidsuits/engineering
+/datum/supply_pack/voidsuits/engineering
 	contains = list(
 			/obj/item/clothing/suit/space/void/engineering = 3,
 			/obj/item/clothing/head/helmet/space/void/engineering = 3,
@@ -16,7 +18,7 @@
 			/obj/item/weapon/tank/oxygen = 3
 			)
 
-/datum/supply_packs/voidsuits/medical
+/datum/supply_pack/voidsuits/medical
 	contains = list(
 			/obj/item/clothing/suit/space/void/medical = 3,
 			/obj/item/clothing/head/helmet/space/void/medical = 3,
@@ -25,7 +27,7 @@
 			/obj/item/weapon/tank/oxygen = 3
 			)
 
-/datum/supply_packs/voidsuits/medical/alt
+/datum/supply_pack/voidsuits/medical/alt
 	contains = list(
 			/obj/item/clothing/suit/space/void/medical/alt = 3,
 			/obj/item/clothing/head/helmet/space/void/medical/alt = 3,
@@ -34,7 +36,7 @@
 			/obj/item/weapon/tank/oxygen = 3
 			)
 
-/datum/supply_packs/voidsuits/security
+/datum/supply_pack/voidsuits/security
 	contains = list(
 			/obj/item/clothing/suit/space/void/security = 3,
 			/obj/item/clothing/head/helmet/space/void/security = 3,
@@ -43,7 +45,7 @@
 			/obj/item/weapon/tank/oxygen = 3
 			)
 
-/datum/supply_packs/voidsuits/security/crowd
+/datum/supply_pack/voidsuits/security/crowd
 	contains = list(
 			/obj/item/clothing/suit/space/void/security/riot = 3,
 			/obj/item/clothing/head/helmet/space/void/security/riot = 3,
@@ -52,7 +54,7 @@
 			/obj/item/weapon/tank/oxygen = 3
 			)
 
-/datum/supply_packs/voidsuits/security/alt
+/datum/supply_pack/voidsuits/security/alt
 	contains = list(
 			/obj/item/clothing/suit/space/void/security/alt = 3,
 			/obj/item/clothing/head/helmet/space/void/security/alt = 3,
@@ -61,7 +63,7 @@
 			/obj/item/weapon/tank/oxygen = 3
 			)
 
-/datum/supply_packs/voidsuits/supply
+/datum/supply_pack/voidsuits/supply
 	name = "Mining voidsuits"
 	contains = list(
 			/obj/item/clothing/suit/space/void/mining = 3,

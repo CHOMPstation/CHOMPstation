@@ -1,17 +1,19 @@
+//TFF: Polaris Refactor
+
 /*
 *	Here is where any supply packs
 *	related to robotics tasks live.
 */
 
 
-/datum/supply_packs/robotics
+/datum/supply_pack/robotics
 	group = "Robotics"
 
-/datum/supply_packs/randomised/robotics
+/datum/supply_pack/randomised/robotics
 	group = "Robotics"
 	access = access_robotics
 
-/datum/supply_packs/robotics/robotics_assembly
+/datum/supply_pack/robotics/robotics_assembly
 	name = "Robotics assembly crate"
 	contains = list(
 			/obj/item/device/assembly/prox_sensor = 3,
@@ -52,7 +54,7 @@
 	access = access_robotics
 */
 
-/datum/supply_packs/robotics/robolimbs/morpheus
+/datum/supply_pack/robotics/robolimbs/morpheus
 	name = "Morpheus robolimb blueprints"
 	contains = list(/obj/item/weapon/disk/limb/morpheus)
 	cost = 20
@@ -60,7 +62,7 @@
 	containername = "Robolimb blueprints (Morpheus)"
 	access = access_robotics
 
-/datum/supply_packs/robotics/robolimbs/cybersolutions
+/datum/supply_pack/robotics/robolimbs/cybersolutions
 	name = "Cyber Solutions robolimb blueprints"
 	contains = list(/obj/item/weapon/disk/limb/cybersolutions)
 	cost = 20
@@ -68,7 +70,7 @@
 	containername = "Robolimb blueprints (Cyber Solutions)"
 	access = access_robotics
 
-/datum/supply_packs/robotics/robolimbs/xion
+/datum/supply_pack/robotics/robolimbs/xion
 	name = "Xion robolimb blueprints"
 	contains = list(/obj/item/weapon/disk/limb/xion)
 	cost = 20
@@ -76,7 +78,7 @@
 	containername = "Robolimb blueprints (Xion)"
 	access = access_robotics
 
-/datum/supply_packs/robotics/robolimbs/grayson
+/datum/supply_pack/robotics/robolimbs/grayson
 	name = "Grayson robolimb blueprints"
 	contains = list(/obj/item/weapon/disk/limb/grayson)
 	cost = 30
@@ -84,7 +86,7 @@
 	containername = "Robolimb blueprints (Grayson)"
 	access = access_robotics
 
-/datum/supply_packs/robotics/robolimbs/hephaestus
+/datum/supply_pack/robotics/robolimbs/hephaestus
 	name = "Hephaestus robolimb blueprints"
 	contains = list(/obj/item/weapon/disk/limb/hephaestus)
 	cost = 35
@@ -92,7 +94,7 @@
 	containername = "Robolimb blueprints (Hephaestus)"
 	access = access_robotics
 
-/datum/supply_packs/robotics/robolimbs/wardtakahashi
+/datum/supply_pack/robotics/robolimbs/wardtakahashi
 	name = "Ward-Takahashi robolimb blueprints"
 	contains = list(/obj/item/weapon/disk/limb/wardtakahashi)
 	cost = 35
@@ -100,7 +102,7 @@
 	containername = "Robolimb blueprints (Ward-Takahashi)"
 	access = access_robotics
 
-/datum/supply_packs/robotics/robolimbs/zenghu
+/datum/supply_pack/robotics/robolimbs/zenghu
 	name = "Zeng Hu robolimb blueprints"
 	contains = list(/obj/item/weapon/disk/limb/zenghu)
 	cost = 35
@@ -108,7 +110,7 @@
 	containername = "Robolimb blueprints (Zeng Hu)"
 	access = access_robotics
 
-/datum/supply_packs/robotics/robolimbs/bishop
+/datum/supply_pack/robotics/robolimbs/bishop
 	name = "Bishop robolimb blueprints"
 	contains = list(/obj/item/weapon/disk/limb/bishop)
 	cost = 70
@@ -116,7 +118,7 @@
 	containername = "Robolimb blueprints (Bishop)"
 	access = access_robotics
 
-/datum/supply_packs/robotics/mecha_ripley
+/datum/supply_pack/robotics/mecha_ripley
 	name = "Circuit Crate (\"Ripley\" APLU)"
 	contains = list(
 			/obj/item/weapon/book/manual/ripley_build_and_repair,
@@ -128,7 +130,7 @@
 	containername = "APLU \"Ripley\" Circuit Crate"
 	access = access_robotics
 
-/datum/supply_packs/robotics/mecha_odysseus
+/datum/supply_pack/robotics/mecha_odysseus
 	name = "Circuit Crate (\"Odysseus\")"
 	contains = list(
 			/obj/item/weapon/circuitboard/mecha/odysseus/peripherals,
@@ -139,7 +141,7 @@
 	containername = "\"Odysseus\" Circuit Crate"
 	access = access_robotics
 
-/datum/supply_packs/randomised/robotics/exosuit_mod
+/datum/supply_pack/randomised/robotics/exosuit_mod
 	num_contained = 1
 	contains = list(
 			/obj/item/device/kit/paint/ripley,
@@ -152,7 +154,7 @@
 	containertype = /obj/structure/closet/crate/science
 	containername = "heavy crate"
 
-/datum/supply_packs/randomised/robotics/exosuit_mod/durand
+/datum/supply_pack/randomised/robotics/exosuit_mod/durand
 	contains = list(
 			/obj/item/device/kit/paint/durand,
 			/obj/item/device/kit/paint/durand/seraph,
@@ -160,7 +162,7 @@
 			)
 	name = "Random Durand exosuit modkit"
 
-/datum/supply_packs/randomised/robotics/exosuit_mod/gygax
+/datum/supply_pack/randomised/robotics/exosuit_mod/gygax
 	contains = list(
 			/obj/item/device/kit/paint/gygax,
 			/obj/item/device/kit/paint/gygax/darkgygax,
@@ -168,7 +170,7 @@
 			)
 	name = "Random Gygax exosuit modkit"
 
-/datum/supply_packs/robotics/jumper_cables
+/datum/supply_pack/robotics/jumper_cables
 	name = "Jumper kit crate"
 	contains = list(
 			/obj/item/device/defib_kit/jumper_kit = 2

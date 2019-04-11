@@ -1,4 +1,6 @@
-/datum/supply_packs/costumes/xenowear_vr
+//TFF: Polaris Refactor
+
+/datum/supply_pack/costumes/xenowear_vr
 	name = "Xenowear crate"
 	contains = list(
 			/obj/item/clothing/shoes/footwraps,
@@ -19,7 +21,7 @@
 	containertype = /obj/structure/closet/crate
 	containername = "Xenowear crate"
 
-/datum/supply_packs/costumes/tesh_smocks_vr
+/datum/supply_pack/costumes/tesh_smocks_vr
 	name = "Teshari smocks"
 	contains = list(
 			/obj/item/clothing/under/seromi/smock,
@@ -32,7 +34,7 @@
 	containertype = /obj/structure/closet/crate
 	containername = "Teshari smocks crate"
 
-/datum/supply_packs/randomised/costumes/tesh_coats_vr
+/datum/supply_pack/randomised/costumes/tesh_coats_vr
 	name = "Teshari undercoats"
 	num_contained = 4
 	contains = list(
@@ -53,7 +55,7 @@
 	containertype = /obj/structure/closet/crate
 	containername = "Teshari undercoats crate"
 
-/datum/supply_packs/randomised/costumes/tesh_coats_b_vr
+/datum/supply_pack/randomised/costumes/tesh_coats_b_vr
 	name = "Teshari undercoats (black)"
 	num_contained = 4
 	contains = list(
@@ -75,7 +77,7 @@
 	containertype = /obj/structure/closet/crate
 	containername = "Teshari undercoats crate"
 
-/datum/supply_packs/randomised/costumes/tesh_cloaks_vr
+/datum/supply_pack/randomised/costumes/tesh_cloaks_vr
 	name = "Teshari cloaks"
 	num_contained = 4
 	contains = list(
@@ -96,7 +98,7 @@
 	containertype = /obj/structure/closet/crate
 	containername = "Teshari cloaks crate"
 
-/datum/supply_packs/randomised/costumes/tesh_cloaks_b_vr
+/datum/supply_pack/randomised/costumes/tesh_cloaks_b_vr
 	name = "Teshari cloaks (black)"
 	num_contained = 4
 	contains = list(
@@ -113,14 +115,13 @@
 			/obj/item/clothing/suit/storage/seromi/cloak/standard/black_red,
 			/obj/item/clothing/suit/storage/seromi/cloak/standard/black_white,
 			/obj/item/clothing/suit/storage/seromi/cloak/standard/black_yellow,
-			/obj/item/clothing/suit/storage/seromi/cloak/standard/black_glow,
-			/obj/item/clothing/suit/storage/seromi/cloak/standard/dark_retrowave
+			/obj/item/clothing/suit/storage/seromi/cloak/standard/black_glow
 			)
 	cost = 40
 	containertype = /obj/structure/closet/crate
 	containername = "Teshari cloaks crate"
 
-/datum/supply_packs/costumes/utility_vr
+/datum/supply_pack/costumes/utility_vr
 	name = "Utility uniforms"
 	contains = list(
 			/obj/item/clothing/under/utility,
@@ -131,7 +132,7 @@
 	containertype = /obj/structure/closet/crate
 	containername = "Utility uniforms crate"
 
-/datum/supply_packs/costumes/skirts_vr
+/datum/supply_pack/costumes/skirts_vr
 	name = "Skirts crate"
 	contains = list(
 			/obj/item/clothing/under/skirt,
@@ -149,7 +150,7 @@
 	containertype = /obj/structure/closet/crate
 	containername = "Skirts crate"
 
-/datum/supply_packs/costumes/varsity_vr
+/datum/supply_pack/costumes/varsity_vr
 	name = "Varsity jackets"
 	contains = list(
 			/obj/item/clothing/suit/varsity,
@@ -163,7 +164,7 @@
 	containertype = /obj/structure/closet/crate
 	containername = "Varsity jackets crate"
 
-/datum/supply_packs/randomised/costumes/leathergear_vr
+/datum/supply_pack/randomised/costumes/leathergear_vr
 	name = "Leather gear"
 	num_contained = 5
 	contains = list(
@@ -194,7 +195,7 @@
 	containertype = /obj/structure/closet/crate
 	containername = "Leather gear crate"
 
-/datum/supply_packs/costumes/eyewear_vr
+/datum/supply_pack/costumes/eyewear_vr
 	name = "Eyewear crate"
 	contains = list(
 			/obj/item/clothing/glasses/eyepatch,
@@ -213,7 +214,7 @@
 	containertype = /obj/structure/closet/crate
 	containername = "Eyewear crate"
 
-/datum/supply_packs/randomised/costumes/gloves_vr
+/datum/supply_pack/randomised/costumes/gloves_vr
 	name = "Gloves crate"
 	num_contained = 4
 	contains = list(
@@ -237,7 +238,7 @@
 	containertype = /obj/structure/closet/crate
 	containername = "Gloves crate"
 
-/datum/supply_packs/randomised/costumes/boots_vr
+/datum/supply_pack/randomised/costumes/boots_vr
 	name = "Boots crate"
 	num_contained = 3
 	contains = list(
@@ -254,7 +255,7 @@
 	containertype = /obj/structure/closet/crate
 	containername = "Boots crate"
 
-/datum/supply_packs/costumes/taurbags
+/datum/supply_pack/costumes/taurbags
 	name = "Saddlebags crate"
 	contains = list(
 			/obj/item/weapon/storage/backpack/saddlebag_common,
@@ -274,7 +275,7 @@
 	starts_with = list(pick(/obj/item/clothing/head/wiggler;0.1,/obj/structure/closet/secure_closet/egg/shark;0.9))
 	return ..()
 
-/datum/supply_packs/costumes/wiggler
+/datum/supply_pack/costumes/wiggler
 	name = "Secret Egg"
 	contains = list(
 			/obj/structure/closet/secure_closet/egg/shark/secret

@@ -1,4 +1,6 @@
-/datum/supply_packs/randomised/hospitality/burgers_vr
+//TFF: Polaris Refactor
+
+/datum/supply_pack/randomised/hospitality/burgers_vr
 	num_contained = 5
 	contains = list(
 			/obj/item/weapon/reagent_containers/food/snacks/bigbiteburger,
@@ -12,7 +14,7 @@
 	containertype = /obj/structure/closet/crate/freezer
 	containername = "Burger crate"
 
-/datum/supply_packs/randomised/hospitality/bakery_vr
+/datum/supply_pack/randomised/hospitality/bakery_vr
 	num_contained = 5
 	contains = list(
 			/obj/item/weapon/reagent_containers/food/snacks/baguette,
@@ -38,7 +40,7 @@
 	containertype = /obj/structure/closet/crate/freezer
 	containername = "Bakery products crate"
 
-/datum/supply_packs/randomised/hospitality/cakes_vr
+/datum/supply_pack/randomised/hospitality/cakes_vr
 	num_contained = 2
 	contains = list(
 			/obj/item/weapon/reagent_containers/food/snacks/sliceable/applecake,
@@ -56,7 +58,7 @@
 	containertype = /obj/structure/closet/crate/freezer
 	containername = "Cake crate"
 
-/datum/supply_packs/randomised/hospitality/mexican_vr
+/datum/supply_pack/randomised/hospitality/mexican_vr
 	num_contained = 5
 	contains = list(
 			/obj/item/weapon/reagent_containers/food/snacks/cheeseburrito,
@@ -69,7 +71,7 @@
 	containertype = /obj/structure/closet/crate/freezer
 	containername = "Mexican takeout crate"
 
-/datum/supply_packs/randomised/hospitality/asian_vr
+/datum/supply_pack/randomised/hospitality/asian_vr
 	num_contained = 5
 	contains = list(
 			/obj/item/weapon/reagent_containers/food/snacks/generalschicken,
@@ -80,5 +82,5 @@
 	containertype = /obj/structure/closet/crate/freezer
 	containername = "Chinese takeout crate"
 
-/datum/supply_packs/randomised/hospitality/pizza
+/datum/supply_pack/randomised/hospitality/pizza
 	cost = 50
