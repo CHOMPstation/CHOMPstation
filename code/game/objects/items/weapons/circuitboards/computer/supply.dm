@@ -1,12 +1,19 @@
+//TFF: Polaris Refactor - transfers board from computer.dm
+
 #ifndef T_BOARD
 #error T_BOARD macro is not defined but we need it!
 #endif
 
 /obj/item/weapon/circuitboard/supplycomp
-	name = T_BOARD("supply control console")
+	name = T_BOARD("supply ordering console")
 	build_path = /obj/machinery/computer/supplycomp
 	origin_tech = list(TECH_DATA = 3)
 	var/contraband_enabled = 0
+
+/obj/item/weapon/circuitboard/supplycomp/control
+	name = T_BOARD("supply ordering console")
+	build_path = /obj/machinery/computer/supplycomp/control
+	origin_tech = list(TECH_DATA = 3)
 
 /obj/item/weapon/circuitboard/supplycomp/construct(var/obj/machinery/computer/supplycomp/SC)
 	if (..(SC))
