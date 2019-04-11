@@ -31,7 +31,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambience = list('sound/ambience/ambispace.ogg','sound/music/title2.ogg','sound/music/space.ogg','sound/music/main.ogg','sound/music/traitor.ogg','sound/ambience/serspaceamb1.ogg')
 	base_turf = /turf/space
 
-area/space/atmosalert()
+/area/space/atmosalert()
 	return
 
 /area/space/fire_alert()
@@ -472,16 +472,6 @@ area/space/atmosalert()
 	name = "\improper Moon - Artifact"
 	icon_state = "cave"
 	sound_env = SMALL_ENCLOSED
-
-
-
-
-
-
-
-
-
-
 
 /area/casino/casino_ship
 	name = "\improper Casino Ship"
@@ -1142,7 +1132,7 @@ area/space/atmosalert()
 	name = "\improper Research Server Room"
 	icon_state = "server"
 
-//Crew
+//Civilian
 
 /area/crew_quarters
 	name = "\improper Dormitories"
@@ -2006,6 +1996,8 @@ area/space/atmosalert()
 	name = "\improper Vacant Office"
 	icon_state = "security"
 
+// SUPPLY
+
 /area/quartermaster
 	name = "\improper Quartermasters"
 	icon_state = "quart"
@@ -2039,6 +2031,18 @@ area/space/atmosalert()
 	name = "\improper Cargo Mining Dock"
 	icon_state = "mining"
 
+/area/supply/station
+	name = "Supply Shuttle"
+	icon_state = "shuttle3"
+	requires_power = 0
+	base_turf = /turf/space
+
+/area/supply/dock
+	name = "Supply Shuttle"
+	icon_state = "shuttle3"
+	requires_power = 0
+	base_turf = /turf/space
+
 /area/janitor/
 	name = "\improper Custodial Closet"
 	icon_state = "janitor"
@@ -2055,7 +2059,7 @@ area/space/atmosalert()
 	name = "\improper Garden"
 	icon_state = "garden"
 
-//rnd (Research and Development
+// SCIENCE
 /area/rnd/research
 	name = "\improper Research and Development"
 	icon_state = "research"
