@@ -26,12 +26,11 @@
 /obj/machinery/computer/supplycomp/attack_ai(var/mob/user as mob)
 	return attack_hand(user)
 
-/obj/machinery/computer/supplycomp/attack_ai(var/mob/user as mob)
-	return attack_hand(user)
-
 /obj/machinery/computer/ordercomp/attack_hand(var/mob/user as mob)
 	if(..())
-		return
+		to_chat(user,"..() failed")
+	return
+	to_chat(user, "attack_hand [user.name]")
 	user.set_machine(src)
 	ui_interact(user)
 	return
