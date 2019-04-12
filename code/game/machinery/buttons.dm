@@ -88,12 +88,12 @@
 
 /obj/item/device/buttonofnormal/proc/nonrandom() //Secret ball randmoizer rig code
 	if(colorindex==1)
-	sizetouse = RESIZE_HUGE 
+		sizetouse = RESIZE_HUGE 
 	if(colorindex==2)
-	sizetouse = RESIZE_BIG 
+		sizetouse = RESIZE_BIG 
 	if(colorindex==3)
-	sizetouse = RESIZE_NORMAL 
+		sizetouse = RESIZE_NORMAL 
 	if(colorindex==4)
-	sizetouse = RESIZE_SMALL 
+		sizetouse = RESIZE_SMALL 
 	if(colorindex==5)
-	sizetouse = RESIZE_TINY 
+		sizetouse = RESIZE_TINY 
