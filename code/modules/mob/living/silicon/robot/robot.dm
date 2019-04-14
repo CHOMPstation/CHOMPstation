@@ -615,8 +615,8 @@
 			radio.attackby(W,user)//GTFO, you have your own procs
 		else
 			user << "Unable to locate a radio."
-
-	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda)||istype(W, /obj/item/weapon/card/robot))			// trying to unlock the interface with an ID card
+//TFF 14/4/19: Port VoreStation edit - Wallet/Micro usage to unlock borgs.
+	else if (W.GetID())			// trying to unlock the interface with an ID card
 		if(emagged)//still allow them to open the cover
 			user << "The interface seems slightly damaged"
 		if(opened)
@@ -698,15 +698,15 @@
 			return 1
 	return 0
 
-//TFF: Ports VoreStation edit for fixing PDA usage
 /mob/living/silicon/robot/proc/check_access(obj/item/I)
 	if(!istype(req_access, /list)) //something's very wrong
 		return 1
 
+//TFF 14/4/19: Port VoreStation edit - wallet/micro usage to unlock borgs
 	var/list/L = req_access
 	if(!L.len) //no requirements
 		return 1
-	if(!I || !(istype(I, /obj/item/weapon/card/id) || istype(I, /obj/item/device/pda))) //not ID or PDA
+	if(!I) //nothing to check with..?
 		return 0
 	var/access_found = I.GetAccess()
 	for(var/req in req_access)
