@@ -14,7 +14,7 @@
 					/area/mine,
 					/area/vacant/vacant_shop,
 					/area/turbolift,
-					/area/submap
+					/area/submap,
 					/area/hallway/secondary/entry/D2/shuttleDoors
 					)
 
