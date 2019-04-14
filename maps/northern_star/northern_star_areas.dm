@@ -20,13 +20,3 @@
 
 /area/Clown
 	name = "\improper Clown Room"
-
-
-// Adding this here so that arrival shuttle doors  don't get STUCK - Jon
-//
-// DOOR STUCK
-//
-
-/area/hallway/secondary/entry/D2/shuttleDoors
-	name = "\improper Arrival Shuttle Dock doors"
-	requires_power = 0
