@@ -1007,6 +1007,13 @@ area/space/atmosalert()
 	icon_state = "entry_D2"
 	base_turf = /turf/space
 
+// Adding this here so that arrival shuttle doors  don't get STUCK - Jon
+//
+// DOOR STUCK
+/area/hallway/secondary/entry/D2/shuttleDoors
+	name = "\improper Arrival Shuttle Dock doors"
+	requires_power = 0
+
 /area/hallway/secondary/entry/D3
 	name = "\improper Shuttle Dock Hallway - Dock Three"
 	icon_state = "entry_D3"
