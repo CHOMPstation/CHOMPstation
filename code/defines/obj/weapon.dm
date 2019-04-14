@@ -65,6 +65,7 @@
 	throw_range = 15
 	attack_verb = list("HONKED")
 	var/spam_flag = 0
+	var/honkSound = 'sound/items/bikehorn.ogg' //Chompstation ADD: Adding an adjustable variable for bikehorns >:D - Jon
 
 
 /obj/item/weapon/c_tube
