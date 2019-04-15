@@ -28,9 +28,7 @@
 
 /obj/machinery/computer/supplycomp/attack_hand(var/mob/user as mob)
 	if(..())
-		to_chat(user,"..() failed")
-	return
-	to_chat(user, "attack_hand [user.name]")
+		return
 	user.set_machine(src)
 	ui_interact(user)
 	return
