@@ -46,12 +46,12 @@
 	icon_state = "mobcap0"
 
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
-	
+
 	throwforce = 00
 	throw_speed = 4
 	throw_range = 20
 	force = 0
-	
+
 	var/colorindex = 0
 	var/mob/living/capsuleowner = null //taken from Capsule Code
 	var/sizetouse = 0.25
@@ -66,7 +66,7 @@
 	sleep(10)
 	capsuleowner.resize(sizetouse)
 	sizetouse = rand(25,200)/100 //randmization occurs after press
-	
+
 /obj/item/device/buttonofnormal/throw_impact(atom/A, speed, mob/user)
 	..()
 	if(isliving(A))
@@ -75,8 +75,8 @@
 		sleep(5)
 		var/mob/living/capsulehit = A
 		capsulehit.resize(sizetouse)
-		sizetouse = rand(25,200)/100 //randmization occurs after press		
-		
+		sizetouse = rand(25,200)/100 //randmization occurs after press
+
 /obj/item/device/buttonofnormal/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/weapon/pen))
 		colorindex += 1
@@ -88,12 +88,12 @@
 
 /obj/item/device/buttonofnormal/proc/nonrandom() //Secret ball randmoizer rig code
 	if(colorindex==1)
-		sizetouse = RESIZE_HUGE 
+		sizetouse = RESIZE_HUGE
 	if(colorindex==2)
-		sizetouse = RESIZE_BIG 
+		sizetouse = RESIZE_BIG
 	if(colorindex==3)
-		sizetouse = RESIZE_NORMAL 
+		sizetouse = RESIZE_NORMAL
 	if(colorindex==4)
-		sizetouse = RESIZE_SMALL 
+		sizetouse = RESIZE_SMALL
 	if(colorindex==5)
-		sizetouse = RESIZE_TINY 
+		sizetouse = RESIZE_TINY
