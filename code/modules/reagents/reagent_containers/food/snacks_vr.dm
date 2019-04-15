@@ -378,7 +378,6 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/steamtealeaf/New()
 	..()
-	reagents.add_reagent("teamush", 3)
 	bitesize = 1
 
 /obj/item/weapon/reagent_containers/food/snacks/steamtealeaf/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -410,6 +409,34 @@
 /obj/item/weapon/reagent_containers/food/snacks/greentealeaf/New()
 	..()
 	reagents.add_reagent("tealeavesgreen", 6)
+	bitesize = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/tencha
+	name = "Tencha"
+	desc = "A dried, crumbly green tea leaf. Needs deveined."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "tencha"
+	slice_path = /obj/item/weapon/reagent_containers/food/snacks/matchaleaf
+	slices_num = 1
+	nutriment_amt = 0
+	nutriment_desc = list("nothing" = 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/tencha/New()
+	..()
+	bitesize = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/matchaleaf
+	name = "Matcha"
+	desc = "Low grade matcha. Ready for grinding."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "matchaleaf"
+	nutriment_amt = 0
+	nutriment_desc = list("nothing" = 0)
+
+/obj/item/weapon/reagent_containers/food/snacks/matchaleaf/New()
+	..()
+	reagents.add_reagent("matchapowder", 5)
+	reagents.remove_reagent("teamush", 5)
 	bitesize = 1
 
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube/sobakacube

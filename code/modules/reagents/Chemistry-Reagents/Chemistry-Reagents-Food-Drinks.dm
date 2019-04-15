@@ -807,7 +807,7 @@
 	adj_sleepy = -3
 	adj_temp = 20
 
-	glass_name = "cup of tea"
+	glass_name = "tea"
 	glass_desc = "Tasty black tea, it has antioxidants, it's good for you!"
 
 	cup_icon_state = "cup_tea"
@@ -945,6 +945,22 @@
 	cup_name = "cup of watermelon tea"
 	cup_desc = "A tasty mixture of watermelon and tea. It's apparently good for you!"
 
+/datum/reagent/drink/tea/matcha_latte //Putting this as tea to inherit tea variables. Should not have the same toxloss as matcha so it can be placed in a dispenser without breaking balance.
+	name = "Matcha latte"
+	id = "matcha_latte"
+	description = "A nice and tasty beverage to enjoy while studying."
+	taste_description = "creamy, vegetal sweetness"
+	color = "#b1c48c"
+	adj_temp = 5
+
+	glass_name = "matcha latte"
+	glass_desc = "A nice and refreshing beverage while you are studying."
+
+	cup_icon_state = "cup_latte"
+	cup_name = "cup of matcha latte"
+	cup_desc = "A nice and refreshing beverage while you are studying."
+
+
 /datum/reagent/drink/coffee
 	name = "Coffee"
 	id = "coffee"
@@ -1030,7 +1046,6 @@
 
 	glass_desc = "A nice and refreshing beverage while you are reading."
 	glass_name = "soy latte"
-	glass_desc = "A nice and refrshing beverage while you are reading."
 
 	cup_icon_state = "cup_latte"
 	cup_name = "cup of soy latte"
@@ -1049,11 +1064,11 @@
 	adj_temp = 5
 
 	glass_name = "cafe latte"
-	glass_desc = "A nice, strong and refreshing beverage while you are reading."
+	glass_desc = "A nice, strong, and refreshing beverage while you are reading."
 
 	cup_icon_state = "cup_latte"
 	cup_name = "cup of cafe latte"
-	cup_desc = "A nice and refreshing beverage while you are reading."
+	cup_desc = "A nice, strong, and refreshing beverage while you are reading."
 
 /datum/reagent/drink/coffee/cafe_latte/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -3295,7 +3310,7 @@
 
 	glass_name = "Sit on my face"
 	glass_desc = "A drink made of irish coffee and nuts, mostly known for its vulgar name. Makes for a great pickup line though!"
-	
+
 /datum/reagent/ethanol/hachi
 	name = "Hachi"
 	id = "hachi"
@@ -3366,7 +3381,7 @@
 	name = "Instant green tea powder"
 	id = "instantteapowdergreen"
 	description = "Green tea powder missing all the goodness of green tea." //Heathen.
-	taste_description = "strongly bitter with a subtle chemical aftertaste"
+	taste_description = "strong bitterness with a subtle chemical aftertaste"
 	color = "#56761d"
 
 	glass_name = "tea powder"
@@ -3376,7 +3391,7 @@
 	name = "Instant green tea"
 	id = "instantteagreen"
 	description = "Convenient green tea missing all the goodness of actual green tea." //It's not even hot.
-	taste_description = "bitter with a subtle chemical aftertaste"
+	taste_description = "bitterness with a subtle chemical aftertaste"
 	color = "#cac162"
 
 	glass_name = "green tea"
@@ -3385,3 +3400,38 @@
 	cup_icon_state = "cup_tea"
 	cup_name = "cup of tea"
 	cup_desc = "Green tea. It smells a bit off."
+
+/datum/reagent/drink/matchapowder
+	name = "Matcha powder"
+	id = "matchapowder"
+	description = "Finely ground green tea. This is about the highest quality matcha you can prepare without traditional methods."
+	taste_description = "heavy bitterness"
+	color = "#86a443"
+
+	glass_name = "matcha powder"
+	glass_desc = "Matcha powder, waiting for brewing."
+
+/datum/reagent/drink/matcha
+	name = "Matcha"
+	id = "matcha"
+	description = "A form of green tea where the leaf is ground and suspended in water rather than steeped. This is considered cooking grade."
+	taste_description = "floral, full-bodied bitterness with a subtle, earthy sweetness"
+	color = "#9bc265"
+	adj_dizzy = -4
+	adj_drowsy = -1
+	adj_sleepy = -3
+	adj_temp = 20
+
+	glass_name = "matcha"
+	glass_desc = "Heavenly matcha. Good for body and spirit."
+
+	cup_icon_state = "cup_tea"
+	cup_name = "cup of matcha"
+	cup_desc = "Heavenly matcha. Good for body and spirit."
+
+/datum/reagent/drink/matcha/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(alien == IS_DIONA)
+		return
+	M.adjustToxLoss(-3 * removed) //Almost on par with dylovene despite being harder to obtain in bulk. Nerf if this causes problems.
+

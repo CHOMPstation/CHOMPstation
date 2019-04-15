@@ -2,10 +2,10 @@
 	name = "minetroid"
 	desc = "Some sort of person eaty thing!"
 	tt_desc = "Headamus Suckumus"
-	icon = 'icons/mob/vore.dmi'
+	icon = 'icons/mob/metroid/small.dmi'
 	icon_dead = "metroid_dead"
-	icon_living = "mochtroid"
-	icon_state = "mochtroid"
+	icon_living = "metroid"
+	icon_state = "metroid"
 	faction = "metroids"
 	intelligence_level = SA_ANIMAL
 	hovering = TRUE
@@ -70,8 +70,8 @@
 	name = "Mochtroid"
 	desc = "Some sort of person eaty thing! But weak compared to regular Metroids!"
 	tt_desc = "Headamus Suckumus Weakamus"
-	icon = 'icons/mob/vore.dmi'
-	icon_dead = "mochtroid_dead"
+	icon = 'icons/mob/metroid/small.dmi'
+	icon_dead = "metroid_dead"
 	icon_living = "mochtroid"
 	icon_state = "mochtroid"
 
@@ -230,7 +230,7 @@
 	melee_miss_chance = 5
 	gender = NEUTER
 	faction = "metroids"
-
+	
 	//Alphas lose their vulnerability to cold.
 	minbodytemp = 0
 	min_oxy = 0
@@ -277,8 +277,7 @@
 	
 	
 	
-//------------------------------------------------------------------------------------------------------------			
-/*
+//------------------------------------------------------------------------------------------------------------
 
 
 /mob/living/simple_animal/hostile/metroid/combat/gamma
@@ -297,10 +296,15 @@
 	melee_miss_chance = 5
 	gender = NEUTER
 	faction = "metroids"
-	ranged = 1
+	
+	move_shoot = 1				//Move and shoot at the same time.
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 150 	//How long, in deciseconds, the cooldown of ranged attacks is
 	projectilesound = 'sound/weapons/taser2.ogg'
 	projectiletype = /obj/item/projectile/beam/stun/weak
 	firing_lines = 1
+	cooperative = 1
+
 
 	//Not affected by atmos.
 	minbodytemp = 0
@@ -356,18 +360,25 @@
 	name = "zeta metroid"
 	desc = "Some kind of feet stompy thing!"
 	tt_desc = "Minimus Feetamus Walkamus"
-	icon = 'icons/mob/metroid/medium.dmi'
+	icon = 'icons/mob/metroid/small.dmi'
 	icon_dead = "zeta_dead"
 	icon_living = "zeta"
 	icon_state = "zeta"
 	intelligence_level = SA_ANIMAL
-	health = 375
-	maxHealth = 375
+	health = 350
+	maxHealth = 350
 	melee_damage_lower = 15
 	melee_damage_upper = 25
 	melee_miss_chance = 5
 	gender = NEUTER
 	faction = "metroids"
+	
+	move_shoot = 1				//Move and shoot at the same time.
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 15 	//How long, in deciseconds, the cooldown of ranged attacks is
+	rapid = 1					// Three-round-burst fire mode
+	projectiletype	= /obj/item/projectile/energy/piranhaspit	// The projectiles I shoot
+	projectilesound = 'sound/weapons/thudswoosh.ogg' // The sound I make when I do it
 
 	//Unaffected by atmos.
 	minbodytemp = 0
@@ -395,7 +406,7 @@
 	cooperative = 1
 	evo_point = 1600
 	evo_limit = 1800
-	next = "/mob/living/simple_animal/hostile/metroid/combat/omega"
+	next = "/mob/living/simple_animal/hostile/metroid/bosses/omega"
 
 
 /mob/living/simple_animal/hostile/metroid/combat/zeta/death()
@@ -419,22 +430,29 @@
 
 
 
-/mob/living/simple_animal/hostile/metroid/combat/omega
+/mob/living/simple_animal/hostile/metroid/bosses/omega
 	name = "omega metroid"
 	desc = "Some kind of head rammy thing!"
 	tt_desc = "Maximus Feetamus Walkamus"
-	icon = 'icons/mob/metroid/large.dmi'
+	icon = 'icons/mob/metroid/small.dmi'
 	icon_dead = "omega_dead"
 	icon_living = "omega"
 	icon_state = "omega"
 	intelligence_level = SA_ANIMAL
-	health = 550
-	maxHealth = 550
+	health = 500
+	maxHealth = 500
 	melee_damage_lower = 25
 	melee_damage_upper = 40
 	melee_miss_chance = 5
 	gender = NEUTER
 	faction = "metroids"
+	
+	move_shoot = 1				//Move and shoot at the same time.
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 15 	//How long, in deciseconds, the cooldown of ranged attacks is
+	rapid = 1					// Three-round-burst fire mode
+	projectiletype	= /obj/item/projectile/energy/piranhaspit	// The projectiles I shoot
+	projectilesound = 'sound/weapons/thudswoosh.ogg' // The sound I make when I do it
 
 	//Unaffected by atmos.
 	minbodytemp = 0
@@ -462,15 +480,15 @@
 	cooperative = 1
 	evo_point = 2600
 	evo_limit = 3000
-	next = "/mob/living/simple_animal/hostile/metroid/combat/queen"
+	next = "/mob/living/simple_animal/hostile/metroid/bosses/queen"
 
 
-/mob/living/simple_animal/hostile/metroid/combat/omega/death()
+/mob/living/simple_animal/hostile/metroid/bosses/omega/death()
 	playsound(src, 'sound/metroid/metroiddeath.ogg', 100, 1)
 	..()
 
 
-/mob/living/simple_animal/hostile/metroid/combat/omega //active noms
+/mob/living/simple_animal/hostile/metroid/bosses/omega //active noms
 	vore_active = 1
 	vore_bump_chance = 0
 	vore_capacity = 2
@@ -486,23 +504,30 @@
 
 
 
-/mob/living/simple_animal/hostile/metroid/combat/queen
+/mob/living/simple_animal/hostile/metroid/bosses/queen
 	name = "queen metroid"
 	desc = "The mother of all Metroids, allowed to have grown too far!"
 	tt_desc = "Maximus Queenamus Deathamus"
-	icon = 'icons/mob/metroid/large.dmi'
+	icon = 'icons/mob/metroid/small.dmi'
 	icon_dead = "queen_dead"
 	icon_living = "queen"
 	icon_state = "queen"
 	intelligence_level = SA_ANIMAL
-	health = 1000
-	maxHealth = 1000
+	health = 575
+	maxHealth = 575
 	melee_damage_lower = 30
 	melee_damage_upper = 60
 	melee_miss_chance = 5
 	gender = NEUTER
 	faction = "metroids"
-	speed = 3
+	speed = 5
+
+	move_shoot = 1				//Move and shoot at the same time.
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 15 	//How long, in deciseconds, the cooldown of ranged attacks is
+	rapid = 1					// Three-round-burst fire mode
+	projectiletype	= /obj/item/projectile/energy/piranhaspit	// The projectiles I shoot
+	projectilesound = 'sound/weapons/thudswoosh.ogg' // The sound I make when I do it
 
 	//Unaffected by atmos.
 	minbodytemp = 0
@@ -533,16 +558,12 @@
 	next = "/mob/living/simple_animal/hostile/metroid/evolution/super"
 	
 
-var/list/queen_amount = list() //global queen list
-/mob/living/simple_animal/hostile/metroid/combat/queen/New()
-	queen_amount += src
-	
-/mob/living/simple_animal/hostile/metroid/combat/queen/death()
+/mob/living/simple_animal/hostile/metroid/bosses/queen/death()
 	playsound(src, 'sound/metroid/metroiddeath.ogg', 100, 1)
 	..()
 
 	
-/mob/living/simple_animal/hostile/metroid/combat/queen //active noms
+/mob/living/simple_animal/hostile/metroid/bosses/queen //active noms
 	vore_active = 1
 	vore_bump_chance = 0
 	vore_capacity = 4
@@ -552,7 +573,14 @@ var/list/queen_amount = list() //global queen list
 	swallowTime = 3 SECONDS
 
 	
-*/
+
+
+
+
+	
+
+	
+
 
 //LIFE STUFF, AND MECHANICS!
 //FOR THE BABY AND SUPER FORMS!
@@ -572,7 +600,7 @@ var/list/queen_amount = list() //global queen list
 		expand_troid()
 		return
 
-/mob/living/simple_animal/hostile/metroid/evolution/proc/expand_troid()
+/mob/living/simple_animal/hostile/metroid/proc/expand_troid()
 	visible_message("<span class='warning'>\The [src] suddenly evolves!</span>")
 	new next(get_turf(src))
 	qdel(src)
@@ -859,25 +887,37 @@ var/list/queen_amount = list() //global queen list
 		paralysis = 0
 		expand_troid()
 		return
-/*		
-/mob/living/simple_animal/hostile/metroid/combat/omega/Life()		
-	if(prob(5) && canEvolve == 1 && nutrition >= evo_point && queen_amount >= 1)
+
+
+/proc/metroid_queen_exists(var/ignore_self,var/mob/living/simple_animal/hostile/metroid/bosses/queen/self)
+	for(var/mob/living/simple_animal/hostile/metroid/bosses/queen in living_mob_list)
+		if(self && ignore_self && self == queen)
+			continue
+		if(!queen.key || !queen.client || queen.stat)
+			continue
+		return 1
+	return 0
+	
+/mob/living/simple_animal/hostile/metroid/bosses/omega/Life()		
+	if(metroid_queen_exists())
+		src << "<span class='notice'>We already have an active queen.</span>"
+		return
+		
+	if(!metroid_queen_exists() && prob(5) && canEvolve == 1 && nutrition >= evo_point)
 		playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
 		expand_troid()
-		return	
-*/	
-/mob/living/simple_animal/hostile/metroid/combat/queen/Life()		
+		
+		
+	
+
+/mob/living/simple_animal/hostile/metroid/bosses/queen/Life()		
 	if(canEvolve == 1 && nutrition >= evo_point)
 		playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
 		birth_troid()
 		return
 
-/mob/living/simple_animal/hostile/metroid/combat/proc/expand_troid()
-	visible_message("<span class='warning'>\The [src] suddenly evolves!</span>")
-	new next(get_turf(src))
-	qdel(src)
 	
-/mob/living/simple_animal/hostile/metroid/combat/queen/proc/birth_troid()
+/mob/living/simple_animal/hostile/metroid/proc/birth_troid()
 	visible_message("<span class='warning'>\A nesting Metroid suddenly bursts out of of the [src]!</span>")
 	new next(get_turf(src))
 	

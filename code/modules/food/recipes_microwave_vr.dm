@@ -219,3 +219,9 @@
 		/obj/item/weapon/reagent_containers/food/snacks/steamrolltealeaf
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/greentealeaf
+
+/datum/recipe/tencha //TODO: Figure out how to make this recipe with a drying rack.
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/steamtealeaf
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/tencha

@@ -97,3 +97,4 @@
 		sizetouse = RESIZE_SMALL
 	if(colorindex==5)
 		sizetouse = RESIZE_TINY
+
