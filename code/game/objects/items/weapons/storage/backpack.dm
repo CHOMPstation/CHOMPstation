@@ -58,6 +58,14 @@
 		return
 	. = ..()
 
+/obj/item/weapon/storage/backpack/storagecore
+	name = "Storage Core"
+	desc = "A repurposed technomancer core, your own little pocket dimension"
+	icon_state = "storagecore"
+	max_w_class = ITEMSIZE_LARGE
+	max_storage_space = 112
+	storage_cost = INVENTORY_STANDARD_SPACE + 1
+
 //Please don't clutter the parent storage item with stupid hacks.
 /obj/item/weapon/storage/backpack/holding/can_be_inserted(obj/item/W as obj, stop_messages = 0)
 	if(istype(W, /obj/item/weapon/storage/backpack/holding))
