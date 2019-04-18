@@ -25,6 +25,7 @@
 	item_flags = NOSLIP
 	siemens_coefficient = 0.6
 	slowdown = -3
+	species_restricted = null
 
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
