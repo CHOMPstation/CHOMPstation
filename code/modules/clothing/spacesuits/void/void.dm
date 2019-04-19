@@ -213,7 +213,7 @@
 	if(istype(W,/obj/item/clothing/accessory) || istype(W, /obj/item/weapon/hand_labeler))
 		return ..()
 
-	if(istype(src.loc,/mob/living))
+	if(user.get_inventory_slot(src) == slot_wear_suit)	//TFF 18/4/19: Port Polaris QoL edit - allow attaching voidsuit parts WHILE holding it!
 		user << "<span class='warning'>You cannot modify \the [src] while it is being worn.</span>"
 		return
 
