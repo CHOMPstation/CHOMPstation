@@ -9,7 +9,7 @@ List of things solar grubs should be able to do:
 */
 
 #define SINK_POWER 1
-
+var/global/list/moth_amount = 0
 /mob/living/simple_animal/retaliate/solargrub
 	name = "juvenile solargrub"
 	desc = "A young sparkling solargrub"
@@ -57,6 +57,7 @@ List of things solar grubs should be able to do:
 	var/datum/powernet/PN            // Our powernet
 	var/obj/structure/cable/attached        // the attached cable
 	var/emp_chance = 20 // Beware synths
+	
 
 	//VARS that were previously in LIFE but why tho, im porting all comments the original coder did too.
 	var/apc_drain_rate = 750 //Going to see if grubs are better as a minimal bother. previous value : 4000
@@ -99,11 +100,12 @@ List of things solar grubs should be able to do:
 			PN = null
 
 
-		if(prob(1) && charge >= 32000 && can_evolve == 1 && moth_amount.len <= 2) //it's reading from the moth_amount global list to determine if it can evolve.
+		if(prob(1) && charge >= 32000 && can_evolve == 1 && moth_amount <= 1) //it's reading from the moth_amount global list to determine if it can evolve.
 			anchored = 0
 			PN = attached.powernet
 			release_vore_contents()
 			prey_excludes.Cut()
+			moth_amount++
 			death_star()
 
 

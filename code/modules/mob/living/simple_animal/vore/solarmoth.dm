@@ -107,12 +107,8 @@
 
 		env.merge(removed)
 		
-var/global/list/moth_amount = list() //global moth list for the solargrub to read. Maybe want to transfer this to global variables file??
 
-/mob/living/simple_animal/retaliate/solarmoth/New()
-	moth_amount += src //when this thing is created, it adds itself to the global list
-	. = ..()
-	
+
 	//Since I'm changing hyper mode to be variable we need to store old power
 	original_temp = heating_power //We remember our old goal, for use in non perpetual heating level increase
 
