@@ -1,3 +1,4 @@
+var/global/list/queen_amount = 0
 /mob/living/simple_animal/hostile/metroid
 	name = "minetroid"
 	desc = "Some sort of person eaty thing!"
@@ -12,7 +13,7 @@
 	maxHealth = 25
 	health = 25
 	speed = 4
-	turns_per_move = 5
+	turns_per_move = 4
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
@@ -199,9 +200,10 @@
 	vore_bump_chance = 0
 	vore_capacity = 1
 	vore_icons = SA_ICON_LIVING
-	vore_pounce_chance = 0 //Metroids only eat incapacitated targets
+	vore_pounce_chance = 25 //Metroids only eat incapacitated targets
 	vore_default_mode = DM_DIGEST
-	swallowTime = 1 SECONDS //Hungry little bastards.	
+	swallowTime = 1 SECONDS //Hungry little bastards.
+	vore_escape_chance = 25	
 	
 /mob/living/simple_animal/hostile/metroid/evolution/super/death()
 	playsound(src, 'sound/metroid/metroiddeath.ogg', 100, 1)
@@ -271,6 +273,7 @@
 	vore_pounce_chance = 10 //Alphas will try knocking targets over since they lost their stun ability from the initial phases.
 	vore_default_mode = DM_DIGEST
 	swallowTime = 3 SECONDS 
+	vore_escape_chance = 25
 	
 
 	
@@ -349,6 +352,7 @@
 	vore_pounce_chance = 15 
 	vore_default_mode = DM_DIGEST
 	swallowTime = 3 SECONDS 
+	vore_escape_chance = 20
 	
 	
 	
@@ -370,15 +374,16 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 25
 	melee_miss_chance = 5
+	attack_armor_pen = 10
 	gender = NEUTER
 	faction = "metroids"
 	
 	move_shoot = 1				//Move and shoot at the same time.
 	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
-	ranged_cooldown_time = 15 	//How long, in deciseconds, the cooldown of ranged attacks is
-	rapid = 1					// Three-round-burst fire mode
-	projectiletype	= /obj/item/projectile/energy/piranhaspit	// The projectiles I shoot
-	projectilesound = 'sound/weapons/thudswoosh.ogg' // The sound I make when I do it
+	ranged_cooldown_time = 6 	//How long, in deciseconds, the cooldown of ranged attacks is
+	rapid = 0					// Three-round-burst fire mode //decided to disalbe for the zeta
+	projectiletype	= /obj/item/projectile/energy/metroidacid	// The projectiles I shoot
+	projectilesound = 'sound/weapons/slashmiss.ogg' // The sound I make when I do it
 
 	//Unaffected by atmos.
 	minbodytemp = 0
@@ -406,7 +411,7 @@
 	cooperative = 1
 	evo_point = 1600
 	evo_limit = 1800
-	next = "/mob/living/simple_animal/hostile/metroid/bosses/omega"
+	next = "/mob/living/simple_animal/hostile/metroid/combat/omega"
 
 
 /mob/living/simple_animal/hostile/metroid/combat/zeta/death()
@@ -422,6 +427,7 @@
 	vore_pounce_chance = 20 
 	vore_default_mode = DM_DIGEST
 	swallowTime = 3 SECONDS 
+	vore_escape_chance = 15
 	
 	
 	
@@ -430,9 +436,9 @@
 
 
 
-/mob/living/simple_animal/hostile/metroid/bosses/omega
+/mob/living/simple_animal/hostile/metroid/combat/omega
 	name = "omega metroid"
-	desc = "Some kind of head rammy thing!"
+	desc = "Those are some big claws!"
 	tt_desc = "Maximus Feetamus Walkamus"
 	icon = 'icons/mob/metroid/small.dmi'
 	icon_dead = "omega_dead"
@@ -444,15 +450,17 @@
 	melee_damage_lower = 25
 	melee_damage_upper = 40
 	melee_miss_chance = 5
+	attack_armor_pen = 20
 	gender = NEUTER
 	faction = "metroids"
+	speed = 4
 	
 	move_shoot = 1				//Move and shoot at the same time.
 	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
 	ranged_cooldown_time = 15 	//How long, in deciseconds, the cooldown of ranged attacks is
 	rapid = 1					// Three-round-burst fire mode
-	projectiletype	= /obj/item/projectile/energy/piranhaspit	// The projectiles I shoot
-	projectilesound = 'sound/weapons/thudswoosh.ogg' // The sound I make when I do it
+	projectiletype	= /obj/item/projectile/energy/metroidacid	// The projectiles I shoot
+	projectilesound = 'sound/weapons/slashmiss.ogg' // The sound I make when I do it
 
 	//Unaffected by atmos.
 	minbodytemp = 0
@@ -480,15 +488,15 @@
 	cooperative = 1
 	evo_point = 2600
 	evo_limit = 3000
-	next = "/mob/living/simple_animal/hostile/metroid/bosses/queen"
+	next = "/mob/living/simple_animal/hostile/metroid/combat/queen"
 
 
-/mob/living/simple_animal/hostile/metroid/bosses/omega/death()
+/mob/living/simple_animal/hostile/metroid/combat/omega/death()
 	playsound(src, 'sound/metroid/metroiddeath.ogg', 100, 1)
 	..()
 
 
-/mob/living/simple_animal/hostile/metroid/bosses/omega //active noms
+/mob/living/simple_animal/hostile/metroid/combat/omega //active noms
 	vore_active = 1
 	vore_bump_chance = 0
 	vore_capacity = 2
@@ -496,6 +504,7 @@
 	vore_pounce_chance = 40 
 	vore_default_mode = DM_DIGEST
 	swallowTime = 3 SECONDS
+	vore_escape_chance = 5
 	
 	
 	
@@ -504,7 +513,7 @@
 
 
 
-/mob/living/simple_animal/hostile/metroid/bosses/queen
+/mob/living/simple_animal/hostile/metroid/combat/queen
 	name = "queen metroid"
 	desc = "The mother of all Metroids, allowed to have grown too far!"
 	tt_desc = "Maximus Queenamus Deathamus"
@@ -518,16 +527,17 @@
 	melee_damage_lower = 30
 	melee_damage_upper = 60
 	melee_miss_chance = 5
+	attack_armor_pen = 20
 	gender = NEUTER
 	faction = "metroids"
-	speed = 5
+	speed = 3
 
 	move_shoot = 1				//Move and shoot at the same time.
 	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
-	ranged_cooldown_time = 15 	//How long, in deciseconds, the cooldown of ranged attacks is
+	ranged_cooldown_time = 12 	//How long, in deciseconds, the cooldown of ranged attacks is
 	rapid = 1					// Three-round-burst fire mode
-	projectiletype	= /obj/item/projectile/energy/piranhaspit	// The projectiles I shoot
-	projectilesound = 'sound/weapons/thudswoosh.ogg' // The sound I make when I do it
+	projectiletype	= /obj/item/projectile/energy/metroidacid	// The projectiles I shoot
+	projectilesound = 'sound/weapons/slashmiss.ogg' // The sound I make when I do it
 
 	//Unaffected by atmos.
 	minbodytemp = 0
@@ -558,12 +568,13 @@
 	next = "/mob/living/simple_animal/hostile/metroid/evolution/super"
 	
 
-/mob/living/simple_animal/hostile/metroid/bosses/queen/death()
+/mob/living/simple_animal/hostile/metroid/combat/queen/death()
 	playsound(src, 'sound/metroid/metroiddeath.ogg', 100, 1)
+	queen_amount--
 	..()
 
 	
-/mob/living/simple_animal/hostile/metroid/bosses/queen //active noms
+/mob/living/simple_animal/hostile/metroid/combat/queen //active noms
 	vore_active = 1
 	vore_bump_chance = 0
 	vore_capacity = 4
@@ -571,10 +582,57 @@
 	vore_pounce_chance = 60 //It's the queen, and it's hungry.
 	vore_default_mode = DM_DIGEST
 	swallowTime = 3 SECONDS
+	vore_escape_chance = 0
 
+
+//------------------------------------------------------------------------------------------------------------
+
+//Objects related to the Metroids.	
+//Projectile for the Metroids.
+/obj/item/projectile/energy/metroidacid
+	name = "metroid acid"
+	icon_state = "neurotoxin"
+	damage = 10
+	damage_type = TOX
+	agony = 10
+	check_armour = "bio"
+	armor_penetration = 50
 	
+//EGG! Metroid egg and its mechanics. Ripped from spiders.
+/obj/effect/metroid/egg
+	name = "egg cluster"
+	desc = "It seems to pulse slightly with an inner life"
+	icon = 'icons/mob/metroid/small.dmi'
+	icon_state = "egg"
+	var/amount_grown = 0
+	var/metroid_type = /mob/living/simple_animal/hostile/metroid/evolution/baby
+	New()
+		pixel_x = rand(3,-3)
+		pixel_y = rand(3,-3)
+		processing_objects |= src
+
+/obj/effect/metroid/egg/New(var/location, var/atom/parent)
+	get_light_and_color(parent)
+	..()
+
+/obj/effect/metroid/egg/Destroy()
+	processing_objects -= src
+	if(istype(loc, /obj/item/organ/external))
+		var/obj/item/organ/external/O = loc
+		O.implants -= src
+
+	return ..()
+
+/obj/effect/metroid/egg/process()
+	amount_grown += rand(0,2)
+	if(amount_grown >= 100)
+		new metroid_type(src.loc, src)
+		qdel(src)
 
 
+
+
+//------------------------------------------------------------------------------------------------------------
 
 
 	
@@ -876,7 +934,7 @@
 /mob/living/simple_animal/hostile/metroid/combat/Life()
 	. = ..()
 
-	if(canEvolve == 1 && nutrition >= evo_limit && vore_fullness == 1) //spit dat crap out if nutrition gets too high!
+	if(canEvolve == 1 && nutrition >= evo_limit && vore_fullness == TRUE) //spit dat crap out if nutrition gets too high!
 		release_vore_contents()
 		prey_excludes.Cut()
 		
@@ -888,34 +946,31 @@
 		expand_troid()
 		return
 
-
-/proc/metroid_queen_exists(var/ignore_self,var/mob/living/simple_animal/hostile/metroid/bosses/queen/self)
-	for(var/mob/living/simple_animal/hostile/metroid/bosses/queen in living_mob_list)
-		if(self && ignore_self && self == queen)
-			continue
-		if(!queen.key || !queen.client || queen.stat)
-			continue
-		return 1
-	return 0
 	
-/mob/living/simple_animal/hostile/metroid/bosses/omega/Life()		
-	if(metroid_queen_exists())
-		src << "<span class='notice'>We already have an active queen.</span>"
-		return
-		
-	if(!metroid_queen_exists() && prob(5) && canEvolve == 1 && nutrition >= evo_point)
+/mob/living/simple_animal/hostile/metroid/combat/omega/Life()	
+	. = ..()	
+	if(queen_amount == 0 && prob(5) && canEvolve == 1 && nutrition >= evo_point)
 		playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
+		queen_amount++
 		expand_troid()
 		
 		
-	
 
-/mob/living/simple_animal/hostile/metroid/bosses/queen/Life()		
-	if(canEvolve == 1 && nutrition >= evo_point)
+/mob/living/simple_animal/hostile/metroid/combat/queen/Life()
+	. = ..()
+	var/obj/effect/metroid/egg/E = locate() in get_turf(src)		
+	if(canEvolve == 1 && nutrition >= evo_point && !E)
 		playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
+		src.visible_message("<span class='notice'>\The [src] begins to lay an egg.</span>")
+		stop_automated_movement = 1
+		spawn(50)
+		new /obj/effect/spider/eggcluster(loc, src)
+		stop_automated_movement = 0
+		
+		
+		
 		birth_troid()
 		return
-
 	
 /mob/living/simple_animal/hostile/metroid/proc/birth_troid()
 	visible_message("<span class='warning'>\A nesting Metroid suddenly bursts out of of the [src]!</span>")
