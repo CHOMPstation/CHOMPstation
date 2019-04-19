@@ -40,6 +40,11 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	var/tab = 4 // Info tab, so new players can read it before doing anything.
 	var/spell_tab = ALL_SPELLS
 	var/show_scepter_text = 0
+	
+/obj/item/weapon/technomancer_catalog/trainee
+	name = "trainee's catalog"
+	budget = 400
+	max_budget = 400
 
 /obj/item/weapon/technomancer_catalog/apprentice
 	name = "apprentice's catalog"
@@ -50,7 +55,11 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	name = "master's catalog"
 	budget = 2000
 	max_budget = 2000
-
+	
+/obj/item/weapon/technomancer_catalog/admeme //for badmins, I suppose
+	name = "admeme's catalog"
+	budget = 20000
+	max_budget = 20000
 
 // Proc: bind_to_owner()
 // Parameters: 1 (new_owner - mob that the book is trying to bind to)
