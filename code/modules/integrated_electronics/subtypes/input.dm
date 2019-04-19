@@ -394,8 +394,9 @@
 
 	activate_pin(3)
 
-	for(var/mob/O in hearers(1, get_turf(src)))
-		O.show_message(text("\icon[] *beep* *beep*", src), 3, "*beep* *beep*", 2)
+	if(loc)	//TFF 18/4/19: Polaris fix - signaller circuit no long pings all alive.
+		for(var/mob/O in hearers(1, get_turf(src)))
+			O.show_message(text("\icon[] *beep* *beep*", src), 3, "*beep* *beep*", 2)
 
 /obj/item/integrated_circuit/input/EPv2
 	name = "\improper EPv2 circuit"
