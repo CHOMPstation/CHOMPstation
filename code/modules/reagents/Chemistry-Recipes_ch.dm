@@ -48,3 +48,15 @@
 	result = "instantteagreen"
 	required_reagents = list ("instantteapowdergreen" = 1, "water" = 9)
 	result_amount = 10
+
+/datum/chemical_reaction/matcha
+	id = "matcha"
+	result = "matcha"
+	required_reagents = list ("matchapowder" = 1, "hotwater" = 2)
+	result_amount = 2
+
+/datum/chemical_reaction/tea/matcha_latte
+	id = "matcha_latte"
+	result = "matcha_latte"
+	required_reagents = list ("matchapowder" = 1, "milk" = 5)
+	result_amount = 5

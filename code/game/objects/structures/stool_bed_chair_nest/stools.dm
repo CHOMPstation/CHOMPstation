@@ -106,6 +106,10 @@ var/global/list/stool_cache = list() //haha stool
 		material.place_sheet(get_turf(src))
 	if(padding_material)
 		padding_material.place_sheet(get_turf(src))
+	// Adding a safety net to prevent players from being perma-buckled to the stool..! - Jon
+	if(has_buckled_mobs())
+		for(var/A in buckled_mobs)
+			user_unbuckle_mob(A, src)
 	qdel(src)
 
 /obj/item/weapon/stool/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -148,3 +152,11 @@ var/global/list/stool_cache = list() //haha stool
 		remove_padding()
 	else
 		..()
+
+// Chompstation ADD: A new proc to allow mobs to be unbuckled when clicking on a stool.
+/obj/item/weapon/stool/attack_hand(mob/living/user as mob)
+	if(has_buckled_mobs())
+		for(var/A in buckled_mobs)
+			user_unbuckle_mob(A, user)
+		return
+	..()

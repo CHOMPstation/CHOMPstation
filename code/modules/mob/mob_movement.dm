@@ -323,6 +323,12 @@
 				move_delay += 2
 				return mob.buckled.relaymove(mob,direct)
 
+		if(waddleToggle)
+			if(!mob.buckled)
+				animate(mob, pixel_z = 4, time = 0)
+				animate(pixel_z = 0, transform = turn(matrix(), pick(-12, 0, 12)), time=2)
+				animate(pixel_z = 0, transform = matrix(), time = 0)
+
 		//We are now going to move
 		moving = 1
 		//Something with pulling things

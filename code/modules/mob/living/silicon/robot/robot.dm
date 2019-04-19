@@ -615,6 +615,7 @@
 			radio.attackby(W,user)//GTFO, you have your own procs
 		else
 			user << "Unable to locate a radio."
+
 //TFF 14/4/19: Port VoreStation edit - Wallet/Micro usage to unlock borgs.
 	else if (W.GetID())			// trying to unlock the interface with an ID card
 		if(emagged)//still allow them to open the cover
@@ -698,6 +699,7 @@
 			return 1
 	return 0
 
+//TFF 14/4/19: Port VoreStation edit - wallet/micro usage to unlock borgs
 /mob/living/silicon/robot/proc/check_access(obj/item/I)
 	if(!istype(req_access, /list)) //something's very wrong
 		return 1

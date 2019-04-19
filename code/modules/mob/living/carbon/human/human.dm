@@ -1117,7 +1117,8 @@
 	else
 		usr << "<span class='warning'>You failed to check the pulse. Try again.</span>"
 
-/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/regen_icons = TRUE)
+//TFF 14/4/19: Port VoreStation TF fix
+/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/regen_icons = TRUE, var/mob/living/carbon/human/example = null)	//VOREStation Edit - send an example
 
 	if(!dna)
 		if(!new_species)
@@ -1152,7 +1153,16 @@
 	if(species.default_language)
 		add_language(species.default_language)
 
-	if(species.base_color) //VOREStation Edit - Always give them a basse color
+//TFF 14/4/19: Port VoreStation TF fix
+	//if(species.icon_scale != 1)	//VOREStation Removal
+	//	update_transform()			//VOREStation Removal
+
+	if(example)						//VOREStation Edit begin
+		if(!(example == src))
+			r_skin = example.r_skin
+			g_skin = example.g_skin
+			b_skin = example.b_skin
+	else if(species.base_color)	//VOREStation Edit end
 		//Apply colour.
 		r_skin = hex2num(copytext(species.base_color,2,4))
 		g_skin = hex2num(copytext(species.base_color,4,6))
@@ -1169,10 +1179,13 @@
 		gender = species.genders[1]
 
 	//icon_state = lowertext(species.name) //Necessary?
+//TFF 14/4/19: Port VoreStation TF fix
+	//VOREStation Edit start: swap places of those two procs
+	species.handle_post_spawn(src)
+
 
 	species.create_organs(src)
 
-	species.handle_post_spawn(src)
 
 	maxHealth = species.total_health
 

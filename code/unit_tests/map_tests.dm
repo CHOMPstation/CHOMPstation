@@ -14,7 +14,9 @@
 					/area/mine,
 					/area/vacant/vacant_shop,
 					/area/turbolift,
-					/area/submap					)
+					/area/submap,
+					/area/hallway/secondary/entry/D2/shuttleDoors
+										)
 
 	var/list/exempt_from_atmos = typesof(/area/maintenance,
 						/area/storage,
