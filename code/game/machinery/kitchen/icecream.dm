@@ -2,8 +2,10 @@
 #define ICECREAM_CHOCOLATE 2
 #define ICECREAM_STRAWBERRY 3
 #define ICECREAM_BLUE 4
-#define CONE_WAFFLE 5
-#define CONE_CHOC 6
+#define ICECREAM_MATCHA 5
+#define CONE_WAFFLE 6
+#define CONE_CHOC 7
+
 
 // Ported wholesale from Apollo Station.
 
@@ -29,6 +31,8 @@
 			return list("milk", "ice", "berryjuice")
 		if(ICECREAM_BLUE)
 			return list("milk", "ice", "singulo")
+		if(ICECREAM_MATCHA)
+			return list("milk", "ice", "matcha")
 		if(CONE_WAFFLE)
 			return list("flour", "sugar")
 		if(CONE_CHOC)
@@ -44,6 +48,8 @@
 			return "strawberry"
 		if(ICECREAM_BLUE)
 			return "blue"
+		if(ICECREAM_MATCHA)
+			return "matcha"
 		if(CONE_WAFFLE)
 			return "waffle"
 		if(CONE_CHOC)
@@ -54,7 +60,7 @@
 /obj/machinery/icecream_vat/initialize()
 	. = ..()
 	create_reagents(100)
-	while(product_types.len < 6)
+	while(product_types.len < 7)
 		product_types.Add(5)
 	reagents.add_reagent("milk", 5)
 	reagents.add_reagent("flour", 5)
@@ -72,7 +78,8 @@
 	dat += "<b>Vanilla icecream:</b> <a href='?src=\ref[src];select=[ICECREAM_VANILLA]'><b>Select</b></a> <a href='?src=\ref[src];make=[ICECREAM_VANILLA];amount=1'><b>Make</b></a> <a href='?src=\ref[src];make=[ICECREAM_VANILLA];amount=5'><b>x5</b></a> [product_types[ICECREAM_VANILLA]] scoops left. (Ingredients: milk, ice)<br>"
 	dat += "<b>Strawberry icecream:</b> <a href='?src=\ref[src];select=[ICECREAM_STRAWBERRY]'><b>Select</b></a> <a href='?src=\ref[src];make=[ICECREAM_STRAWBERRY];amount=1'><b>Make</b></a> <a href='?src=\ref[src];make=[ICECREAM_STRAWBERRY];amount=5'><b>x5</b></a> [product_types[ICECREAM_STRAWBERRY]] dollops left. (Ingredients: milk, ice, berry juice)<br>"
 	dat += "<b>Chocolate icecream:</b> <a href='?src=\ref[src];select=[ICECREAM_CHOCOLATE]'><b>Select</b></a> <a href='?src=\ref[src];make=[ICECREAM_CHOCOLATE];amount=1'><b>Make</b></a> <a href='?src=\ref[src];make=[ICECREAM_CHOCOLATE];amount=5'><b>x5</b></a> [product_types[ICECREAM_CHOCOLATE]] dollops left. (Ingredients: milk, ice, coco powder)<br>"
-	dat += "<b>Blue icecream:</b> <a href='?src=\ref[src];select=[ICECREAM_BLUE]'><b>Select</b></a> <a href='?src=\ref[src];make=[ICECREAM_BLUE];amount=1'><b>Make</b></a> <a href='?src=\ref[src];make=[ICECREAM_BLUE];amount=5'><b>x5</b></a> [product_types[ICECREAM_BLUE]] dollops left. (Ingredients: milk, ice, singulo)<br></div>"
+	dat += "<b>Blue icecream:</b> <a href='?src=\ref[src];select=[ICECREAM_BLUE]'><b>Select</b></a> <a href='?src=\ref[src];make=[ICECREAM_BLUE];amount=1'><b>Make</b></a> <a href='?src=\ref[src];make=[ICECREAM_BLUE];amount=5'><b>x5</b></a> [product_types[ICECREAM_BLUE]] dollops left. (Ingredients: milk, ice, singulo)<br>"
+	dat += "<b>Matcha icecream:</b> <a href='?src=\ref[src];select=[ICECREAM_MATCHA]'><b>Select</b></a> <a href='?src=\ref[src];make=[ICECREAM_MATCHA];amount=1'><b>Make</b></a> <a href='?src=\ref[src];make=[ICECREAM_MATCHA];amount=5'><b>x5</b></a> [product_types[ICECREAM_MATCHA]] dollops left. (Ingredients: milk, ice, matcha)<br></div>"
 	dat += "<br><b>CONES</b><br><div class='statusDisplay'>"
 	dat += "<b>Waffle cones:</b> <a href='?src=\ref[src];cone=[CONE_WAFFLE]'><b>Dispense</b></a> <a href='?src=\ref[src];make=[CONE_WAFFLE];amount=1'><b>Make</b></a> <a href='?src=\ref[src];make=[CONE_WAFFLE];amount=5'><b>x5</b></a> [product_types[CONE_WAFFLE]] cones left. (Ingredients: flour, sugar)<br>"
 	dat += "<b>Chocolate cones:</b> <a href='?src=\ref[src];cone=[CONE_CHOC]'><b>Dispense</b></a> <a href='?src=\ref[src];make=[CONE_CHOC];amount=1'><b>Make</b></a> <a href='?src=\ref[src];make=[CONE_CHOC];amount=5'><b>x5</b></a> [product_types[CONE_CHOC]] cones left. (Ingredients: flour, sugar, coco powder)<br></div>"
@@ -191,5 +198,6 @@
 #undef FLAVOUR_CHOCOLATE
 #undef FLAVOUR_STRAWBERRY
 #undef FLAVOUR_BLUE
+#undef FLAVOUR_MATCHA
 #undef CONE_WAFFLE
 #undef CONE_CHOC

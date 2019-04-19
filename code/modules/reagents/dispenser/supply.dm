@@ -120,7 +120,8 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/milk,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/cream,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tea,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/ice
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/ice,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/matcha_latte
 		)
 	cost = 50
 	containertype = /obj/structure/closet/crate
