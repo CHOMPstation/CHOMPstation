@@ -41,11 +41,6 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	var/spell_tab = ALL_SPELLS
 	var/show_scepter_text = 0
 	
-/obj/item/weapon/technomancer_catalog/trainee
-    	name = "trainee's catalog"
-   	budget = 400
-    	max_budget = 400
-	
 /obj/item/weapon/technomancer_catalog/apprentice
 	name = "apprentice's catalog"
 	budget = 700
