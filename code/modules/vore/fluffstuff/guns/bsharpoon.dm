@@ -117,19 +117,19 @@
 	if(!user || !A)
 		return
 	if(transforming)
-		to_chat(user,"<span class = 'warning'>You can't fire while \the [src] transforming!</span>")
+		to_chat(user,"<span class = 'warning'>You can't use while \the [src] transforming!</span>")
 		return
 	if(!(current_fire - last_fire >= 30 SECONDS))
 		to_chat(user,"<span class = 'warning'>\The [src] is recharging...</span>")
 		return
 	if(is_jammed(A) || is_jammed(user))
-		to_chat(user,"<span class = 'warning'>\The [src] shot fizzles due to interference!</span>")
+		to_chat(user,"<span class = 'warning'>\The [src] magic fizzles due to interference!</span>")
 		last_fire = current_fire
 		playsound(user, 'sound/weapons/wave.ogg', 60, 1)
 		return
 	var/turf/T = get_turf(A)
 	if(!T || T.check_density())
-		to_chat(user,"<span class = 'warning'>That's a little too solid to harpoon into!</span>")
+		to_chat(user,"<span class = 'warning'>That's a little too solid to teleport into!</span>")
 		return
 	var/turf/ownturf = get_turf(src)
 	if(ownturf.z != T.z || get_dist(T,ownturf) > world.view)
@@ -139,7 +139,7 @@
 	last_fire = current_fire
 	playsound(user, 'sound/weapons/wave.ogg', 60, 1)
 
-	user.visible_message("<span class='warning'>[user] fires \the [src]!</span>","<span class='warning'>You fire \the [src]!</span>")
+	user.visible_message("<span class='warning'>[user] uses \the [src]!</span>","<span class='warning'>You use \the [src]!</span>")
 
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 	s.set_up(4, 1, A)
@@ -168,10 +168,22 @@
 	return chande_fire_mode(user)
 
 /obj/item/weapon/teleport_cane/verb/chande_fire_mode(mob/user as mob)
-	set name = "Change fire mode"
+	set name = "Change use mode"
 	set category = "Object"
 	set src in oview(1)
 	if(transforming) return
 	mode = !mode
 	transforming = 1
 	to_chat(user,"<span class = 'info'>You change \the [src]'s mode to [mode ? "transmiting" : "receiving"].</span>")
+	update_icon()
+
+/obj/item/weapon/teleport_cane/update_icon()
+	if(transforming)
+		switch(mode)
+			if(0)
+				flick("cane", src)
+				icon_state = "cane"
+			if(1)
+				flick("cane",src)
+				icon_state = "cane"
+		transforming = 0
