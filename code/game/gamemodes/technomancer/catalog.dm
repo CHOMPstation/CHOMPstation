@@ -51,6 +51,10 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	budget = 2000
 	max_budget = 2000
 
+/obj/item/weapon/technomancer_catalog/admeme //for badmins, I suppose
+	name = "admeme's catalog"
+	budget = 20000
+	max_budget = 20000
 
 // Proc: bind_to_owner()
 // Parameters: 1 (new_owner - mob that the book is trying to bind to)
