@@ -1,6 +1,6 @@
 /mob/living/carbon/human/emote(var/act,var/m_type=1,var/message = null)
 	var/param = null
-	
+
 	var/datum/gender/T = gender_datums[get_visible_gender()]
 
 	if (findtext(act, "-", 1, null))
@@ -29,7 +29,7 @@
 				m_type = 1
 
 		//Machine-only emotes
-		if("ping", "beep", "buzz", "yes", "no", "rcough", "rsneeze")
+		if("ping", "beep", "buzz", "yes", "ye", "no", "rcough", "rsneeze")	//TFF 18/4/19: Polaris fix - make synths able to use *yes emote
 
 			if(!isSynthetic())
 				src << "<span class='warning'>You are not a synthetic.</span>"
@@ -52,7 +52,7 @@
 			else if(act == "ping")
 				display_msg = "pings"
 				use_sound = 'sound/machines/ping.ogg'
-			else if(act == "yes")
+			else if(act == "yes"||act == "ye")	//TFF 18/4/19: Polaris fix - make synths able to use *yes emote
 				display_msg = "emits an affirmative blip"
 				use_sound = 'sound/machines/synth_yes.ogg'
 			else if(act == "no")
@@ -557,7 +557,7 @@
 		if ("weh")
 			message = "lets out a weh."
 			m_type = 1
-					
+
 		if ("whimper")
 			if (miming)
 				message = "appears hurt."
@@ -743,7 +743,7 @@
 	set name = "Set Pose"
 	set desc = "Sets a description which will be shown when someone examines you."
 	set category = "IC"
-	
+
 	var/datum/gender/T = gender_datums[get_visible_gender()]
 
 	pose =  sanitize(input(usr, "This is [src]. [T.he]...", "Pose", null)  as text)

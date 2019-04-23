@@ -331,6 +331,26 @@
 	spell_power_modifier = 1.75
 	energy_cost_modifier = 2.0
 
+// For those who are just beginning.
+/obj/item/weapon/technomancer_core/trainee
+	name = "trainee core"
+	desc = "A bewilderingly complex 'black box' that allows the wearer to accomplish amazing feats. This one has 'training wheels'"
+	energy = 3000
+	max_energy = 3000
+	regen_rate = 30 
+	instability_modifier = 0.1
+	spell_power_modifier = 0.2
+	
+// For the Admeme.
+/obj/item/weapon/technomancer_core/Admeme
+	name = "Admeme core"
+	desc = "A gift from the Admeme Corporation. Use it to teach others about technomancy"
+	energy = 100000
+	max_energy = 100000
+	regen_rate = 10000 //idfk how long to full
+	instability_modifier = 0
+	spell_power_modifier = 1.0
+
 // For use only for the GOLEM.
 /obj/item/weapon/technomancer_core/golem
 	name = "integrated core"

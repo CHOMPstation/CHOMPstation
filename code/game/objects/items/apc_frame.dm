@@ -6,12 +6,7 @@
 	icon = 'icons/obj/apc_repair.dmi'
 	icon_state = "apc_frame"
 	flags = CONDUCT
-
-/obj/item/frame/apc/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	..()
-	if (istype(W, /obj/item/weapon/wrench))
-		new /obj/item/stack/material/steel( get_turf(src.loc), 2 )
-		qdel(src)
+	refund_amt = 2 //TFF 18/4/19: Polaris fix for APC frames giving more steel than used when made.
 
 /obj/item/frame/apc/try_build(turf/on_wall, mob/user as mob)
 	if (get_dist(on_wall, user)>1)

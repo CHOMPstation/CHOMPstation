@@ -185,7 +185,7 @@
 			playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 			m_type = 1
 
-		if("yes")
+		if("yes", "ye")	//TFF 18/4/19: Polaris fix - make synths able to use *yes emote
 			var/M = null
 			if(param)
 				for (var/mob/A in view(null, null))

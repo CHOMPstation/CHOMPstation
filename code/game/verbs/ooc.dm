@@ -12,13 +12,18 @@
 		src << "Guests may not use OOC."
 		return
 
-	//Chompstation ADD
+	msg = sanitize(msg)
+	if(!msg)	return
+
+	//Chompstation ADD - Emoji Parsing
+	msg = emoji_parse(msg)
+
+
+	//Chompstation ADD -  IC in OOC Warning filter
 	if((copytext(msg, 1, 2) in list(".",";",":","#")) || (findtext(lowertext(copytext(msg, 1, 5)), "say")))
 		if(alert("Your message \"[msg]\" looks like it was meant for in game communication, say it in OOC?", "Meant for OOC?", "No", "Yes") != "Yes")
 			return
 
-	msg = sanitize(msg)
-	if(!msg)	return
 
 	if(!is_preference_enabled(/datum/client_preference/show_ooc))
 		src << "<span class='warning'>You have OOC muted.</span>"
@@ -95,6 +100,9 @@
 	msg = sanitize(msg)
 	if(!msg)
 		return
+
+	//Chompstation ADD - Emoji Parsing
+	msg = emoji_parse(msg)
 
 	if(!is_preference_enabled(/datum/client_preference/show_looc))
 		src << "<span class='danger'>You have LOOC muted.</span>"
