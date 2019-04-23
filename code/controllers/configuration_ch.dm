@@ -5,6 +5,7 @@
 /datum/configuration
 	var/discord_restriction = 0
 	var/use_jobwhitelist = 0
+	var/emojis = 1
 
 /hook/startup/proc/read_ch_config()
 	var/list/Lines = file2list("config/config.txt")
@@ -35,4 +36,6 @@
 				config.discord_restriction = 1
 			if ("use_jobwhitelist")
 				config.use_jobwhitelist = 1
+			if ("disable_emojis")
+				config.emojis = 0
 	return 1
