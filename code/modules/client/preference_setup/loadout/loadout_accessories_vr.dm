@@ -30,6 +30,11 @@
 	display_name = "collar, holo"
 	path = /obj/item/clothing/accessory/collar/holo
 
+//TFF 23/4/19: Indigestible collar addition
+/datum/gear/collar/holo/indigestible
+	display_name = "collar, holo (indigestible)"
+	path = /obj/item/clothing/accessory/collar/holo/indigestible
+
 /datum/gear/accessory/white_drop_pouches
 	allowed_roles = list("Paramedic","Chief Medical Officer","Medical Doctor","Chemist")
 
