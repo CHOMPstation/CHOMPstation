@@ -165,6 +165,15 @@
 	overlay_state = "collar_holo_overlay"
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 
+//TFF 23/4/19: Indigestible collar addition
+/obj/item/clothing/accessory/collar/holo/indigestible
+	name = "Holo-collar"
+	desc = "A special variety of the holo-collar that seems to be made of a very durable fabric that fits around the neck."
+	icon_state = "collar_holo"
+	item_state = "collar_holo_overlay"
+	overlay_state = "collar_holo_overlay"
+	matter = list(DEFAULT_WALL_MATERIAL = 50)
+
 // Chompstation edit - Deprecated, implementing a custom method of renaming collars.
 /*
 /obj/item/clothing/accessory/collar/holo/attack_self(mob/user as mob)
