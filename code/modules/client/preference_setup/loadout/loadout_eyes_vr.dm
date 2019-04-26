@@ -13,3 +13,7 @@
 /datum/gear/eyes/science_proper
 	display_name = "science goggles (no overlay)"
 	path = /obj/item/clothing/glasses/fluff/science_proper
+
+datum/gear/eyes/flipgoggles
+	display_name = "Flip Goggles"
+	path = /obj/item/clothing/glasses/goggles/flip
