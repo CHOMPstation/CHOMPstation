@@ -399,7 +399,7 @@
 	icon_state = "otie_s"
 	extra_overlay = "otie_markings"
 
-//TFF 25/4/19: Add Mermaid taur body selection. Requested addition!
+//TFF 25/4/19:	Add Mermaid taur body selection. Requested addition!
 /datum/sprite_accessory/tail/taur/mermaid
 	name = "Mermaid (Taur)"
 	icon_state = "mermaid_s"
