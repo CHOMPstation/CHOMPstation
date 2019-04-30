@@ -115,7 +115,7 @@ other types of metals and chemistry for reagents).
 
 /datum/design/item/stock_part/quadratic_capacitor
 	id = "quadratic_capacitor"
-	req_tech = list(TECH_POWER = 7, TECH_MATERIAL = 6)
+	req_tech = list(TECH_POWER = 10, TECH_MATERIAL = 9)
 	materials = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 100, "gold" = 20)
 	build_path = /obj/item/weapon/stock_parts/capacitor/quadratic
 	sort_string = "CAAAD"
@@ -143,7 +143,7 @@ other types of metals and chemistry for reagents).
 
 /datum/design/item/stock_part/femto_mani
 	id = "femto_mani"
-	req_tech = list(TECH_MATERIAL = 7, TECH_DATA = 4)
+	req_tech = list(TECH_MATERIAL = 10, TECH_DATA = 9)
 	materials = list(DEFAULT_WALL_MATERIAL = 30, "diamond" = 50)
 	build_path = /obj/item/weapon/stock_parts/manipulator/femto
 	sort_string = "CAABD"
@@ -171,7 +171,7 @@ other types of metals and chemistry for reagents).
 	
 /datum/design/item/stock_part/bluespace_matter_bin
 	id = "bluespace_matter_bin"
-	req_tech = list(TECH_MATERIAL = 6, TECH_BLUESPACE = 5)
+	req_tech = list(TECH_MATERIAL = 10, TECH_BLUESPACE = 9)
 	materials = list(DEFAULT_WALL_MATERIAL = 80,"phoron" = 30)
 	build_path = /obj/item/weapon/stock_parts/matter_bin/bluespace
 	sort_string = "CAACD"
@@ -199,7 +199,7 @@ other types of metals and chemistry for reagents).
 
 /datum/design/item/stock_part/quad_ultra_micro_laser
 	id = "quadultra_micro_laser"
-	req_tech = list(TECH_MAGNET = 8, TECH_MATERIAL = 7)
+	req_tech = list(TECH_MAGNET = 10, TECH_MATERIAL = 9)
 	materials = list(DEFAULT_WALL_MATERIAL = 20, "glass" = 40, "uranium" = 30)
 	build_path = /obj/item/weapon/stock_parts/micro_laser/quad
 	sort_string = "CAADD"
@@ -227,7 +227,7 @@ other types of metals and chemistry for reagents).
 	
 /datum/design/item/stock_part/triphasic_sensor
 	id = "triphasic_sensor"
-	req_tech = list(TECH_MAGNET = 8, TECH_MATERIAL = 7)
+	req_tech = list(TECH_MAGNET = 10, TECH_MATERIAL = 9)
 	materials = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 50, "silver" = 10)
 	build_path = /obj/item/weapon/stock_parts/scanning_module/triphasic
 	sort_string = "CAAED"

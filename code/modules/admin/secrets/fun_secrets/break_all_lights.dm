@@ -1,3 +1,4 @@
+
 /datum/admin_secret_item/fun_secret/break_all_lights
 	name = "Break All Lights"
 

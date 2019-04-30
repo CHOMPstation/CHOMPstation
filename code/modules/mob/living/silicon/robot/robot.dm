@@ -704,6 +704,7 @@
 	if(!istype(req_access, /list)) //something's very wrong
 		return 1
 
+//TFF 14/4/19: Port VoreStation edit - wallet/micro usage to unlock borgs
 	var/list/L = req_access
 	if(!L.len) //no requirements
 		return 1

@@ -18,6 +18,7 @@
 	muzzle_type = /obj/effect/projectile/laser/muzzle
 	tracer_type = /obj/effect/projectile/laser/tracer
 	impact_type = /obj/effect/projectile/laser/impact
+	
 
 /obj/item/projectile/beam/practice
 	name = "laser"
@@ -211,3 +212,11 @@
 	name = "stun beam"
 	icon_state = "stun"
 	agony = 35
+
+//CHOMPEDIT: Charge beam that drains all power
+/obj/item/projectile/beam/stun/oneshot
+	name = "Overdrive Stun beam"
+	light_color = "#AA00FF"
+	//shotcost = 2400
+	agony = 240
+//CHOMPEDIT END.
