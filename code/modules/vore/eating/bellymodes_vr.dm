@@ -113,6 +113,9 @@
 				to_chat(M,"<span class='notice'>" + digest_alert_prey + "</span>")
 
 				play_sound = pick(death_sounds)
+					//TFF 30/4/19: Ports VoreStation Remains Option - handler to leave remains
+				if((mode_flags & DM_FLAG_LEAVEREMAINS) && M.digest_leave_remains)
+					handle_remains_leaving(M)
 				digestion_death(M)
 				owner.update_icons()
 				if(compensation > 0)
@@ -129,9 +132,9 @@
 			if(istype(M,/mob/living/simple_animal/retaliate/synx))
 				var/syntox = digest_brute+digest_burn
 				owner.adjustToxLoss(syntox)
-				M.adjustBruteLoss(-syntox*2) //Should automaticaly clamp to 0
-				M.adjustFireLoss(-syntox*2) //Should automaticaly clamp to 0
-				//END SYNX hook.
+				if(M.health <= M.maxHealth)
+					M.health = M.health + syntox*2
+
 			// Deal digestion damage (and feed the pred)
 			var/old_brute = M.getBruteLoss()
 			var/old_burn = M.getFireLoss()
