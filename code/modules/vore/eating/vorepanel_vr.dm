@@ -285,6 +285,13 @@
 		if(0)
 			dat += "<a href='?src=\ref[src];toggledg=1'><span style='color:green;'>Toggle Digestable</span></a>"
 
+		//TFF 30/4/19: Ports VoreStation Remains Option - add option to leave remains after you digest a meal
+	switch(user.digest_leave_remains)
+		if(1)
+			dat += "<a href='?src=\ref[src];toggledlm=1'><span style='color:red;'>Toggle Leaving Remains</span></a>"
+		if(0)
+			dat += "<a href='?src=\ref[src];toggledlm=1'>Toggle Leaving Remains</a>"
+
 	switch(user.allowmobvore)
 		if(1)
 			dat += "<a href='?src=\ref[src];togglemv=1'>Toggle Mob Vore</a>"
@@ -742,20 +749,21 @@
 		selected = user.vore_organs[1]
 		user.vore_selected = user.vore_organs[1]
 
+//TFF 30/4/19: We're not Virgo here, change to the right server name
 	if(href_list["saveprefs"])
 		if(!user.save_vore_prefs())
-			alert("ERROR: Virgo-specific preferences failed to save!","Error")
+			alert("ERROR: ChompStation-specific preferences failed to save!","Error")
 		else
-			to_chat(user,"<span class='notice'>Virgo-specific preferences saved!</span>")
+			to_chat(user,"<span class='notice'>ChompStation-specific preferences saved!</span>")
 
 	if(href_list["applyprefs"])
 		var/alert = alert("Are you sure you want to reload character slot preferences? This will remove your current vore organs and eject their contents.","Confirmation","Reload","Cancel")
 		if(!alert == "Reload")
 			return 0
 		if(!user.apply_vore_prefs())
-			alert("ERROR: Virgo-specific preferences failed to apply!","Error")
+			alert("ERROR: ChompStation-specific preferences failed to apply!","Error")
 		else
-			to_chat(user,"<span class='notice'>Virgo-specific preferences applied from active slot!</span>")
+			to_chat(user,"<span class='notice'>ChompStation-specific preferences applied from active slot!</span>")
 
 	if(href_list["setflavor"])
 		var/new_flavor = html_encode(input(usr,"What your character tastes like (40ch limit). This text will be printed to the pred after 'X tastes of...' so just put something like 'strawberries and cream':","Character Flavor",user.vore_taste) as text|null)
@@ -802,6 +810,20 @@
 
 		if(user.client.prefs_vr)
 			user.client.prefs_vr.digestable = user.digestable
+
+		//TFF 30/4/19: Ports VoreStation Remains Option - add option that goes paw in paw with belly setting; allow yourself to leave bones behind after you're digested
+	if(href_list["toggledlm"])
+		var/choice = alert(user, "This button allows preds to have your remains be left in their belly after you are digested. This will only happen if pred sets their belly to do so. Remains consist of skeletal parts. Currently you are [user.digest_leave_remains? "" : "not"] leaving remains.", "", "Allow Post-digestion Remains", "Cancel", "Disallow Post-digestion Remains")
+		switch(choice)
+			if("Cancel")
+				return 0
+			if("Allow Post-digestion Remains")
+				user.digest_leave_remains = TRUE
+			if("Disallow Post-digestion Remains")
+				user.digest_leave_remains = FALSE
+
+		if(user.client.prefs_vr)
+			user.client.prefs_vr.digest_leave_remains = user.digest_leave_remains
 
 	if(href_list["togglemv"])
 		var/choice = alert(user, "This button is for those who don't like being eaten by mobs. Messages admins when changed, so don't try to use it for mechanical benefit. Set it once and save it. Mobs are currently: [user.allowmobvore ? "Allowed to eat" : "Prevented from eating"] you.", "", "Allow Mob Predation", "Cancel", "Prevent Mob Predation")
