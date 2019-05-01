@@ -38,6 +38,8 @@
 	minbodytemp = 0
 
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
+//TFF 30/4/19: Port VoreStation Mechanical Vore Prefs - hide Mimic prefs
+	showvoreprefs = 0 //VOREStation Edit - Hides mechanical vore prefs for mimics. You can't see their gaping maws when they're just sitting idle.
 
 /mob/living/simple_animal/hostile/mimic/set_target()
 	. = ..()
