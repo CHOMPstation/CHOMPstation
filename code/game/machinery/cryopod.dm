@@ -506,6 +506,11 @@
 	//visible_message("<span class='notice'>\The [initial(name)] hums and hisses as it moves [to_despawn.real_name] into storage.</span>", 3)
 	visible_message("<span class='notice'>\The [initial(name)] [on_store_visible_message_1] [to_despawn.real_name] [on_store_visible_message_2].</span>", 3)
 
+//TFF: Port Vorestation fix for people getting kicked while inside a belly. Re-added 1/5/19. Didn't synch my fork before that last one, apparently. >W>
+	if(to_despawn.client && to_despawn.stat<2)
+		var/mob/observer/dead/newghost = to_despawn.ghostize()
+		newghost.timeofdeath = world.time
+
 	//This should guarantee that ghosts don't spawn.
 	to_despawn.ckey = null
 
