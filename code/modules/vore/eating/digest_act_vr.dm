@@ -39,7 +39,9 @@
 	return FALSE //Sorta important to not digest your own beacons.
 /obj/item/weapon/storage/glass_ornament/digest_act(...)
 	return FALSE
-
+//TFF 23/4/19: Indigestible collar addition
+/obj/item/clothing/accessory/collar/holo/indigestible/digest_act(...)
+	return FALSE
 /////////////
 // Some special treatment
 /////////////

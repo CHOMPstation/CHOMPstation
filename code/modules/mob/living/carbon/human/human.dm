@@ -167,7 +167,7 @@
 				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
 	if(update)	UpdateDamageIcon()
 
-/mob/living/carbon/human/proc/implant_loadout(var/datum/gear/G = new/datum/gear/utility/implant)
+/mob/living/carbon/human/proc/implant_loadout(var/datum/gear/G = new/datum/gear/implant)	//TFF 29/4/19: filepath change due to loadout change
 	var/obj/item/weapon/implant/I = new G.path(src)
 	I.imp_in = src
 	I.implanted = 1

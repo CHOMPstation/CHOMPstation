@@ -1807,3 +1807,65 @@ Departamental Swimsuits, for general use
 
 	icon_override = 'icons/vore/custom_clothes_vr.dmi'
 	item_state = "zao_cap_mob"
+
+
+/obj/item/clothing/suit/storage/toggle/denim_jacket/sleeveless/black
+	name = "black denim vest"
+	desc = "A black denim vest."
+	icon_state = "blk_jacket"
+	icon_override = "icons/mob/suit_vr.dmi"
+	icon = 'icons/mob/suit_vr.dmi'
+
+/obj/item/clothing/glasses/goggles/flip
+	name = "goggles"
+	icon_override = "icons/mob/eyes_vr.dmi"
+	icon = 'icons/mob/eyes_vr.dmi'
+	desc = "Just some plain old goggles."
+	icon_state = "Goggles-g"
+	item_state_slots = list(slot_r_hand_str = "glasses", slot_l_hand_str = "glasses")
+	item_flags = AIRTIGHT
+	body_parts_covered = EYES
+	action_button_name = "Flip Goggles"
+	var/up = 0
+
+	sprite_sheets = list(
+		"Teshari" = 'icons/mob/species/seromi/eyes_vr.dmi'
+		)
+
+/obj/item/clothing/shoes/boots/jackboots/tall
+	name = "tall jackboots"
+	desc = "Modified pair of jackboots, made to be taller by some fashion designer."
+	icon_state = "tallboots"
+	icon_override = 'icons/mob/feet_vr.dmi'
+	icon = 'icons/mob/feet_vr.dmi'
+	item_state_slots = list(slot_r_hand_str = "tallboots", slot_l_hand_str = "jackboots")
+	species_restricted = null
+
+
+/obj/item/clothing/glasses/goggles/flip/attack_self()
+	toggle()
+
+/obj/item/clothing/glasses/goggles/flip/verb/toggle()
+	set category = "Object"
+	set name = "Adjust goggles"
+	set src in usr
+
+	if(usr.canmove && !usr.stat && !usr.restrained())
+		if(src.up)
+			src.up = !src.up
+			flags_inv |= HIDEEYES
+			body_parts_covered |= EYES
+			icon_state = initial(icon_state)
+			flash_protection = initial(flash_protection)
+			tint = initial(tint)
+			to_chat(usr, "You flip \the [src] down to protect your eyes.")
+		else
+			src.up = !src.up
+			flags_inv &= ~HIDEEYES
+			body_parts_covered &= ~EYES
+			icon_state = "[initial(icon_state)]up"
+			flash_protection = FLASH_PROTECTION_NONE
+			tint = TINT_NONE
+			to_chat(usr, "You push \the [src] up out of your face.")
+		update_clothing_icon()
+		usr.update_action_buttons()

@@ -117,8 +117,8 @@
 				amount *= M.incoming_damage_percent
 			if(!isnull(M.incoming_brute_damage_percent))
 				amount *= M.incoming_brute_damage_percent
-		if(nif && nif.flag_check(NIF_C_BRUTEARMOR,NIF_FLAGS_COMBAT)){amount *= 0.7} //VOREStation Edit - NIF mod for damage resistance for this type of damage
-			take_overall_damage(amount, 0)
+		if(nif && nif.flag_check(NIF_C_BRUTEARMOR,NIF_FLAGS_COMBAT))
+			take_overall_damage(amount *= 0.7, 0) //VOREStation Edit - NIF mod for damage resistance for this type of damage
 	else
 		for(var/datum/modifier/M in modifiers)
 			if(!isnull(M.incoming_healing_percent))
@@ -135,8 +135,8 @@
 				amount *= M.incoming_damage_percent
 			if(!isnull(M.incoming_fire_damage_percent))
 				amount *= M.incoming_fire_damage_percent
-		if(nif && nif.flag_check(NIF_C_BURNARMOR,NIF_FLAGS_COMBAT)){amount *= 0.7} //VOREStation Edit - NIF mod for damage resistance for this type of damage
-			take_overall_damage(0, amount)
+		if(nif && nif.flag_check(NIF_C_BURNARMOR,NIF_FLAGS_COMBAT))
+			take_overall_damage(0, amount *= 0.7) //VOREStation Edit - NIF mod for damage resistance for this type of damage
 	else
 		for(var/datum/modifier/M in modifiers)
 			if(!isnull(M.incoming_healing_percent))
@@ -177,8 +177,8 @@
 					amount *= M.incoming_damage_percent
 				if(!isnull(M.incoming_fire_damage_percent))
 					amount *= M.incoming_fire_damage_percent
-			if(nif && nif.flag_check(NIF_C_BURNARMOR,NIF_FLAGS_COMBAT)){amount *= 0.7} //VOREStation Edit - NIF mod for damage resistance for this type of damage
-				O.take_damage(0, amount, sharp=is_sharp(damage_source), edge=has_edge(damage_source), used_weapon=damage_source)
+			if(nif && nif.flag_check(NIF_C_BURNARMOR,NIF_FLAGS_COMBAT))
+				O.take_damage(0, amount *= 0.7, sharp=is_sharp(damage_source), edge=has_edge(damage_source), used_weapon=damage_source) //VOREStation Edit - NIF mod for damage resistance for this type of damage
 		else
 			for(var/datum/modifier/M in modifiers)
 				if(!isnull(M.incoming_healing_percent))
