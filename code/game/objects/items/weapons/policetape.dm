@@ -134,17 +134,18 @@ var/list/tape_roll_applications = list()
 	update_icon()
 	return ..()
 
+//TFF 2/5/19: Polaris fix for taperolls not being usable on tiles with directional windows
 /obj/item/taperoll/attack_self(mob/user as mob)
 	if(!start)
 		start = get_turf(src)
-		usr << "<span class='notice'>You place the first end of \the [src].</span>"
+		to_chat(user, "<span class='notice'>You place the first end of \the [src].</span>")
 		update_icon()
 	else
 		end = get_turf(src)
 		if(start.y != end.y && start.x != end.x || start.z != end.z)
 			start = null
 			update_icon()
-			usr << "<span class='notice'>\The [src] can only be laid horizontally or vertically.</span>"
+			to_chat(user, "<span class='notice'>\The [src] can only be laid horizontally or vertically.</span>")
 			return
 
 		if(start == end)
@@ -154,15 +155,18 @@ var/list/tape_roll_applications = list()
 			for(var/dir in cardinal)
 				T = get_step(start, dir)
 				if(T && T.density)
-					possible_dirs += dir
+					possible_dirs |= dir	//TFF 2/5/19: Polaris fix for taperolls not being usable on tiles with directional windows
 				else
 					for(var/obj/structure/window/W in T)
 						if(W.is_fulltile() || W.dir == reverse_dir[dir])
-							possible_dirs += dir
+							possible_dirs |= dir
+			for(var/obj/structure/window/window in start)
+				if(istype(window) && !window.is_fulltile())
+					possible_dirs |= window.dir
 			if(!possible_dirs)
 				start = null
 				update_icon()
-				usr << "<span class='notice'>You can't place \the [src] here.</span>"
+				to_chat(user, "<span class='notice'>You can't place \the [src] here.</span>")
 				return
 			if(possible_dirs & (NORTH|SOUTH))
 				var/obj/item/tape/TP = new tape_type(start)
@@ -178,7 +182,7 @@ var/list/tape_roll_applications = list()
 				TP.update_icon()
 			start = null
 			update_icon()
-			usr << "<span class='notice'>You finish placing \the [src].</span>"
+			to_chat(user, "<span class='notice'>You finish placing \the [src].</span>")
 			return
 
 		var/turf/cur = start
@@ -196,6 +200,29 @@ var/list/tape_roll_applications = list()
 				can_place = 0
 			else
 				for(var/obj/O in cur)
+				//TFF 2/5/19: Handle places where you can't place down table (I think)
+					if(istype(O, /obj/structure/window))
+						var/obj/structure/window/window = O
+						if(window.is_fulltile())
+							can_place = 0
+							break
+						if(cur == start)
+							if(window.dir == orientation)
+								can_place = 0
+								break
+							else
+								continue
+						else if(cur == end)
+							if(window.dir == reverse_dir[orientation])
+								can_place = 0
+								break
+							else
+								continue
+						else if (window.dir == reverse_dir[orientation] || window.dir == orientation)
+							can_place = 0
+							break
+						else
+							continue
 					if(O.density)
 						can_place = 0
 						break
@@ -205,7 +232,7 @@ var/list/tape_roll_applications = list()
 		if (!can_place)
 			start = null
 			update_icon()
-			usr << "<span class='warning'>You can't run \the [src] through that!</span>"
+			to_chat(user, "<span class='warning'>You can't run \the [src] through that!</span>")
 			return
 
 		cur = start
@@ -221,6 +248,10 @@ var/list/tape_roll_applications = list()
 					for(var/obj/structure/window/W in T)
 						if(W.is_fulltile() || W.dir == orientation)
 							tape_dir = dir
+			//TFF 2/5/19 - reverse orientation
+				for(var/obj/structure/window/window in cur)
+					if(istype(window) && !window.is_fulltile() && window.dir == reverse_dir[orientation])
+						tape_dir = dir
 			else if(cur == end)
 				var/turf/T = get_step(end, orientation)
 				if(T && !T.density)
@@ -228,6 +259,10 @@ var/list/tape_roll_applications = list()
 					for(var/obj/structure/window/W in T)
 						if(W.is_fulltile() || W.dir == reverse_dir[orientation])
 							tape_dir = dir
+			//TFF 2/5/19 - regular orientation
+				for(var/obj/structure/window/window in cur)
+					if(istype(window) && !window.is_fulltile() && window.dir == orientation)
+						tape_dir = dir
 			for(var/obj/item/tape/T in cur)
 				if((T.tape_dir == tape_dir) && (T.icon_base == icon_base))
 					tapetest = 1
@@ -243,7 +278,7 @@ var/list/tape_roll_applications = list()
 			cur = get_step_towards(cur,end)
 		start = null
 		update_icon()
-		usr << "<span class='notice'>You finish placing \the [src].</span>"
+		to_chat(user, "<span class='notice'>You finish placing \the [src].</span>")
 		return
 
 /obj/item/taperoll/afterattack(var/atom/A, mob/user as mob, proximity)
@@ -253,12 +288,12 @@ var/list/tape_roll_applications = list()
 	if (istype(A, /obj/machinery/door))
 		var/turf/T = get_turf(A)
 		if(locate(/obj/item/tape, A.loc))
-			user << "There's already tape over that door!"
+			to_chat(user, "There's already tape over that door!")
 		else
 			var/obj/item/tape/P = new tape_type(T)
 			P.update_icon()
 			P.layer = WINDOW_LAYER
-			user << "<span class='notice'>You finish placing \the [src].</span>"
+			to_chat(user, "<span class='notice'>You finish placing \the [src].</span>")
 
 	if (istype(A, /turf/simulated/floor) ||istype(A, /turf/unsimulated/floor))
 		var/turf/F = A
