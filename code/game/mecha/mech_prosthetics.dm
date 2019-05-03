@@ -175,25 +175,26 @@
 	if(istype(I,/obj/item/stack/material))
 		var/obj/item/stack/material/S = I
 		if(!(S.material.name in materials))
-			user << "<span class='warning'>The [src] doesn't accept [S.material]!</span>"
+			to_chat(user, "<span class='warning'>The [src] doesn't accept [S.material]!</span>")
 			return
 
+	//TFF 2/5/19: Polaris fix for Synthesisers inserting more than what is present
 		var/sname = "[S.name]"
 		var/amnt = S.perunit
 		if(materials[S.material.name] + amnt <= res_max_amount)
-			if(S && S.amount >= 1)
+			if(S && S.get_amount() >= 1)
 				var/count = 0
 				overlays += "fab-load-metal"
 				spawn(10)
 					overlays -= "fab-load-metal"
-				while(materials[S.material.name] + amnt <= res_max_amount && S.amount >= 1)
+				while(materials[S.material.name] + amnt <= res_max_amount && S.get_amount() >= 1)
 					materials[S.material.name] += amnt
 					S.use(1)
 					count++
-				user << "You insert [count] [sname] into the fabricator."
+				to_chat(user, "You insert [count] [sname] into the fabricator.")
 				update_busy()
 		else
-			user << "The fabricator cannot hold more [sname]."
+			to_chat(user, "The fabricator cannot hold more [sname].")
 
 		return
 
