@@ -7,12 +7,9 @@ var/const/VENDING_WIRE_CONTRABAND = 2
 var/const/VENDING_WIRE_ELECTRIFY = 4
 var/const/VENDING_WIRE_IDSCAN = 8
 
+//TFF 2/5/19: Port Polaris double-zap fix - remove forcing all non-silicons to get zapped twice.
 /datum/wires/vending/CanUse(var/mob/living/L)
 	var/obj/machinery/vending/V = holder
-	if(!istype(L, /mob/living/silicon))
-		if(V.seconds_electrified)
-			if(V.shock(L, 100))
-				return 0
 	if(V.panel_open)
 		return 1
 	return 0
@@ -43,7 +40,7 @@ var/const/VENDING_WIRE_IDSCAN = 8
 		if(VENDING_WIRE_THROW)
 			V.shoot_inventory = !mended
 		if(VENDING_WIRE_CONTRABAND)
-			V.categories &= ~CAT_HIDDEN  
+			V.categories &= ~CAT_HIDDEN
 		if(VENDING_WIRE_ELECTRIFY)
 			if(mended)
 				V.seconds_electrified = 0
