@@ -37,8 +37,12 @@
 	name = "West Mining Outpost"
 	icon_state = "outpost_mine_west"
 
-/area/outpost/abandoned
-	name = "Abandoned Outpost"
+/area/outpost/abandoned_Engineering
+	name = "Abandoned Engineering Outpost"
+	icon_state = "dark"
+
+/area/outpost/abandoned_Station
+	name = "Abandoned Station"
 	icon_state = "dark"
 
 // Main mining outpost
