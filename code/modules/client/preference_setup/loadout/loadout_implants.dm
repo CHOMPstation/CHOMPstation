@@ -28,3 +28,8 @@
 /datum/gear/implant/reagent_generator/egg
 	display_name = "implant, egg production"
 	path = /obj/item/weapon/implant/reagent_generator/egg
+
+//TFF 7/5/19 - requested addition of honey reagent generator
+/datum/gear/implant/reagent_generator/honey
+	display_name = "implant, honey production"
+	path = /obj/item/weapon/implant/reagent_generator/honey
