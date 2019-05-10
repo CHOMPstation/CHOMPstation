@@ -50,6 +50,15 @@
 /datum/job/atmos
 	total_positions = 3
 	spawn_positions = 3
-	
+
 /datum/job/scientist
 	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher", "Circuit Designer")
+
+//TFF 3/5/19 - add clown/mime spawning defining stuff
+/datum/job/clown
+	total_positions = 1
+	spawn_positions = 1
+
+/datum/job/mime
+	total_positions = 1
+	spawn_positions = 1

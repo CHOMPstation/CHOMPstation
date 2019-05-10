@@ -10,12 +10,9 @@ var/const/SMARTFRIDGE_WIRE_ELECTRIFY	= 1
 var/const/SMARTFRIDGE_WIRE_THROW		= 2
 var/const/SMARTFRIDGE_WIRE_IDSCAN		= 4
 
+//TFF 2/5/19: Port Polaris double-zap fix - remove forcing all non-silicons to get zapped twice.
 /datum/wires/smartfridge/CanUse(var/mob/living/L)
 	var/obj/machinery/smartfridge/S = holder
-	if(!istype(L, /mob/living/silicon))
-		if(S.seconds_electrified)
-			if(S.shock(L, 100))
-				return 0
 	if(S.panel_open)
 		return 1
 	return 0

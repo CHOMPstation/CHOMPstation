@@ -702,6 +702,22 @@
 
 		rimplant.reagents.remove_any(rimplant.transfer_amount)
 
+//TFF 7/5/19 - addition of honey generator on request
+/obj/item/weapon/implant/reagent_generator/honey
+	generated_reagents = list("honey" = 2)
+	reagent_name = "honey"
+	usable_volume = 1000
+
+	empty_message = list("You appear to be all out of nectar", "You feel as though you are lacking a majority of your nectar.")
+	full_message = list("You appear to be full of nectar.", "You feel as though you are full of nectar!")
+	emote_descriptor = list("squeezes nectar", "extracts nectar")
+	self_emote_descriptor = list("squeeze", "extract")
+	verb_name = "Extract Honey"
+	verb_desc = "Obtain their nectar and put it into a container!"
+
+/obj/item/weapon/implanter/reagent_generator/honey
+	implant_type = /obj/item/weapon/implant/reagent_generator/honey
+
 //WickedTempest: Chakat Tempest
 /obj/item/weapon/implant/reagent_generator/tempest
 	generated_reagents = list("milk" = 2)
