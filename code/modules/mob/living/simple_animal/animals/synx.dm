@@ -473,6 +473,17 @@ mob/living/simple_animal/synx/PunchTarget()
 	//Vore Section
 	vore_capacity = 2
 
+/mob/living/simple_animal/retaliate/synx/pet/diablo/sicsempertyrannis
+	name = "grins"
+	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. grey, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small shock collar on it that reads 'grins'."
+	icon_state = "synx_diablo_living"
+	icon_living = "synx_diablo_living"
+	icon_dead = "synx_diablo_dead"
+	speak = list( ) 
+	//Vore Section
+	vore_capacity = 2
+
+
 /mob/living/simple_animal/retaliate/synx/pet/clown
 	hostile = 1
 	poison_chance = 100
