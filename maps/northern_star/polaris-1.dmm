@@ -10149,7 +10149,7 @@
 "dNi" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/machinery/computer/drone_control{icon_state = "computer"; dir = 4},/turf/simulated/floor/plating,/area/engineering/drone_fabrication)
 "dNj" = (/obj/machinery/recharge_station,/turf/simulated/floor,/area/engineering/drone_fabrication)
 "dNk" = (/turf/simulated/floor/tiled,/area/rnd/synth_morgue)
-"dNl" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/turf/simulated/floor/tiled,/area/rnd/synth_morgue)
+"dNl" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/obj/machinery/camera/network/research{c_tag = "SCI -Synthmorph Morgue"; dir = 1},/turf/simulated/floor/tiled,/area/rnd/synth_morgue)
 "dNm" = (/obj/machinery/light/small{brightness_color = "#DA0205"; brightness_power = 1; brightness_range = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9},/turf/simulated/floor/tiled,/area/rnd/synth_morgue)
 "dNn" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/tiled,/area/rnd/synth_morgue)
 "dNo" = (/obj/machinery/door/airlock/glass{name = "Colony Elevators"},/obj/machinery/door/firedoor/glass,/turf/simulated/floor/tiled,/area/crew_quarters/sleep/elevator)
