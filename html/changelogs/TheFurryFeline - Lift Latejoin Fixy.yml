@@ -1,0 +1,7 @@
+
+author: TheFurryFeline
+
+delete-after: True
+
+changes: 
+  - rscadd: "Fix Elevator LateSpawn spawnpoint. You'll be able to spawn in and out, the location of your exit saved and kept if you have Save Spawn Location enabled in character setup."
