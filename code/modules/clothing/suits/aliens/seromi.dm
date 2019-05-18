@@ -307,6 +307,7 @@
 	name = "black and red hooded cloak"
 	icon_state = "tesh_hcloak_br"
 	item_state = "tesh_hcloak_br"
+	hoodtype = /obj/item/clothing/head/tesh_hood/standard/black_red
 
 /obj/item/clothing/suit/storage/hooded/teshari/standard/black
 	name = "black hooded cloak"
