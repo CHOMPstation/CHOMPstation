@@ -162,6 +162,17 @@
 	fruit = list("cabbage" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sauerkraut
 
+/datum/recipe/tamales
+	reagents = list("sodiumchloride" = 3, "water" = 5)
+	fruit = list("corn" = 1, "chili" = 1, "potato" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/meat
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/tamales
+
 /datum/recipe/bigos
 	reagents = list("flour" = 5, "water" = 5)
 	fruit = list("onion" = 1, "carrot" = 1, "mushroom" = 1)
@@ -174,16 +185,17 @@
 /datum/recipe/concha
 	reagents = list("flour" = 5, "sugar" = 5, "berryjuice" = 5)
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/bread
+		/obj/item/weapon/reagent_containers/food/snacks/egg
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/concha
 
 /datum/recipe/pandenata
-	reagents = list("sugar" = 10, "cream" = 5, "egg" = 3)
+	reagents = list("sugar" = 10, "cream" = 5)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
 		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
-		/obj/item/weapon/reagent_containers/food/snacks/doughslice
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/egg
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/pandenata
 
