@@ -304,6 +304,19 @@
 	..()
 	bitesize = 3
 
+/obj/item/weapon/reagent_containers/food/snacks/tamales
+	name = "Tamales"
+	desc = "Hot, steamy, moist meat bread wrapped in a corn leaf to retain moisture and flavor."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "tamales"
+	nutriment_amt = 9
+	nutriment_desc = list("moist bread" = 5, "beefy" = 4, "tangy and savory vegetables" = 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/tamales/New()
+	..()
+	reagents.add_reagent("protein", 5)
+	bitesize = 6
+
 /obj/item/weapon/reagent_containers/food/snacks/bigos
 	name = "Bigos"
 	desc = "What happens when you put minced sour cabbage and whats left in the fridge in a pot, start slowcooking it and then forget it for three hours."
@@ -324,7 +337,7 @@
 	desc = "A sweet bread roll baked with a strawberry topping thats crunchy and delicious, it kinda looks like a shell."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "concha"
-	nutriment_amt = 2
+	nutriment_amt = 5
 	nutriment_desc = list("sweet bread" = 3, "strawberry" = 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/concha/New()
@@ -336,12 +349,12 @@
 	desc = "Large spongy and soft biscuits that taste creamy and sweet, a treat like this would be perfect on a lazy day."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "pandenata"
-	nutriment_amt = 2
+	nutriment_amt = 5
 	nutriment_desc = list("sweet creamy bread" = 3)
 
 /obj/item/weapon/reagent_containers/food/snacks/pandenata/New()
 	..()
-	bitesize = 3
+	bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/tocino
 	name = "Tocino"
@@ -349,24 +362,25 @@
 	icon = 'icons/obj/food.dmi'
 	icon_state = "tocino"
 	trash = /obj/item/trash/plate
-	nutriment_amt = 2
-	nutriment_desc = list("crispy sweet meat" = 3)
+	nutriment_amt = 8
+	nutriment_desc = list("crispy sweet meat" = 3, "savory sauce" = 2, "salty" = 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/tocino/New()
 	..()
-	bitesize = 3
+	reagents.add_reagent("protein", 5)
+	bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/garlicbread
 	name = "Garlic bread"
 	desc = "Two slices of bread cooked with garlic, cheese and herbs on top to make a delicious sidedish."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "garlicbread"
-	nutriment_amt = 2
+	nutriment_amt = 5
 	nutriment_desc = list("onions and melted cheese" = 2, "bread and seasonings" = 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/garlicbread/New()
 	..()
-	bitesize = 3
+	bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/steamtealeaf
 	name = "Steamed tea leaf"
@@ -470,3 +484,12 @@
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/wolpincube
 	name = "wolpin cube"
 	monkey_type = "Wolpin"
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+// END_INCLUDE
