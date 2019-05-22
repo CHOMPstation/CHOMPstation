@@ -1,7 +1,6 @@
 //
 // Lets read our settings from the configuration file on startup too!
 //
-
 //TFF 19/5/19 - Port VOREStation's completed Timeclock code - Config addition
 /datum/configuration
 	var/list/engine_map	// Comma separated list of engines to choose from.  Blank means fully random.
