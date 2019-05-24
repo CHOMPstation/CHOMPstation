@@ -1,0 +1,6 @@
+author: TheFurryFeline
+
+delete-after: True
+
+changes:
+  - rscadd: "Implements full version of timeclocks: you'll be able to switch off or on duty without needing an HOP on the shift, unless the job is in Command or IAA. For those, you will need the HOP or a CD to change your job."

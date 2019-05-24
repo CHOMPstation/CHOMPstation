@@ -1,0 +1,8 @@
+author: Kazzc
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds Tamales as a food item."
+  - tweak: "Addition to flavour description outputs to 'Pan de nata' and 'Tocino.'"
+  - tweak: "Minor recipe change for 'Pan de nata.' Usage of egg reagent switched to egg item."
