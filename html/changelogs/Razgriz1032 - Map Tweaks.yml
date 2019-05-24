@@ -1,0 +1,16 @@
+author: Razgriz1032 
+
+delete-after: True
+
+changes:
+  - maptweak: "Added a bunch of emergency shutters around toxins and the xeno lab."
+  - maptweak: "Replaced emergency shutters in the doors with glass emergency shutters at the medical outpost to conform the norm."
+  - maptweak: "Made sure to add emergency shutters in the inner door to all outpost shuttle airlocks."
+  - maptweak: "Expanded Engineering Outpost EVA to add an engineering suit cycler."
+  - maptweak: "Replaced O2 jetpacks in EVA with CO2 jetpacks."
+  - maptweak: "Added CO2 tank in EVA."
+  - maptweak: "Replaced a portable air unit in Engineering EVA with a CO2 tank for the CO2 jetpacks already in there."
+  - maptweak: "In security, moved both fire lockers out of the way to the back of the armory."
+  - maptweak: "Added an emergency shutter to the security checkpoint line in the arrivals hallway."
+  - maptweak: "Added a couple emergency O2 lockers to the northern part of the arrivals hallway."
+  - maptweak: "Replaced an N2 canister in the engine room with a phoron canister, bringing the total to 2 phoron canisters."
