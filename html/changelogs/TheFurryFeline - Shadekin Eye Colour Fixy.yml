@@ -1,0 +1,6 @@
+author: TheFurryFeline
+
+delete-after: True
+
+changes:
+  - bugfix: "Shadekin eye colour display fix. Basically outputs the eye colour correctly rather than like e_purple or stuff."
