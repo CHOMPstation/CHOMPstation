@@ -1,0 +1,6 @@
+author: TheFurryFeline
+
+delete-after: True
+
+changes:
+  - bugfix: "Hopefully resets bellies back to normal to have default to numbing + itemweak to prevent accidental cases of item loss with those unfamiliar with the remains addition change to defines."
