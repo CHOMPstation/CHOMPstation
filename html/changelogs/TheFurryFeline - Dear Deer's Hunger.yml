@@ -1,0 +1,6 @@
+author: TheFurryFeline
+
+delete-after: True
+
+changes:
+  - bugfix: "Deer will now spawn with a belly and not cause a runtime in DEBUG logs."

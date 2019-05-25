@@ -234,6 +234,10 @@
 	// NO VORE SPRITES
 	vore_max_size = RESIZE_SMALL
 
+//TFF 21/5/19 - make deer spawn with belly?
+/mob/living/simple_animal/deer
+	vore_active = 1
+	vore_capacity = 2
 
 /mob/living/simple_animal/hostile/carp/pike
 	vore_active = 1
