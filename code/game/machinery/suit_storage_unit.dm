@@ -1117,7 +1117,7 @@
 				helmet.name = "emergency medical response voidsuit helmet"
 				helmet.icon_state = "rig0-medical_emt"
 				helmet.item_state = "rig0-medical_emt"
-				helmetarmor = list(melee = 30, bullet = 5, laser = 20, energy = 5, bomb = 25, bio = 100, rad = 50)
+				helmet.armor = list(melee = 30, bullet = 5, laser = 20, energy = 5, bomb = 25, bio = 100, rad = 50)
 				helmet.desc = "A special helmet that protects against hazardous, low pressure environments. Has minor radiation shielding."
 
 			if(suit)
