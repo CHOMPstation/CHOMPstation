@@ -646,8 +646,6 @@
 	if(prob(60))
 		M.take_organ_damage(4 * removed, 0)
 
-//TFF 25/5/19 - attempt to reduce message spam for Prommies and Spaceacillin
-#define ANTIBIO_MESSAGE_DELAY 5*60*10
 /datum/reagent/spaceacillin
 	name = "Spaceacillin"
 	id = "spaceacillin"
@@ -659,19 +657,13 @@
 	mrate_static = TRUE
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-<<<<<<< HEAD
 	//data = 0
-=======
-	data = 0
-	var/delay = 0
->>>>>>> 2d1e52c83fa9d4bd4029e9061613bcb7722251ee
 
 /datum/reagent/spaceacillin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(!delay)
-		delay = world.time
+//	if(!delay)
+//		delay = world.time
 	if(alien == IS_SLIME)
-<<<<<<< HEAD
 //		if(volume <= 0.1 && data != -1)
 //			data = -1
 //		else
@@ -685,17 +677,6 @@
 			to_chat(M, "<spam class='notice'>You regain focus...</span>")
 		if(dose <= metabolism)
 			to_chat(M, "<span class = 'warning'>Your senses feel unfocused, and divided.</span>")
-=======
-		ingest_met = 0.25
-		if(volume <= 0.1 && data != -1 && world.time > delay + ANTIBIO_MESSAGE_DELAY)
-			delay = world.time
-			to_chat(M, "<span class='notice'>You regain focus...</span>")
-		else
-			delay = (5 MINUTES)
-			if(world.time > delay + ANTIBIO_MESSAGE_DELAY)
-				delay = world.time
-				to_chat(M, "<span class='warning'>Your senses feel unfocused, and divided.</span>")
->>>>>>> 2d1e52c83fa9d4bd4029e9061613bcb7722251ee
 	M.add_chemical_effect(CE_ANTIBIOTIC, dose >= overdose ? ANTIBIO_OD : ANTIBIO_NORM)
 
 /datum/reagent/corophizine
@@ -866,9 +847,6 @@
 
 /* Antidepressants */
 
-#define ANTIDEPRESSANT_MESSAGE_DELAY 5*60*10
-
-//TFF 25/5/19 - Revert an edit, restore message display with the med being processed faster
 /datum/reagent/methylphenidate
 	name = "Methylphenidate"
 	id = "methylphenidate"
@@ -879,7 +857,6 @@
 	metabolism = 0.01
 	ingest_met = 0.25
 	mrate_static = TRUE
-<<<<<<< HEAD
 //	data = 0
 //	var/delay = 0
 
@@ -901,22 +878,7 @@
 		M << "<span class='warning'>You lose focus...</span>"
 	if(dose <= metabolism)
 		M << "<span class='notice'>Your mind feels focused and undivided.</span>"
-=======
-	data = 0
 
-/datum/reagent/methylphenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
-	if(volume <= 0.1 && data != -1)
-		data = -1
-		M << "<span class='warning'>You lose focus...</span>"
-	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
-			data = world.time
-			M << "<span class='notice'>Your mind feels focused and undivided.</span>"
->>>>>>> 2d1e52c83fa9d4bd4029e9061613bcb7722251ee
-
-//TFF 25/5/19 - Revert an edit, restore message display with the med being processed faster
 /datum/reagent/citalopram
 	name = "Citalopram"
 	id = "citalopram"
@@ -927,7 +889,6 @@
 	metabolism = 0.01
 	ingest_met = 0.25
 	mrate_static = TRUE
-<<<<<<< HEAD
 //	data = 0
 //	var/delay = 0
 
@@ -949,22 +910,7 @@
 		to_chat(M, "<span class='warning'>Your mind feels a little less stable...</span>")
 	if(dose <= metabolism)
 		to_chat(M, "<span class='notice'>Your mind feels stable... a little stable.</span>")
-=======
-	data = 0
 
-/datum/reagent/citalopram/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
-	if(volume <= 0.1 && data != -1)
-		data = -1
-		to_chat(M, "<span class='warning'>Your mind feels a little less stable...</span>")
-	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
-			data = world.time
-			to_chat(M, "<span class='notice'>Your mind feels stable... a little stable.</span>")
->>>>>>> 2d1e52c83fa9d4bd4029e9061613bcb7722251ee
-
-//TFF 25/5/19 - Revert an edit, restore message display with the med being processed faster
 /datum/reagent/paroxetine
 	name = "Paroxetine"
 	id = "paroxetine"
@@ -975,17 +921,12 @@
 	metabolism = 0.01
 	ingest_met = 0.25
 	mrate_static = TRUE
-<<<<<<< HEAD
 	//data = 0
 	//var/delay = 0
-=======
-	data = 0
->>>>>>> 2d1e52c83fa9d4bd4029e9061613bcb7722251ee
 
 /datum/reagent/paroxetine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
-<<<<<<< HEAD
 //	if(volume <= 0.1 && world.time > delay + ANTIDEPRESSANT_MESSAGE_DELAY)
 //		delay = world.time
 //		M << "<span class='warning'>Your mind feels much less stable...</span>"
@@ -1007,19 +948,6 @@
 		else
 			M << "<span class='warning'>Your mind breaks apart...</span>"
 			M.hallucination += 200
-=======
-	if(volume <= 0.1 && data != -1)
-		data = -1
-		M << "<span class='warning'>Your mind feels much less stable...</span>"
-	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
-			data = world.time
-			if(prob(90))
-				M << "<span class='notice'>Your mind feels much more stable.</span>"
-			else
-				M << "<span class='warning'>Your mind breaks apart...</span>"
-				M.hallucination += 200
->>>>>>> 2d1e52c83fa9d4bd4029e9061613bcb7722251ee
 
 /datum/reagent/qerr_quem
 	name = "Qerr-quem"
