@@ -646,8 +646,6 @@
 	if(prob(60))
 		M.take_organ_damage(4 * removed, 0)
 
-//TFF 25/5/19 - attempt to reduce message spam for Prommies and Spaceacillin
-#define ANTIBIO_MESSAGE_DELAY 5*60*10
 /datum/reagent/spaceacillin
 	name = "Spaceacillin"
 	id = "spaceacillin"
@@ -659,23 +657,26 @@
 	mrate_static = TRUE
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-	data = 0
-	var/delay = 0
+	//data = 0
 
 /datum/reagent/spaceacillin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(!delay)
-		delay = world.time
+//	if(!delay)
+//		delay = world.time
 	if(alien == IS_SLIME)
-		ingest_met = 0.25
-		if(volume <= 0.1 && data != -1 && world.time > delay + ANTIBIO_MESSAGE_DELAY)
-			delay = world.time
+//		if(volume <= 0.1 && data != -1)
+//			data = -1
+//		else
+//			var/delay = (5 MINUTES)
+//			if(world.time > data + delay)
+//				data = world.time
+//				to_chat(M, "<span class='warning'>Your senses feel unfocused, and divided.</span>")
+
+// Erik's Edit: Fixes spam chems!
+		if(volume <= metabolism)
 			to_chat(M, "<span class='notice'>You regain focus...</span>")
-		else
-			delay = (5 MINUTES)
-			if(world.time > delay + ANTIBIO_MESSAGE_DELAY)
-				delay = world.time
-				to_chat(M, "<span class='warning'>Your senses feel unfocused, and divided.</span>")
+		if(dose <= metabolism)
+			to_chat(M, "<span class = 'warning'>Your senses feel unfocused, and divided.</span>")
 	M.add_chemical_effect(CE_ANTIBIOTIC, dose >= overdose ? ANTIBIO_OD : ANTIBIO_NORM)
 
 /datum/reagent/corophizine
@@ -846,9 +847,6 @@
 
 /* Antidepressants */
 
-#define ANTIDEPRESSANT_MESSAGE_DELAY 5*60*10
-
-//TFF 25/5/19 - Revert an edit, restore message display with the med being processed faster
 /datum/reagent/methylphenidate
 	name = "Methylphenidate"
 	id = "methylphenidate"
@@ -859,20 +857,28 @@
 	metabolism = 0.01
 	ingest_met = 0.25
 	mrate_static = TRUE
-	data = 0
+//	data = 0
+//	var/delay = 0
 
 /datum/reagent/methylphenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+//	if(!delay)
+//		delay = world.time
 	if(alien == IS_DIONA)
 		return
-	if(volume <= 0.1 && data != -1)
-		data = -1
-		M << "<span class='warning'>You lose focus...</span>"
-	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
-			data = world.time
-			M << "<span class='notice'>Your mind feels focused and undivided.</span>"
+//	if(volume <= 0.1 && data != -1 && world.time > delay + ANTIDEPRESSANT_MESSAGE_DELAY)
+//		delay = world.time
+//		M << "<span class='warning'>You lose focus...</span>"
+//	else
+//		if(world.time > delay + ANTIDEPRESSANT_MESSAGE_DELAY)
+//			delay = world.time
+//			M << "<span class='notice'>Your mind feels focused and undivided.</span>"
 
-//TFF 25/5/19 - Revert an edit, restore message display with the med being processed faster
+// Erik's Edit: Fixes spam chems!
+	if(volume <= metabolism)
+		M << "<span class='warning'>You lose focus...</span>"
+	if(dose <= metabolism)
+		M << "<span class='notice'>Your mind feels focused and undivided.</span>"
+
 /datum/reagent/citalopram
 	name = "Citalopram"
 	id = "citalopram"
@@ -883,20 +889,28 @@
 	metabolism = 0.01
 	ingest_met = 0.25
 	mrate_static = TRUE
-	data = 0
+//	data = 0
+//	var/delay = 0
 
 /datum/reagent/citalopram/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+//	if(!delay)
+//		delay = world.time
 	if(alien == IS_DIONA)
 		return
-	if(volume <= 0.1 && data != -1)
-		data = -1
-		to_chat(M, "<span class='warning'>Your mind feels a little less stable...</span>")
-	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
-			data = world.time
-			to_chat(M, "<span class='notice'>Your mind feels stable... a little stable.</span>")
+//	if(volume <= 0.1 && world.time > delay + ANTIDEPRESSANT_MESSAGE_DELAY)
+//		delay = world.time
+//		to_chat(M, "<span class='warning'>Your mind feels a little less stable...</span>")
+//	else
+//		if(world.time > delay + ANTIDEPRESSANT_MESSAGE_DELAY)
+//			delay = world.time
+//			to_chat(M, "<span class='notice'>Your mind feels stable... a little stable.</span>")
 
-//TFF 25/5/19 - Revert an edit, restore message display with the med being processed faster
+// Erik's Edit: Fixes spam chems!
+	if(volume <= metabolism)
+		to_chat(M, "<span class='warning'>Your mind feels a little less stable...</span>")
+	if(dose <= metabolism)
+		to_chat(M, "<span class='notice'>Your mind feels stable... a little stable.</span>")
+
 /datum/reagent/paroxetine
 	name = "Paroxetine"
 	id = "paroxetine"
@@ -907,22 +921,33 @@
 	metabolism = 0.01
 	ingest_met = 0.25
 	mrate_static = TRUE
-	data = 0
+	//data = 0
+	//var/delay = 0
 
 /datum/reagent/paroxetine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
-	if(volume <= 0.1 && data != -1)
-		data = -1
+//	if(volume <= 0.1 && world.time > delay + ANTIDEPRESSANT_MESSAGE_DELAY)
+//		delay = world.time
+//		M << "<span class='warning'>Your mind feels much less stable...</span>"
+//	else
+//		if(world.time > delay + ANTIDEPRESSANT_MESSAGE_DELAY)
+//			delay = world.time
+//			if(prob(90))
+//				M << "<span class='notice'>Your mind feels much more stable.</span>"
+//			else
+//				M << "<span class='warning'>Your mind breaks apart...</span>"
+//				M.hallucination += 200
+
+// Erik's Edit: Fixes spam chems!
+	if(volume <= metabolism)
 		M << "<span class='warning'>Your mind feels much less stable...</span>"
-	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
-			data = world.time
-			if(prob(90))
-				M << "<span class='notice'>Your mind feels much more stable.</span>"
-			else
-				M << "<span class='warning'>Your mind breaks apart...</span>"
-				M.hallucination += 200
+	if(dose <= metabolism)
+		if(prob(90))
+			M << "<span class='notice'>Your mind feels much more stable.</span>"
+		else
+			M << "<span class='warning'>Your mind breaks apart...</span>"
+			M.hallucination += 200
 
 /datum/reagent/qerr_quem
 	name = "Qerr-quem"
@@ -934,18 +959,24 @@
 	metabolism = 0.01
 	ingest_met = 0.25
 	mrate_static = TRUE
-	data = 0
+//	data = 0
 
 /datum/reagent/qerr_quem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
-	if(volume <= 0.1 && data != -1)
-		data = -1
+//	if(volume <= 0.1 && data != -1)
+//		data = -1
+//		to_chat(M, "<span class='warning'>You feel antsy, your concentration wavers...</span>")
+//	else
+//		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
+//			data = world.time
+//			to_chat(M, "<span class='notice'>You feel invigorated and calm.</span>")
+
+// Erik's Edit: Fixes spam chems!
+	if(volume <= metabolism)
 		to_chat(M, "<span class='warning'>You feel antsy, your concentration wavers...</span>")
-	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
-			data = world.time
-			to_chat(M, "<span class='notice'>You feel invigorated and calm.</span>")
+	if(dose <= metabolism)
+		to_chat(M, "<span class='notice'>You feel invigorated and calm.</span>")
 
 // This exists to cut the number of chemicals a merc borg has to juggle on their hypo.
 /datum/reagent/healing_nanites
