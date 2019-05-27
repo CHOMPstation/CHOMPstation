@@ -860,8 +860,8 @@
 //	var/delay = 0
 
 /datum/reagent/methylphenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(!delay)
-		delay = world.time
+//	if(!delay)
+//		delay = world.time
 	if(alien == IS_DIONA)
 		return
 //	if(volume <= 0.1 && data != -1 && world.time > delay + ANTIDEPRESSANT_MESSAGE_DELAY)
@@ -887,12 +887,12 @@
 	color = "#FF80FF"
 	metabolism = 0.01
 	mrate_static = TRUE
-	data = 0
-	var/delay = 0
+//	data = 0
+//	var/delay = 0
 
 /datum/reagent/citalopram/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(!delay)
-		delay = world.time
+//	if(!delay)
+//		delay = world.time
 	if(alien == IS_DIONA)
 		return
 //	if(volume <= 0.1 && world.time > delay + ANTIDEPRESSANT_MESSAGE_DELAY)
