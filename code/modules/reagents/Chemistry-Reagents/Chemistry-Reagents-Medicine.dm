@@ -674,7 +674,7 @@
 
 // Erik's Edit: Fixes spam chems!
 		if(volume <= metabolism)
-			to_chat(M, "<spam class='notice'>You regain focus...</span>")
+			to_chat(M, "<span class='notice'>You regain focus...</span>")
 		if(dose <= metabolism)
 			to_chat(M, "<span class = 'warning'>Your senses feel unfocused, and divided.</span>")
 	M.add_chemical_effect(CE_ANTIBIOTIC, dose >= overdose ? ANTIBIO_OD : ANTIBIO_NORM)
