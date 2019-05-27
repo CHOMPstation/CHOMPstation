@@ -227,9 +227,14 @@
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/sec
 	name = "Security cloak"
-	desc =  "A soft teshari cloak made for the Security department"
+	desc =  "A soft teshari cloak made for the Security department. This one is made with stronger fibers."
 	icon_state = "tesh_cloak_sec"
 	item_state = "tesh_cloak_sec"
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight/maglight,/obj/item/clothing/head/helmet)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	item_flags = THICKMATERIAL
+	siemens_coefficient = 0.6
+	armor = list(melee = 40, bullet = 30, laser = 30, energy = 10, bomb = 10, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/storage/seromi/cloak/jobs/qm
 	name = "Quartermaster's cloak"
