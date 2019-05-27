@@ -1,6 +1,0 @@
-author: TheFurryFeline
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes message spam for Prommies and Spaceacillin. Also reverts a past edit to restore message outputs for psychiatric medications."
