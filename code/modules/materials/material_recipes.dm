@@ -46,6 +46,12 @@
 		new/datum/stack_recipe("purple comfy chair", /obj/structure/bed/chair/comfy/purp, 2, one_per_turf = 1, on_floor = 1), \
 		new/datum/stack_recipe("green comfy chair", /obj/structure/bed/chair/comfy/green, 2, one_per_turf = 1, on_floor = 1), \
 		))
+	recipes += new/datum/stack_recipe_list("sofa", list( \
+		new/datum/stack_recipe("left sofa end", /obj/structure/bed/chair/sofa/left, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("middle sofa", /obj/structure/bed/chair/sofa, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("right sofa end", /obj/structure/bed/chair/sofa/right, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("corner sofa", /obj/structure/bed/chair/sofa/corner, 2, one_per_turf = 1, on_floor = 1), \
+		))
 	recipes += new/datum/stack_recipe("table frame", /obj/structure/table, 1, time = 10, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("bench frame", /obj/structure/table/bench, 1, time = 10, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("rack", /obj/structure/table/rack, 1, time = 5, one_per_turf = 1, on_floor = 1)
@@ -124,7 +130,7 @@
 	recipes += new/datum/stack_recipe("water-cooler", /obj/structure/reagent_dispensers/water_cooler, 4, time = 10, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("lampshade", /obj/item/weapon/lampshade, 1, time = 1)
 	recipes += new/datum/stack_recipe("Feeder", /obj/machinery/feeder, 4, time = 20, one_per_turf = 1, on_floor = 1)
-	
+
 /material/wood/generate_recipes()
 	..()
 	recipes += new/datum/stack_recipe("oar", /obj/item/weapon/oar, 2, time = 30, supplied_material = "[name]")
