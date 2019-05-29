@@ -1,0 +1,8 @@
+author: Razgriz1032
+
+delete-after: True
+
+changes: 
+
+  - bugfix: Fixed slime event code.
+  - tweak: Enabled slime events.
