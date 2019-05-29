@@ -66,7 +66,6 @@
 		// Just disables comms for a short while.
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Communication Blackout",	/datum/event/communications_blackout,	500,	list(ASSIGNMENT_AI = 150, ASSIGNMENT_SECURITY = 120), 1),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Carp School",				/datum/event/carp_migration,			-50, 	list(ASSIGNMENT_ENGINEER = 20, ASSIGNMENT_SECURITY = 30), 1),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Escaped Slimes",			/datum/event/escaped_slimes, 			-60,	list(ASSIGNMENT_SCIENTIST = 40, ASSIGNMENT_SECURITY = 30)),
 		// Just blows out a few lights
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Electrical Storm",			/datum/event/electrical_storm, 			250,	list(ASSIGNMENT_ENGINEER = 20, ASSIGNMENT_JANITOR = 150), 1),
 		// This one is just too fun.
@@ -101,6 +100,7 @@
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Spider Infestation_NoRequirements",	/datum/event/spider_infestation, 	100,	list(ASSIGNMENT_SECURITY = 40), 0),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Supply Demand",			/datum/event/supply_demand,				0,		list(ASSIGNMENT_ANY = 5, ASSIGNMENT_SCIENCE = 15, ASSIGNMENT_GARDENER = 10, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_MEDICAL = 15), 1),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Random Antagonist",		/datum/event/random_antag,		 		3,	list(ASSIGNMENT_SECURITY = 1), 1, 0, 5),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Escaped Slimes",			/datum/event/escaped_slimes, 			-60,	list(ASSIGNMENT_SCIENTIST = 40, ASSIGNMENT_SECURITY = 30)),
 	))
 
 /datum/event_container/major/New()
@@ -110,7 +110,6 @@
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob",				/datum/event/blob, 				-25,	list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_ENGINEER = 5), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Carp Migration",		/datum/event/carp_migration,	-30,	list(ASSIGNMENT_SECURITY = 10), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Containment Breach",	/datum/event/prison_break/station,0,	list(ASSIGNMENT_ANY = 5),		0),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Escaped Slimes",		/datum/event/escaped_slimes, 	-25,	list(ASSIGNMENT_SCIENTIST = 10, ASSIGNMENT_SECURITY = 5), 0),
 		// TFF: Virgo event commented out. Technically meant for Tether maps, not Polaris.
 		// new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Strike",		/datum/event/meteor_strike,		10,		list(ASSIGNMENT_ENGINEER = 15), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Wave",			/datum/event/meteor_wave,		-30,	list(ASSIGNMENT_ENGINEER = 10),	1),
@@ -127,6 +126,7 @@
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation_NoRequirements",	/datum/event/spider_infestation, 	30,	list(ASSIGNMENT_SECURITY = 10), 0),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Supply Demand",		/datum/event/supply_demand,		0,	list(ASSIGNMENT_ANY = 5, ASSIGNMENT_SCIENCE = 15, ASSIGNMENT_GARDENER = 10, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_MEDICAL = 15), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Viral Infection_NoRequirements",	/datum/event/viral_infection,	50,	list(ASSIGNMENT_MEDICAL = 50), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Escaped Slimes",		/datum/event/escaped_slimes, 	-25,	list(ASSIGNMENT_SCIENTIST = 10, ASSIGNMENT_SECURITY = 5), 0),
 	))
 
 #undef ASSIGNMENT_ANY
