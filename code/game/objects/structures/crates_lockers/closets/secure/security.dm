@@ -83,7 +83,7 @@
 	icon_opened = "hopsecureopen"
 	icon_broken = "hopsecurebroken"
 	icon_off = "hopsecureoff"
-	req_access = list(access_hop)
+	req_access = list(access_hop, access_heads)
 
 	starts_with = list(
 		/obj/item/device/radio/headset/headset_com = 3,
