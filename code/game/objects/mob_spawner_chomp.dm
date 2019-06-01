@@ -16,11 +16,11 @@
 		/mob/living/simple_animal/hostile/scarybat = 70,
 		/mob/living/simple_animal/hostile/jelly = 25,
 		/mob/living/simple_animal/hostile/bear = 1,
-		/mob/living/simple_animal/hostile/deathclaw/minor = 1,
+		/mob/living/simple_animal/hostile/deathclaw = 1,
 		/mob/living/simple_animal/hostile/goose = 60,
 		/mob/living/simple_animal/retaliate/bee = 50,
 		/mob/living/simple_animal/hostile/metroid/mine = 20,
-	) 
+	)
 
 /obj/structure/mob_spawner/scanner/mining_animals/do_spawn(var/mob_path)
 	if(!ispath(mob_path))
