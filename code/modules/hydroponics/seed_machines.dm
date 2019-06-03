@@ -95,6 +95,8 @@
 		return
 
 //TFF 3/6/19 - fix infinite frame creation, ported from Cit RP
+	if(default_deconstruction_screwdriver(user, W))
+		return
 	if(istype(W, /obj/item/weapon/wrench))
 		playsound(src, W.usesound, 100, 1)
 		to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]secure \the [src].</span>")
