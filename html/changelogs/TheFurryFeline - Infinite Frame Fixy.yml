@@ -1,0 +1,6 @@
+author: TheFurryFeline
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes infinite frame production for mining drill braces and doorbell chimes and other machines. If there's no available circuit board to get, then don't return anything when attempting deconstruction. Ported from Cit RP. Eliminates 'Cannot read null.board_type' runtimes where they apply."

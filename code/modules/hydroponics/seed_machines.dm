@@ -94,10 +94,14 @@
 			user << "You load [W] into [src]."
 		return
 
-	if(default_deconstruction_screwdriver(user, W))
+//TFF 3/6/19 - fix infinite frame creation, ported from Cit RP
+	if(istype(W, /obj/item/weapon/wrench))
+		playsound(src, W.usesound, 100, 1)
+		to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]secure \the [src].</span>")
+		anchored = !anchored
 		return
-	if(default_deconstruction_crowbar(user, W))
-		return
+//	if(default_deconstruction_crowbar(user, W))
+//		return
 	if(istype(W,/obj/item/weapon/disk/botany))
 		if(loaded_disk)
 			user << "There is already a data disk loaded."

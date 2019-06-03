@@ -102,6 +102,7 @@
 
 	can_buckle = TRUE
 	buckle_lying = FALSE
+	circuit = /obj/item/weapon/circuitboard/grounding_rod
 
 /obj/machinery/power/grounding_rod/update_icon()
 	if(panel_open)
