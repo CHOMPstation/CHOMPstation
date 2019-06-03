@@ -36,9 +36,10 @@
 /datum/event/escaped_slimes/start()
 //	world << "TEST-SPAWN START"
 	var/list/vents = list()
-	for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in world)
-		if(temp_vent.network && temp_vent.loc.z in using_map.station_levels && !is_area_occupied(temp_vent.loc.loc)) //borrowed from spiders event, but it works. Distribute the slimes only in rooms with vents
-			vents += temp_vent
+	for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in machines)
+		if(!temp_vent.welded && !is_area_occupied(temp_vent.loc.loc) && temp_vent.network && temp_vent.loc.z in using_map.station_levels) //borrowed from spiders event, but it works. Distribute the slimes only in rooms with vents
+			if(temp_vent.network.normal_members.len > 50)
+				vents += temp_vent
 
 	while((spawncount > 0) && vents.len)
 		var/obj/vent = pick(vents)
