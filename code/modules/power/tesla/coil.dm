@@ -100,6 +100,7 @@
 	anchored = FALSE
 	density = TRUE
 
+//TFF 3/6/19 - Port Cit RP fix for infinite frames
 	can_buckle = TRUE
 	buckle_lying = FALSE
 	circuit = /obj/item/weapon/circuitboard/grounding_rod
