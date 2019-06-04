@@ -1,0 +1,7 @@
+author: Razgriz1032
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added ability to roll down tactical jumpsuit, or roll up sleeves."
+  - imageadd: "Sprite additions for rolled-down sleeves of tactical jumpsuits."
