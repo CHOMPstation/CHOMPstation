@@ -4,4 +4,4 @@ delete-after: True
 
 changes: 
 
-  - tweak: "Engineering cycler in engineering outpost."
+  - maptweak: "Engineering cycler in engineering outpost."
