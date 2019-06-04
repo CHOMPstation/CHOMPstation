@@ -1,7 +1,0 @@
-author: Razgriz1032
-
-
-delete-after: True
-
-changes: 
-  - tweak: "Suit Cycler now applies the proper armor, descriptions, and temperature protection stats to all of the engineering and medical suits."

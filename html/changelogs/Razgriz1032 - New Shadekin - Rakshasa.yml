@@ -1,9 +1,0 @@
-author: Razgriz1032
-
-delete-after: True
-
-changes: 
-
-  - rscadd: "Adds new Shadekin to selectable custom list."
-  - tweak: "Fixes ignored indentation issues."
-  - imageadd: "New Shadekin sprites added: Rakshasa."

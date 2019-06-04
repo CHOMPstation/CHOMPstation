@@ -1,7 +1,0 @@
-author: ExcabyteDiscord
-
-delete-after: True
-
-changes: 
-  - tweak: "Disable constant attack logs for failed disarms."
-  - tweak: "Resolves runtimes with lost drones when mobs do the big nom and kill the drones off."
