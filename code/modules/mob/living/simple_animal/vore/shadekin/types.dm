@@ -347,3 +347,18 @@
 	maxHealth = 999999999999
 	health = 999999999999
 	eye_icon_state = "e_rakshasa"
+
+//Whealty's shadekin anno!
+/mob/living/simple_animal/shadekin/purple/anno
+	name ="Anno"
+	desc = "A white furred Shadekin with a chubby form. His ears seem to be close to even in length and his snout seems longer than the usual.\
+	He seems energetic and playful."
+	icon_state = "anno"
+	eye_desc = "purple eyes"
+	vore_stomach_flavor = "You're stuck in a warm, tight stomach. \
+	A purple glow, as soft as the walls surrounding you, illuminates the cramped chamber. \
+	Anno's stomach walls squeeze and hug over your form somewhat tightly. \
+	The gut itself was wetish and slightly slick.  \
+	The gut seemed somewhat inviting with the warmth and softness, yet there was an ominous feeling to it with all the noises it made.\
+	You'll probably be safe in here. Probably."
+	player_msg = "You are Anno, you are energetic and playful"
