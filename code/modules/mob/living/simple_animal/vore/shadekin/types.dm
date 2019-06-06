@@ -351,7 +351,7 @@
 //Whealty's shadekin anno!
 /mob/living/simple_animal/shadekin/purple/anno
 	name ="Anno"
-	desc = "A white furred Shadekin with a chubby form. His ears seem to be close to even in length and his snout seems longer than the usual.\
+	desc = "A white furred shadekin with a chubby form. His ears seem to be close to even in length and his snout seems longer than the usual.\
 	He seems energetic and playful."
 	icon_state = "anno"
 	eye_desc = "purple eyes"
