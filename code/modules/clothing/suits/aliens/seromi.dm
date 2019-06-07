@@ -276,6 +276,7 @@
 	icon = 'icons/mob/species/seromi/teshari_hood.dmi'
 	icon_state = "tesh_hood_bo"
 	item_state_slots = list(slot_r_hand_str = "tesh_hood_bo", slot_l_hand_str = "tesh_hood_bo")
+	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD
 
 /obj/item/clothing/suit/storage/hooded/teshari/standard/black_orange
