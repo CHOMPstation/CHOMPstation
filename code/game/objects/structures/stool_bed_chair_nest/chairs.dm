@@ -189,6 +189,157 @@
 /obj/structure/bed/chair/office/dark
 	icon_state = "officechair_dark"
 
+/obj/structure/bed/chair/oldsofa //Original Paradise port kept in the event players like these couches.
+	name = "sofa"
+	desc = "It's a couch. It looks kinda dingy."
+	icon_state = "sofamiddleOLD"
+	base_icon = "sofamiddleOLD"
+	applies_material_colour = 0
+
+/obj/structure/bed/chair/oldsofa/left
+	icon_state = "sofaend_leftOLD"
+	base_icon = "sofaend_leftOLD"
+
+/obj/structure/bed/chair/oldsofa/right
+	icon_state = "sofaend_rightOLD"
+	base_icon = "sofaend_rightOLD"
+
+/obj/structure/bed/chair/oldsofa/corner
+	icon_state = "sofacornerOLD"
+	base_icon = "sofacornerOLD"
+
+//Middle couch pieces.
+/obj/structure/bed/chair/sofa
+	name = "sofa"
+	desc = "It's a couch. It looks comfy."
+	icon_state = "sofamiddle"
+	base_icon = "sofamiddle"
+
+/obj/structure/bed/chair/sofa/brown/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","leather")
+
+/obj/structure/bed/chair/sofa/red/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","carpet")
+
+/obj/structure/bed/chair/sofa/teal/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","teal")
+
+/obj/structure/bed/chair/sofa/black/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","black")
+
+/obj/structure/bed/chair/sofa/green/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","green")
+
+/obj/structure/bed/chair/sofa/purp/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","purple")
+
+/obj/structure/bed/chair/sofa/blue/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","blue")
+
+/obj/structure/bed/chair/sofa/beige/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","beige")
+
+/obj/structure/bed/chair/sofa/lime/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","lime")
+
+//Left couch pieces.
+/obj/structure/bed/chair/sofa/left
+	icon_state = "sofaend_left"
+	base_icon = "sofaend_left"
+
+/obj/structure/bed/chair/sofa/left/brown/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","leather")
+
+/obj/structure/bed/chair/sofa/left/red/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","carpet")
+
+/obj/structure/bed/chair/sofa/left/teal/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","teal")
+
+/obj/structure/bed/chair/sofa/left/black/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","black")
+
+/obj/structure/bed/chair/sofa/left/green/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","green")
+
+/obj/structure/bed/chair/sofa/left/purp/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","purple")
+
+/obj/structure/bed/chair/sofa/left/blue/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","blue")
+
+/obj/structure/bed/chair/sofa/left/beige/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","beige")
+
+/obj/structure/bed/chair/sofa/left/lime/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","lime")
+
+
+//Right couch pieces.
+/obj/structure/bed/chair/sofa/right
+	icon_state = "sofaend_right"
+	base_icon = "sofaend_right"
+
+/obj/structure/bed/chair/sofa/right/brown/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","leather")
+
+/obj/structure/bed/chair/sofa/right/red/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","carpet")
+
+/obj/structure/bed/chair/sofa/right/teal/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","teal")
+
+/obj/structure/bed/chair/sofa/right/black/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","black")
+
+/obj/structure/bed/chair/sofa/right/green/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","green")
+
+/obj/structure/bed/chair/sofa/right/purp/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","purple")
+
+/obj/structure/bed/chair/sofa/right/blue/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","blue")
+
+/obj/structure/bed/chair/sofa/right/beige/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","beige")
+
+/obj/structure/bed/chair/sofa/right/lime/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","lime")
+
+
+//Corner couch pieces.
+/obj/structure/bed/chair/sofa/corner
+	icon_state = "sofacorner"
+	base_icon = "sofacorner"
+
+/obj/structure/bed/chair/sofa/corner/brown/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","leather")
+
+/obj/structure/bed/chair/sofa/corner/red/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","carpet")
+
+/obj/structure/bed/chair/sofa/corner/teal/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","teal")
+
+/obj/structure/bed/chair/sofa/corner/black/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","black")
+
+/obj/structure/bed/chair/sofa/corner/green/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","green")
+
+/obj/structure/bed/chair/sofa/corner/purp/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","purple")
+
+/obj/structure/bed/chair/sofa/corner/blue/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","blue")
+
+/obj/structure/bed/chair/sofa/corner/beige/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","beige")
+
+/obj/structure/bed/chair/sofa/corner/lime/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","lime")
+
 // Chair types
 /obj/structure/bed/chair/wood
 	name = "wooden chair"

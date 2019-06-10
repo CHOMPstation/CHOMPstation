@@ -262,9 +262,12 @@
 
 /obj/item/clothing/under/seromi/undercoat/jobs/sec
 	name = "Security undercoat"
-	desc =  "A traditional teshari garb made for the Security department"
+	desc =  "A traditional teshari garb made for the Security department. Made with slightly sturdier materials"
 	icon_state = "tesh_uniform_sec"
 	item_state = "tesh_uniform_sec"
+	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.9
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
 /obj/item/clothing/under/seromi/undercoat/jobs/qm
 	name = "Quartermaster's undercoat"

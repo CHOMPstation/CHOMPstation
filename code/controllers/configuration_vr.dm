@@ -1,10 +1,11 @@
 //
 // Lets read our settings from the configuration file on startup too!
 //
-
+//TFF 19/5/19 - Port VOREStation's completed Timeclock code - Config addition
 /datum/configuration
 	var/list/engine_map	// Comma separated list of engines to choose from.  Blank means fully random.
 	var/time_off = FALSE
+	var/pto_job_change = FALSE
 	var/limit_interns = -1 //Unlimited by default
 	var/limit_visitors = -1 //Unlimited by default
 	var/pto_cap = 100 //Hours
@@ -33,6 +34,7 @@
 		if (!name)
 			continue
 
+//TFF 19/5/19 - Port VOREStation's completed Timeclock code - add and set var to true if enabled in config.txt
 		switch (name)
 			if ("chat_webhook_url")
 				config.chat_webhook_url = value
@@ -52,5 +54,7 @@
 				config.pto_cap = text2num(value)
 			if ("time_off")
 				config.time_off = TRUE
+			if ("pto_job_change")
+				config.pto_job_change = TRUE
 
 	return 1
