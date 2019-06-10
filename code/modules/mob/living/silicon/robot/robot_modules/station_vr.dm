@@ -211,8 +211,10 @@
 	src.modules += new /obj/item/weapon/dogborg/jaws/small(src) //In case a patient is being attacked by carp.
 	src.modules += new /obj/item/device/dogborg/boop_module(src) //Boop the crew.
 	src.modules += new /obj/item/device/healthanalyzer(src) // See who's hurt specificially.
+	src.modules += new /obj/item/roller_holder(src) //Give dem poor medihounds a rollerbed to use for people
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo(src)//So medi-hounds aren't nearly useless
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src) //In case the chemist is nice!
+	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src) //To let medihounds do chemistry easier
 	src.modules += new /obj/item/weapon/reagent_containers/glass/beaker(src)//For holding the chemicals when the chemist is nice
 	src.modules += new /obj/item/device/sleevemate(src) //Lets them scan people.
 	src.modules += new /obj/item/weapon/gripper/medical(src)//Now you can set up cyro or make peri.
