@@ -49,7 +49,7 @@
 
 	damage_type = HALLOSS
 
-	var/list/damtypes =(HALLOSS , BURN , BRUTE , CLONE , OXY , TOX)
+	var/list/damtypes = list(HALLOSS , BURN , BRUTE , CLONE , OXY , TOX)
 /obj/item/projectile/beam/chaosrng/on_hit(var/atom/hit)
 	..()
 	damage_type = pick(damtypes)
