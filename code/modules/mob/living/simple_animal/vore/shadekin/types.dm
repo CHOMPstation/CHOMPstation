@@ -19,7 +19,7 @@
 	desc = "An invisible entity not meant for use." 
 	//here goes a lil tidbit people can see when examining the shadekin. Multiple lines works just as on the vore part
 	
-	icon_state = "anno" 
+	icon_state = "proto" 
 	//this will most likely also be your shadekins name, it corresponds to the name you gave the tail and body state in the DMIs
 	//so if you named the body state "proto" and "proto-1" then icon_state should be called "proto"
 	
