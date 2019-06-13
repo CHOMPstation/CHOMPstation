@@ -124,7 +124,7 @@
 			M.adjustHalLoss(1.5)
 		if(prob(0.0001))
 			M.adjustToxLoss(50)//instant crit for tesh
-			
+
 		if(prob(0.1))
 			pick(M.custom_pain("You suddenly feel inexplicably angry!",30),
 			M.custom_pain("You suddenly lose your train of thought!",30),
@@ -168,7 +168,7 @@
 	metabolism = 0
 
 /datum/reagent/eden/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_SLIME || alien == IS_DIONA) 
+	if(alien == IS_SLIME || alien == IS_DIONA)
 		return
 	if(M.getToxLoss())
 		M.adjustFireLoss(1.2)
@@ -202,7 +202,7 @@
 	cup_desc = "Goes perfectly with alcohol poisoning!"
 	cup_name = "Medicinal tea cup"
 	color = "#00FF00"
-	
+
 
 /datum/reagent/drink/tea/dyloteane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -222,3 +222,15 @@
 		M.drowsyness = max(0, M.drowsyness - 6 * removed * chem_effective)
 		M.hallucination = max(0, M.hallucination - 9 * removed * chem_effective)
 		M.adjustToxLoss(-1 * removed * chem_effective)
+
+/datum/reagent/slimedrink
+	name = "Slime"
+	id = "slimedrink"
+	description = "A gooey semi-liquid produced from your fellow slimey crew members."
+	taste_description = "jiggly"
+	taste_mult = 1.3
+	reagent_state = LIQUID
+	color = "#8bdce5"
+
+	glass_name = "Slime"
+	glass_desc = "Slime thats safe to drink (relatively)"

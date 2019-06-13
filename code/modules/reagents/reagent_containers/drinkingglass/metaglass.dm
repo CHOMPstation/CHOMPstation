@@ -583,3 +583,7 @@ Drinks Data
 
 /datum/reagent/ethanol/mojito
 	glass_icon_state = "mojito"
+
+
+/datum/reagent/slimedrink
+	glass_icon_state = "slimedrink"
