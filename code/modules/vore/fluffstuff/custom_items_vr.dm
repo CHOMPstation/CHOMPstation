@@ -720,7 +720,7 @@
 
 //kcin 6/6/19 - i want to slurp slime
 /obj/item/weapon/implant/reagent_generator/slime
-	name = "milk generation implant"
+	name = "slime generation implant"
 	desc = "It's an implant you can use to make slime from yourself!"
 	generated_reagents = list("slimedrink" = 2)
 	reagent_name = "slimedrink"
