@@ -177,7 +177,7 @@
 	var/gluttonous											// Can eat some mobs. 1 for mice, 2 for monkeys, 3 for people.
 
 	var/rarity_value = 1									// Relative rarity/collector value for this species.
-	var/economic_modifier = 2								// How much money this species makes
+	var/economic_modifier = 10								// How much money this species makes
 
 	// Determines the organs that the species spawns with and
 	var/list/has_organ = list(								// which required-organ checks are conducted.
