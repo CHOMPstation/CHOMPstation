@@ -1,3 +1,48 @@
+/////////////////////////////////////////////////////////////////CHOMPEDIT Custom shadekin mini tutorial
+//Proto shadekin; AKA; Basic how to make your own shadekin; -Shark
+
+//Step 1; sprites;
+//File for body = icons/mob/vore_shadekin.dmi
+//File for tail = icons/mob/vore_shadekin64.dmi
+//Sprites can be either made inside of DM or you can use a Program of your choice and save the files as PNG and then import them
+//If you need help learning how to use DMs interface to import/export sprites and make states you can always ask in the discord.
+
+//Step 2; Code
+//Now this depends on what type of eye colour you want
+//For a red we use
+///mob/living/simple_animal/shadekin/red
+//then we simply add our shadekins name at the end (unless its used already)
+/mob/living/simple_animal/shadekin/red/proto
+	name ="Proto" 
+	//This here will be our shadekins name
+	
+	desc = "An invisible entity not meant for use." 
+	//here goes a lil tidbit people can see when examining the shadekin. Multiple lines works just as on the vore part
+	
+	icon_state = "proto" 
+	//this will most likely also be your shadekins name, it corresponds to the name you gave the tail and body state in the DMIs
+	//so if you named the body state "proto" and "proto-1" then icon_state should be called "proto"
+	
+	vore_stomach_flavor = "You stared into the void,\
+	the void decided you look tasty,\
+	now you are in the void, pretty wet"
+	//This is what people see when they drop into your gut! the backslashes at the end of the sentence indicate the next text will be on its own line!
+	
+	
+	player_msg = "Proto is you, Proto shouldn't exist" 
+	//This message pops up when you are put into your shadekin
+	//I recommend you use it as a way to remind yourself of how you want to act generally as your shadekin.
+	
+//Step 3; PR
+// Assuming you already have a Fork of chompstation, make sure you got your files in order
+// and then simply make a new pull request to our github.
+	
+//Now once you pushed the new DMIs with your added sprites to our github.
+//And you finished writing this code section for your shadekin and pushed that too. You are done.
+//If this is your first time I recommend getting someone to look over your work.
+
+/////////////////////////////////////////////////////////////////CHOMPEDIT END
+
 /////////////////////////////////////////////////////////////////
 /mob/living/simple_animal/shadekin/red
 	name = "red-eyed shadekin"
