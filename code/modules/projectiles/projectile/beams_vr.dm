@@ -1,15 +1,15 @@
 /obj/item/projectile/beam/disable
-    name = "disabler beam"
-    icon_state = "omnilaser"
-    nodamage = 1
-    taser_effect = 1
-    agony = 100 //One shot stuns for the time being until adjustments are fully made.
-    damage_type = HALLOSS
-    light_color = "#00CECE"
+	name = "disabler beam"
+	icon_state = "omnilaser"
+	nodamage = 1
+	taser_effect = 1
+	agony = 100 //One shot stuns for the time being until adjustments are fully made.
+	damage_type = HALLOSS
+	light_color = "#00CECE"
 
-    muzzle_type = /obj/effect/projectile/laser_omni/muzzle
-    tracer_type = /obj/effect/projectile/laser_omni/tracer
-    impact_type = /obj/effect/projectile/laser_omni/impact
+	muzzle_type = /obj/effect/projectile/laser_omni/muzzle
+	tracer_type = /obj/effect/projectile/laser_omni/tracer
+	impact_type = /obj/effect/projectile/laser_omni/impact
 
 /obj/item/projectile/beam/stun
 	agony = 35
@@ -41,3 +41,17 @@
 	muzzle_type = /obj/effect/projectile/laser_blue/muzzle
 	tracer_type = /obj/effect/projectile/laser_blue/tracer
 	impact_type = /obj/effect/projectile/laser_blue/impact
+
+//CHOMPEDIT Randomized beam, random dam type
+/obj/item/projectile/beam/chaosrng
+	name = "unstable beam"
+	icon_state = "omnilaser"
+
+	damage_type = HALLOSS
+
+	var/list/damtypes = list(HALLOSS , BURN , BRUTE , CLONE , OXY , TOX)
+/obj/item/projectile/beam/chaosrng/on_hit(var/atom/hit)
+	..()
+	damage_type = pick(damtypes)
+//CHOMPEDIT End.
+	
