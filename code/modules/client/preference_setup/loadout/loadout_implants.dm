@@ -33,3 +33,8 @@
 /datum/gear/implant/reagent_generator/honey
 	display_name = "implant, honey production"
 	path = /obj/item/weapon/implant/reagent_generator/honey
+
+//kcin 6/6/19 - i want to slurp slime
+/datum/gear/implant/reagent_generator/slime
+	display_name = "implant, slime production"
+	path = /obj/item/weapon/implant/reagent_generator/slime

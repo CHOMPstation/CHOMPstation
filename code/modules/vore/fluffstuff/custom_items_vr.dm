@@ -718,6 +718,25 @@
 /obj/item/weapon/implanter/reagent_generator/honey
 	implant_type = /obj/item/weapon/implant/reagent_generator/honey
 
+//kcin 6/6/19 - i want to slurp slime
+/obj/item/weapon/implant/reagent_generator/slime
+	name = "slime generation implant"
+	desc = "It's an implant you can use to make slime from yourself!"
+	generated_reagents = list("slimedrink" = 2)
+	reagent_name = "slimedrink"
+	usable_volume = 1000
+
+	empty_message = list("You look quite ghostly!")
+	full_message = list("Your are nearly opaque!")
+	emote_descriptor = list("drips slime", "lets some of their slime drip")
+	self_emote_descriptor = list("drip")
+	random_emote = list("blrbles softly")
+	verb_name = "Drip"
+	verb_desc = "You Catch slime in your container."
+
+/obj/item/weapon/implanter/reagent_generator/milk
+	implant_type = /obj/item/weapon/implant/reagent_generator/milk
+
 //WickedTempest: Chakat Tempest
 /obj/item/weapon/implant/reagent_generator/tempest
 	generated_reagents = list("milk" = 2)
