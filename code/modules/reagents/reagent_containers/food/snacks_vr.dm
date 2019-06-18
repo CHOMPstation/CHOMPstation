@@ -450,7 +450,6 @@
 /obj/item/weapon/reagent_containers/food/snacks/matchaleaf/New()
 	..()
 	reagents.add_reagent("matchapowder", 5)
-	reagents.remove_reagent("teamush", 5)
 	bitesize = 1
 
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube/sobakacube
