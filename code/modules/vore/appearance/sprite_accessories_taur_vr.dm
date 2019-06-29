@@ -354,6 +354,20 @@
 	icon_state = "synthfeline_s"
 	extra_overlay = "synthfeline_markings"
 
+/datum/sprite_accessory/tail/taur/goia_wag
+	name = "Goia (Taur) (vwag)"
+	icon_state = "goia_s"
+	ani_state = "goia_w"
+	extra_overlay = "goia_markings"
+	extra_overlay_w = "goia_markings_w"
+
+/datum/sprite_accessory/tail/taur/goiaBF_wag
+	name = "Goia with backfur (Taur) (vwag)"
+	icon_state = "goia_s"
+	ani_state = "goia_w"
+	extra_overlay = "goiaBF_markings"
+	extra_overlay_w = "goiaBF_markings_w"
+
 /datum/sprite_accessory/tail/taur/slug
 	name = "Slug (Taur)"
 	icon_state = "slug_s"
