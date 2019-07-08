@@ -305,6 +305,13 @@
 	color_blend_mode = ICON_MULTIPLY
 	extra_overlay = "paintfront"
 
+/datum/sprite_accessory/ears/alien_slug
+	name = "Alien slug ears"
+	desc = "The ears of a slug from space"
+	icon_state = "alien_slug"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+
 // Special snowflake ears go below here.
 
 /datum/sprite_accessory/ears/molenar_kitsune
@@ -933,7 +940,7 @@
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 	extra_overlay = "snaketail_stripes"
-	
+
 /datum/sprite_accessory/tail/vulpan_alt
 	name = "vulpkanin alt style, colorable"
 	desc = ""
@@ -1169,5 +1176,13 @@
 	name = "Zeng-Hu Tajaran Synth tail"
 	desc = ""
 	icon_state = "zenghu_taj"
+
+/datum/sprite_accessory/tail/alien_slug
+	name = "Alien slug tail"
+	desc = "The tail of a slug from space"
+	icon_state = "alien_slug"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+	extra_overlay = "alien_slug_markings"
 
 //Taurs moved to a separate file due to extra code around them
