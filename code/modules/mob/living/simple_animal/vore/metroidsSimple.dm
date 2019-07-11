@@ -458,7 +458,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	
 	move_shoot = 1				//Move and shoot at the same time.
 	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
-	ranged_cooldown_time = 6 	//How long, in deciseconds, the cooldown of ranged attacks is
+	ranged_cooldown_time = 60 	//How long, in deciseconds, the cooldown of ranged attacks is
 	rapid = 0					// Three-round-burst fire mode //decided to disalbe for the zeta
 	projectiletype	= /obj/item/projectile/energy/metroidacid	// The projectiles I shoot
 	projectilesound = 'sound/weapons/slashmiss.ogg' // The sound I make when I do it
