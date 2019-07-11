@@ -44,8 +44,10 @@
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Shipping Error",	/datum/event/shipping_error	, 	30, 	list(ASSIGNMENT_ANY = 2), 0),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Supply Demand",		/datum/event/supply_demand,		-15,	list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_MEDICAL = 5), 1),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Trivial News",		/datum/event/trivial_news, 		400),
-		// Spawns mice, lizards, or dud spiderlings //Dud spiderlings HAHAHAHAHAHAH no. No they are not duds. Have fun without security. The Janitor will mop them to death.
+		// Spawns mice, or lizards.
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Vermin Infestation",/datum/event/infestation, 		100,	list(ASSIGNMENT_JANITOR = 100), 1),
+		//Split spiderlings off from the vermin infestation event into its own thing, triggered only by security.
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Spiderling Infestation",/datum/event/spiderling_infestation, 	0,	list(ASSIGNMENT_SECURITY = 50), 1),
 		// Rot only weakens walls, not destroy them
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot",			/datum/event/wallrot, 			30,		list(ASSIGNMENT_ENGINEER = 30, ASSIGNMENT_GARDENER = 50), 1),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Window Damage",		/datum/event/window_break,		10, 	list(ASSIGNMENT_ENGINEER = 20)),
@@ -79,9 +81,9 @@
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Grub Infestation",			/datum/event/grub_infestation,			-20,	list(ASSIGNMENT_SECURITY = 40, ASSIGNMENT_ENGINEER = 40), 1),
 		// Pure RP fun, no mechanical effects.
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Ion Storm",				/datum/event/ionstorm, 					-50,	list(ASSIGNMENT_AI = 200, ASSIGNMENT_CYBORG = 100, ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_SCIENTIST = 5), 0),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Shower",			/datum/event/meteor_wave,				-40,	list(ASSIGNMENT_ENGINEER = 40), 1),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Shower",			/datum/event/meteor_wave,				-20,	list(ASSIGNMENT_ENGINEER = 40), 1),
 		//New CHOMPStation event. Mice grow into rats.
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Mutants",					/datum/event/mutants,					20,		list(ASSIGNMENT_ANY = 1, ASSIGNMENT_SECURITY = 50), 1),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Mutants",					/datum/event/mutants,					20,		list(ASSIGNMENT_ANY = 15, ASSIGNMENT_SECURITY = 50), 1),
 		// Opens doors in brig.  So just RP fun
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Prison Break",				/datum/event/prison_break,				-10,	list(ASSIGNMENT_SECURITY = 30, ASSIGNMENT_ENGINEER = 20), 1),
 		// Not bad (dorms are shielded) but inconvenient
@@ -109,16 +111,18 @@
 	available_events = list(
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Nothing",				/datum/event/nothing,			900),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Atmos Leak",			/datum/event/atmos_leak, 		5,		list(ASSIGNMENT_ENGINEER = 35), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob",				/datum/event/blob, 				-75,	list(ASSIGNMENT_SECURITY = 40, ASSIGNMENT_HOS = 10, ASSIGNMENT_WARDEN = 10, ASSIGNMENT_ENGINEER = 5), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob",				/datum/event/blob, 				-100,	list(ASSIGNMENT_SECURITY = 40, ASSIGNMENT_HOS = 10, ASSIGNMENT_WARDEN = 10, ASSIGNMENT_ENGINEER = 5), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Boss",				/datum/event/boss, 				-110,	list(ASSIGNMENT_SECURITY = 50, ASSIGNMENT_HOS = 10, ASSIGNMENT_WARDEN = 10), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Carp Migration",		/datum/event/carp_migration,	-110,	list(ASSIGNMENT_SECURITY = 50, ASSIGNMENT_HOS = 10, ASSIGNMENT_WARDEN = 10), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Containment Breach",	/datum/event/prison_break/station,0,	list(ASSIGNMENT_ANY = 5),		0),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Escaped Slimes",		/datum/event/escaped_slimes, 	-40,	list(ASSIGNMENT_SCIENTIST = 30, ASSIGNMENT_SECURITY = 30), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Escaped Slimes",		/datum/event/escaped_slimes, 	-50,	list(ASSIGNMENT_SCIENTIST = 30, ASSIGNMENT_SECURITY = 30), 1),
 		// TFF: Virgo event commented out. Technically meant for Tether maps, not Polaris.
 		// new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Strike",	/datum/event/meteor_strike,		10,		list(ASSIGNMENT_ENGINEER = 15), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Wave",			/datum/event/meteor_wave,		10,		list(ASSIGNMENT_ENGINEER = 15),	1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Wave",			/datum/event/meteor_wave,		0,		list(ASSIGNMENT_ENGINEER = 15),	1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Metroid Infestation",	/datum/event/metroid_infestation, -75,	list(ASSIGNMENT_SECURITY = 35, ASSIGNMENT_SCIENCE = 20, ASSIGNMENT_HOS = 10, ASSIGNMENT_WARDEN = 10), 0),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines",			/datum/event/spacevine, 		20,		list(ASSIGNMENT_ENGINEER = 15), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",	/datum/event/spider_infestation, -35,	list(ASSIGNMENT_SECURITY = 30, ASSIGNMENT_HOS = 10, ASSIGNMENT_WARDEN = 10), 0),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Viral Infection",		/datum/event/viral_infection,	-25,	list(ASSIGNMENT_MEDICAL = 10), 	1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Viral Infection",		/datum/event/viral_infection,	-50,	list(ASSIGNMENT_MEDICAL = 25), 	1),
 	)
 	add_disabled_events(list(
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob_NoRequirements",	/datum/event/blob, 	10,		list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_ENGINEER = 30), 1),

@@ -1,3 +1,5 @@
+//CHOMP: Lifted and butchered from the infestation event as we have moved spiderlings out and instead put in its own event.
+
 #define LOC_KITCHEN 0
 #define LOC_ATMOS 1
 #define LOC_CHAPEL 2
@@ -8,18 +10,15 @@
 #define LOC_TECH 7
 #define LOC_GARDEN 8
 
-#define VERM_MICE 0
-#define VERM_LIZARDS 1
 
-/datum/event/infestation
+/datum/event/spiderling_infestation
 	announceWhen = 10
 	endWhen = 11
 	var/location
 	var/locstring
-	var/vermin
 	var/vermstring
 
-/datum/event/infestation/start()
+/datum/event/spiderling_infestation/start()
 
 	location = rand(0,8)
 	var/list/turf/simulated/floor/turfs = list()
@@ -61,16 +60,9 @@
 
 	var/list/spawn_types = list()
 	var/max_number
-	vermin = rand(0,1)
-	switch(vermin)
-		if(VERM_MICE)
-			spawn_types = list(/mob/living/simple_animal/mouse)
-			max_number = 12
-			vermstring = "mice"
-		if(VERM_LIZARDS)
-			spawn_types = list(/mob/living/simple_animal/lizard)
-			max_number = 6
-			vermstring = "lizards"
+	spawn_types = list(/obj/effect/spider/spiderling)
+	max_number = 8
+	vermstring = "spiders"
 
 	spawn(0)
 		var/num = rand(2,max_number)
@@ -81,9 +73,8 @@
 			var/spawn_type = pick(spawn_types)
 			new spawn_type(T)
 
-
-/datum/event/infestation/announce()
-	command_announcement.Announce("Bioscans indicate that [vermstring] have been breeding in [locstring]. Clear them out, before this starts to affect productivity.", "Vermin infestation")
+/datum/event/spiderling_infestation/announce()
+	command_announcement.Announce("Bioscans indicate that [vermstring] have been breeding in [locstring]. Clear them out, before this starts to affect productivity.", "Spiderling infestation")
 
 #undef LOC_KITCHEN
 #undef LOC_ATMOS
@@ -94,5 +85,3 @@
 #undef LOC_TECH
 #undef LOC_GARDEN
 
-#undef VERM_MICE
-#undef VERM_LIZARDS

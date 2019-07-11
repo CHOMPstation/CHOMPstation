@@ -1,6 +1,12 @@
-var/global/list/queen_amount = 0
+var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
+
+/*
+//The metroids' base variables!
+*/
+
+
 /mob/living/simple_animal/hostile/metroid
-	name = "minetroid"
+	name = "metroid"
 	desc = "Some sort of person eaty thing!"
 	tt_desc = "Headamus Suckumus"
 	icon = 'icons/mob/metroid/small.dmi'
@@ -13,12 +19,13 @@ var/global/list/queen_amount = 0
 	maxHealth = 25
 	health = 25
 	speed = 4
-	turns_per_move = 4
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
+	harm_intent_damage = 5
 	isEdible = 0 //They cannot be eaten while alive.
 	var/canEvolve = 1 //A variable for admins to turn off and on for when they like assign a player as a mob. I want to add a verb so that they can do it on command when the conditions are right in the future.
+	var/obj/machinery/atmospherics/unary/vent_pump/entry_vent //Graciously stolen from spider code
 
 //Metroids aren't affected by atmospheres.
 	min_oxy = 0
@@ -44,26 +51,36 @@ var/global/list/queen_amount = 0
 	meat_type = /obj/item/toy/figure/samus
 	
 	var/mob/living/victim = null // the person the metroid is currently feeding on
-	var/optimal_combat = FALSE // Used to dumb down the combat AI somewhat.  If true, the slime tends to be really dangerous to fight alone due to stunlocking.
+	var/optimal_combat = FALSE // Used to dumb down the combat AI somewhat.  If true, the metroid tends to be really dangerous to fight alone due to stunlocking.
 	var/power_charge = 0
 	var/evo_point = 0
 	var/evo_limit = 0
 	var/next = null
 	
+//Stuff for if a person is playing as a metroid.
+	show_stat_health = 1	// Does the percentage health show in the stat panel for the mob
+	ai_inactive = 0 	// Set to 1 to turn off most AI actions
+	has_hands = 1		// Set to 1 to enable the use of hands and the hands hud
+	humanoid_hands = 1	// Can a player in this mob use things like guns or AI cards?
+	//hand_form = "hands"	// Used in IsHumanoidToolUser. 'Your X are not fit-'.
+	//hud_gears		// Slots to show on the hud (typically none)
+	//ui_icons		// Icon file path to use for the HUD, otherwise generic icons are used
+	//r_hand_sprite = "piranha_r" // If they have hands, //TODO make a leaf sprite for this
+	//l_hand_sprite = "piranha_l" // they could use some icons.
+	player_msg = "SUCC." // Message to print to players about 'how' to play this mob on login.
+	
+	
+	
+	
 /mob/living/simple_animal/hostile/metroid //activate noms
 	vore_active = 1
-	vore_pounce_chance = 50
+	vore_pounce_chance = 25
 	vore_icons = SA_ICON_LIVING
-
+	isEdible = 0
 
 /mob/living/simple_animal/hostile/metroid/death()
 	playsound(src, 'sound/effects/metroiddeath.ogg', 50, 1)
 	..()
-	if(prob(20))
-		visible_message("<span class='notice'>\The [src] dropped some toy!</span>")
-		var/location = get_turf(src)
-		new /obj/item/toy/figure/samus(location)
-
 		
 		
 
@@ -76,7 +93,6 @@ var/global/list/queen_amount = 0
 	icon_living = "mochtroid"
 	icon_state = "mochtroid"
 
-/mob/living/simple_animal/hostile/metroid/mine
 	vore_active = 1
 	vore_pounce_chance = 50
 	vore_icons = SA_ICON_LIVING
@@ -104,17 +120,26 @@ var/global/list/queen_amount = 0
 	icon_state = "baby"
 	intelligence_level = SA_ANIMAL
 	speak_emote = list("churrs")
-	health = 150
-	maxHealth = 150
+	health = 200
+	maxHealth = 200
 	melee_damage_lower = 1
 	melee_damage_upper = 5
 	melee_miss_chance = 0
+	armor = list(			
+				"melee" = 50,
+				"bullet" = 30,
+				"laser" = 80,
+				"energy" = 90,
+				"bomb" = 70,
+				"bio" = 100,
+				"rad" = 100)
 	gender = NEUTER
 	faction = "metroids"
+	move_to_delay = 3
 
 	//Metroids aren't affected by most atmospheres except cold.
 	minbodytemp = T0C-30
-	cold_damage_per_tick = 4
+	cold_damage_per_tick = 100
 	min_oxy = 0
 	max_oxy = 0
 	min_tox = 0
@@ -140,7 +165,11 @@ var/global/list/queen_amount = 0
 	evo_point = 800
 	evo_limit = 1000
 	next = "/mob/living/simple_animal/hostile/metroid/evolution/super"	
-
+	vore_active = 0
+	
+/mob/living/simple_animal/hostile/metroid/evolution/baby/New()
+	playsound(src, 'sound/metroid/metroidsee.ogg', 100, 1)
+	..()
 	
 
 
@@ -159,17 +188,26 @@ var/global/list/queen_amount = 0
 	icon_state = "metroid"
 	intelligence_level = SA_ANIMAL
 	speak_emote = list("churrs")
-	health = 200
-	maxHealth = 200
+	health = 250
+	maxHealth = 250
 	melee_damage_lower = 2
 	melee_damage_upper = 5
 	melee_miss_chance = 0
+	armor = list(			
+				"melee" = 50,
+				"bullet" = 30,
+				"laser" = 90,
+				"energy" = 90,
+				"bomb" = 70,
+				"bio" = 100,
+				"rad" = 100)
 	gender = NEUTER
 	faction = "metroids"
+	move_to_delay = 3
 
 	//Metroids aren't affected by most atmospheres except cold.
 	minbodytemp = T0C-30
-	cold_damage_per_tick = 4
+	cold_damage_per_tick = 100
 	min_oxy = 0
 	max_oxy = 0
 	min_tox = 0
@@ -195,7 +233,6 @@ var/global/list/queen_amount = 0
 	evo_limit = 1400
 	next = "/mob/living/simple_animal/hostile/metroid/combat/alpha"
 	
-/mob/living/simple_animal/hostile/metroid/evolution/super //active noms
 	vore_active = 1
 	vore_bump_chance = 0
 	vore_capacity = 1
@@ -204,6 +241,10 @@ var/global/list/queen_amount = 0
 	vore_default_mode = DM_DIGEST
 	swallowTime = 1 SECONDS //Hungry little bastards.
 	vore_escape_chance = 25	
+
+/mob/living/simple_animal/hostile/metroid/evolution/super/New()
+	playsound(src, 'sound/metroid/metroidsee.ogg', 100, 1)
+	..()
 	
 /mob/living/simple_animal/hostile/metroid/evolution/super/death()
 	playsound(src, 'sound/metroid/metroiddeath.ogg', 100, 1)
@@ -225,13 +266,23 @@ var/global/list/queen_amount = 0
 	icon_living = "alpha"
 	icon_state = "alpha"
 	intelligence_level = SA_ANIMAL
-	health = 225
-	maxHealth = 225
+	health = 300
+	maxHealth = 300
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 	melee_miss_chance = 5
+	attacktext = list("rammed")
+	armor = list(			
+				"melee" = 60,
+				"bullet" = 45,
+				"laser" = 50,
+				"energy" = 70,
+				"bomb" = 10,
+				"bio" = 100,
+				"rad" = 100)
 	gender = NEUTER
 	faction = "metroids"
+	move_to_delay = 3
 	
 	//Alphas lose their vulnerability to cold.
 	minbodytemp = 0
@@ -261,6 +312,10 @@ var/global/list/queen_amount = 0
 	evo_limit = 1600
 	next = "/mob/living/simple_animal/hostile/metroid/combat/gamma"
 
+/mob/living/simple_animal/hostile/metroid/combat/alpha/New()
+	playsound(src, 'sound/metroid/metroidsee.ogg', 100, 1)
+	..()
+
 /mob/living/simple_animal/hostile/metroid/combat/alpha/death()
 	playsound(src, 'sound/metroid/metroiddeath.ogg', 100, 1)
 	..()
@@ -270,7 +325,7 @@ var/global/list/queen_amount = 0
 	vore_bump_chance = 0
 	vore_capacity = 1
 	vore_icons = SA_ICON_LIVING
-	vore_pounce_chance = 10 //Alphas will try knocking targets over since they lost their stun ability from the initial phases.
+	vore_pounce_chance = 15 //Alphas will try knocking targets over since they lost their stun ability from the initial phases.
 	vore_default_mode = DM_DIGEST
 	swallowTime = 3 SECONDS 
 	vore_escape_chance = 25
@@ -283,6 +338,7 @@ var/global/list/queen_amount = 0
 //------------------------------------------------------------------------------------------------------------
 
 
+
 /mob/living/simple_animal/hostile/metroid/combat/gamma
 	name = "gamma metroid"
 	desc = "Some kind of head rammy thing! This one shoots electricity!"
@@ -292,13 +348,23 @@ var/global/list/queen_amount = 0
 	icon_living = "gamma"
 	icon_state = "gamma"
 	intelligence_level = SA_ANIMAL
-	health = 275
-	maxHealth = 275
+	health = 400
+	maxHealth = 400
 	melee_damage_lower = 10
 	melee_damage_upper = 20
 	melee_miss_chance = 5
+	attacktext = list("rammed")
+	armor = list(			
+				"melee" = 60,
+				"bullet" = 50,
+				"laser" = 50,
+				"energy" = 90,
+				"bomb" = 10,
+				"bio" = 100,
+				"rad" = 100)
 	gender = NEUTER
 	faction = "metroids"
+	move_to_delay = 4
 	
 	move_shoot = 1				//Move and shoot at the same time.
 	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
@@ -338,11 +404,13 @@ var/global/list/queen_amount = 0
 	evo_limit = 1600
 	next = "/mob/living/simple_animal/hostile/metroid/combat/zeta"
 
-
+/mob/living/simple_animal/hostile/metroid/combat/gamma/New()
+	playsound(src, 'sound/metroid/metroidgamma.ogg', 100, 1)
+	..()
+	
 /mob/living/simple_animal/hostile/metroid/combat/gamma/death()
 	playsound(src, 'sound/metroid/metroiddeath.ogg', 100, 1)
 	..()
-
 
 /mob/living/simple_animal/hostile/metroid/combat/gamma //active noms
 	vore_active = 1
@@ -364,19 +432,29 @@ var/global/list/queen_amount = 0
 	name = "zeta metroid"
 	desc = "Some kind of feet stompy thing!"
 	tt_desc = "Minimus Feetamus Walkamus"
-	icon = 'icons/mob/metroid/small.dmi'
+	icon = 'icons/mob/metroid/large.dmi'
 	icon_dead = "zeta_dead"
 	icon_living = "zeta"
 	icon_state = "zeta"
 	intelligence_level = SA_ANIMAL
-	health = 350
-	maxHealth = 350
+	health = 500
+	maxHealth = 500
 	melee_damage_lower = 15
 	melee_damage_upper = 25
 	melee_miss_chance = 5
 	attack_armor_pen = 10
+	attacktext = list("slashed")
+	armor = list(			
+				"melee" = 70,
+				"bullet" = 60,
+				"laser" = 50,
+				"energy" = 70,
+				"bomb" = 10,
+				"bio" = 100,
+				"rad" = 100)
 	gender = NEUTER
 	faction = "metroids"
+	move_to_delay = 4
 	
 	move_shoot = 1				//Move and shoot at the same time.
 	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
@@ -396,16 +474,21 @@ var/global/list/queen_amount = 0
 	min_n2 = 0
 	max_n2 = 0
 	unsuitable_atoms_damage = 0
+	
+	pixel_x = -16
+	pixel_y = -16
+	old_x = -16
+	old_y = -16
 
 	response_help = "pets"
 
 	speak = list(
-		"Skree...",
-		"Ereeeer..."
+		"Ereeeer...",
+		"Rerrr..."
 		)
 	emote_hear = list()
 	emote_see = list(
-		"SKREE!"
+		"RAWR!"
 		)
 
 	cooperative = 1
@@ -413,12 +496,14 @@ var/global/list/queen_amount = 0
 	evo_limit = 1800
 	next = "/mob/living/simple_animal/hostile/metroid/combat/omega"
 
-
+/mob/living/simple_animal/hostile/metroid/combat/zeta/New()
+	playsound(src, 'sound/metroid/metroidzeta.ogg', 100, 1)
+	..()
+	
 /mob/living/simple_animal/hostile/metroid/combat/zeta/death()
 	playsound(src, 'sound/metroid/metroiddeath.ogg', 100, 1)
 	..()
 
-	
 /mob/living/simple_animal/hostile/metroid/combat/zeta //active noms
 	vore_active = 1
 	vore_bump_chance = 0
@@ -440,24 +525,34 @@ var/global/list/queen_amount = 0
 	name = "omega metroid"
 	desc = "Those are some big claws!"
 	tt_desc = "Maximus Feetamus Walkamus"
-	icon = 'icons/mob/metroid/small.dmi'
+	icon = 'icons/mob/metroid/large.dmi'
 	icon_dead = "omega_dead"
 	icon_living = "omega"
 	icon_state = "omega"
 	intelligence_level = SA_ANIMAL
-	health = 500
-	maxHealth = 500
+	health = 600
+	maxHealth = 600
 	melee_damage_lower = 25
 	melee_damage_upper = 40
 	melee_miss_chance = 5
 	attack_armor_pen = 20
+	attacktext = list("slashed")
+	armor = list(			
+				"melee" = 75,
+				"bullet" = 60,
+				"laser" = 55,
+				"energy" = 90,
+				"bomb" = 10,
+				"bio" = 100,
+				"rad" = 100)
 	gender = NEUTER
 	faction = "metroids"
 	speed = 4
+	move_to_delay = 5
 	
 	move_shoot = 1				//Move and shoot at the same time.
 	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
-	ranged_cooldown_time = 15 	//How long, in deciseconds, the cooldown of ranged attacks is
+	ranged_cooldown_time = 150 	//How long, in deciseconds, the cooldown of ranged attacks is
 	rapid = 1					// Three-round-burst fire mode
 	projectiletype	= /obj/item/projectile/energy/metroidacid	// The projectiles I shoot
 	projectilesound = 'sound/weapons/slashmiss.ogg' // The sound I make when I do it
@@ -473,16 +568,21 @@ var/global/list/queen_amount = 0
 	min_n2 = 0
 	max_n2 = 0
 	unsuitable_atoms_damage = 0
+	
+	old_x = -16
+	old_y = 0
+	default_pixel_x = -16
+	pixel_x = -16
+	pixel_y = 0
 
 	response_help = "pets"
 
 	speak = list(
-		"Skree...",
-		"Ereeeer..."
+		"Rurrr...",
 		)
 	emote_hear = list()
 	emote_see = list(
-		"SKREE!"
+		"ROAR!"
 		)
 
 	cooperative = 1
@@ -490,11 +590,13 @@ var/global/list/queen_amount = 0
 	evo_limit = 3000
 	next = "/mob/living/simple_animal/hostile/metroid/combat/queen"
 
-
-/mob/living/simple_animal/hostile/metroid/combat/omega/death()
-	playsound(src, 'sound/metroid/metroiddeath.ogg', 100, 1)
+/mob/living/simple_animal/hostile/metroid/combat/omega/New()
+	playsound(src, 'sound/metroid/metroidomega.ogg', 100, 1)
 	..()
-
+	
+/mob/living/simple_animal/hostile/metroid/combat/omega/death()
+	playsound(src, 'sound/metroid/metroidomegadeath.ogg', 100, 1)
+	..()
 
 /mob/living/simple_animal/hostile/metroid/combat/omega //active noms
 	vore_active = 1
@@ -517,24 +619,33 @@ var/global/list/queen_amount = 0
 	name = "queen metroid"
 	desc = "The mother of all Metroids, allowed to have grown too far!"
 	tt_desc = "Maximus Queenamus Deathamus"
-	icon = 'icons/mob/metroid/small.dmi'
+	icon = 'icons/mob/metroid/queen.dmi'
 	icon_dead = "queen_dead"
 	icon_living = "queen"
 	icon_state = "queen"
 	intelligence_level = SA_ANIMAL
-	health = 575
-	maxHealth = 575
+	health = 1000
+	maxHealth = 1000
 	melee_damage_lower = 30
 	melee_damage_upper = 60
 	melee_miss_chance = 5
 	attack_armor_pen = 20
+	attacktext = list("gnashed")
+	armor = list(			
+				"melee" = 75,
+				"bullet" = 60,
+				"laser" = 60,
+				"energy" = 90,
+				"bomb" = 10,
+				"bio" = 100,
+				"rad" = 100)
 	gender = NEUTER
 	faction = "metroids"
-	speed = 3
+	move_to_delay = 6
 
 	move_shoot = 1				//Move and shoot at the same time.
 	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
-	ranged_cooldown_time = 12 	//How long, in deciseconds, the cooldown of ranged attacks is
+	ranged_cooldown_time = 120 	//How long, in deciseconds, the cooldown of ranged attacks is
 	rapid = 1					// Three-round-burst fire mode
 	projectiletype	= /obj/item/projectile/energy/metroidacid	// The projectiles I shoot
 	projectilesound = 'sound/weapons/slashmiss.ogg' // The sound I make when I do it
@@ -550,26 +661,30 @@ var/global/list/queen_amount = 0
 	min_n2 = 0
 	max_n2 = 0
 	unsuitable_atoms_damage = 0
+	
+	pixel_x = -16
+	pixel_y = -16
+	old_x = -16
+	old_y = -16
 
 	response_help = "pets"
 
-	speak = list(
-		"Skree...",
-		"Ereeeer..."
-		)
 	emote_hear = list()
 	emote_see = list(
-		"SKREE!"
+		"ROAR!"
 		)
 
 	cooperative = 1
-	evo_point = 1800
+	evo_point = 1100
 	evo_limit = INFINITY
 	next = "/mob/living/simple_animal/hostile/metroid/evolution/super"
 	
-
+/mob/living/simple_animal/hostile/metroid/combat/queen/New()
+	playsound(src, 'sound/metroid/metroidqueen.ogg', 100, 1)
+	..()
+	
 /mob/living/simple_animal/hostile/metroid/combat/queen/death()
-	playsound(src, 'sound/metroid/metroiddeath.ogg', 100, 1)
+	playsound(src, 'sound/metroid/metroidqueendeath.ogg', 100, 1)
 	queen_amount--
 	..()
 
@@ -587,9 +702,16 @@ var/global/list/queen_amount = 0
 
 //------------------------------------------------------------------------------------------------------------
 
+
+
+/*
 //Objects related to the Metroids.	
 //Projectile for the Metroids.
+*/
+
+
 /obj/item/projectile/energy/metroidacid
+	
 	name = "metroid acid"
 	icon_state = "neurotoxin"
 	damage = 10
@@ -639,9 +761,13 @@ var/global/list/queen_amount = 0
 
 	
 
-
+/*
 //LIFE STUFF, AND MECHANICS!
 //FOR THE BABY AND SUPER FORMS!
+*/
+
+
+
 /mob/living/simple_animal/hostile/metroid/evolution/Life()
 	. = ..()
 
@@ -650,21 +776,26 @@ var/global/list/queen_amount = 0
 		prey_excludes.Cut()
 		stop_consumption()
 		
-	if(canEvolve == 1 && nutrition >= evo_point && !buckled && vore_fullness == 0)
+	if(canEvolve == 1 && nutrition >= evo_point && !buckled && vore_fullness == 0 && !victim)
 		playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
 		paralysis = 7998
 		sleep(50)
 		paralysis = 0
 		expand_troid()
 		return
+	if(stance == 7) //Necessary to fix a bug where if their vore prey or latching victim is laying down when they evolve, they get stuck in stance 7 and do nothing.
+		stance = 4
+		return
+	else
+		handle_idle()
 
 /mob/living/simple_animal/hostile/metroid/proc/expand_troid()
-	visible_message("<span class='warning'>\The [src] suddenly evolves!</span>")
 	new next(get_turf(src))
+	visible_message("<span class='warning'>\The [src] suddenly evolves!</span>")
 	qdel(src)
 	
 	
-/mob/living/simple_animal/hostile/metroid/evolution/handle_regular_status_updates() //This does something.
+/mob/living/simple_animal/hostile/metroid/evolution/handle_regular_status_updates()
 	if(stat != DEAD)
 
 		if(victim)
@@ -675,6 +806,40 @@ var/global/list/queen_amount = 0
 
 	..()
 
+
+
+/mob/living/simple_animal/hostile/metroid/evolution/proc/handle_idle()
+	//Do we have a vent ? Good, let's take a look
+	for(entry_vent in view(1, src))
+		if(!victim && !buckled && vore_fullness == 0 && prob(90)) //10 % chance to consider a vent, to try and avoid constant vent switching
+			return
+		visible_message("<span class='danger'>\The [src] starts trying to slide itself into the vent!</span>")
+		sleep(50) //Let's stop the metroid for five seconds to do its parking job
+		..()
+		if(entry_vent.network && entry_vent.network.normal_members.len)
+			var/list/vents = list()
+			for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in entry_vent.network.normal_members)
+				vents.Add(temp_vent)
+			if(!vents.len)
+				entry_vent = null
+				return
+			var/obj/machinery/atmospherics/unary/vent_pump/exit_vent = pick(vents)
+			spawn()
+				visible_message("<span class='danger'>\The [src] suddenly disappears into the vent!</span>")
+				loc = exit_vent
+				var/travel_time = round(get_dist(loc, exit_vent.loc)/2)
+				spawn(travel_time)
+					if(!exit_vent || exit_vent.welded)
+						forceMove(get_turf(entry_vent))
+						entry_vent = null
+						visible_message("<span class='danger'>\The [src] suddenly appears from the vent!</span>")
+						return
+
+					forceMove(get_turf(exit_vent))
+					entry_vent = null
+					visible_message("<span class='danger'>\The [src] suddenly appears from the vent!</span>")
+		else
+			entry_vent = null
 
 /mob/living/simple_animal/hostile/metroid/evolution/proc/adjust_nutrition(input)
 	nutrition = between(0, nutrition + input, evo_limit) //Just is a thing to handle the stun from the metroid.
@@ -738,6 +903,7 @@ var/global/list/queen_amount = 0
 		playsound(src, 'sound/metroid/metroidattach.ogg', 100, 1)
 		victim.visible_message("<span class='danger'>\The [src] latches onto [victim]!</span>",
 		"<span class='danger'>\The [src] latches onto you!</span>")
+//		stop_automated_movement = 1
 
 /mob/living/simple_animal/hostile/metroid/evolution/proc/stop_consumption()
 	if(!victim)
@@ -748,6 +914,8 @@ var/global/list/queen_amount = 0
 	"<span class='notice'>\The [src] slides off of you!</span>")
 	victim = null
 	update_icon()
+	sleep(50)
+//	stop_automated_movement = 0
 
 
 /mob/living/simple_animal/hostile/metroid/evolution/proc/handle_consumption()
@@ -782,7 +950,10 @@ var/global/list/queen_amount = 0
 	else
 		stop_consumption()
 
-/mob/living/simple_animal/hostile/metroid/evolution/DoPunch(var/mob/living/L) //Metroid actions vs the player.
+/mob/living/simple_animal/hostile/metroid/evolution/DoPunch(var/mob/living/L) //Metroid melee.
+	var/damage_to_do = rand(melee_damage_lower, melee_damage_upper)
+	var/armor_modifier = abs((L.getarmor(null, "bio") / 100) - 1)
+	
 	if(!Adjacent(L)) // Might've moved away in the meantime.
 		return
 
@@ -790,87 +961,87 @@ var/global/list/queen_amount = 0
 
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L
-			// Slime attacks can be blocked with shields.
+			// Metroid attacks can be blocked with shields.
 			if(H.check_shields(damage = 0, damage_source = null, attacker = src, def_zone = null, attack_text = "the attack"))
 				return
 
-		switch(a_intent)
-			if(I_HELP)
-				ai_log("DoPunch() against [L], helping.",2)
-				L.visible_message("<span class='notice'>[src] gently pokes [L]!</span>",
-				"<span class='notice'>[src] gently pokes you!</span>")
-				do_attack_animation(L)
-
-			if(I_DISARM) //The metroid does all this too try to knock the player down.
-				ai_log("DoPunch() against [L], disarming.",2)
-				var/stun_power = between(0, power_charge + rand(0, 3), 10)
-
-				if(ishuman(L))
-					var/mob/living/carbon/human/H = L
-					stun_power *= max(H.species.siemens_coefficient,0)
-
-
-				if(prob(stun_power * 10))
-					power_charge = max(0, power_charge - 3)
-					L.visible_message("<span class='danger'>[src] has shocked [L]!</span>", "<span class='danger'>[src] has shocked you!</span>")
-					playsound(src, 'sound/weapons/Egloves.ogg', 75, 1)
-					L.Weaken(4)
-					L.Stun(4)
+			switch(a_intent)
+				if(I_HELP)
+					ai_log("DoPunch() against [L], helping.",2)
+					L.visible_message("<span class='notice'>[src] gently pokes [L]!</span>",
+					"<span class='notice'>[src] gently pokes you!</span>")
 					do_attack_animation(L)
-					if(L.buckled)
-						L.buckled.unbuckle_mob() // To prevent an exploit where being buckled prevents metroids from jumping on you.
-					L.stuttering = max(L.stuttering, stun_power)
 
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(5, 1, L)
-					s.start()
+				if(I_DISARM) //The metroid does all this too try to knock the player down.
+					ai_log("DoPunch() against [L], disarming.",2)
+					var/stun_power = between(0, power_charge + rand(0, 3), 10)
 
-					if(prob(stun_power * 10) && stun_power >= 8)
-						L.adjustFireLoss(power_charge * rand(1, 2))
-
-				else if(prob(40))
-					L.visible_message("<span class='danger'>[src] has pounced at [L]!</span>", "<span class='danger'>[src] has pounced at you!</span>")
-					playsound(src, 'sound/metroid/metroidswoosh.ogg', 75, 1)
-					L.Weaken(2)
-					do_attack_animation(L)
-					if(L.buckled)
-						L.buckled.unbuckle_mob() // To prevent an exploit where being buckled prevents metroids from jumping on you.
-				else
-					L.visible_message("<span class='danger'>[src] has tried to pounce at [L]!</span>", "<span class='danger'>[src] has tried to pounce at you!</span>")
-					playsound(src, 'sound/weapons/punchmiss.ogg', 75, 1)
-					do_attack_animation(L)
-				L.updatehealth()
-				return L
-
-			if(I_GRAB) //The metroid does this to start sucking their head off.
-				ai_log("DoPunch() against [L], grabbing.",2)
-				start_consuming(L)
-
-
-			if(I_HURT) //The metroid does this if it can't latch onto the target or it decides not to try knocking them down.
-				ai_log("DoPunch() against [L], hurting.",2)
-				var/damage_to_do = rand(melee_damage_lower, melee_damage_upper)
-				var/armor_modifier = abs((L.getarmor(null, "bio") / 100) - 1)
-
-				L.attack_generic(src, damage_to_do, pick(attacktext))
-				playsound(src, 'sound/weapons/bite.ogg', 75, 1)
-
-				// Give the Metroid some nutrition, if applicable, even if not attached.
-				if(!L.isSynthetic())
 					if(ishuman(L))
-						if(L.getCloneLoss() < L.getMaxHealth() * 1.5)
-							adjust_nutrition(damage_to_do * armor_modifier)
+						stun_power *= max(H.species.siemens_coefficient,0)
 
-					else if(istype(L, /mob/living/simple_animal))
-						if(!ismetroid(L))
-							var/mob/living/simple_animal/SA = L
-							if(!SA.stat)
-								adjust_nutrition(damage_to_do)
+
+					if(prob(stun_power * 10))
+						power_charge = max(0, power_charge - 3)
+						L.visible_message("<span class='danger'>[src] has shocked [L]!</span>", "<span class='danger'>[src] has shocked you!</span>")
+						playsound(src, 'sound/weapons/Egloves.ogg', 75, 1)
+						L.Weaken(4)
+						L.Stun(4)
+						do_attack_animation(L)
+						if(L.buckled)
+							L.buckled.unbuckle_mob() // To prevent an exploit where being buckled prevents metroids from jumping on you.
+						L.stuttering = max(L.stuttering, stun_power)
+
+						var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+						s.set_up(5, 1, L)
+						s.start()
+
+						if(prob(stun_power * 10) && stun_power >= 8)
+							L.adjustFireLoss(power_charge * rand(1, 2))
+
+					else if(prob(40))
+						L.visible_message("<span class='danger'>[src] has pounced at [L]!</span>", "<span class='danger'>[src] has pounced at you!</span>")
+						playsound(src, 'sound/metroid/metroidswoosh.ogg', 75, 1)
+						L.Weaken(2)
+						do_attack_animation(L)
+						if(L.buckled)
+							L.buckled.unbuckle_mob() // To prevent an exploit where being buckled prevents metroids from jumping on you.
+					else
+						L.visible_message("<span class='danger'>[src] has tried to pounce at [L]!</span>", "<span class='danger'>[src] has tried to pounce at you!</span>")
+						playsound(src, 'sound/weapons/punchmiss.ogg', 75, 1)
+						do_attack_animation(L)
+					L.updatehealth()
+					return L
+
+				if(I_GRAB) //The metroid does this to start sucking their head off.
+					ai_log("DoPunch() against [L], grabbing.",2)
+					start_consuming(L)
+
+
+				if(I_HURT) //The metroid does this if it can't latch onto the target or it decides not to try knocking them down.
+					ai_log("DoPunch() against [L], hurting.",2)
+
+					L.attack_generic(src, damage_to_do, pick(attacktext))
+					playsound(src, 'sound/weapons/bite.ogg', 75, 1)
+
+					// Give the Metroid some nutrition, if applicable, even if not attached.
+					if(!L.isSynthetic())
+						if(ishuman(L))
+							if(L.getCloneLoss() < L.getMaxHealth() * 1.5)
+								adjust_nutrition(damage_to_do * armor_modifier)
+
+		else if(istype(L, /mob/living/simple_animal))
+			if(!ismetroid(L))
+				var/mob/living/simple_animal/SA = L
+				if(!SA.stat)
+					L.attack_generic(src, damage_to_do, pick(attacktext))
+					adjust_nutrition(damage_to_do * 5)
+
 
 
 	if(istype(L,/obj/mecha))
 		var/obj/mecha/M = L
 		M.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), pick(attacktext))
+
 
 
 /mob/living/simple_animal/hostile/metroid/evolution/attack_hand(mob/living/carbon/human/M as mob)
@@ -893,7 +1064,7 @@ var/global/list/queen_amount = 0
 	
 			
 /mob/living/simple_animal/hostile/metroid/evolution/FindTarget() //This makes it so it doesn't go after another target while succing.
-	if(victim) // Don't worry about finding another target if we're eatting someone. //What does doooo??
+	if(victim) // Don't worry about finding another target if we're sucking on someone's head.
 		return
 	..()
 
@@ -929,8 +1100,18 @@ var/global/list/queen_amount = 0
 					return H // Monkeys are always food.
 	return
 	
-	
+
+
+
+
+
+/*
+//LIFE PROCS!	
 //FOR THE COMBAT FORMS	
+*/
+
+
+
 /mob/living/simple_animal/hostile/metroid/combat/Life()
 	. = ..()
 
@@ -944,6 +1125,9 @@ var/global/list/queen_amount = 0
 		sleep(50)
 		paralysis = 0
 		expand_troid()
+		return
+	if(stance == 7) //Necessary to fix a bug where if their prey or latching victim is laying down when they evolve, they get stuck in stance 7 and do nothing.
+		stance = 4
 		return
 
 	
@@ -964,25 +1148,18 @@ var/global/list/queen_amount = 0
 		src.visible_message("<span class='notice'>\The [src] begins to lay an egg.</span>")
 		stop_automated_movement = 1
 		spawn(50)
-		new /obj/effect/spider/eggcluster(loc, src)
+		new /obj/effect/metroid/egg(loc, src)
 		stop_automated_movement = 0
-		
-		
-		
-		birth_troid()
+		nutrition = 400
 		return
-	
-/mob/living/simple_animal/hostile/metroid/proc/birth_troid()
-	visible_message("<span class='warning'>\A nesting Metroid suddenly bursts out of of the [src]!</span>")
-	new next(get_turf(src))
-	
 
+	
 
 /mob/living/simple_animal/hostile/metroid/combat/proc/adjust_nutrition(input)
 	nutrition = (nutrition + input) //It handles the metroid's nutrition gain from melee.
 
 
-				
+
 /mob/living/simple_animal/hostile/metroid/combat/PunchTarget() //this segment determines what the mob does depending on its intent.
 	if(!client) // AI controlled.
 		a_intent = I_HURT // Otherwise robust them.
@@ -992,37 +1169,42 @@ var/global/list/queen_amount = 0
 
 
 /mob/living/simple_animal/hostile/metroid/combat/DoPunch(var/mob/living/L) //Metroid actions vs the player.
+	var/damage_to_do = rand(melee_damage_lower, melee_damage_upper)
+	var/armor_modifier = abs((L.getarmor(null, "bio") / 100) - 1)
+	
 	if(!Adjacent(L)) // Might've moved away in the meantime.
 		return
 
 	if(istype(L))
-		switch(a_intent)
-			if(I_HELP)
-				ai_log("DoPunch() against [L], helping.",2)
-				L.visible_message("<span class='notice'>[src] gently pokes [L]!</span>",
-				"<span class='notice'>[src] gently pokes you!</span>")
-				do_attack_animation(L)
+		if(ishuman(L))
+			switch(a_intent)
+				if(I_HELP)
+					ai_log("DoPunch() against [L], helping.",2)
+					L.visible_message("<span class='notice'>[src] gently pokes [L]!</span>",
+					"<span class='notice'>[src] gently pokes you!</span>")
+					do_attack_animation(L)
 
 
-			if(I_HURT) //The metroid does this if it can't latch onto the target or it decides not to try knocking them down.
-				ai_log("DoPunch() against [L], hurting.",2)
-				var/damage_to_do = rand(melee_damage_lower, melee_damage_upper)
-				var/armor_modifier = abs((L.getarmor(null, "bio") / 100) - 1)
+				if(I_HURT) //The metroid does this if it can't latch onto the target or it decides not to try knocking them down.
+					ai_log("DoPunch() against [L], hurting.",2)
+				
+				
 
-				L.attack_generic(src, damage_to_do, pick(attacktext))
-				playsound(src, 'sound/weapons/bite.ogg', 75, 1)
+					L.attack_generic(src, damage_to_do, pick(attacktext))
+					playsound(src, 'sound/weapons/bite.ogg', 75, 1)
+	
+					// Give the Metroid some nutrition, if applicable, even if not attached.
+					if(!L.isSynthetic())
+						if(ishuman(L))
+							if(L.getCloneLoss() < L.getMaxHealth() * 1.5)
+								adjust_nutrition(25 + damage_to_do * armor_modifier)
 
-				// Give the Metroid some nutrition, if applicable, even if not attached.
-				if(!L.isSynthetic())
-					if(ishuman(L))
-						if(L.getCloneLoss() < L.getMaxHealth() * 1.5)
-							adjust_nutrition(50 + damage_to_do * armor_modifier)
-
-					else if(istype(L, /mob/living/simple_animal))
-						if(!ismetroid(L))
-							var/mob/living/simple_animal/SA = L
-							if(!SA.stat)
-								adjust_nutrition(20 + damage_to_do)
+		else if(istype(L, /mob/living/simple_animal))
+			if(!ismetroid(L))
+				var/mob/living/simple_animal/SA = L
+				if(!SA.stat)
+					L.attack_generic(src, damage_to_do, pick(attacktext))
+					adjust_nutrition(damage_to_do * 4)
 
 
 	if(istype(L,/obj/mecha))
@@ -1033,5 +1215,5 @@ var/global/list/queen_amount = 0
 
 /mob/living/simple_animal/hostile/metroid/combat/ClosestDistance()
 	if(target_mob.stat == DEAD)
-		return 1 // Melee (eat) the target if dead, don't shoot it. //I don't think it actually eats the target. Maybe it does?
+		return 1 // Melee (eat) the target if dead, don't shoot it.
 	return ..()
