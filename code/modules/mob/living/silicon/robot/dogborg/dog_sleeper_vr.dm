@@ -676,7 +676,7 @@
 // PLACEHOLDER SERVICE BORG BELLY
 /obj/item/device/dogborg/sleeper/servborg
 	name = "Gourmet Gut"
-	desc = "An underslung microwave, with optional fuel processor. (WIP)"
+	desc = "An underslung microwave, with optional fuel processor."
 	icon_state = "decompiler"
 	max_item_count = 10
 	injection_chems = null
