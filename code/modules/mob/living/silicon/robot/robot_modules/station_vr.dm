@@ -581,9 +581,26 @@
 
 /obj/item/weapon/robot_module/robot/servborg/New(var/mob/living/silicon/robot/R)
 
+	var/datum/matter_synth/water = new /datum/matter_synth()
+	water.name = "Water reserves"
+	water.recharge_rate = 0.1 // Recharging water for plants - hehe drooly borg
+	water.max_energy = 1000
+	water.energy = 0
+	R.water_res = water
+	synths += water
+
 	// Dogborg Standard
 	src.modules += new /obj/item/weapon/dogborg/jaws/small(src)
 	src.modules += new /obj/item/device/dogborg/boop_module(src)
+
+	var/obj/item/device/dogborg/tongue/T = new /obj/item/device/dogborg/tongue(src)
+	T.water = water
+	src.modules += T
+
+	// PLACEHOLDER AS 'BRIGBELLY' UNTIL MICROWAVE BELLY SORTED
+	var/obj/item/device/dogborg/sleeper/servborg/B = new /obj/item/device/dogborg/sleeper/servborg(src)
+	B.water = water
+	src.modules += B
 
 	//Service Module Copy/Paste
 	src.modules += new /obj/item/weapon/gripper/service(src)
@@ -616,23 +633,6 @@
 	F.my_atom = src.emag
 	F.add_reagent("beer2", 50)
 	src.emag.name = "Mickey Finn's Special Brew"
-
-	var/datum/matter_synth/water = new /datum/matter_synth()
-	water.name = "Water reserves"
-	water.recharge_rate = 0 // Recharging water for plants - hehe drooly borg
-	water.max_energy = 1000
-	water.energy = 0
-	R.water_res = water
-	synths += water
-
-	var/obj/item/device/dogborg/tongue/T = new /obj/item/device/dogborg/tongue(src)
-	T.water = water
-	src.modules += T
-
-	// PLACEHOLDER UNTIL MICROWAVE BELLY SORTED
-	var/obj/item/device/dogborg/sleeper/K9/B = new /obj/item/device/dogborg/sleeper/K9(src) //Eat criminals. Bring them to the brig.
-	B.water = water
-	src.modules += B
 
 	R.icon 		 = 'icons/mob/widerobot_vr.dmi'
 	R.hands.icon = 'icons/mob/screen1_robot_vr.dmi'
