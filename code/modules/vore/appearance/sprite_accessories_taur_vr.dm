@@ -355,6 +355,11 @@
 	icon_state = "feline_s"
 	extra_overlay = "feline_markings"
 
+/datum/sprite_accessory/tail/taur/feline/fatfeline_2c
+	name = "Fat Feline dual-color (Taur)"
+	icon_state = "fatfeline_s"
+	extra_overlay = "fatfeline_markings"
+
 /datum/sprite_accessory/tail/taur/feline/feline_spots
 	name = "Feline spots (Taur)"
 	icon_state = "feline_s"
