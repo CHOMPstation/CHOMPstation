@@ -67,6 +67,9 @@
 	health = 120
 	melee_damage_lower = 15
 	melee_damage_upper = 15
+	move_shoot = 1				//Move and shoot at the same time.
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 120 	//How long, in deciseconds, the cooldown of ranged attacks is
 	ranged = 1
 	projectiletype = /obj/item/projectile/energy/neurotoxin/toxic
 	projectilesound = 'sound/weapons/pierce.ogg'
@@ -101,6 +104,9 @@
 	projectiletype = /obj/item/projectile/energy/neurotoxin/toxic
 	projectilesound = 'sound/weapons/pierce.ogg'
 	rapid = 1
+	move_shoot = 1				//Move and shoot at the same time.
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 120 	//How long, in deciseconds, the cooldown of ranged attacks is
 	status_flags = 0
 
 /mob/living/simple_animal/hostile/alien/queen/empress
