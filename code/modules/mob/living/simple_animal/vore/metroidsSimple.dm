@@ -677,10 +677,11 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	cooperative = 1
 	evo_point = 1100
 	evo_limit = INFINITY
-	next = "/mob/living/simple_animal/hostile/metroid/evolution/super"
+	next = null
 	
 /mob/living/simple_animal/hostile/metroid/combat/queen/New()
 	playsound(src, 'sound/metroid/metroidqueen.ogg', 100, 1)
+	queen_amount++
 	..()
 	
 /mob/living/simple_animal/hostile/metroid/combat/queen/death()
@@ -816,7 +817,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 		visible_message("<span class='danger'>\The [src] starts trying to slide itself into the vent!</span>")
 		sleep(50) //Let's stop the metroid for five seconds to do its parking job
 		..()
-		if(entry_vent.network && entry_vent.network.normal_members.len)
+		if(!victim && !buckled && vore_fullness == 0 && entry_vent.network && entry_vent.network.normal_members.len)
 			var/list/vents = list()
 			for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in entry_vent.network.normal_members)
 				vents.Add(temp_vent)
@@ -1119,24 +1120,27 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 		release_vore_contents()
 		prey_excludes.Cut()
 		
-	if(canEvolve == 1 && nutrition >= evo_point && vore_fullness == 0)
+	if(canEvolve == 1 && nutrition >= evo_point && vore_fullness == 0 && next != "/mob/living/simple_animal/hostile/metroid/combat/queen")
 		playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
 		paralysis = 7998
 		sleep(50)
 		paralysis = 0
 		expand_troid()
 		return
+		
+	else if(queen_amount == 0 && prob(5) && canEvolve == 1 && nutrition >= evo_point && vore_fullness == 0 && next == "/mob/living/simple_animal/hostile/metroid/combat/queen")
+		playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
+		paralysis = 7998
+		sleep(50)
+		paralysis = 0
+		expand_troid()
+	
 	if(stance == 7) //Necessary to fix a bug where if their prey or latching victim is laying down when they evolve, they get stuck in stance 7 and do nothing.
 		stance = 4
 		return
 
 	
-/mob/living/simple_animal/hostile/metroid/combat/omega/Life()	
-	. = ..()	
-	if(queen_amount == 0 && prob(5) && canEvolve == 1 && nutrition >= evo_point)
-		playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
-		queen_amount++
-		expand_troid()
+
 		
 		
 
