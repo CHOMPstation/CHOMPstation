@@ -150,11 +150,20 @@
 	name = "Wolf (Taur)"
 	icon_state = "wolf_s"
 	suit_sprites = 'icons/mob/taursuits_wolf_vr.dmi'
+	
+/datum/sprite_accessory/tail/taur/fatwolf
+	name = "Fat Wolf (Taur)"
+	icon_state = "fatwolf_s"
 
 /datum/sprite_accessory/tail/taur/wolf/wolf_2c
 	name = "Wolf dual-color (Taur)"
 	icon_state = "wolf_s"
 	extra_overlay = "wolf_markings"
+	
+/datum/sprite_accessory/tail/taur/wolf/fatwolf_2c
+	name = "Fat Wolf dual-color (Taur)"
+	icon_state = "fatwolf_s"
+	extra_overlay = "fatwolf_markings"
 
 /datum/sprite_accessory/tail/taur/wolf/synthwolf
 	name = "SynthWolf dual-color (Taur)"
@@ -327,10 +336,19 @@
 	name = "Feline (Taur)"
 	icon_state = "feline_s"
 
+/datum/sprite_accessory/tail/taur/fatfeline
+	name = "Fat Feline (Taur)"
+	icon_state = "fatfeline_s"
+
 /datum/sprite_accessory/tail/taur/feline_wag
 	name = "Feline (Taur) (vwag)"
 	icon_state = "feline_s"
 	ani_state = "feline_w"
+	
+/datum/sprite_accessory/tail/taur/fatfeline_wag
+	name = "Fat Feline (Taur) (vwag)"
+	icon_state = "fatfeline_s"
+	ani_state = "fatfeline_w"
 
 /datum/sprite_accessory/tail/taur/feline/feline_2c
 	name = "Feline dual-color (Taur)"
