@@ -617,7 +617,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 
 /mob/living/simple_animal/hostile/metroid/combat/queen
 	name = "queen metroid"
-	desc = "The mother of all Metroids, allowed to have grown too far!"
+	desc = "The mother of all Metroids - allowed to have grown too far!"
 	tt_desc = "Maximus Queenamus Deathamus"
 	icon = 'icons/mob/metroid/queen.dmi'
 	icon_dead = "queen_dead"
@@ -1135,19 +1135,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 		paralysis = 0
 		expand_troid()
 	
-	if(stance == 7) //Necessary to fix a bug where if their prey or latching victim is laying down when they evolve, they get stuck in stance 7 and do nothing.
-		stance = 4
-		return
-
-	
-
-		
-		
-
-/mob/living/simple_animal/hostile/metroid/combat/queen/Life()
-	. = ..()
-	var/obj/effect/metroid/egg/E = locate() in get_turf(src)		
-	if(canEvolve == 1 && nutrition >= evo_point && !E)
+	else if(next == null && canEvolve == 1 && nutrition >= evo_point)
 		playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
 		src.visible_message("<span class='notice'>\The [src] begins to lay an egg.</span>")
 		stop_automated_movement = 1
@@ -1156,8 +1144,13 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 		stop_automated_movement = 0
 		nutrition = 400
 		return
+	
+	if(stance == 7) //Necessary to fix a bug where if their prey or latching victim is laying down when they evolve, they get stuck in stance 7 and do nothing.
+		stance = 4
+		return
 
 	
+
 
 /mob/living/simple_animal/hostile/metroid/combat/proc/adjust_nutrition(input)
 	nutrition = (nutrition + input) //It handles the metroid's nutrition gain from melee.
