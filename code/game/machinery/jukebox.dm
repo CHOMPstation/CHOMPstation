@@ -63,6 +63,9 @@
 			secret_tracks |= T
 		else
 			tracks |= T
+
+		if(T.casino)
+			tracks -= T
 	return
 
 // On initialization, copy our tracks from the global list
