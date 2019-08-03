@@ -34,4 +34,5 @@
 // Activate Noms!
 /mob/living/simple_animal/horse
 	vore_active = 1
+	vore_ignores_undigestable = 0
 	vore_icons = SA_ICON_LIVING

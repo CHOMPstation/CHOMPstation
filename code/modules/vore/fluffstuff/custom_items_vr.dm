@@ -478,7 +478,7 @@
 	</ol>
 	<br />
 	<h5>Purpose</h5>
-	<p>The Kitsuhana Life Crystal is a small device typically worn around the neck for the purpose of reporting your status to the HAVENS (Kitsuhana's High-AVailability ENgram Storage) system, so that appropriate measures can be taken in the case of your body's demise. The whole device is housed inside a pleasing-to-the-eye elongated diamond.</p>
+	<p>The Vey-Med Life Crystal is a small device typically worn around the neck for the purpose of reporting your status to the HAVENS (Vey-Med's High-AVailability ENgram Storage) system, so that appropriate measures can be taken in the case of your body's demise. The whole device is housed inside a pleasing-to-the-eye elongated diamond.</p>
 	<p>Upon your body's desmise, the crystal will send a transmission to HAVENS. Depending on your membership level, the appropriate actions can be taken to ensure that you are back up and enjoying existence as soon as possible.</p>
 
 	<p>Nanotrasen has negotiated a <i>FREE</i> Star membership for you in the HAVENS system, though an upgrade can be obtained depending on your citizenship and reputation level.</p>
@@ -614,6 +614,128 @@
 	slowdown = 0
 	taurtype = /datum/sprite_accessory/tail/taur/feline/tempest
 	no_message = "These saddlebags seem to be fitted for someone else, and keep slipping off!"
+
+//TFF 29/4/19: Add standardised reagent generators for loadout
+/obj/item/weapon/implant/reagent_generator/milk
+	name = "milk generation implant"
+	desc = "It's an implant you can use to make milk from yourself!"
+	generated_reagents = list("milk" = 2)
+	reagent_name = "milk"
+	usable_volume = 1000
+
+	empty_message = list("Your breasts are almost completely drained!")
+	full_message = list("Your teats feel heavy and swollen!")
+	emote_descriptor = list("squeezes milk", "tugs on their breasts, milking them")
+	self_emote_descriptor = list("squeeze")
+	random_emote = list("moos quietly")
+	verb_name = "Milk"
+	verb_desc = "Grab their nipples and milk them into a container! May cause blushing and groaning."
+
+/obj/item/weapon/implanter/reagent_generator/milk
+	implant_type = /obj/item/weapon/implant/reagent_generator/milk
+
+/obj/item/weapon/implant/reagent_generator/egg
+	name = "egg laying implant"
+	desc = "This is an implant that allows the user to lay eggs."
+	generated_reagents = list("egg" = 2)
+	usable_volume = 500
+	transfer_amount = 50
+
+	empty_message = list("Your lower belly feels smooth and empty. Sorry, we're out of eggs!", "The reduced pressure in your lower belly tells you there are no more eggs.")
+	full_message = list("Your lower belly looks swollen with irregular bumps, and it feels heavy.", "Your lower abdomen feels really heavy, making it a bit hard to walk.")
+	emote_descriptor = list("an egg right out of their belly!", "into their belly firmly, forcing them to lay an egg!", "them really tight, making them lay an egg promptly!")
+	var/verb_descriptor = list("squeezes", "pushes", "hugs")
+	var/self_verb_descriptor = list("squeeze", "push", "hug")
+	var/short_emote_descriptor = list("lays", "forces out", "pushes out")
+	self_emote_descriptor = list("lay", "force out", "push out")
+	random_emote = list("moans softly with a blush on their face", "yelps in embarrassment", "grunts a little")
+	assigned_proc = /mob/living/carbon/human/proc/use_reagent_implant_egg
+
+/obj/item/weapon/implant/reagent_generator/egg/implanted(mob/living/carbon/source)
+	processing_objects += src
+	to_chat(source, "<span class='notice'>You implant [source] with \the [src].</span>")
+	source.verbs |= assigned_proc
+	return 1
+
+/obj/item/weapon/implanter/reagent_generator/egg
+	implant_type = /obj/item/weapon/implant/reagent_generator/egg
+
+/mob/living/carbon/human/proc/use_reagent_implant_egg()
+	set name = "Lay Egg"
+	set desc = "Force them to lay an egg by squeezing into their lower body!"
+	set category = "Object"
+	set src in view(1)
+
+	//do_reagent_implant(usr)
+	if(!isliving(usr) || !usr.canClick())
+		return
+
+	if(usr.incapacitated() || usr.stat > CONSCIOUS)
+		return
+
+	var/obj/item/weapon/implant/reagent_generator/egg/rimplant
+	for(var/obj/item/organ/external/E in organs)
+		for(var/obj/item/weapon/implant/I in E.implants)
+			if(istype(I, /obj/item/weapon/implant/reagent_generator))
+				rimplant = I
+				break
+	if (rimplant)
+		if(rimplant.reagents.total_volume <= rimplant.transfer_amount)
+			to_chat(src, "<span class='notice'>[pick(rimplant.empty_message)]</span>")
+			return
+
+		new /obj/item/weapon/reagent_containers/food/snacks/egg(get_turf(src))
+
+		var/index = rand(0,3)
+
+		if (usr != src)
+			var/emote = rimplant.emote_descriptor[index]
+			var/verb_desc = rimplant.verb_descriptor[index]
+			var/self_verb_desc = rimplant.self_verb_descriptor[index]
+			usr.visible_message("<span class='notice'>[usr] [verb_desc] [emote]</span>",
+							"<span class='notice'>You [self_verb_desc] [emote]</span>")
+		else
+			visible_message("<span class='notice'>[src] [pick(rimplant.short_emote_descriptor)] an egg.</span>",
+								"<span class='notice'>You [pick(rimplant.self_emote_descriptor)] an egg.</span>")
+		if(prob(15))
+			visible_message("<span class='notice'>[src] [pick(rimplant.random_emote)].</span>") // M-mlem.
+
+		rimplant.reagents.remove_any(rimplant.transfer_amount)
+
+//TFF 7/5/19 - addition of honey generator on request
+/obj/item/weapon/implant/reagent_generator/honey
+	generated_reagents = list("honey" = 2)
+	reagent_name = "honey"
+	usable_volume = 1000
+
+	empty_message = list("You appear to be all out of nectar", "You feel as though you are lacking a majority of your nectar.")
+	full_message = list("You appear to be full of nectar.", "You feel as though you are full of nectar!")
+	emote_descriptor = list("squeezes nectar", "extracts nectar")
+	self_emote_descriptor = list("squeeze", "extract")
+	verb_name = "Extract Honey"
+	verb_desc = "Obtain their nectar and put it into a container!"
+
+/obj/item/weapon/implanter/reagent_generator/honey
+	implant_type = /obj/item/weapon/implant/reagent_generator/honey
+
+//kcin 6/6/19 - i want to slurp slime
+/obj/item/weapon/implant/reagent_generator/slime
+	name = "slime generation implant"
+	desc = "It's an implant you can use to make slime from yourself!"
+	generated_reagents = list("slimedrink" = 2)
+	reagent_name = "slimedrink"
+	usable_volume = 1000
+
+	empty_message = list("You look quite ghostly!")
+	full_message = list("Your are nearly opaque!")
+	emote_descriptor = list("drips slime", "lets some of their slime drip")
+	self_emote_descriptor = list("drip")
+	random_emote = list("blrbles softly")
+	verb_name = "Drip"
+	verb_desc = "You Catch slime in your container."
+
+/obj/item/weapon/implanter/reagent_generator/milk
+	implant_type = /obj/item/weapon/implant/reagent_generator/milk
 
 //WickedTempest: Chakat Tempest
 /obj/item/weapon/implant/reagent_generator/tempest

@@ -106,6 +106,8 @@
 
 	log_adminpm(msg,src,C)
 	send2adminirc("Reply: [key_name(src)]->[key_name(C)]: [html_decode(msg)]")
+	msg = emoji_parse(msg) //Chompstation ADD - Emojis
+
 
 	//we don't use message_admins here because the sender/receiver might get it too
 	for(var/client/X in admins)
@@ -126,6 +128,8 @@
 		return
 
 	sanitize(msg)
+	msg = emoji_parse(msg) //Chompstation ADD - Emojis
+
 
 	// Handled on Bot32's end, unsure about other bots
 //	if(length(msg) > 400) // TODO: if message length is over 400, divide it up into seperate messages, the message length restriction is based on IRC limitations.  Probably easier to do this on the bots ends.

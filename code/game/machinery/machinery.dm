@@ -329,7 +329,7 @@ Class Procs:
 		return FALSE
 	if(panel_open)
 		return FALSE // Close panel first!
-	playsound(loc, W.usesound, 50, 1)	
+	playsound(loc, W.usesound, 50, 1)
 	var/actual_time = W.toolspeed * time
 	if(actual_time != 0)
 		user.visible_message( \
@@ -396,6 +396,9 @@ Class Procs:
 
 /obj/machinery/proc/dismantle()
 	playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+	//TFF 3/6/19 - port Cit RP fix of infinite frames.
+	if(!circuit)
+		return 0
 	var/obj/structure/frame/A = new /obj/structure/frame(src.loc)
 	var/obj/item/weapon/circuitboard/M = circuit
 	A.circuit = M

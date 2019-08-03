@@ -896,9 +896,9 @@ mob/living/carbon/proc/charmed() //TODO
 	scannable = 0
 
 /datum/reagent/succubi_aphrodisiac/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(prob(7))
+	if(prob(3))
 		M.show_message("<span class='warning'>You feel funny, and fall in love with the person in front of you</span>")
-		M.emote(pick("blush", "moans", "giggles", "turns visibly red"))
+		M.say(pick("!blushes", "!moans", "!giggles", "!turns visibly red")) //using mob say so we dont have to define this dumb one time use emote that equates to just blushing -shark
 		//M.charmed() //TODO
 	return
 

@@ -288,7 +288,8 @@
 			tickcomp = ((1/(world.tick_lag))*1.3) - 1.3
 			move_delay = move_delay + tickcomp
 
-		if(istype(mob.buckled))// VOREStation Removal - , /obj/vehicle))
+			//TFF 18/4/19: Port VOREStation wheelchair speed nerf fix
+		if(istype(mob.buckled, /obj/vehicle) || istype(mob.buckled, /mob))	//VOREStation Edit: taur riding. I think.
 			//manually set move_delay for vehicles so we don't inherit any mob movement penalties
 			//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
 			move_delay = world.time + tickcomp
@@ -322,6 +323,12 @@
 							if(prob(25))	direct = turn(direct, pick(90, -90))
 				move_delay += 2
 				return mob.buckled.relaymove(mob,direct)
+
+		if(waddleToggle)
+			if(!mob.buckled)
+				animate(mob, pixel_z = 4, time = 0)
+				animate(pixel_z = 0, transform = turn(matrix(), pick(-12, 0, 12)), time=2)
+				animate(pixel_z = 0, transform = matrix(), time = 0)
 
 		//We are now going to move
 		moving = 1

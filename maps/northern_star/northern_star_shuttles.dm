@@ -217,8 +217,9 @@
 	area_offsite = /area/shuttle/casino/ship
 	area_station = /area/shuttle/casino/station
 	docking_controller_tag = "casino_shuttle"
-	dock_target_offsite = "casino_shuttle_bay"
 	dock_target_station = "casino_shuttle_dock_airlock"
+	dock_target_offsite = "casino_shuttle_bay"
+
 
 // Is this even used?
 /datum/shuttle/ferry/alien

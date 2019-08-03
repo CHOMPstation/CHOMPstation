@@ -70,6 +70,7 @@
 
 	if(stat == DEAD)
 		return 0
+	location = get_turf(src) //CHOMPEDIT: since we use this so much lets define it here yknow
 	if(src.loc && istype(loc,/obj/belly)) deathmessage = "no message" //VOREStation Add - Prevents death messages from inside mobs
 	facing_dir = null
 

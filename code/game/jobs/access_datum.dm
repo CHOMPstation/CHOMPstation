@@ -256,9 +256,20 @@
 	desc = "Quartermaster"
 	region = ACCESS_REGION_SUPPLY
 
-// /var/const/free_access_id = 43
-// /var/const/free_access_id = 43
-// /var/const/free_access_id = 44
+// /var/const/free_access_id = 42
+//TFF 3/5/19 - Add const vars for clown/mime IDs.
+/var/const/access_clown = 43
+/datum/access/clown
+	id = access_clown
+	desc = "Clown"
+	region = ACCESS_REGION_GENERAL
+
+/var/const/access_mime = 44
+/datum/access/mime
+	id = access_mime
+	desc = "Mime"
+	region = ACCESS_REGION_GENERAL
+
 
 /var/const/access_surgery = 45
 /datum/access/surgery

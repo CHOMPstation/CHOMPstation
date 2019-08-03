@@ -161,6 +161,7 @@ var/global/list/edible_trash = list(/obj/item/trash,
 				/obj/item/weapon/material/shard,
 				/obj/item/device/paicard,
 				/obj/item/device/mmi/digital/posibrain,
+				/obj/item/weapon/digestion_remains,
 				/obj/item/device/aicard)
 
 var/global/list/cont_flavors = list(
@@ -371,6 +372,27 @@ var/global/list/cont_flavors_musky = list("drenched",
 				"squishy",
 				"sticky",
 				"tainted")
+
+//TFF 30/4/19: Ports VoreStation Remains Option - sets species that won't result in remains left behind
+var/global/list/remainless_species = list(SPECIES_PROMETHEAN,
+				SPECIES_DIONA,
+				SPECIES_ALRAUNE,
+				SPECIES_PROTEAN,
+				SPECIES_MONKEY,					//Exclude all monkey subtypes, to prevent abuse of it. They aren't,
+				SPECIES_MONKEY_TAJ,				//set to have remains anyway, but making double sure,
+				SPECIES_MONKEY_SKRELL,
+				SPECIES_MONKEY_UNATHI,
+				SPECIES_MONKEY_AKULA,
+				SPECIES_MONKEY_NEVREAN,
+				SPECIES_MONKEY_SERGAL,
+				SPECIES_MONKEY_VULPKANIN,
+				SPECIES_XENO,					//Same for xenos,
+				SPECIES_XENO_DRONE,
+				SPECIES_XENO_HUNTER,
+				SPECIES_XENO_SENTINEL,
+				SPECIES_XENO_QUEEN,
+				SPECIES_SHADOW,
+				SPECIES_GOLEM)					//Some special species that may or may not be ever used in event too
 
 /hook/startup/proc/init_vore_datum_ref_lists()
 	var/paths

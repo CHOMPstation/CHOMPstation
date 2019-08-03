@@ -60,7 +60,7 @@
 
 				//Numbing flag
 				if(mode_flags & DM_FLAG_NUMBING)
-					if(H.bloodstr.get_reagent_amount("numbenzyme") < 2)
+					if(H.bloodstr.get_reagent_amount("numbenzyme") < 2 && !H.synthetic)
 						H.bloodstr.add_reagent("numbenzyme",4)
 
 				//Stripping flag
@@ -113,6 +113,9 @@
 				to_chat(M,"<span class='notice'>" + digest_alert_prey + "</span>")
 
 				play_sound = pick(death_sounds)
+					//TFF 30/4/19: Ports VoreStation Remains Option - handler to leave remains
+				if((mode_flags & DM_FLAG_LEAVEREMAINS) && M.digest_leave_remains)
+					handle_remains_leaving(M)
 				digestion_death(M)
 				owner.update_icons()
 				if(compensation > 0)
@@ -124,6 +127,15 @@
 				to_update = TRUE
 
 				continue
+
+			//CHOMPEDIT: Snowflake synx hook
+			if(istype(M,/mob/living/simple_animal/retaliate/synx))
+				var/syntox = digest_brute+digest_burn
+				owner.adjustToxLoss(syntox)
+				M.adjustBruteLoss(-syntox*2) //Should automaticaly clamp to 0
+				M.adjustFireLoss(-syntox*2) //Should automaticaly clamp to 0
+
+ 				//END SYNX hook.
 
 			// Deal digestion damage (and feed the pred)
 			var/old_brute = M.getBruteLoss()
@@ -172,7 +184,7 @@
 
 			if(M.absorbed && owner.nutrition >= 100)
 				M.absorbed = 0
-				to_chat(M,"<span class='notice'>You suddenly feel solid again </span>")
+				to_chat(M,"<span class='notice'>You suddenly feel solid again.</span>")
 				to_chat(owner,"<span class='notice'>You feel like a part of you is missing.</span>")
 				owner.nutrition -= 100
 				to_update = TRUE

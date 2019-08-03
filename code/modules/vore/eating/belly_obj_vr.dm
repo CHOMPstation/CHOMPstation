@@ -39,7 +39,7 @@
 	//Actual full digest modes
 	var/tmp/static/list/digest_modes = list(DM_HOLD,DM_DIGEST,DM_ABSORB,DM_DRAIN,DM_UNABSORB,DM_HEAL,DM_SHRINK,DM_GROW,DM_SIZE_STEAL)
 	//Digest mode addon flags
-	var/tmp/static/list/mode_flag_list = list("Numbing" = DM_FLAG_NUMBING, "Itemweak" = DM_FLAG_ITEMWEAK, "Stripping" = DM_FLAG_STRIPPING)
+	var/tmp/static/list/mode_flag_list = list("Numbing" = DM_FLAG_NUMBING, "Itemweak" = DM_FLAG_ITEMWEAK, "Stripping" = DM_FLAG_STRIPPING, "Leave Remains" = DM_FLAG_LEAVEREMAINS)	//TFF 30/4/19: Ports VoreStation Remains Option - add new belly mode addon to toggle
 	//Transformation modes
 	var/tmp/static/list/transform_modes = list(DM_TRANSFORM_MALE,DM_TRANSFORM_FEMALE,DM_TRANSFORM_KEEP_GENDER,DM_TRANSFORM_CHANGE_SPECIES_AND_TAUR,DM_TRANSFORM_CHANGE_SPECIES_AND_TAUR_EGG,DM_TRANSFORM_REPLICA,DM_TRANSFORM_REPLICA_EGG,DM_TRANSFORM_KEEP_GENDER_EGG,DM_TRANSFORM_MALE_EGG,DM_TRANSFORM_FEMALE_EGG, DM_EGG)
 
@@ -258,6 +258,18 @@
 /obj/belly/proc/nom_mob(var/mob/prey, var/mob/user)
 	if(owner.stat == DEAD)
 		return
+	if(!prey.isEdible) //CHOMPEDIT: Trying to make pred mobs prey? N O U
+
+		var/mob/living/simple_animal/preydator = prey
+		if(preydator.icon_state == preydator.icon_living  && preydator.size_multiplier >= 1)	
+			user.visible_message("<span class='danger'>\the [user] promptly gets tackled by \the [prey] for trying to break their prefs! !</span>!")
+			user.Weaken(5)
+			if (preydator.will_eat(user))
+				preydator.stop_automated_movement = 1
+				preydator.animal_nom(user)
+				preydator.update_icon()
+				preydator.stop_automated_movement = 0
+			return
 	if (prey.buckled)
 		prey.buckled.unbuckle_mob()
 

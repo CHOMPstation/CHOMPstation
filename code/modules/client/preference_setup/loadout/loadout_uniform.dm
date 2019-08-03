@@ -55,6 +55,166 @@
 		jumpclothes[initial(jumps.name)] = jumps
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(jumpclothes))
 
+/datum/gear/uniform/job_suit/cd
+	display_name = "jumpsuit, cd"
+	path = /obj/item/clothing/under/rank/captain
+	allowed_roles = "Colony Director"
+	
+/datum/gear/uniform/job_suit/ce
+	display_name = "jumpsuit, ce"
+	path = /obj/item/clothing/under/rank/chief_engineer
+	allowed_roles = "Chief Engineer"
+	
+/datum/gear/uniform/job_suit/atmos
+	display_name = "jumpsuit, atmos"
+	path = /obj/item/clothing/under/rank/atmospheric_technician
+	allowed_roles = list("Chief Engineer","Atmospheric Technician")
+	
+/datum/gear/uniform/job_suit/eng
+	display_name = "jumpsuit, engineer"
+	path = /obj/item/clothing/under/rank/engineer
+	allowed_roles = list("Chief Engineer","Station Engineer")
+	
+/datum/gear/uniform/job_suit/rd
+	display_name = "jumpsuit, rd"
+	path = /obj/item/clothing/under/rank/research_director
+	allowed_roles = "Research Director"
+	
+/datum/gear/uniform/job_suit/roboticist
+	display_name = "jumpsuit, roboticist"
+	path = /obj/item/clothing/under/rank/roboticist
+	allowed_roles = list("Research Director","Roboticist")
+
+/datum/gear/uniform/job_suit/scientist
+	display_name = "jumpsuit, scientist"
+	path = /obj/item/clothing/under/rank/scientist
+	allowed_roles = list("Research Director","Scientist")
+	
+/datum/gear/uniform/job_suit/cmo
+	display_name = "jumpsuit, cmo"
+	path = /obj/item/clothing/under/rank/chief_medical_officer
+	allowed_roles = "Chief Medical Officer"
+	
+/datum/gear/uniform/job_suit/chem
+	display_name = "jumpsuit, chemist"
+	path = /obj/item/clothing/under/rank/chemist
+	allowed_roles = list("Chief Medical Officer","Chemist")
+	
+/datum/gear/uniform/job_suit/viro
+	display_name = "jumpsuit, virologist"
+	path = /obj/item/clothing/under/rank/virologist
+	allowed_roles = list("Chief Medical Officer","Medical Doctor")
+	
+/datum/gear/uniform/job_suit/nurse
+	display_name = "suit, nurse"
+	path = /obj/item/clothing/under/rank/nursesuit
+	allowed_roles = list("Chief Medical Officer","Medical Doctor")
+	
+/datum/gear/uniform/job_suit/nurse/alt
+	display_name = "outfit, nurse"
+	path = /obj/item/clothing/under/rank/nurse
+	allowed_roles = list("Chief Medical Officer","Medical Doctor")
+	
+/datum/gear/uniform/job_suit/med
+	display_name = "jumpsuit, medical"
+	path = /obj/item/clothing/under/rank/medical
+	allowed_roles = list("Chief Medical Officer","Medical Doctor","Chemist","Psychiatrist","Paramedic")
+	
+/datum/gear/uniform/job_suit/psych
+	display_name = "jumpsuit, psych"
+	path = /obj/item/clothing/under/rank/psych
+	allowed_roles = list("Chief Medical Officer","Psychiatrist")
+	
+/datum/gear/uniform/job_suit/psych/alt
+	display_name = "outfit, psychologist"
+	path = /obj/item/clothing/under/rank/psych/turtleneck
+	allowed_roles = list("Chief Medical Officer","Psychiatrist")
+	
+/datum/gear/uniform/job_suit/qm
+	display_name = "jumpsuit, qm"
+	path = /obj/item/clothing/under/rank/cargo
+	allowed_roles = "Quartermaster"
+	
+/datum/gear/uniform/job_suit/cargotech
+	display_name = "jumpsuit, cargo"
+	path = /obj/item/clothing/under/rank/cargotech
+	allowed_roles = list("Quartermaster","Cargo Technician")
+	
+/datum/gear/uniform/job_suit/miner
+	display_name = "jumpsuit, miner"
+	path = /obj/item/clothing/under/rank/miner
+	allowed_roles = list("Quartermaster","Shaft Miner")
+	
+/datum/gear/uniform/job_suit/hos
+	display_name = "jumpsuit, hos"
+	path = /obj/item/clothing/under/rank/head_of_security
+	allowed_roles = "Head of Security"
+	
+/datum/gear/uniform/job_suit/warden
+	display_name = "jumpsuit, warden"
+	path = /obj/item/clothing/under/rank/warden
+	allowed_roles = list("Head of Security","Warden")
+	
+/datum/gear/uniform/job_suit/sec
+	display_name = "jumpsuit, security"
+	path = /obj/item/clothing/under/rank/security
+	allowed_roles = list("Head of Security","Warden","Security Officer","Detective")
+	
+/datum/gear/uniform/job_suit/det
+	display_name = "jumpsuit, detective"
+	path = /obj/item/clothing/under/det/corporate
+	allowed_roles = list("Head of Security","Detective")
+	
+/datum/gear/uniform/job_suit/hop
+	display_name = "jumpsuit, HoP"
+	path = /obj/item/clothing/under/rank/head_of_personnel
+	allowed_roles = "Head of Personnel"
+	
+/datum/gear/uniform/job_suit/iaa
+	display_name = "uniform, Internal Affairs"
+	path = /obj/item/clothing/under/rank/internalaffairs
+	allowed_roles = "Internal Affairs Agent"
+	
+/datum/gear/uniform/job_suit/janitor
+	display_name = "jumpsuit, janitor"
+	path = /obj/item/clothing/under/rank/janitor
+	allowed_roles = "Janitor"
+	
+/datum/gear/uniform/job_suit/libr
+	display_name = "suit, librarian"
+	path = /obj/item/clothing/under/librarian
+	allowed_roles = "Librarian"
+	
+/datum/gear/uniform/job_suit/bartender
+	display_name = "uniform, bar"
+	path = /obj/item/clothing/under/rank/bartender
+	allowed_roles = "Bartender"
+	
+/datum/gear/uniform/job_suit/botanist
+	display_name = "jumpsuit, botanist"
+	path = /obj/item/clothing/under/rank/hydroponics
+	allowed_roles = "Botanist"
+	
+/datum/gear/uniform/job_suit/chef
+	display_name = "uniform, chef"
+	path = /obj/item/clothing/under/rank/chef
+	allowed_roles = "Chef"
+	
+/datum/gear/uniform/job_suit/chaplain
+	display_name = "jumpsuit, chaplain"
+	path = /obj/item/clothing/under/rank/chaplain
+	allowed_roles = "Chaplain"
+	
+/datum/gear/uniform/job_suit/clown
+	display_name = "suit, clown"
+	path = /obj/item/clothing/under/rank/clown
+	allowed_roles = "Clown"
+	
+/datum/gear/uniform/job_suit/mime
+	display_name = "outfit, mime"
+	path = /obj/item/clothing/under/mime
+	allowed_roles = "Mime"
+	
 /datum/gear/uniform/skirt
 	display_name = "skirt selection"
 	path = /obj/item/clothing/under/skirt

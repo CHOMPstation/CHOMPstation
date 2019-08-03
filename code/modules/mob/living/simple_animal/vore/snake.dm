@@ -5,6 +5,7 @@
 	icon_dead = "snake-dead"
 	icon_living = "snake"
 	icon_state = "snake"
+	isEdible = 0
 
 	faction = "snake"
 	maxHealth = 200
@@ -24,5 +25,7 @@
 /mob/living/simple_animal/hostile/giant_snake
 	vore_active = 1
 	vore_pounce_chance = 25
+	vore_capacity = 3 //Giant snake, high capacity
+	vore_ignores_undigestable = 0
 	vore_icons = SA_ICON_LIVING
 	swallowTime = 2 SECONDS // Hungry little bastards.

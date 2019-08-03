@@ -115,22 +115,7 @@
 	display_name = "cell, device"
 	path = /obj/item/weapon/cell/device
 
-/datum/gear/utility/implant
-	exploitable = 1
-/* VOREStation Edit - Make languages great again
-/datum/gear/utility/implant/eal //This does nothing if you don't actually know EAL.
-	display_name = "implant, language, EAL"
-	path = /obj/item/weapon/implant/language/eal
-	cost = 2
-	slot = "implant"
-	exploitable = 1*/
-
-/datum/gear/utility/implant/tracking
-	display_name = "implant, tracking"
-	path = /obj/item/weapon/implant/tracking/weak
-	cost = 0 //VOREStation Edit. Changed cost to 0
-	slot = "implant"
-	exploitable = 1
+//TFF 29/4/19: remove implants, move to loadout_implants.dm
 
 /datum/gear/utility/pen
 	display_name = "Fountain Pen"

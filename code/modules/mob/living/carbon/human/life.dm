@@ -950,10 +950,15 @@
 				adjustBrainLoss(brainOxPercent * oxyloss)
 
 		if(halloss >= species.total_health)
-			src << "<span class='notice'>You're in too much pain to keep going...</span>"
-			src.visible_message("<B>[src]</B> slumps to the ground, too weak to continue fighting.")
-			Paralyse(10)
-			setHalLoss(species.total_health - 1)
+			if (chem_effects[CE_PAINKILLER])
+				setHalLoss(species.total_health - 1)
+			else 
+				Paralyse(10)
+				setHalLoss(species.total_health - 1)
+			if (!paralysis && !sleeping || !chem_effects[CE_PAINKILLER]) //CHOMPEDIT only display slump if we werent slumped already to prevent spam, sleeping counts as slump state for this matter
+				src << "<span class='notice'>You're in too much pain to keep going...</span>"
+				src.visible_message("<B>[src]</B> slumps to the ground, too weak to continue fighting.")
+			
 
 		if(paralysis || sleeping)
 			blinded = 1

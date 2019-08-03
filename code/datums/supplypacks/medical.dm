@@ -327,7 +327,7 @@
 	cost = 25
 	containertype = "/obj/structure/closet/crate/secure"
 	containername = "Virus sample crate"
-	access = access_cmo
+	access = access_virology
 
 /datum/supply_packs/med/defib
 	name = "Defibrillator crate"

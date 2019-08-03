@@ -27,3 +27,10 @@
 #define SPECIES_ZORREN_FLAT		"Flatland Zorren"
 #define SPECIES_ZORREN_HIGH		"Highlander Zorren"
 #define SPECIES_CUSTOM			"Custom Species"
+
+//TFF 30/4/19: Ports VoreStation Remains Option - new mob defines
+
+#define SPECIES_MONKEY_AKULA		"Sobaka"
+#define SPECIES_MONKEY_NEVREAN		"Sparra"
+#define SPECIES_MONKEY_SERGAL		"Saru"
+#define SPECIES_MONKEY_VULPKANIN	"Wolpin"

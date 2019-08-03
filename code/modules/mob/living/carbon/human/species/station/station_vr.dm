@@ -285,7 +285,7 @@
 
 	//primitive_form = "" //None for these guys
 
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
+	spawn_flags = SPECIES_CAN_JOIN //| SPECIES_IS_WHITELISTED //CHOMPEDIT: REmoving whitelist for xenohybrids
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	blood_color = "#12ff12"

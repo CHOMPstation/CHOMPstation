@@ -113,6 +113,13 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/stock_parts/capacitor/super
 	sort_string = "CAAAC"
 
+/datum/design/item/stock_part/quadratic_capacitor
+	id = "quadratic_capacitor"
+	req_tech = list(TECH_POWER = 10, TECH_MATERIAL = 9)
+	materials = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 100, "gold" = 20)
+	build_path = /obj/item/weapon/stock_parts/capacitor/quadratic
+	sort_string = "CAAAD"
+	
 /datum/design/item/stock_part/micro_mani
 	id = "micro_mani"
 	req_tech = list(TECH_MATERIAL = 1, TECH_DATA = 1)
@@ -134,6 +141,13 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/stock_parts/manipulator/pico
 	sort_string = "CAABC"
 
+/datum/design/item/stock_part/femto_mani
+	id = "femto_mani"
+	req_tech = list(TECH_MATERIAL = 10, TECH_DATA = 9)
+	materials = list(DEFAULT_WALL_MATERIAL = 30, "diamond" = 50)
+	build_path = /obj/item/weapon/stock_parts/manipulator/femto
+	sort_string = "CAABD"
+
 /datum/design/item/stock_part/basic_matter_bin
 	id = "basic_matter_bin"
 	req_tech = list(TECH_MATERIAL = 1)
@@ -154,6 +168,13 @@ other types of metals and chemistry for reagents).
 	materials = list(DEFAULT_WALL_MATERIAL = 80)
 	build_path = /obj/item/weapon/stock_parts/matter_bin/super
 	sort_string = "CAACC"
+	
+/datum/design/item/stock_part/bluespace_matter_bin
+	id = "bluespace_matter_bin"
+	req_tech = list(TECH_MATERIAL = 10, TECH_BLUESPACE = 9)
+	materials = list(DEFAULT_WALL_MATERIAL = 80,"phoron" = 30)
+	build_path = /obj/item/weapon/stock_parts/matter_bin/bluespace
+	sort_string = "CAACD"
 
 /datum/design/item/stock_part/basic_micro_laser
 	id = "basic_micro_laser"
@@ -176,6 +197,13 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/stock_parts/micro_laser/ultra
 	sort_string = "CAADC"
 
+/datum/design/item/stock_part/quad_ultra_micro_laser
+	id = "quadultra_micro_laser"
+	req_tech = list(TECH_MAGNET = 10, TECH_MATERIAL = 9)
+	materials = list(DEFAULT_WALL_MATERIAL = 20, "glass" = 40, "uranium" = 30)
+	build_path = /obj/item/weapon/stock_parts/micro_laser/quad
+	sort_string = "CAADD"
+
 /datum/design/item/stock_part/basic_sensor
 	id = "basic_sensor"
 	req_tech = list(TECH_MAGNET = 1)
@@ -196,6 +224,13 @@ other types of metals and chemistry for reagents).
 	materials = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 20, "silver" = 10)
 	build_path = /obj/item/weapon/stock_parts/scanning_module/phasic
 	sort_string = "CAAEC"
+	
+/datum/design/item/stock_part/triphasic_sensor
+	id = "triphasic_sensor"
+	req_tech = list(TECH_MAGNET = 10, TECH_MATERIAL = 9)
+	materials = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 50, "silver" = 10)
+	build_path = /obj/item/weapon/stock_parts/scanning_module/triphasic
+	sort_string = "CAAED"
 
 /datum/design/item/stock_part/RPED
 	name = "Rapid Part Exchange Device"
@@ -259,6 +294,15 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/cell/hyper
 	category = "Misc"
 	sort_string = "DAAAD"
+
+/datum/design/item/powercell/high/hightech
+	name = "Self-charging power cell"
+	id = "selfch_cell"
+	req_tech = list(TECH_POWER = 5, TECH_MATERIAL = 4,TECH_BLUESPACE = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000,"glass" = 500)
+	build_path = /obj/item/weapon/cell/high/hightech
+	category = "Misc"
+	sort_string = "DAAAE"
 
 /datum/design/item/powercell/device
 	name = "device"

@@ -771,18 +771,19 @@
 			return 1
 		return 0 //we didn't do anything!
 
+//TFF: Ports Polaris fix for kicking so you can cancel without it still executing the command.
 	else if(href_list["boot2"])
 		var/mob/M = locate(href_list["boot2"])
 		if (ismob(M))
 			if(!check_if_greater_rights_than(M.client))
 				return
-			var/reason = sanitize(input("Please enter reason"))
+			var/reason = sanitize(input("Please enter reason.") as null|message)
 			if(!reason)
-				M << "<font color='red'>You have been kicked from the server</font>"
-			else
-				M << "<font color='red'>You have been kicked from the server: [reason]</font>"
-			log_admin("[key_name(usr)] booted [key_name(M)].")
-			message_admins("<font color='#6F6FE2'>[key_name_admin(usr)] booted [key_name_admin(M)].</font>", 1)
+				return
+
+			to_chat(M, span("critical", "You have been kicked from the server: [reason]"))
+			log_admin("[key_name(usr)] booted [key_name(M)] for reason: '[reason]'.")
+			message_admins("<font color='blue'>[key_name_admin(usr)] booted [key_name_admin(M)] for reason '[reason]'.</font>", 1)
 			//M.client = null
 			qdel(M.client)
 

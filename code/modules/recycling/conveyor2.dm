@@ -1,3 +1,8 @@
+//TFF 2/5/19: Port Polaris's conveyor movement fixes - set define value from 2 to -1 for reverse direction in movement.
+#define OFF 0
+#define FORWARDS 1
+#define BACKWARDS -1
+
 //conveyor2 is pretty much like the original, except it supports corners, but not diverters.
 //note that corner pieces transfer stuff clockwise when running forward, and anti-clockwise backwards.
 
@@ -10,7 +15,7 @@
 	layer = ABOVE_TURF_LAYER
 	anchored = 1
 	circuit = /obj/item/weapon/circuitboard/conveyor
-	var/operating = 0	// 1 if running forward, -1 if backwards, 0 if off
+	var/operating = OFF	// 1 if running forward, -1 if backwards, 0 if off
 	var/operable = 1	// true if can operate (no broken segments in this belt run)
 	var/forwards		// this is the default (forward) direction, set by the map dir
 	var/backwards		// hopefully self-explanatory
@@ -28,12 +33,7 @@
 	if(newdir)
 		set_dir(newdir)
 
-	if(dir & (dir-1)) // Diagonal. Forwards is *away* from dir, curving to the right.
-		forwards = turn(dir, 135)
-		backwards = turn(dir, 45)
-	else
-		forwards = dir
-		backwards = turn(dir, 180)
+	update_dir()	//TFF 2/5/19: Port Polaris's conveyor movement fixes
 
 	if(on)
 		operating = 1
@@ -48,22 +48,36 @@
 	RefreshParts()
 
 /obj/machinery/conveyor/proc/setmove()
-	if(operating == 1)
+	if(operating == FORWARDS) //TFF: Port Polaris updoot.
 		movedir = forwards
-	else if(operating == -1)
+	else if(operating == BACKWARDS) //TFF: Port Polaris updoot.
 		movedir = backwards
-	else operating = 0
+	else
+		operating = OFF
 	update()
+
+//TFF 2/5/19: Port Polaris's conveyor movement fixes - handle proper movement directions when conveyor is on.
+/obj/machinery/conveyor/set_dir()
+	.=..()
+	update_dir()
+
+/obj/machinery/conveyor/proc/update_dir()
+	if(!(dir in cardinal)) // Diagonal. Forwards is *away* from dir, curving to the right.
+		forwards = turn(dir, 135)
+		backwards = turn(dir, 45)
+	else
+		forwards = dir
+		backwards = turn(dir, 180)
 
 /obj/machinery/conveyor/proc/update()
 	if(stat & BROKEN)
 		icon_state = "conveyor-broken"
-		operating = 0
+		operating = OFF
 		return
 	if(!operable)
-		operating = 0
+		operating = OFF
 	if(stat & NOPOWER)
-		operating = 0
+		operating = OFF
 	icon_state = "conveyor[operating]"
 
 	// machine process

@@ -181,3 +181,11 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle-4"
 	prefill = list("frostoil" = 60)
+
+
+/obj/item/weapon/reagent_containers/glass/bottle/hotwater
+	name = "Hot Water Bottle"
+	desc = "A small bottle. Contains hot water."
+	icon = 'icons/obj/chemical.dmi'
+	icon_state = "bottle-4"
+	prefill = list("hotwater" = 60)

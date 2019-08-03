@@ -32,4 +32,5 @@
 	vore_active = 1
 	vore_capacity = 2
 	vore_pounce_chance = 10
+	vore_ignores_undigestable = 0
 	vore_icons = SA_ICON_LIVING | SA_ICON_REST

@@ -44,6 +44,8 @@ var/global/defer_powernet_rebuild = 0      // True if net rebuild will be called
 #define NETWORK_ERT "ZeEmergencyResponseTeam"
 #define NETWORK_DEFAULT "Station"
 #define NETWORK_MEDICAL "Medical"
+//TFF: Add Med Outpost Network.
+#define NETWORK_MEDICAL_OUTPOST "Medical Outpost"
 #define NETWORK_MERCENARY "MercurialNet"
 #define NETWORK_MINE "Mining Outpost"
 #define NETWORK_NORTHERN_STAR "Northern Star"

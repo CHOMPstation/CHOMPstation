@@ -5,7 +5,7 @@
 	maxHealth = 100
 	health = 100
 	req_one_access = list(access_robotics, access_janitor)
-	botcard_access = list(access_janitor, access_maint_tunnels)
+	botcard_access = list(access_janitor)
 
 	locked = 0 // Start unlocked so roboticist can set them to patrol.
 	wait_if_pulled = 1

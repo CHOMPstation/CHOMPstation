@@ -88,6 +88,8 @@
 		if(prob(10))
 			spawn(50)
 				if(O)
+					mob.say("I don't feel so good...")
+					sleep(50)
 					O.droplimb(0,DROPLIMB_BLUNT)
 	else
 		if(prob(75))

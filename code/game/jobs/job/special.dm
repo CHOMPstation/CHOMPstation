@@ -86,22 +86,26 @@
 		return access
 */
 
+//TFF 3/5/19 - allow selection of job pre-start. Also remove whitelist restriction and give Clowns access to their office.
 /datum/job/clown
 	title = "Clown"
 	flag = CLOWN
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
-	total_positions = -1
-	spawn_positions = -1
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "the spirit of laughter"
 	selection_color = "#515151"
 	economic_modifier = 1
-	access = list()
-	minimal_access = list()
+	idtype = /obj/item/weapon/card/id/civilian/clown
+	access = list(43)
+	minimal_access = list(43)
 	alt_titles = list("Comedian","Jester")
-	whitelist_only = 1
-	latejoin_only = 1
+//	whitelist_only = 1
+//	latejoin_only = 1
+
+	access = list(access_maint_tunnels, access_clown)
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -118,28 +122,27 @@
 
 		return 1
 
-/datum/job/clown/get_access()
-	if(config.assistant_maint)
-		return list(access_maint_tunnels)
-	else
-		return list()
-
+//TFF 3/5/19 - allow selection of job pre-start. Also remove whitelist restriction.
 /datum/job/mime
 	title = "Mime"
 	flag = MIME
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
-	total_positions = -1
-	spawn_positions = -1
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "the spirit of performance"
 	selection_color = "#515151"
 	economic_modifier = 1
-	access = list()
-	minimal_access = list()
+	idtype = /obj/item/weapon/card/id/civilian/mime
+	access = list(44)
+	minimal_access = list(44)
 	alt_titles = list("Performer","Interpretive Dancer")
-	whitelist_only = 1
-	latejoin_only = 1
+//	whitelist_only = 1
+//	latejoin_only = 1
+
+//TFF 3/5/19 - give Mimes access to their office
+	access = list(access_maint_tunnels, access_mime)
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -156,9 +159,3 @@
 			H.equip_to_slot_or_del(new /obj/item/weapon/pen/crayon/mime(H), slot_l_hand)
 
 		return 1
-
-/datum/job/mime/get_access()
-	if(config.assistant_maint)
-		return list(access_maint_tunnels)
-	else
-		return list()

@@ -57,5 +57,7 @@
 // Activate Noms!
 /mob/living/simple_animal/retaliate/awoo
 	vore_active = 1
+	vore_capacity = 2
 	vore_pounce_chance = 40
+	vore_ignores_undigestable = 0
 	vore_icons = SA_ICON_LIVING

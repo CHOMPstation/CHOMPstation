@@ -12,6 +12,7 @@
 	icon_state = "guard"
 	icon_living = "guard"
 	icon_dead = "guard_dead"
+	isEdible = 0
 
 	faction = "spiders"
 	intelligence_level = SA_ANIMAL
@@ -137,6 +138,8 @@ Nurse Family
 	projectilesound = 'sound/weapons/thudswoosh.ogg'
 	projectiletype = /obj/item/projectile/bola
 	ranged = 1
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 	firing_lines = 1
 	cooperative = 1
 	shoot_range = 5
@@ -345,7 +348,9 @@ Guard Family
 	melee_damage_lower = 10
 	melee_damage_upper = 25
 
-	ranged = 1
+	move_shoot = 1			//CHOMPEdit Originally, this was ranged, but it is now move_shoot which allows it to move and shoot.
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 150 	//How long, in deciseconds, the cooldown of ranged attacks is. Get nerfed.
 	projectilesound = 'sound/weapons/taser2.ogg'
 	projectiletype = /obj/item/projectile/beam/stun/weak
 	firing_lines = 1
@@ -582,6 +587,19 @@ Spider Procs
 		busy = 0
 		stop_automated_movement = 0
 
+//CHOMPEDIT LIQUID EGG INJECTORS
+/mob/living/simple_animal/hostile/giant_spider/frost/liquidegg
+	desc = "Icy and blue. This one has brilliant blue eyes, to seduce you into accepting its eggs."
+	tt_desc = "X Brachypelma ovum pruinae"
+	icon_state = "frost"
+	icon_living = "frost"
+	icon_dead = "frost_dead"
+
+	maxHealth = 175
+	health = 175
+
+	poison_per_bite = 7
+	poison_type = "spideregg"
 
 #undef SPINNING_WEB
 #undef LAYING_EGGS

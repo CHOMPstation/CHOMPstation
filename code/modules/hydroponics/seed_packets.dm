@@ -142,6 +142,9 @@ GLOBAL_LIST_BOILERPLATE(all_seed_packs, /obj/item/seeds)
 
 /obj/item/seeds/potatoseed
 	seed_type = "potato"
+	
+/obj/item/seeds/voltatoseed
+	seed_type = "voltato"
 
 /obj/item/seeds/icepepperseed
 	seed_type = "icechili"
@@ -151,6 +154,9 @@ GLOBAL_LIST_BOILERPLATE(all_seed_packs, /obj/item/seeds)
 
 /obj/item/seeds/wheatseed
 	seed_type = "wheat"
+	
+/obj/item/seeds/meatwheatseed
+	seed_type = "meatwheat"
 
 /obj/item/seeds/riceseed
 	seed_type = "rice"
@@ -196,9 +202,18 @@ GLOBAL_LIST_BOILERPLATE(all_seed_packs, /obj/item/seeds)
 
 /obj/item/seeds/sunflowerseed
 	seed_type = "sunflowers"
+	
+/obj/item/seeds/solarflowerseed
+	seed_type = "solarflower"
 
 /obj/item/seeds/lavenderseed
 	seed_type = "lavender"
+	
+/obj/item/seeds/milkdewseed
+	seed_type = "milkdew"
+	
+/obj/item/seeds/sweetbreezeseed
+	seed_type = "sweetbreeze"
 
 /obj/item/seeds/brownmold
 	seed_type = "mold"
@@ -283,3 +298,6 @@ GLOBAL_LIST_BOILERPLATE(all_seed_packs, /obj/item/seeds)
 
 /obj/item/seeds/thaadra
 	seed_type = "thaadra"
+
+/obj/item/seeds/teaseed
+	seed_type = "tea"

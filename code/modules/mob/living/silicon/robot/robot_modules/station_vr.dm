@@ -43,6 +43,7 @@
 	robot_modules["Janihound"] = /obj/item/weapon/robot_module/robot/scrubpup
 	robot_modules["Sci-borg"] = /obj/item/weapon/robot_module/robot/science
 	robot_modules["Pupdozer"] = /obj/item/weapon/robot_module/robot/engiedog
+	robot_modules["Service-borg"] = /obj/item/weapon/robot_module/robot/servborg
 	return 1
 
 //Just add a new proc with the robot_module type if you wish to run some other vore code
@@ -126,6 +127,7 @@
 
 /obj/item/weapon/robot_module/robot/knine
 	name = "k9 robot module"
+	can_buckle = 1
 	sprites = list(
 					"K9 hound" = "k9",
 					"K9 Alternative (Static)" = "k92",
@@ -194,6 +196,7 @@
 
 /obj/item/weapon/robot_module/robot/medihound
 	name = "MediHound module"
+	can_buckle = 1
 	channels = list("Medical" = 1)
 	networks = list(NETWORK_MEDICAL)
 	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
@@ -209,8 +212,10 @@
 	src.modules += new /obj/item/weapon/dogborg/jaws/small(src) //In case a patient is being attacked by carp.
 	src.modules += new /obj/item/device/dogborg/boop_module(src) //Boop the crew.
 	src.modules += new /obj/item/device/healthanalyzer(src) // See who's hurt specificially.
+	src.modules += new /obj/item/roller_holder(src) //Give dem poor medihounds a rollerbed to use for people
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo(src)//So medi-hounds aren't nearly useless
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src) //In case the chemist is nice!
+	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src) //To let medihounds do chemistry easier
 	src.modules += new /obj/item/weapon/reagent_containers/glass/beaker(src)//For holding the chemicals when the chemist is nice
 	src.modules += new /obj/item/device/sleevemate(src) //Lets them scan people.
 	src.modules += new /obj/item/weapon/gripper/medical(src)//Now you can set up cyro or make peri.
@@ -268,7 +273,8 @@
 	..()
 
 /obj/item/weapon/robot_module/robot/ert
-	name = "Emergency Responce module"
+	name = "Emergency Response module"
+	can_buckle = 1
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
 	can_be_pushed = 0
@@ -314,6 +320,7 @@
 
 /obj/item/weapon/robot_module/robot/scrubpup
 	name = "Custodial Hound module"
+	can_buckle = 1
 	sprites = list(
 					"Custodial Hound" = "scrubpup",
 					)
@@ -393,6 +400,7 @@
 
 /obj/item/weapon/robot_module/robot/science
 	name = "Research Hound Module"
+	can_buckle = 1
 	sprites = list(
 					"Research Hound" = "science",
 					)
@@ -438,6 +446,7 @@
 
 /obj/item/weapon/robot_module/robot/engiedog
 	name = "Construction Hound module"
+	can_buckle = 1
 	sprites = list(
 					"Pupdozer" = "pupdozer",
 					)
@@ -547,6 +556,83 @@
 	var/obj/item/stack/material/cyborg/plastic/PL = new (src)
 	PL.synths = list(plastic)
 	src.modules += PL
+
+	R.icon 		 = 'icons/mob/widerobot_vr.dmi'
+	R.hands.icon = 'icons/mob/screen1_robot_vr.dmi'
+	R.ui_style_vr = TRUE
+	R.pixel_x 	 = -16
+	R.old_x 	 = -16
+	R.default_pixel_x = -16
+	R.dogborg = TRUE
+	R.wideborg = TRUE
+	R.verbs |= /mob/living/silicon/robot/proc/ex_reserve_refill
+	..()
+
+// SKYVAAL ADDED SERVICE BORG CODE
+/obj/item/weapon/robot_module/robot/servborg
+	name = "Service Hound Module"
+	can_buckle = 1
+	sprites = list(
+					"Chef-borg" = "servborg",
+					"Booze-borg" = "boozeborg"
+					)
+	channels = list("Service" = 1)
+	can_be_pushed = 0
+
+/obj/item/weapon/robot_module/robot/servborg/New(var/mob/living/silicon/robot/R)
+
+	var/datum/matter_synth/water = new /datum/matter_synth()
+	water.name = "Water reserves"
+	water.recharge_rate = 0.1 // Recharging water for plants - hehe drooly borg
+	water.max_energy = 1000
+	water.energy = 0
+	R.water_res = water
+	synths += water
+
+	// Dogborg Standard
+	src.modules += new /obj/item/weapon/dogborg/jaws/small(src)
+	src.modules += new /obj/item/device/dogborg/boop_module(src)
+
+	var/obj/item/device/dogborg/tongue/T = new /obj/item/device/dogborg/tongue(src)
+	T.water = water
+	src.modules += T
+
+	// PLACEHOLDER AS 'BRIGBELLY' UNTIL MICROWAVE BELLY SORTED
+	var/obj/item/device/dogborg/sleeper/servborg/B = new /obj/item/device/dogborg/sleeper/servborg(src)
+	B.water = water
+	src.modules += B
+
+	//Service Module Copy/Paste
+	src.modules += new /obj/item/weapon/gripper/service(src)
+	src.modules += new /obj/item/weapon/reagent_containers/glass/bucket(src)
+	src.modules += new /obj/item/weapon/material/minihoe(src)
+	src.modules += new /obj/item/weapon/material/knife/machete/hatchet(src)
+	src.modules += new /obj/item/device/analyzer/plant_analyzer(src)
+	src.modules += new /obj/item/weapon/storage/bag/plants(src)
+	src.modules += new /obj/item/weapon/robot_harvester(src)
+	src.modules += new /obj/item/weapon/material/knife(src)
+	src.modules += new /obj/item/weapon/material/kitchen/rollingpin(src)
+	src.modules += new /obj/item/device/multitool(src) //to freeze trays
+
+	var/obj/item/weapon/rsf/M = new /obj/item/weapon/rsf(src)
+	M.stored_matter = 30
+	src.modules += M
+
+	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
+
+	var/obj/item/weapon/flame/lighter/zippo/L = new /obj/item/weapon/flame/lighter/zippo(src)
+	L.lit = 1
+	src.modules += L
+
+	src.modules += new /obj/item/weapon/tray/robotray(src)
+	src.modules += new /obj/item/weapon/reagent_containers/borghypo/service(src)
+	src.emag = new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer(src)
+
+	var/datum/reagents/F = new/datum/reagents(50)
+	src.emag.reagents = F
+	F.my_atom = src.emag
+	F.add_reagent("beer2", 50)
+	src.emag.name = "Mickey Finn's Special Brew"
 
 	R.icon 		 = 'icons/mob/widerobot_vr.dmi'
 	R.hands.icon = 'icons/mob/screen1_robot_vr.dmi'

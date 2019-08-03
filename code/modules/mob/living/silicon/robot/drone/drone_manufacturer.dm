@@ -5,7 +5,7 @@
 	return drones
 
 /obj/machinery/drone_fabricator
-	name = "drone fabricator"
+	name = "Maintenance drone fabricator"
 	desc = "A large automated factory for producing maintenance drones."
 	appearance_flags = 0
 
@@ -15,7 +15,7 @@
 	idle_power_usage = 20
 	active_power_usage = 5000
 
-	var/fabricator_tag = "Upper Level"
+	var/fabricator_tag = "Engineering Dronestorage, Maintenance"
 	var/drone_progress = 0
 	var/produce_drones = 2
 	var/time_last_drone = 500
@@ -25,14 +25,31 @@
 	icon_state = "drone_fab_idle"
 
 /obj/machinery/drone_fabricator/derelict
-	name = "construction drone fabricator"
-	fabricator_tag = "Upper Level Construction"
+	name = "Construction drone fabricator"
+	fabricator_tag = "Engineering Dronestorage, Construction"
 	drone_type = /mob/living/silicon/robot/drone/construction
 
 /obj/machinery/drone_fabricator/mining
-	name = "mining drone fabricator"
-	fabricator_tag = "Upper Level Mining"
+	name = "Mining drone fabricator"
+	fabricator_tag = "Outpost Mining"
 	drone_type = /mob/living/silicon/robot/drone/mining
+
+/obj/machinery/drone_fabricator/security
+	name = "Security drone fabricator"
+	fabricator_tag =  "Security"
+	drone_type = /mob/living/silicon/robot/drone/security
+
+/obj/machinery/drone_fabricator/random
+	name = "Backup drone fabricator"
+	fabricator_tag = "Backup Drone Fabricator"
+	drone_type = null //we start with no type, we take from the list below
+	var/list/dronetypes = list(/mob/living/silicon/robot/drone/mining,
+	/mob/living/silicon/robot/drone/construction,
+	/mob/living/silicon/robot/drone,)
+
+/obj/machinery/drone_fabricator/random/create_drone() //Proc where we inject our randomizer code
+	drone_type = pick(dronetypes)
+	..()
 
 /obj/machinery/drone_fabricator/New()
 	..()
@@ -128,9 +145,9 @@
 		pluralcheck = " [deathtimeminutes] minutes and"
 	var/deathtimeseconds = round((deathtime - deathtimeminutes * 600) / 10,1)
 
-	if (deathtime < 6000)
+	if (deathtime < 3000)
 		usr << "You have been dead for[pluralcheck] [deathtimeseconds] seconds."
-		usr << "You must wait 10 minutes to respawn as a drone!"
+		usr << "You must wait 5 minutes to respawn as a drone!"
 		return
 
 	var/list/all_fabricators = list()

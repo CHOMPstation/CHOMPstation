@@ -33,7 +33,8 @@
 		"Fox" = "fox",
 		"Parrot" = "parrot",
 		"Rabbit" = "rabbit",
-		"Bear" = "bear"  //VOREStation Edit
+		"Bear" = "bear",  //VOREStation Edit
+		"Raccoon" = "raccoon" //Chompstation Edit
 		)
 
 	var/global/list/possible_say_verbs = list(

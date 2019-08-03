@@ -74,6 +74,23 @@
 		/obj/item/clothing/under/gimmick/rank/head_of_personnel/suit/skirt,
 		/obj/item/clothing/glasses/sunglasses)
 
+//TFF: Command Secretary Equipment
+/obj/structure/closet/secure_closet/comsecequip
+	name = "command secretary's equipment"
+	icon_state = "hopsecure1"
+	icon_closed = "hopsecure"
+	icon_locked = "hopsecure1"
+	icon_opened = "hopsecureopen"
+	icon_broken = "hopsecurebroken"
+	icon_off = "hopsecureoff"
+	req_access = list(access_hop, access_heads)
+
+	starts_with = list(
+		/obj/item/device/radio/headset/headset_com = 3,
+		/obj/item/clothing/under/suit_jacket/female/skirt = 2,
+		/obj/item/clothing/under/suit_jacket/charcoal = 2,
+		/obj/item/weapon/storage/box/command_sec)
+
 
 /obj/structure/closet/secure_closet/hos
 	name = "head of security's locker"

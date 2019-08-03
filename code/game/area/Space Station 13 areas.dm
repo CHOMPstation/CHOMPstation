@@ -476,17 +476,27 @@ area/space/atmosalert()
 
 
 
-
-
-
-
-
-
-
 /area/casino/casino_ship
 	name = "\improper Casino Ship"
 	icon_state = "yellow"
 	requires_power = 0
+	dynamic_lighting = 0
+
+/area/casino/casino_ship/wing_left
+	name = "\improper Casino Ship left wing"
+	icon_state = "yellow"
+
+/area/casino/casino_ship/wing_right
+	name = "\improper Casino Ship right wing"
+	icon_state = "yellow"
+
+/area/casino/casino_ship/dorms
+	name = "\improper Casino Ship dorms"
+	icon_state = "yellow"
+
+/area/casino/casino_ship/cockpit
+	name = "\improper Casino Ship left wing"
+	icon_state = "yellow"
 
 /area/planet/clown
 	name = "\improper Clown Planet"
@@ -1006,6 +1016,13 @@ area/space/atmosalert()
 	name = "\improper Shuttle Dock Hallway - Dock Two"
 	icon_state = "entry_D2"
 	base_turf = /turf/space
+
+// Adding this here so that arrival shuttle doors  don't get STUCK - Jon
+//
+// DOOR STUCK
+/area/hallway/secondary/entry/D2/shuttleDoors
+	name = "\improper Arrival Shuttle Dock doors"
+	requires_power = 0
 
 /area/hallway/secondary/entry/D3
 	name = "\improper Shuttle Dock Hallway - Dock Three"

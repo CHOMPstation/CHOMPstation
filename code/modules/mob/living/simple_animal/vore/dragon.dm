@@ -5,6 +5,7 @@
 	icon_dead = "reddragon-dead"
 	icon_living = "reddragon"
 	icon_state = "reddragon"
+	isEdible = 0
 
 	faction = "dragon"
 	maxHealth = 500 // Boss
@@ -30,6 +31,15 @@
 	pixel_x = -16
 	pixel_y = 0
 
+//CHOMPEDIT Just an easteregg on a mob that isnt really used but still.
+/mob/living/simple_animal/hostile/dragon/New()
+	..()
+	if(prob(1))//almost forgot this woops
+		name = "Slackwyrm" //Just an itty bitty easteregg dont mind me
+		desc = "A fierce dragon, well this one seems a bit more lazy. http://www.joshuawright.net/slack-wyrm-001.html" //
+		//Thanks to Josh Wright, the maker of slackwyrm for allowing this easteregg to exist.
+
+
 /mob/living/simple_animal/hostile/dragon/Process_Spacemove(var/check_drift = 0)
 	return 1 //No drifting in space for space dragons!
 
@@ -43,6 +53,7 @@
 	vore_active = 1
 	vore_capacity = 2
 	vore_pounce_chance = 0 // Beat them into crit before eating.
+	vore_ignores_undigestable = 0
 	vore_icons = SA_ICON_LIVING
 
 // Why a weaker subtype?

@@ -1,7 +1,11 @@
 ///////////////////// Mob Living /////////////////////
 /mob/living
 	var/digestable = 1					// Can the mob be digested inside a belly?
+	//TFF 30/4/19: Ports VoreStation Remains Option - set var for leaving remains
+	var/digest_leave_remains = 0		// Will this mob leave bones/skull/etc after the melty demise?
 	var/allowmobvore = 1				// Will simplemobs attempt to eat the mob?
+	//TFF 30/4/19: Ports VoreStation Mechanical Vore Prefs - set var for displaying vore prefs on examine
+	var/showvoreprefs = 1				// Determines if the mechanical vore preferences button will be displayed on the mob or not.
 	var/obj/belly/vore_selected			// Default to no vore capability.
 	var/list/vore_organs = list()		// List of vore containers inside a mob
 	var/absorbed = 0					// If a mob is absorbed into another
@@ -194,6 +198,8 @@
 	var/datum/vore_preferences/P = client.prefs_vr
 
 	P.digestable = src.digestable
+	//TFF 30/4/19: Ports VoreStation Remains Option
+	P.digest_leave_remains = src.digest_leave_remains
 	P.allowmobvore = src.allowmobvore
 	P.vore_taste = src.vore_taste
 	P.can_be_drop_prey = src.can_be_drop_prey
@@ -219,6 +225,8 @@
 	var/datum/vore_preferences/P = client.prefs_vr
 
 	digestable = P.digestable
+	//TFF 30/4/19: Ports VoreStation Remains Option
+	P.digest_leave_remains = src.digest_leave_remains
 	allowmobvore = P.allowmobvore
 	vore_taste = P.vore_taste
 	can_be_drop_prey = P.can_be_drop_prey
@@ -329,6 +337,7 @@
 		if(!confirm == "Okay" || loc != B)
 			return
 		//Actual escaping
+		absorbed = 0	//Make sure we're not absorbed
 		forceMove(get_turf(src)) //Just move me up to the turf, let's not cascade through bellies, there's been a problem, let's just leave.
 		for(var/mob/living/simple_animal/SA in range(10))
 			SA.prey_excludes[src] = world.time
@@ -611,3 +620,27 @@
 	set category = "Preferences"
 	set desc = "Switch sharp/fuzzy scaling for current mob."
 	appearance_flags ^= PIXEL_SCALE
+
+//TFF 30/4/19: Ports VoreStation Mechanical Vore Prefs & Remains-leaving in 1 go
+/mob/living/examine(mob/user)
+	. = ..()
+	if(showvoreprefs)
+		to_chat(user, "<span class='deptradio'><a href='?src=\ref[src];vore_prefs=1'>\[Mechanical Vore Preferences\]</a></span>")
+
+/mob/living/Topic(href, href_list)	//Can't find any instances of Topic() being overridden by /mob/living in polaris' base code, even though /mob/living/carbon/human's Topic() has a ..() call
+	if(href_list["vore_prefs"])
+		display_voreprefs(usr)
+	return ..()
+
+/mob/living/proc/display_voreprefs(mob/user)	//Called by Topic() calls on instances of /mob/living (and subtypes) containing vore_prefs as an argument
+	if(!user)
+		CRASH("display_voreprefs() was called without an associated user.")
+	var/dispvoreprefs = "<b>[src]'s vore preferences</b><br><br><br>"
+	dispvoreprefs += "<b>Digestable:</b> [digestable ? "Enabled" : "Disabled"]<br>"
+	dispvoreprefs += "<b>Leaves Remains:</b> [digest_leave_remains ? "Enabled" : "Disabled"]<br>"
+	dispvoreprefs += "<b>Mob Vore:</b> [allowmobvore ? "Enabled" : "Disabled"]<br>"
+	dispvoreprefs += "<b>Drop-nom prey:</b> [can_be_drop_prey ? "Enabled" : "Disabled"]<br>"
+	dispvoreprefs += "<b>Drop-nom pred:</b> [can_be_drop_pred ? "Enabled" : "Disabled"]<br>"
+	user << browse("<html><head><title>Vore prefs: [src]</title></head><body><center>[dispvoreprefs]</center></body></html>", "window=[name];size=200x300;can_resize=0;can_minimize=0")
+	onclose(user, "[name]")
+	return

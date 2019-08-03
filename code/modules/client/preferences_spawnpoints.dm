@@ -40,7 +40,8 @@ var/list/spawntypes = list()
 /datum/spawnpoint/gateway/New()
 	..()
 	turfs = latejoin_gateway
-/* VOREStation Edit
+
+//TFF: Enable spawnpoints at Lifts.
 /datum/spawnpoint/elevator
 	display_name = "Elevator"
 	msg = "has arrived from the residential district"
@@ -48,7 +49,7 @@ var/list/spawntypes = list()
 /datum/spawnpoint/elevator/New()
 	..()
 	turfs = latejoin_elevator
-*/
+
 /datum/spawnpoint/cryo
 	display_name = "Cryogenic Storage"
 	msg = "has completed cryogenic revival"
