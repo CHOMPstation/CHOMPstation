@@ -30,7 +30,13 @@
 		icon_state = "[chassis]_full"
 	else if(people_eaten && resting)
 		icon_state = "[chassis]_rest_full"
-
+	//CHOMPStation edit
+	if(chassis in wide_chassis)
+		icon = 'icons/mob/pai_vr64x64.dmi'
+		pixel_x = -16
+	else
+		icon = 'icons/mob/pai_vr.dmi'
+		pixel_x = 0
 /mob/living/silicon/pai/update_icons() //And other functions cause this to occur, such as digesting someone.
 	..()
 	update_fullness_pai()
@@ -42,3 +48,10 @@
 		icon_state = "[chassis]_full"
 	else if(people_eaten && resting)
 		icon_state = "[chassis]_rest_full"
+	//CHOMPStation edit | catch instances where the icon never updated for whatever reason
+	if(chassis in wide_chassis)
+		icon = 'icons/mob/pai_vr64x64.dmi'
+		pixel_x = -16
+	else
+		icon = 'icons/mob/pai_vr.dmi'
+		pixel_x = 0
