@@ -16,9 +16,9 @@
 	turns_per_move = 3
 	speed = 4
 
-	response_help = "pets the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
+	response_help = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm = "hits"
 
 	harm_intent_damage = 10
 

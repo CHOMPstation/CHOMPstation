@@ -1,5 +1,5 @@
 /mob/living/simple_animal/hostile/pirate
-	name = "Pirate"
+	name = "pirate"
 	desc = "Does what he wants cause a pirate is free."
 	tt_desc = "E Homo sapiens"
 	icon_state = "piratemelee"

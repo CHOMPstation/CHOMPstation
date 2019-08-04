@@ -19,9 +19,9 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	maxHealth = 25
 	health = 25
 	speed = 4
-	response_help = "pets the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
+	response_help = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm = "hits"
 	harm_intent_damage = 5
 	isEdible = 0 //They cannot be eaten while alive.
 	var/canEvolve = 1 //A variable for admins to turn off and on for when they like assign a player as a mob. I want to add a verb so that they can do it on command when the conditions are right in the future.
@@ -49,14 +49,14 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	emote_see = list("SKREE's")
 
 	meat_type = /obj/item/toy/figure/samus
-	
+
 	var/mob/living/victim = null // the person the metroid is currently feeding on
 	var/optimal_combat = FALSE // Used to dumb down the combat AI somewhat.  If true, the metroid tends to be really dangerous to fight alone due to stunlocking.
 	var/power_charge = 0
 	var/evo_point = 0
 	var/evo_limit = 0
 	var/next = null
-	
+
 //Stuff for if a person is playing as a metroid.
 	show_stat_health = 1	// Does the percentage health show in the stat panel for the mob
 	ai_inactive = 0 	// Set to 1 to turn off most AI actions
@@ -68,10 +68,10 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	//r_hand_sprite = "piranha_r" // If they have hands, //TODO make a leaf sprite for this
 	//l_hand_sprite = "piranha_l" // they could use some icons.
 	player_msg = "SUCC." // Message to print to players about 'how' to play this mob on login.
-	
-	
-	
-	
+
+
+
+
 /mob/living/simple_animal/hostile/metroid //activate noms
 	vore_active = 1
 	vore_pounce_chance = 25
@@ -81,8 +81,8 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 /mob/living/simple_animal/hostile/metroid/death()
 	playsound(src, 'sound/effects/metroiddeath.ogg', 50, 1)
 	..()
-		
-		
+
+
 
 /mob/living/simple_animal/hostile/metroid/mine
 	name = "Mochtroid"
@@ -125,7 +125,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_damage_lower = 1
 	melee_damage_upper = 5
 	melee_miss_chance = 0
-	armor = list(			
+	armor = list(
 				"melee" = 50,
 				"bullet" = 30,
 				"laser" = 80,
@@ -164,20 +164,20 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	cooperative = 1
 	evo_point = 800
 	evo_limit = 1000
-	next = "/mob/living/simple_animal/hostile/metroid/evolution/super"	
+	next = "/mob/living/simple_animal/hostile/metroid/evolution/super"
 	vore_active = 0
-	
+
 /mob/living/simple_animal/hostile/metroid/evolution/baby/New()
 	playsound(src, 'sound/metroid/metroidsee.ogg', 100, 1)
 	..()
-	
-
-
-//------------------------------------------------------------------------------------------------------------			
 
 
 
-	
+//------------------------------------------------------------------------------------------------------------
+
+
+
+
 /mob/living/simple_animal/hostile/metroid/evolution/super
 	name = "super metroid"
 	desc = "Some kind of head sucky thing!"
@@ -193,7 +193,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_damage_lower = 2
 	melee_damage_upper = 5
 	melee_miss_chance = 0
-	armor = list(			
+	armor = list(
 				"melee" = 50,
 				"bullet" = 30,
 				"laser" = 90,
@@ -232,7 +232,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	evo_point = 1200
 	evo_limit = 1400
 	next = "/mob/living/simple_animal/hostile/metroid/combat/alpha"
-	
+
 	vore_active = 1
 	vore_bump_chance = 0
 	vore_capacity = 1
@@ -240,20 +240,20 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	vore_pounce_chance = 25 //Metroids only eat incapacitated targets
 	vore_default_mode = DM_DIGEST
 	swallowTime = 1 SECONDS //Hungry little bastards.
-	vore_escape_chance = 25	
+	vore_escape_chance = 25
 
 /mob/living/simple_animal/hostile/metroid/evolution/super/New()
 	playsound(src, 'sound/metroid/metroidsee.ogg', 100, 1)
 	..()
-	
+
 /mob/living/simple_animal/hostile/metroid/evolution/super/death()
 	playsound(src, 'sound/metroid/metroiddeath.ogg', 100, 1)
 	..()
 
-	
-	
-	
-//------------------------------------------------------------------------------------------------------------			
+
+
+
+//------------------------------------------------------------------------------------------------------------
 
 
 
@@ -272,7 +272,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_damage_upper = 15
 	melee_miss_chance = 5
 	attacktext = list("rammed")
-	armor = list(			
+	armor = list(
 				"melee" = 60,
 				"bullet" = 45,
 				"laser" = 50,
@@ -283,7 +283,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	gender = NEUTER
 	faction = "metroids"
 	move_to_delay = 3
-	
+
 	//Alphas lose their vulnerability to cold.
 	minbodytemp = 0
 	min_oxy = 0
@@ -327,14 +327,14 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	vore_icons = SA_ICON_LIVING
 	vore_pounce_chance = 15 //Alphas will try knocking targets over since they lost their stun ability from the initial phases.
 	vore_default_mode = DM_DIGEST
-	swallowTime = 3 SECONDS 
+	swallowTime = 3 SECONDS
 	vore_escape_chance = 25
-	
 
-	
-	
-	
-	
+
+
+
+
+
 //------------------------------------------------------------------------------------------------------------
 
 
@@ -354,7 +354,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_damage_upper = 20
 	melee_miss_chance = 5
 	attacktext = list("rammed")
-	armor = list(			
+	armor = list(
 				"melee" = 60,
 				"bullet" = 50,
 				"laser" = 50,
@@ -365,7 +365,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	gender = NEUTER
 	faction = "metroids"
 	move_to_delay = 4
-	
+
 	move_shoot = 1				//Move and shoot at the same time.
 	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
 	ranged_cooldown_time = 150 	//How long, in deciseconds, the cooldown of ranged attacks is
@@ -407,7 +407,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 /mob/living/simple_animal/hostile/metroid/combat/gamma/New()
 	playsound(src, 'sound/metroid/metroidgamma.ogg', 100, 1)
 	..()
-	
+
 /mob/living/simple_animal/hostile/metroid/combat/gamma/death()
 	playsound(src, 'sound/metroid/metroiddeath.ogg', 100, 1)
 	..()
@@ -417,14 +417,14 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	vore_bump_chance = 0
 	vore_capacity = 1
 	vore_icons = SA_ICON_LIVING
-	vore_pounce_chance = 15 
+	vore_pounce_chance = 15
 	vore_default_mode = DM_DIGEST
-	swallowTime = 3 SECONDS 
+	swallowTime = 3 SECONDS
 	vore_escape_chance = 20
-	
-	
-	
-//------------------------------------------------------------------------------------------------------------			
+
+
+
+//------------------------------------------------------------------------------------------------------------
 
 
 
@@ -444,7 +444,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_miss_chance = 5
 	attack_armor_pen = 10
 	attacktext = list("slashed")
-	armor = list(			
+	armor = list(
 				"melee" = 70,
 				"bullet" = 60,
 				"laser" = 50,
@@ -455,7 +455,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	gender = NEUTER
 	faction = "metroids"
 	move_to_delay = 4
-	
+
 	move_shoot = 1				//Move and shoot at the same time.
 	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
 	ranged_cooldown_time = 60 	//How long, in deciseconds, the cooldown of ranged attacks is
@@ -474,7 +474,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	min_n2 = 0
 	max_n2 = 0
 	unsuitable_atoms_damage = 0
-	
+
 	pixel_x = -16
 	pixel_y = -16
 	old_x = -16
@@ -499,7 +499,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 /mob/living/simple_animal/hostile/metroid/combat/zeta/New()
 	playsound(src, 'sound/metroid/metroidzeta.ogg', 100, 1)
 	..()
-	
+
 /mob/living/simple_animal/hostile/metroid/combat/zeta/death()
 	playsound(src, 'sound/metroid/metroiddeath.ogg', 100, 1)
 	..()
@@ -509,15 +509,15 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	vore_bump_chance = 0
 	vore_capacity = 1
 	vore_icons = SA_ICON_LIVING
-	vore_pounce_chance = 20 
+	vore_pounce_chance = 20
 	vore_default_mode = DM_DIGEST
-	swallowTime = 3 SECONDS 
+	swallowTime = 3 SECONDS
 	vore_escape_chance = 15
-	
-	
-	
-	
-//------------------------------------------------------------------------------------------------------------			
+
+
+
+
+//------------------------------------------------------------------------------------------------------------
 
 
 
@@ -537,7 +537,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_miss_chance = 5
 	attack_armor_pen = 20
 	attacktext = list("slashed")
-	armor = list(			
+	armor = list(
 				"melee" = 75,
 				"bullet" = 60,
 				"laser" = 55,
@@ -549,7 +549,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	faction = "metroids"
 	speed = 4
 	move_to_delay = 5
-	
+
 	move_shoot = 1				//Move and shoot at the same time.
 	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
 	ranged_cooldown_time = 150 	//How long, in deciseconds, the cooldown of ranged attacks is
@@ -568,7 +568,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	min_n2 = 0
 	max_n2 = 0
 	unsuitable_atoms_damage = 0
-	
+
 	old_x = -16
 	old_y = 0
 	default_pixel_x = -16
@@ -593,7 +593,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 /mob/living/simple_animal/hostile/metroid/combat/omega/New()
 	playsound(src, 'sound/metroid/metroidomega.ogg', 100, 1)
 	..()
-	
+
 /mob/living/simple_animal/hostile/metroid/combat/omega/death()
 	playsound(src, 'sound/metroid/metroidomegadeath.ogg', 100, 1)
 	..()
@@ -603,15 +603,15 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	vore_bump_chance = 0
 	vore_capacity = 2
 	vore_icons = SA_ICON_LIVING
-	vore_pounce_chance = 40 
+	vore_pounce_chance = 40
 	vore_default_mode = DM_DIGEST
 	swallowTime = 3 SECONDS
 	vore_escape_chance = 5
-	
-	
-	
-	
-//------------------------------------------------------------------------------------------------------------			
+
+
+
+
+//------------------------------------------------------------------------------------------------------------
 
 
 
@@ -631,7 +631,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_miss_chance = 5
 	attack_armor_pen = 20
 	attacktext = list("gnashed")
-	armor = list(			
+	armor = list(
 				"melee" = 75,
 				"bullet" = 60,
 				"laser" = 60,
@@ -661,7 +661,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	min_n2 = 0
 	max_n2 = 0
 	unsuitable_atoms_damage = 0
-	
+
 	pixel_x = -16
 	pixel_y = -16
 	old_x = -16
@@ -678,18 +678,18 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	evo_point = 1100
 	evo_limit = INFINITY
 	next = null
-	
+
 /mob/living/simple_animal/hostile/metroid/combat/queen/New()
 	playsound(src, 'sound/metroid/metroidqueen.ogg', 100, 1)
 	queen_amount++
 	..()
-	
+
 /mob/living/simple_animal/hostile/metroid/combat/queen/death()
 	playsound(src, 'sound/metroid/metroidqueendeath.ogg', 100, 1)
 	queen_amount--
 	..()
 
-	
+
 /mob/living/simple_animal/hostile/metroid/combat/queen //active noms
 	vore_active = 1
 	vore_bump_chance = 0
@@ -706,13 +706,13 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 
 
 /*
-//Objects related to the Metroids.	
+//Objects related to the Metroids.
 //Projectile for the Metroids.
 */
 
 
 /obj/item/projectile/energy/metroidacid
-	
+
 	name = "metroid acid"
 	icon_state = "neurotoxin"
 	damage = 10
@@ -720,7 +720,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	agony = 10
 	check_armour = "bio"
 	armor_penetration = 50
-	
+
 //EGG! Metroid egg and its mechanics. Ripped from spiders.
 /obj/effect/metroid/egg
 	name = "egg cluster"
@@ -758,9 +758,9 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 //------------------------------------------------------------------------------------------------------------
 
 
-	
 
-	
+
+
 
 /*
 //LIFE STUFF, AND MECHANICS!
@@ -776,7 +776,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 		release_vore_contents()
 		prey_excludes.Cut()
 		stop_consumption()
-		
+
 	if(canEvolve == 1 && nutrition >= evo_point && !buckled && vore_fullness == 0 && !victim)
 		playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
 		paralysis = 7998
@@ -794,8 +794,8 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	new next(get_turf(src))
 	visible_message("<span class='warning'>\The [src] suddenly evolves!</span>")
 	qdel(src)
-	
-	
+
+
 /mob/living/simple_animal/hostile/metroid/evolution/handle_regular_status_updates()
 	if(stat != DEAD)
 
@@ -849,7 +849,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 		if(prob(input * 2)) // Gain around one level per 50 nutrition
 			power_charge = min(power_charge++, 10)
 
-				
+
 /mob/living/simple_animal/hostile/metroid/evolution/PunchTarget() //this segment determines what the mob does depending on its intent.
 	if(victim)
 		return // Already eatting someone.
@@ -954,7 +954,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 /mob/living/simple_animal/hostile/metroid/evolution/DoPunch(var/mob/living/L) //Metroid melee.
 	var/damage_to_do = rand(melee_damage_lower, melee_damage_upper)
 	var/armor_modifier = abs((L.getarmor(null, "bio") / 100) - 1)
-	
+
 	if(!Adjacent(L)) // Might've moved away in the meantime.
 		return
 
@@ -1062,8 +1062,8 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 			paralysis = 7998
 			sleep(50)
 			paralysis = 0
-	
-			
+
+
 /mob/living/simple_animal/hostile/metroid/evolution/FindTarget() //This makes it so it doesn't go after another target while succing.
 	if(victim) // Don't worry about finding another target if we're sucking on someone's head.
 		return
@@ -1081,9 +1081,9 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 		return
 	else
 		..()
-	
-	
-	
+
+
+
 /mob/living/simple_animal/hostile/metroid/evolution/baby/Found(mob/living/L)
 	if(isliving(L))
 		if(SA_attackable(L))
@@ -1094,21 +1094,21 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 						return H // Monkeys are always food.
 					else
 						return
-						
+
 			if(ishuman(L))
 				var/mob/living/carbon/human/H = L
 				if(istype(H.species, /datum/species/monkey)) // istype() is so they'll eat the alien monkeys too.
 					return H // Monkeys are always food.
 	return
-	
+
 
 
 
 
 
 /*
-//LIFE PROCS!	
-//FOR THE COMBAT FORMS	
+//LIFE PROCS!
+//FOR THE COMBAT FORMS
 */
 
 
@@ -1119,7 +1119,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	if(canEvolve == 1 && nutrition >= evo_limit && vore_fullness == TRUE) //spit dat crap out if nutrition gets too high!
 		release_vore_contents()
 		prey_excludes.Cut()
-		
+
 	if(canEvolve == 1 && nutrition >= evo_point && vore_fullness == 0 && next != "/mob/living/simple_animal/hostile/metroid/combat/queen")
 		playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
 		paralysis = 7998
@@ -1127,14 +1127,14 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 		paralysis = 0
 		expand_troid()
 		return
-		
+
 	else if(queen_amount == 0 && prob(5) && canEvolve == 1 && nutrition >= evo_point && vore_fullness == 0 && next == "/mob/living/simple_animal/hostile/metroid/combat/queen")
 		playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
 		paralysis = 7998
 		sleep(50)
 		paralysis = 0
 		expand_troid()
-	
+
 	else if(next == null && canEvolve == 1 && nutrition >= evo_point)
 		playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
 		src.visible_message("<span class='notice'>\The [src] begins to lay an egg.</span>")
@@ -1144,12 +1144,12 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 		stop_automated_movement = 0
 		nutrition = 400
 		return
-	
+
 	if(stance == 7) //Necessary to fix a bug where if their prey or latching victim is laying down when they evolve, they get stuck in stance 7 and do nothing.
 		stance = 4
 		return
 
-	
+
 
 
 /mob/living/simple_animal/hostile/metroid/combat/proc/adjust_nutrition(input)
@@ -1168,7 +1168,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 /mob/living/simple_animal/hostile/metroid/combat/DoPunch(var/mob/living/L) //Metroid actions vs the player.
 	var/damage_to_do = rand(melee_damage_lower, melee_damage_upper)
 	var/armor_modifier = abs((L.getarmor(null, "bio") / 100) - 1)
-	
+
 	if(!Adjacent(L)) // Might've moved away in the meantime.
 		return
 
@@ -1184,12 +1184,12 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 
 				if(I_HURT) //The metroid does this if it can't latch onto the target or it decides not to try knocking them down.
 					ai_log("DoPunch() against [L], hurting.",2)
-				
-				
+
+
 
 					L.attack_generic(src, damage_to_do, pick(attacktext))
 					playsound(src, 'sound/weapons/bite.ogg', 75, 1)
-	
+
 					// Give the Metroid some nutrition, if applicable, even if not attached.
 					if(!L.isSynthetic())
 						if(ishuman(L))
