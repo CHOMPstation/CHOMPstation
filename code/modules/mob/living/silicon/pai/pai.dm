@@ -38,11 +38,6 @@
 		"Rat" = "rat"//Chompstation Edit
 		)
 
-	//Chompstation Edit
-	var/global/list/wide_chassis = list(
-		"rat"
-		)
-
 	var/global/list/possible_say_verbs = list(
 		"Robotic" = list("states","declares","queries"),
 		"Natural" = list("says","yells","asks"),
@@ -323,7 +318,7 @@
 		return
 
 	close_up()
-
+/*CHOMPstation edit | redefined in pai_vr.dm
 /mob/living/silicon/pai/proc/choose_chassis()
 	set category = "pAI Commands"
 	set name = "Choose Chassis"
@@ -336,13 +331,11 @@
 		if(!choice) return
 
 		icon_state = possible_chassis[choice]
-		finalized = alert("Look at your sprite. Is this what you wish to use? \[Note: Some sprites are invisible during this preview. Confirm to see them.\]",,"No","Yes")//CHOMPStation edit
+		finalized = alert("Look at your sprite. Is this what you wish to use?",,"No","Yes")//CHOMPStation edit
 
 	chassis = possible_chassis[choice]
 	verbs |= /mob/living/proc/hide
-	//CHOMPStation edit
-	update_icon()
-
+*/
 /mob/living/silicon/pai/proc/choose_verbs()
 	set category = "pAI Commands"
 	set name = "Choose Speech Verbs"
