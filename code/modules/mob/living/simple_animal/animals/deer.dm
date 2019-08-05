@@ -1,5 +1,5 @@
 /mob/living/simple_animal/deer
-	name = "Deer"
+	name = "deer"
 	desc = "An animal with impressive antlers and skittish personality, though this one seems domesticated."
 	tt_desc = "Cervus elaphus"
 	icon_state = "Deer"
@@ -50,7 +50,7 @@
 
 		response_help  = "pets"
 		response_disarm = "barely manage to push aside"
-		response_harm   = "nibbles"
+		response_harm   = "hits"
 		attacktext = list("nibbled")
 
 		speak_chance = 20
