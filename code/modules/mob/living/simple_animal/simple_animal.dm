@@ -121,7 +121,8 @@
 	var/retreat_distance = null //If our mob runs from players when they're too close, set in tile distance. By default, mobs do not retreat.
 	var/minimum_distance = 1 //Minimum approach distance, so ranged mobs chase targets down, but still keep their distance set in tiles to the target, set higher to make mobs keep distance
 	var/move_shoot = 0
-	
+	var/ranged_ignore_incapitated = 0 //Ranged mobs will by default keep shooting on unconscious targets, if set to 1 the mob will ignore unconscious victims.
+
 	//Mob melee settings
 	var/melee_damage_lower = 2		// Lower bound of randomized melee damage
 	var/melee_damage_upper = 6		// Upper bound of randomized melee damage
@@ -1270,19 +1271,24 @@
 		ai_log("AttackTarget() special",3)
 		if(SpecialAtkTarget()) //Might not succeed/be allowed, do something else.
 			return 1
-			
+
 	//AAAAH!
 	if(distance <= 1)
 		ai_log("AttackTarget() melee",3)
 		PunchTarget()
 		return 1
-		
+
 	//Open fire!
 	else if(ranged && (distance <= shoot_range) && ranged_cooldown <= world.time)
+		if(ishuman(target_mob) && ranged_ignore_incapitated)
+			var/mob/living/carbon/human/TA = target_mob
+			if(TA.stat == UNCONSCIOUS)
+				LoseTarget(TA)
+				return
 		ai_log("AttackTarget() ranged",3)
 		ShootTarget(target_mob)
 		return 1
-		
+
 	else
 		ai_log("AttackTarget() out of range!",3)
 		stoplag(1) // Unfortunately this is needed to protect from ClosestDistance() sometimes not updating fast enough to prevent an infinite loop.
@@ -1777,5 +1783,5 @@
 /mob/living/simple_animal/get_nametag_desc(mob/user)
 	return "<i>[tt_desc]</i>"
 
-	
-	
+
+

@@ -10,6 +10,8 @@
 	if(!has_buckled_mobs() && !M.buckled && !M.anchored && (issmall(M) || prob(round(seed.get_trait(TRAIT_POTENCY)/3))))
 		//wait a tick for the Entered() proc that called HasProximity() to finish (and thus the moving animation),
 		//so we don't appear to teleport from two tiles away when moving into a turf adjacent to vines.
+		if(M.entangle_immunity == 1)
+			return
 		spawn(1)
 			entangle(M)
 
@@ -27,6 +29,8 @@
 	if(!is_mature())
 		return
 	var/mob/living/carbon/human/H = victim
+	if(H.entangle_immunity == 1)
+		return
 	if(prob(round(seed.get_trait(TRAIT_POTENCY)/3)))
 		entangle(victim)
 	if(istype(H) && H.shoes)
@@ -88,6 +92,8 @@
 		var/can_grab = 1
 		if(istype(victim, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = victim
+			if(H.entangle_immunity == 1)
+				return
 			if(istype(H.shoes, /obj/item/clothing/shoes/magboots) && (H.shoes.item_flags & NOSLIP))
 				can_grab = 0
 		if(can_grab)

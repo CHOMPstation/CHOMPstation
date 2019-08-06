@@ -1,3 +1,6 @@
+/mob/living //for defining variables which all living mobs needs for various reasons
+	var/entangle_immunity = 0
+
 /mob/living/New()
 	..()
 
