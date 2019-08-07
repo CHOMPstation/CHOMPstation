@@ -386,11 +386,9 @@
 
 /mob/living/proc/feed_self_to_grabbed(var/mob/living/user, var/mob/living/pred)
 	//CHOMPEDIT: PROTO TYPE; BELLY SELECTOR
-	var/plsvoreme = 0
 	if (!user.client) 
 		for(var/obj/belly/guttoviolate in pred.vore_organs)
-			if(guttoviolate.name == "stomach" || guttoviolate.name == "belly" && !plsvoreme)
-				plsvoreme = 1
+			if(guttoviolate.name == "stomach" || guttoviolate.name == "belly")
 				var/belly = guttoviolate
 				return perform_the_nom(user, user, pred, belly)
 	//CHOMPEDIT: END
