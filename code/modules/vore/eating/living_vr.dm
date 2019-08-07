@@ -392,9 +392,10 @@
 			if(guttoviolate.name == "stomach" || guttoviolate.name == "belly" && !plsvoreme)
 				plsvoreme = 1
 				var/belly = guttoviolate
+				return perform_the_nom(user, user, pred, belly)
 	//CHOMPEDIT: END
 	else var/belly = input("Choose Belly") in pred.vore_organs
-	return perform_the_nom(user, user, pred, belly)
+		return perform_the_nom(user, user, pred, belly)
 
 /mob/living/proc/feed_grabbed_to_other(var/mob/living/user, var/mob/living/prey, var/mob/living/pred)
 	var/belly = input("Choose Belly") in pred.vore_organs
