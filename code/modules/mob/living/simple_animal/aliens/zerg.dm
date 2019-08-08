@@ -46,6 +46,7 @@
 		death()
 		qdel(src)
 		newmob.cley = myuser
+		new newmob(location)
 
 /mob/living/simple_animal/hostile/hivebot/zerg/larva
 	name = "zerg larva"
