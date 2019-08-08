@@ -389,7 +389,7 @@
 	if (!user.client) 
 		for(var/obj/belly/guttoviolate in pred.vore_organs)
 			if(guttoviolate.mode_flags & DM_FLAG_ALLOWFORCEFEED)
-				var/list/bellys |= guttoviolate
+				bellys |= guttoviolate
 				
 		belly = pick(bellys)
 	//CHOMPEDIT: END
