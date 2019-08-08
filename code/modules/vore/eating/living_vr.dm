@@ -385,10 +385,10 @@
 	return perform_the_nom(user, prey, pred, belly)
 
 /mob/living/proc/feed_self_to_grabbed(var/mob/living/user, var/mob/living/pred,var/belly)
-	//CHOMPEDIT: PROTO TYPE; BELLY SELECTOR
+	//CHOMPEDIT:  AUTO BELLY SELECTOR
 	if (!user.client) 
 		for(var/obj/belly/guttoviolate in pred.vore_organs)
-			if(guttoviolate.name == "stomach" || guttoviolate.name == "belly")
+			if(guttoviolate.mode_flags & DM_FLAG_ALLOWFORCEFEED)
 				belly = guttoviolate
 	//CHOMPEDIT: END
 	else belly = input("Choose Belly") in pred.vore_organs
