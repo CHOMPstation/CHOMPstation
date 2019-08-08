@@ -391,6 +391,7 @@
 			if(guttoviolate.mode_flags & DM_FLAG_ALLOWFORCEFEED)
 				bellys |= guttoviolate
 				
+		if(!bellys)return
 		belly = pick(bellys)
 	//CHOMPEDIT: END
 	else belly = input("Choose Belly") in pred.vore_organs
