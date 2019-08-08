@@ -45,7 +45,7 @@
 		var/mob/living/simple_animal/hostile/newmob = chosentype
 		death()
 		qdel(src)
-		newmob.cley = myuser
+		newmob.ckey = myuser
 		new newmob(location)
 
 /mob/living/simple_animal/hostile/hivebot/zerg/larva
