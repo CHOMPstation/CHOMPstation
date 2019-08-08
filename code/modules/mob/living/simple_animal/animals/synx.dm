@@ -274,6 +274,7 @@ mob/living/simple_animal/synx/PunchTarget()
 /mob/living/simple_animal/retaliate/synx/hear_say(message,verb,language,fakename,isItalics,var/mob/living/speaker)
 	. = ..()
 	if(!message)    return
+	if (speaker == src) return
 	speaker = speaker.GetVoice()
 	speak += message
 	voices += speaker
