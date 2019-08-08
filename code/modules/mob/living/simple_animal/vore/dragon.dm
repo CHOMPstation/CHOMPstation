@@ -61,3 +61,34 @@
 //	maxHealth = 200
 //	health = 200
 //	faction = "virgo3b"
+
+
+/mob/living/simple_animal/hostile/dragon/phoron
+	name = "phoron dragon"
+	desc = "A big imposing phoron dragon, it looks tough and would likely not go down without a fierce fight."
+	icon_dead = "phoron_dragon_dead"
+	icon_living = "phoron_dragon"
+	icon_state = "phoron_dragon"
+	maxHealth = 1000 // Super Boss
+	health = 1000
+	var/image/eye_layer = null
+
+/mob/living/simple_animal/hostile/dragon/phoron/New(var/location, var/atom/parent)
+	get_light_and_color(parent)
+	add_glow()
+	..()
+
+/mob/living/simple_animal/hostile/dragon/phoron/proc/add_glow()
+	if(!eye_layer)
+		eye_layer = image(icon, "[icon_state]-glow")
+		eye_layer.plane = PLANE_LIGHTING_ABOVE
+
+	overlays += eye_layer
+
+/mob/living/simple_animal/hostile/dragon/phoron/death()
+	remove_glow()
+	..()
+
+/mob/living/simple_animal/hostile/dragon/phoron/proc/remove_glow()
+	overlays -= eye_layer
+
