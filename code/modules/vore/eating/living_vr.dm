@@ -384,12 +384,14 @@
 		belly = pred.vore_selected
 	return perform_the_nom(user, prey, pred, belly)
 
-/mob/living/proc/feed_self_to_grabbed(var/mob/living/user, var/mob/living/pred,var/belly)
+/mob/living/proc/feed_self_to_grabbed(var/mob/living/user, var/mob/living/pred, var/belly, var/list/bellys)
 	//CHOMPEDIT:  AUTO BELLY SELECTOR
 	if (!user.client) 
 		for(var/obj/belly/guttoviolate in pred.vore_organs)
 			if(guttoviolate.mode_flags & DM_FLAG_ALLOWFORCEFEED)
-				belly = guttoviolate
+				var/list/bellys |= guttoviolate
+				
+		belly = pick(bellys)
 	//CHOMPEDIT: END
 	else belly = input("Choose Belly") in pred.vore_organs
 	return perform_the_nom(user, user, pred, belly)
