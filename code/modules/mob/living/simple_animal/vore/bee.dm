@@ -9,9 +9,9 @@
 	speak = list("Buzzzz")
 	speak_chance = 1
 
-	response_help = "pets the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
+	response_help = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm = "hits"
 
 	turns_per_move = 5
 	speed = 5
