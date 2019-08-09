@@ -31,7 +31,7 @@
 	visible_message("<span class='notice'>\ [user]  spins the roulette and throws inside little ball.</span>")
 	playsound(src.loc, 'sound/machines/roulette.ogg', 40, 1)
 	busy = 1
-		icon_state = "roulette_wheel_spinning"
+	icon_state = "roulette_wheel_spinning"
 	var/result = rand(0,36)
 	var/color = "green"
 	add_fingerprint(user)
@@ -250,7 +250,7 @@
 		return
 	visible_message("<span class='notice'>\ [user]  spins the wheel of fortune!</span>")
 	busy = 1
-		icon_state = "wheel_of_fortune_spinning"
+	icon_state = "wheel_of_fortune_spinning"
 	var/result = rand(1,interval)
 	add_fingerprint(user)
 	spawn(5 SECONDS)
