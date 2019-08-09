@@ -87,15 +87,48 @@
 	..()
 
 /obj/item/device/buttonofnormal/proc/nonrandom() //Secret ball randmoizer rig code
-	if(colorindex==1)
-		sizetouse = RESIZE_HUGE
-	if(colorindex==2)
-		sizetouse = RESIZE_BIG
-	if(colorindex==3)
-		sizetouse = RESIZE_NORMAL
-	if(colorindex==4)
-		sizetouse = RESIZE_SMALL
-	if(colorindex==5)
-		sizetouse = RESIZE_TINY
+	switch(colorindex)
+		if(1)	sizetouse = RESIZE_HUGE
+		if(2)	sizetouse = RESIZE_BIG
+		if(3)	sizetouse = RESIZE_NORMAL
+		if(4)	sizetouse = RESIZE_SMALL
+		if(5)	sizetouse = RESIZE_TINY
+
+/obj/item/device/daredevice
+	name = "Dare button"
+	desc = "A strange button, the only distinguishing feature being an engraved text reading "Suffer to Gain."."
+	icon = 'icons/obj/mobcap.dmi'
+	icon_state = "mobcap1"
+
+	matter = list(DEFAULT_WALL_MATERIAL = 5000)
+
+	throwforce = 00
+	throw_speed = 2
+	throw_range = 20
+	force = 0
+
+	var/colorindex = 1
+
+/obj/item/device/daredevice/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/weapon/pen))
+		colorindex += 1
+		if(colorindex >= 6)
+			colorindex = 0
+		icon_state = "mobcap[colorindex]"
+		update_icon()
+	..()
+
+/obj/item/device/buttonofnormal/attack_self(mob/user)
+	var/mob/living/capsuleowner = user
+	//playsound(fate.ogg,100,0) //need to find an omnious noise
+	sleep(100)
+	var/fate = rand(0,100)
+	switch(fate)
+		if(0 to 20)	capsuleowner.resize(RESIZE_TINY) //Loss Shrinking!
+		if(21 to 40)	capsuleowner.apply_damage(5, BRUTE) //Loss Damaging!
+		if(41 to 60)	capsuleowner.Weaken(5) //Loss Knee spaghetti!
+		if(61 to 80)	capsuleowner.hallucination += 66 //loss woah, dude.
+		if(81 to 100)	new	/obj/item/weapon/reagent_containers/food/snacks/cookie(src.loc) //Win!
+
 
 
