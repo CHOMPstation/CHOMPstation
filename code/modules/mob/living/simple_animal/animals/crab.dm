@@ -46,7 +46,7 @@
 	desc = "It's Coffee, the other pet!"
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
-	response_harm   = "stomps"
+	response_harm   = "stomps on"
 
 //Sif Crabs
 /mob/living/simple_animal/giant_crab
@@ -78,18 +78,18 @@
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
-	response_harm   = "stomps"
+	response_harm   = "kicks"
 	friendly = "pinches"
 
 	speak_chance = 1
 	speak_emote = list("clicks")
 	emote_hear = list("clicks")
 	emote_see = list("clacks")
-	
-	
-	
+
+
+
 //Enemy version.
-/mob/living/simple_animal/hostile/giant_crab 
+/mob/living/simple_animal/hostile/giant_crab
 	name = "giant crab"
 	desc = "A giant enemy crab."
 	tt_desc = "S Cancer holligus"
@@ -116,7 +116,7 @@
 	attack_sharp = 1
 	attack_edge = 1
 
-	armor = list(			
+	armor = list(
 				"melee" = 40,
 				"bullet" = 10,
 				"laser" = 25,
@@ -128,7 +128,7 @@
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
-	response_harm   = "stomps"
+	response_harm   = "kicks"
 	friendly = "pinches"
 
 	speak_chance = 1

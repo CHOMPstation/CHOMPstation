@@ -20,7 +20,7 @@
 
 	response_help  = "touches"
 	response_disarm = "flails at"
-	response_harm   = "punches the"
+	response_harm   = "punches"
 
 	harm_intent_damage = 2
 
