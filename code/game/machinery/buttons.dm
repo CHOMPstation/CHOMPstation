@@ -96,7 +96,7 @@
 
 /obj/item/device/daredevice
 	name = "Dare button"
-	desc = "A strange button, the only distinguishing feature being an engraved text reading "Suffer to Gain."."
+	desc = "A strange button, the only distinguishing feature being an engraved text reading 'Suffer to Gain.'."
 	icon = 'icons/obj/mobcap.dmi'
 	icon_state = "mobcap1"
 
