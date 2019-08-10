@@ -31,7 +31,7 @@
 	visible_message("<span class='notice'>\ [user]  spins the roulette and throws inside little ball.</span>")
 	playsound(src.loc, 'sound/machines/roulette.ogg', 40, 1)
 	busy = 1
-		icon_state = "roulette_wheel_spinning"
+	icon_state = "roulette_wheel_spinning"
 	var/result = rand(0,36)
 	var/color = "green"
 	add_fingerprint(user)
@@ -106,8 +106,9 @@
 		to_chat(user,"<span class='notice'>You dont have enough chips to gamble!</span> ")
 		return
 
-	visible_message("<span class='notice'>\ [user] puts 5 credits in the slot machine and presses start.</span>")
+	to_chat(user,"<span class='notice'>You puts 5 credits in the slot machine and presses start.</span>")
 	cashmoney.worth -= 5
+	cashmoney.update_icon()
 
 	if(cashmoney.worth <= 0)
 		usr.drop_from_inventory(cashmoney)
@@ -116,12 +117,13 @@
 
 	busy = 1
 	icon_state = "slotmachine_rolling"
+	playsound(src.loc, 'sound/machines/slotmachine_pull.ogg', 15, 1)
 
 	var/slot1 = rand(0,9)
 	switch(slot1)
-		if(0 to 2) symbol1 = "cherry"
-		if(3 to 3) symbol1 = "lemon"
-		if(4 to 4) symbol1 = "watermelon"
+		if(1 to 3) symbol1 = "cherry"
+		if(4 to 4) symbol1 = "lemon"
+		//if(4 to 4) symbol1 = "watermelon"
 		if(5 to 5) symbol1 = "bell"
 		if(6 to 6) symbol1 = "four leaf clover"
 		if(7 to 7) symbol1 = "seven"
@@ -130,9 +132,9 @@
 
 	var/slot2 = rand(0,9)
 	switch(slot2)
-		if(0 to 2) symbol2 = "cherry"
-		if(3 to 3) symbol2 = "lemon"
-		if(4 to 4) symbol2 = "watermelon"
+		if(1 to 3) symbol2 = "cherry"
+		if(4 to 4) symbol2 = "lemon"
+		//if(4 to 4) symbol2 = "watermelon"
 		if(5 to 5) symbol2 = "bell"
 		if(6 to 6) symbol2 = "four leaf clover"
 		if(7 to 7) symbol2 = "seven"
@@ -141,9 +143,9 @@
 
 	var/slot3 = rand(0,9)
 	switch(slot3)
-		if(0 to 2) symbol3 = "cherry"
-		if(3 to 3) symbol3 = "lemon"
-		if(4 to 4) symbol3 = "watermelon"
+		if(1 to 3) symbol3 = "cherry"
+		if(4 to 4) symbol3 = "lemon"
+		//if(4 to 4) symbol3 = "watermelon"
 		if(5 to 5) symbol3 = "bell"
 		if(6 to 6) symbol3 = "four leaf clover"
 		if(7 to 7) symbol3 = "seven"
@@ -157,7 +159,7 @@
 
 
 	spawn(delaytime)
-		visible_message("<span class='notice'>The slot machine flashes with bright colours as the slots lights up with a [symbol1], a [symbol2] and a [symbol3]!</span>")
+		to_chat(user,"<span class='notice'>The slot machine flashes with bright colours as the slots lights up with a [symbol1], a [symbol2] and a [symbol3]!</span>")
 
 		if (symbol1 == "cherry" && symbol2 == "cherry" && symbol3 == "cherry")
 			output = "<span class='notice'>Three cherries! The slot machine deposits chips worth 25 credits!</span>"
@@ -198,7 +200,7 @@
 		icon_state = initial(icon_state) // Set it back to the original iconstate.
 
 		if(!output) // Is there anything to output? If not, consider it a loss.
-			visible_message("Better luck next time!")
+			to_chat(user,"Better luck next time!")
 			busy = FALSE
 			return
 
@@ -250,7 +252,7 @@
 		return
 	visible_message("<span class='notice'>\ [user]  spins the wheel of fortune!</span>")
 	busy = 1
-		icon_state = "wheel_of_fortune_spinning"
+	icon_state = "wheel_of_fortune_spinning"
 	var/result = rand(1,interval)
 	add_fingerprint(user)
 	spawn(5 SECONDS)
@@ -293,7 +295,7 @@
 		"coffee", "cafe_latte", "soy_latte", "hot_coco", "milk", "cream", "tea", "ice", "orangejuice", "lemonjuice",
 		"limejuice", "berryjuice", "mint", "matcha_latte", "lemon_lime", "sugar", "orangejuice", "limejuice", "sodawater",
 		"tonic", "beer", "kahlua", "whiskey", "wine", "vodka", "gin", "rum", "tequilla", "vermouth", "cognac",
-		"ale", "mead", "bitters", "champagne", "singulo", "doctor_delight", "nothing", "banana", "honey", "egg",
+		"ale", "mead", "bitters", "champagne", "singulo", "doctorsdelight", "nothing", "banana", "honey", "egg",
 		"coco", "cherryjelly", "carrot", "apple", "tomato", "nutbutter", "soymilk", "grenadine", "gingerale", "royrogers",
 		"patron", "goldschlager", "gelatin", "melonliquor", "bluecuracao", "thirteenloko", "deadrum", "sake", "acidspit",
 		"amasec", "beepsky_smash", "atomicbomb", "nuka_cola", "threemileisland", "manhattan_proj", "psilocybin", "moonshine",
@@ -355,7 +357,7 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/champagne,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/grapesoda,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/singulo,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/doctor_delight,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/doctorsdelight,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/nothing,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/banana,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/honey,
@@ -680,7 +682,7 @@
 				And thats it! Now go out there and gamble your savings away! This casino allows bets between 5 and 50 with double down ignoring that limit!
 
 				<h1><a name="Roulette">Roulette</a></h1>
-				So this game of roulette is all about chance! what happens is that people bet on different odds and hope for the best as the dealer rolls the ball and makes that roulette thingy make than fun addicting spin! Once it lands on something its either bust or payout! Pretty simple, right? <br>
+				So this game of roulette is all about chance! what happens is that people bet on different odds and hope for the best as the dealer rolls the ball and makes that roulette thingy make than fun addicting spin! Once it lands on a number between 0 and 36 its either bust or payout! Pretty simple, right? <br>
 				Everyone starts by putting their bets down, people can bet more than once before the ball goes rolling, the odds and their payoffs are these:
 				<ul>
 					<li>Single number - 35/1 payoff - The most unlikely one to get, but if the ball lands on your number, then youre loaded!</li>
@@ -748,11 +750,12 @@
 				</ul>
 				Gear
 				<ul>
+					<li>experimental welder 500</li>
 					<li>alien belt 500</li>
 					<li>alien enhancement vest 750</li>
 					<li>cryostasis beaker 200</li>
 					<li>bluespace beaker 200</li>
-					<li>Vey-med NIF 250 ((This one isnt taken away at the end of the reward period!))</li>
+					<li>Vey-med NIF 1000 ((This one isnt taken away at the end of the reward period!))</li>
 				</ul>
 				Accessories
 				<ul>
@@ -760,8 +763,9 @@
 					<li>chameleon black tie 300</li>
 					<li>grand star necklace 50</li>
 				</ul>
-				Masks - ALL MASK ARE 50 except chameleon!
+				Masks and hats - EVERYTHING IS 50 except chameleon!
 				<ul>
+					<li>assistant hat</li>
 					<li>Shark mask</li>
 					<li>Pig mask</li>
 					<li>Luchador mask</li>
@@ -774,6 +778,8 @@
 				</ul>
 				Costumes - All costumes are 150!
 				<ul>
+					<li>Black bunny girl outfit (black suit and rabbit ears)</li>
+					<li>White bunny girl outfit (white suit and rabbit ears)</li>
 					<li>Corgi (corgi suit + corgi hood)</li>
 					<li>Sexy clown</li>
 					<li>nyan girl</li>

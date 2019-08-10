@@ -108,7 +108,7 @@
 	champagne	spawn_reagent = "champagne"
 	grapesoda	spawn_reagent = "grapesoda"
 	singulo 	spawn_reagent = "singulo"
-	doctor_delight	spawn_reagent = "doctor_delight"
+	doctorsdelight	spawn_reagent = "doctorsdelight"
 	nothing		spawn_reagent = "nothing"
 	banana		spawn_reagent = "banana"
 	honey		spawn_reagent = "honey"
@@ -144,4 +144,3 @@
 	unathiliquor	spawn_reagent = "unathiliquor"
 	winebrandy	spawn_reagent = "winebrandy"
 	snaps		spawn_reagent = "snaps"
-	
