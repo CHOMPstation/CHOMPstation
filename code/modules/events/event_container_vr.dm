@@ -47,7 +47,7 @@
 		// Spawns mice, or lizards.
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Vermin Infestation",/datum/event/infestation, 		100,	list(ASSIGNMENT_JANITOR = 100), 1),
 		//Split spiderlings off from the vermin infestation event into its own thing, triggered only by security.
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Spiderling Infestation",/datum/event/spiderling_infestation, 	0,	list(ASSIGNMENT_SECURITY = 50), 1),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Spiderling Infestation",/datum/event/spiderling_infestation, 	-30,	list(ASSIGNMENT_SECURITY = 25), 1),
 		// Rot only weakens walls, not destroy them
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot",			/datum/event/wallrot, 			30,		list(ASSIGNMENT_ENGINEER = 30, ASSIGNMENT_GARDENER = 50), 1),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Window Damage",		/datum/event/window_break,		10, 	list(ASSIGNMENT_ENGINEER = 20)),
@@ -121,7 +121,7 @@
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Wave",			/datum/event/meteor_wave,		-110,		list(ASSIGNMENT_ENGINEER = 50),	1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Metroid Infestation",	/datum/event/metroid_infestation, -75,	list(ASSIGNMENT_SECURITY = 35, ASSIGNMENT_SCIENCE = 20, ASSIGNMENT_HOS = 10, ASSIGNMENT_WARDEN = 10), 0),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines",			/datum/event/spacevine, 		20,		list(ASSIGNMENT_ENGINEER = 15), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",	/datum/event/spider_infestation, -35,	list(ASSIGNMENT_SECURITY = 30, ASSIGNMENT_HOS = 10, ASSIGNMENT_WARDEN = 10), 0),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",	/datum/event/spider_infestation, -45,	list(ASSIGNMENT_SECURITY = 30, ASSIGNMENT_HOS = 10, ASSIGNMENT_WARDEN = 10), 0),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Viral Infection",		/datum/event/viral_infection,	-50,	list(ASSIGNMENT_MEDICAL = 25), 	1),
 	)
 	add_disabled_events(list(
