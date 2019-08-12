@@ -47,7 +47,7 @@
 		// Spawns mice, or lizards.
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Vermin Infestation",/datum/event/infestation, 		100,	list(ASSIGNMENT_JANITOR = 100), 1),
 		//Split spiderlings off from the vermin infestation event into its own thing, triggered only by security.
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Spiderling Infestation",/datum/event/spiderling_infestation, 	0,	list(ASSIGNMENT_SECURITY = 50), 1),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Spiderling Infestation",/datum/event/spiderling_infestation, 	-30,	list(ASSIGNMENT_SECURITY = 25), 1),
 		// Rot only weakens walls, not destroy them
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot",			/datum/event/wallrot, 			30,		list(ASSIGNMENT_ENGINEER = 30, ASSIGNMENT_GARDENER = 50), 1),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Window Damage",		/datum/event/window_break,		10, 	list(ASSIGNMENT_ENGINEER = 20)),
