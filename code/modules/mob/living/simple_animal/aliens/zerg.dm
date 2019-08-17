@@ -34,17 +34,19 @@
 	set category = "Abilities"
 	var/location = get_turf(src)
 	chosentype = input(usr,"What type would you like to be?") as null|anything in zerg_types
-	if(!chosentype) return
+	if(!chosentype && src.ckey) return
 	if(!src.ckey) 
 		death()
 		qdel(src)
 		new /mob/living/simple_animal/hostile/hivebot/zerg/worker(location)
 	else
+	
 		var/myuser = src.key
+		var/mob/living/simple_animal/hostile/newmob = chosentype
 		death()
 		qdel(src)
-		var/mob/living/simple_animal/hostile/newmob = new chosentype(location)
 		newmob.ckey = myuser
+		new newmob(location)
 
 /mob/living/simple_animal/hostile/hivebot/zerg/larva
 	name = "zerg larva"
@@ -62,9 +64,11 @@
 	verbs |= /mob/living/simple_animal/hostile/hivebot/zerg/larva/proc/evolve
 	
 /mob/living/simple_animal/hostile/hivebot/zerg/larva/initialize()
+	..()
 	spawn(1200)
 		if(!src.ckey)
 			evolve()
+
 /mob/living/simple_animal/hostile/hivebot/zerg/worker
 	name = "Zerg Drone"
 	desc = "Drones are fundamental to economic and tech development, as they harvest resources and construct buildings."

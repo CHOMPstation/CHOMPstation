@@ -12,3 +12,11 @@
 	so_far.pixel_y += 16
 	so_far.pixel_x += 0
 	return so_far
+
+/obj/item/clothing/head/soft/purple/wah
+	name = "assistant cap"
+	desc = "What a lovely purple cap, its said its given out as a trophy to assistants. Why does that sound so depressing?"
+	icon_state = "wahcap"
+	item_state_slots = list(slot_r_hand_str = "wahcap", slot_l_hand_str = "wahcap")
+	icon = 'icons/obj/clothing/hats_vr.dmi'
+	icon_override = 'icons/mob/head_vr.dmi'

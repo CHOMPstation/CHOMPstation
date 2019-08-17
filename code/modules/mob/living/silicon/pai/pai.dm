@@ -33,7 +33,9 @@
 		"Fox" = "fox",
 		"Parrot" = "parrot",
 		"Rabbit" = "rabbit",
-		"Bear" = "bear"  //VOREStation Edit
+		"Bear" = "bear",  //VOREStation Edit
+		"Raccoon" = "raccoon", //Chompstation Edit
+		"Rat" = "rat"//Chompstation Edit
 		)
 
 	var/global/list/possible_say_verbs = list(
@@ -42,7 +44,8 @@
 		"Beep" = list("beeps","beeps loudly","boops"),
 		"Chirp" = list("chirps","chirrups","cheeps"),
 		"Feline" = list("purrs","yowls","meows"),
-		"Canine" = list("yaps","barks","woofs")
+		"Canine" = list("yaps","barks","woofs"),
+		"Rodent" = list("squeaks", "SQUEAKS", "sqiks")//Chompstation Edit
 		)
 
 	var/obj/item/weapon/pai_cable/cable		// The cable we produce and use when door or camera jacking
@@ -315,7 +318,7 @@
 		return
 
 	close_up()
-
+/*CHOMPstation edit | redefined in pai_vr.dm
 /mob/living/silicon/pai/proc/choose_chassis()
 	set category = "pAI Commands"
 	set name = "Choose Chassis"
@@ -328,11 +331,11 @@
 		if(!choice) return
 
 		icon_state = possible_chassis[choice]
-		finalized = alert("Look at your sprite. Is this what you wish to use?",,"No","Yes")
+		finalized = alert("Look at your sprite. Is this what you wish to use?",,"No","Yes")//CHOMPStation edit
 
 	chassis = possible_chassis[choice]
 	verbs |= /mob/living/proc/hide
-
+*/
 /mob/living/silicon/pai/proc/choose_verbs()
 	set category = "pAI Commands"
 	set name = "Choose Speech Verbs"

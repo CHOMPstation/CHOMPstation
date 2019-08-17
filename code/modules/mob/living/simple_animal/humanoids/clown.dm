@@ -19,7 +19,7 @@
 	firing_lines = TRUE
 	investigates = TRUE
 	assist_distance = 100
-	
+
 	turns_per_move = 5
 	stop_when_pulled = 0
 
@@ -85,9 +85,9 @@
 	icon_gib = "clown_gib"
 	speak_chance = 50
 	turns_per_move = 5
-	response_help = "pokes the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
+	response_help = "pokes"
+	response_disarm = "gently pushes aside"
+	response_harm = "hits"
 	speak = list("HONK", "Honk!")
 	speak_emote = list("squeals", "cries","sobs")
 	emote_hear = list("honks sadly")
@@ -127,15 +127,15 @@
 	icon_state = "ClownGoblin"
 	icon_living = "ClownGoblin"
 	icon_dead = null
-	response_help = "honks the"
+	response_help = "honks"
 	speak = list("Honk!")
 	speak_emote = list("sqeaks")
 	emote_hear = list("honks")
 	maxHealth = 100
 	health = 100
-	
+
 	view_range = 30//owo
-	
+
 	speed = 1
 	turns_per_move = 1
 
@@ -165,7 +165,7 @@
 /mob/living/simple_animal/clowngang
 	name = "Pandoras box"
 	desc = "A honkmotherload of fun"
-	
+
 /mob/living/simple_animal/clowngang/Life()
 	death()
 /mob/living/simple_animal/clowngang/death()

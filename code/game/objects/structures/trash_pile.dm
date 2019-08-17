@@ -119,7 +119,10 @@
 					searchedby += user.ckey
 					I.forceMove(get_turf(src))
 					to_chat(H,"<span class='notice'>You found \a [I]!</span>")
-
+					var/disturbed_sleep = rand(1,100) //spawning of mobs, for now only the trash panda.
+					if(disturbed_sleep <= 5)
+						new /mob/living/simple_animal/raccoon(get_turf(user),name)
+						visible_message("A raccoon jumps out of the trash!.")
 	else
 		return ..()
 

@@ -40,8 +40,8 @@
 				"rad" = 100)
 	has_hands = 1
 
-	response_help  = "pets"
-	response_disarm = "gently pushes aside"
+	response_help  = "pets the"
+	response_disarm = "gently pushes aside the"
 
 
 	pass_flags = PASSTABLE
@@ -182,7 +182,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	metabolism = REM * 1 //ten times faster for convenience of testers.
 	color = "#00FFFF"
 	overdose = REAGENTS_OVERDOSE * 20 //it's all fake. But having nanomachines move through you is not good at a certain amount.
-	
+
 /datum/reagent/inaprovaline/synxchem/holo/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
 		if(prob(5))
@@ -230,8 +230,8 @@ mob/living/simple_animal/synx/PunchTarget()
 		M.adjustHalLoss(1) //dealing 5 times the amount of brute healed as halo, but we cant feel pain yet
 		// ^ I have no idea what this might cause, my ideal plan is that once the pain killer wears off you suddenly collapse;
 		//Since Halloss is not "real" damage this should not cause death
-	
-	
+
+
 /datum/reagent/inaprovaline/synxchem/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
@@ -242,7 +242,7 @@ mob/living/simple_animal/synx/PunchTarget()
 			M.AdjustStunned(1)
 		if(prob(2))
 			M.AdjustParalysis(1)
-			
+
 /datum/reagent/inaprovaline/synxchem/holo/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	return
 
@@ -274,6 +274,7 @@ mob/living/simple_animal/synx/PunchTarget()
 /mob/living/simple_animal/retaliate/synx/hear_say(message,verb,language,fakename,isItalics,var/mob/living/speaker)
 	. = ..()
 	if(!message)    return
+	if (speaker == src) return
 	speaker = speaker.GetVoice()
 	speak += message
 	voices += speaker
@@ -298,7 +299,7 @@ mob/living/simple_animal/synx/PunchTarget()
 /mob/living/simple_animal/retaliate/synx/handle_idle_speaking()
 	if(voices && prob(speak_chance/2))
 		randomspeech()
-		
+
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// POWERS!!!! /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
@@ -349,7 +350,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	set category = "Abilities"
 	if(speak && voices)
 		handle_mimic()
-	else 
+	else
 		usr << "<span class='warning'>YOU NEED TO HEAR THINGS FIRST, try using Ventcrawl to eevesdrop on nerds</span>"
 
 /mob/living/simple_animal/retaliate/synx/proc/handle_mimic()
@@ -370,14 +371,14 @@ mob/living/simple_animal/synx/PunchTarget()
 	glow_range = 4
 	glow_toggle = 1
 	player_msg = "You aren't supposed to be in this. Wrong mob."
-	
+
 /mob/living/simple_animal/retaliate/synx/pet/init_vore()
     ..()
     var/obj/belly/B = vore_selected
     B.vore_verb = "swallow"
     B.digest_burn = 1
     B.digest_brute = 0
-    
+
 /mob/living/simple_animal/retaliate/synx/pet/holo/init_vore()
 	..()
 	var/obj/belly/B = vore_selected
@@ -408,7 +409,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	var/location = get_turf(src)
 	new /obj/item/seeds/hardlightseed/typesx(location)
 	qdel(src)
-	
+
 /mob/living/simple_animal/retaliate/synx/pet/holo/gib()
 	visible_message("<span class='notice'>\The [src] fades away!</span>")
 	var/location = get_turf(src)
@@ -469,7 +470,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	icon_state = "synx_diablo_living"
 	icon_living = "synx_diablo_living"
 	icon_dead = "synx_diablo_dead"
-	speak = list( ) 
+	speak = list( )
 	//Vore Section
 	vore_capacity = 2
 
@@ -479,7 +480,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	icon_state = "synx_diablo_living"
 	icon_living = "synx_diablo_living"
 	icon_dead = "synx_diablo_dead"
-	speak = list( ) 
+	speak = list( )
 	//Vore Section
 	vore_capacity = 2
 
@@ -502,7 +503,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	//Vore Section
 	vore_default_mode = DM_HEAL
 	vore_capacity = 10
-	vore_digest_chance = 0 
+	vore_digest_chance = 0
 	vore_pounce_chance = 1 //MAKE THEM HONK
 	vore_bump_chance = 0 //lowered bump chance
 	vore_escape_chance = 100

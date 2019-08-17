@@ -812,8 +812,9 @@
 			user.client.prefs_vr.digestable = user.digestable
 
 		//TFF 30/4/19: Ports VoreStation Remains Option - add option that goes paw in paw with belly setting; allow yourself to leave bones behind after you're digested
+		//TFF 2/8/19 - Add admin message notification for setting this ON.
 	if(href_list["toggledlm"])
-		var/choice = alert(user, "This button allows preds to have your remains be left in their belly after you are digested. This will only happen if pred sets their belly to do so. Remains consist of skeletal parts. Currently you are [user.digest_leave_remains? "" : "not"] leaving remains.", "", "Allow Post-digestion Remains", "Cancel", "Disallow Post-digestion Remains")
+		var/choice = alert(user, "This button allows preds to have your remains be left in their belly after you are digested. This will only happen if pred sets their belly to do so. Remains consist of skeletal parts. Setting this will notify admins. Currently you are [user.digest_leave_remains? "" : "not"] leaving remains.", "", "Allow Post-digestion Remains", "Cancel", "Disallow Post-digestion Remains")
 		switch(choice)
 			if("Cancel")
 				return 0
@@ -821,6 +822,8 @@
 				user.digest_leave_remains = TRUE
 			if("Disallow Post-digestion Remains")
 				user.digest_leave_remains = FALSE
+
+		message_admins("[key_name(user)] toggled their ability to leave remains to [user.digest_leave_remains] ([user ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[user.loc.];Y=[user.loc.y];Z=[user.loc.z]'>JMP</a>" : "null"])")
 
 		if(user.client.prefs_vr)
 			user.client.prefs_vr.digest_leave_remains = user.digest_leave_remains
