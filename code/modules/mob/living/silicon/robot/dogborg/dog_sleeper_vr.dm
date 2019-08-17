@@ -672,3 +672,10 @@
 	icon_state = "decompiler"
 	max_item_count = 10
 	decompiler = TRUE
+
+/obj/item/device/dogborg/sleeper/compactor/brewer //Boozehound gut.
+	name = "Brew Belly"
+	desc = "A mounted drunk tank unit with fuel processor."
+	icon_state = "brewer"
+	injection_chems = null
+	max_item_count = 1

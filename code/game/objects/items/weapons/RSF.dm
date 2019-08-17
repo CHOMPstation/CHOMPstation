@@ -43,17 +43,21 @@ RSF
 		return
 	if (mode == 2)
 		mode = 3
-		user << "Changed dispensing mode to 'Paper'"
+		user << "Changed dispensing mode to 'Metamorphic Glass:Pint'"
 		return
 	if (mode == 3)
 		mode = 4
-		user << "Changed dispensing mode to 'Pen'"
+		user << "Changed dispensing mode to 'Paper'"
 		return
 	if (mode == 4)
 		mode = 5
-		user << "Changed dispensing mode to 'Dice Pack'"
+		user << "Changed dispensing mode to 'Pen'"
 		return
 	if (mode == 5)
+		mode = 6
+		user << "Changed dispensing mode to 'Dice Pack'"
+		return
+	if (mode == 6)
 		mode = 1
 		user << "Changed dispensing mode to 'Cigarette'"
 		return
@@ -85,12 +89,15 @@ RSF
 			product = new /obj/item/weapon/reagent_containers/food/drinks/glass2/pint()
 			used_energy = 50
 		if(3)
+			product = new /obj/item/weapon/reagent_containers/food/drinks/metaglass/metapint()
+			used_energy = 50
+		if(4)
 			product = new /obj/item/weapon/paper()
 			used_energy = 10
-		if(4)
+		if(5)
 			product = new /obj/item/weapon/pen()
 			used_energy = 50
-		if(5)
+		if(6)
 			product = new /obj/item/weapon/storage/pill_bottle/dice()
 			used_energy = 200
 
