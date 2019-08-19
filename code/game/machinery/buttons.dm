@@ -129,7 +129,7 @@
 		if(3)	capsuleowner.Weaken(5) //Loss Knee spaghetti!
 		if(4)	capsuleowner.hallucination += 66 //loss woah, dude.
 		if(5)	new	/obj/item/weapon/reagent_containers/food/snacks/cookie(src.loc) //Win!
-		//if(6)	new	/obj/item/weapon/spacecasinocash(src.loc) //Win? Waiting for perm to use.
+		if(6)	new	/obj/item/weapon/spacecasinocash(src.loc) //Win?
 		if(7)	
 			new	/obj/item/weapon/material/butterfly/switchblade(src.loc)
 			capsuleowner.apply_damage(10, BRUTE) //Loss Damaging! WIN KNIVE!
