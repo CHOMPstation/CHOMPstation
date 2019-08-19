@@ -137,6 +137,7 @@
 		if(9)	
 			new	/obj/item/weapon/gun/energy/sizegun/not_advanced(src.loc)
 			qdel(src)
+		if(777)	new	/obj/item/weapon/spacecash/c1000(src.loc) //for rigging
 		else luckynumber7 = (rand(0,10))
 	luckynumber7 = rand(0,10)
 	sleep(100)
