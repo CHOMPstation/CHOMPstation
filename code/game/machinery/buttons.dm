@@ -106,7 +106,7 @@
 	throw_speed = 2
 	throw_range = 20
 	force = 0
-	var/luckynumber7
+	var/luckynumber7 = 0
 
 	var/colorindex = 1
 
@@ -119,7 +119,7 @@
 		update_icon()
 	..()
 
-/obj/item/device/buttonofnormal/attack_self(mob/user)
+/obj/item/device/daredevice/attack_self(mob/user)
 	var/mob/living/capsuleowner = user
 	playsound(src, 'sound/effects/splat.ogg', 30, 1)
 	sleep(100)
@@ -139,6 +139,7 @@
 			qdel(src)
 		else luckynumber7 = (rand(0,10))
 	luckynumber7 = rand(0,10)
+	sleep(100)
 	playsound(src.loc, 'sound/machines/slotmachine.ogg', 25, 1)
 
 
