@@ -388,9 +388,8 @@
 	//CHOMPEDIT:  AUTO BELLY SELECTOR
 	if (!user.client) 
 		for(var/obj/belly/guttoviolate in pred.vore_organs)
-			if(guttoviolate.mode_flags & DM_FLAG_ALLOWFORCEFEED)
+			if(guttoviolate.name == "fstomach")
 				bellys |= guttoviolate
-				
 		if(!bellys)return
 		belly = pick(bellys)
 	//CHOMPEDIT: END
