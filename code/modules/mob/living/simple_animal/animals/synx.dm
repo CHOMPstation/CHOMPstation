@@ -575,13 +575,16 @@ mob/living/simple_animal/synx/PunchTarget()
 	..()
 	faction = rand(1,5)
 	switch(faction)
-		if(1 to 2) voices |= "Unidentifiable Weeping"
+		if(1 to 2)
+			voices |= "Unidentifiable Weeping"
 			name = "Weeper"
 			melee_damage_upper = 4
-		if(3) voices |= "Radio Static"
+		if(3)
+			voices |= "Radio Static"
 			name = "Whistler"
 			melee_damage_upper = 20
-		if(4 to 5) voices |= "Unidentifiable Wailing"
+		if(4 to 5)
+			voices |= "Unidentifiable Wailing"
 			name= "Wailer"
 			melee_damage_upper = 10
 	speak |= "No one"
@@ -591,7 +594,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	speak -= "Who is there?"
 	speak -= "What is that thing?!"
 
-/mob/living/simple_animal/retaliate/synx/pet/weepinggamblers/proc/MoveToTarget()
+/mob/living/simple_animal/retaliate/synx/pet/weepinggamblers/MoveToTarget()
 	var/mob/living/speaker
 	if(target_mob)
 		speaker = target_mob
