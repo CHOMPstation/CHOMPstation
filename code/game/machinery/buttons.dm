@@ -106,6 +106,7 @@
 	throw_speed = 2
 	throw_range = 20
 	force = 0
+	var/luckynumber7
 
 	var/colorindex = 1
 
@@ -120,15 +121,24 @@
 
 /obj/item/device/buttonofnormal/attack_self(mob/user)
 	var/mob/living/capsuleowner = user
-	//playsound(fate.ogg,100,0) //need to find an omnious noise
+	playsound(src, 'sound/effects/splat.ogg', 30, 1)
 	sleep(100)
-	var/fate = rand(0,100)
-	switch(fate)
-		if(0 to 20)	capsuleowner.resize(RESIZE_TINY) //Loss Shrinking!
-		if(21 to 40)	capsuleowner.apply_damage(5, BRUTE) //Loss Damaging!
-		if(41 to 60)	capsuleowner.Weaken(5) //Loss Knee spaghetti!
-		if(61 to 80)	capsuleowner.hallucination += 66 //loss woah, dude.
-		if(81 to 100)	new	/obj/item/weapon/reagent_containers/food/snacks/cookie(src.loc) //Win!
-
+	switch(luckynumber7)
+		if(1)	capsuleowner.resize(RESIZE_TINY) //Loss Shrinking!
+		if(2)	capsuleowner.apply_damage(5, BRUTE) //Loss Damaging!
+		if(3)	capsuleowner.Weaken(5) //Loss Knee spaghetti!
+		if(4)	capsuleowner.hallucination += 66 //loss woah, dude.
+		if(5)	new	/obj/item/weapon/reagent_containers/food/snacks/cookie(src.loc) //Win!
+		//if(6)	new	/obj/item/weapon/spacecasinocash(src.loc) //Win? Waiting for perm to use.
+		if(7)	
+			new	/obj/item/weapon/material/butterfly/switchblade(src.loc)
+			capsuleowner.apply_damage(10, BRUTE) //Loss Damaging! WIN KNIVE!
+		if(8)	new	/obj/item/weapon/reagent_containers/syringe/drugs(src.loc)
+		if(9)	
+			new	/obj/item/weapon/gun/energy/sizegun/not_advanced(src.loc)
+			qdel(src)
+		else luckynumber7 = (rand(0,10))
+	luckynumber7 = rand(0,10)
+	playsound(src.loc, 'sound/machines/slotmachine.ogg', 25, 1)
 
 
