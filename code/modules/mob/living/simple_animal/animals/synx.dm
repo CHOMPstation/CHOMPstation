@@ -20,6 +20,7 @@
 	var/transformed = FALSE
 	var/memorysize = 50 //Var for how many messages synxes remember if they know speechcode
 	var/list/voices = list()
+	var/forcefeedchance = 20
 
 	faction = "Synx"
 	intelligence_level = SA_ANIMAL
@@ -257,7 +258,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	if(.) // If we succeeded in hitting.
 		if(isliving(A))
 			var/mob/living/L = A
-			if(prob(20))//Forcefeeding code
+			if(prob(forcefeedchance))//Forcefeeding code
 				L.Weaken(5)
 				stop_automated_movement = 1
 				src.feed_self_to_grabbed(src,L)
@@ -550,3 +551,76 @@ mob/living/simple_animal/synx/PunchTarget()
 	else return pick(prob(50);/mob/living/simple_animal/retaliate/synx/pet/greed,
 		prob(50);/mob/living/simple_animal/retaliate/synx/pet/diablo,
 		prob(50);/mob/living/simple_animal/retaliate/synx/pet/holo,)
+
+////////////////////////////////////////////////////////////////////////////
+//////////////////////////NOT A SYNX///////but looks kinda like one/////////
+////////////////////////////////////////////////////////////////////////////
+//So we got base synxes pretty much done, how about some special variants
+/mob/living/simple_animal/retaliate/synx/pet/weepinggamblers
+	name = "Synx?"
+	desc = "A cold blooded, genderless, parasitic eel? Is it crying?"
+	tt_desc = "Synxus?"
+	forcefeedchance = 99 //You have a stomach? yeah they go in.
+	poison_per_bite = 0 //no poison
+	
+	hostile = 1
+	
+	faction = "synx?"
+	melee_damage_lower = 1
+	melee_damage_upper = 1
+	environment_smash = 1
+	destroy_surroundings = 1
+
+/mob/living/simple_animal/retaliate/synx/pet/weepinggamblers/New()
+	..()
+	faction = rand(1,5)
+	switch(faction)
+		if(1 to 2) voices |= "Unidentifiable Weeping"
+			name = "Weeper"
+			melee_damage_upper = 4
+		if(3) voices |= "Radio Static"
+			name = "Whistler"
+			melee_damage_upper = 20
+		if(4 to 5) voices |= "Unidentifiable Wailing"
+			name= "Wailer"
+			melee_damage_upper = 10
+	speak |= "No one"
+	
+	voices -= "Garbled voice"
+	voices -= "Unidentifiable Voice"
+	speak -= "Who is there?"
+	speak -= "What is that thing?!"
+
+/mob/living/simple_animal/retaliate/synx/pet/weepinggamblers/proc/MoveToTarget()
+	var/mob/living/speaker
+	if(target_mob)
+		speaker = target_mob
+		speak |= speaker.GetVoice()
+	..()
+
+/mob/living/simple_animal/retaliate/synx/pet/weepinggamblers/Life()
+	..()
+	if(prob(1) && faction <= 5)
+		handlemutations(rand(1,5))
+
+/mob/living/simple_animal/retaliate/synx/pet/weepinggamblers/proc/handlemutations(faction)
+	switch(faction)
+		if(1 to 2 || 11 to 12) 
+			voices = ["Unidentifiable Weeping"]
+			name = "Weeper"
+			melee_damage_upper = 4
+		if(3 || 13) 
+			voices = ["Radio Static"]
+			name = "Whistler"
+			melee_damage_upper = 20
+		if(4 to 5 || 14 to 15) 
+			voices = ["Unidentifiable Wailing"]
+			name= "Wailer"
+			melee_damage_upper = 10
+		if(6 to 10 || 16 to 20)
+			voices = ["Breathing"]
+			name= "Silent"
+
+//WEEPING END
+
+
