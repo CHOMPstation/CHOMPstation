@@ -605,21 +605,22 @@ mob/living/simple_animal/synx/PunchTarget()
 
 /mob/living/simple_animal/retaliate/synx/pet/weepinggamblers/proc/handlemutations(faction)
 	switch(faction)
-		if(1 to 2 || 11 to 12)
+		if(1 to 2 , 11 to 12)
 			voices = "Unidentifiable Weeping"
 			name = "Weeper"
 			melee_damage_upper = 4
-		if(3 || 13) 
+		if(3 , 13) 
 			voices = "Radio Static"
 			name = "Whistler"
 			melee_damage_upper = 20
-		if(4 to 5 || 14 to 15) 
+		if(4 to 5 , 14 to 15) 
 			voices = "Unidentifiable Wailing"
 			name= "Wailer"
 			melee_damage_upper = 10
-		if(6 to 10 || 16 to 20)
+		if(6 to 10 , 16 to 20)
 			voices = "Breathing"
 			name= "Silent"
+		else return
 
 //WEEPING END
 
