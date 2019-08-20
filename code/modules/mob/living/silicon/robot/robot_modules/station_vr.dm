@@ -476,7 +476,6 @@
 				"Vodka Komrade" = "boozeborg(vodka)"
 				)
 /obj/item/weapon/robot_module/robot/booze/New(var/mob/living/silicon/robot/R)
-	..()
 	src.modules += new /obj/item/weapon/gripper/service(src)
 	//src.modules += new /obj/item/weapon/reagent_containers/glass/bucket(src)
 	//src.modules += new /obj/item/weapon/material/minihoe(src)
@@ -503,6 +502,8 @@
 	L.lit = 1
 	src.modules += L
 
+	
+
 	src.modules += new /obj/item/weapon/tray/robotray(src)
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo/service(src)
 	src.emag = new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer(src)
@@ -513,6 +514,7 @@
 	N.add_reagent("beer2", 50)
 	src.emag.name = "Mickey Finn's Special Brew"
 
+	R.can_buckle = 1
 	R.icon 		 = 'icons/mob/widerobot_colors_vr.dmi'
 	R.hands.icon = 'icons/mob/screen1_robot_vr.dmi'
 	R.ui_style_vr = TRUE
