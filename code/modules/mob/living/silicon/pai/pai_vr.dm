@@ -2,7 +2,8 @@
 	var/people_eaten = 0
 	icon = 'icons/mob/pai_vr.dmi'
 	var/global/list/wide_chassis = list(
-		"rat"
+		"rat",
+		"panther"
 		)
 
 /mob/living/silicon/pai/proc/pai_nom(var/mob/living/T in oview(1))
