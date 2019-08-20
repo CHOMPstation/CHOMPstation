@@ -489,6 +489,7 @@
 	src.modules += new /obj/item/weapon/tray/robotray
 	src.modules += new /obj/item/device/dogborg/boop_module(src)
 	src.modules += new /obj/item/device/dogborg/sleeper/compactor/brewer(src)
+	src.modules += new /obj/item/weapon/reagent_containers/glass/beaker(src)//For holding the ALCOHOL
 	src.emag 	 = new /obj/item/weapon/dogborg/pounce(src)
 	R.verbs += /mob/living/silicon/robot/proc/reskin_booze
 
