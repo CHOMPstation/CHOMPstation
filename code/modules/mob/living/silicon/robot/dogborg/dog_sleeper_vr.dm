@@ -678,7 +678,7 @@
 	name = "Brew Belly"
 	desc = "A mounted drunk tank unit with fuel processor."
 	icon_state = "brewer"
-	injection_chems = null
+	injection_chems = list("vodka","beer","gin") //Injected alcohol is 3 times as strong
 	max_item_count = 1
 
 // PLACEHOLDER SERVICE BORG BELLY
