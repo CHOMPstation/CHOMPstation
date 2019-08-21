@@ -516,7 +516,7 @@
 	
 
 	src.modules += new /obj/item/weapon/tray/robotray(src)
-	src.modules += new /obj/item/weapon/reagent_containers/borghypo/service(src)
+	src.modules += new /obj/item/weapon/reagent_containers/borghypo/service/booze(src)
 	src.emag = new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer(src)
 
 	var/datum/reagents/N = new/datum/reagents(50)
