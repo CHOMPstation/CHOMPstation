@@ -1,7 +1,12 @@
-/mob/living/silicon/pai/examine(mob/user)
-	..(user, infix = ", personal AI")
+//Chompstation edit
 
-	var/msg = ""
+/mob/living/silicon/pai/examine(mob/user)
+	var/msg = "<span class='info'>*---------*<br>This is "
+	if(icon)
+		msg += "\icon[icon] "
+
+	msg += "<EM>[src.name]</EM>, a <EM>[chassis_names[src.chassis]]</EM> personal AI"
+
 	switch(src.stat)
 		if(CONSCIOUS)
 			if(!src.client)	msg += "\nIt appears to be in stand-by mode.\n" //afk
@@ -14,9 +19,10 @@
 		msg += "<span class = 'deptradio'>OOC Notes:</span> <a href='?src=\ref[src];ooc_notes=1'>\[View\]</a>\n"
 	// VOREStation Edit: End
 
-	msg += "\n*---------*"
-
 	if(print_flavor_text()) msg += "\n[print_flavor_text()]\n"
+
+
+	msg += "\n*---------*"
 
 	if (pose)
 		if( findtext(pose,".",lentext(pose)) == 0 && findtext(pose,"!",lentext(pose)) == 0 && findtext(pose,"?",lentext(pose)) == 0 )
@@ -24,3 +30,6 @@
 		msg += "\nIt is [pose]"
 
 	user << msg
+
+//Chompstation edit end
+// : )
