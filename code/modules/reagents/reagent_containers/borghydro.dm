@@ -158,7 +158,7 @@
 	user << "<span class='notice'>You transfer [t] units of the solution to [target].</span>"
 	return
 
-/obj/item/weapon/reagent_containers/borghypo/service
+/obj/item/weapon/reagent_containers/borghypo/service/booze
 	name = "cyborg drink synthesizer"
 	desc = "A portable drink dispencer."
 	icon = 'icons/obj/drinks.dmi'
