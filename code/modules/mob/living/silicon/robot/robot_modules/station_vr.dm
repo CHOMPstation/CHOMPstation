@@ -486,7 +486,6 @@
 	src.modules += new /obj/item/weapon/material/kitchen/rollingpin(src)
 	src.modules += new /obj/item/device/multitool(src) //to freeze trays
 	src.modules += new /obj/item/weapon/dogborg/jaws/small(src)
-	src.modules += new /obj/item/weapon/tray/robotray
 	src.modules += new /obj/item/device/dogborg/boop_module(src)
 	src.modules += new /obj/item/device/dogborg/sleeper/compactor/brewer(src)
 	src.modules += new /obj/item/weapon/reagent_containers/glass/beaker(src)//For holding the ALCOHOL
@@ -503,6 +502,17 @@
 	L.lit = 1
 	src.modules += L
 
+	var/datum/matter_synth/water = new /datum/matter_synth()
+	water.name = "Water reserves"
+	water.recharge_rate = 0.1 // Recharging water for plants - hehe drooly borg
+	water.max_energy = 1000
+	water.energy = 0
+	R.water_res = water
+	synths += water
+	
+	var/obj/item/device/dogborg/tongue/T = new /obj/item/device/dogborg/tongue(src)
+	T.water = water
+	src.modules += T
 	
 
 	src.modules += new /obj/item/weapon/tray/robotray(src)
