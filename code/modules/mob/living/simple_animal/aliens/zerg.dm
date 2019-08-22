@@ -92,10 +92,9 @@
 	health = 1
 	melee_damage_lower = 0
 	melee_damage_upper = 0
-	initialize()
-		..()
-		spawn(3000)
-			new /mob/living/simple_animal/hostile/hivebot/zerg/larva(src.loc)
-			new /mob/living/simple_animal/hostile/hivebot/zerg/larva(src.loc)
-			new /mob/living/simple_animal/hostile/hivebot/zerg/larva(src.loc)
-			qdel(src)
+	Life()
+		sleep(3000)
+		new /mob/living/simple_animal/hostile/hivebot/zerg/larva(src.loc)
+		new /mob/living/simple_animal/hostile/hivebot/zerg/larva(src.loc)
+		new /mob/living/simple_animal/hostile/hivebot/zerg/larva(src.loc)
+			
