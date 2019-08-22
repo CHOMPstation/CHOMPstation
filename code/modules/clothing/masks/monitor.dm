@@ -67,3 +67,41 @@
 	icon_state = monitor_states[monitor_state_index]
 	var/mob/living/carbon/human/H = loc
 	if(istype(H)) H.update_inv_wear_mask()
+	
+	
+//TESHARI FACE MASK
+/obj/item/clothing/mask/synthfacemask
+	name = "Synth Face"
+	desc = "A round dark muzzle made of LEDs."
+	body_parts_covered = FACE
+	
+	//TO BE REPLACED
+	icon = 'icons/mob/monitor_icons.dmi'
+	icon_override = 'icons/mob/monitor_icons.dmi'
+	icon_state = "monitor"
+	//ALL ICONS ARE DIE
+	
+	equipped()
+		..()
+		var/mob/living/carbon/human/H = loc
+		if(istype(H) && H.wear_mask == src)
+			var/obj/item/organ/external/E = H.organs_by_name[BP_HEAD]
+			var/datum/robolimb/robohead = all_robolimbs[E.model]
+			canremove = 0
+	dropped()
+		canremove = 1
+		return ..()
+	mob_can_equip(var/mob/living/carbon/human/user, var/slot)
+		if (!..())
+			return 0
+		if(istype(user))
+			var/obj/item/organ/external/E = user.organs_by_name[BP_HEAD]
+			var/datum/robolimb/robohead = all_robolimbs[E.model]
+			if(istype(E) && (E.robotic >= ORGAN_ROBOT))
+				return 1
+			user << "<span class='warning'>You must have a compatible robotic head to install this upgrade.</span>"
+		return 0
+	update_icon()
+		var/mob/living/carbon/human/H = loc
+		if(istype(H)) H.update_inv_wear_mask()
+		//if (H.state == DEAD) icon_state = "synth_facemask_dead"//TO BE ADDED
