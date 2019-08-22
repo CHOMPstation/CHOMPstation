@@ -98,4 +98,4 @@
 			new /mob/living/simple_animal/hostile/hivebot/zerg/larva(src.loc)
 			new /mob/living/simple_animal/hostile/hivebot/zerg/larva(src.loc)
 			new /mob/living/simple_animal/hostile/hivebot/zerg/larva(src.loc)
-			
+			qdel(src)
