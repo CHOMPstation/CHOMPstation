@@ -69,7 +69,7 @@
 	if(istype(H)) H.update_inv_wear_mask()
 	
 	
-//TESHARI FACE MASK
+//TESHARI FACE MASK //Defning all the procs in one go
 /obj/item/clothing/mask/synthfacemask
 	name = "Synth Face"
 	desc = "A round dark muzzle made of LEDs."
