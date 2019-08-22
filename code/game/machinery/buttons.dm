@@ -44,14 +44,11 @@
 	desc = "It radiates an aura of chaotic size energy."
 	icon = 'icons/obj/mobcap.dmi'
 	icon_state = "mobcap0"
-
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
-
 	throwforce = 00
 	throw_speed = 4
 	throw_range = 20
 	force = 0
-
 	var/colorindex = 0
 	var/mob/living/capsuleowner = null //taken from Capsule Code
 	var/sizetouse = 0.25
@@ -99,15 +96,12 @@
 	desc = "A strange button, the only distinguishing feature being an engraved text reading 'Suffer to Gain.'."
 	icon = 'icons/obj/mobcap.dmi'
 	icon_state = "mobcap1"
-
 	matter = list(DEFAULT_WALL_MATERIAL = 5000)
-
 	throwforce = 00
 	throw_speed = 2
 	throw_range = 20
 	force = 0
 	var/luckynumber7 = 0
-
 	var/colorindex = 1
 
 	attackby(obj/item/W, mob/user)
@@ -142,5 +136,3 @@
 		luckynumber7 = rand(0,10)
 		sleep(100)
 		playsound(src.loc, 'sound/machines/slotmachine.ogg', 25, 1)
-
-
