@@ -7,6 +7,19 @@
 
 	msg += "<EM>[src.name]</EM>, a <EM>[chassis_names[src.chassis]]</EM> personal AI"
 
+	msg += "<span class='warning'>"
+	if (src.getBruteLoss())
+		if (src.getBruteLoss() < 50)
+			msg += "It looks slightly dented.\n"
+		else
+			msg += "<B>It looks severely dented!</B>\n"
+	if (src.getFireLoss())
+		if (src.getFireLoss() < 50)
+			msg += "It looks slightly charred.\n"
+		else
+			msg += "<B>It looks severely burnt and heat-warped!</B>\n"
+	msg += "</span>"
+
 	switch(src.stat)
 		if(CONSCIOUS)
 			if(!src.client)	msg += "\nIt appears to be in stand-by mode.\n" //afk
