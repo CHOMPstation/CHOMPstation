@@ -84,3 +84,18 @@
 	health = 1 LASERS_TO_KILL
 	melee_damage_lower = 1
 	melee_damage_upper = 1
+
+/mob/living/simple_animal/hostile/hivebot/zerg/broodsack
+	name = "Zerg Brood"
+	desc = "Brood sacks are living creatures who's sole purpose it is to incubate larva."
+	maxHealth = 1
+	health = 1
+	melee_damage_lower = 0
+	melee_damage_upper = 0
+	initialize()
+		..()
+		spawn(3000)
+			new /mob/living/simple_animal/hostile/hivebot/zerg/larva(src.loc)
+			new /mob/living/simple_animal/hostile/hivebot/zerg/larva(src.loc)
+			new /mob/living/simple_animal/hostile/hivebot/zerg/larva(src.loc)
+			
