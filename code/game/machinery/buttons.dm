@@ -56,35 +56,35 @@
 	var/mob/living/capsuleowner = null //taken from Capsule Code
 	var/sizetouse = 0.25
 
-/obj/item/device/buttonofnormal/pickup(mob/user)
-	if(!capsuleowner)
-		capsuleowner = user
+	pickup(mob/user)
+		if(!capsuleowner)
+			capsuleowner = user
 
-/obj/item/device/buttonofnormal/attack_self(mob/user)
-	if(colorindex)
-		nonrandom()
-	sleep(10)
-	capsuleowner.resize(sizetouse)
-	sizetouse = rand(25,200)/100 //randmization occurs after press
-
-/obj/item/device/buttonofnormal/throw_impact(atom/A, speed, mob/user)
-	..()
-	if(isliving(A))
+	attack_self(mob/user)
 		if(colorindex)
 			nonrandom()
-		sleep(5)
-		var/mob/living/capsulehit = A
-		capsulehit.resize(sizetouse)
+		sleep(10)
+		capsuleowner.resize(sizetouse)
 		sizetouse = rand(25,200)/100 //randmization occurs after press
 
-/obj/item/device/buttonofnormal/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/weapon/pen))
-		colorindex += 1
-		if(colorindex >= 6)
-			colorindex = 0
-		icon_state = "mobcap[colorindex]"
-		update_icon()
-	..()
+	throw_impact(atom/A, speed, mob/user)
+		..()
+		if(isliving(A))
+			if(colorindex)
+				nonrandom()
+			sleep(5)
+			var/mob/living/capsulehit = A
+			capsulehit.resize(sizetouse)
+			sizetouse = rand(25,200)/100 //randmization occurs after press
+
+	attackby(obj/item/W, mob/user)
+		if(istype(W, /obj/item/weapon/pen))
+			colorindex += 1
+			if(colorindex >= 6)
+				colorindex = 0
+			icon_state = "mobcap[colorindex]"
+			update_icon()
+		..()
 
 /obj/item/device/buttonofnormal/proc/nonrandom() //Secret ball randmoizer rig code
 	switch(colorindex)
@@ -110,37 +110,37 @@
 
 	var/colorindex = 1
 
-/obj/item/device/daredevice/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/weapon/pen))
-		colorindex += 1
-		if(colorindex >= 6)
-			colorindex = 0
-		icon_state = "mobcap[colorindex]"
-		update_icon()
-	..()
+	attackby(obj/item/W, mob/user)
+		if(istype(W, /obj/item/weapon/pen))
+			colorindex += 1
+			if(colorindex >= 6)
+				colorindex = 0
+			icon_state = "mobcap[colorindex]"
+			update_icon()
+		..()
 
-/obj/item/device/daredevice/attack_self(mob/user)
-	var/mob/living/capsuleowner = user
-	playsound(src, 'sound/effects/splat.ogg', 30, 1)
-	sleep(100)
-	switch(luckynumber7)
-		if(1)	capsuleowner.resize(RESIZE_TINY) //Loss Shrinking!
-		if(2)	capsuleowner.apply_damage(5, BRUTE) //Loss Damaging!
-		if(3)	capsuleowner.Weaken(5) //Loss Knee spaghetti!
-		if(4)	capsuleowner.hallucination += 66 //loss woah, dude.
-		if(5)	new	/obj/item/weapon/reagent_containers/food/snacks/cookie(src.loc) //Win!
-		if(6)	new	/obj/item/weapon/spacecasinocash(src.loc) //Win?
-		if(7)	
-			new	/obj/item/weapon/material/butterfly/switchblade(src.loc)
-			capsuleowner.apply_damage(10, BRUTE) //Loss Damaging! WIN KNIVE!
-		if(8)	new	/obj/item/weapon/reagent_containers/syringe/drugs(src.loc)
-		if(9)	
-			new	/obj/item/weapon/gun/energy/sizegun/not_advanced(src.loc)
-			qdel(src)
-		if(777)	new	/obj/item/weapon/spacecash/c1000(src.loc) //for rigging
-		else luckynumber7 = (rand(0,10))
-	luckynumber7 = rand(0,10)
-	sleep(100)
-	playsound(src.loc, 'sound/machines/slotmachine.ogg', 25, 1)
+	attack_self(mob/user)
+		var/mob/living/capsuleowner = user
+		playsound(src, 'sound/effects/splat.ogg', 30, 1)
+		sleep(100)
+		switch(luckynumber7)
+			if(1)	capsuleowner.resize(RESIZE_TINY) //Loss Shrinking!
+			if(2)	capsuleowner.apply_damage(5, BRUTE) //Loss Damaging!
+			if(3)	capsuleowner.Weaken(5) //Loss Knee spaghetti!
+			if(4)	capsuleowner.hallucination += 66 //loss woah, dude.
+			if(5)	new	/obj/item/weapon/reagent_containers/food/snacks/cookie(src.loc) //Win!
+			if(6)	new	/obj/item/weapon/spacecasinocash(src.loc) //Win?
+			if(7)	
+				new	/obj/item/weapon/material/butterfly/switchblade(src.loc)
+				capsuleowner.apply_damage(10, BRUTE) //Loss Damaging! WIN KNIVE!
+			if(8)	new	/obj/item/weapon/reagent_containers/syringe/drugs(src.loc)
+			if(9)	
+				new	/obj/item/weapon/gun/energy/sizegun/not_advanced(src.loc)
+				qdel(src)
+			if(777)	new	/obj/item/weapon/spacecash/c1000(src.loc) //for rigging
+			else luckynumber7 = (rand(0,10))
+		luckynumber7 = rand(0,10)
+		sleep(100)
+		playsound(src.loc, 'sound/machines/slotmachine.ogg', 25, 1)
 
 
