@@ -25,6 +25,9 @@
 	if(health <= 0)
 		death(null,"gives one shrill beep before falling lifeless.")
 
+	//Chompstation edit
+	if(loc == card && health < 100)//if we're carded
+		heal_organ_damage(0.5,0.5)//slowly heal
 
 /mob/living/silicon/pai/updatehealth()
 	if(status_flags & GODMODE)
