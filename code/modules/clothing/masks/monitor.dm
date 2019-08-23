@@ -83,8 +83,6 @@
 		..()
 		var/mob/living/carbon/human/H = loc
 		if(istype(H) && H.wear_mask == src)
-			//var/obj/item/organ/external/E = H.organs_by_name[BP_HEAD]
-			//var/datum/robolimb/robohead = all_robolimbs[E.model]
 			canremove = 0
 	dropped()
 		canremove = 1
@@ -94,7 +92,6 @@
 			return 0
 		if(istype(user))
 			var/obj/item/organ/external/E = user.organs_by_name[BP_HEAD]
-			//var/datum/robolimb/robohead = all_robolimbs[E.model]
 			if(istype(E) && (E.robotic >= ORGAN_ROBOT))
 				return 1
 			user << "<span class='warning'>You must have a compatible robotic head to install this upgrade.</span>"
