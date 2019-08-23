@@ -83,7 +83,7 @@
 		..()
 		var/mob/living/carbon/human/H = loc
 		if(istype(H) && H.wear_mask == src)
-			var/obj/item/organ/external/E = H.organs_by_name[BP_HEAD]
+			//var/obj/item/organ/external/E = H.organs_by_name[BP_HEAD]
 			//var/datum/robolimb/robohead = all_robolimbs[E.model]
 			canremove = 0
 	dropped()
@@ -102,4 +102,4 @@
 	update_icon()
 		var/mob/living/carbon/human/H = loc
 		if(istype(H)) H.update_inv_wear_mask()
-		if (H.state == DEAD) icon_state = "synth_facemask_dead"
+		if (H.stat == DEAD) icon_state = "synth_facemask_dead"
