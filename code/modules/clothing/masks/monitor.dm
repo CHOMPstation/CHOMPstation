@@ -77,6 +77,7 @@
 	icon = 'icons/mob/species/seromi/synth_facemask.dmi'
 	icon_override = 'icons/mob/species/seromi/synth_facemask.dmi'
 	icon_state = "synth_facemask"
+	origin_tech = list(TECH_ILLEGAL = 1)
 
 	equipped()
 		..()
