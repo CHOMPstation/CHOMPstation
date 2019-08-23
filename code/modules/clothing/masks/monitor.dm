@@ -74,13 +74,10 @@
 	name = "Synth Face"
 	desc = "A round dark muzzle made of LEDs."
 	body_parts_covered = FACE
-	
-	//TO BE REPLACED
-	icon = 'icons/mob/monitor_icons.dmi'
-	icon_override = 'icons/mob/monitor_icons.dmi'
-	icon_state = "monitor"
-	//ALL ICONS ARE DIE
-	
+	icon = 'icons/mob/species/seromi/synth_facemask.dmi'
+	icon_override = 'icons/mob/species/seromi/synth_facemask.dmi'
+	icon_state = "synth_facemask"
+
 	equipped()
 		..()
 		var/mob/living/carbon/human/H = loc
@@ -104,4 +101,4 @@
 	update_icon()
 		var/mob/living/carbon/human/H = loc
 		if(istype(H)) H.update_inv_wear_mask()
-		//if (H.state == DEAD) icon_state = "synth_facemask_dead"//TO BE ADDED
+		if (H.state == DEAD) icon_state = "synth_facemask_dead"
