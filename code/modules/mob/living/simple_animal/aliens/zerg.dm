@@ -23,10 +23,38 @@
 	
 	var/zerg_types = list("Zerg Drone" = /mob/living/simple_animal/hostile/hivebot/zerg/worker,)
 
+	isSynthetic()
+		return FALSE
 
-/mob/living/simple_animal/hostile/hivebot/zerg/isSynthetic()
-	return FALSE
+/////////////////////////////////////////////////////////////////
+///////////////////// LARVA "CORE" //////////////////////////////
+/////////////////////////////////////////////////////////////////
 
+/mob/living/simple_animal/hostile/hivebot/zerg/larva
+	name = "zerg larva"
+	desc = "Larva are a fundamental zerg type, able to turn into other types"
+	melee_damage_lower = 0
+	melee_damage_upper = 0
+	maxHealth = 0.2 LASERS_TO_KILL
+	health = 0.2 LASERS_TO_KILL
+	var/chosentype = null
+	
+	Life()
+		..()
+
+	New()
+		..()
+		verbs |= /mob/living/simple_animal/hostile/hivebot/zerg/larva/proc/evolve
+	
+	initialize()
+		..()
+		spawn(1200)
+			if(!src.client)
+				evolve()
+
+/////////////////////////////////////////////////////////////////
+///////////////////// EVOLUTION /////////////////////////////////
+/////////////////////////////////////////////////////////////////
 /mob/living/simple_animal/hostile/hivebot/zerg/larva/proc/evolve()
 	//TODDO MAke this work nicely
 	set name = "EVOLVE"
@@ -35,8 +63,7 @@
 	var/location = get_turf(src)
 	chosentype = input(usr,"What type would you like to be?") as null|anything in zerg_types
 	if(!chosentype && src.ckey) return
-	if(!src.ckey) 
-		death()
+	if(!src.client)
 		qdel(src)
 		new /mob/living/simple_animal/hostile/hivebot/zerg/worker(location)
 	else
@@ -47,28 +74,9 @@
 		qdel(src)
 		newmob.ckey = myuser
 		new newmob(location)
-
-/mob/living/simple_animal/hostile/hivebot/zerg/larva
-	name = "zerg larva"
-	desc = "Larva are a fundamental zerg type, able to turn into other types"
-	melee_damage_lower = 0
-	melee_damage_upper = 0
-	maxHealth = 0.2 LASERS_TO_KILL
-	health = 0.2 LASERS_TO_KILL
-	var/chosentype = null
-/mob/living/simple_animal/hostile/hivebot/zerg/larva/Life()
-	..()
-
-/mob/living/simple_animal/hostile/hivebot/zerg/larva/New()
-	..()
-	verbs |= /mob/living/simple_animal/hostile/hivebot/zerg/larva/proc/evolve
-	
-/mob/living/simple_animal/hostile/hivebot/zerg/larva/initialize()
-	..()
-	spawn(1200)
-		if(!src.ckey)
-			evolve()
-
+/////////////////////////////////////////////////////////////////
+///////////////////// ZERG TYPES ////////////////////////////////
+/////////////////////////////////////////////////////////////////
 /mob/living/simple_animal/hostile/hivebot/zerg/worker
 	name = "Zerg Drone"
 	desc = "Drones are fundamental to economic and tech development, as they harvest resources and construct buildings."
@@ -76,3 +84,17 @@
 	health = 1 LASERS_TO_KILL
 	melee_damage_lower = 1
 	melee_damage_upper = 1
+
+/mob/living/simple_animal/hostile/hivebot/zerg/broodsack
+	name = "Zerg Brood"
+	desc = "Brood sacks are living creatures who's sole purpose it is to incubate larva."
+	maxHealth = 1
+	health = 1
+	melee_damage_lower = 0
+	melee_damage_upper = 0
+	Life()
+		sleep(3000)
+		new /mob/living/simple_animal/hostile/hivebot/zerg/larva(src.loc)
+		new /mob/living/simple_animal/hostile/hivebot/zerg/larva(src.loc)
+		new /mob/living/simple_animal/hostile/hivebot/zerg/larva(src.loc)
+			
