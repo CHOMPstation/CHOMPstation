@@ -47,5 +47,12 @@
 
 	user << msg
 
+
+/obj/item/device/paicard/examine(mob/user)
+	..(user)
+	if(pai)//If we have a personality inside
+		user << "<span class='emote'>Inside \the [src] is...</span>"
+		pai.examine(user)//Examine that as well
+
 //Chompstation edit end
 // : )
