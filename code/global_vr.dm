@@ -4,4 +4,6 @@
 	robot_module_types += "Janihound"
 	robot_module_types += "Sci-borg"
 	robot_module_types += "Pupdozer"
+	robot_module_types += "Vore Services" //edit chompers
+	robot_module_types += "Medivore"
 	return 1
