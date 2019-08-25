@@ -553,7 +553,7 @@ Spider Procs
 				walk(src,0)
 				spawn(50)
 					if(busy == SPINNING_COCOON)
-						if(cocoon_target && istype(cocoon_target.loc, /turf) && get_dist(src,cocoon_target) <= 1 && !istiny(cocoon_target)) //Chompstation edit
+						if(cocoon_target && istype(cocoon_target.loc, /turf) && get_dist(src,cocoon_target) <= 1)
 							var/obj/effect/spider/cocoon/C = new(cocoon_target.loc)
 							var/large_cocoon = 0
 							C.pixel_x = cocoon_target.pixel_x
