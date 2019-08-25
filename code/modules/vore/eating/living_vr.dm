@@ -89,7 +89,7 @@
 		var/obj/item/weapon/grab/G = I
 
 		//Has to be aggressive grab, has to be living click-er and non-silicon grabbed
-		if((G.state >= GRAB_AGGRESSIVE) && (isliving(user) && !issilicon(G.affecting)))
+		if((G.state >= GRAB_AGGRESSIVE) && (isliving(user) && (!issilicon(G.affecting) || ispAI(G.affecting))))//Chompstation edit, lets pAI be eaten
 
 			var/mob/living/attacker = user  // Typecast to living
 
