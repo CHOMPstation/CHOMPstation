@@ -91,7 +91,7 @@
 
 //Override so you can examine mobs even if you're in your card and in a pocket or something.
 /mob/living/silicon/pai/ShiftClickOn(A)
-	if(loc == card && !isbelly(loc) && !isbelly(card.loc))//Cannot examine from inside a belly, like any other mob
+	if(loc == card && !isbelly(card.loc))//Cannot examine from inside a belly, like any other mob
 		src.examinate(A)
 	else
 		..(A)
