@@ -71,3 +71,27 @@
 	chassis = possible_chassis[choice]
 	verbs |= /mob/living/proc/hide
 	update_icon()
+
+//Invert list of the chassis list if you need the name of the chassis but only have the chassis's icon state
+/mob/living/silicon/pai
+	var/list/chassis_names = list(
+		"repairbot" = "Drone",
+		"cat" = "Cat",
+		"mouse" = "Mouse",
+		"monkey" = "Monkey",
+		"borgi" = "Corgi",
+		"fox" = "Fox",
+		"parrot" = "Parrot",
+		"rabbit" = "Rabbit",
+		"bear" = "Bear",
+		"raccoon" = "Raccoon",
+		"rat" = "rat",
+		"panther" = "Panther"
+		)
+
+//Override so you can examine mobs even if you're in your card and in a pocket or something.
+/mob/living/silicon/pai/ShiftClickOn(A)
+	if(loc == card && !isbelly(card.loc))//Cannot examine from inside a belly, like any other mob
+		src.examinate(A)
+	else
+		..(A)

@@ -380,8 +380,29 @@
 	return
 
 /mob/living/silicon/pai/attack_hand(mob/user as mob)
+	//Chompstation edit
 	if(user.a_intent == I_HELP)
-		visible_message("<span class='notice'>[user.name] pats [src].</span>")
+		visible_message("<span class='notice'>[user.name] [rand("pets","pats")] [src].</span>")
+	else if(user.a_intent == I_GRAB)
+		if(user == src || anchored)
+			return 0
+		for(var/obj/item/weapon/grab/G in src.grabbed_by)
+			if(G.assailant == user)
+				user << "<span class='notice'>You already grabbed [src].</span>"
+				return
+		var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(user, src)
+		if(buckled)
+			user << "<span class='notice'>You cannot grab [src], they're buckled in!</span>"
+		if(!G)	//the grab will delete itself in New if affecting is anchored
+			return
+		user.put_in_active_hand(G)
+		G.synch()
+		LAssailant = user
+
+		user.do_attack_animation(src)
+		playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+		visible_message("<span class='warning'>[user] has grabbed [src] passively!</span>")
+	//End Chompstation edit
 	else
 		visible_message("<span class='danger'>[user.name] boops [src] on the head.</span>")
 		close_up()
