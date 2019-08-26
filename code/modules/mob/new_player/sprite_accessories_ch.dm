@@ -52,6 +52,24 @@
 		color_blend_mode = ICON_MULTIPLY
 		body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_TORSO,BP_HEAD)
 
+	athena_panels
+		name = "Hephaestus - Athena FBP Panels"
+		icon_state = "athena_p"
+		color_blend_mode = ICON_MULTIPLY
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_TORSO,BP_HEAD)
+
+	athena_panels_body
+		name = "Hephaestus - Athena FBP Panels (body)"
+		icon_state = "athena_p"
+		color_blend_mode = ICON_MULTIPLY
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_TORSO)
+
+	athena_panels_head
+		name = "Hephaestus - Athena FBP Panels (head)"
+		icon_state = "athena_p"
+		color_blend_mode = ICON_MULTIPLY
+		body_parts = list(BP_HEAD)
+
 	rook_lights
 		name = "Bishop - Rook lights"
 		icon_state = "rook-l"
