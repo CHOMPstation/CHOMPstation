@@ -112,8 +112,8 @@
 		qdel(src)
 
 /obj/effect/spider/eggcluster/small
-	spiders_min = 1
-	spiders_max = 3
+	spiders_min = 2
+	spiders_max = 6
 
 /obj/effect/spider/eggcluster/small/frost
 	spider_type = /obj/effect/spider/spiderling/frost
