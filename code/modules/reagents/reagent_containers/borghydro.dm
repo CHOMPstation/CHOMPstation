@@ -157,3 +157,14 @@
 	reagent_volumes[reagent_ids[mode]] -= t
 	user << "<span class='notice'>You transfer [t] units of the solution to [target].</span>"
 	return
+
+/obj/item/weapon/reagent_containers/borghypo/service/booze
+	name = "cyborg drink synthesizer"
+	desc = "A portable drink dispencer."
+	icon = 'icons/obj/drinks.dmi'
+	icon_state = "shaker"
+	charge_cost = 20
+	recharge_time = 3
+	volume = 120
+	possible_transfer_amounts = list(1 ,5, 10, 20, 30)
+	reagent_ids = list("ale", "beer", "berryjuice", "blood", "bitters", "cherryjelly", "coffee", "cognac", "cola", "demonsblood", "dr_gibb","eggnog", "gin", "gingerale", "hot_coco", "honey", "highpower", "ice", "icetea", "kahlua", "lemonjuice", "lemon_lime", "limejuice", "mead", "milk", "mint", "orangejuice", "gargleblaster", "phoronspecial", "rum", "sake", "sodawater", "soymilk", "space_up", "spacemountainwind", "specialwhiskey", "sugar", "sitonmyface", "spiderdrink", "syndicatebomb", "tea", "tequilla", "tomatojuice", "tonic", "vermouth", "vodka", "virginsip", "water", "watermelonjuice", "whiskey", "wine")

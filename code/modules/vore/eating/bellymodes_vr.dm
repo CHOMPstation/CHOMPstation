@@ -60,7 +60,7 @@
 
 				//Numbing flag
 				if(mode_flags & DM_FLAG_NUMBING)
-					if(H.bloodstr.get_reagent_amount("numbenzyme") < 2)
+					if(H.bloodstr.get_reagent_amount("numbenzyme") < 2 && !H.synthetic)
 						H.bloodstr.add_reagent("numbenzyme",4)
 
 				//Stripping flag
@@ -184,7 +184,7 @@
 
 			if(M.absorbed && owner.nutrition >= 100)
 				M.absorbed = 0
-				to_chat(M,"<span class='notice'>You suddenly feel solid again </span>")
+				to_chat(M,"<span class='notice'>You suddenly feel solid again.</span>")
 				to_chat(owner,"<span class='notice'>You feel like a part of you is missing.</span>")
 				owner.nutrition -= 100
 				to_update = TRUE

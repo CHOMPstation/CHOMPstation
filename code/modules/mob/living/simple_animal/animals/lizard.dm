@@ -1,5 +1,5 @@
 /mob/living/simple_animal/lizard
-	name = "Lizard"
+	name = "lizard"
 	desc = "A cute tiny lizard."
 	faction = "lizard"
 	tt_desc = "E Anolis cuvieri"
@@ -25,11 +25,11 @@
 	speak_emote = list("hisses")
 	var/amount_grown = 0
 
-	
-	
+
+
 /mob/living/simple_animal/lizard/event
 	desc = "This one looks like it is growing huge!"
-	
+
 /mob/living/simple_animal/lizard/event/Life()
 	. = ..()
 	if(amount_grown >= 0)
@@ -43,7 +43,7 @@
 	if(prob(99.999))
 		new /mob/living/simple_animal/hostile/lizardman(get_turf(src))
 		qdel(src)
-	else	
+	else
 		new /mob/living/simple_animal/hostile/deathclaw(get_turf(src))
 		qdel(src)
-		
+

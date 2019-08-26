@@ -70,6 +70,7 @@
 	stop_when_pulled = 0 	// When set to 1 this stops the animal from moving when someone is pulling it.
 	follow_dist = 0		// Distance the mob tries to follow a friend
 	speed = 4		// Higher speed is slower, negative speed is faster.
+	entangle_immunity = 1 //makes mob immune to entangle effect of vines and also wont get stabbed by vines that has thorns
 
 	//Talk/Emote stuff
 	speak_chance = 0		// Probability that I talk (this is 'X in 200' chance since even 1/100 is pretty noisy)
@@ -123,7 +124,7 @@
 /mob/living/simple_animal/hostile/piranhaplant/spitter
 		//might snatch the code for that uranium ray for this since it should poison
 	name = "Piranha Spitter"
-	attack_armor_pen = 0	
+	attack_armor_pen = 0
 	//Attack ranged settings.
 	ranged = 1		// Do I attack at range?
 	shoot_range = 6		// How far away do I start shooting from?
@@ -132,18 +133,22 @@
 	firing_lines = 0	// Avoids shooting allies
 	projectiletype	= /obj/item/projectile/energy/piranhaspit	// The projectiles I shoot
 	projectilesound = 'sound/weapons/thudswoosh.ogg' // The sound I make when I do it
-	casingtype = /obj/item/weapon/reagent_containers/food/snacks/soylentgreen/piranha // What to make the hugely laggy casings pile out of
+	ranged_ignore_incapitated = 1 //make it so our spitter doesnt stun lock dorks
+	ranged_cooldown_time = 90
+
+//mob/living/simple_animal/hostile/piranhaplant/spitter/proc/Shoot()
+	//TOX/HALLOSS swap code goes here //TODO
 
 //Piranha unique projectile
 /obj/item/projectile/energy/piranhaspit
-	name = "piranhaspit"
-	icon_state = "neurotoxin"
-	damage = 4 //Reduced damage to 4 from 10, 3 fired projectiles mean might do 12 total if all 3 hit
-	damage_type = TOX
-	check_armour = "bio" //yup biohazard protection works here
-	flash_strength = 0
-	agony = 10
-	combustion = FALSE
+    name = "piranha spit"
+    icon_state = "neurotoxin"
+    damage = 10
+    damage_type = HALLOSS
+    check_armour = "bio" //yup biohazard protection works here
+    flash_strength = 0
+    agony = 10
+    combustion = FALSE
 
 /obj/item/weapon/reagent_containers/food/snacks/soylentgreen/piranha
 	name = "Soylent"
@@ -153,8 +158,9 @@
 	center_of_mass = list("x"=15, "y"=11)
 
 /obj/item/projectile/energy/piranhaspit/on_hit(var/atom/soyled)
-	soyl(soyled)
-	..()
+    if(prob(5))
+        soyl(soyled)
+    ..()
 
 /obj/item/projectile/energy/piranhaspit/proc/soyl(var/mob/M)
 	var/location = get_turf(M)
@@ -171,14 +177,16 @@
 	B.digest_brute = 12
 
 /mob/living/simple_animal/hostile/piranhaplant/pitcher
-	icon_state = "pitcher"
-	icon_living = "pitcher"
+	icon_state = "pitcher-plant"
+	icon_living = "pitcher-plant"
+	icon_dead = "pitcher-plant_dead"
 	name = "Pitcher Plant"
 	desc = "It's a plant! How pretty"
 	tt_desc = "Brig Flower"
-	health = 50
-	maxHealth = 50 //starts with 50
+	health = 500
+	maxHealth = 500
 	var/antispam = 0
+	swallowTime = 3 SECONDS //If you get to close to a pitcher, its your own fault ;p
 
 /mob/living/simple_animal/hostile/piranhaplant/pitcher/death()
 	..()
@@ -192,24 +200,27 @@
 	..()
 	if(!anchored)
 		anchored=1
-	if(maxHealth <= 499) //Ok maybe there are limits
-		maxHealth = health //Limits are merely a suggestion
 	if(vore_fullness && !antispam)
 		antispam = 1
 		spawn(10)
-			if(maxHealth <= 499)
-				maxHealth += 1
-			health += 1
+			if(bruteloss >= 1)
+				bruteloss -= 1
 			antispam = !antispam
-		
-	if(size_multiplier!=1*health/100)
+			if(prob(3))
+				new /obj/item/weapon/reagent_containers/food/snacks/soylentgreen/piranha(src.loc)
+
+	if(size_multiplier!=1*health/100 && health >= 50 && health <= 300)
 		size_multiplier=1*health/100
 		update_icons()
+
+/mob/living/simple_animal/hostile/piranhaplant/pitcher/New()
+    ..()
+    bruteloss = 400
 
 /mob/living/simple_animal/hostile/piranhaplant/pitcher/init_vore()
 	..()
 	var/obj/belly/B = vore_selected
 	B.digest_burn = 0.5
 	B.digest_brute = 0
-	B.vore_verb = "slurped up"
+	B.vore_verb = "slurp up"
 	B.name = "pitcher"

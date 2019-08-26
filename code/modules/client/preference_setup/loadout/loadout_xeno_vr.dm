@@ -1,3 +1,16 @@
+//CHOMPEDIT; SYNTH FACEMASK
+/datum/gear/mask/synthface/
+	display_name = "Synth Facemask(Tesh)"
+	path = /obj/item/clothing/mask/synthfacemask
+	sort_category = "Xenowear"
+	whitelisted = SPECIES_TESHARI
+	cost = 1
+//CHOMPEDIT; END
+
+/datum/gear/mask/synthface/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 /datum/gear/uniform/voxcasual
 	display_name = "casual wear (Vox)"
 	path = /obj/item/clothing/under/vox/vox_casual

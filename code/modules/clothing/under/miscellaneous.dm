@@ -854,3 +854,15 @@
 	name = "hazard cohesion suit"
 	desc = "An orange cohesion suit with yellow hazard stripes intended to assist Prometheans in maintaining their form and prevent direct skin exposure."
 	icon_state = "cohesionsuit_hazard"
+
+/obj/item/clothing/under/sexybunny_white
+	name = "Bunny girl suit"
+	desc = "this seems to come with extra padding, exaggerating the chest some."
+	icon_state = "sexybunny_white"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+
+/obj/item/clothing/under/sexybunny_black
+	name = "Bunny girl suit"
+	desc = "this seems to come with extra padding, exaggerating the chest some."
+	icon_state = "sexybunny_black"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
