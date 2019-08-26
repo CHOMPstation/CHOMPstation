@@ -5,7 +5,7 @@
 	if(icon)
 		msg += "\icon[icon] "
 
-	msg += "<EM>[src.name]</EM>, a <EM>[chassis_names[src.chassis]]</EM> personal AI\n"
+	msg += "<EM>[src.name]</EM>, a <EM>[chassis_names[src.chassis]]</EM> personal AI</span>\n"
 
 	if(health == 100)
 		msg += "<span class='notice'>It's in pristine condition.</span>\n"
