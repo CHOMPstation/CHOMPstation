@@ -3,7 +3,7 @@
 
 	name = "display monitor"
 	desc = "A rather clunky old CRT-style display screen, fit for mounting on an optical output."
-	body_parts_covered = FACE
+	body_parts_covered = FACE|EYES
 	dir = SOUTH
 
 	icon = 'icons/mob/monitor_icons.dmi'
