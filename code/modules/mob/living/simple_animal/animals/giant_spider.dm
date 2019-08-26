@@ -83,6 +83,7 @@ Nurse Family
 	poison_type = "spidertoxin"  // VOREStation edit, original is stoxin. (sleep toxins)
 
 	var/fed = 0
+	var/fedsmall = 0
 	var/atom/cocoon_target
 	var/egg_inject_chance = 5
 
@@ -518,7 +519,7 @@ Spider Procs
 			else
 				//third, lay an egg cluster there
 				var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
-				if(!E && fed > 0)
+				if(!E && fed > 0 || fedsmall > 0)
 					busy = LAYING_EGGS
 					src.visible_message("<span class='notice'>\The [src] begins to lay a cluster of eggs.</span>")
 					stop_automated_movement = 1
@@ -526,8 +527,12 @@ Spider Procs
 						if(busy == LAYING_EGGS)
 							E = locate() in get_turf(src)
 							if(!E)
-								new /obj/effect/spider/eggcluster(loc, src)
-								fed--
+								if(fed >= 1)
+									new /obj/effect/spider/eggcluster(loc, src)
+									fed--
+								if(fedsmall >= 1)
+									new /obj/effect/spider/eggcluster/small(loc, src)
+									fedsmall--
 							busy = 0
 							stop_automated_movement = 0
 				else
@@ -562,7 +567,10 @@ Spider Procs
 								if(istype(M, /mob/living/simple_animal/hostile/giant_spider))
 									continue
 								large_cocoon = 1
-								fed++
+								if(istiny(cocoon_target))
+									fedsmall++
+								if(!istiny(cocoon_target))
+									fed++
 								src.visible_message("<span class='warning'>\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out.</span>")
 								M.forceMove(C)
 								C.pixel_x = M.pixel_x
