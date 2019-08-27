@@ -7,6 +7,7 @@
 	var/leap_at
 	var/dogborg = FALSE //Dogborg special features (overlays etc.)
 	var/wideborg = FALSE //When the borg simply doesn't use standard 32p size.
+	var/resticon = TRUE //does nothing without dogborg and when false makes it use a similar method to default borgs
 	var/scrubbing = FALSE //Floor cleaning enabled
 	var/datum/matter_synth/water_res = null
 	var/notransform
@@ -56,9 +57,12 @@
 			add_overlay("taser")
 		if(lights_on)
 			add_overlay("eyes-[module_sprites[icontype]]-lights")
-		if(resting)
+		if(resting && resticon == FALSE)
+			cut_overlay("eyes-[module_sprites[icontype]]")
+		if(resting && resticon == TRUE)
 			cut_overlays() // Hide that gut for it has no ground sprite yo.
 			icon_state = "[module_sprites[icontype]]-rest"
+
 		else
 			icon_state = "[module_sprites[icontype]]"
 	if(dogborg == TRUE && stat == DEAD)

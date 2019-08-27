@@ -45,6 +45,8 @@
 	robot_modules["Pupdozer"] = /obj/item/weapon/robot_module/robot/engiedog
 	robot_modules["BoozeHound"] = /obj/item/weapon/robot_module/robot/booze
 	robot_modules["Service-borg"] = /obj/item/weapon/robot_module/robot/servborg
+	robot_modules["Vore Services"] = /obj/item/weapon/robot_module/robot/servore//edit chompers
+	robot_modules["Medivore"] = /obj/item/weapon/robot_module/robot/medical/vore
 	return 1
 
 //Just add a new proc with the robot_module type if you wish to run some other vore code
@@ -509,11 +511,11 @@
 	water.energy = 0
 	R.water_res = water
 	synths += water
-	
+
 	var/obj/item/device/dogborg/tongue/T = new /obj/item/device/dogborg/tongue(src)
 	T.water = water
 	src.modules += T
-	
+
 
 	src.modules += new /obj/item/weapon/tray/robotray(src)
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo/service/booze(src)
