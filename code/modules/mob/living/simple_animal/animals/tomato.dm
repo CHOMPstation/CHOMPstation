@@ -172,9 +172,18 @@
 	var/obj/belly/B = vore_selected
 	B.vore_verb = "chomp up"
 	B.name = "stomach"
-	B.desc	= "You're pulled into the tight stomach of the plant. The walls knead weakly around you, coating you in thick, viscous fluids that cling to your body, that soon starts to tingle and burn..."
+	B.desc	= "You're pulled into the tight mouth of the plant. The teeth and walls gnash harshly on you!"
 	B.digest_burn = 0
-	B.digest_brute = 12
+	B.digest_brute = 5
+	
+/mob/living/simple_animal/hostile/piranhaplant/spitter/init_vore()
+	..()
+	var/obj/belly/B = vore_selected
+	B.vore_verb = "chomp up"
+	B.name = "stomach"
+	B.desc	= "You're pulled into the tight stomach of the plant. The walls knead weakly around you, coating you in thick, viscous fluids that cling to your body, that soon starts to tingle and burn..."
+	B.digest_burn = 5
+	B.digest_brute = 0
 
 /mob/living/simple_animal/hostile/piranhaplant/pitcher
 	icon_state = "pitcher-plant"
