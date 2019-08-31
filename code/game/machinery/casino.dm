@@ -204,10 +204,10 @@
 			busy = FALSE
 			return
 
-		visible_message(output) //Output message
+		to_chat(user,output) //Output message
 
 		if(platinumwin) // Did they win the platinum chip?
-			new /obj/item/weapon/casin_platinum_chip(src.loc)
+			new /obj/item/weapon/casino_platinum_chip(src.loc)
 			playsound(src.loc, 'sound/machines/slotmachine.ogg', 25, 1)
 
 		if(winnings) //Did the person win?
@@ -650,6 +650,7 @@
 					<li><a href="#Blackjack">Blackjack</a></li>
 					<li><a href="#Roulette">Roulette</a></li>
 					<li><a href="#Poker">Poker</a></li>
+					<li><a href="#CoH">Cards against the galaxy</a></li>
 					<li><a href="#Prizes">Prizes</a></li>
 					<li><a href="#SentientPrizes">Sentient prizes</a></li>
 				</ol>
@@ -664,7 +665,7 @@
 				<ul>
 					<li>Ace - 1 or 11, can be freely decided at any moment</li>
 					<li>2 - 10 - value coresponding to their number</li>
-					<li>All face cards including joker - Value of 10</li>
+					<li>All face cards excluding joker - Value of 10</li>
 				</ul>
 				A game of blackjack begins with the dealer giving the gambler two cards, in normal blackjack all cards dealt to gambler and dealer are always shown. The two cards dealt have their values put together, the gambler has three choices, stand, hit, or double down.
 				<ul>
@@ -679,7 +680,10 @@
 				</ul>
 				The casino who supplies this version of the manual follows the rule of hard 17. <br>
 				The game ends when the dealer busts, reaches the threshold of what they are allowed to draw, or if they get a higher value than the gambler. Again, the one who has the highest value that isnt higher than 21 wins, but if both has the same value no one wins and the bet goes back to the gambler. <br>
-				And thats it! Now go out there and gamble your savings away! This casino allows bets between 5 and 50 with double down ignoring that limit!
+				And thats it! Now go out there and gamble your savings away! This casino allows bets between 5 and 50 with double down ignoring that limit! <br><br>
+
+				But wait! Theres more! Theres also group blackjack! This game is a little different, the dealer can be part of it or simple deal for players, this game works differently with everyone keeping their hands hidden, everyone makes initial bets, gets two facedown cards, then its a matter of trying to get as good a hand as possible, but if you go bust, its over. But dont tell or show until everyone reveals! If youre going down, its best if youre opponents dont know they simply can play safe and win, if youre lucky everyone else gets themselves busted and you dont lose your beloved chips! <br>
+				Its kinda like texas hold em in a way, everyone draws, folks can raise bets or fold, then draw more. Rinse and repeat until no one wants to raise any more nor draw cards, if everyone except one person has folded, they win by default even if they have busted, cause they dont need to reveal their hand that game, so you can choose to either sit and wait and fold if someone raise the bets, or you can gamble and make it look like you have an amazing hand and win by default since everyone else folds and no one is wise that you had a bust! This game has turned from simple probability and chance against the dealer to a game of risk and deception, fun fun fun!
 
 				<h1><a name="Roulette">Roulette</a></h1>
 				So this game of roulette is all about chance! what happens is that people bet on different odds and hope for the best as the dealer rolls the ball and makes that roulette thingy make than fun addicting spin! Once it lands on a number between 0 and 36 its either bust or payout! Pretty simple, right? <br>
@@ -718,6 +722,14 @@
 				</ul>
 				Wew, what a long lesson, but thats how one does the Texas hold em here at this casino, hope you guys have fun winning and losing your hard earned cash with this one!
 
+				<h1><a name="CoH">Cards against the galaxy</a></h1>
+
+				So hear this, NT is now sponsoring team building at the casino, so folks who wants to just relax with friends, play some games, earn chips with no risk, even the ones broke can join in on a fun game of Cards against the galaxy and have fun! <br>
+				The idea is that once a round has concluded and a casino member is present to see the game being actually played, everyone gets 10 chips while the one who won the round gets 25 instead! Interested? Good! Its easy and simple to play and very fun and vulgar! <br><br>
+
+				The game is best played with at least 4 players and starts with everyone drawing 7 white cards, the person who most recently pooped starts as the 'card czar', but folks can agree on another criteria for the czar or simply pick one. Each round the current card czar draws a black card that has text written on it and blank lines, everyone aside from the czar takes a white card from their hand for every blank line which they find funny in that sentence and puts on the table face down with the others. The card czar cant know who has which white card and simply reads the black card with the white ones, the most funniest combination is choosen by the czar and the one who made that combination is the current rounds winner and the next rounds czar. At the end of each round everyone makes sure to draw enough white card to have 7 on hand and if theres a casino staff member playing or watching, they note down or hand out chips for everyone, and if they are playing, they get to add chips to their own personal stockpile too! <br>
+				Thats it for cards against the galaxy! Simple, fun and vulgar, whats there not to love?
+
 				<h1><a name="Prizes">Prizes</a></h1>
 
 				Hey folks, welcome to the prize section! This part is definently important for you folks operating the prize booth! First off I wanna tell you some great news! Nanotransen has gone along with a nice deal that allows crew to occasionally keep their hard earned rewards on station for a limited time, now you can enjoy your new fancy toolbelt or bluespace beaker for more than just the shift where the casino comes around! <br>
@@ -730,7 +742,7 @@
 				10 Thalers = 1 casino chip <br>
 				1 casino chip = 5 Thalers <br> <br>
 
-				The special sentient prize is 100 chips! More about it in section below! <br> <br>
+				The special sentient prize is 50 chips! More about it in section below! <br> <br>
 
 				Melee weapons
 				<ul>
@@ -755,7 +767,7 @@
 					<li>alien enhancement vest 750</li>
 					<li>cryostasis beaker 200</li>
 					<li>bluespace beaker 200</li>
-					<li>Vey-med NIF 1000 ((This one isnt taken away at the end of the reward period!))</li>
+					<li>chem sprayer 250</li>
 				</ul>
 				Accessories
 				<ul>
@@ -838,10 +850,53 @@
 				Goodness me this is quite the casino huh? Who would have thought one could win other people as a prize? Well you can do just about anything you want with them! Be it just company, some less children friendly company, heck you can even eat them or make them eat you! The options and possibilities are quite frankly limitless! <br>
 				Now you might ask, how does one get these fancy prizes? Well they can be obtained by checking in at the exchange both and see the list of prizes, there might be none, there might be many, it depends on volunteers and losers! This brings us first to volunteers and then to losers! <br>
 				Volunteering is simple! Anyone can walk up to the booth and ask to be a sentient prize, what this means is that you get a nice sum of 250 chips for you to do whatever you want, but someone might come at any point and claim you! <br>
-				Losers are obtained differently, if youre completly busted and have nothing left, you become a prize that the one you lost to can do whatever they want with, this means both gamblers and dealers can end up as a prize, though if for whatever reason you dont become their prize, you get added to the list for someone else to enjoy. Becoming a prize means you also get 100 chips in compensation! <br><br>
+				Losers are obtained differently, if youre completly busted and have nothing left, you become a prize that the one you lost to can do whatever they want with, this means both gamblers and dealers can end up as a prize, though if for whatever reason you dont become their prize, you get added to the list for someone else to enjoy. Becoming a prize means you also get 100 chips in compensation! <br>
+
+				Now hear this! The casino has decided that to spice things up, folks can bet themselves at any time and arent already a prize on the list! Doesnt matter if youre rich or broke, playing blackjack or roulette, you can bet yourself in any game and youre worth 250 chips! But be careful, cause if you lose, youre the winners prize! They can keep you, give you to someone else. or to the prize booth and get the chips you would have gotten as volunteer! But if given to the booth, the winner cant buy their prize back for the lower cost!<br><br>
 
 				((Sour part again, but very important. These sentient prizes can be fun, but one thing always dictates how these things goes down, preferences and ooc wants. If preferences dont line up and people dont agree to do winner/loser scene it becomes sentient prize on list. And someone cant win a prize if the prize ooc doesnt want to do what the winner wants to do. We still wish people to try and reach out and try things with new people and/or new things they are comfortable doing, but never shall anyone be forced into a situation they dont want!))
 
 				</body>
 				</html>
 			"}
+
+/obj/item/weapon/storage/wallet/casino
+	name = "casino wallet"
+	desc = "A fancy casino wallet with flashy lights, oooh~"
+	icon = 'icons/obj/casino.dmi'
+	icon_state = "casinowallet_black"
+
+/obj/item/weapon/storage/wallet/casino/verb/toggle_design()
+	set category = "Object"
+	set name = "Toggle design"
+	set src in usr
+
+	if (icon_state == "casinowallet_black")
+		icon_state = "casinowallet_brown"
+		return
+	if (icon_state == "casinowallet_brown")
+		icon_state = "casinowallet_white"
+		return
+	else
+		icon_state = "casinowallet_black"
+
+/obj/machinery/casino_chip_exchanger
+	name = "Casino Chip Exchanger"
+	desc = "Takes all your cash and gives you chips back! No change and no refund!"
+	icon = 'icons/obj/casino.dmi'
+	icon_state ="casino_atm"
+	anchored = 1
+
+/obj/machinery/casino_chip_exchanger/attackby(obj/item/I as obj, mob/user as mob)
+	if(istype(I,/obj/item/weapon/spacecash))
+		//consume the money
+		if(prob(50))
+			playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
+		else
+			playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
+
+		user << "<span class='info'>You insert [I] into [src].</span>"
+		spawn_casinochips(round(I:worth/5), src.loc)
+		src.attack_hand(user)
+		qdel(I)
+
