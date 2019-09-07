@@ -409,13 +409,14 @@
 	player_msg = "You are Anno, you are energetic and playful"
 
 /mob/living/simple_animal/shadekin/blue/roti
-    name ="Roti"
-    desc = "Roti is a shadekin with blue eyes, is chubby since he has eaten others before hand. He enjoys chocolate, the taste of it, the smell of it, he just wants anything sweet and chocolately to be in his belly. So be careful around him this is also a way to summon him by laying around chocolate and calling him out."
-    icon_state = "roti"
+	name ="Roti"
+	desc = "Roti is a shadekin with blue eyes, is chubby since he has eaten others before hand. He enjoys chocolate, the taste of it, the smell of it, he just wants anything sweet and chocolately to be in his belly. So be careful around him this is also a way to summon him by laying around chocolate and calling him out."
+	icon_state = "roti"
 	eye_desc = "blue eyes"
-    vore_stomach_flavor = "You stare into Roti's maw as he moves it towards your head, putting it in and tasting your sweet delicious chocolately flavor.\
-    Wet saliva covers your head as he pushes you inward, gulping down your head and shoulders into his pulsating throat. It pulses and eases you downward towards your destination\
-    cramming your torso into his maw and taking wet SCHLURP, GLUK, to get it down and up to your waist. Roti continues to taste you all over wanting that succulent flavor\
-    to himself. Another loud wet swallow and down goes your waist into his hungry maw, lifting up the legs high into the sky while allowing gravity and his gulps\
-    to send you packing away into his chubby gut that now expands to fit you inside of the wet chamber. At least you were safe for now that is."
-    player_msg = "You are Roti, a curious shadekin that wishes to learn from the station and eventually speak with them."
+	eye_state = "BLUE_EYES"
+	vore_stomach_flavor = "You stare into Roti's maw as he moves it towards your head, putting it in and tasting your sweet delicious chocolately flavor. \
+	Wet saliva covers your head as he pushes you inward, gulping down your head and shoulders into his pulsating throat. It pulses and eases you downward towards your destination \
+	cramming your torso into his maw and taking wet SCHLURP, GLUK, to get it down and up to your waist. Roti continues to taste you all over wanting that succulent flavor \
+	to himself. Another loud wet swallow and down goes your waist into his hungry maw, lifting up the legs high into the sky while allowing gravity and his gulps \
+	to send you packing away into his chubby gut that now expands to fit you inside of the wet chamber. At least you were safe for now that is."
+	player_msg = "You are Roti, a curious shadekin that wishes to learn from the station and eventually speak with them."
