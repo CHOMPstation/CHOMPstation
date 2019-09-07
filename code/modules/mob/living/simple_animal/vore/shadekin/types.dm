@@ -13,30 +13,30 @@
 ///mob/living/simple_animal/shadekin/red
 //then we simply add our shadekins name at the end (unless its used already)
 /mob/living/simple_animal/shadekin/red/proto
-	name ="Proto" 
+	name ="Proto"
 	//This here will be our shadekins name
-	
-	desc = "An invisible entity not meant for use." 
+
+	desc = "An invisible entity not meant for use."
 	//here goes a lil tidbit people can see when examining the shadekin. Multiple lines works just as on the vore part
-	
-	icon_state = "proto" 
+
+	icon_state = "proto"
 	//this will most likely also be your shadekins name, it corresponds to the name you gave the tail and body state in the DMIs
 	//so if you named the body state "proto" and "proto-1" then icon_state should be called "proto"
-	
+
 	vore_stomach_flavor = "You stared into the void,\
 	the void decided you look tasty,\
 	now you are in the void, pretty wet"
 	//This is what people see when they drop into your gut! the backslashes at the end of the sentence indicate the next text will be on its own line!
-	
-	
-	player_msg = "Proto is you, Proto shouldn't exist" 
+
+
+	player_msg = "Proto is you, Proto shouldn't exist"
 	//This message pops up when you are put into your shadekin
 	//I recommend you use it as a way to remind yourself of how you want to act generally as your shadekin.
-	
+
 //Step 3; PR
 // Assuming you already have a Fork of chompstation, make sure you got your files in order
 // and then simply make a new pull request to our github.
-	
+
 //Now once you pushed the new DMIs with your added sprites to our github.
 //And you finished writing this code section for your shadekin and pushed that too. You are done.
 //If this is your first time I recommend getting someone to look over your work.
@@ -407,3 +407,15 @@
 	The gut seemed somewhat inviting with the warmth and softness, yet there was an ominous feeling to it with all the noises it made.\
 	You'll probably be safe in here. Probably."
 	player_msg = "You are Anno, you are energetic and playful"
+
+/mob/living/simple_animal/shadekin/blue/roti
+    name ="Roti"
+    desc = "Roti is a shadekin with blue eyes, is chubby since he has eaten others before hand. He enjoys chocolate, the taste of it, the smell of it, he just wants anything sweet and chocolately to be in his belly. So be careful around him this is also a way to summon him by laying around chocolate and calling him out."
+    icon_state = "roti"
+	eye_desc = "blue eyes"
+    vore_stomach_flavor = "You stare into Roti's maw as he moves it towards your head, putting it in and tasting your sweet delicious chocolately flavor.\
+    Wet saliva covers your head as he pushes you inward, gulping down your head and shoulders into his pulsating throat. It pulses and eases you downward towards your destination\
+    cramming your torso into his maw and taking wet SCHLURP, GLUK, to get it down and up to your waist. Roti continues to taste you all over wanting that succulent flavor\
+    to himself. Another loud wet swallow and down goes your waist into his hungry maw, lifting up the legs high into the sky while allowing gravity and his gulps\
+    to send you packing away into his chubby gut that now expands to fit you inside of the wet chamber. At least you were safe for now that is."
+    player_msg = "You are Roti, a curious shadekin that wishes to learn from the station and eventually speak with them."
