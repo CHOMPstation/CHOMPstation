@@ -413,7 +413,6 @@
 	desc = "Roti is a shadekin with blue eyes, is chubby since he has eaten others before hand. He enjoys chocolate, the taste of it, the smell of it, he just wants anything sweet and chocolately to be in his belly. So be careful around him this is also a way to summon him by laying around chocolate and calling him out."
 	icon_state = "roti"
 	eye_desc = "blue eyes"
-	eye_state = "BLUE_EYES"
 	vore_stomach_flavor = "You stare into Roti's maw as he moves it towards your head, putting it in and tasting your sweet delicious chocolately flavor. \
 	Wet saliva covers your head as he pushes you inward, gulping down your head and shoulders into his pulsating throat. It pulses and eases you downward towards your destination \
 	cramming your torso into his maw and taking wet SCHLURP, GLUK, to get it down and up to your waist. Roti continues to taste you all over wanting that succulent flavor \
