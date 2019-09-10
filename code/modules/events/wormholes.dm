@@ -48,6 +48,8 @@
 	teleport(user)
 
 /obj/effect/portal/worm/teleport(atom/movable/M)
+	if(istype(M, /mob/observer))
+		return
 	if(istype(M, /obj/effect))	//sparks don't teleport
 		return
 	if(M.anchored && istype(M, /obj/mecha))
