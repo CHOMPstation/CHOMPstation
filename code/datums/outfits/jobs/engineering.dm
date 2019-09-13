@@ -3,7 +3,7 @@
 	belt = /obj/item/weapon/storage/belt/utility/full
 	l_ear = /obj/item/device/radio/headset/headset_eng
 	shoes = /obj/item/clothing/shoes/boots/workboots
-//	r_pocket = /obj/item/device/t_scanner	//TFF 13/9/19 - ChompStation Edit - Slight rework of how T-Ray scanners are spawned in with Engineers/Atmos Techs
+	r_pocket = /obj/item/device/t_scanner
 	backpack = /obj/item/weapon/storage/backpack/industrial
 	satchel_one = /obj/item/weapon/storage/backpack/satchel/eng
 	messenger_bag = /obj/item/weapon/storage/backpack/messenger/engi
