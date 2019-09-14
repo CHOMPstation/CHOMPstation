@@ -257,7 +257,7 @@
 	taste_description = "salt"
 	reagent_state = SOLID
 	color = "#FFFFFF"
-	overdose = REAGENTS_OVERDOSE
+	overdose = REAGENTS_OVERDOSE * 0.5
 	ingest_met = REM
 
 /datum/reagent/sodiumchloride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -269,6 +269,13 @@
 	var/pass_mod = rand(3,5)
 	var/passthrough = (removed - (removed/pass_mod)) //Some may be nullified during consumption, between one third and one fifth.
 	affect_blood(M, alien, passthrough)
+
+/datum/reagent/sodiumchloride/overdose(var/mob/living/carbon/M, var/alien, var/removed) // This is for you, Solus. -Erik
+	if(alien == IS_DIONA)
+		return
+
+	M/human.losebreath = 10
+	M.adjustOxyLoss(removed * 5)
 
 /datum/reagent/blackpepper
 	name = "Black Pepper"
