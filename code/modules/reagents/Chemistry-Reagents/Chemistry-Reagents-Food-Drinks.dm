@@ -275,7 +275,6 @@
 		return
 
 	M/human.losebreath = 10
-	M.adjustOxyLoss(removed)
 
 /datum/reagent/blackpepper
 	name = "Black Pepper"
