@@ -257,7 +257,7 @@
 	taste_description = "salt"
 	reagent_state = SOLID
 	color = "#FFFFFF"
-	overdose = REAGENTS_OVERDOSE * 0.5
+	overdose = REAGENTS_OVERDOSE
 	ingest_met = REM
 
 /datum/reagent/sodiumchloride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -275,7 +275,7 @@
 		return
 
 	M/human.losebreath = 10
-	M.adjustOxyLoss(removed * 5)
+	M.adjustOxyLoss(removed)
 
 /datum/reagent/blackpepper
 	name = "Black Pepper"
