@@ -270,6 +270,12 @@
 	var/passthrough = (removed - (removed/pass_mod)) //Some may be nullified during consumption, between one third and one fifth.
 	affect_blood(M, alien, passthrough)
 
+/datum/reagent/sodiumchloride/overdose(var/mob/living/carbon/M, var/alien, var/removed) // This is for you, Solus. -Erik
+	if(alien == IS_DIONA)
+		return
+
+	M/human.losebreath = 10
+
 /datum/reagent/blackpepper
 	name = "Black Pepper"
 	id = "blackpepper"
