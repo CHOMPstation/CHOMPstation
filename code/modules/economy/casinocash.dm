@@ -18,7 +18,6 @@
 
 /obj/item/weapon/spacecasinocash/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/spacecasinocash))
-		if(istype(W, /obj/item/weapon/spacecasinocash/ewallet)) return 0
 
 		var/obj/item/weapon/spacecasinocash/SC = W
 
@@ -144,25 +143,12 @@ proc/spawn_casinochips(var/sum, spawnloc, mob/living/carbon/human/human_user as 
 		human_user.put_in_hands(SC)
 	return
 
-/obj/item/weapon/spacecasinocash/ewallet
-	name = "Casino chip card"
-	icon_state = "efundcard"
-	desc = "A casino card that can hold credits."
-	var/owner_name = "" //So the ATM can set it so the EFTPOS can put a valid name on transactions.
-	attack_self() return  //Don't act
-	attackby()    return  //like actual
-	update_icon() return  //space cash
-
-/obj/item/weapon/spacecasinocash/ewallet/examine(mob/user)
-	..(user)
-	if (!(user in view(2)) && user!=src.loc) return
-	user << "<font color='#6F6FE2'>Casino chip card's owner: [src.owner_name]. credits remaining: [src.worth].</font>"
-
-/obj/item/weapon/casin_platinum_chip
+/obj/item/weapon/casino_platinum_chip
 	name = "platinum chip"
 	desc = "Ringa-a-Ding-Ding!"
 	icon = 'icons/obj/casino.dmi'
 	icon_state = "platinum_chip"
+	var/sides = 2
 	opacity = 0
 	density = 0
 	anchored = 0.0
@@ -171,3 +157,13 @@ proc/spawn_casinochips(var/sum, spawnloc, mob/living/carbon/human/human_user as 
 	throw_speed = 1
 	throw_range = 2
 	w_class = ITEMSIZE_SMALL
+
+/obj/item/weapon/casino_platinum_chip/attack_self(mob/user as mob)
+	var/result = rand(1, sides)
+	var/comment = ""
+	if(result == 1)
+		comment = "Ace"
+	else if(result == 2)
+		comment = "Joker"
+	user.visible_message("<span class='notice'>[user] has thrown \the [src]. It lands on [comment]! </span>", \
+						 "<span class='notice'>You throw \the [src]. It lands on [comment]! </span>")

@@ -148,3 +148,10 @@
 		new /obj/item/clothing/accessory/badge/holo/cord(src)
 		..()
 		return
+
+
+/obj/item/clothing/accessory/badge/belly
+	name = "bellybrig holobadge"
+	desc = "This glowing blue badge marks the holder as a designated bellybrig."
+	icon_state = "vorebadge"
+	badge_string = "Certified Bellybrig"
