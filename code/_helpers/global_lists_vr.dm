@@ -162,6 +162,7 @@ var/global/list/edible_trash = list(/obj/item/trash,
 				/obj/item/device/paicard,
 				/obj/item/device/mmi/digital/posibrain,
 				/obj/item/weapon/digestion_remains,
+				/obj/item/device/communicator,
 				/obj/item/device/aicard)
 
 var/global/list/cont_flavors = list(
