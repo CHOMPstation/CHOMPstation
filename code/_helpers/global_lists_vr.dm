@@ -173,7 +173,13 @@ var/global/list/edible_trash = list(/obj/item/trash,
 				/obj/item/weapon/glass_extra,
 				/obj/item/weapon/paper,
 				/obj/item/weapon/clipboard,
-				/obj/item/weapon/deck)
+				/obj/item/weapon/deck,
+				/obj/item/clothing/accessory/collar,	//TFF 10/7/19 - add option to nom collars,
+				/obj/item/clothing/mask,
+				/obj/item/clothing/glasses,
+				/obj/item/clothing/gloves,
+				/obj/item/clothing/head,
+				/obj/item/clothing/shoes)
 
 var/global/list/edible_tech = list(/obj/item/weapon/cell,
 				/obj/item/weapon/circuitboard,
