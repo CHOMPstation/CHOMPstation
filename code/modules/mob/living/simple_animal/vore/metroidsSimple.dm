@@ -120,15 +120,15 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	icon_state = "baby"
 	intelligence_level = SA_ANIMAL
 	speak_emote = list("churrs")
-	health = 200
-	maxHealth = 200
+	health = 125
+	maxHealth = 125
 	melee_damage_lower = 1
 	melee_damage_upper = 5
 	melee_miss_chance = 0
 	armor = list(
-				"melee" = 50,
-				"bullet" = 30,
-				"laser" = 80,
+				"melee" = 30,
+				"bullet" = 5,
+				"laser" = 60,
 				"energy" = 90,
 				"bomb" = 70,
 				"bio" = 100,
@@ -191,11 +191,11 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	health = 250
 	maxHealth = 250
 	melee_damage_lower = 2
-	melee_damage_upper = 5
+	melee_damage_upper = 9
 	melee_miss_chance = 0
 	armor = list(
-				"melee" = 50,
-				"bullet" = 30,
+				"melee" = 30,
+				"bullet" = 10,
 				"laser" = 90,
 				"energy" = 90,
 				"bomb" = 70,
@@ -273,10 +273,10 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_miss_chance = 5
 	attacktext = list("rammed")
 	armor = list(
-				"melee" = 60,
-				"bullet" = 45,
+				"melee" = 50,
+				"bullet" = 25,
 				"laser" = 50,
-				"energy" = 70,
+				"energy" = 60,
 				"bomb" = 10,
 				"bio" = 100,
 				"rad" = 100)
@@ -355,8 +355,8 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_miss_chance = 5
 	attacktext = list("rammed")
 	armor = list(
-				"melee" = 60,
-				"bullet" = 50,
+				"melee" = 55,
+				"bullet" = 25,
 				"laser" = 50,
 				"energy" = 90,
 				"bomb" = 10,
@@ -446,9 +446,9 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	attacktext = list("slashed")
 	armor = list(
 				"melee" = 70,
-				"bullet" = 60,
+				"bullet" = 30,
 				"laser" = 50,
-				"energy" = 70,
+				"energy" = 60,
 				"bomb" = 10,
 				"bio" = 100,
 				"rad" = 100)
@@ -539,9 +539,9 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	attacktext = list("slashed")
 	armor = list(
 				"melee" = 75,
-				"bullet" = 60,
+				"bullet" = 40,
 				"laser" = 55,
-				"energy" = 90,
+				"energy" = 60,
 				"bomb" = 10,
 				"bio" = 100,
 				"rad" = 100)
@@ -633,7 +633,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	attacktext = list("gnashed")
 	armor = list(
 				"melee" = 75,
-				"bullet" = 60,
+				"bullet" = 40,
 				"laser" = 60,
 				"energy" = 90,
 				"bomb" = 10,
@@ -698,7 +698,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	vore_pounce_chance = 60 //It's the queen, and it's hungry.
 	vore_default_mode = DM_DIGEST
 	swallowTime = 3 SECONDS
-	vore_escape_chance = 0
+	vore_escape_chance = 0 //You're not climbing out of that neck
 
 
 //------------------------------------------------------------------------------------------------------------
@@ -772,23 +772,24 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 /mob/living/simple_animal/hostile/metroid/evolution/Life()
 	. = ..()
 
-	if(canEvolve == 1 && nutrition >= evo_limit && (buckled || vore_fullness == 1)) //spit dat crap out if nutrition gets too high!
-		release_vore_contents()
-		prey_excludes.Cut()
-		stop_consumption()
+	if(stat != DEAD)
+		if(canEvolve == 1 && nutrition >= evo_limit && (buckled || vore_fullness == 1)) //spit dat crap out if nutrition gets too high!
+			release_vore_contents()
+			prey_excludes.Cut()
+			stop_consumption()
 
-	if(canEvolve == 1 && nutrition >= evo_point && !buckled && vore_fullness == 0 && !victim)
-		playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
-		paralysis = 7998
-		sleep(50)
-		paralysis = 0
-		expand_troid()
-		return
-	if(stance == 7) //Necessary to fix a bug where if their vore prey or latching victim is laying down when they evolve, they get stuck in stance 7 and do nothing.
-		stance = 4
-		return
-	else
-		handle_idle()
+		if(canEvolve == 1 && nutrition >= evo_point && !buckled && vore_fullness == 0 && !victim)
+			playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
+			paralysis = 7998
+			sleep(50)
+			paralysis = 0
+			expand_troid()
+			return
+		if(stance == 7) //Necessary to fix a bug where if their vore prey or latching victim is laying down when they evolve, they get stuck in stance 7 and do nothing.
+			stance = 4
+			return
+		else
+			handle_idle()
 
 /mob/living/simple_animal/hostile/metroid/proc/expand_troid()
 	new next(get_turf(src))
@@ -811,13 +812,14 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 
 /mob/living/simple_animal/hostile/metroid/evolution/proc/handle_idle()
 	//Do we have a vent ? Good, let's take a look
+	
 	for(entry_vent in view(1, src))
-		if(!victim && !buckled && vore_fullness == 0 && prob(90)) //10 % chance to consider a vent, to try and avoid constant vent switching
+		if(prob(1)) //1% chance to consider a vent, to try and avoid constant vent switching
 			return
 		visible_message("<span class='danger'>\The [src] starts trying to slide itself into the vent!</span>")
 		sleep(50) //Let's stop the metroid for five seconds to do its parking job
 		..()
-		if(!victim && !buckled && vore_fullness == 0 && entry_vent.network && entry_vent.network.normal_members.len)
+		if(entry_vent.network && entry_vent.network.normal_members.len)
 			var/list/vents = list()
 			for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in entry_vent.network.normal_members)
 				vents.Add(temp_vent)
