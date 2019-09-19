@@ -617,6 +617,10 @@
 				to_chat(src, "<span class='notice'>You can taste the flavor of gluttonous waste of food.</span>")
 		else if(istype(I,/obj/item/weapon/storage/glass_ornament))
 			to_chat(src, "<span class='notice'>You can taste the flavor of smooth glass.</span>")
+		//TFF 10/7/19 - Add custom flavour for collars for trash can trait.
+		else if (istype(I,/obj/item/clothing/accessory/collar))
+			visible_message("<span class='warning'>[src] demonstrates their voracious capabilities by swallowing [I] whole!</span>")
+			to_chat(src, "<span class='notice'>You can taste the submissiveness in the wearer of [I]!</span>")
 		else if(istype(I,/obj/item/integrated_circuit) ||istype(I,/obj/item/weapon/circuitboard))
 			to_chat(src, "<span class='notice'>mmm crunchy computer chips.</span>")
 		else if(istype(I,/obj/item/weapon/cell))
