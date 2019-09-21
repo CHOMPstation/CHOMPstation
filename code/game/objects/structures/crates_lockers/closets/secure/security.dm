@@ -287,7 +287,8 @@
 		/obj/item/weapon/reagent_containers/food/drinks/flask/detflask,
 		/obj/item/weapon/storage/briefcase/crimekit,
 		/obj/item/device/taperecorder,
-		/obj/item/device/tape/random = 3)
+		/obj/item/device/tape/random = 3,
+		/obj/item/clothing/gloves/forensic)	//TFF 20/9/19 CHOMPStation Addition - requested addition.
 
 /obj/structure/closet/secure_closet/detective/update_icon()
 	if(broken)
