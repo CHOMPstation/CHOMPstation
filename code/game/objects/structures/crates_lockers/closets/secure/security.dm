@@ -287,7 +287,8 @@
 		/obj/item/weapon/reagent_containers/food/drinks/flask/detflask,
 		/obj/item/weapon/storage/briefcase/crimekit,
 		/obj/item/device/taperecorder,
-		/obj/item/device/tape/random = 3)
+		/obj/item/device/tape/random = 3,
+		/obj/item/clothing/gloves/forensic)	//TFF 20/9/19 CHOMPStation Addition - requested addition.
 
 /obj/structure/closet/secure_closet/detective/update_icon()
 	if(broken)
@@ -318,7 +319,7 @@ GLOBAL_LIST_BOILERPLATE(all_brig_closets, /obj/structure/closet/secure_closet/br
 	var/id = null
 
 	starts_with = list(
-		/obj/item/clothing/under/color/orange,
+		/obj/item/clothing/under/color/prison,
 		/obj/item/clothing/shoes/orange)
 
 
