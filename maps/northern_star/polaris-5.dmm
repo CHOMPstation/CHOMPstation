@@ -1216,7 +1216,7 @@
 "xt" = (/obj/machinery/light/small,/turf/simulated/floor/tiled/asteroid_steel/airless,/area/mine/explored)
 "xu" = (/obj/machinery/floodlight,/turf/simulated/mineral/floor/ignore_mapgen,/area/mine/unexplored)
 "xv" = (/turf/simulated/wall/r_wall,/area/outpost/mining_main/emergency_storage)
-"xw" = (/obj/structure/reagent_dispensers/watertank,/turf/simulated/floor/plating,/area/outpost/mining_main/emergency_storage)
+"xw" = (/obj/structure/reagent_dispensers/watertank,/obj/machinery/alarm{dir = 4; pixel_x = -23; pixel_y = 0},/turf/simulated/floor/plating,/area/outpost/mining_main/emergency_storage)
 "xx" = (/obj/effect/floor_decal/corner/brown{dir = 4},/turf/simulated/floor/tiled,/area/outpost/mining_main/north_hall)
 "xy" = (/obj/structure/cable/blue{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/effect/floor_decal/corner/brown{dir = 5},/turf/simulated/floor/tiled,/area/outpost/mining_main/north_hall)
 "xz" = (/obj/effect/floor_decal/corner/brown{dir = 5},/turf/simulated/floor/tiled,/area/outpost/mining_main/north_hall)
