@@ -20,3 +20,7 @@
 
 /area/Clown
 	name = "\improper Clown Room"
+
+//TFF 22/9/19 - Add new area for Mining Outpost Emergency Storage
+/area/outpost/mining_main/emergency_storage
+	name = "Mining Outpost Emergency Storage"
