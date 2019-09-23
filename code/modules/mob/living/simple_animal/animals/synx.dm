@@ -490,6 +490,9 @@ mob/living/simple_animal/synx/PunchTarget()
          ▓     █▓▓▓     ▓▓▓     ▓▓▓     █▓▓▓         
            ▓█▓██▓▓▓█▓█▓█▓▓▓█▓█▓█▓▓▓█▓█▓██▓▓▓         
 */
+	icon_state = "synx_C_living"
+	icon_living = "synx_C_living"
+	icon_dead = "synx_C_dead"
 	hostile = 1
 	name = "SYN-KinC"
 	desc = "A robotic recreation of a an Alien parasite. The metal plates seem quite thick."
