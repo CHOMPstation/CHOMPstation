@@ -463,6 +463,63 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_bump_chance = 2 //lowered bump chance
 	vore_escape_chance = 5 //Multivore allows for people to shove eachother out so lower normal escape chance.
 
+/mob/living/simple_animal/retaliate/synx/pet/greed/synth
+%*
+▓███▓     ▓▓▓     ▓▓▓     ▓▓▓     ▓▓▓     ▓███▓   
+ ▓▓   ▓▓▓█ ▓▓  ▓▓█ ▓▓  ▓▓█ ▓▓  ▓▓█ ▓▓  ▓▓█ ▓▓   ▓▓▓█ 
+▓      ▓▓▓▓     ▓▓▓     ▓▓▓     ▓▓▓     ▓▓▓      ▓▓▓▓
+▓      █▓▓▓     █▓▓     █▓▓     █▓▓     █▓▓      █▓▓▓
+▓      █▓▓▓▓█  █▓▓ ▓█  █▓▓ ▓█  █▓▓█▓█  █▓▓▓      █▓▓▓
+▓      █▓▓▓  ▓█▓    █▓█▓█   █▓█▓█   ▓▓█   ▓█     █▓▓▓
+▓█     █▓▓▓          ▓▓▓     ▓▓▓          ▓▓     █▓▓▓
+▓▓     █▓▓            ▓       ▓            ▓     █▓▓▓
+ ▓     █▓▓                                 ▓█    █▓▓ 
+  ▓    ▓▓▓                                 ▓▓   █▓▓  
+   █\   ▓▓      ▓▓                   ▓█      ▓  █▓▓  
+   ▓█\   ▓█    ▓█▓                   ▓▓▓    █▓ █▓▓   
+    ▓▓▓█  ▓   ▓▓▓▓                   ▓ ▓▓   ▓ █▓▓    
+        ▓█▓  ▓▓█▓▓                   ▓  ▓▓  ▓▓▓      
+            ▓▓ █▓▓█                 █▓  █▓▓          
+           ▓▓   ▓▓▓                 ▓▓   █▓▓         
+           ▓    ▓▓▓                 ▓    █▓▓         
+         ▓▓    █▓▓█               █▓    █▓▓▓         
+         ▓     █▓▓▓  ▓▓█     █▓█  ▓▓    █▓▓▓         
+         ▓     █▓▓▓▓▓  ▓▓█ ▓▓  ▓▓█▓     █▓▓▓         
+         ▓     █▓▓▓     ▓▓▓     ▓▓▓     █▓▓▓         
+         ▓     █▓▓▓     ▓▓▓     ▓▓▓     █▓▓▓         
+           ▓█▓██▓▓▓█▓█▓█▓▓▓█▓█▓█▓▓▓█▓█▓██▓▓▓         
+*/
+	hostile = 1
+	name = "SYN-KinC"
+	desc = "A robotic recreation of a an Alien parasite. The metal plates seem quite thick."
+	humanoid_hands = 1
+	health = 200 //Metally
+	player_msg = "All systems nominal."
+	/////////////////////ARMOR
+	armor = list(
+			"melee" = 50,
+			"bullet" = 50,
+			"laser" = -50,
+			"energy" = -50,
+			"bomb" = 50,
+			"bio" = 100,
+			"rad" = 100)
+	////////////////////////////MED INJECTOR
+	poison_type = "oxycodone" //OD effects, eye_blurry | Confuse + for slimes | stuttering
+	poison_chance = 77 //high but not guranteed.
+	poison_per_bite = 9 //OD for oxyc is 20
+	//////////////////////////////////////////////FACTION
+	faction = "SYN"
+	
+	
+	New()
+		..()
+		name = "SYN-KinC-([rand(100,999)])"
+	
+/mob/living/simple_animal/retaliate/synx/pet/greed/synth/goodboy
+	hostile = 0
+	faction = "neutral"
+
 /mob/living/simple_animal/retaliate/synx/pet/diablo
 	//var/diablo_LIVING = "synx_diablo_living"
 	//var/diablo_DEAD = "synx_diablo_dead"
@@ -474,17 +531,6 @@ mob/living/simple_animal/synx/PunchTarget()
 	speak = list( )
 	//Vore Section
 	vore_capacity = 2
-
-/mob/living/simple_animal/retaliate/synx/pet/diablo/sicsempertyrannis
-	name = "grins"
-	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. grey, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small shock collar on it that reads 'grins'."
-	icon_state = "synx_diablo_living"
-	icon_living = "synx_diablo_living"
-	icon_dead = "synx_diablo_dead"
-	speak = list( )
-	//Vore Section
-	vore_capacity = 2
-
 
 /mob/living/simple_animal/retaliate/synx/pet/clown
 	hostile = 1
