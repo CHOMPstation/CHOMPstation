@@ -464,7 +464,7 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_escape_chance = 5 //Multivore allows for people to shove eachother out so lower normal escape chance.
 
 /mob/living/simple_animal/retaliate/synx/pet/greed/synth
-%*
+/*
 ▓███▓     ▓▓▓     ▓▓▓     ▓▓▓     ▓▓▓     ▓███▓   
  ▓▓   ▓▓▓█ ▓▓  ▓▓█ ▓▓  ▓▓█ ▓▓  ▓▓█ ▓▓  ▓▓█ ▓▓   ▓▓▓█ 
 ▓      ▓▓▓▓     ▓▓▓     ▓▓▓     ▓▓▓     ▓▓▓      ▓▓▓▓
