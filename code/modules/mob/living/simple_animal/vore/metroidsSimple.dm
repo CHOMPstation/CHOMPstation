@@ -46,7 +46,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 
 	speak_chance = 2
 	emote_hear = list("makes a wooshing sound")
-	emote_see = list("SKREE's")
+	emote_see = list("SKREEs")
 
 	meat_type = /obj/item/toy/figure/samus
 
