@@ -1380,9 +1380,10 @@
 	glass_desc = "A sweet concotion hated even by its namesake."
 	glass_special = list(DRINK_FIZZ)
 
-/datum/reagent/drink/roy_rogers
+//CHOMPStation Edit TFF 24/9/19 - Minor change to make it easier for no runtimes with casino.dm
+/datum/reagent/drink/royrogers
 	name = "Roy Rogers"
-	id = "roy_rogers"
+	id = "royrogers"
 	description = "I'm a cowboy, on a steel horse I ride."
 	taste_description = "cola and fruit"
 	color = "#4F1811"
@@ -2051,7 +2052,8 @@
 	glass_name = "Barefoot"
 	glass_desc = "Barefoot and pregnant."
 
-/datum/reagent/ethanol/beepsky_smash
+//CHOMPStation Edit TFF 24/9/19 - Minor change to make it easier for no runtimes with casino.dm
+/datum/reagent/ethanol/beepskysmash
 	name = "Beepsky Smash"
 	id = "beepskysmash"
 	description = "Deny drinking this and prepare for THE LAW."
@@ -2064,7 +2066,7 @@
 	glass_name = "Beepsky Smash"
 	glass_desc = "Heavy, hot and strong. Just like the Iron fist of the LAW."
 
-/datum/reagent/ethanol/beepsky_smash/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/ethanol/beepskysmash/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	M.Stun(2)
 

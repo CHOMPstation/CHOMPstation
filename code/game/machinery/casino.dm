@@ -296,9 +296,9 @@
 		"limejuice", "berryjuice", "mint", "matcha_latte", "lemon_lime", "sugar", "orangejuice", "limejuice", "sodawater",
 		"tonic", "beer", "kahlua", "whiskey", "wine", "vodka", "gin", "rum", "tequilla", "vermouth", "cognac",
 		"ale", "mead", "bitters", "champagne", "singulo", "doctorsdelight", "nothing", "banana", "honey", "egg",
-		"coco", "cherryjelly", "carrot", "apple", "tomato", "nutbutter", "soymilk", "grenadine", "gingerale", "royrogers",
+		"coco", "cherryjelly", "carrotjuice", "applejuice", "tomatojuice", "nutbutter", "soymilk", "grenadine", "gingerale", "royrogers",
 		"patron", "goldschlager", "gelatin", "melonliquor", "bluecuracao", "thirteenloko", "deadrum", "sake", "acidspit",
-		"amasec", "beepsky_smash", "atomicbomb", "nuka_cola", "threemileisland", "manhattan_proj", "psilocybin", "moonshine",
+		"amasec", "beepskysmash", "atomicbomb", "nuka_cola", "threemileisland", "manhattan_proj", "psilocybin", "moonshine",
 		"specialwhiskey", "unathiliquor", "winebrandy", "snaps"
 		)
 
@@ -364,9 +364,9 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/egg,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/coco,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/cherryjelly,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/carrot,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/apple,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tomato,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/carrotjuice,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/applejuice,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tomatojuice,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/nutbutter,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/soymilk,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/grenadine,
@@ -382,7 +382,7 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sake,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/acidspit,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/amasec,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/beepsky_smash,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/beepskysmash,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/atomicbomb,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/nuka_cola,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/threemileisland,
