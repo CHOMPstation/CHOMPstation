@@ -1356,6 +1356,11 @@ area/space/atmosalert()
 	name = "\improper Fitness Room"
 	icon_state = "fitness"
 
+//CHOMPStation Addition TFF 24/9/19 - Sauna
+/area/crew_quarters/sauna
+	name = "\improper Sauna"
+	icon_state = "pool"
+
 /area/crew_quarters/longue_area
 	name = "\improper Lounge" //VOREStation Edit - Muh speeling.
 	icon_state = "recreation_area"
@@ -1548,6 +1553,33 @@ area/space/atmosalert()
 	icon_state = "atmos_storage"
 	sound_env = SMALL_ENCLOSED
 
+//CHOMPStation Addition Start TFF 24/9/19 - Add Atmos Gas Chambers.....
+/area/engineering/gas_storage
+	icon_state = "atmos storage"
+	requires_power = 0
+
+/area/engineering/gas_storage/air
+	name = "\improper Air Gas Storage"
+
+/area/engineering/gas_storage/oxygen
+	name = "\improper Oxygen Gas Storage"
+
+/area/engineering/gas_storage/nitrogen
+	name = "\improper Nitrogen Gas Storage"
+
+/area/engineering/gas_storage/co2
+	name = "\improper Carbon Dioxide Gas Storage"
+
+/area/engineering/gas_storage/phoron
+	name = "\improper Phoron Gas Storage"
+
+/area/engineering/gas_storage/n2o
+	name = "\improper Nitrous Oxide Gas Storage"
+
+/area/engineering/gas_storage/mix
+	name = "\improper Gas Mixing"
+//CHOMPStation Addition End
+
 /area/engineering/drone_fabrication
 	name = "\improper Engineering Drone Fabrication"
 	icon_state = "drone_fab"
@@ -1607,7 +1639,6 @@ area/space/atmosalert()
 /area/engineering/aft_hallway
 	name = "\improper Engineering Aft Hallway"
 	icon_state = "engineering_aft_hallway"
-
 
 //Solars
 
