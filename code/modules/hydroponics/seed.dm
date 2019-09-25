@@ -436,7 +436,7 @@
 			"spideregg",
 			"bloodburn",
 			"eden_snake",
-			"aphrodosiac",
+			"aphrodisiac",
 			"change_drug",
 			"change_drug_male",
 			"change_drug_female",
