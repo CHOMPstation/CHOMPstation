@@ -58,7 +58,7 @@
 		..()
 			if (prob(10))
 				name = "Untitled Goose"
-				melee_damage_lower = 0 //Massive damage reduction, will be balanced with toxin injection
+				melee_damage_lower = 0 
 				melee_damage_upper = 1
 				hostile = 0
 				retaliate = 1
