@@ -56,18 +56,18 @@
 	
 /mob/living/simple_animal/hostile/goose/New()
 	..()
-		if (prob(10))
-			name = "Untitled Goose"
-			melee_damage_lower = 0 
-			melee_damage_upper = 1
-			hostile = 0
-			retaliate = 1
-			cooperative = 1
-			maxHealth = 50
-			health = 50
-			honk()
-			honking = 1
-			humanoid_hands = 1
+	if (prob(10))
+		name = "Untitled Goose"
+		melee_damage_lower = 0 
+		melee_damage_upper = 1
+		hostile = 0
+		retaliate = 1
+		cooperative = 1
+		maxHealth = 50
+		health = 50
+		honk()
+		honking = 1
+		humanoid_hands = 1
 
 /mob/living/simple_animal/hostile/goose/Life()
 	..()
