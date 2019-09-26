@@ -54,23 +54,24 @@
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	var/honking = 0
 	
-	New()
-		..()
-			if (prob(10))
-				name = "Untitled Goose"
-				melee_damage_lower = 0 
-				melee_damage_upper = 1
-				hostile = 0
-				retaliate = 1
-				cooperative = 1
-				maxHealth = 50
-				health = 50
-				honk()
-				honking = 1
-	Life()
-		..()
-		if(honking && prob(1))
+/mob/living/simple_animal/hostile/goose/New()
+	..()
+		if (prob(10))
+			name = "Untitled Goose"
+			melee_damage_lower = 0 
+			melee_damage_upper = 1
+			hostile = 0
+			retaliate = 1
+			cooperative = 1
+			maxHealth = 50
+			health = 50
 			honk()
+			honking = 1
+
+/mob/living/simple_animal/hostile/goose/Life()
+	..()
+	if(honking && prob(1))
+		honk()
 
 /mob/living/simple_animal/hostile/goose/set_target()
 	. = ..()
