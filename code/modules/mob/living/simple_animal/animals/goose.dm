@@ -92,8 +92,8 @@
 		if(isliving(A))
 			var/mob/living/L = A
 			if(prob(2) && honking)
-				drop_from_inventory(l_hand, L)
-				drop_from_inventory(r_hand, L)
+				L.drop_from_inventory(l_hand)
+				L.drop_from_inventory(r_hand)
 
 /mob/living/simple_animal/hostile/goose/tooluser
 	name="goose with"
