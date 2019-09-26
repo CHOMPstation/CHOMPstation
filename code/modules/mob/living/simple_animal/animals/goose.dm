@@ -85,5 +85,13 @@
 /mob/living/simple_animal/hostile/goose/proc/honk()
 	playsound(M.loc, 'sound/items/bikehorn.ogg', 50, 1) //playceholder, will be actual honk later
 	
+/mob/living/simple_animal/hostile/goose/DoPunch(var/atom/A)
+	. = ..()
 	
-	
+	if(.) // If we succeeded in hitting.
+		if(isliving(A))
+			var/mob/living/L = A
+			if(prob(2) && honking)
+				drop_from_inventory(l_hand, L)
+				drop_from_inventory(r_hand, L)
+			
