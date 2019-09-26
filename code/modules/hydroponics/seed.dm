@@ -445,7 +445,7 @@
 			"microcillin",
 			"normalcillin",
 			"fakesynxchem",
-			"clownsynxchem",
+			"clownsynxchem"
 			)
 
 		for(var/x=1;x<=additional_chems;x++)
