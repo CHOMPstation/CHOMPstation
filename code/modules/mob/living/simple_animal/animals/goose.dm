@@ -67,6 +67,7 @@
 			health = 50
 			honk()
 			honking = 1
+			humanoid_hands = 1
 
 /mob/living/simple_animal/hostile/goose/Life()
 	..()
