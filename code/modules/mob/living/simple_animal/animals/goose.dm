@@ -5,7 +5,9 @@
 	icon_state = "goose"
 	icon_living = "goose"
 	icon_dead = "goose_dead"
-
+	
+	has_hands = 1
+	
 	faction = "geese"
 	intelligence_level = SA_ANIMAL
 
@@ -50,6 +52,25 @@
 
 
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	var/honking = 0
+	
+	New()
+		..()
+			if (prob(10))
+				name = "Untitled Goose"
+				melee_damage_lower = 0 //Massive damage reduction, will be balanced with toxin injection
+				melee_damage_upper = 1
+				hostile = 0
+				retaliate = 1
+				cooperative = 1
+				maxHealth = 50
+				health = 50
+				honk()
+				honking = 1
+	Life()
+		..()
+		if(honking && prob(1))
+			honk()
 
 /mob/living/simple_animal/hostile/goose/set_target()
 	. = ..()
@@ -58,3 +79,9 @@
 
 /mob/living/simple_animal/hostile/goose/Process_Spacemove(var/check_drift = 0)
 	return 1 // VOREStation Edit No drifting in space!
+
+/mob/living/simple_animal/hostile/goose/proc/honk()
+	playsound(M.loc, 'sound/items/bikehorn.ogg', 50, 1) //playceholder, will be actual honk later
+	
+	
+	
