@@ -83,7 +83,7 @@
 	return 1 // VOREStation Edit No drifting in space!
 
 /mob/living/simple_animal/hostile/goose/proc/honk()
-	playsound(M.loc, 'sound/items/bikehorn.ogg', 50, 1) //playceholder, will be actual honk later
+	playsound(loc, 'sound/items/bikehorn.ogg', 50, 1) //playceholder, will be actual honk later
 	
 /mob/living/simple_animal/hostile/goose/DoPunch(var/atom/A)
 	. = ..()
