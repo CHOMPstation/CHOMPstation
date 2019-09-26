@@ -94,4 +94,9 @@
 			if(prob(2) && honking)
 				drop_from_inventory(l_hand, L)
 				drop_from_inventory(r_hand, L)
-			
+
+/mob/living/simple_animal/hostile/goose/tooluser
+	name="goose with"
+
+/mob/living/simple_animal/hostile/goose/tooluser/knife
+	name="goose with knife"
