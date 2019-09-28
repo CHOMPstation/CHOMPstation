@@ -27,13 +27,5 @@
 
 //TFF 28/9/19 - Prevent Atmos Leak event from going into these areas.
 /datum/event/atmos_leak/setup()
-	excluded |= /area/engineering/gas_storage
-	//TFF - making sure to not miss all Gas Storage chambers.
-	excluded |= /area/engineering/gas_storage/air
-	excluded |= /area/engineering/gas_storage/oxygen
-	excluded |= /area/engineering/gas_storage/nitrogen
-	excluded |= /area/engineering/gas_storage/co2
-	excluded |= /area/engineering/gas_storage/phoron
-	excluded |= /area/engineering/gas_storage/n2o
-	excluded |= /area/engineering/gas_storage/mix
+	excluded |= /area/gateway
 	..()
