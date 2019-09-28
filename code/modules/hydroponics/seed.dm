@@ -430,9 +430,22 @@
 
 	if(additional_chems)
 
-		var/list/banned_chems = list(
+		var/list/banned_chems = list( //expanding this list on request - Skits
 			"adminordrazine",
-			"nutriment"
+			"nutriment",
+			"spideregg",
+			"bloodburn",
+			"eden_snake",
+			"aphrodisiac",
+			"change_drug",
+			"change_drug_male",
+			"change_drug_female",
+			"change_drug_intersex",
+			"macrocillin",
+			"microcillin",
+			"normalcillin",
+			"fakesynxchem",
+			"clownsynxchem"
 			)
 
 		for(var/x=1;x<=additional_chems;x++)
@@ -565,7 +578,7 @@
 							banned_chems += new_chem
 							chems[new_chem] = list(rand(1,10),rand(10,20))
 					source_turf.visible_message("<span class='notice'>\The [display_name] produce seems to be different!</span>")
-							
+
 			if(7)
 				if(get_trait(TRAIT_YIELD) != -1)
 					set_trait(TRAIT_YIELD,           get_trait(TRAIT_YIELD)+(rand(-2,2)*degree),10,0)
