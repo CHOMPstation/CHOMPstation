@@ -125,13 +125,16 @@
 			if(5)	new	/obj/item/weapon/reagent_containers/food/snacks/cookie(src.loc) //Win!
 			if(6)	new	/obj/item/weapon/spacecasinocash(src.loc) //Win?
 			if(7)	
-				new	/obj/item/weapon/material/butterfly/switchblade(src.loc)
+				new	/obj/item/weapon/material/butterfly/switchblade(capsuleowner.loc)
 				capsuleowner.apply_damage(10, BRUTE) //Loss Damaging! WIN KNIVE!
-			if(8)	new	/obj/item/weapon/reagent_containers/syringe/drugs(src.loc)
+			if(8)	new	/obj/item/weapon/reagent_containers/syringe/drugs(capsuleowner.loc)
 			if(9)	
-				new	/obj/item/weapon/gun/energy/sizegun/not_advanced(src.loc)
+				new	/obj/item/weapon/gun/energy/sizegun/not_advanced(capsuleowner.loc)
 				qdel(src)
-			if(777)	new	/obj/item/weapon/spacecash/c1000(src.loc) //for rigging
+			
+			
+			
+			if(777)	new	/obj/item/weapon/spacecash/c1000(capsuleowner.loc) //for rigging
 			else luckynumber7 = (rand(0,10))
 		luckynumber7 = rand(0,10)
 		sleep(100)
