@@ -68,6 +68,8 @@
 		honk()
 		honking = 1
 		humanoid_hands = 1
+		new /mob/living/simple_animal/hostile/goose(loc)
+		new /mob/living/simple_animal/hostile/goose(loc)
 
 /mob/living/simple_animal/hostile/goose/Life()
 	..()
