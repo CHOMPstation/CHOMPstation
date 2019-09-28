@@ -103,6 +103,12 @@
 	force = 0
 	var/luckynumber7 = 0
 	var/colorindex = 1
+	
+	var/list/winitems = list(
+				/obj/item/weapon/reagent_containers/food/snacks/cookie,
+				/obj/item/weapon/spacecasinocash;0.5,
+				/obj/item/weapon/reagent_containers/syringe/drugs;0.5,
+	)
 
 	attackby(obj/item/W, mob/user)
 		if(istype(W, /obj/item/weapon/pen))
@@ -122,12 +128,11 @@
 			if(2)	capsuleowner.apply_damage(5, BRUTE) //Loss Damaging!
 			if(3)	capsuleowner.Weaken(5) //Loss Knee spaghetti!
 			if(4)	capsuleowner.hallucination += 66 //loss woah, dude.
-			if(5)	new	/obj/item/weapon/reagent_containers/food/snacks/cookie(src.loc) //Win!
-			if(6)	new	/obj/item/weapon/spacecasinocash(src.loc) //Win?
+			if(5)	new	pick(winitems)(capsuleowner.loc) //Win!
+			
 			if(7)	
 				new	/obj/item/weapon/material/butterfly/switchblade(capsuleowner.loc)
 				capsuleowner.apply_damage(10, BRUTE) //Loss Damaging! WIN KNIVE!
-			if(8)	new	/obj/item/weapon/reagent_containers/syringe/drugs(capsuleowner.loc)
 			if(9)	
 				new	/obj/item/weapon/gun/energy/sizegun/not_advanced(capsuleowner.loc)
 				qdel(src)
