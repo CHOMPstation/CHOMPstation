@@ -106,8 +106,8 @@
 	
 	var/list/winitems = list(
 				/obj/item/weapon/reagent_containers/food/snacks/cookie,
-				/obj/item/weapon/spacecasinocash;0.5,
-				/obj/item/weapon/reagent_containers/syringe/drugs;0.5,
+				/obj/item/weapon/spacecasinocash,
+				/obj/item/weapon/reagent_containers/syringe/drugs,
 	)
 
 	attackby(obj/item/W, mob/user)
