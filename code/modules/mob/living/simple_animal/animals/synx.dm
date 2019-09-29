@@ -536,6 +536,25 @@ mob/living/simple_animal/synx/PunchTarget()
 	//Vore Section
 	vore_capacity = 2
 
+/mob/living/simple_animal/retaliate/synx/pet/asteri
+	name = "Asteri"
+	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Bleak white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has distinctive markings over its face forming the shape of a star, and its back holds a sizeable scar leading up to a small implanted device just above its waist, the name 'Asteri' scribed across the metal."
+	//icon= //icon= would just set what DMI we are using, we already have our special one set.
+	icon_state = "synx_asteri_living"
+	icon_living = "synx_asteri_living"
+	icon_dead = "synx_asteri_dead"
+	speak = list("Who is there?")//preset unique words Asteri remembers, to be defined more
+	player_msg = "SCREAMING NOISES."
+	health = 100//Slightly lower health due to being damaged permanently.
+	speak_chance = 5
+	//Vore Section
+	vore_icons = SA_ICON_LIVING
+	vore_capacity = 2
+	vore_digest_chance = 50
+	vore_pounce_chance = 40
+	vore_bump_chance = 2
+	vore_escape_chance = 5
+
 /mob/living/simple_animal/retaliate/synx/pet/clown
 	hostile = 1
 	poison_chance = 100
@@ -598,9 +617,9 @@ mob/living/simple_animal/synx/PunchTarget()
 /obj/random/mob/synx/item_to_spawn()
 	if(Holiday == "April Fool's Day") //WE WISH YOU A MERRY CLOWNMAS
 		return /mob/living/simple_animal/retaliate/synx/pet/clown
-	else return pick(prob(50);/mob/living/simple_animal/retaliate/synx/pet/greed,
-		prob(50);/mob/living/simple_animal/retaliate/synx/pet/diablo,
-		prob(50);/mob/living/simple_animal/retaliate/synx/pet/holo,)
+	else return pick(prob(70);/mob/living/simple_animal/retaliate/synx/pet/greed,
+		prob(50);/mob/living/simple_animal/retaliate/synx/pet/asteri,
+		prob(20);/mob/living/simple_animal/retaliate/synx/pet/holo,)
 
 ////////////////////////////////////////////////////////////////////////////
 //////////////////////////NOT A SYNX///////but looks kinda like one/////////
