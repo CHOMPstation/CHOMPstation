@@ -13,3 +13,9 @@
 /datum/gear/shoes/siren
 	display_name = "boots, Siren"
 	path = /obj/item/clothing/shoes/boots/fluff/siren
+
+/datum/gear/shoes/tall
+	display_name = "tall jackboots"
+	path = /obj/item/clothing/shoes/boots/jackboots/tall
+	slot = slot_shoes
+	sort_category = "Shoes and Footwear"

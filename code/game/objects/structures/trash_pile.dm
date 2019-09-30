@@ -119,7 +119,10 @@
 					searchedby += user.ckey
 					I.forceMove(get_turf(src))
 					to_chat(H,"<span class='notice'>You found \a [I]!</span>")
-
+					var/disturbed_sleep = rand(1,100) //spawning of mobs, for now only the trash panda.
+					if(disturbed_sleep <= 5)
+						new /mob/living/simple_animal/raccoon(get_turf(user),name)
+						visible_message("A raccoon jumps out of the trash!.")
 	else
 		return ..()
 
@@ -230,13 +233,13 @@
 					prob(2);/obj/item/weapon/storage/box/syndie_kit/spy,
 					prob(2);/obj/item/weapon/grenade/anti_photon,
 					prob(1);/obj/item/clothing/suit/storage/vest/heavy/merc,
-//					prob(1);/obj/item/device/nif/bad, //Chompstation Edit: Removing NIFs - Jon
+					prob(1);/obj/item/device/nif/bad,
 					prob(1);/obj/item/device/radio_jammer,
 					prob(1);/obj/item/device/sleevemate,
 					prob(1);/obj/item/device/bodysnatcher,
 					prob(1);/obj/item/weapon/beartrap,
 					prob(1);/obj/item/weapon/cell/hyper/empty,
-//					prob(1);/obj/item/weapon/disk/nifsoft/compliance, //Chompstation Edit: Removing NIFs - Jon
+					prob(1);/obj/item/weapon/disk/nifsoft/compliance,
 					prob(1);/obj/item/weapon/material/knife/tacknife,
 					prob(1);/obj/item/weapon/reagent_containers/syringe/steroid)
 

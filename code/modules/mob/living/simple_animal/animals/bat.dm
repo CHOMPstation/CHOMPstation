@@ -16,9 +16,9 @@
 	turns_per_move = 3
 	speed = 4
 
-	response_help = "pets the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
+	response_help = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm = "hits"
 
 	harm_intent_damage = 10
 
@@ -51,6 +51,19 @@
 	..()
 	if(istype(L))
 		owner = L
+
+/mob/living/simple_animal/hostile/scarybat/death()
+	..()
+	if(prob(40))
+		visible_message("<span class='notice'>\The [src] dropped some ore!</span>")
+		var/location = get_turf(src)
+		new /obj/item/weapon/ore/silver(location)
+	if(prob(20))
+		visible_message("<span class='notice'>\The [src] dropped some ore!</span>")
+		var/location = get_turf(src)
+		new /obj/item/weapon/ore/gold(location)
+
+//CHOMP EDIT: Random chance for bats to carry silver
 
 /mob/living/simple_animal/hostile/scarybat/Process_Spacemove(var/check_drift = 0)
 	return ..()

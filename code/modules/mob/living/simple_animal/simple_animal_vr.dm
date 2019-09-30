@@ -20,6 +20,7 @@
 	var/vore_digest_chance = 25			// Chance to switch to digest mode if resisted
 	var/vore_absorb_chance = 0			// Chance to switch to absorb mode if resisted
 	var/vore_escape_chance = 25			// Chance of resisting out of mob
+	var/vore_escape_time = 60 SECONDS	// This didn't exist before. Why? I don't know. Modifies the escape time of a belly. -Erik
 
 	var/vore_stomach_name				// The name for the first belly if not "stomach"
 	var/vore_stomach_flavor				// The flavortext for the first belly if not the default
@@ -86,6 +87,9 @@
 	if(vore_capacity != 0 && (vore_fullness >= vore_capacity)) // We're too full to fit them
 		ai_log("vr/wont eat [M] because I am too full", 3)
 		return 0
+	if(!M.isEdible)//Don't eat mobs that can't be eaten.
+		ai_log("vr/wont eat [M] because they aren't edible", 3)
+		return 0
 	return 1
 
 /mob/living/simple_animal/PunchTarget()
@@ -151,6 +155,7 @@
 	B.mode_flags = vore_default_flags
 	B.escapable = vore_escape_chance > 0
 	B.escapechance = vore_escape_chance
+	B.escapetime = vore_escape_time
 	B.digestchance = vore_digest_chance
 	B.absorbchance = vore_absorb_chance
 	B.human_prey_swallow_time = swallowTime

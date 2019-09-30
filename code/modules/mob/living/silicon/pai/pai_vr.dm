@@ -1,6 +1,10 @@
 /mob/living/silicon/pai
 	var/people_eaten = 0
 	icon = 'icons/mob/pai_vr.dmi'
+	var/global/list/wide_chassis = list(
+		"rat",
+		"panther"
+		)
 
 /mob/living/silicon/pai/proc/pai_nom(var/mob/living/T in oview(1))
 	set name = "pAI Nom"
@@ -31,6 +35,13 @@
 	else if(people_eaten && resting)
 		icon_state = "[chassis]_rest_full"
 
+	if(chassis in wide_chassis)
+		icon = 'icons/mob/pai_vr64x64.dmi'
+		pixel_x = -16
+	else
+		icon = 'icons/mob/pai_vr.dmi'
+		pixel_x = 0
+
 /mob/living/silicon/pai/update_icons() //And other functions cause this to occur, such as digesting someone.
 	..()
 	update_fullness_pai()
@@ -42,3 +53,45 @@
 		icon_state = "[chassis]_full"
 	else if(people_eaten && resting)
 		icon_state = "[chassis]_rest_full"
+
+	if(chassis in wide_chassis)
+		icon = 'icons/mob/pai_vr64x64.dmi'
+		pixel_x = -16
+	else
+		icon = 'icons/mob/pai_vr.dmi'
+		pixel_x = 0
+//proc override to avoid pAI players being invisible while the chassis selection window is open
+/mob/living/silicon/pai/proc/choose_chassis()
+	set category = "pAI Commands"
+	set name = "Choose Chassis"
+	var/choice
+
+	choice = input(usr,"What would you like to use for your mobile chassis icon?") as null|anything in possible_chassis
+	if(!choice) return
+	chassis = possible_chassis[choice]
+	verbs |= /mob/living/proc/hide
+	update_icon()
+
+//Invert list of the chassis list if you need the name of the chassis but only have the chassis's icon state
+/mob/living/silicon/pai
+	var/list/chassis_names = list(
+		"repairbot" = "Drone",
+		"cat" = "Cat",
+		"mouse" = "Mouse",
+		"monkey" = "Monkey",
+		"borgi" = "Corgi",
+		"fox" = "Fox",
+		"parrot" = "Parrot",
+		"rabbit" = "Rabbit",
+		"bear" = "Bear",
+		"raccoon" = "Raccoon",
+		"rat" = "rat",
+		"panther" = "Panther"
+		)
+
+//Override so you can examine mobs even if you're in your card and in a pocket or something.
+/mob/living/silicon/pai/ShiftClickOn(A)
+	if(loc == card && !isbelly(card.loc))//Cannot examine from inside a belly, like any other mob
+		src.examinate(A)
+	else
+		..(A)

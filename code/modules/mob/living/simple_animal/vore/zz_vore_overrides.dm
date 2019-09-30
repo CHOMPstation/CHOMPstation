@@ -25,6 +25,7 @@
 
 /mob/living/simple_animal/hostile/alien
 	vore_active = 1
+	vore_ignores_undigestable = 0
 	icon = 'icons/mob/vore.dmi'
 	icon_state = "xenohunter"
 	icon_living = "xenohunter"
@@ -34,6 +35,7 @@
 
 /mob/living/simple_animal/hostile/alien/drone
 	vore_active = 1
+	vore_ignores_undigestable = 0
 	icon = 'icons/mob/vore.dmi'
 	icon_state = "xenodrone"
 	icon_living = "xenodrone"
@@ -43,6 +45,7 @@
 
 /mob/living/simple_animal/hostile/alien/sentinel
 	vore_active = 1
+	vore_ignores_undigestable = 0
 	icon = 'icons/mob/vore.dmi'
 	icon_state = "xenosentinel"
 	icon_living = "xenosentinel"
@@ -52,6 +55,7 @@
 
 /mob/living/simple_animal/hostile/alien/queen
 	vore_active = 1
+	vore_ignores_undigestable = 0
 	icon = 'icons/mob/vore.dmi'
 	icon_state = "xenoqueen"
 	icon_living = "xenoqueen"
@@ -61,6 +65,7 @@
 
 /mob/living/simple_animal/hostile/alien/queen/empress
 	vore_active = 1
+	vore_ignores_undigestable = 0
 	icon = 'icons/mob/vore64x64.dmi'
 	icon_state = "queen_s"
 	icon_living = "queen_s"
@@ -76,14 +81,17 @@
 	vore_pounce_chance = 75
 
 /mob/living/simple_animal/hostile/alien/sentinel/praetorian
+	vore_ignores_undigestable = 0
 	icon = 'icons/mob/vore64x64.dmi'
 	vore_icons = SA_ICON_LIVING | SA_ICON_REST
 
 /mob/living/simple_animal/hostile/alien/queen/empress/mother
+	vore_ignores_undigestable = 0
 	vore_icons = 0 // NO VORE SPRITES
 
 /mob/living/simple_animal/hostile/bear
 	vore_active = 1
+	vore_ignores_undigestable = 0
 	icon = 'icons/mob/vore.dmi'
 	icon_state = "spacebear"
 	icon_living = "spacebear"
@@ -93,9 +101,11 @@
 
 /mob/living/simple_animal/hostile/bear/hudson
 	name = "Hudson"
+	vore_ignores_undigestable = 0
 
 /mob/living/simple_animal/hostile/bear/brown
 	vore_active = 1
+	vore_ignores_undigestable = 0
 	icon = 'icons/mob/vore.dmi'
 	name = "brown bear"
 	icon_state = "brownbear"
@@ -107,12 +117,16 @@
 /mob/living/simple_animal/hostile/carp
 	icon = 'icons/mob/vore.dmi'
 	vore_active = 1
+	vore_capacity = 2
+	vore_escape_time = 60 SECONDS
+	vore_ignores_undigestable = 0
 	vore_icons = SA_ICON_LIVING
 
 /mob/living/simple_animal/hostile/creature/vore
 	vore_active = 1
 	// NO VORE SPRITES
 	vore_capacity = 0
+	vore_ignores_undigestable = 0
 	vore_pounce_chance = 0	// Only pounces if you're crit.
 	vore_escape_chance = 0	// As such, if you're a dibshit who feeds yourself to it, you're staying down.
 	// Overrides to non-vore version
@@ -122,6 +136,7 @@
 
 /mob/living/simple_animal/hostile/mimic
 	vore_active = 1
+	vore_ignores_undigestable = 0
 	// NO VORE SPRITES
 	vore_capacity = 0
 	vore_pounce_chance = 33
@@ -220,9 +235,15 @@
 	// NO VORE SPRITES
 	vore_max_size = RESIZE_SMALL
 
+//TFF 21/5/19 - make deer spawn with belly?
+/mob/living/simple_animal/deer
+	vore_active = 1
+	vore_capacity = 2
 
 /mob/living/simple_animal/hostile/carp/pike
 	vore_active = 1
+	vore_capacity = 2
+	vore_ignores_undigestable = 0
 	// NO VORE SPRITES
 
 /mob/living/simple_animal/hostile/carp/holodeck

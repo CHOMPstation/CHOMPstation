@@ -340,7 +340,7 @@
 	if(target.z != user.z) return
 
 	add_fingerprint(user)
-
+	
 	user.break_cloak()
 
 	if(!special_check(user))
@@ -350,7 +350,7 @@
 		if (world.time % 3) //to prevent spam
 			user << "<span class='warning'>[src] is not ready to fire again!</span>"
 		return
-
+	
 	var/shoot_time = (burst - 1)* burst_delay
 
 	//These should apparently be disabled to allow for the automatic system to function without causing near-permanant paralysis. Re-enabling them while we sort that out.
@@ -437,6 +437,15 @@
 		else
 			set_light(0)
 		//VOREStation Edit End
+
+	//CHOMPEDIT: Recoil knockdown for micros
+	if(iscarbon(user))
+		var/mob/living/carbon/nerd = user
+		var/mysize = nerd.size_multiplier
+		if(mysize <= 0.5)
+			nerd.Weaken(1)
+			nerd.adjustBruteLoss(5-mysize*4)
+	//CHOMPEDIT: Knockdown code end
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/weapon/gun/proc/Fire_userless(atom/target)
@@ -695,7 +704,7 @@
 	mouthshoot = 1
 	M.visible_message("<font color='red'>[user] sticks their gun in their mouth, ready to pull the trigger...</font>")
 	if(!do_after(user, 40))
-		M.visible_message("<font color='blue'>[user] decided life was worth living</font>")
+		M.visible_message("<font color='#6F6FE2'>[user] decided life was worth living</font>")
 		mouthshoot = 0
 		return
 	var/obj/item/projectile/in_chamber = consume_next_projectile()

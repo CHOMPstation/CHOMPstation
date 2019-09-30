@@ -18,9 +18,9 @@
 	returns_home = 1
 	reacts = 1
 
-	response_help = "pats the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
+	response_help = "pats"
+	response_disarm = "gently pushes aside"
+	response_harm = "hits"
 
 	harm_intent_damage = 8
 	melee_damage_lower = 15
@@ -57,5 +57,7 @@
 // Activate Noms!
 /mob/living/simple_animal/retaliate/awoo
 	vore_active = 1
+	vore_capacity = 2
 	vore_pounce_chance = 40
+	vore_ignores_undigestable = 0
 	vore_icons = SA_ICON_LIVING

@@ -51,6 +51,10 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	budget = 2000
 	max_budget = 2000
 
+/obj/item/weapon/technomancer_catalog/admeme //for badmins, I suppose
+	name = "admeme's catalog"
+	budget = 20000
+	max_budget = 20000
 
 // Proc: bind_to_owner()
 // Parameters: 1 (new_owner - mob that the book is trying to bind to)
@@ -133,9 +137,9 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				dat += "<b>[spell.name]</b><br>"
 				dat += "<i>[spell.desc]</i><br>"
 				if(spell.spell_power_desc)
-					dat += "<font color='purple'>Spell Power: [spell.spell_power_desc]</font><br>"
+					dat += "<font color='#AD5AAD'>Spell Power: [spell.spell_power_desc]</font><br>"
 				if(spell.enhancement_desc)
-					dat += "<font color='blue'>Scepter Effect: [spell.enhancement_desc]</font><br>"
+					dat += "<font color='#6F6FE2'>Scepter Effect: [spell.enhancement_desc]</font><br>"
 				if(spell.cost <= budget)
 					dat += "<a href='byond://?src=\ref[src];spell_choice=[spell.name]'>Purchase</a> ([spell.cost])<br><br>"
 				else
@@ -253,9 +257,9 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 			a target of your choice.<br>"
 			dat += "Some functions can have their abilities enhanced by a special rod called the Scepter of Enhancement.  \
 			If a function is able to be boosted with it, it will be shown underneath the description of the function as \
-			<font color='blue'><i>'Scepter Effect:'</i></font>.  Note that you must hold the scepter for it to work, so try to avoid losing it.<br>"
+			<font color='#6F6FE2'><i>'Scepter Effect:'</i></font>.  Note that you must hold the scepter for it to work, so try to avoid losing it.<br>"
 			dat += "Functions can also be boosted with the core itself.  A function that is able to benefit \
-			from this will have <font color='purple'><i>'Spell Power:'</i></font> underneath.  Different Cores have different \
+			from this will have <font color='#AD5AAD'><i>'Spell Power:'</i></font> underneath.  Different Cores have different \
 			amounts of spell power.<br>"
 			dat += "When a function refers to 'allies', it means you, your apprentices, currently controlled entities (with the \
 			Control function), and friendly simple-minded entities that you've summoned with the Scepter of Enhancement.<br>"

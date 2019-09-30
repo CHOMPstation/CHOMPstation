@@ -43,9 +43,9 @@
 	emote_see = list("tailtwitches", "earflicks")
 	say_maybe_target = list("...mar?")
 	say_got_target = list("MAR!!!")
-	response_help = "pets the"
-	response_disarm = "bops the"
-	response_harm = "hits the"
+	response_help = "pets"
+	response_disarm = "bops"
+	response_harm = "hits"
 	attacktext = list("mauled","slashed","clawed")
 	friendly = list("boops", "pawbs", "mars softly at", "sniffs on")
 	reactions = list("Mar?" = "Marrr!", "Mar!" = "Marrr???", "Mar." = "Marrr.")
@@ -161,7 +161,7 @@
 	// TODO - Customizable per mob
 	B.emote_lists[DM_HOLD] = list(
 		"The walls gently squeeze against you. The wet sounds of shifting flesh against your form fill the air.",
-		"The hot, humid air rushes around you for a moment as the creature urps. The walls clench in around you for a moment, before relaxxing again.",
+		"The hot, humid air rushes around you for a moment as the creature urps. The walls clench in around you for a moment, before relaxing again.",
 		"Your body is soaked in the fluids that cling to the churning walls. They squeeze across your form gently, conforming to your shape.",
 		"You can feel the world around you shift and sway as the creature moves! The flesh is stretchy, doughy. You can sink into it a little ways before it bounces back, curling you into a small shape."
 		)
@@ -200,7 +200,7 @@
 	. = ..()
 	if(ability_flags & AB_PHASE_SHIFTED)
 		density = FALSE
-	
+
 	//Convert spare nutrition into energy at a certain ratio
 	if(. && nutrition > initial(nutrition) && energy < 100)
 		nutrition = max(0, nutrition-5)
@@ -208,7 +208,7 @@
 
 /mob/living/simple_animal/shadekin/update_icon()
 	. = ..()
-	
+
 	cut_overlay(tailimage)
 
 	tailimage.icon_state = icon_state

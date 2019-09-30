@@ -4,7 +4,12 @@
 #define Z_LEVEL_TELECOMMS_NORTHERN_STAR				3
 #define Z_LEVEL_ABANDONED_ASTEROID_NORTHERN_STAR	4
 #define Z_LEVEL_MINING_NORTHERN_STAR				5
-#define Z_LEVEL_EMPTY_NORTHERN_STAR					6
+#define Z_LEVEL_EVENT_AREAS							6
+#define Z_LEVEL_EMPTY_NORTHERN_STAR					7
+
+
+//TFF: Camera network defines
+#define NETWORK_MEDICAL_OUTPOST "Medical Outpost"
 
 /datum/map/northern_star
 	name = "Northern Star"
@@ -41,8 +46,10 @@
 							NETWORK_ENGINE,
 							NETWORK_ENGINEERING,
 							NETWORK_ENGINEERING_OUTPOST,
-							NETWORK_DEFAULT,
+							//TFF: Unneeded network name, associated camera switched to Northern Star
+//							NETWORK_DEFAULT,
 							NETWORK_MEDICAL,
+							NETWORK_MEDICAL_OUTPOST,
 							NETWORK_MINE,
 							NETWORK_NORTHERN_STAR,
 							NETWORK_RESEARCH,
@@ -50,12 +57,17 @@
 							NETWORK_ROBOTS,
 							NETWORK_PRISON,
 							NETWORK_SECURITY,
-							NETWORK_INTERROGATION,
+							//TFF: One camera? Move to Security Network
+//							NETWORK_INTERROGATION,
 							NETWORK_SOLARS
 							)
 
 	allowed_spawns = list("Arrivals Shuttle","Gateway", "Cryogenic Storage", "Cyborg Storage", "Elevator")
 
+	unit_test_exempt_areas = list(
+		/area/Mime,
+		/area/Clown,
+		/area/engineering/dorm_atmos)
 
 /datum/map/northern_star/perform_map_generation()
 	new /datum/random_map/automata/cave_system(null, 1, 1, Z_LEVEL_MAIN_NORTHERN_STAR, world.maxx, world.maxy) // Create the mining Z-level.
@@ -99,6 +111,11 @@
 	flags = MAP_LEVEL_STATION|MAP_LEVEL_CONTACT|MAP_LEVEL_PLAYER
 	transit_chance = 10
 	base_turf = /turf/simulated/mineral/floor
+
+/datum/map_z_level/northern_star/event_areas
+	z = Z_LEVEL_EVENT_AREAS
+	name = "Event and Ships"
+	flags = MAP_LEVEL_PLAYER|MAP_LEVEL_CONTACT|MAP_LEVEL_CONSOLES
 
 /datum/map_z_level/northern_star/empty
 	z = Z_LEVEL_EMPTY_NORTHERN_STAR

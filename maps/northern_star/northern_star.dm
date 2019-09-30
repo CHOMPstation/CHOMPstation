@@ -5,10 +5,13 @@
 	#include "polaris-3.dmm"
 	#include "polaris-4.dmm"
 	#include "polaris-5.dmm"
+	#include "polaris-6.dmm"
 
 	#include "northern_star_defines.dm"
 	#include "northern_star_areas.dm"
 	#include "northern_star_shuttles.dm"
+	//TFF: Include new file for new camera network.
+	#include "northern_star_things.dm"
 
 	#define USING_MAP_DATUM /datum/map/northern_star
 

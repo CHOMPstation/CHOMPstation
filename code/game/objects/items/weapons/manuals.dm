@@ -33,6 +33,7 @@
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Particle Accelerator User's Guide"
 
+//TFF 18/5/19 - update information, add Tesla engine usage section
 /obj/item/weapon/book/manual/engineering_particle_accelerator/New()
 	..()
 	dat = {"<html>
@@ -59,13 +60,23 @@
 					<li>Close all the panels with your <b>screwdriver</b></li>
 				</ol>
 
-				<h2>Using the accelerator</h2>
+				<h2>Using the accelerator for the singularity engine</h2>
 
 				<ol>
 					<li>Open the control panel</li>
 					<li>Set the speed to 2</li>
 					<li>Start firing at the singularity generator</li>
 					<li><font color='red'><b>When the singularity reaches a large enough size so it starts moving on it's own set the speed down to 0, but don't shut it off</b></font></li>
+					<li>Remember to wear a radiation suit when working with this machine... we did tell you that at the start, right?</li>
+				</ol>
+
+				<h2>Using the accelerator for the Tesla engine</h2>
+
+				<ol>
+					<li>Open the control panel</li>
+					<li>Set the speed to 2</li>
+					<li>Start firing at the tesla generator</li>
+					<li><font color='red'><b>When the energy ball gains a sufficient number of mini-balls orbiting it, such as around a dozen, set the speed down to 0, but don't shut it off</b></font></li>
 					<li>Remember to wear a radiation suit when working with this machine... we did tell you that at the start, right?</li>
 				</ol>
 
@@ -80,6 +91,7 @@
 	author = "Central Engineering Division"
 	title = "Supermatter Engine Operating Manual"
 
+//TFF 18/5/19 - update information
 /obj/item/weapon/book/manual/supermatter_engine/New()
 	..()
 	dat = {"<html>
@@ -98,7 +110,7 @@
 				<br>
 				<h2>OPERATING PRINCIPLES</h2>
 				<br>
-				<li>The supermatter crystal serves as the fundamental power source of the engine. Upon being charged, it begins to emit large amounts of heat and radiation, as well and oxygen and phoron gas. As oxygen accelerates the reaction, and phoron carries the risk of fire, these must be filtered out. NOTE: Supermatter radiation will not charge radiation collectors.</li>
+				<li>The supermatter crystal serves as the fundamental power source of the engine. Upon being charged, it begins to emit large amounts of heat and radiation, as well and oxygen and phoron gas. As oxygen accelerates the reaction, and phoron carries the risk of fire, these must be filtered out.</li>
 				<br>
 				<li>Air in the reactor chamber housing the supermatter is circulated through the reactor loop, which passes through the filters and thermoelectric generators. The thermoelectric generators transfer heat from the reactor loop to the colder radiator loop, thereby generating power. Additional power is generated from internal turbines in the circulators.</li>
 				<br>
@@ -116,9 +128,9 @@
 				<br>
 				<h2>STARTUP PROCEDURE</h2>
 				<ol>
-				<li>Fill reactor loop and radiator loop with two (2) standard canisters of nitrogen gas each.</li>
+				<li>Fill reactor loop and radiator loop with two (2) standard canisters of any one type of gas each, excluding, obviously, oxygen.</li>
 				<li>Ensure that pumps and filters are on and operating at maximum power.</li>
-				<li>Fire 8-9 pulses from emitter at supermatter crystal. Reactor blast doors must be open for this procedure.</li>
+				<li>Fire from eight to sixteen pulses, depending on your chosen gas coolant, from emitter at supermatter crystal. Reactor blast doors must be open for this procedure.</li>
 				</ol>
 				<br>
 				<h2>OPERATION AND MAINTENANCE</h2>
@@ -149,6 +161,7 @@
 
 // TESLA Engine
 
+//TFF 18/5/19 - update information
 /obj/item/weapon/book/manual/tesla_engine
 	name = "Tesla Operating Manual"
 	icon_state ="bookTesla"
@@ -196,7 +209,7 @@
 				<br>
 				<h2>OPERATION AND MAINTENANCE</h2>
 				<ol>
-				<li>Ensure that electrical protection and meson goggles are worn at all times while working in the engine room.</li>
+				<li>Ensure that electrical protection and welding tool protection are worn at all times while working with the engine and its individual components wherever they are set up.</li>
 				<li>Ensure that Telsa Coils and/or Grounding Rods are placed to safely collect or ground any and all shock.</li>
 				<li>Ensure that all Emitters remain activated and have unobstructed lines of fire to the Field Generators.</li>
 				<li>Do <b>not</b> let the Emitters run out of power.</li>
@@ -224,6 +237,7 @@
 	author = "Cindy Crawfish"
 	title = "R-UST Operating Manual"
 
+//TFF 18/5/19 - TODO, update information on this if/when I get around to bringing a submap for engine rotation into the game.
 /obj/item/weapon/book/manual/rust_engine/New()
 	..()
 	dat = {"<html>
@@ -272,7 +286,7 @@
 		</head>
 
 		<body>
-		<iframe width='100%' height='97%' src="[config.wikiurl]Hacking&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
+		<iframe width='100%' height='97%' src="[config.wikiurl]Guide_to_Hacking&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
 		</body>
 
 		</html>
@@ -462,7 +476,7 @@
 				</html>
 				"}
 
-
+//TFF 18/5/19 - update information
 /obj/item/weapon/book/manual/ripley_build_and_repair
 	name = "APLU \"Ripley\" Construction and Operation Manual"
 	icon_state ="book"
@@ -514,14 +528,14 @@
 					<li>Adjust the servohydraulics with a screwdriver.</li>
 					<li>Wire the chassis (Cable is not included).</li>
 					<li>Use the wirecutters to remove the excess cable if needed.</li>
-					<li>Install the central control module (Not included. Use supplied datadisk to create one).</li>
+					<li>Install the central control module (Not included. Print from a Circuit Imprinter in the Research and Development Room).</li>
 					<li>Secure the mainboard with a screwdriver.</li>
-					<li>Install the peripherals control module (Not included. Use supplied datadisk to create one).</li>
+					<li>Install the peripherals control module (Not included.  Print from a Circuit Imprinter in the Research and Development Room).</li>
 					<li>Secure the peripherals control module with a screwdriver.</li>
-					<li>Install the internal armor plating (Not included due to corporate regulations. Can be made using 5 metal sheets).</li>
+					<li>Install the internal armor plating by using some sheets of steel in the appropriate closet of materials.</li>
 					<li>Secure the internal armor plating with a wrench.</li>
 					<li>Weld the internal armor plating to the chassis.</li>
-					<li>Install the external reinforced armor plating (Not included due to corporate regulations. Can be made using 5 reinforced metal sheets).</li>
+					<li>Install the external reinforced armor plating by using some sheets of plasteel in the appropriate closet of materials.</li>
 					<li>Secure the external reinforced armor plating with a wrench.</li>
 					<li>Weld the external reinforced armor plating to the chassis.</li>
 				</ol>
@@ -892,7 +906,8 @@
 	author = "Engineering Encyclopedia"
 	title = "Engineering Textbook"
 
-/obj/item/weapon/book/manual/engineering_guide/New()
+//TFF 18/5/19 - Temporary removal as we don't have the appropriate article on our wiki.
+/*/obj/item/weapon/book/manual/engineering_guide/New()
 	..()
 	dat = {"
 
@@ -905,7 +920,7 @@
 		</html>
 
 		"}
-
+*/
 
 /obj/item/weapon/book/manual/chef_recipes
 	name = "Chef Recipes"

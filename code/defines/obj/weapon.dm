@@ -35,6 +35,7 @@
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
+	var/tile_clean_amount = 5
 
 /obj/item/weapon/soap/nanotrasen
 	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."
@@ -64,6 +65,7 @@
 	throw_range = 15
 	attack_verb = list("HONKED")
 	var/spam_flag = 0
+	var/honkSound = 'sound/items/bikehorn.ogg' //Chompstation ADD: Adding an adjustable variable for bikehorns >:D - Jon
 
 
 /obj/item/weapon/c_tube
@@ -413,7 +415,7 @@
 	src.pixel_y = rand(-5.0, 5)
 	..()
 
-//Rank 1
+//Rating 1
 
 /obj/item/weapon/stock_parts/console_screen
 	name = "console screen"
@@ -475,7 +477,7 @@
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 80)
 
-//Rank 2
+//Rating 2
 
 /obj/item/weapon/stock_parts/capacitor/adv
 	name = "advanced capacitor"
@@ -558,6 +560,48 @@
 	origin_tech = list(TECH_MATERIAL = 5)
 	rating = 3
 	matter = list(DEFAULT_WALL_MATERIAL = 80)
+
+//Rating 4
+
+/obj/item/weapon/stock_parts/capacitor/quadratic
+	name = "quadratic capacitor"
+	desc = "A quadratic capacitor used in the construction of a variety of devices."
+	icon_state = "quadratic_capacitor"
+	origin_tech = list(TECH_POWER = 7, TECH_MATERIAL = 6)
+	rating = 4
+	matter = list(DEFAULT_WALL_MATERIAL = 100,"glass" = 100)
+
+/obj/item/weapon/stock_parts/scanning_module/triphasic
+	name = "triphasic scanning module"
+	desc = "A compact, high resolution phasic scanning module used in the construction of certain devices."
+	icon_state = "triphasic_scan_module"
+	origin_tech = list(TECH_MAGNET = 8)
+	rating = 4
+	matter = list(DEFAULT_WALL_MATERIAL = 100,"glass" = 50)
+
+/obj/item/weapon/stock_parts/manipulator/femto
+	name = "femto-manipulator"
+	desc = "A very little manipulator used in the construction of certain devices."
+	icon_state = "femto_mani"
+	origin_tech = list(TECH_MATERIAL = 7, TECH_DATA = 4)
+	rating = 4
+	matter = list(DEFAULT_WALL_MATERIAL = 60,"diamond" = 50)
+
+/obj/item/weapon/stock_parts/micro_laser/quad
+	name = "quad-ultra micro-laser"
+	icon_state = "quadultra_micro_laser"
+	desc = "A small, very high-power laser used in certain devices."
+	origin_tech = list(TECH_MAGNET = 8)
+	rating = 4
+	matter = list(DEFAULT_WALL_MATERIAL = 20,"glass" = 40,"uranium" = 30)
+
+/obj/item/weapon/stock_parts/matter_bin/bluespace
+	name = "bluespace matter bin"
+	desc = "A seemingly bottomless container for holding matter."
+	icon_state = "bluespace_matter_bin"
+	origin_tech = list(TECH_MATERIAL = 6, TECH_BLUESPACE = 5)
+	rating = 4
+	matter = list(DEFAULT_WALL_MATERIAL = 80,"phoron" = 30)
 
 // Subspace stock parts
 

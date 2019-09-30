@@ -42,7 +42,8 @@
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 
 	var/body_color //brown, gray and white, leave blank for random
-
+	var/amount_grown = 0
+	
 /mob/living/simple_animal/mouse/Life()
 	. = ..()
 	if(!. || ai_inactive) return
@@ -96,7 +97,7 @@
 	if( ishuman(AM) )
 		if(!stat)
 			var/mob/M = AM
-			M.visible_message("<font color='blue'>\icon[src] Squeek!</font>")
+			M.visible_message("<font color='#6F6FE2'>\icon[src] Squeek!</font>")
 			M << 'sound/effects/mouse_squeak.ogg'
 	..()
 
@@ -135,3 +136,43 @@
 
 /mob/living/simple_animal/mouse/cannot_use_vents()
 	return
+
+	
+	
+	
+	
+
+//EVENT mice that evolve into rats because exctement.
+/mob/living/simple_animal/mouse/event
+	desc = "This one looks like it is growing huge!"
+	
+/mob/living/simple_animal/mouse/event/Life()
+	. = ..()
+	if(amount_grown >= 0)
+		amount_grown += rand(0,2)
+	if(amount_grown >= 100 && icon_state != icon_dead)
+		rat()
+		return
+
+/mob/living/simple_animal/mouse/event/proc/rat()
+	visible_message("<span class='warning'>\The [src] suddenly evolves!</span>")
+	if(prob(99.5))
+		new /mob/living/simple_animal/hostile/rat/event(get_turf(src))
+		qdel(src)
+	else	
+		new /mob/living/simple_animal/hostile/chungus(get_turf(src))
+		qdel(src)
+		
+
+	
+	
+	
+
+/mob/living/simple_animal/mouse/white/event
+
+
+/mob/living/simple_animal/mouse/gray/event
+
+
+/mob/living/simple_animal/mouse/brown/event
+

@@ -130,3 +130,8 @@
 /datum/category_item/autolathe/general/holocollar
 	name = "Holo-collar"
 	path =/obj/item/clothing/accessory/collar/holo //Chomp edit Adding holo collar to list of craftable items
+	
+/datum/category_item/autolathe/general/chaosbutton
+	name = "Chaos-Button"
+	path =/obj/item/device/buttonofnormal //A very normal size button
+	hidden = 1

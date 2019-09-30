@@ -103,7 +103,7 @@ Code:
 		var/obj/item/device/assembly/signaler/signaler2 = W
 		if(secured && signaler2.secured)
 			code = signaler2.code
-			frequency = signaler2.frequency
+			set_frequency(signaler2.frequency)	//TFF 18/4/19: Polaris fix - frequency transfer to other signalers
 			to_chat(user, "You transfer the frequency and code of [signaler2] to [src].")
 	else
 		..()

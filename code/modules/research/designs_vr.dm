@@ -84,8 +84,6 @@
 	build_path = /obj/item/device/perfect_tele
 	sort_string = "HABAF"
 
-// Chompstation Edit: Removing temporarily - Jon
-/*
 /datum/design/item/nif
 	name = "nanite implant framework"
 	id = "nif"
@@ -110,7 +108,7 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 200, "glass" = 3000, "uranium" = 2000, "diamond" = 2000)
 	build_path = /obj/item/device/nifrepairer
 	sort_string = "HABBE" //CHOMP Edit, Changed String from HABBD to HABBE
-*/
+
 // Resleeving Circuitboards
 
 /datum/design/circuit/transhuman_clonepod
@@ -310,3 +308,12 @@
 	id = "rigmod_orescanner"
 	build_path = /obj/item/rig_module/device/orescanner
 	sort_string = "HCAAI"
+
+//TFF: ports VOREStation resize module for printing from the fabricator.
+/datum/design/item/robot_upgrade/sizeshift
+	name = "Size Alteration Module"
+	desc = "Used to allow robot to freely alter their size."
+	id = "borg_sizeshift_module"
+	req_tech = list(TECH_BLUESPACE = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 4000, "glass" = 4000)
+	build_path = /obj/item/borg/upgrade/sizeshift

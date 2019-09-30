@@ -49,7 +49,6 @@
 	desc = "A simple, comfortable poncho."
 	icon_state = "classicponcho"
 	item_state = "classicponcho"
-	icon_override = 'icons/mob/ties.dmi'
 	var/fire_resist = T0C+100
 	allowed = list(/obj/item/weapon/tank/emergency/oxygen)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
@@ -61,7 +60,20 @@
 
 	sprite_sheets = list(
 		"Teshari" = 'icons/mob/species/seromi/suit.dmi'
-		)
+		) //This works only when wearing ponchos as an accessory, not a suit.
+
+/obj/item/clothing/accessory/poncho/equipped() //Solution for race-specific sprites for an accessory which is also a suit. Suit icons break if you don't use icon override which then also overrides race-specific sprites.
+	..()
+	var/mob/living/carbon/human/H = loc
+	if(istype(H) && H.wear_suit == src)
+		if(H.species.name == "Teshari")
+			icon_override = 'icons/mob/species/seromi/suit.dmi'
+		else
+			icon_override = 'icons/mob/ties.dmi'
+		update_clothing_icon()
+
+/obj/item/clothing/accessory/poncho/dropped() //Resets the override to prevent the wrong .dmi from being used because equipped only triggers when wearing ponchos as suits.
+	icon_override = null
 
 /obj/item/clothing/accessory/poncho/green
 	name = "green poncho"
@@ -168,6 +180,61 @@
 	desc = "An elaborate cloak meant to be worn by the colony director."
 	icon_state = "capcloak"
 	item_state = "capcloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/cargo
+	name = "brown cloak"
+	desc = "A simple brown and black cloak."
+	icon_state = "cargocloak"
+	item_state = "cargocloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/mining
+	name = "trimmed purple cloak"
+	desc = "A trimmed purple and brown cloak."
+	icon_state = "miningcloak"
+	item_state = "miningcloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/security
+	name = "red cloak"
+	desc = "A simple red and black cloak."
+	icon_state = "seccloak"
+	item_state = "seccloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/service
+	name = "green cloak"
+	desc = "A simple green and blue cloak."
+	icon_state = "servicecloak"
+	item_state = "servicecloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/engineer
+	name = "gold cloak"
+	desc = "A simple gold and brown cloak."
+	icon_state = "engicloak"
+	item_state = "engicloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/atmos
+	name = "yellow cloak"
+	desc = "A trimmed yellow and blue cloak."
+	icon_state = "atmoscloak"
+	item_state = "atmoscloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/research
+	name = "purple cloak"
+	desc = "A simple purple and white cloak."
+	icon_state = "scicloak"
+	item_state = "scicloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/medical
+	name = "blue cloak"
+	desc = "A simple blue and white cloak."
+	icon_state = "medcloak"
+	item_state = "medcloak"
+
+
+/obj/item/clothing/accessory/poncho/roles/cloak/custom //A colorable cloak
+	name = "cloak"
+	desc = "A simple, bland cloak."
+	icon_state = "colorcloak"
+	item_state = "colorcloak"
 
 /obj/item/clothing/accessory/hawaii
 	name = "flower-pattern shirt"

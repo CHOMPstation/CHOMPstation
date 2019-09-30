@@ -57,9 +57,9 @@
 	human_mob_list -= src
 	for(var/organ in organs)
 		qdel(organ)
-// Chompstation Edit: Removing NIFs temporarily - Jon
-//	qdel_null(nif)	//VOREStation Add
-//	qdel_null_list(vore_organs) //VOREStation Add
+
+	qdel_null(nif)	//VOREStation Add
+	qdel_null_list(vore_organs) //VOREStation Add
 	return ..()
 
 /mob/living/carbon/human/Stat()
@@ -167,7 +167,7 @@
 				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
 	if(update)	UpdateDamageIcon()
 
-/mob/living/carbon/human/proc/implant_loadout(var/datum/gear/G = new/datum/gear/utility/implant)
+/mob/living/carbon/human/proc/implant_loadout(var/datum/gear/G = new/datum/gear/implant)	//TFF 29/4/19: filepath change due to loadout change
 	var/obj/item/weapon/implant/I = new G.path(src)
 	I.imp_in = src
 	I.implanted = 1
@@ -755,7 +755,7 @@
 /mob/living/carbon/human/proc/play_xylophone()
 	if(!src.xylophone)
 		var/datum/gender/T = gender_datums[get_visible_gender()]
-		visible_message("<font color='red'>\The [src] begins playing [T.his] ribcage like a xylophone. It's quite spooky.</font>","<font color='blue'>You begin to play a spooky refrain on your ribcage.</font>","<font color='red'>You hear a spooky xylophone melody.</font>")
+		visible_message("<font color='red'>\The [src] begins playing [T.his] ribcage like a xylophone. It's quite spooky.</font>","<font color='#6F6FE2'>You begin to play a spooky refrain on your ribcage.</font>","<font color='red'>You hear a spooky xylophone melody.</font>")
 		var/song = pick('sound/effects/xylophone1.ogg','sound/effects/xylophone2.ogg','sound/effects/xylophone3.ogg')
 		playsound(loc, song, 50, 1, -1)
 		xylophone = 1
@@ -846,7 +846,7 @@
 	regenerate_icons()
 	check_dna()
 	var/datum/gender/T = gender_datums[get_visible_gender()]
-	visible_message("<font color='blue'>\The [src] morphs and changes [T.his] appearance!</font>", "<font color='blue'>You change your appearance!</font>", "<font color='red'>Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!</font>")
+	visible_message("<font color='#6F6FE2'>\The [src] morphs and changes [T.his] appearance!</font>", "<font color='#6F6FE2'>You change your appearance!</font>", "<font color='red'>Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!</font>")
 
 /mob/living/carbon/human/proc/remotesay()
 	set name = "Project mind"
@@ -869,10 +869,10 @@
 
 	var/say = sanitize(input("What do you wish to say"))
 	if(mRemotetalk in target.mutations)
-		target.show_message("<font color='blue'> You hear [src.real_name]'s voice: [say]</font>")
+		target.show_message("<font color='#6F6FE2'> You hear [src.real_name]'s voice: [say]</font>")
 	else
-		target.show_message("<font color='blue'> You hear a voice that seems to echo around the room: [say]</font>")
-	usr.show_message("<font color='blue'> You project your mind into [target.real_name]: [say]</font>")
+		target.show_message("<font color='#6F6FE2'> You hear a voice that seems to echo around the room: [say]</font>")
+	usr.show_message("<font color='#6F6FE2'> You project your mind into [target.real_name]: [say]</font>")
 	log_say("(TPATH to [key_name(target)]) [say]",src)
 	for(var/mob/observer/dead/G in mob_list)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
@@ -1117,7 +1117,8 @@
 	else
 		usr << "<span class='warning'>You failed to check the pulse. Try again.</span>"
 
-/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/regen_icons = TRUE)
+//TFF 14/4/19: Port VoreStation TF fix
+/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/regen_icons = TRUE, var/mob/living/carbon/human/example = null)	//VOREStation Edit - send an example
 
 	if(!dna)
 		if(!new_species)
@@ -1152,7 +1153,16 @@
 	if(species.default_language)
 		add_language(species.default_language)
 
-	if(species.base_color) //VOREStation Edit - Always give them a basse color
+//TFF 14/4/19: Port VoreStation TF fix
+	//if(species.icon_scale != 1)	//VOREStation Removal
+	//	update_transform()			//VOREStation Removal
+
+	if(example)						//VOREStation Edit begin
+		if(!(example == src))
+			r_skin = example.r_skin
+			g_skin = example.g_skin
+			b_skin = example.b_skin
+	else if(species.base_color)	//VOREStation Edit end
 		//Apply colour.
 		r_skin = hex2num(copytext(species.base_color,2,4))
 		g_skin = hex2num(copytext(species.base_color,4,6))
@@ -1169,10 +1179,13 @@
 		gender = species.genders[1]
 
 	//icon_state = lowertext(species.name) //Necessary?
+//TFF 14/4/19: Port VoreStation TF fix
+	//VOREStation Edit start: swap places of those two procs
+	species.handle_post_spawn(src)
+
 
 	species.create_organs(src)
 
-	species.handle_post_spawn(src)
 
 	maxHealth = species.total_health
 

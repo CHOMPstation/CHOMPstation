@@ -62,6 +62,7 @@
 				H.audible_message("<span class='notice'>[H] begins to flap \his wings, preparing to move upwards!</span>")
 				if(do_after(H, fly_time) && H.flying)
 					to_chat(src, "<span class='notice'>You fly upwards.</span>")
+					playsound(src, 'sound/effects/wing2.ogg', 30, 1)
 				else
 					to_chat(src, "<span class='warning'>You stopped flying upwards.</span>")
 					return 0
@@ -188,11 +189,12 @@
 		var/mob/H = src //VOREStation Edit Start. Flight on mobs.
 		if(H.flying) //Some other checks are done in the wings_toggle proc
 			if(H.nutrition > 2)
-				H.nutrition -= 2 //You use up 2 nutrition per TILE and tick of flying above open spaces. If people wanna flap their wings in the hallways, shouldn't penalize them for it.
+				H.nutrition -= 1 //You use up 1 nutrition per TILE and tick of flying above open spaces.
+				playsound(H.loc, 'sound/effects/wing1.ogg', 25, 1)
 			if(H.incapacitated(INCAPACITATION_ALL))
 				H.stop_flying()
 				//Just here to see if the person is KO'd, stunned, etc. If so, it'll move onto can_fall.
-			else if (H.nutrition > 1000) //Eat too much while flying? Get fat and fall.
+			else if (H.nutrition > 2000) //Eat too much while flying? Get fat and fall.
 				to_chat(H, "<span class='danger'>You're too heavy! Your wings give out and you plummit to the ground!</span>")
 				H.stop_flying() //womp womp.
 			else if(H.nutrition < 300 && H.nutrition > 289) //290 would be risky, as metabolism could mess it up. Let's do 289.

@@ -68,3 +68,18 @@
 			/obj/item/device/floor_painter = 2,
 			/obj/item/device/closet_painter = 2
 			)
+//Chompstation add: adding a pack with 1 of each type of collar
+/datum/supply_packs/recreation/collars
+	name = "Collar bundle"
+	contains = list(
+			/obj/item/clothing/accessory/collar/shock = 1,
+			/obj/item/clothing/accessory/collar/spike = 1,
+			/obj/item/clothing/accessory/collar/silver = 1,
+			/obj/item/clothing/accessory/collar/gold = 1,
+			/obj/item/clothing/accessory/collar/bell = 1,
+			/obj/item/clothing/accessory/collar/pink = 1,
+			/obj/item/clothing/accessory/collar/holo = 1
+			)
+	cost = 25
+	containertype = /obj/structure/closet/crate
+	containername = "collar crate"

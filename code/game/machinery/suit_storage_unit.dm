@@ -95,8 +95,8 @@
 		dat+= "<HEAD><TITLE>Suit storage unit: Maintenance panel</TITLE></HEAD>"
 		dat+= "<Font color ='black'><B>Maintenance panel controls</B></font><HR>"
 		dat+= "<font color ='grey'>The panel is ridden with controls, button and meters, labeled in strange signs and symbols that <BR>you cannot understand. Probably the manufactoring world's language.<BR> Among other things, a few controls catch your eye.</font><BR><BR>"
-		dat+= text("<font color ='black'>A small dial with a small lambda symbol on it. It's pointing towards a gauge that reads []</font>.<BR> <font color='blue'><A href='?src=\ref[];toggleUV=1'> Turn towards []</A></font><BR>",(issuperUV ? "15nm" : "185nm"),src,(issuperUV ? "185nm" : "15nm"))
-		dat+= text("<font color ='black'>A thick old-style button, with 2 grimy LED lights next to it. The [] LED is on.</font><BR><font color ='blue'><A href='?src=\ref[];togglesafeties=1'>Press button</a></font>",(safetieson? "<font color='green'><B>GREEN</B></font>" : "<font color='red'><B>RED</B></font>"),src)
+		dat+= text("<font color ='black'>A small dial with a small lambda symbol on it. It's pointing towards a gauge that reads []</font>.<BR> <font color='#6F6FE2'><A href='?src=\ref[];toggleUV=1'> Turn towards []</A></font><BR>",(issuperUV ? "15nm" : "185nm"),src,(issuperUV ? "185nm" : "15nm"))
+		dat+= text("<font color ='black'>A thick old-style button, with 2 grimy LED lights next to it. The [] LED is on.</font><BR><font color ='#6F6FE2'><A href='?src=\ref[];togglesafeties=1'>Press button</a></font>",(safetieson? "<font color='green'><B>GREEN</B></font>" : "<font color='red'><B>RED</B></font>"),src)
 		dat+= text("<HR><BR><A href='?src=\ref[];mach_close=suit_storage_unit'>Close panel</A>", user)
 		//user << browse(dat, "window=ssu_m_panel;size=400x500")
 		//onclose(user, "ssu_m_panel")
@@ -110,7 +110,7 @@
 	else
 		if(!isbroken)
 			dat+= "<HEAD><TITLE>Suit storage unit</TITLE></HEAD>"
-			dat+= "<font color='blue'><font size = 4><B>U-Stor-It Suit Storage Unit, model DS1900</B></FONT><BR>"
+			dat+= "<font color='#6F6FE2'><font size = 4><B>U-Stor-It Suit Storage Unit, model DS1900</B></FONT><BR>"
 			dat+= "<B>Welcome to the Unit control panel.</B></FONT><HR>"
 			dat+= text("<font color='black'>Helmet storage compartment: <B>[]</B></font><BR>",(HELMET ? HELMET.name : "</font><font color ='grey'>No helmet detected."))
 			if(HELMET && isopen)
@@ -402,9 +402,9 @@
 
 	if(OCCUPANT.client)
 		if(user != OCCUPANT)
-			OCCUPANT << "<font color='blue'>The machine kicks you out!</font>"
+			OCCUPANT << "<font color='#6F6FE2'>The machine kicks you out!</font>"
 		if(user.loc != src.loc)
-			OCCUPANT << "<font color='blue'>You leave the not-so-cozy confines of the SSU.</font>"
+			OCCUPANT << "<font color='#6F6FE2'>You leave the not-so-cozy confines of the SSU.</font>"
 
 		OCCUPANT.client.eye = OCCUPANT.client.mob
 		OCCUPANT.client.perspective = MOB_PERSPECTIVE
@@ -474,7 +474,7 @@
 	if(istype(I, /obj/item/weapon/screwdriver))
 		panelopen = !panelopen
 		playsound(src, I.usesound, 100, 1)
-		user << text("<font color='blue'>You [] the unit's maintenance panel.</font>",(panelopen ? "open up" : "close"))
+		user << text("<font color='#6F6FE2'>You [] the unit's maintenance panel.</font>",(panelopen ? "open up" : "close"))
 		updateUsrDialog()
 		return
 	if(istype(I, /obj/item/weapon/grab))
@@ -514,7 +514,7 @@
 			return
 		var/obj/item/clothing/suit/space/S = I
 		if(SUIT)
-			user << "<font color='blue'>The unit already contains a suit.</font>"
+			user << "<font color='#6F6FE2'>The unit already contains a suit.</font>"
 			return
 		user << "You load the [S.name] into the storage compartment."
 		user.drop_item()
@@ -528,7 +528,7 @@
 			return
 		var/obj/item/clothing/head/helmet/H = I
 		if(HELMET)
-			user << "<font color='blue'>The unit already contains a helmet.</font>"
+			user << "<font color='#6F6FE2'>The unit already contains a helmet.</font>"
 			return
 		user << "You load the [H.name] into the storage compartment."
 		user.drop_item()
@@ -542,7 +542,7 @@
 			return
 		var/obj/item/clothing/mask/M = I
 		if(MASK)
-			user << "<font color='blue'>The unit already contains a mask.</font>"
+			user << "<font color='#6F6FE2'>The unit already contains a mask.</font>"
 			return
 		user << "You load the [M.name] into the storage compartment."
 		user.drop_item()
@@ -979,12 +979,19 @@
 				helmet.name = "engineering voidsuit helmet"
 				helmet.icon_state = "rig0-engineering"
 				helmet.item_state = "rig0-engineering"
+				helmet.max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
+				helmet.armor = list(melee = 40, bullet = 5, laser = 20, energy = 5, bomb = 35, bio = 100, rad = 80)
+				helmet.desc = "A special helmet designed for work in a hazardous, low-pressure environment. Has radiation shielding."
 			if(suit)
 				suit.name = "engineering voidsuit"
 				suit.icon_state = "rig-engineering"
 				suit.item_state = "rig-engineering"
 				suit.item_state_slots[slot_r_hand_str] = "eng_voidsuit"
 				suit.item_state_slots[slot_l_hand_str] = "eng_voidsuit"
+				suit.max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+				suit.armor = list(melee = 40, bullet = 5, laser = 20, energy = 5, bomb = 35, bio = 100, rad = 80)
+				suit.desc = "A special suit that protects against hazardous, low pressure environments. Has radiation shielding."
+
 		if("Mining")
 			if(helmet)
 				helmet.name = "mining voidsuit helmet"
@@ -1001,12 +1008,16 @@
 				helmet.name = "medical voidsuit helmet"
 				helmet.icon_state = "rig0-medical"
 				helmet.item_state = "rig0-medical"
+				helmet.armor = list(melee = 30, bullet = 5, laser = 20, energy = 5, bomb = 25, bio = 100, rad = 50)
+				helmet.desc = "A special helmet that protects against hazardous, low pressure environments. Has minor radiation shielding."
 			if(suit)
 				suit.name = "medical voidsuit"
 				suit.icon_state = "rig-medical"
 				suit.item_state = "rig-medical"
 				suit.item_state_slots[slot_r_hand_str] = "medical_voidsuit"
 				suit.item_state_slots[slot_l_hand_str] = "medical_voidsuit"
+				suit.armor = list(melee = 30, bullet = 5, laser = 20, energy = 5, bomb = 25, bio = 100, rad = 50)
+				suit.desc = "A special suit that protects against hazardous, low pressure environments. Has minor radiation shielding."
 		if("Security")
 			if(helmet)
 				helmet.name = "security voidsuit helmet"
@@ -1034,56 +1045,89 @@
 				helmet.name = "atmospherics voidsuit helmet"
 				helmet.icon_state = "rig0-atmos"
 				helmet.item_state = "rig0-atmos"
+				helmet.max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
+				helmet.armor = list(melee = 40, bullet = 5, laser = 20, energy = 5, bomb = 35, bio = 100, rad = 50)
+				helmet.desc = "A special helmet designed for work in a hazardous, low pressure environments. Has improved thermal protection and minor radiation shielding."
+
 			if(suit)
 				suit.name = "atmospherics voidsuit"
 				suit.icon_state = "rig-atmos"
 				suit.item_state = "rig-atmos"
 				suit.item_state_slots[slot_r_hand_str] = "atmos_voidsuit"
 				suit.item_state_slots[slot_l_hand_str] = "atmos_voidsuit"
+				suit.max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+				suit.armor = list(melee = 40, bullet = 5, laser = 20, energy = 5, bomb = 35, bio = 100, rad = 50)
+				suit.desc = "A special suit that protects against hazardous, low pressure environments. Has improved thermal protection and minor radiation shielding."
+
 		if("HAZMAT")
 			if(helmet)
 				helmet.name = "HAZMAT voidsuit helmet"
 				helmet.icon_state = "rig0-engineering_rad"
 				helmet.item_state = "rig0-engineering_rad"
+				helmet.max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
+				helmet.armor = list(melee = 30, bullet = 5, laser = 20, energy = 5, bomb = 50, bio = 100, rad = 100)
+				helmet.desc = "A engineering helmet designed for work in a low-pressure environment. Extra radiation shielding appears to have been installed at the price of comfort."
+
 			if(suit)
 				suit.name = "HAZMAT voidsuit"
 				suit.icon_state = "rig-engineering_rad"
 				suit.item_state = "rig-engineering_rad"
 				suit.item_state_slots[slot_r_hand_str] = "eng_voidsuit_rad"
 				suit.item_state_slots[slot_l_hand_str] = "eng_voidsuit_rad"
+				suit.max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+				suit.armor = list(melee = 30, bullet = 5, laser = 20, energy = 5, bomb = 50, bio = 100, rad = 100)
+				suit.desc = "A engineering voidsuit that protects against hazardous, low pressure environments. Has enhanced radiation shielding compared to regular engineering voidsuits."
 		if("Construction")
 			if(helmet)
 				helmet.name = "Construction voidsuit helmet"
 				helmet.icon_state = "rig0-engineering_con"
 				helmet.item_state = "rig0-engineering_con"
+				helmet.max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
+				helmet.armor = list(melee = 40, bullet = 5, laser = 20, energy = 5, bomb = 35, bio = 100, rad = 80)
+				helmet.desc = "A special helmet designed for work in a hazardous, low-pressure environment. Has radiation shielding."
 			if(suit)
 				suit.name = "Construction voidsuit"
 				suit.icon_state = "rig-engineering_con"
 				suit.item_state = "rig-engineering_con"
 				suit.item_state_slots[slot_r_hand_str] = "eng_voidsuit_con"
 				suit.item_state_slots[slot_l_hand_str] = "eng_voidsuit_con"
+				suit.max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+				suit.armor = list(melee = 40, bullet = 5, laser = 20, energy = 5, bomb = 35, bio = 100, rad = 80)
+				suit.desc = "A special suit designed for work in a hazardous, low-pressure environment. Has radiation shielding."
+
 		if("Biohazard")
 			if(helmet)
 				helmet.name = "Biohazard voidsuit helmet"
 				helmet.icon_state = "rig0-medical_bio"
 				helmet.item_state = "rig0-medical_bio"
+				helmet.armor = list(melee = 45, bullet = 5, laser = 20, energy = 5, bomb = 15, bio = 100, rad = 75)
+				helmet.desc = "A special helmet that protects against hazardous environments. Has minor radiation shielding."
+
 			if(suit)
 				suit.name = "Biohazard voidsuit"
 				suit.icon_state = "rig-medical_bio"
 				suit.item_state = "rig-medical_bio"
 				suit.item_state_slots[slot_r_hand_str] = "medical_voidsuit_bio"
 				suit.item_state_slots[slot_l_hand_str] = "medical_voidsuit_bio"
+				suit.armor = list(melee = 45, bullet = 5, laser = 20, energy = 5, bomb = 15, bio = 100, rad = 75)
+				suit.desc = "A special suit that protects against hazardous, environments. It feels heavier than the standard suit with extra protection around the joints."
+
 		if("Emergency Medical Response")
 			if(helmet)
 				helmet.name = "emergency medical response voidsuit helmet"
 				helmet.icon_state = "rig0-medical_emt"
 				helmet.item_state = "rig0-medical_emt"
+				helmet.armor = list(melee = 30, bullet = 5, laser = 20, energy = 5, bomb = 25, bio = 100, rad = 50)
+				helmet.desc = "A special helmet that protects against hazardous, low pressure environments. Has minor radiation shielding."
+
 			if(suit)
 				suit.name = "emergency medical response voidsuit"
 				suit.icon_state = "rig-medical_emt"
 				suit.item_state = "rig-medical_emt"
 				suit.item_state_slots[slot_r_hand_str] = "medical_voidsuit_emt"
 				suit.item_state_slots[slot_l_hand_str] = "medical_voidsuit_emt"
+				suit.armor = list(melee = 30, bullet = 5, laser = 20, energy = 5, bomb = 25, bio = 100, rad = 50)
+				suit.desc = "A special suit that protects against hazardous, low pressure environments. Has minor radiation shielding."
 		if("^%###^%$" || "Mercenary")
 			if(helmet)
 				helmet.name = "blood-red voidsuit helmet"

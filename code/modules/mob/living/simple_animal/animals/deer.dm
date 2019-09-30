@@ -1,5 +1,5 @@
 /mob/living/simple_animal/deer
-	name = "Deer"
+	name = "deer"
 	desc = "An animal with impressive antlers and skittish personality, though this one seems domesticated."
 	tt_desc = "Cervus elaphus"
 	icon_state = "Deer"
@@ -8,8 +8,8 @@
 	icon_gib = "generic_gib"
 	intelligence_level = SA_ANIMAL
 
-	specific_targets = 1 //Only targets with Found()	
-	
+	specific_targets = 1 //Only targets with Found()
+
 	view_range = 5
 	health = 50
 	turns_per_move = 5
@@ -33,7 +33,7 @@
 	var/mob/flee_target
 
 /mob/living/simple_animal/deer/New()
-	
+
 	if(prob(1))
 		name = "Kyle"
 		desc = "A deer with no antlers and a very skittish personality, it seems to be a male even though its a doe."
@@ -43,7 +43,6 @@
 		icon_dead = "Kyle_dead"
 		icon_gib = "generic_gib"
 		intelligence_level = SA_ANIMAL
-		vore_active = 1
 
 		health = 100
 		turns_per_move = 1
@@ -51,7 +50,7 @@
 
 		response_help  = "pets"
 		response_disarm = "barely manage to push aside"
-		response_harm   = "nibbles"
+		response_harm   = "hits"
 		attacktext = list("nibbled")
 
 		speak_chance = 20
@@ -60,8 +59,8 @@
 		emote_hear = list("Bleats", "Bleats loudly","Wh-s")
 		emote_see = list("wiggles his tail","Flails around","Flails","Runs around in a circle")
 	..()
-/mob/living/simple_animal/deer/init_vore()	
-	..()	
+/mob/living/simple_animal/deer/init_vore()
+	..()
 	var/obj/belly/B = vore_selected
 	B.name = "Stomach"
 	B.desc = "Your curled up inside Kyle's belly, and he doesnt seem very quite eager about the idea judging from all the bleating..."
@@ -78,15 +77,15 @@
 		"While the distressed deer is trying to get his unwelcome guest out of his stomach, his stomach is busy claiming its food by tightening around you to grind you into mush.",
 		"Its hard to see inside the dark and damp belly, but the sound of sloshing liquids grows louder by every minute, and the same goes for the ominous gurgling noises.",
 		"Everytime Kyle stops to bleat nervously his belly tightens around you, forcing you to curl up tighter than before. Will you get out before its to late, get digested first, or even crushed into a paste?",
-		"The deer tries his best to regurgitate you, but all it does is excite his stomach even more and fill up the organ with more liquids to churn you up with.")				
-	
+		"The deer tries his best to regurgitate you, but all it does is excite his stomach even more and fill up the organ with more liquids to churn you up with.")
+
 // All them complicated deer procedures.
 /mob/living/simple_animal/deer/Life()
 	. = ..()
 	if(!.) return
 
 	handle_flee_target()
-	
+
 /mob/living/simple_animal/deer/proc/handle_flee_target()
 	//see if we should stop fleeing
 	if (flee_target && !(flee_target in ListTargets(view_range)))
@@ -108,4 +107,3 @@
 /mob/living/simple_animal/deer/ex_act()
 	. = ..()
 	react_to_attack(src.loc)
-	

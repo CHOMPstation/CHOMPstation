@@ -1,32 +1,4 @@
-/datum/nifsoft/crewmonitor
-	name = "Crew Monitor"
-	desc = "A link to the local crew monitor sensors. Useful for finding people in trouble."
-	list_pos = NIF_CREWMONITOR
-	access = access_medical
-	cost = 1250
-	p_drain = 0.025
-	var/datum/nano_module/crew_monitor/arscreen
-
-	New()
-		..()
-		arscreen = new(nif)
-
-	Destroy()
-		qdel_null(arscreen)
-		return ..()
-
-	activate()
-		if((. = ..()))
-			arscreen.ui_interact(nif.human,"main",null,1,nif_state)
-			return TRUE
-
-	deactivate()
-		if((. = ..()))
-			return TRUE
-
-	stat_text()
-		return "Show Monitor"
-
+//TFF: Removed Crew Monitor, moved to an appropriate file.
 /datum/nifsoft/medichines_org
 	name = "Medichines"
 	desc = "An internal swarm of nanites to make sure you stay in good shape and to promote healing, or to preserve you if you are critically injured."
@@ -61,16 +33,20 @@
 			if(HP_percent >= 0.9)
 				if(mode)
 					nif.notify("User Status: NORMAL. Medichines deactivating.")
+					H << 'sound/voice/nifmed_normal.ogg'
 					deactivate()
 				return TRUE
 			else if(!mode && HP_percent < 0.8)
 				nif.notify("User Status: INJURED. Commencing medichine routines.",TRUE)
+				H << 'sound/voice/nifmed_injured.ogg'
 				activate()
 			else if(mode == 1 && HP_percent < 0.2)
 				nif.notify("User Status: DANGER. Seek medical attention!",TRUE)
+				H << 'sound/voice/nifmed_danger.ogg'
 				mode = 2
 			else if(mode == 2 && HP_percent < -0.4)
 				nif.notify("User Status: CRITICAL. Notifying medical, and starting emergency stasis!",TRUE)
+				H << 'sound/voice/nifmed_critical.ogg'
 				mode = 3
 				if(!ishuman(H.loc)) //Not notified in case of vore, for gameplay purposes.
 					var/turf/T = get_turf(H)

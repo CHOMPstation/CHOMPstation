@@ -12,6 +12,7 @@
 	icon_state = "guard"
 	icon_living = "guard"
 	icon_dead = "guard_dead"
+	isEdible = 0
 
 	faction = "spiders"
 	intelligence_level = SA_ANIMAL
@@ -82,6 +83,7 @@ Nurse Family
 	poison_type = "spidertoxin"  // VOREStation edit, original is stoxin. (sleep toxins)
 
 	var/fed = 0
+	var/fedsmall = 0
 	var/atom/cocoon_target
 	var/egg_inject_chance = 5
 
@@ -137,6 +139,8 @@ Nurse Family
 	projectilesound = 'sound/weapons/thudswoosh.ogg'
 	projectiletype = /obj/item/projectile/bola
 	ranged = 1
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 30 	//How long, in deciseconds, the cooldown of ranged attacks is
 	firing_lines = 1
 	cooperative = 1
 	shoot_range = 5
@@ -345,7 +349,9 @@ Guard Family
 	melee_damage_lower = 10
 	melee_damage_upper = 25
 
-	ranged = 1
+	move_shoot = 1			//CHOMPEdit Originally, this was ranged, but it is now move_shoot which allows it to move and shoot.
+	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
+	ranged_cooldown_time = 150 	//How long, in deciseconds, the cooldown of ranged attacks is. Get nerfed.
 	projectilesound = 'sound/weapons/taser2.ogg'
 	projectiletype = /obj/item/projectile/beam/stun/weak
 	firing_lines = 1
@@ -513,7 +519,7 @@ Spider Procs
 			else
 				//third, lay an egg cluster there
 				var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
-				if(!E && fed > 0)
+				if(!E && fed > 0 || fedsmall > 0)
 					busy = LAYING_EGGS
 					src.visible_message("<span class='notice'>\The [src] begins to lay a cluster of eggs.</span>")
 					stop_automated_movement = 1
@@ -521,8 +527,12 @@ Spider Procs
 						if(busy == LAYING_EGGS)
 							E = locate() in get_turf(src)
 							if(!E)
-								new /obj/effect/spider/eggcluster(loc, src)
-								fed--
+								if(fed >= 1)
+									new /obj/effect/spider/eggcluster(loc, src)
+									fed--
+								if(fedsmall >= 1)
+									new /obj/effect/spider/eggcluster/small(loc, src)
+									fedsmall--
 							busy = 0
 							stop_automated_movement = 0
 				else
@@ -557,7 +567,10 @@ Spider Procs
 								if(istype(M, /mob/living/simple_animal/hostile/giant_spider))
 									continue
 								large_cocoon = 1
-								fed++
+								if(istiny(cocoon_target))
+									fedsmall++
+								if(!istiny(cocoon_target))
+									fed++
 								src.visible_message("<span class='warning'>\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out.</span>")
 								M.forceMove(C)
 								C.pixel_x = M.pixel_x
@@ -582,6 +595,19 @@ Spider Procs
 		busy = 0
 		stop_automated_movement = 0
 
+//CHOMPEDIT LIQUID EGG INJECTORS
+/mob/living/simple_animal/hostile/giant_spider/frost/liquidegg
+	desc = "Icy and blue. This one has brilliant blue eyes, to seduce you into accepting its eggs."
+	tt_desc = "X Brachypelma ovum pruinae"
+	icon_state = "frost"
+	icon_living = "frost"
+	icon_dead = "frost_dead"
+
+	maxHealth = 175
+	health = 175
+
+	poison_per_bite = 7
+	poison_type = "spideregg"
 
 #undef SPINNING_WEB
 #undef LAYING_EGGS

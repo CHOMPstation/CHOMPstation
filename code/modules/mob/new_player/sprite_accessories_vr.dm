@@ -947,7 +947,7 @@
 		color_blend_mode = ICON_MULTIPLY
 		body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_TORSO)
 
-	spirit_panels_head
+	spirit_lights_head
 		name = "Ward - Spirit FBP Lights (head)"
 		icon_state = "lights"
 		color_blend_mode = ICON_MULTIPLY
@@ -976,3 +976,9 @@
 		icon_state = "heterochromia"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(SPECIES_HUMAN, SPECIES_UNATHI, SPECIES_TAJ, SPECIES_NEVREAN, SPECIES_AKULA, SPECIES_ZORREN_FLAT, SPECIES_ZORREN_HIGH, SPECIES_VULPKANIN, SPECIES_XENOCHIMERA, SPECIES_XENOHYBRID, SPECIES_VASILISSAN, SPECIES_RAPALA, SPECIES_PROTEAN, SPECIES_ALRAUNE) //This lets all races use the default hairstyles.
+
+	grointojaw
+		name = "Groin to mouth marking"
+		icon_state = "grointojaw"
+		color_blend_mode = ICON_MULTIPLY
+		body_parts = list(BP_TORSO, BP_HEAD, BP_GROIN)

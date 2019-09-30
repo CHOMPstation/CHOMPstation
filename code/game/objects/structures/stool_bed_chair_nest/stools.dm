@@ -6,6 +6,7 @@ var/global/list/stool_cache = list() //haha stool
 	desc = "Apply butt."
 	icon = 'icons/obj/furniture_vr.dmi' //VOREStation Edit - new Icons
 	icon_state = "stool_preview" //set for the map
+	can_buckle = 1 //TFF: You can now throw people with your immense strength while they're sitting on the stool! >:3
 	force = 10
 	throwforce = 10
 	w_class = ITEMSIZE_HUGE
@@ -105,6 +106,10 @@ var/global/list/stool_cache = list() //haha stool
 		material.place_sheet(get_turf(src))
 	if(padding_material)
 		padding_material.place_sheet(get_turf(src))
+	// Adding a safety net to prevent players from being perma-buckled to the stool..! - Jon
+	if(has_buckled_mobs())
+		for(var/A in buckled_mobs)
+			user_unbuckle_mob(A, src)
 	qdel(src)
 
 /obj/item/weapon/stool/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -147,3 +152,11 @@ var/global/list/stool_cache = list() //haha stool
 		remove_padding()
 	else
 		..()
+
+// Chompstation ADD: A new proc to allow mobs to be unbuckled when clicking on a stool.
+/obj/item/weapon/stool/attack_hand(mob/living/user as mob)
+	if(has_buckled_mobs())
+		for(var/A in buckled_mobs)
+			user_unbuckle_mob(A, user)
+		return
+	..()

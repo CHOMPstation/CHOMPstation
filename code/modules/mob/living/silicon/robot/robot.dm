@@ -469,7 +469,7 @@
 					C.brute_damage = WC.brute
 					C.electronics_damage = WC.burn
 
-				usr << "<font color='blue'>You install the [W.name].</font>"
+				usr << "<font color='#6F6FE2'>You install the [W.name].</font>"
 
 				return
 
@@ -616,7 +616,8 @@
 		else
 			user << "Unable to locate a radio."
 
-	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda)||istype(W, /obj/item/weapon/card/robot))			// trying to unlock the interface with an ID card
+//TFF 14/4/19: Port VoreStation edit - Wallet/Micro usage to unlock borgs.
+	else if (W.GetID())			// trying to unlock the interface with an ID card
 		if(emagged)//still allow them to open the cover
 			user << "The interface seems slightly damaged"
 		if(opened)
@@ -698,17 +699,20 @@
 			return 1
 	return 0
 
-/mob/living/silicon/robot/proc/check_access(obj/item/weapon/card/id/I)
+//TFF 14/4/19: Port VoreStation edit - wallet/micro usage to unlock borgs
+/mob/living/silicon/robot/proc/check_access(obj/item/I)
 	if(!istype(req_access, /list)) //something's very wrong
 		return 1
 
+//TFF 14/4/19: Port VoreStation edit - wallet/micro usage to unlock borgs
 	var/list/L = req_access
 	if(!L.len) //no requirements
 		return 1
-	if(!I || !istype(I, /obj/item/weapon/card/id) || !I.access) //not ID or no access
+	if(!I) //nothing to check with..?
 		return 0
+	var/access_found = I.GetAccess()
 	for(var/req in req_access)
-		if(req in I.access) //have one of the required accesses
+		if(req in access_found) //have one of the required accesses
 			return 1
 	return 0
 

@@ -14,7 +14,10 @@
 					/area/mine,
 					/area/vacant/vacant_shop,
 					/area/turbolift,
-					/area/submap					)
+					/area/submap,
+					/area/hallway/secondary/entry/D2/shuttleDoors,
+					/area/engineering/gas_storage	//CHOMPStation Addition 24/9/19 - add new area for exempting from unit tests.
+										)
 
 	var/list/exempt_from_atmos = typesof(/area/maintenance,
 						/area/storage,

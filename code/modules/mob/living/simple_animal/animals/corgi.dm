@@ -8,6 +8,7 @@
 	icon_state = "corgi"
 	icon_living = "corgi"
 	icon_dead = "corgi_dead"
+	isEdible = 0
 
 	run_at_them = 0
 	turns_per_move = 10
@@ -43,6 +44,18 @@
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
+
+//CHOMPEDIT: what if ian wasn't kill
+/mob/living/simple_animal/corgi/Ian/death()
+	..()
+	var/location = get_turf(src) //lets just define this here once instead of ewverytime an if is true, less work.
+	visible_message("<span class='notice'>\The [src] refuses death.</span>")
+	new /mob/living/simple_animal/corgi/Ian/reincarnated(location)
+	qdel(src)
+
+/mob/living/simple_animal/corgi/Ian/reincarnated
+	name = "Ian the undying"
+	desc = "It's a corgi. It defies death, through the power of cute."
 
 /mob/living/simple_animal/corgi/Ian/Life()
 	..()
@@ -105,7 +118,7 @@
 		if(!stat)
 			for(var/mob/M in viewers(user, null))
 				if ((M.client && !( M.blinded )))
-					M.show_message("<font color='blue'>[user] baps [name] on the nose with the rolled up [O]</font>")
+					M.show_message("<font color='#6F6FE2'>[user] baps [name] on the nose with the rolled up [O]</font>")
 			spawn(0)
 				for(var/i in list(1,2,4,8,4,2,1,2))
 					set_dir(i)

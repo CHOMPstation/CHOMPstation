@@ -44,6 +44,8 @@
 
 #define isslime(A) istype(A, /mob/living/simple_animal/slime)
 
+#define ismetroid(A) istype(A, /mob/living/simple_animal/hostile/metroid)
+
 #define isbot(A) istype(A, /mob/living/bot)
 
 #define isxeno(A) istype(A, /mob/living/simple_animal/xeno)

@@ -97,7 +97,7 @@
 	return ..()
 
 /mob/living/proc/check_submerged()
-	if(buckled)
+	if(buckled || flying) //Chomp edit. Thanks kasparoVy
 		return 0
 	var/turf/simulated/floor/water/T = loc
 	if(istype(T))

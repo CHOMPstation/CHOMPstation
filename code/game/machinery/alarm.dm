@@ -873,6 +873,12 @@ FIRE ALARM
 /obj/machinery/firealarm/attackby(obj/item/W as obj, mob/user as mob)
 	add_fingerprint(user)
 
+//TFF 2/5/19: Port Polaris fix for deconstruction of fire alarms.
+	if(alarm_deconstruction_screwdriver(user, W))
+		return
+	if(alarm_deconstruction_wirecutters(user, W))
+		return
+
 	if(panel_open)
 		if(istype(W, /obj/item/device/multitool))
 			detecting = !(detecting)

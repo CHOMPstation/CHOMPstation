@@ -430,9 +430,22 @@
 
 	if(additional_chems)
 
-		var/list/banned_chems = list(
+		var/list/banned_chems = list( //expanding this list on request - Skits
 			"adminordrazine",
-			"nutriment"
+			"nutriment",
+			"spideregg",
+			"bloodburn",
+			"eden_snake",
+			"aphrodisiac",
+			"change_drug",
+			"change_drug_male",
+			"change_drug_female",
+			"change_drug_intersex",
+			"macrocillin",
+			"microcillin",
+			"normalcillin",
+			"fakesynxchem",
+			"clownsynxchem"
 			)
 
 		for(var/x=1;x<=additional_chems;x++)
@@ -521,6 +534,11 @@
 				set_trait(TRAIT_WATER_CONSUMPTION,   get_trait(TRAIT_WATER_CONSUMPTION)   +rand(-degree,degree),50,0)
 				set_trait(TRAIT_JUICY,              !get_trait(TRAIT_JUICY))
 				set_trait(TRAIT_STINGS,             !get_trait(TRAIT_STINGS))
+				if(prob(5))
+					consume_gasses = list()
+					var/gas = pick("oxygen","nitrogen","phoron","carbon_dioxide")
+					consume_gasses[gas] = rand(3,9)
+					source_turf.visible_message("<span class='notice'>\The [display_name] seems to be drawing in air.</span>")
 			if(2)
 				set_trait(TRAIT_IDEAL_HEAT,          get_trait(TRAIT_IDEAL_HEAT) +      (rand(-5,5)*degree),800,70)
 				set_trait(TRAIT_HEAT_TOLERANCE,      get_trait(TRAIT_HEAT_TOLERANCE) +  (rand(-5,5)*degree),800,70)
@@ -534,40 +552,71 @@
 				set_trait(TRAIT_TOXINS_TOLERANCE,    get_trait(TRAIT_TOXINS_TOLERANCE)+(rand(-2,2)*degree),10,0)
 			if(5)
 				set_trait(TRAIT_WEED_TOLERANCE,      get_trait(TRAIT_WEED_TOLERANCE)+(rand(-2,2)*degree),10, 0)
-				if(prob(degree*5))
+				if(prob(10))
 					set_trait(TRAIT_CARNIVOROUS,     get_trait(TRAIT_CARNIVOROUS)+rand(-degree,degree),2, 0)
 					if(get_trait(TRAIT_CARNIVOROUS))
 						source_turf.visible_message("<span class='notice'>\The [display_name] shudders hungrily.</span>")
 			if(6)
 				set_trait(TRAIT_WEED_TOLERANCE,      get_trait(TRAIT_WEED_TOLERANCE)+(rand(-2,2)*degree),10, 0)
-				if(prob(degree*5))
+				if(prob(10))
 					set_trait(TRAIT_PARASITE,!get_trait(TRAIT_PARASITE))
+				if(prob(10))
+					var/additional_chems = rand(1,3)
+
+					if(additional_chems)
+
+						var/list/banned_chems = list(
+							"adminordrazine",
+							"nutriment"
+							)
+
+						for(var/x=1;x<=additional_chems;x++)
+
+							var/new_chem = pick(chemical_reagents_list)
+							if(new_chem in banned_chems)
+								continue
+							banned_chems += new_chem
+							chems[new_chem] = list(rand(1,10),rand(10,20))
+					source_turf.visible_message("<span class='notice'>\The [display_name] produce seems to be different!</span>")
+
 			if(7)
 				if(get_trait(TRAIT_YIELD) != -1)
 					set_trait(TRAIT_YIELD,           get_trait(TRAIT_YIELD)+(rand(-2,2)*degree),10,0)
+				if(prob(5))
+					exude_gasses = list()
+					var/gas = pick("oxygen","nitrogen","phoron","carbon_dioxide")
+					exude_gasses[gas] = rand(3,9)
+					source_turf.visible_message("<span class='notice'>\The [display_name] seems to be releasing gas.</span>")
 			if(8)
 				set_trait(TRAIT_ENDURANCE,           get_trait(TRAIT_ENDURANCE)+(rand(-5,5)*degree),100,10)
 				set_trait(TRAIT_PRODUCTION,          get_trait(TRAIT_PRODUCTION)+(rand(-1,1)*degree),10, 1)
-				set_trait(TRAIT_POTENCY,             get_trait(TRAIT_POTENCY)+(rand(-20,20)*degree),200, 0)
-				if(prob(degree*5))
+				set_trait(TRAIT_POTENCY,             get_trait(TRAIT_POTENCY)+(rand(-15,20)*degree),200, 0)
+				if(prob(10))
 					set_trait(TRAIT_SPREAD,          get_trait(TRAIT_SPREAD)+rand(-1,1),2, 0)
 					source_turf.visible_message("<span class='notice'>\The [display_name] spasms visibly, shifting in the tray.</span>")
 			if(9)
 				set_trait(TRAIT_MATURATION,          get_trait(TRAIT_MATURATION)+(rand(-1,1)*degree),30, 0)
-				if(prob(degree*5))
+				if(prob(10))
 					set_trait(TRAIT_HARVEST_REPEAT, !get_trait(TRAIT_HARVEST_REPEAT))
+					source_turf.visible_message("<span class='notice'>\The [display_name] quivers in its tray, its produce looks more harvestable.</span>")
 			if(10)
-				if(prob(degree*2))
+				if(prob(10))
 					set_trait(TRAIT_BIOLUM,         !get_trait(TRAIT_BIOLUM))
 					if(get_trait(TRAIT_BIOLUM))
 						source_turf.visible_message("<span class='notice'>\The [display_name] begins to glow!</span>")
-						if(prob(degree*2))
+						if(prob(50))
 							set_trait(TRAIT_BIOLUM_COLOUR,"#[get_random_colour(0,75,190)]")
 							source_turf.visible_message("<span class='notice'>\The [display_name]'s glow </span><font color='[get_trait(TRAIT_BIOLUM_COLOUR)]'>changes colour</font>!")
 					else
 						source_turf.visible_message("<span class='notice'>\The [display_name]'s glow dims...</span>")
+				if(prob(10))
+					set_trait(TRAIT_PRODUCES_POWER, 1)
+
 			if(11)
 				set_trait(TRAIT_TELEPORTING,1)
+				if(prob(5))
+					set_trait(TRAIT_ALTER_TEMP,rand(-5,5))
+					source_turf.visible_message("<span class='notice'>\The air around the [display_name]'s seems to be of a different temperature...</span>")
 
 	return
 
@@ -731,6 +780,8 @@
 			//Handle spawning in living, mobile products (like dionaea).
 			if(istype(product,/mob/living))
 				product.visible_message("<span class='notice'>The pod disgorges [product]!</span>")
+				if(istype(product,/mob/living/simple_animal/retaliate/synx)) //CHOMPEDIT trying to make it not kill synxes
+					return
 				handle_living_product(product)
 
 // When the seed in this machine mutates/is modified, the tray seed value

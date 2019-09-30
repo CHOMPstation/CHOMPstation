@@ -149,10 +149,15 @@
 	item_state = "gold_id"
 	preserve_item = 1
 
+//TFF 3/5/19 - allow Captain to get into Clown/Mime Office. Why? Because they already have access to the rest of the station.
 /obj/item/weapon/card/id/gold/captain
 	assignment = "Colony Director"
 	rank = "Colony Director"
 	job_access_type = /datum/job/captain
+
+/obj/item/weapon/card/id/gold/captain/initialize()
+	. = ..()
+	access = get_all_station_access() + access_mime + access_clown
 
 /obj/item/weapon/card/id/gold/captain/spare
 	name = "\improper Colony Director's spare ID"
@@ -160,6 +165,7 @@
 	registered_name = "Colony Director"
 	job_access_type = /datum/job/captain
 
+//TFF 3/5/19 - allow borgs/drones to get into Clown/Mime Office. Why? Because they already have access to the rest of the station.
 /obj/item/weapon/card/id/synthetic
 	name = "\improper Synthetic ID"
 	desc = "Access module for NanoTrasen Synthetics"
@@ -169,7 +175,7 @@
 
 /obj/item/weapon/card/id/synthetic/initialize()
 	. = ..()
-	access = get_all_station_access() + access_synth
+	access = get_all_station_access() + access_clown + access_mime + access_synth
 
 /obj/item/weapon/card/id/centcom
 	name = "\improper CentCom. ID"
@@ -276,6 +282,11 @@
 	icon_state = "eng"
 	primary_color = rgb(189,94,0)
 	secondary_color = rgb(223,159,95)
+
+/obj/item/weapon/card/id/engineering/spare //CHOMPEDIT: So in case of emergency solars can be set up
+	name = "Spare Electrical access card"
+	desc = "A spare for the case that power related issues arise without engineers aboard."
+	primary_color = rgb(0,0,0)
 
 /obj/item/weapon/card/id/engineering/engineer
 	assignment = "Station Engineer"
@@ -419,3 +430,14 @@
 	icon_state = "permit"
 	primary_color = rgb(142,94,0)
 	secondary_color = rgb(191,159,95)
+
+//TFF 3/5/19 - allow clown/mime players to spawn in with real IDs and get into their places.
+/obj/item/weapon/card/id/civilian/clown
+	assignment = "Clown"
+	rank = "Clown"
+	job_access_type = /datum/job/clown
+
+/obj/item/weapon/card/id/civilian/mime
+	assignment = "Mime"
+	rank = "Mime"
+	job_access_type = /datum/job/mime

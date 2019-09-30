@@ -33,7 +33,10 @@
 		"Fox" = "fox",
 		"Parrot" = "parrot",
 		"Rabbit" = "rabbit",
-		"Bear" = "bear"  //VOREStation Edit
+		"Bear" = "bear",  //VOREStation Edit
+		"Raccoon" = "raccoon", //Chompstation Edit
+		"Rat" = "rat", //Chompstation Edit
+		"Panther" = "panther" //Chompstation Edit
 		)
 
 	var/global/list/possible_say_verbs = list(
@@ -42,7 +45,8 @@
 		"Beep" = list("beeps","beeps loudly","boops"),
 		"Chirp" = list("chirps","chirrups","cheeps"),
 		"Feline" = list("purrs","yowls","meows"),
-		"Canine" = list("yaps","barks","woofs")
+		"Canine" = list("yaps","barks","woofs"),
+		"Rodent" = list("squeaks", "SQUEAKS", "sqiks")//Chompstation Edit
 		)
 
 	var/obj/item/weapon/pai_cable/cable		// The cable we produce and use when door or camera jacking
@@ -231,7 +235,7 @@
 				cameralist[C.network] = C.network
 
 	src.network = input(usr, "Which network would you like to view?") as null|anything in cameralist
-	src << "<font color='blue'>Switched to [src.network] camera network.</font>"
+	src << "<font color='#6F6FE2'>Switched to [src.network] camera network.</font>"
 //End of code by Mord_Sith
 */
 
@@ -315,7 +319,7 @@
 		return
 
 	close_up()
-
+/*CHOMPstation edit | redefined in pai_vr.dm
 /mob/living/silicon/pai/proc/choose_chassis()
 	set category = "pAI Commands"
 	set name = "Choose Chassis"
@@ -328,11 +332,11 @@
 		if(!choice) return
 
 		icon_state = possible_chassis[choice]
-		finalized = alert("Look at your sprite. Is this what you wish to use?",,"No","Yes")
+		finalized = alert("Look at your sprite. Is this what you wish to use?",,"No","Yes")//CHOMPStation edit
 
 	chassis = possible_chassis[choice]
 	verbs |= /mob/living/proc/hide
-
+*/
 /mob/living/silicon/pai/proc/choose_verbs()
 	set category = "pAI Commands"
 	set name = "Choose Speech Verbs"
@@ -376,11 +380,33 @@
 	return
 
 /mob/living/silicon/pai/attack_hand(mob/user as mob)
-	if(user.a_intent == I_HELP)
-		visible_message("<span class='notice'>[user.name] pats [src].</span>")
-	else
-		visible_message("<span class='danger'>[user.name] boops [src] on the head.</span>")
-		close_up()
+//Chompstation edit
+	switch(user.a_intent)
+		if(I_HELP)
+			visible_message("<span class='notice'>[user.name] [pick("pets","pats")] [src].</span>")
+		if(I_GRAB)
+			if(user == src || anchored)
+				return
+			for(var/obj/item/weapon/grab/G in src.grabbed_by)
+				if(G.assailant == user)
+					user << "<span class='notice'>You already grabbed [src].</span>"
+					return
+			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(user, src)
+			if(buckled)
+				user << "<span class='notice'>You cannot grab [src], they're buckled in!</span>"
+			if(!G)	//the grab will delete itself in New if affecting is anchored
+				return
+			user.put_in_active_hand(G)
+			G.synch()
+			LAssailant = user
+			user.do_attack_animation(src)
+			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+			visible_message("<span class='warning'>[user] has grabbed [src] passively!</span>")
+
+		else
+			visible_message("<span class='danger'>[user.name] boops [src] on the head.</span>")
+			close_up()
+//End Chompstation edit
 
 //I'm not sure how much of this is necessary, but I would rather avoid issues.
 /mob/living/silicon/pai/proc/close_up()

@@ -46,11 +46,63 @@
 		new/datum/stack_recipe("purple comfy chair", /obj/structure/bed/chair/comfy/purp, 2, one_per_turf = 1, on_floor = 1), \
 		new/datum/stack_recipe("green comfy chair", /obj/structure/bed/chair/comfy/green, 2, one_per_turf = 1, on_floor = 1), \
 		))
+
+	recipes += new/datum/stack_recipe_list("left sofa end", list( \
+		new/datum/stack_recipe("beige left sofa", /obj/structure/bed/chair/sofa/left/beige, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("black left sofa", /obj/structure/bed/chair/sofa/left/black, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("brown left sofa", /obj/structure/bed/chair/sofa/left/brown, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("lime left sofa", /obj/structure/bed/chair/sofa/left/lime, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("teal left sofa", /obj/structure/bed/chair/sofa/left/teal, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("red left sofa", /obj/structure/bed/chair/sofa/left/red, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("blue left sofa", /obj/structure/bed/chair/sofa/left/blue, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("purple left sofa", /obj/structure/bed/chair/sofa/left/purp, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("green left sofa", /obj/structure/bed/chair/sofa/left/green, 2, one_per_turf = 1, on_floor = 1), \
+		))
+	recipes += new/datum/stack_recipe_list("middle sofa", list( \
+		new/datum/stack_recipe("beige middle sofa", /obj/structure/bed/chair/sofa/beige, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("black middle sofa", /obj/structure/bed/chair/sofa/black, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("brown middle sofa", /obj/structure/bed/chair/sofa/brown, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("lime middle sofa", /obj/structure/bed/chair/sofa/lime, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("teal middle sofa", /obj/structure/bed/chair/sofa/teal, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("red middle sofa", /obj/structure/bed/chair/sofa/red, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("blue middle sofa", /obj/structure/bed/chair/sofa/blue, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("purple middle sofa", /obj/structure/bed/chair/sofa/purp, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("green middle sofa", /obj/structure/bed/chair/sofa/green, 2, one_per_turf = 1, on_floor = 1), \
+		))
+	recipes += new/datum/stack_recipe_list("right sofa end", list( \
+		new/datum/stack_recipe("beige right sofa", /obj/structure/bed/chair/sofa/right/beige, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("black right sofa", /obj/structure/bed/chair/sofa/right/black, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("brown right sofa", /obj/structure/bed/chair/sofa/right/brown, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("lime right sofa", /obj/structure/bed/chair/sofa/right/lime, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("teal right sofa", /obj/structure/bed/chair/sofa/right/teal, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("red right sofa", /obj/structure/bed/chair/sofa/right/red, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("blue right sofa", /obj/structure/bed/chair/sofa/right/blue, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("purple right sofa", /obj/structure/bed/chair/sofa/right/purp, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("green right sofa", /obj/structure/bed/chair/sofa/right/green, 2, one_per_turf = 1, on_floor = 1), \
+		))
+	recipes += new/datum/stack_recipe_list("corner sofa", list( \
+		new/datum/stack_recipe("beige corner sofa", /obj/structure/bed/chair/sofa/corner/beige, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("black corner sofa", /obj/structure/bed/chair/sofa/corner/black, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("brown corner sofa", /obj/structure/bed/chair/sofa/corner/brown, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("lime corner sofa", /obj/structure/bed/chair/sofa/corner/lime, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("teal corner sofa", /obj/structure/bed/chair/sofa/corner/teal, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("red corner sofa", /obj/structure/bed/chair/sofa/corner/red, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("blue corner sofa", /obj/structure/bed/chair/sofa/corner/blue, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("purple corner sofa", /obj/structure/bed/chair/sofa/corner/purp, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("green corner sofa", /obj/structure/bed/chair/sofa/corner/green, 2, one_per_turf = 1, on_floor = 1), \
+		))
+	recipes += new/datum/stack_recipe_list("old sofa", list( \
+		new/datum/stack_recipe("left sofa end", /obj/structure/bed/chair/oldsofa/left, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("middle sofa", /obj/structure/bed/chair/oldsofa, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("right sofa end", /obj/structure/bed/chair/oldsofa/right, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("corner sofa", /obj/structure/bed/chair/oldsofa/corner, 2, one_per_turf = 1, on_floor = 1), \
+		))
 	recipes += new/datum/stack_recipe("table frame", /obj/structure/table, 1, time = 10, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("bench frame", /obj/structure/table/bench, 1, time = 10, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("rack", /obj/structure/table/rack, 1, time = 5, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("closet", /obj/structure/closet, 2, time = 15, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("tree tap", /obj/item/weapon/tree_tap, 2, time = 10, one_per_turf = 0, on_floor = 1)
 	recipes += new/datum/stack_recipe("cannon frame", /obj/item/weapon/cannonframe, 10, time = 15, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("regular floor tile", /obj/item/stack/tile/floor, 1, 4, 20)
 	recipes += new/datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 2, 60)
@@ -122,6 +174,7 @@
 	recipes += new/datum/stack_recipe("airtight plastic flaps", /obj/structure/plasticflaps/mining, 5, time = 25, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("water-cooler", /obj/structure/reagent_dispensers/water_cooler, 4, time = 10, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("lampshade", /obj/item/weapon/lampshade, 1, time = 1)
+	recipes += new/datum/stack_recipe("Feeder", /obj/machinery/feeder, 4, time = 20, one_per_turf = 1, on_floor = 1)
 
 /material/wood/generate_recipes()
 	..()

@@ -25,6 +25,9 @@
 /obj/item/device/t_scanner/attack_self(mob/user)
 	set_active(!on)
 
+/obj/item/device/t_scanner/AltClick(mob/user)//chomp edit
+	attack_self(user)
+
 /obj/item/device/t_scanner/proc/set_active(var/active)
 	on = active
 	if(on)

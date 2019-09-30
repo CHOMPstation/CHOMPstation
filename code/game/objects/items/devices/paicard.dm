@@ -239,7 +239,7 @@ GLOBAL_LIST_BOILERPLATE(all_pai_cards, /obj/item/device/paicard)
 			return
 		var/mob/M = usr
 		if(!istype(M, /mob/living/carbon))
-			usr << "<font color=blue>You don't have any DNA, or your DNA is incompatible with this device.</font>"
+			usr << "<font color=#6F6FE2>You don't have any DNA, or your DNA is incompatible with this device.</font>"
 		else
 			var/datum/dna/dna = usr.dna
 			pai.master = M.real_name

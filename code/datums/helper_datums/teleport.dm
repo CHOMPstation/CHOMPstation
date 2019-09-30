@@ -187,14 +187,32 @@
 			teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
 			return 0
 	*/ //VOREStation Removal End
-	//VOREStation Edit Start
-	if(!local || (destination.z in using_map.player_levels)) //VOREStation Edit
+	//TFF: port of VOREStation fix for teleporter beacons.
+	var/obstructed = 0
+	var/turf/dest_turf = get_turf(destination)
+	if(local && !(dest_turf.z in using_map.player_levels))
+		if(istype(teleatom, /mob/living))
+			to_chat(teleatom, "<span class='warning'>The portal refuses to carry you that far away!</span>")
+		return 0
+	else if(istype(destination.loc, /obj/belly))
+		var/obj/belly/destination_belly = destination.loc
+		var/mob/living/telenommer = destination_belly.owner
+		if(istype(telenommer))
+			if(!isliving(teleatom))
+				return 1
+			else
+				var/mob/living/telemob = teleatom
+				if(telemob.can_be_drop_prey && telenommer.can_be_drop_pred)
+					return 1
+		obstructed = 1
+	else if(!destination.x || !destination.y || !destination.z)	//If we're inside something or outside universe
+		obstructed = 1
+		to_chat(teleatom, "<span class='warning'>Something is blocking way on the other side!</span>")
+	if(obstructed)
+		return 0
+	else
 		return 1
 	if(isbelly(destination.loc)) //if we're going to televore
 		var/obj/belly/B = destination.loc
 		if(B.contents.len < 3) //avoid a 'belly of holding' situation
 			return 1
-	if(istype(teleatom, /mob/living))
-		to_chat(teleatom, "<span class='warning'>The portal refuses to carry you that far away!</span>")
-	return 0
-	//VOREStation Edit End

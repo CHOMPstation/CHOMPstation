@@ -82,6 +82,7 @@ var/global/list/hunger_sounds = list(
 
 var/global/list/vore_sounds = list(
 		"Gulp" = 'sound/vore/gulp.ogg',
+		"Gulp2" = 'sound/vore/glrp.ogg',
 		"Insert" = 'sound/vore/insert.ogg',
 		"Insertion1" = 'sound/vore/insertion1.ogg',
 		"Insertion2" = 'sound/vore/insertion2.ogg',
@@ -127,7 +128,7 @@ var/global/list/tf_egg_types = list(
 
 var/global/list/edible_trash = list(/obj/item/trash,
 				/obj/item/device/flashlight,
-				/obj/item/toy/figure,
+				/obj/item/toy/,
 				/obj/item/weapon/cigbutt,
 				/obj/item/weapon/bananapeel,
 				/obj/item/stack/material/cardboard,
@@ -136,7 +137,7 @@ var/global/list/edible_trash = list(/obj/item/trash,
 				/obj/item/weapon/broken_bottle,
 				/obj/item/weapon/reagent_containers/food,
 				/obj/item/inflatable/torn,
-				/obj/item/weapon/flame/match,
+				/obj/item/weapon/flame,
 				/obj/item/clothing/mask/smokable,
 				/obj/item/weapon/storage/wallet,
 				/obj/item/weapon/spacecash,
@@ -160,7 +161,31 @@ var/global/list/edible_trash = list(/obj/item/trash,
 				/obj/item/weapon/material/shard,
 				/obj/item/device/paicard,
 				/obj/item/device/mmi/digital/posibrain,
-				/obj/item/device/aicard)
+				/obj/item/weapon/digestion_remains,
+				/obj/item/device/communicator,
+				/obj/item/device/aicard,
+				/obj/item/ammo_casing,
+				/obj/item/pizzabox,
+				/obj/item/device/analyzer,
+				/obj/item/device/laptop,
+				/obj/item/weapon/book,
+				/obj/item/weapon/coin,
+				/obj/item/weapon/glass_extra,
+				/obj/item/weapon/paper,
+				/obj/item/weapon/clipboard,
+				/obj/item/weapon/deck,
+				/obj/item/clothing/accessory/collar,	//TFF 10/7/19 - add option to nom collars,
+				/obj/item/clothing/mask,
+				/obj/item/clothing/glasses,
+				/obj/item/clothing/gloves,
+				/obj/item/clothing/head,
+				/obj/item/clothing/shoes,
+				/obj/item/weapon/storage/box/khcrystal	//TFF 27/9/19 - requested addition
+				)
+
+var/global/list/edible_tech = list(/obj/item/weapon/cell,
+				/obj/item/weapon/circuitboard,
+				/obj/item/integrated_circuit)
 
 var/global/list/cont_flavors = list(
 				"Generic" = cont_flavors_generic,
@@ -370,6 +395,27 @@ var/global/list/cont_flavors_musky = list("drenched",
 				"squishy",
 				"sticky",
 				"tainted")
+
+//TFF 30/4/19: Ports VoreStation Remains Option - sets species that won't result in remains left behind
+var/global/list/remainless_species = list(SPECIES_PROMETHEAN,
+				SPECIES_DIONA,
+				SPECIES_ALRAUNE,
+				SPECIES_PROTEAN,
+				SPECIES_MONKEY,					//Exclude all monkey subtypes, to prevent abuse of it. They aren't,
+				SPECIES_MONKEY_TAJ,				//set to have remains anyway, but making double sure,
+				SPECIES_MONKEY_SKRELL,
+				SPECIES_MONKEY_UNATHI,
+				SPECIES_MONKEY_AKULA,
+				SPECIES_MONKEY_NEVREAN,
+				SPECIES_MONKEY_SERGAL,
+				SPECIES_MONKEY_VULPKANIN,
+				SPECIES_XENO,					//Same for xenos,
+				SPECIES_XENO_DRONE,
+				SPECIES_XENO_HUNTER,
+				SPECIES_XENO_SENTINEL,
+				SPECIES_XENO_QUEEN,
+				SPECIES_SHADOW,
+				SPECIES_GOLEM)					//Some special species that may or may not be ever used in event too
 
 /hook/startup/proc/init_vore_datum_ref_lists()
 	var/paths

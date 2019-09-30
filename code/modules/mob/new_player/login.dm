@@ -2,8 +2,9 @@
 
 var/obj/effect/lobby_image = new /obj/effect/lobby_image
 
+//TFF 7/5/19 - Hellooooo, we're Chompers, not Polaris here. >W>
 /obj/effect/lobby_image
-	name = "Polaris"
+	name = "CHOMPStation"
 	desc = "How are you reading this?"
 	screen_loc = "1,1"
 

@@ -216,7 +216,29 @@
 		/obj/item/clothing/shoes/fluff/morthighs,
 		/obj/item/clothing/gloves/fluff/morsleeves,
 		/obj/item/clothing/under/fluff/morunder)
+		
+// kazzc: Kassc
+/obj/item/weapon/storage/box/fluff/Kassc
+	name = ""
+	desc = ""
+	has_items = list(
+		/obj/item/clothing/accessory/medal/silver/valor)
 
+// keithwinters: Keith Winters
+/obj/item/weapon/storage/box/fluff/Keith_Winters
+	name = ""
+	desc = ""
+	has_items = list(
+		/obj/item/clothing/accessory/medal/silver/valor)
+		
+// nadyr: Taaa
+/obj/item/weapon/storage/box/fluff/Taaa
+	name = ""
+	desc = ""
+	has_items = list(
+		/obj/item/clothing/accessory/medal/silver/valor,
+		/obj/item/clothing/accessory/medal/conduct,
+		/obj/item/clothing/accessory/medal/gold/heroism)
 
 /*
 Swimsuits, for general use, to avoid arriving to work with your swimsuit.

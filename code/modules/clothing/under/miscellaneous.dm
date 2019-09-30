@@ -94,6 +94,7 @@
 	desc = "A short-sleeved black uniform, paired with grey digital-camo cargo pants. It looks very tactical."
 	icon_state = "ert_uniform"
 	item_state_slots = list(slot_r_hand_str = "black", slot_l_hand_str = "black")
+	armor = list(melee = 10, bullet = 5, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/under/gov
 	desc = "A neat proper uniform of someone on offical business. The collar is <i>immaculately</i> starched."
@@ -853,3 +854,15 @@
 	name = "hazard cohesion suit"
 	desc = "An orange cohesion suit with yellow hazard stripes intended to assist Prometheans in maintaining their form and prevent direct skin exposure."
 	icon_state = "cohesionsuit_hazard"
+
+/obj/item/clothing/under/sexybunny_white
+	name = "Bunny girl suit"
+	desc = "this seems to come with extra padding, exaggerating the chest some."
+	icon_state = "sexybunny_white"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+
+/obj/item/clothing/under/sexybunny_black
+	name = "Bunny girl suit"
+	desc = "this seems to come with extra padding, exaggerating the chest some."
+	icon_state = "sexybunny_black"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS

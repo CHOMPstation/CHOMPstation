@@ -25,8 +25,9 @@ var/image/gurgled_overlay = image('icons/effects/sludgeoverlay_vr.dmi')
 /obj/item/proc/can_gurgle()
 	if(flags & PHORONGUARD)
 		return FALSE
-	else if(phoronproof == TRUE)
-		return FALSE
+//TFF 2/8/19 - removed to prevent contamination damage.
+//	else if(phoronproof == TRUE)
+//		return FALSE
 	else if(unacidable)
 		return FALSE
 	else
@@ -90,6 +91,9 @@ var/image/gurgled_overlay = image('icons/effects/sludgeoverlay_vr.dmi')
 		qdel()
 		return
 	..()
+
+/obj/item/device/pda/gurgle_contaminate(var/atom/movable/item_storage = null)
+	return FALSE
 
 //////////////
 // Special handling of gurgle_contaminate

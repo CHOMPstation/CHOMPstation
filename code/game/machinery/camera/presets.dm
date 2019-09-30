@@ -1,5 +1,5 @@
 // PRESETS
-/*
+//TFF: Enable station networks list, comments out redundant ones
 var/global/list/station_networks = list(
 //										NETWORK_CAFE_DOCK,
 										NETWORK_CARGO,
@@ -10,8 +10,9 @@ var/global/list/station_networks = list(
 										NETWORK_ENGINE,
 										NETWORK_ENGINEERING,
 										NETWORK_ENGINEERING_OUTPOST,
-										NETWORK_DEFAULT,
+//										NETWORK_DEFAULT,
 										NETWORK_MEDICAL,
+										NETWORK_MEDICAL_OUTPOST,
 										NETWORK_MINE,
 										NETWORK_NORTHERN_STAR,
 										NETWORK_RESEARCH,
@@ -19,9 +20,9 @@ var/global/list/station_networks = list(
 										NETWORK_ROBOTS,
 										NETWORK_PRISON,
 										NETWORK_SECURITY,
-										NETWORK_INTERROGATION
+//										NETWORK_INTERROGATION
 										)
-*/
+
 var/global/list/engineering_networks = list(
 										NETWORK_ENGINE,
 										NETWORK_ENGINEERING,
@@ -86,6 +87,10 @@ var/global/list/engineering_networks = list(
 
 /obj/machinery/camera/network/medbay
 	network = list(NETWORK_MEDICAL)
+
+/*//TFF: Add Med Outpost obj filepath
+/obj/machinery/camera/network/medical_outpost
+	network = list(NETWORK_MEDICAL_OUTPOST)*/
 
 /obj/machinery/camera/network/research
 	network = list(NETWORK_RESEARCH)

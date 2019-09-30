@@ -9,9 +9,9 @@
 	speak = list("Buzzzz")
 	speak_chance = 1
 
-	response_help = "pets the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
+	response_help = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm = "hits"
 
 	turns_per_move = 5
 	speed = 5
@@ -42,4 +42,19 @@
 // Activate Noms!
 /mob/living/simple_animal/retaliate/bee
 	vore_active = 1
+	vore_capacity = 2
+	vore_ignores_undigestable = 0
 	vore_icons = SA_ICON_LIVING
+
+
+//CHOMPEDIT Hook in for loot drop code.
+/mob/living/simple_animal/retaliate/bee/death()
+	..()
+	if(prob(50))
+		visible_message("<span class='notice'>\The [src] dropped some ore!</span>")
+		var/location = get_turf(src)
+		new /obj/item/weapon/ore/iron(location)
+	if(prob(20))
+		visible_message("<span class='notice'>\The [src] dropped some ore!</span>")
+		var/location = get_turf(src)
+		new /obj/item/weapon/ore/silver(location)

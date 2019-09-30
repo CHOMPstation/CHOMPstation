@@ -1,7 +1,11 @@
 ///////////////////// Mob Living /////////////////////
 /mob/living
 	var/digestable = 1					// Can the mob be digested inside a belly?
+	//TFF 30/4/19: Ports VoreStation Remains Option - set var for leaving remains
+	var/digest_leave_remains = 0		// Will this mob leave bones/skull/etc after the melty demise?
 	var/allowmobvore = 1				// Will simplemobs attempt to eat the mob?
+	//TFF 30/4/19: Ports VoreStation Mechanical Vore Prefs - set var for displaying vore prefs on examine
+	var/showvoreprefs = 1				// Determines if the mechanical vore preferences button will be displayed on the mob or not.
 	var/obj/belly/vore_selected			// Default to no vore capability.
 	var/list/vore_organs = list()		// List of vore containers inside a mob
 	var/absorbed = 0					// If a mob is absorbed into another
@@ -85,7 +89,7 @@
 		var/obj/item/weapon/grab/G = I
 
 		//Has to be aggressive grab, has to be living click-er and non-silicon grabbed
-		if((G.state >= GRAB_AGGRESSIVE) && (isliving(user) && !issilicon(G.affecting)))
+		if((G.state >= GRAB_AGGRESSIVE) && (isliving(user) && (!issilicon(G.affecting) || ispAI(G.affecting))))//Chompstation edit, lets pAI be eaten
 
 			var/mob/living/attacker = user  // Typecast to living
 
@@ -194,6 +198,8 @@
 	var/datum/vore_preferences/P = client.prefs_vr
 
 	P.digestable = src.digestable
+	//TFF 30/4/19: Ports VoreStation Remains Option
+	P.digest_leave_remains = src.digest_leave_remains
 	P.allowmobvore = src.allowmobvore
 	P.vore_taste = src.vore_taste
 	P.can_be_drop_prey = src.can_be_drop_prey
@@ -219,6 +225,8 @@
 	var/datum/vore_preferences/P = client.prefs_vr
 
 	digestable = P.digestable
+	//TFF 30/4/19: Ports VoreStation Remains Option
+	P.digest_leave_remains = src.digest_leave_remains
 	allowmobvore = P.allowmobvore
 	vore_taste = P.vore_taste
 	can_be_drop_prey = P.can_be_drop_prey
@@ -329,6 +337,7 @@
 		if(!confirm == "Okay" || loc != B)
 			return
 		//Actual escaping
+		absorbed = 0	//Make sure we're not absorbed
 		forceMove(get_turf(src)) //Just move me up to the turf, let's not cascade through bellies, there's been a problem, let's just leave.
 		for(var/mob/living/simple_animal/SA in range(10))
 			SA.prey_excludes[src] = world.time
@@ -355,7 +364,7 @@
 		var/obj/effect/overlay/aiholo/holo = loc
 		holo.drop_prey() //Easiest way
 		log_and_message_admins("[key_name(src)] used the OOC escape button to get out of [key_name(holo.master)] (AI HOLO) ([holo ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[holo.x];Y=[holo.y];Z=[holo.z]'>JMP</a>" : "null"])")
-	
+
 	//Don't appear to be in a vore situation
 	else
 		to_chat(src,"<span class='alert'>You aren't inside anyone, though, is the thing.</span>")
@@ -375,8 +384,16 @@
 		belly = pred.vore_selected
 	return perform_the_nom(user, prey, pred, belly)
 
-/mob/living/proc/feed_self_to_grabbed(var/mob/living/user, var/mob/living/pred)
-	var/belly = input("Choose Belly") in pred.vore_organs
+/mob/living/proc/feed_self_to_grabbed(var/mob/living/user, var/mob/living/pred, var/belly, var/list/bellys)
+	//CHOMPEDIT:  AUTO BELLY SELECTOR
+	if (!user.client)
+		for(var/obj/belly/guttoviolate in pred.vore_organs)
+			if(guttoviolate.name == "fstomach")
+				bellys |= guttoviolate
+		if(!bellys)return
+		belly = pick(bellys)
+	//CHOMPEDIT: END
+	else belly = input("Choose Belly") in pred.vore_organs
 	return perform_the_nom(user, user, pred, belly)
 
 /mob/living/proc/feed_grabbed_to_other(var/mob/living/user, var/mob/living/prey, var/mob/living/pred)
@@ -455,11 +472,11 @@
 	var/datum/gas_mixture/belly_air/air = new(1000)
 	return air
 
-// This is about 0.896m^3 of atmosphere
+// This is about 0.896m^3 of atmosphere / Erik's Edit. Volume and moles changed to match station atmosphere, Synth Tesh no longer overheat in bellies!
 /datum/gas_mixture/belly_air
-    volume = 1000
+    volume = 2500
     temperature = 293.150
-    total_moles = 40
+    total_moles = 104
 
 /datum/gas_mixture/belly_air/New()
     . = ..()
@@ -474,41 +491,41 @@
 	if(ishuman(C.loc)) //In a /mob/living/carbon/human
 		var/mob/living/carbon/human/H = C.loc
 		if(H.shoes == C) //Being worn
-			to_chat(src,"<font color='blue'> You start to climb around the larger creature's feet and ankles!</font>")
+			to_chat(src,"<font color='#6F6FE2'> You start to climb around the larger creature's feet and ankles!</font>")
 			to_chat(H,"<font color='red'>Something is trying to climb out of your [C]!</font>")
 			var/original_loc = H.loc
 			for(var/escape_time = 100,escape_time > 0,escape_time--)
 				if(H.loc != original_loc)
 					to_chat(src,"<font color='red'>You're pinned back underfoot!</font>")
-					to_chat(H,"<font color='blue'>You pin the escapee back underfoot!</font>")
+					to_chat(H,"<font color='#6F6FE2'>You pin the escapee back underfoot!</font>")
 					return
 				if(src.loc != C)
 					return
 				sleep(1)
 
-			to_chat(src,"<font color='blue'>You manage to escape \the [C]!</font>")
+			to_chat(src,"<font color='#6F6FE2'>You manage to escape \the [C]!</font>")
 			to_chat(H,"<font color='red'>Somone has climbed out of your [C]!</font>")
 			forceMove(H.loc)
 
 		else //Being held by a human
-			to_chat(src,"<font color='blue'>You start to climb out of \the [C]!</font>")
+			to_chat(src,"<font color='#6F6FE2'>You start to climb out of \the [C]!</font>")
 			to_chat(H,"<font color='red'>Something is trying to climb out of your [C]!</font>")
 			for(var/escape_time = 60,escape_time > 0,escape_time--)
 				if(H.shoes == C)
 					to_chat(src,"<font color='red'>You're pinned underfoot!</font>")
-					to_chat(H,"<font color='blue'>You pin the escapee underfoot!</font>")
+					to_chat(H,"<font color='#6F6FE2'>You pin the escapee underfoot!</font>")
 					return
 				if(src.loc != C)
 					return
 				sleep(1)
-			to_chat(src,"<font color='blue'>You manage to escape \the [C]!</font>")
+			to_chat(src,"<font color='#6F6FE2'>You manage to escape \the [C]!</font>")
 			to_chat(H,"<font color='red'>Somone has climbed out of your [C]!</font>")
 			forceMove(H.loc)
 
-	to_chat(src,"<font color='blue'>You start to climb out of \the [C]!</font>")
+	to_chat(src,"<font color='#6F6FE2'>You start to climb out of \the [C]!</font>")
 	sleep(50)
 	if(loc == C)
-		to_chat(src,"<font color='blue'>You climb out of \the [C]!</font>")
+		to_chat(src,"<font color='#6F6FE2'>You climb out of \the [C]!</font>")
 		forceMove(C.loc)
 	return
 
@@ -552,7 +569,7 @@
 		to_chat(src, "<span class='notice'>You are not holding anything.</span>")
 		return
 
-	if(is_type_in_list(I,edible_trash))
+	if(is_type_in_list(I,edible_trash) || is_type_in_list(I,edible_tech) && isSynthetic())
 		drop_item()
 		I.forceMove(vore_selected)
 		updateVRPanel()
@@ -600,8 +617,17 @@
 				to_chat(src, "<span class='notice'>You can taste the flavor of gluttonous waste of food.</span>")
 		else if(istype(I,/obj/item/weapon/storage/glass_ornament))
 			to_chat(src, "<span class='notice'>You can taste the flavor of smooth glass.</span>")
+		//TFF 10/7/19 - Add custom flavour for collars for trash can trait.
+		else if (istype(I,/obj/item/clothing/accessory/collar))
+			visible_message("<span class='warning'>[src] demonstrates their voracious capabilities by swallowing [I] whole!</span>")
+			to_chat(src, "<span class='notice'>You can taste the submissiveness in the wearer of [I]!</span>")
+		else if(istype(I,/obj/item/integrated_circuit) ||istype(I,/obj/item/weapon/circuitboard))
+			to_chat(src, "<span class='notice'>mmm crunchy computer chips.</span>")
+		else if(istype(I,/obj/item/weapon/cell))
+			to_chat(src, "<span class='notice'>you can taste the energy filling your stomach.</span>")
 		else
 			to_chat(src, "<span class='notice'>You can taste the flavor of garbage. Delicious.</span>")
+
 		return
 	to_chat(src, "<span class='notice'>This item is not appropriate for ethical consumption.</span>")
 	return
@@ -611,3 +637,27 @@
 	set category = "Preferences"
 	set desc = "Switch sharp/fuzzy scaling for current mob."
 	appearance_flags ^= PIXEL_SCALE
+
+//TFF 30/4/19: Ports VoreStation Mechanical Vore Prefs & Remains-leaving in 1 go
+/mob/living/examine(mob/user)
+	. = ..()
+	if(showvoreprefs)
+		to_chat(user, "<span class='deptradio'><a href='?src=\ref[src];vore_prefs=1'>\[Mechanical Vore Preferences\]</a></span>")
+
+/mob/living/Topic(href, href_list)	//Can't find any instances of Topic() being overridden by /mob/living in polaris' base code, even though /mob/living/carbon/human's Topic() has a ..() call
+	if(href_list["vore_prefs"])
+		display_voreprefs(usr)
+	return ..()
+
+/mob/living/proc/display_voreprefs(mob/user)	//Called by Topic() calls on instances of /mob/living (and subtypes) containing vore_prefs as an argument
+	if(!user)
+		CRASH("display_voreprefs() was called without an associated user.")
+	var/dispvoreprefs = "<b>[src]'s vore preferences</b><br><br><br>"
+	dispvoreprefs += "<b>Digestable:</b> [digestable ? "Enabled" : "Disabled"]<br>"
+	dispvoreprefs += "<b>Leaves Remains:</b> [digest_leave_remains ? "Enabled" : "Disabled"]<br>"
+	dispvoreprefs += "<b>Mob Vore:</b> [allowmobvore ? "Enabled" : "Disabled"]<br>"
+	dispvoreprefs += "<b>Drop-nom prey:</b> [can_be_drop_prey ? "Enabled" : "Disabled"]<br>"
+	dispvoreprefs += "<b>Drop-nom pred:</b> [can_be_drop_pred ? "Enabled" : "Disabled"]<br>"
+	user << browse("<html><head><title>Vore prefs: [src]</title></head><body><center>[dispvoreprefs]</center></body></html>", "window=[name];size=200x300;can_resize=0;can_minimize=0")
+	onclose(user, "[name]")
+	return

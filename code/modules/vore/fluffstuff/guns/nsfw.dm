@@ -1,12 +1,12 @@
 // -------------- NSFW -------------
 /obj/item/weapon/gun/projectile/nsfw
-	name = "KHI-102b \'NSFW\'"
+	name = "HI-102b \'NSFW\'"
 	desc = "Variety is the spice of life! The 'Nanotech Selectable-Fire Weapon' is an unholy hybrid of an ammo-driven \
 	energy weapon that allows the user to mix and match their own fire modes. Up to three combinations of \
 	energy beams can be configured at once. Ammo not included."
 
 	description_info = "This gun is an energy weapon that uses interchangable microbatteries in a magazine. Each battery is a different beam type, and up to three can be loaded in the magazine. Each battery usually provides four discharges of that beam type, and multiple from the same type may be loaded to increase the number of shots for that type."
-	description_fluff = "The Kitsuhana 'Nanotech Selectable Fire Weapon' allows one to customize their loadout in the field, or before deploying, to achieve various results in a weapon they are already familiar with wielding."
+	description_fluff = "The Hesphaistos Industries 'Nanotech Selectable Fire Weapon' allows one to customize their loadout in the field, or before deploying, to achieve various results in a weapon they are already familiar with wielding."
 	description_antag = ""
 
 	icon = 'icons/vore/custom_guns_vr.dmi'
@@ -316,13 +316,12 @@
 /obj/item/projectile/beam/final_option/on_hit(var/atom/impacted)
 	if(isliving(impacted))
 		var/mob/living/L = impacted
-// Chompstation Edit: Removed Nifs - Jon
-/*		if(L.mind)
+		if(L.mind)
 			var/nif
 			if(ishuman(L))
 				var/mob/living/carbon/human/H = L
 				nif = H.nif
-			SStranscore.m_backup(L.mind,nif,one_time = TRUE)*/
+			SStranscore.m_backup(L.mind,nif,one_time = TRUE)
 		L.gib()
 
 	..()
@@ -340,7 +339,7 @@
 	projectile_type = /obj/item/projectile/beam/growlaser
 */
 /obj/item/weapon/storage/secure/briefcase/nsfw_pack
-	name = "\improper KHI-102b \'NSFW\' gun kit"
+	name = "\improper HI-102b \'NSFW\' gun kit"
 	desc = "A storage case for a multi-purpose handgun. Variety hour!"
 	max_w_class = ITEMSIZE_NORMAL
 
@@ -352,7 +351,7 @@
 		new path(src)
 
 /obj/item/weapon/storage/secure/briefcase/nsfw_pack_hos
-	name = "\improper KHI-102b \'NSFW\' gun kit"
+	name = "\improper HI-102b \'NSFW\' gun kit"
 	desc = "A storage case for a multi-purpose handgun. Variety hour!"
 	max_w_class = ITEMSIZE_NORMAL
 

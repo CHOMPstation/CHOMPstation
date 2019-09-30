@@ -35,7 +35,7 @@
 		camera = new /obj/machinery/camera(src)
 		camera.replace_networks(camera_networks)
 		camera.c_tag = user.name
-		user << "<font color='blue'>User scanned as [camera.c_tag]. Camera activated.</font>"
+		user << "<font color='#6F6FE2'>User scanned as [camera.c_tag]. Camera activated.</font>"
 		user.update_action_buttons()
 		return 1
 

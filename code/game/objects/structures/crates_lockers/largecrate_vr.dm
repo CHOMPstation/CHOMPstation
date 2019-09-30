@@ -64,6 +64,7 @@
 
 /obj/structure/largecrate/animal/dangerous/initialize()
 	starts_with = list(pick(/mob/living/simple_animal/hostile/carp/pike,
+						/mob/living/simple_animal/chocobo,
 						/mob/living/simple_animal/hostile/deathclaw,
 						/mob/living/simple_animal/hostile/dino,
 						/mob/living/simple_animal/hostile/alien,
@@ -117,3 +118,13 @@
 	name = "Wolfgirl Crate"
 	desc = "A sketchy looking crate with airholes that shakes and thuds every now and then. Someone seems to be demanding they be let out."
 	starts_with = list(/mob/living/simple_animal/retaliate/awoo)
+	
+/obj/structure/largecrate/animal/fennec
+	name = "Fennec Crate"
+	desc = "Bounces around a lot. Looks messily packaged, were they in a hurry?"
+	starts_with = list(/mob/living/simple_animal/fennec)
+
+/obj/structure/largecrate/animal/fennec/initialize()
+	starts_with = list(pick(/mob/living/simple_animal/fennec,
+						/mob/living/simple_animal/retaliate/fennix;0.5))
+	return ..()

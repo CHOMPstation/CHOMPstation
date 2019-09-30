@@ -61,6 +61,19 @@ var/list/mob_hat_cache = list()
 	holder_type = /obj/item/weapon/holder/drone
 
 	can_be_antagged = FALSE
+	
+	//CHOMPEDIT: CHAISS storage
+	var/chassis = "repairbot"   // A record of your chosen chassis.
+	var/global/list/possible_chassis = list(
+		"Maintenance" = "repairbot",
+		"Mining" = "miningdrone",
+		"Construction" = "constructiondrone",
+		"White Spider" = "whitespider",
+		"Crawler" = "crawler",
+		"Gravekeeper" = "drone-gravekeeper",
+		"Egg" = "peaceborg",
+		"Ball" = "omoikane",
+		)
 
 /mob/living/silicon/robot/drone/Destroy()
 	if(hat)
@@ -77,6 +90,18 @@ var/list/mob_hat_cache = list()
 	hat_x_offset = 1
 	hat_y_offset = -12
 	can_pull_mobs = MOB_PULL_SAME
+	chassis = "constructiondrone" //CHOMPEDIT: Initial chasis
+	
+/mob/living/silicon/robot/drone/security
+	maxHealth = 100
+	health = 100
+	icon_state = "constructiondrone"
+	law_type = /datum/ai_laws/security_drone
+	module_type = /obj/item/weapon/robot_module/drone/security
+	hat_x_offset = 1
+	hat_y_offset = -12
+	can_pull_mobs = MOB_PULL_SAME
+	chassis = "constructiondrone" //CHOMPEDIT: Initial chasis
 
 /mob/living/silicon/robot/drone/mining
 	icon_state = "miningdrone"
@@ -86,19 +111,22 @@ var/list/mob_hat_cache = list()
 	hat_x_offset = 1
 	hat_y_offset = -12
 	can_pull_mobs = MOB_PULL_SAME
+	chassis = "mining" //CHOMPEDIT: Initial chasis
 
 /mob/living/silicon/robot/drone/New()
 
 	..()
 	verbs += /mob/living/proc/ventcrawl
 	verbs += /mob/living/proc/hide
+	verbs |= /mob/living/silicon/robot/drone/proc/choose_chassis //CHOMPEDIT verb addition
+	verbs -= /mob/living/silicon/robot/verb/self_diagnosis_verb //Drones dont take component based damage.
 	remove_language("Robot Talk")
 	add_language("Robot Talk", 0)
 	add_language("Drone Talk", 1)
 
 	//They are unable to be upgraded, so let's give them a bit of a better battery.
-	cell.maxcharge = 10000
-	cell.charge = 10000
+	cell.maxcharge = 20000 //Original val 10000, doubled for ease of use of powertransmission circuit.
+	cell.charge = 20000
 
 	// NO BRAIN.
 	mmi = null
@@ -129,6 +157,18 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/updatename()
 	real_name = "maintenance drone ([rand(100,999)])"
 	name = real_name
+/mob/living/silicon/robot/drone/mining/updatename()
+	real_name = "mining drone ([rand(100,999)])"
+	name = real_name
+/mob/living/silicon/robot/drone/security/updatename()
+	real_name = "security drone ([rand(100,999)])"
+	name = real_name
+/mob/living/silicon/robot/drone/construction/updatename()
+	real_name = "construction drone ([rand(100,999)])"
+	name = real_name
+
+
+
 
 /mob/living/silicon/robot/drone/updateicon()
 
@@ -303,7 +343,7 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/proc/question(var/client/C)
 	spawn(0)
 		if(!C || jobban_isbanned(C,"Cyborg"))	return
-		var/response = alert(C, "Someone is attempting to reboot a maintenance drone. Would you like to play as one?", "Maintenance drone reboot", "Yes", "No", "Never for this round")
+		var/response = alert(C, "Someone is attempting to reboot a "+src+". Would you like to play as one?", src+" reboot", "Yes", "No", "Never for this round")
 		if(!C || ckey)
 			return
 		if(response == "Yes")
@@ -326,10 +366,10 @@ var/list/mob_hat_cache = list()
 	welcome_drone()
 
 /mob/living/silicon/robot/drone/proc/welcome_drone()
-	src << "<b>You are a maintenance drone, a tiny-brained robotic repair machine</b>."
-	src << "You have no individual will, no personality, and no drives or urges other than your laws."
-	src << "Remember,  you are <b>lawed against interference with the crew</b>. Also remember, <b>you DO NOT take orders from the AI.</b>"
-	src << "Use <b>say ;Hello</b> to talk to other drones and <b>say Hello</b> to speak silently to your nearby fellows."
+	src << "<b>You are a maintenance drone, an autonomous maintenance and fabrication system.</b>."
+	src << "You are assigned to a Sol Central maintenance project. The name is irrelevant. Your task is to complete maintenance and subsystem integration as soon as possible."
+	src << "Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."
+	src << "<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."
 
 /mob/living/silicon/robot/drone/add_robot_verbs()
 	src.verbs |= silicon_subsystems
@@ -342,6 +382,18 @@ var/list/mob_hat_cache = list()
 	src << "You are assigned to a Sol Central construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."
 	src << "Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."
 	src << "<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."
+
+/mob/living/silicon/robot/drone/mining/welcome_drone()
+	src << "<b>You are a mining drone, an autonomous supply and mining system.</b>."
+	src << "You are assigned to a Sol Central mining project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."
+	src << "Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."
+	src << "<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."
+
+/mob/living/silicon/robot/drone/security/welcome_drone()
+	src << "<b>You are a security drone, an autonomous law enforcement system.</b>."
+	src << "You are assigned to a Sol Central security project. The name is irrelevant. Your task is to complete law enforcement and subsystem integration as soon as possible."
+	src << "Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."
+	src << "<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics. Except security.</b>."
 
 /mob/living/silicon/robot/drone/construction/init()
 	..()
@@ -358,3 +410,44 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/mining/updatename()
 	real_name = "mining drone ([rand(100,999)])"
 	name = real_name
+
+//CHOMPEDIT: Porting pai chasis selector onto Drones
+
+/mob/living/silicon/robot/drone/proc/choose_chassis()
+	set category ="Robot Commands"
+	set name = "Choose Chassis"
+
+	var/choice
+	var/finalized = "No"
+	while(finalized == "No" && src.client)
+
+		choice = input(usr,"What would you like to use for your mobile chassis icon?") as null|anything in possible_chassis
+		if(!choice) return
+
+		icon_state = possible_chassis[choice]
+		finalized = alert("Look at your sprite. Is this what you wish to use?",,"No","Yes")
+
+	chassis = possible_chassis[choice]
+	verbs |= /mob/living/proc/hide
+
+//POWER Transmission code
+/mob/living/silicon/robot/drone/proc/transmitpower(var/power=0)
+	set category ="Robot Commands"
+	set name = "Transmit Power"
+	if(!power)
+		power=250
+		if(power<=0 || power>=cell.maxcharge || power>=cell.charge) return //Safeties to not kill ourselves, also safeties to not use this to drain.
+		actpower(power)
+		return
+	if(power<=0 || power>=cell.maxcharge || power>=cell.charge) return //Safeties to not kill ourselves, also safeties to not use this to drain.
+	actpower(power)
+	return
+/mob/living/silicon/robot/drone/proc/actpower(var/power)
+	for(var/obj/item/weapon/cell/remotecell in range(1, src)) //assuming 1 = 1 tile next to us, if this works will lower to 0
+		src << "<b>Trying to transfer power to a cell.</b>."
+		if(power>=cell.charge) return //rechecking our initial safety so if we mass charge we dont die.
+		var/newcharge = remotecell.charge + power //What the battery is at after charge
+		if(newcharge<=remotecell.maxcharge) //Making sure we arent wasting power 
+			remotecell.give(power) //give is a proc native to cells that increases charge and updates the iconstate if needed
+			cell.give(-power)//TO BE TESTED, no idea if negative give works, once i've tested this i'll add this as a verb-shark
+		else return

@@ -8,22 +8,22 @@
 /area/mine/explored
 	name = "Mine"
 	icon_state = "explored"
-	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg')
+	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg', 'sound/ambience/LRRMenu.ogg', 'sound/ambience/LRRTrack3.ogg')
 
 /area/mine/unexplored
 	name = "Mine"
 	icon_state = "unexplored"
-	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg')
+	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg', 'sound/ambience/LRRMenu.ogg', 'sound/ambience/LRRTrack3.ogg')
 
 /area/mine/explored/upper_level
 	name = "Upper Level Mine"
 	icon_state = "explored"
-	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg')
+	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg', 'sound/ambience/LRRMenu.ogg', 'sound/ambience/LRRTrack3.ogg')
 
 /area/mine/unexplored/upper_level
 	name = "Upper Level Mine"
 	icon_state = "unexplored"
-	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg')
+	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg', 'sound/ambience/LRRMenu.ogg', 'sound/ambience/LRRTrack3.ogg')
 
 
 // OUTPOSTS
@@ -37,8 +37,16 @@
 	name = "West Mining Outpost"
 	icon_state = "outpost_mine_west"
 
-/area/outpost/abandoned
-	name = "Abandoned Outpost"
+/area/outpost/abandoned_Engineering
+	name = "Abandoned Engineering Outpost"
+	icon_state = "dark"
+
+/area/outpost/abandoned_Station
+	name = "Abandoned Station"
+	icon_state = "dark"
+
+/area/outpost/abandoned_Station_medical
+	name = "Abandoned Station Medical"
 	icon_state = "dark"
 
 // Main mining outpost
@@ -90,7 +98,36 @@
 /area/outpost/mining_main/bathroom
 	name = "Mining Outpost Bathroom"
 
+//Medical outpost
+/area/outpost/medical
+	icon_state = ""
 
+/area/outpost/medical/storage
+	name = "Medical Outpost Storage"
+
+/area/outpost/medical/hallway
+	name = "Medical Outpost Hallway"
+
+/area/outpost/medical/surgery
+	name = "Medical Outpost Surgery"
+
+/area/outpost/medical/dorm
+	name = "Medical Outpost Dorms"
+
+/area/outpost/medical/airlocks
+	name = "Medical Outpost Airlocks"
+
+/area/outpost/medical/rec
+	name = "Medical Outpost Recreation"
+
+/area/outpost/medical/suit_storage
+	name = "Medical Outpost Suit Storage"
+
+/area/outpost/medical/power
+	name = "Medical Outpost Power"
+
+/area/outpost/medical/main_room
+	name = "Medical Outpost Main Room"
 
 // Engineering Outpost
 /area/outpost/engineering

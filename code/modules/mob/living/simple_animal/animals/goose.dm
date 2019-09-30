@@ -5,7 +5,9 @@
 	icon_state = "goose"
 	icon_living = "goose"
 	icon_dead = "goose_dead"
-
+	
+	has_hands = 1
+	
 	faction = "geese"
 	intelligence_level = SA_ANIMAL
 
@@ -15,9 +17,9 @@
 
 	turns_per_move = 5
 
-	response_help = "pets the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
+	response_help = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm = "hits"
 
 	harm_intent_damage = 5
 	melee_damage_lower = 5 //they're meant to be annoying, not threatening.
@@ -50,6 +52,29 @@
 
 
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	var/honking = 0
+	
+/mob/living/simple_animal/hostile/goose/New()
+	..()
+	if (prob(10))
+		name = "Untitled Goose"
+		melee_damage_lower = 0 
+		melee_damage_upper = 1
+		hostile = 0
+		retaliate = 1
+		cooperative = 1
+		maxHealth = 50
+		health = 50
+		honk()
+		honking = 1
+		humanoid_hands = 1
+		new /mob/living/simple_animal/hostile/goose(loc)
+		new /mob/living/simple_animal/hostile/goose(loc)
+
+/mob/living/simple_animal/hostile/goose/Life()
+	..()
+	if(honking && prob(1))
+		honk()
 
 /mob/living/simple_animal/hostile/goose/set_target()
 	. = ..()
@@ -58,3 +83,22 @@
 
 /mob/living/simple_animal/hostile/goose/Process_Spacemove(var/check_drift = 0)
 	return 1 // VOREStation Edit No drifting in space!
+
+/mob/living/simple_animal/hostile/goose/proc/honk()
+	playsound(loc, 'sound/effects/honk.ogg', 50, 1) //playceholder, will be actual honk later
+	
+/mob/living/simple_animal/hostile/goose/DoPunch(var/atom/A)
+	. = ..()
+	
+	if(.) // If we succeeded in hitting.
+		if(isliving(A))
+			var/mob/living/L = A
+			if(prob(2) && honking)
+				L.drop_from_inventory(l_hand)
+				L.drop_from_inventory(r_hand)
+
+/mob/living/simple_animal/hostile/goose/tooluser
+	name="goose with"
+
+/mob/living/simple_animal/hostile/goose/tooluser/knife
+	name="goose with knife"

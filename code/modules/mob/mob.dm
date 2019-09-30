@@ -331,9 +331,9 @@
 	if (flavor_text && flavor_text != "")
 		var/msg = replacetext(flavor_text, "\n", " ")
 		if(lentext(msg) <= 40)
-			return "<font color='blue'>[msg]</font>"
+			return "<font color='#a5a5e2'>[msg]</font>"
 		else
-			return "<font color='blue'>[copytext_preserve_html(msg, 1, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</font></a>"
+			return "<font color='#a5a5e2'>[copytext_preserve_html(msg, 1, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</font></a>"
 
 /*
 /mob/verb/help()
@@ -360,7 +360,7 @@
 		if(istype(src,/mob/observer/dead))
 			var/mob/observer/dead/G = src
 			if(G.has_enabled_antagHUD == 1 && config.antag_hud_restricted)
-				to_chat(usr, "<font color='blue'><B>By using the antagHUD you forfeit the ability to join the round.</B></font>")
+				to_chat(usr, "<font color='#6F6FE2'><B>By using the antagHUD you forfeit the ability to join the round.</B></font>")
 				return
 		var/deathtimeminutes = round(deathtime / 600)
 		var/pluralcheck = "minute"
@@ -381,7 +381,7 @@
 
 	log_game("[usr.name]/[usr.key] used abandon mob.")
 
-	to_chat(usr, "<font color='blue'><B>Make sure to play a different character, and please roleplay correctly!</B></font>")
+	to_chat(usr, "<font color='#6F6FE2'><B>Make sure to play a different character, and please roleplay correctly!</B></font>")
 
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.")
@@ -442,7 +442,7 @@
 	if(client.holder && (client.holder.rights & R_ADMIN))
 		is_admin = 1
 	else if(stat != DEAD || istype(src, /mob/new_player))
-		usr << "<font color='blue'>You must be observing to use this!</font>"
+		usr << "<font color='#6F6FE2'>You must be observing to use this!</font>"
 		return
 
 	if(is_admin && stat == DEAD)

@@ -15,7 +15,7 @@
 <b>Implant Specifications:</b><BR>
 <b>Name:</b> [using_map.company_name] Employee Backup Implant<BR>
 <b>Life:</b> ~8 hours.<BR>
-<b>Important Notes:</b> Implant is life-limited due to KHI licensing restrictions. Dissolves into harmless biomaterial after around ~8 hours, the typical work shift.<BR>
+<b>Important Notes:</b> Implant is life-limited due to VM licensing restrictions. Dissolves into harmless biomaterial after around ~8 hours, the typical work shift.<BR>
 <HR>
 <b>Implant Details:</b><BR>
 <b>Function:</b> Contains a small swarm of nanobots that perform neuron scanning to create mind-backups.<BR>
@@ -41,7 +41,7 @@
 //New, modern implanter instead of old style implanter.
 /obj/item/weapon/backup_implanter
 	name = "backup implanter"
-	desc = "After discovering that Nanotrasen was just re-using the same implanters over and over again on organics, leading to cross-contamination, Kitsuhana Heavy industries designed this self-cleaning model. Holds four backup implants at a time."
+	desc = "After discovering that Nanotrasen was just re-using the same implanters over and over again on organics, leading to cross-contamination, Vey-Med designed this self-cleaning model. Holds four backup implants at a time."
 	icon = 'icons/obj/device_alt.dmi'
 	icon_state = "bimplant"
 	item_state = "syringe_0"
@@ -95,6 +95,9 @@
 /obj/item/weapon/backup_implanter/attack(mob/M as mob, mob/user as mob)
 	if (!istype(M, /mob/living/carbon))
 		return
+	var/mob/living/carbon/implantee = M//CHOMPEDIT implant check
+	if (implantee.hasImplant)
+		return
 	if (user && imps.len)
 		M.visible_message("<span class='notice'>[user] is injecting a backup implant into [M].</span>")
 
@@ -108,6 +111,7 @@
 
 				var/obj/item/weapon/implant/backup/imp = imps[imps.len]
 				if(imp.implanted(M))
+					implantee.hasImplant = 1 //CHOMPEDIT Chanigng our hasimplant var to 1 to symbolize we were backed up
 					imp.forceMove(M)
 					imps -= imp
 					imp.imp_in = M
@@ -148,5 +152,5 @@
 
 //Purely for fluff
 /obj/item/weapon/implant/backup/full
-	name = "khi backup implant"
-	desc = "A normal KHI wireless cortical stack with neutrino and QE transmission for constant-stream consciousness upload."
+	name = "vm backup implant"
+	desc = "A normal VM wireless cortical stack with neutrino and QE transmission for constant-stream consciousness upload."

@@ -22,3 +22,10 @@
 /obj/machinery/computer/shuttle_control/research
 	name = "research elevator control console"
 
+/obj/machinery/computer/shuttle_control/medical
+	name = "medical elevator control console"
+
+/obj/machinery/computer/shuttle_control/casino
+	name = "casino shuttle control console"
+	req_access = list(access_trader)
+	shuttle_tag = "Casino"

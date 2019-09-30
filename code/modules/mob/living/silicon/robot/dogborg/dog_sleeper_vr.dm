@@ -672,3 +672,45 @@
 	icon_state = "decompiler"
 	max_item_count = 10
 	decompiler = TRUE
+
+/obj/item/device/dogborg/sleeper/general //generic stomach for borgs
+	name = "Robotic Stomach"
+	desc = "A stretchy stomach for a vore enabled borg, it can hold and digest items and crew."
+	icon_state = "belly-standard"
+	injection_chems = null
+	max_item_count = 10
+
+/obj/item/device/dogborg/sleeper/medical
+	name = "Borg Mounted Sleeper"
+	desc = "A stretchy stomach for a vore enabled medical borg, it can hold crew for healing or as emergency power."
+	icon_state = "belly-medical"
+
+/obj/item/device/dogborg/sleeper/compactor/brewer //Boozehound gut.
+	name = "Brew Belly"
+	desc = "A mounted drunk tank unit with fuel processor."
+	icon_state = "brewer"
+	injection_chems = list("vodka","beer","gin") //Injected alcohol is 3 times as strong
+	max_item_count = 1
+
+/obj/item/device/dogborg/sleeper/compactor/brewer/inject_chem(mob/user, chem)
+	if(patient && patient.reagents)
+		if(chem in injection_chems + "inaprovaline")
+			if(hound.cell.charge < 200) //This is so borgs don't kill themselves with it.
+				to_chat(hound, "<span class='notice'>You don't have enough power to synthesize fluids.</span>")
+				return
+			else if(patient.reagents.get_reagent_amount(chem) + 10 >= 50) //Preventing people from accidentally killing themselves by trying to inject too many chemicals!
+				to_chat(hound, "<span class='notice'>Your stomach is currently too full of fluids to secrete more fluids of this kind.</span>")
+			else if(patient.reagents.get_reagent_amount(chem) + 10 <= 50) //No overdoses for you
+				patient.reagents.add_reagent(chem, inject_amount)
+				drain(100) //-100 charge per injection
+			var/units = round(patient.reagents.get_reagent_amount(chem))
+			to_chat(hound, "<span class='notice'>Injecting [units] unit\s of [chemical_reagents_list[chem]] into occupant.</span>") //If they were immersed, the reagents wouldn't leave with them.
+
+// PLACEHOLDER SERVICE BORG BELLY
+/obj/item/device/dogborg/sleeper/servborg
+	name = "Gourmet Gut"
+	desc = "An underslung microwave, with optional fuel processor."
+	icon_state = "decompiler"
+	max_item_count = 10
+	injection_chems = null
+

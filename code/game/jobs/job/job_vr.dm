@@ -7,6 +7,8 @@
 
 	//Every hour playing this role gains this much time off. (Can be negative for off duty jobs!)
 	var/timeoff_factor = 3
+//TFF 19/5/19 - Port VOREStation's completed Timeclock code - Add check to prevent switching mid-round without HOP for command jobs
+	var/disallow_jobhop = FALSE
 
 // Check client-specific availability rules.
 /datum/job/proc/player_has_enough_pto(client/C)

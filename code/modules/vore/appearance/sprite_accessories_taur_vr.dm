@@ -143,18 +143,27 @@
 /datum/sprite_accessory/tail/taur/roiz_long_lizard // Not ACTUALLY a taur, but it uses 32x64 so it wouldn't fit in tails.dmi, and having it as a tail bugs up the sprite.
 	name = "Long Lizard Tail (Roiz Lizden)"
 	icon_state = "roiz_tail_s"
-	do_colouration = 0
-	ckeys_allowed = list("spoopylizz")
+	do_colouration = 1 //TFF 25/4/19: Make colourable as per request.
+//	ckeys_allowed = list("spoopylizz")
 
 /datum/sprite_accessory/tail/taur/wolf
 	name = "Wolf (Taur)"
 	icon_state = "wolf_s"
 	suit_sprites = 'icons/mob/taursuits_wolf_vr.dmi'
+	
+/datum/sprite_accessory/tail/taur/fatwolf
+	name = "Fat Wolf (Taur)"
+	icon_state = "fatwolf_s"
 
 /datum/sprite_accessory/tail/taur/wolf/wolf_2c
 	name = "Wolf dual-color (Taur)"
 	icon_state = "wolf_s"
 	extra_overlay = "wolf_markings"
+	
+/datum/sprite_accessory/tail/taur/wolf/fatwolf_2c
+	name = "Fat Wolf dual-color (Taur)"
+	icon_state = "fatwolf_s"
+	extra_overlay = "fatwolf_markings"
 
 /datum/sprite_accessory/tail/taur/wolf/synthwolf
 	name = "SynthWolf dual-color (Taur)"
@@ -327,15 +336,60 @@
 	name = "Feline (Taur)"
 	icon_state = "feline_s"
 
+/datum/sprite_accessory/tail/taur/fatfeline
+	name = "Fat Feline (Taur)"
+	icon_state = "fatfeline_s"
+
+/datum/sprite_accessory/tail/taur/feline_wag
+	name = "Feline (Taur) (vwag)"
+	icon_state = "feline_s"
+	ani_state = "feline_w"
+	
+/datum/sprite_accessory/tail/taur/fatfeline_wag
+	name = "Fat Feline (Taur) (vwag)"
+	icon_state = "fatfeline_s"
+	ani_state = "fatfeline_w"
+
 /datum/sprite_accessory/tail/taur/feline/feline_2c
 	name = "Feline dual-color (Taur)"
 	icon_state = "feline_s"
 	extra_overlay = "feline_markings"
 
+/datum/sprite_accessory/tail/taur/feline/fatfeline_2c
+	name = "Fat Feline dual-color (Taur)"
+	icon_state = "fatfeline_s"
+	extra_overlay = "fatfeline_markings"
+
+/datum/sprite_accessory/tail/taur/feline/feline_spots
+	name = "Feline spots (Taur)"
+	icon_state = "feline_s"
+	extra_overlay = "feline_spots"
+
+/datum/sprite_accessory/tail/taur/feline/feline_spots_wag
+	name = "Feline spots (Taur) (vwag)"
+	icon_state = "feline_s"
+	ani_state = "feline_w"
+	extra_overlay = "feline_spots"
+	extra_overlay_w = "feline_spots_w"
+
 /datum/sprite_accessory/tail/taur/feline/synthfeline
 	name = "SynthFeline dual-color (Taur)"
 	icon_state = "synthfeline_s"
 	extra_overlay = "synthfeline_markings"
+
+/datum/sprite_accessory/tail/taur/goia_wag
+	name = "Goia (Taur) (vwag)"
+	icon_state = "goia_s"
+	ani_state = "goia_w"
+	extra_overlay = "goia_markings"
+	extra_overlay_w = "goia_markings_w"
+
+/datum/sprite_accessory/tail/taur/goiaBF_wag
+	name = "Goia with backfur (Taur) (vwag)"
+	icon_state = "goia_s"
+	ani_state = "goia_w"
+	extra_overlay = "goiaBF_markings"
+	extra_overlay_w = "goiaBF_markings_w"
 
 /datum/sprite_accessory/tail/taur/slug
 	name = "Slug (Taur)"
@@ -382,23 +436,55 @@
 	icon_state = "otie_s"
 	extra_overlay = "otie_markings"
 
+//TFF 25/4/19:	Add Mermaid taur body selection. Requested addition!
+/datum/sprite_accessory/tail/taur/mermaid
+	name = "Mermaid (Taur)"
+	icon_state = "mermaid_s"
+
+	msg_owner_help_walk = "You carefully slide around %prey."
+	msg_prey_help_walk = "%owner's huge fin slides past beside you!"
+
+	msg_owner_help_run = "You carefully slide around %prey."
+	msg_prey_help_run = "%owner's huge fine slides past beside you!"
+
+	msg_owner_disarm_run = "Your fin comes up above %prey, pushing them down to the ground!"
+	msg_prey_disarm_run = "%owner's fin comes up you, forcing you down to the ground!"
+
+	msg_owner_disarm_walk = "You push down on %prey with your fin, pinning them down under you!"
+	msg_prey_disarm_walk = "%owner pushes down on you with their fin, pinning you down below them!"
+
+	msg_owner_harm_run = "While sliding across the ground, you go right over %prey, crushing them!"
+	msg_prey_harm_run = "%owner slides over your body, carelessly crushing you with their heavy fin!"
+
+	msg_owner_harm_walk = "Your heavy fin slowly and methodically slides down upon %prey, crushing against the floor below!"
+	msg_prey_harm_walk = "%owner's thick, heavy fin slowly and methodically slides down upon your body, mercilessly crushing you into the floor below!"
+
+	msg_owner_grab_success = "You slide over %prey with your large, thick fin, smushing them against the ground before bending around them, trapping them between the base of the fin and the end of it!"
+	msg_prey_grab_success = "%owner slithers over you with their large, thick fin, smushing you against the ground before bending around you, trapping you between the fin's base and the end of it!"
+
+	msg_owner_grab_fail = "You squish %prey under your large, thick fin, forcing them onto the ground!"
+	msg_prey_grab_fail = "%owner pins you under their large, thick fin, forcing you onto the ground!"
+
+	msg_prey_stepunder = "You jump over %prey's thick fin."
+	msg_owner_stepunder = "%owner bounds over your fin."
+
 //wickedtemp: Chakat Tempest
 /datum/sprite_accessory/tail/taur/feline/tempest
 	name = "Feline (wickedtemp) (Taur)"
 	icon_state = "tempest_s"
-	ckeys_allowed = list("wickedtemp")
+//	ckeys_allowed = list("wickedtemp")
 
 //silencedmp5a5: Serdykov Antoz
 /datum/sprite_accessory/tail/taur/wolf/serdy
 	name = "CyberSerdy (silencedmp5a5) (Taur)"
 	icon_state = "serdy_s"
-	ckeys_allowed = list("silencedmp5a5")
+//	ckeys_allowed = list("silencedmp5a5")
 
 //liquidfirefly: Ariana Scol
 /datum/sprite_accessory/tail/taur/centipede
 	name = "Centipede (liquidfirefly) (Taur)"
 	icon_state = "ariana_s"
-	ckeys_allowed = list("liquidfirefly")
+//	ckeys_allowed = list("liquidfirefly")
 	do_colouration = 0
 
 	msg_owner_disarm_run = "You quickly push %prey to the ground with your leg!"
@@ -421,7 +507,7 @@
 	name = "Alraune (natje) (Taur)"
 	icon_state = "alraune_s"
 	ani_state = "alraune_closed_s"
-	ckeys_allowed = list("natje")
+//	ckeys_allowed = list("natje")
 	do_colouration = 0
 	can_ride = 0
 

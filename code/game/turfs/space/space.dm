@@ -11,6 +11,8 @@
 
 /turf/space/initialize()
 	. = ..()
+	if(Holiday == "April Fool's Day") //CHOMPEDIT: let's have some fun~
+		icon = 'icons/turf/vorespace.dmi'
 	if(!keep_sprite)
 		icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
 	update_starlight()

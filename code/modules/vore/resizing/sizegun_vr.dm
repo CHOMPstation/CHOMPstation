@@ -74,7 +74,7 @@
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = M
 			H.resize(set_size)
-			H.show_message("<font color='blue'> The beam fires into your body, changing your size!</font>")
+			H.show_message("<font color='#6F6FE2'> The beam fires into your body, changing your size!</font>")
 			H.updateicon()
 		else if (istype(target, /mob/living/))
 			var/mob/living/H = M
@@ -82,3 +82,53 @@
 			H.updateicon()
 		else
 			return 1
+
+
+
+//CHOMP ADDITIONS.//Anything below here.
+
+//
+//BADvanced size gun
+//
+/obj/item/weapon/gun/energy/sizegun/not_advanced
+	name = "Corrupted size gun"
+	desc = "A highly advanced ray gun with a knob on the side to adjust the size you desire. Or at least that's what it used to be."
+	projectile_type = /obj/item/projectile/beam/sizelaser/chaos
+	charge_cost = 60 //1/3 of the base price for a normal one.
+//
+//CHAOS laser
+//
+/obj/item/projectile/beam/sizelaser/chaos //The Defintiely not advanced sizeguns laser.
+	name = "chaos size beam"
+	light_color = "#FF0000"
+	light_range = 3
+	light_power = 9 //should be plenty visible.
+	var/list/chaos_colors = list(
+					"#FF0000",
+					"#00FF00",
+					"#0000FF",
+					"#FFFF00",
+					"#00FFFF",
+					"#FF00FF",
+					"#000000",
+					"#FFFFFF",
+					"#F0F0F0",
+					"#0F0F0F",
+					)
+
+	on_hit(var/atom/target)
+		light_color = pick(chaos_colors)
+		var/chaos = rand(25,200)
+		var/mob/living/M = target
+		if(ishuman(target))
+			var/mob/living/carbon/human/H = M
+			H.resize(chaos/100)
+			H.show_message("<font color='#6F6FE2'> The beam fires into your body, changing your size!</font>")
+			H.updateicon()
+		else if (istype(target, /mob/living/))
+			var/mob/living/H = M
+			H.resize(chaos/100)
+			H.updateicon()
+		else
+			return 1
+

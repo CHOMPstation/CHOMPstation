@@ -21,3 +21,7 @@
 /datum/gear/suit/gntop
 	display_name = "GN crop jacket"
 	path = /obj/item/clothing/suit/storage/fluff/gntop
+
+/datum/gear/suit/denim_vest/black
+	display_name = "black denim vest"
+	path = /obj/item/clothing/suit/storage/toggle/denim_jacket/sleeveless/black

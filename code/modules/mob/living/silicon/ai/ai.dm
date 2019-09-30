@@ -516,7 +516,7 @@ var/list/ai_verbs_default = list(
 		if(network in C.network)
 			eyeobj.setLoc(get_turf(C))
 			break
-	src << "<font color='blue'>Switched to [network] camera network.</font>"
+	src << "<font color='#6F6FE2'>Switched to [network] camera network.</font>"
 //End of code by Mord_Sith
 
 /mob/living/silicon/ai/proc/ai_statuschange()
@@ -591,7 +591,8 @@ var/list/ai_verbs_default = list(
 				"male tesharii",
 				"female tesharii",
 				"male skrell",
-				"female skrell"
+				"female skrell",
+				"synx"
 			)
 			input = input("Please select a hologram:") as null|anything in icon_list
 			if(input)
@@ -641,6 +642,8 @@ var/list/ai_verbs_default = list(
 						holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holoskrm"))
 					if("female skrell")
 						holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holoskrf"))
+					if("synx")
+						holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holosynx"))
 
 //Toggles the luminosity and applies it by re-entereing the camera.
 /mob/living/silicon/ai/proc/toggle_camera_light()
@@ -695,20 +698,20 @@ var/list/ai_verbs_default = list(
 	else if(istype(W, /obj/item/weapon/wrench))
 		if(anchored)
 			playsound(src, W.usesound, 50, 1)
-			user.visible_message("<font color='blue'>\The [user] starts to unbolt \the [src] from the plating...</font>")
+			user.visible_message("<font color='#6F6FE2'>\The [user] starts to unbolt \the [src] from the plating...</font>")
 			if(!do_after(user,40 * W.toolspeed))
-				user.visible_message("<font color='blue'>\The [user] decides not to unbolt \the [src].</font>")
+				user.visible_message("<font color='#6F6FE2'>\The [user] decides not to unbolt \the [src].</font>")
 				return
-			user.visible_message("<font color='blue'>\The [user] finishes unfastening \the [src]!</font>")
+			user.visible_message("<font color='#6F6FE2'>\The [user] finishes unfastening \the [src]!</font>")
 			anchored = 0
 			return
 		else
 			playsound(src, W.usesound, 50, 1)
-			user.visible_message("<font color='blue'>\The [user] starts to bolt \the [src] to the plating...</font>")
+			user.visible_message("<font color='#6F6FE2'>\The [user] starts to bolt \the [src] to the plating...</font>")
 			if(!do_after(user,40 * W.toolspeed))
-				user.visible_message("<font color='blue'>\The [user] decides not to bolt \the [src].</font>")
+				user.visible_message("<font color='#6F6FE2'>\The [user] decides not to bolt \the [src].</font>")
 				return
-			user.visible_message("<font color='blue'>\The [user] finishes fastening down \the [src]!</font>")
+			user.visible_message("<font color='#6F6FE2'>\The [user] finishes fastening down \the [src]!</font>")
 			anchored = 1
 			return
 	else

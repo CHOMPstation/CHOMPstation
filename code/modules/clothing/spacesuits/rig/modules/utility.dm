@@ -635,6 +635,7 @@
 	interface_name = "sprint system"
 	interface_desc = "Increases power to the suit's actuators, allowing faster movement."
 
+
 /obj/item/rig_module/sprinter/activate()
 
 	if(!..())
@@ -656,3 +657,36 @@
 	H << "<span class='danger'>Your hardsuit returns to normal speed.</span>"
 
 	holder.slowdown = initial(holder.slowdown)
+
+/obj/item/rig_module/sprinter/pursuit
+	name = "pursuit sprint module"
+	desc = "A faster hardsuit-integrated sprint module."
+	icon_state = "sprinter"
+	interface_name = "pursuit system"
+	interface_desc = "Super energy consumption for super speed."
+	sprint_speed = 3
+	use_power_cost = 100
+	active_power_cost = 5
+
+/obj/item/rig_module/sprinter/pursuit/activate()
+
+	if(!..())
+		return 0
+
+	var/mob/living/carbon/human/H = holder.wearer
+
+	H << "<font color='blue'><b>You activate the suit's sprint mode.</b></font>"
+
+	holder.slowdown = initial(holder.slowdown) - sprint_speed
+
+/obj/item/rig_module/sprinter/pursuit/deactivate()
+
+	if(!..())
+		return 0
+
+	var/mob/living/carbon/human/H = holder.wearer
+
+	H << "<span class='danger'>Your hardsuit returns to normal speed.</span>"
+
+	holder.slowdown = initial(holder.slowdown)
+

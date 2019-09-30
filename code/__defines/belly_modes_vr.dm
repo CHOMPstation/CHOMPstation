@@ -29,9 +29,10 @@
 #define DM_TRANSFORM_FEMALE_EGG						"Transform (Female) (EGG)"
 
 //Addon mode flags
-#define DM_FLAG_NUMBING		0x1
-#define DM_FLAG_ITEMWEAK	0x2
-#define DM_FLAG_STRIPPING	0x4
+#define DM_FLAG_NUMBING			0x1
+#define DM_FLAG_ITEMWEAK		0x2
+#define DM_FLAG_STRIPPING		0x4
+#define DM_FLAG_LEAVEREMAINS	0x8	//TFF 30/4/19: Ports VoreStation Remains Option - new belly mode
 
 // Stance for hostile mobs to be in while devouring someone.
 #define HOSTILE_STANCE_EATING	99

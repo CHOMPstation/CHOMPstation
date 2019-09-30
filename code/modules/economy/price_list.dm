@@ -54,6 +54,8 @@
 /datum/reagent/drink/collins_mix
 	price_tag = 2
 
+/datum/reagent/drink/horchata
+	price_tag = 2
 
 // Beer //
 
@@ -87,7 +89,27 @@
 /obj/item/weapon/reagent_containers/food/drinks/h_chocolate
 	price_tag = 3
 
+/datum/reagent/drink/bubbleteawatermelon
+	price_tag = 5
 
+/datum/reagent/drink/bubbleteastrawberry
+	price_tag = 5
+	
+/datum/reagent/drink/bubbleteacherry
+	price_tag = 5
+	
+/datum/reagent/drink/bubbleteacoffee
+	price_tag = 5
+	
+/datum/reagent/drink/bubbleteabanana
+	price_tag = 5
+	
+/datum/reagent/drink/lowpower
+	price_tag = 4
+
+/datum/reagent/drink/highpower
+	price_tag = 7
+	
 // Spirituous liquors //
 
 /datum/reagent/ethanol/irish_cream
@@ -138,6 +160,8 @@
 /datum/reagent/ethanol/coffee/brave_bull // Not an original liquor in its own. But since it's a mix of purely Tequila
 	price_tag = 5						 // and Kahlua, it's basically just another one and gets the same price.
 
+/datum/reagent/ethanol/snaps
+	price_tag = 5
 
 // Wines //
 
@@ -251,6 +275,9 @@
 
 /datum/reagent/ethanol/coffee/irishcoffee
 	price_tag = 4
+	
+/datum/reagent/ethanol/coffee/jackbrew
+	price_tag = 6
 
 /datum/reagent/ethanol/longislandicedtea
 	price_tag = 4
@@ -353,7 +380,25 @@
 
 /datum/reagent/ethanol/erebusmoonrise
 	price_tag = 4
+	
+/datum/reagent/ethanol/coldfront
+	price_tag = 4
 
+/datum/reagent/ethanol/bookwyrm
+	price_tag = 4
+
+/datum/reagent/ethanol/flapper
+	price_tag = 4
+	
+/datum/reagent/toxin/oilslide
+	price_tag = 5
+	
+/datum/reagent/ethanol/sitonmyface
+	price_tag = 4
+
+/datum/reagent/ethanol/hachi
+	price_tag = 4
+	
 // The Cheap Shit //
 
 /datum/reagent/ethanol/hooch
@@ -486,6 +531,8 @@
 /obj/item/weapon/reagent_containers/food/drinks/bottle/grenadine
 	price_tag = 15
 
+/obj/item/weapon/reagent_containers/food/drinks/bottle/snaps
+	price_tag = 15
 
 // Wines //
 

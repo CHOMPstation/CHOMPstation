@@ -375,7 +375,7 @@
 		ui_interact(usr)
 
 	if (WS.moving_status != SHUTTLE_IDLE)
-		usr << "<font color='blue'>[WS.visible_name] is busy moving.</font>"
+		usr << "<font color='#6F6FE2'>[WS.visible_name] is busy moving.</font>"
 		return
 
 	if(href_list["rename_command"])

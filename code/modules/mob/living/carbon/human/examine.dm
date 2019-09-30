@@ -294,7 +294,7 @@
 	msg += attempt_vr(src,"examine_bellies",args) //VOREStation Code
 	msg += attempt_vr(src,"examine_pickup_size",args) //VOREStation Code
 	msg += attempt_vr(src,"examine_step_size",args) //VOREStation Code
-//	msg += attempt_vr(src,"examine_nif",args) //VOREStation Code //removed due to removal of NIFs temporarily - Jon
+	msg += attempt_vr(src,"examine_nif",args) //VOREStation Code
 
 	if(mSmallsize in mutations)
 		msg += "[T.He] [T.is] very short!<br>"
@@ -440,6 +440,9 @@
 	if(ooc_notes)
 		msg += "<span class = 'deptradio'>OOC Notes:</span> <a href='?src=\ref[src];ooc_notes=1'>\[View\]</a>\n"
 	// VOREStation End
+	//TFF 4/5/19 - fixes overlooked examine text displaying for human mobs
+	msg += "<span class='deptradio'><a href='?src=\ref[src];vore_prefs=1'>\[Mechanical Vore Preferences\]</a></span>\n"
+
 	msg += "*---------*</span><br>"
 	msg += applying_pressure
 	if(pose)

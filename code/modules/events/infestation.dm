@@ -10,7 +10,6 @@
 
 #define VERM_MICE 0
 #define VERM_LIZARDS 1
-#define VERM_SPIDERS 2
 
 /datum/event/infestation
 	announceWhen = 10
@@ -62,21 +61,16 @@
 
 	var/list/spawn_types = list()
 	var/max_number
-	vermin = rand(0,2)
+	vermin = rand(0,1)
 	switch(vermin)
 		if(VERM_MICE)
-			spawn_types = list(/mob/living/simple_animal/mouse/gray, /mob/living/simple_animal/mouse/brown, /mob/living/simple_animal/mouse/white)
+			spawn_types = list(/mob/living/simple_animal/mouse)
 			max_number = 12
 			vermstring = "mice"
 		if(VERM_LIZARDS)
 			spawn_types = list(/mob/living/simple_animal/lizard)
 			max_number = 6
 			vermstring = "lizards"
-		if(VERM_SPIDERS)
-			spawn_types = list(/obj/effect/spider/spiderling)
-//			rand(2,8) //Not sure if this would work instead
-			max_number = 8
-			vermstring = "spiders"
 
 	spawn(0)
 		var/num = rand(2,max_number)
@@ -84,13 +78,8 @@
 			var/turf/simulated/floor/T = pick(turfs)
 			turfs.Remove(T)
 			num--
-
-			if(vermin == VERM_SPIDERS)
-				var/obj/effect/spider/spiderling/S = new(T)
-				S.amount_grown = 0
-			else
-				var/spawn_type = pick(spawn_types)
-				new spawn_type(T)
+			var/spawn_type = pick(spawn_types)
+			new spawn_type(T)
 
 
 /datum/event/infestation/announce()
@@ -107,4 +96,3 @@
 
 #undef VERM_MICE
 #undef VERM_LIZARDS
-#undef VERM_SPIDERS

@@ -46,7 +46,7 @@
 	desc = "It's Coffee, the other pet!"
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
-	response_harm   = "stomps"
+	response_harm   = "stomps on"
 
 //Sif Crabs
 /mob/living/simple_animal/giant_crab
@@ -78,10 +78,67 @@
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
-	response_harm   = "stomps"
+	response_harm   = "kicks"
 	friendly = "pinches"
 
 	speak_chance = 1
 	speak_emote = list("clicks")
 	emote_hear = list("clicks")
 	emote_see = list("clacks")
+
+
+
+//Enemy version.
+/mob/living/simple_animal/hostile/giant_crab
+	name = "giant crab"
+	desc = "A giant enemy crab."
+	tt_desc = "S Cancer holligus"
+	icon = 'icons/mob/vore.dmi'
+	icon_state = "sif_crab"
+	icon_living = "sif_crab"
+	icon_dead = "sif_crab_dead"
+	faction = "crabs"
+	intelligence_level = SA_ANIMAL
+
+	maxHealth = 300
+	health = 300
+
+	mob_size = MOB_LARGE
+	cooperative = 1
+	retaliate = 1
+	turns_per_move = 3
+
+	minbodytemp = 175
+
+	melee_damage_lower = 22
+	melee_damage_upper = 35
+	attack_armor_pen = 35
+	attack_sharp = 1
+	attack_edge = 1
+
+	armor = list(
+				"melee" = 40,
+				"bullet" = 10,
+				"laser" = 25,
+				"energy" = 25,
+				"bomb" = 10,
+				"bio" = 100,
+				"rad" = 100)
+
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "kicks"
+	friendly = "pinches"
+
+	speak_chance = 1
+	speak_emote = list("clicks")
+	emote_hear = list("clicks")
+	emote_see = list("clacks")
+
+
+//Vore stuff
+	vore_active = 1
+	vore_ignores_undigestable = 0
+	vore_icons = SA_ICON_LIVING
+	vore_pounce_chance = 20

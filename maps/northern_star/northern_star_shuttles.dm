@@ -159,6 +159,15 @@
 	dock_target_station = "mining_dock_airlock"
 	dock_target_offsite = "mining_outpost_airlock"
 
+/datum/shuttle/ferry/medical
+	name = "Medical"
+	warmup_time = 10
+	area_offsite = /area/shuttle/medical/outpost
+	area_station = /area/shuttle/medical/station
+	docking_controller_tag = "medical_shuttle"
+	dock_target_station = "med_station_airlock"
+	dock_target_offsite = "med_outpost_airlock"
+
 /datum/shuttle/ferry/research
 	name = "Research"
 	warmup_time = 10
@@ -199,6 +208,18 @@
 	docking_controller_tag = "trade_shuttle"
 	dock_target_station = "trade_shuttle_dock_airlock"
 	dock_target_offsite = "trade_shuttle_bay"
+
+//Casino
+/datum/shuttle/ferry/casino
+	name = "Casino"
+	location = 1
+	warmup_time = 10
+	area_offsite = /area/shuttle/casino/ship
+	area_station = /area/shuttle/casino/station
+	docking_controller_tag = "casino_shuttle"
+	dock_target_station = "casino_shuttle_dock_airlock"
+	dock_target_offsite = "casino_shuttle_bay"
+
 
 // Is this even used?
 /datum/shuttle/ferry/alien

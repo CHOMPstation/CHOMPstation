@@ -33,3 +33,12 @@
 	var/datum/gender/TU = gender_datums[user.get_visible_gender()]
 	visible_message(span("danger", "[user] is slitting [TU.his] stomach open with \the [src.name]! It looks like [TU.hes] trying to commit seppuku."), span("danger", "You slit your stomach open with \the [src.name]!"), span("danger", "You hear the sound of flesh tearing open.")) // gory, but it gets the point across
 	return(BRUTELOSS)
+//CHOMPEDIT CHAPLAIN SWORD OF ~~The honkmother~~
+/obj/item/weapon/material/sword/chaplain
+	name = "chaplains claymore"
+	desc = "There can only honk one!"
+	force_divisor = 0.0
+	thrown_force_divisor = 0.0
+	sharp = 0
+	edge = 0
+	hitsound = 'sound/items/bikehorn.ogg'

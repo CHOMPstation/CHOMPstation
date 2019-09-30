@@ -242,7 +242,7 @@
 "eH" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced,/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/tcomsat)
 "eI" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/tcomsat)
 "eJ" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/obj/structure/table/standard,/obj/machinery/recharger,/turf/simulated/floor/plating,/area/tcommsat/powercontrol)
-"eK" = (/obj/machinery/teleport/station,/turf/simulated/floor/tiled/dark,/area/tcommsat/entrance)
+"eK" = (/obj/machinery/teleport/station{dir = 2},/turf/simulated/floor/tiled/dark,/area/tcommsat/entrance)
 "eL" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/tcomsat)
 "eM" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/lattice,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9; pixel_y = 0},/turf/space,/area/tcomsat)
 "eN" = (/obj/machinery/telecomms/server/presets/service,/turf/simulated/floor/tiled/dark{nitrogen = 100; oxygen = 0; temperature = 80},/area/tcommsat/chamber)
@@ -256,7 +256,7 @@
 "eV" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/tcomsat)
 "eW" = (/obj/structure/table/standard,/obj/item/weapon/stock_parts/micro_laser,/obj/item/weapon/stock_parts/manipulator,/obj/item/weapon/stock_parts/manipulator,/obj/item/weapon/stock_parts/manipulator,/obj/item/weapon/stock_parts/manipulator,/obj/item/weapon/stock_parts/capacitor,/obj/item/weapon/stock_parts/micro_laser/high,/obj/item/weapon/stock_parts/micro_laser/high,/obj/item/weapon/stock_parts/micro_laser/high,/obj/item/weapon/stock_parts/micro_laser/high,/turf/simulated/floor,/area/tcomsat)
 "eX" = (/obj/machinery/atmospherics/unary/vent_pump/on,/obj/machinery/camera/network/telecom{c_tag = "Telecoms Storage"},/turf/simulated/floor,/area/tcomsat)
-"eY" = (/obj/machinery/teleport/hub,/turf/simulated/floor/tiled/dark,/area/tcommsat/entrance)
+"eY" = (/obj/machinery/teleport/hub{dir = 2},/turf/simulated/floor/tiled/dark,/area/tcommsat/entrance)
 "eZ" = (/obj/structure/window/reinforced{dir = 8},/obj/machinery/camera/network/telecom{c_tag = "Telecoms West Wing Central"; dir = 8},/turf/space,/area/tcomsat)
 "fa" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/tcomsat)
 "fb" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/lattice,/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 8},/turf/space,/area/tcomsat)
@@ -265,9 +265,9 @@
 "fe" = (/obj/structure/table/standard,/obj/item/weapon/stock_parts/subspace/analyzer,/obj/item/weapon/stock_parts/subspace/analyzer,/obj/item/weapon/stock_parts/subspace/analyzer,/obj/machinery/firealarm{dir = 4; pixel_x = 26},/turf/simulated/floor,/area/tcomsat)
 "ff" = (/obj/structure/table/standard,/obj/item/weapon/stock_parts/subspace/treatment,/obj/item/weapon/stock_parts/subspace/treatment,/obj/item/weapon/stock_parts/subspace/treatment,/turf/simulated/floor,/area/tcomsat)
 "fg" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor,/area/tcomsat)
-"fh" = (/obj/machinery/telecomms/hub/preset,/turf/simulated/floor/bluegrid{name = "Mainframe Base"; nitrogen = 100; oxygen = 0; temperature = 80},/area/tcommsat/chamber)
-"fi" = (/obj/machinery/teleport/station,/obj/structure/cable{icon_state = "0-2"; d2 = 2},/turf/simulated/floor/airless,/area/AIsattele)
-"fj" = (/obj/machinery/teleport/hub,/turf/simulated/floor/airless,/area/AIsattele)
+"fh" = (/obj/machinery/telecomms/hub/preset{autolinkers = list("hub","relay","c_relay","s_relay","m_relay","r_relay","science","medical","supply","service","common","command","engineering","security","unused","hb_relay","receiverA","broadcasterA","casino_relay")},/turf/simulated/floor/bluegrid{name = "Mainframe Base"; nitrogen = 100; oxygen = 0; temperature = 80},/area/tcommsat/chamber)
+"fi" = (/obj/machinery/teleport/station{dir = 2},/obj/structure/cable{icon_state = "0-2"; d2 = 2},/turf/simulated/floor/airless,/area/AIsattele)
+"fj" = (/obj/machinery/teleport/hub{dir = 2},/turf/simulated/floor/airless,/area/AIsattele)
 "fk" = (/obj/machinery/porta_turret{dir = 6},/turf/simulated/floor/tiled/dark,/area/tcomfoyer)
 "fl" = (/obj/structure/lattice,/obj/structure/window/reinforced{dir = 8},/obj/machinery/light{dir = 4},/turf/space,/area/tcomsat)
 "fm" = (/obj/structure/sign/nosmoking_2{pixel_x = -32; pixel_y = 0},/obj/machinery/light{icon_state = "tube1"; dir = 8},/turf/simulated/floor/bluegrid{name = "Mainframe Base"; nitrogen = 100; oxygen = 0; temperature = 80},/area/tcommsat/chamber)
@@ -398,7 +398,7 @@
 "hH" = (/obj/structure/closet/malf/suits,/turf/simulated/floor/tiled/dark,/area/tcommsat/entrance)
 "hI" = (/obj/machinery/door/airlock/hatch{name = "Power Control"; req_access = list(61)},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/tcommsat/powercontrol)
 "hJ" = (/obj/item/device/radio/intercom{dir = 4; name = "Station Intercom (General)"; pixel_x = 21; pixel_y = 0},/turf/simulated/floor/tiled/dark,/area/tcommsat/entrance)
-"hK" = (/obj/effect/floor_decal/rust,/obj/effect/rune,/turf/simulated/floor/tiled/steel_ridged,/area/derelict/ship)
+"hK" = (/obj/effect/floor_decal/rust,/obj/effect/rune,/obj/effect/mine/emp{alpha = 30},/turf/simulated/floor/tiled/steel_ridged,/area/derelict/ship)
 "hL" = (/obj/effect/floor_decal/rust,/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled/techfloor/grid,/area/derelict/ship)
 "hM" = (/turf/space,/area/syndicate_station/commssat)
 "hN" = (/turf/simulated/wall/r_wall,/area/AIsattele)
@@ -471,7 +471,6 @@
 "jc" = (/obj/structure/window/reinforced{dir = 2; health = 1e+006},/turf/simulated/floor/airless,/area/derelict/ship)
 "je" = (/obj/machinery/floodlight,/turf/simulated/floor/bluegrid,/area/derelict/ship)
 "jf" = (/obj/item/weapon/secbot_assembly,/turf/simulated/floor/bluegrid,/area/derelict/ship)
-"jg" = (/obj/structure/lattice,/obj/structure/lattice,/turf/space,/area/derelict/ship)
 "jh" = (/obj/structure/window/reinforced{dir = 2; health = 1e+006},/turf/simulated/floor/bluegrid,/area/derelict/ship)
 "ji" = (/obj/effect/floor_decal/rust,/turf/simulated/floor/airless,/area/derelict/ship)
 "jj" = (/obj/structure/shuttle/engine/heater,/obj/structure/window/reinforced{dir = 1; health = 1e+006},/turf/simulated/floor/airless,/area/derelict/ship)
@@ -717,7 +716,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiWiYgFiZgFjabW
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiWbDbFbFbFbFbFbFgFbFbFbFbFbFbFbDiWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabDiWiWjiiziWbFgFbFjejfjbjbjbbFaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabSiuiWiujiiWbTbKbTjbjbjbjbjbbSaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiujgjcjciWbFbKbFjbjhjhjhjbbFaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiuiujcjciWbFbKbFjbjhjhjhjbbFaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiuiuaajijjbDbFbFbFbDjjjjjjbDbFaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaajkaaaaaaaaaajljkjlaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

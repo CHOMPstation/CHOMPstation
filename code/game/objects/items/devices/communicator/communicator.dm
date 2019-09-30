@@ -4,6 +4,16 @@
 
 var/global/list/obj/item/device/communicator/all_communicators = list()
 
+// List of core tabs the communicator can switch to //TFF Port from VOREStation
+#define HOMETAB 1
+#define PHONTAB 2
+#define CONTTAB 3
+#define MESSTAB 4
+#define NOTETAB 5
+#define ATMSTAB 6
+#define MANITAB 7
+#define SETTTAB 8
+
 /obj/item/device/communicator
 	name = "communicator"
 	desc = "A personal device used to enable long range dialog between two people, utilizing existing telecommunications infrastructure to allow \
@@ -36,15 +46,16 @@ var/global/list/obj/item/device/communicator/all_communicators = list()
 	var/flum = 2 // Brightness
 
 	var/list/modules = list(
-							list("module" = "Phone", "icon" = "phone64", "number" = 2),
-							list("module" = "Contacts", "icon" = "person64", "number" = 3),
-							list("module" = "Messaging", "icon" = "comment64", "number" = 4),
-							list("module" = "Note", "icon" = "note64", "number" = 5),
-							list("module" = "Weather", "icon" = "sun64", "number" = 6),
-							list("module" = "Settings", "icon" = "gear64", "number" = 7)
+							list("module" = "Phone", "icon" = "phone64", "number" = PHONTAB),
+							list("module" = "Contacts", "icon" = "person64", "number" = CONTTAB),
+							list("module" = "Messaging", "icon" = "comment64", "number" = MESSTAB),
+							list("module" = "Note", "icon" = "note64", "number" = NOTETAB),
+							list("module" = "Atmos", "icon" = "sun64", "number" = ATMSTAB),
+							list("module" = "Crew Manifest", "icon" = "note64", "number" = MANITAB), // Need a different icon, //TFF Port from VOREStation
+							list("module" = "Settings", "icon" = "gear64", "number" = SETTTAB),
 							)	//list("module" = "Name of Module", "icon" = "icon name64", "number" = "what tab is the module")
 
-	var/selected_tab = 1
+	var/selected_tab = HOMETAB
 	var/owner = ""
 	var/occupation = ""
 	var/alert_called = 0

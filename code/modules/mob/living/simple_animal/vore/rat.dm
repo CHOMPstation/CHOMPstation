@@ -16,6 +16,7 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 15
 	grab_resist = 100
+	attack_sound = 'sound/weapons/bite.ogg'
 
 	speak_chance = 4
 	speak = list("Squeek!","SQUEEK!","Squeek?")
@@ -24,9 +25,9 @@
 	emote_see = list("runs in a circle", "shakes", "scritches at something")
 	say_maybe_target = list("Squeek?")
 	say_got_target = list("SQUEEK!")
-	response_help = "pets the"
-	response_disarm = "bops the"
-	response_harm = "hits the"
+	response_help = "pets"
+	response_disarm = "bops"
+	response_harm = "hits"
 	attacktext = list("ravaged")
 	friendly = list("nuzzles", "licks", "noses softly at", "noseboops", "headbumps against", "leans on", "nibbles affectionately on")
 
@@ -37,8 +38,9 @@
 	pixel_y = 0
 
 	vore_active = TRUE
-	vore_capacity = 1
+	vore_capacity = 2
 	vore_pounce_chance = 45
+	vore_ignores_undigestable = 0
 	vore_icons = SA_ICON_LIVING | SA_ICON_REST
 
 	var/life_since_foodscan = 0
@@ -127,6 +129,30 @@
 		food = null
 		return
 	. = ..()
+	//TFF - Time to let rats, specifically our dear Jenner, react to newspapers. Yayyyyyyy!
+	if(istype(O, /obj/item/weapon/newspaper))
+		if (retaliate && prob(vore_pounce_chance/2)) // This is a gamble!
+			user.Weaken(5) //They get tackled anyway whether they're edible or not.
+			user.visible_message("<span class='danger'>\the [user] swats \the [src] with \the [O] and promptly gets tackled!</span>!")
+			if (will_eat(user))
+				stop_automated_movement = 1
+				animal_nom(user)
+				update_icon()
+				stop_automated_movement = 0
+			else if (!target_mob) // no using this to clear a retaliate mob's target
+				target_mob = user //just because you're not tasty doesn't mean you get off the hook. A swat for a swat.
+				AttackTarget()
+				LoseTarget() // only make one attempt at an attack rather than going into full rage mode
+		else
+			user.visible_message("<span class='info'>\the [user] swats \the [src] with \the [O]!</span>!")
+			release_vore_contents()
+			for(var/mob/living/L in living_mobs(0)) //add everyone on the tile to the do-not-eat list for a while
+				if(!(L in prey_excludes)) // Unless they're already on it, just to avoid fuckery.
+					prey_excludes += L
+					spawn(3600)
+						if(src && L)
+							prey_excludes -= L
+		..()
 
 /mob/living/simple_animal/hostile/rat/passive/Found(var/atom/found_atom)
 	if(!SA_attackable(found_atom))
@@ -157,3 +183,9 @@
 /mob/living/simple_animal/hostile/rat/death()
 	playsound(src, 'sound/effects/mouse_squeak_loud.ogg', 50, 1)
 	..()
+
+/mob/living/simple_animal/hostile/rat/event
+	maxHealth = 50
+	health = 50
+	speed = 4
+	vore_pounce_chance = 1
