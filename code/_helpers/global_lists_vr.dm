@@ -179,7 +179,9 @@ var/global/list/edible_trash = list(/obj/item/trash,
 				/obj/item/clothing/glasses,
 				/obj/item/clothing/gloves,
 				/obj/item/clothing/head,
-				/obj/item/clothing/shoes)
+				/obj/item/clothing/shoes,
+				/obj/item/weapon/storage/box/khcrystal	//TFF 27/9/19 - requested addition
+				)
 
 var/global/list/edible_tech = list(/obj/item/weapon/cell,
 				/obj/item/weapon/circuitboard,
