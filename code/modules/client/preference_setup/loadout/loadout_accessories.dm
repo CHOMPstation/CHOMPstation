@@ -178,7 +178,7 @@
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
 	path = /obj/item/clothing/accessory/storage/webbing
-	cost = 2
+//	cost = 2	//CHOMPStation Removal TFF 26/9/19 - Down to 1 point. No discernable reason for requiring two points instead.
 
 /datum/gear/accessory/chaps
 	display_name = "chaps, brown"
