@@ -193,7 +193,6 @@
 	// user: The mob inserting the card
 	// slot: Which slot to insert into (1->Reader, 2->Writer, 3->Auto) Default 3
 /obj/item/part/computer/cardslot/dual/insert(var/obj/item/weapon/card/card, var/mob/user, var/slot = 3)
-	to_chat(user, "<span class='notice'>User is [user].</span>")
 	//world << "User is [user]"	//CHOMPStation edit TFF 10/2/19 - fixes global announcement of 'User is 'Charname''.
 	if(slot != 2)
 		if(..(card, user))
