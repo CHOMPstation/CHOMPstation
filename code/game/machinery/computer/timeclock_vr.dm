@@ -210,7 +210,7 @@
 	if(!card)
 		return FALSE
 	if((world.time - card.last_job_switch) < 15 MINUTES)
-		to_chat(usr, "You need to wait at least 15 minutes after last duty switch. It has only been [card.last_job_switch] minutes since you have had your job changed.")
+		to_chat(usr, "You need to wait at least 15 minutes after the last duty switch.")
 		return FALSE
 	return TRUE
 
