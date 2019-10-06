@@ -1,4 +1,5 @@
 /mob/living/simple_animal/retaliate/synx
+	//on inteligence https://synx.fandom.com/wiki/Behavior/Intelligence //keeping this here for player controlled synxes.
 	name = "Synx"
 	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Plain, white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration."
 	tt_desc = "synxus pergulus"
@@ -68,6 +69,18 @@
 	vore_icons = 0 //no vore icons
 	swallowTime = 6 SECONDS //Enter the eel you nerd
 
+//Shouldn't be affected by lack of atmos, it's a space eel.
+	min_oxy = 0
+	max_oxy = 0 //Maybe add a max
+	min_tox = 0
+	max_tox = 0
+	min_co2 = 0
+	max_co2 = 0 //Maybe add a max
+	min_n2 = 0
+	max_n2 = 0 //Maybe add a max
+	minbodytemp = 0
+	// TODO: Set a max temperature of about 20-30 above room temperatures. Synx don't like the heat.
+
 /mob/living/simple_animal/retaliate/synx/init_vore()
 	..()
 	var/obj/belly/B = vore_selected
@@ -96,17 +109,29 @@
 	"The synx lets out an audible belch, the last of your air going with it, and with a few audible crunches from the outside, the stomach claims you as food for the parasite."
 	)
 
-//Shouldn't be affected by lack of atmos, it's a space eel.
-	min_oxy = 0
-	max_oxy = 0 //Maybe add a max
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0 //Maybe add a max
-	min_n2 = 0
-	max_n2 = 0 //Maybe add a max
-	minbodytemp = 0
-	// TODO: Set a max temperature of about 20-30 above room temperatures. Synx don't like the heat.
+/mob/living/simple_animal/retaliate/synx/pet/asteri/init_vore()
+	..()
+	var/obj/belly/B = vore_selected
+	B.desc    = "The synx eagerly swallows you, taking you from its gullet into its long, serpentine stomach. The internals around you greedily press into your from all sides, keeping you coated in a slick coat of numbing fluids..."
+	B.digest_burn = 1
+	B.digest_brute = 1
+	B.emote_lists[DM_HOLD] = list(
+	"Your taut prison presses and pads into your body, the synx squeezing around you almost constrictingly tight while the rolling pulses of muscle around you keep your squirms well-contained.",
+	"You can feel parts of you sink and press into the squishy stomach walls as the synx's gut seems to relax, the wet ambience of its stomach muffling the parasite's various heartbeats.",
+	"You can hear the synx teasingly mimic the sounds you've made while it's eaten you, the stomach walls practically massaging more of numbing fluid into you as its innards do their best to tire you out.",
+	)
+	B.emote_lists[DM_DIGEST] = list(
+	"The stomach gives a crushing squeeze around your frame, its body restraining your movements and pressing digestive fluids deeper into you with overwhelming pressure from all sides..",
+	"The synx's insides greedily press into you all over, kneading around your body and softening you up for the slurry of numbing acid that's pooled around your melting frame.",
+	"You can hear a cacophony of wet churns and gurgles from the synx's body as it works on breaking you down, the parasite eagerly awaiting your final moments.",
+	"The tight, fleshy tunnel constricts around you, making it even harder to breathe the already thin air as the digestive cocktail around you wears you out.",
+	)
+	B.digest_messages_prey = list(
+	"You finally give in to the constricting pressure, softened up enough for the acids around you to turn your entire being into a gooey slop to be pumped through its body.",
+	"Slipping past the point of saving, your body gives out on you as the stomach walls grind your goopy remains into a chunky sludge, leaving behind only a few acid-soaked bones for it to stash in the vents.",
+	"The constant fatal massage pulls you under, your conciousness fading away as you're drawn into a numb, permanent sleep. The body you leave behind is put to good use as a few extra pounds on the synx's frame, its now-wider hips making it just a little harder to squeeze through the vents it's so fond of.",
+	"The synx's body gleefully takes what's left of your life, Asteri's usually-repressed sadism overwhelmed with a sinister satisfaction in snuffing you out as your liquefied remains gush into a bit more heft on the parasite's emaciated frame.",
+	)
 
 /mob/living/simple_animal/retaliate/synx/New()
 	..()
@@ -463,6 +488,66 @@ mob/living/simple_animal/synx/PunchTarget()
 	vore_bump_chance = 2 //lowered bump chance
 	vore_escape_chance = 5 //Multivore allows for people to shove eachother out so lower normal escape chance.
 
+/mob/living/simple_animal/retaliate/synx/pet/greed/synth
+/*
+▓███▓     ▓▓▓     ▓▓▓     ▓▓▓     ▓▓▓     ▓███▓   
+ ▓▓   ▓▓▓█ ▓▓  ▓▓█ ▓▓  ▓▓█ ▓▓  ▓▓█ ▓▓  ▓▓█ ▓▓   ▓▓▓█ 
+▓      ▓▓▓▓     ▓▓▓     ▓▓▓     ▓▓▓     ▓▓▓      ▓▓▓▓
+▓      █▓▓▓     █▓▓     █▓▓     █▓▓     █▓▓      █▓▓▓
+▓      █▓▓▓▓█  █▓▓ ▓█  █▓▓ ▓█  █▓▓█▓█  █▓▓▓      █▓▓▓
+▓      █▓▓▓  ▓█▓    █▓█▓█   █▓█▓█   ▓▓█   ▓█     █▓▓▓
+▓█     █▓▓▓          ▓▓▓     ▓▓▓          ▓▓     █▓▓▓
+▓▓     █▓▓            ▓       ▓            ▓     █▓▓▓
+ ▓     █▓▓                                 ▓█    █▓▓ 
+  ▓    ▓▓▓                                 ▓▓   █▓▓  
+   █\   ▓▓      ▓▓                   ▓█      ▓  █▓▓  
+   ▓█\   ▓█    ▓█▓                   ▓▓▓    █▓ █▓▓   
+    ▓▓▓█  ▓   ▓▓▓▓                   ▓ ▓▓   ▓ █▓▓    
+        ▓█▓  ▓▓█▓▓                   ▓  ▓▓  ▓▓▓      
+            ▓▓ █▓▓█                 █▓  █▓▓          
+           ▓▓   ▓▓▓                 ▓▓   █▓▓         
+           ▓    ▓▓▓                 ▓    █▓▓         
+         ▓▓    █▓▓█               █▓    █▓▓▓         
+         ▓     █▓▓▓  ▓▓█     █▓█  ▓▓    █▓▓▓         
+         ▓     █▓▓▓▓▓  ▓▓█ ▓▓  ▓▓█▓     █▓▓▓         
+         ▓     █▓▓▓     ▓▓▓     ▓▓▓     █▓▓▓         
+         ▓     █▓▓▓     ▓▓▓     ▓▓▓     █▓▓▓         
+           ▓█▓██▓▓▓█▓█▓█▓▓▓█▓█▓█▓▓▓█▓█▓██▓▓▓         
+*/
+	icon_state = "synx_C_living"
+	icon_living = "synx_C_living"
+	icon_dead = "synx_C_dead"
+	hostile = 1
+	name = "SYN-KinC"
+	desc = "A robotic recreation of a an Alien parasite. The metal plates seem quite thick."
+	humanoid_hands = 1
+	health = 200 //Metally
+	player_msg = "All systems nominal."
+	/////////////////////ARMOR
+	armor = list(
+			"melee" = 50,
+			"bullet" = 50,
+			"laser" = -50,
+			"energy" = -50,
+			"bomb" = 50,
+			"bio" = 100,
+			"rad" = 100)
+	////////////////////////////MED INJECTOR
+	poison_type = "oxycodone" //OD effects, eye_blurry | Confuse + for slimes | stuttering
+	poison_chance = 77 //high but not guranteed.
+	poison_per_bite = 9 //OD for oxyc is 20
+	//////////////////////////////////////////////FACTION
+	faction = "SYN"
+	
+	
+	New()
+		..()
+		name = "SYN-KinC-([rand(100,999)])"
+	
+/mob/living/simple_animal/retaliate/synx/pet/greed/synth/goodboy
+	hostile = 0
+	faction = "neutral"
+
 /mob/living/simple_animal/retaliate/synx/pet/diablo
 	//var/diablo_LIVING = "synx_diablo_living"
 	//var/diablo_DEAD = "synx_diablo_dead"
@@ -475,16 +560,24 @@ mob/living/simple_animal/synx/PunchTarget()
 	//Vore Section
 	vore_capacity = 2
 
-/mob/living/simple_animal/retaliate/synx/pet/diablo/sicsempertyrannis
-	name = "grins"
-	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. grey, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has a small shock collar on it that reads 'grins'."
-	icon_state = "synx_diablo_living"
-	icon_living = "synx_diablo_living"
-	icon_dead = "synx_diablo_dead"
-	speak = list( )
+/mob/living/simple_animal/retaliate/synx/pet/asteri
+	name = "Asteri"
+	desc = "A cold blooded, genderless, parasitic eel from the more distant and stranger areas of the cosmos. Bleak white, perpetually grinning and possessing a hunger as enthusiastic and endless as humanity's sense of exploration.. This one has distinctive markings over its face forming the shape of a star, and its back holds a sizeable scar leading up to a small implanted device just above its waist, the name 'Asteri' scribed across the metal."
+	//icon= //icon= would just set what DMI we are using, we already have our special one set.
+	icon_state = "synx_asteri_living"
+	icon_living = "synx_asteri_living"
+	icon_dead = "synx_asteri_dead"
+	speak = list("Who is there?")//preset unique words Asteri remembers, to be defined more
+	player_msg = "SCREAMING NOISES."
+	health = 100//Slightly lower health due to being damaged permanently.
+	speak_chance = 5
 	//Vore Section
+	vore_icons = SA_ICON_LIVING
 	vore_capacity = 2
-
+	vore_digest_chance = 50
+	vore_pounce_chance = 40
+	vore_bump_chance = 2
+	vore_escape_chance = 5
 
 /mob/living/simple_animal/retaliate/synx/pet/clown
 	hostile = 1
@@ -548,9 +641,9 @@ mob/living/simple_animal/synx/PunchTarget()
 /obj/random/mob/synx/item_to_spawn()
 	if(Holiday == "April Fool's Day") //WE WISH YOU A MERRY CLOWNMAS
 		return /mob/living/simple_animal/retaliate/synx/pet/clown
-	else return pick(prob(50);/mob/living/simple_animal/retaliate/synx/pet/greed,
-		prob(50);/mob/living/simple_animal/retaliate/synx/pet/diablo,
-		prob(50);/mob/living/simple_animal/retaliate/synx/pet/holo,)
+	else return pick(prob(70);/mob/living/simple_animal/retaliate/synx/pet/greed,
+		prob(50);/mob/living/simple_animal/retaliate/synx/pet/asteri,
+		prob(20);/mob/living/simple_animal/retaliate/synx/pet/holo,)
 
 ////////////////////////////////////////////////////////////////////////////
 //////////////////////////NOT A SYNX///////but looks kinda like one/////////

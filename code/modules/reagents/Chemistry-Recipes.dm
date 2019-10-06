@@ -365,7 +365,7 @@
 	required_reagents = list("inaprovaline" = 1, "carbon" = 1)
 	inhibitors = list("sugar" = 1) // Messes up with inaprovaline
 	result_amount = 2
-	
+
 /datum/chemical_reaction/alizine
 	name = "Alizine"
 	id = "alizine"
@@ -1464,7 +1464,8 @@
 	required_reagents = list("rum" = 2, "vermouth" = 2, "phoron" = 2)
 	result_amount = 6
 
-/datum/chemical_reaction/drinks/beepsky_smash
+//CHOMPStation Edit TFF 24/9/19 - Minor change to make it easier for no runtimes with casino.dm
+/datum/chemical_reaction/drinks/beepskysmash
 	name = "Beepksy Smash"
 	id = "beepksysmash"
 	result = "beepskysmash"
@@ -1850,10 +1851,11 @@
 	required_reagents = list("gingerale" = 4, "grenadine" = 1)
 	result_amount = 5
 
+//CHOMPStation Edit TFF 24/9/19 - Minor change to make it easier for no runtimes with casino.dm
 /datum/chemical_reaction/drinks/royrogers
 	name = "Roy Rogers"
-	id = "roy_rogers"
-	result = "roy_rogers"
+	id = "royrogers"
+	result = "royrogers"
 	required_reagents = list("gingerale" = 4, "lemon_lime" = 2, "grenadine" = 1)
 	result_amount = 7
 
@@ -1919,7 +1921,7 @@
 	result = "watermelontea"
 	required_reagents = list("tea" = 5, "watermelonjuice" = 1)
 	result_amount = 6
-	
+
 /datum/chemical_reaction/drinks/sakebomb
 	name = "Sake Bomb"
 	id = "sakebomb"
@@ -2236,7 +2238,7 @@
 	result = "eggnog"
 	required_reagents = list("sugar" = 1, "egg" = 1, "milk" = 1, "cream" = 1, "cognac" = 2)
 	result_amount = 6
-	
+
 /datum/chemical_reaction/drinks/spiderdrink
 	name = "Brimming glass of spiders"
 	id = "spiderdrink"
@@ -2250,28 +2252,28 @@
 	result = "bubbleteawatermelon"
 	required_reagents = list("gelatin" = 2, "watermelontea" = 6, "milk" = 2)
 	result_amount = 10
-	
+
 /datum/chemical_reaction/drinks/bubbleteastrawberry
 	name = "Strawberry bubble tea"
 	id = "bubbleteastrawberry"
 	result = "bubbleteastrawberry"
 	required_reagents = list("gelatin" = 2, "berrytea" = 6, "milk" = 2)
 	result_amount = 10
-	
+
 /datum/chemical_reaction/drinks/bubbleteacherry
 	name = "Cherry bubble tea"
 	id = "bubbleteacherry"
 	result = "bubbleteacherry"
 	required_reagents = list("gelatin" = 2, "cherrytea" = 6, "milk" = 2)
 	result_amount = 10
-	
+
 /datum/chemical_reaction/drinks/bubbleteacoffee
 	name = "Coffee bubble tea"
 	id = "bubbleteacoffee"
 	result = "bubbleteacoffee"
 	required_reagents = list("gelatin" = 2, "tea" = 5, "cafe_latte" = 3)
 	result_amount = 10
-	
+
 /datum/chemical_reaction/drinks/bubbleteabanana
 	name = "Banana bubble tea"
 	id = "bubbleteabanana"
@@ -2284,7 +2286,7 @@
 	id = "horchata"
 	result = "horchata"
 	required_reagents = list("milk" = 1, "sugar" = 2, "rice" = 2)
-	result_amount = 5	
+	result_amount = 5
 
 /datum/chemical_reaction/drinks/bluetrain
 	name = "Blue train"
@@ -2292,49 +2294,49 @@
 	result = "bluetrain"
 	required_reagents = list("coolant" = 2, "ethanol" = 2, "nutriment" = 1)
 	result_amount = 5
-	
+
 /datum/chemical_reaction/drinks/lowpower
 	name = "The low power"
 	id = "lowpower"
 	result = "lowpower"
 	required_reagents = list("lemonade" = 1, "cream" = 1, "limejuice" = 1)
 	result_amount = 3
-	
+
 /datum/chemical_reaction/drinks/jackbrew
 	name = "Jack's brew"
 	id = "jackbrew"
 	result = "jackbrew"
 	required_reagents = list("irishcoffee" = 1, "hyperzine" = 1)
 	result_amount = 2
-	
+
 /datum/chemical_reaction/drinks/bookwyrm
 	name = "Bookwyrm's bite"
 	id = "bookwyrm"
 	result = "bookwyrm"
 	required_reagents = list("coldfront" = 1, "limejuice" = 1, "stoxin" = 1)
 	result_amount = 3
-	
+
 /datum/chemical_reaction/drinks/highpower
 	name = "The high power"
 	id = "highpower"
 	result = "highpower"
 	required_reagents = list("lowpower" = 1, "iron" = 1, "uranium" = 1)
 	result_amount = 3
-	
+
 /datum/chemical_reaction/drinks/flapper
 	name = "Flapper"
 	id = "flapper"
 	result = "flapper"
 	required_reagents = list("whiskey" = 1, "blood" = 1, "ice" = 1)
 	result_amount = 3
-	
+
 /datum/chemical_reaction/toxin/oilslide
 	name = "Oil slide"
 	id = "oilslide"
 	result = "oilslide"
 	required_reagents = list("moonshine" = 1, "lube" = 1, "fuel" = 1)
 	result_amount = 3
-	
+
 /datum/chemical_reaction/drinks/sitonmyface
 	name = "Sit on my face"
 	id = "sitonmyface"

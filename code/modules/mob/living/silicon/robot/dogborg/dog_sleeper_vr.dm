@@ -673,6 +673,17 @@
 	max_item_count = 10
 	decompiler = TRUE
 
+/obj/item/device/dogborg/sleeper/general //generic stomach for borgs
+	name = "Robotic Stomach"
+	desc = "A stretchy stomach for a vore enabled borg, it can hold and digest items and crew."
+	icon_state = "belly-standard"
+	injection_chems = null
+	max_item_count = 10
+
+/obj/item/device/dogborg/sleeper/medical
+	name = "Borg Mounted Sleeper"
+	desc = "A stretchy stomach for a vore enabled medical borg, it can hold crew for healing or as emergency power."
+	icon_state = "belly-medical"
 
 /obj/item/device/dogborg/sleeper/compactor/brewer //Boozehound gut.
 	name = "Brew Belly"

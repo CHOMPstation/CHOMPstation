@@ -8,22 +8,22 @@
 /area/mine/explored
 	name = "Mine"
 	icon_state = "explored"
-	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg', 'sound/ambience/LRRMenu.ogg', 'sound/ambience/LRRTrack3.ogg')
+	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg', 'sound/ambience/LRRMenu.ogg', 'sound/ambience/LRRTrack1.ogg', 'sound/ambience/LRRTrack2.ogg', 'sound/ambience/LRRTrack3.ogg')
 
 /area/mine/unexplored
 	name = "Mine"
 	icon_state = "unexplored"
-	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg', 'sound/ambience/LRRMenu.ogg', 'sound/ambience/LRRTrack3.ogg')
+	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg', 'sound/ambience/LRRMenu.ogg', 'sound/ambience/LRRTrack1.ogg', 'sound/ambience/LRRTrack2.ogg', 'sound/ambience/LRRTrack3.ogg')
 
 /area/mine/explored/upper_level
 	name = "Upper Level Mine"
 	icon_state = "explored"
-	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg', 'sound/ambience/LRRMenu.ogg', 'sound/ambience/LRRTrack3.ogg')
+	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg', 'sound/ambience/LRRMenu.ogg', 'sound/ambience/LRRTrack1.ogg', 'sound/ambience/LRRTrack2.ogg', 'sound/ambience/LRRTrack3.ogg')
 
 /area/mine/unexplored/upper_level
 	name = "Upper Level Mine"
 	icon_state = "unexplored"
-	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg', 'sound/ambience/LRRMenu.ogg', 'sound/ambience/LRRTrack3.ogg')
+	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg', 'sound/ambience/LRRMenu.ogg', 'sound/ambience/LRRTrack1.ogg', 'sound/ambience/LRRTrack2.ogg', 'sound/ambience/LRRTrack3.ogg')
 
 
 // OUTPOSTS

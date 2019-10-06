@@ -46,7 +46,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 
 	speak_chance = 2
 	emote_hear = list("makes a wooshing sound")
-	emote_see = list("SKREE's")
+	emote_see = list("SKREEs")
 
 	meat_type = /obj/item/toy/figure/samus
 
@@ -56,6 +56,33 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	var/evo_point = 0
 	var/evo_limit = 0
 	var/next = null
+
+/mob/living/simple_animal/hostile/metroid/init_vore() //graciously ~stolen~ inspired from the Synx code
+	..()
+	var/obj/belly/B = vore_selected
+	B.vore_verb = "swallow"
+	B.name = "membrane"
+	B.desc	= "The metroid positions itself above you and swoops down, lazily enveloping you through its tight mouth and sending you straight to its bulbous membrane for all to see."
+	B.emote_lists[DM_HOLD] = list(
+	"The metroid's cortex tentacles wriggle over you, violating and teasing you as they sopped you in viscous slime.",
+	"The cortex you are forced against pulses with life, gently squeezing you between it and the stretchy membrane around you.",
+	"You press your face against the transparent membrane, watching how the world distorts as it stretches over your eyes.",
+	"The air around you is so thick. You struggle to breathe occasionally, choking on the heat and moisture.",
+	"You struggle a bit, making the membrane swell out."
+	)
+	B.emote_lists[DM_DIGEST] = list(
+	"The cortex tentacles are pulsating like lines of power streaking away from you as it drains you. Waves of sleepiness wash over you as the areas most closest to the tentacles are drained of energy.",
+	"The air feels a tinge incendiary as the cortex you rest on heats up, fueled by your own body as the metroid draws your strenght away from you.",
+	"As you grow weaker, your movements against the membrane grow weaker as well, making you feel as if the membrane is closing around you, wrapping and squeezing you, draining you for all you are worth.",
+	"You feel faint as the tentacles wrapped around you sap you of your strength, seemingly eager to drain and claim you for food."
+	)
+	B.digest_messages_prey = list(
+	"You can't stay awake anymore, the clear world around you going fuzzy until you can see it no more.",
+	"The tinge of the air grows to a crescendo and then fades away, just as the rest of your body fizzles into energy for the metroid.",
+	"The tentacles squeeze you one last time as the last of your energy is sapped and your body is claimed as food for the metroid.",
+	"The metroid swells as it absorbs the rest of your life force and nutrients into its body, making it stronger and even hungry for more."
+	)
+
 
 //Stuff for if a person is playing as a metroid.
 	show_stat_health = 1	// Does the percentage health show in the stat panel for the mob
@@ -82,6 +109,36 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	playsound(src, 'sound/effects/metroiddeath.ogg', 50, 1)
 	..()
 
+/mob/living/simple_animal/hostile/metroid/pet //Security's pet
+	name = "Jellybrig"
+	desc = "This one scree's happily at you."
+	hostile = 0
+	retaliate = 1 //Just making sure. Hostile and Retaliate vars are literally the only difference between a hostile and a retaliate mob.
+	faction = "neutral"
+	maxHealth = 400
+	health = 400
+	melee_damage_lower = 2
+	melee_damage_upper = 9
+	move_to_delay = 6
+	harm_intent_damage = 1
+	armor = list(
+				"melee" = 50,
+				"bullet" = -90,
+				"laser" = 0,
+				"energy" = -50,
+				"bomb" = 70,
+				"bio" = 100,
+				"rad" = 100)		
+	vore_active = 1
+	vore_bump_chance = 0
+	vore_capacity = 1
+	vore_icons = SA_ICON_LIVING
+	vore_pounce_chance = 80 //Don't punch or grab this guy. He will grab you instead!
+	swallowTime = 1 SECONDS //Hungry little bastards.
+	vore_default_mode = DM_HOLD
+	vore_digest_chance = 1		// Chance to switch to digest mode if resisted
+	vore_absorb_chance = 0
+	vore_escape_chance = 10
 
 
 /mob/living/simple_animal/hostile/metroid/mine
@@ -126,10 +183,10 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_damage_upper = 5
 	melee_miss_chance = 0
 	armor = list(
-				"melee" = 50,
-				"bullet" = 30,
-				"laser" = 80,
-				"energy" = 90,
+				"melee" = 20,
+				"bullet" = -60,
+				"laser" = 60,
+				"energy" = 10,
 				"bomb" = 70,
 				"bio" = 100,
 				"rad" = 100)
@@ -138,7 +195,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	move_to_delay = 3
 
 	//Metroids aren't affected by most atmospheres except cold.
-	minbodytemp = T0C-30
+	minbodytemp = T0C-40
 	cold_damage_per_tick = 100
 	min_oxy = 0
 	max_oxy = 0
@@ -191,13 +248,13 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	health = 250
 	maxHealth = 250
 	melee_damage_lower = 2
-	melee_damage_upper = 5
+	melee_damage_upper = 9
 	melee_miss_chance = 0
 	armor = list(
-				"melee" = 50,
-				"bullet" = 30,
+				"melee" = 20,
+				"bullet" = -50,
 				"laser" = 90,
-				"energy" = 90,
+				"energy" = 10,
 				"bomb" = 70,
 				"bio" = 100,
 				"rad" = 100)
@@ -206,7 +263,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	move_to_delay = 3
 
 	//Metroids aren't affected by most atmospheres except cold.
-	minbodytemp = T0C-30
+	minbodytemp = T0C-40
 	cold_damage_per_tick = 100
 	min_oxy = 0
 	max_oxy = 0
@@ -273,10 +330,10 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_miss_chance = 5
 	attacktext = list("rammed")
 	armor = list(
-				"melee" = 60,
-				"bullet" = 45,
+				"melee" = 50,
+				"bullet" = 15,
 				"laser" = 50,
-				"energy" = 70,
+				"energy" = 60,
 				"bomb" = 10,
 				"bio" = 100,
 				"rad" = 100)
@@ -355,8 +412,8 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_miss_chance = 5
 	attacktext = list("rammed")
 	armor = list(
-				"melee" = 60,
-				"bullet" = 50,
+				"melee" = 55,
+				"bullet" = 15,
 				"laser" = 50,
 				"energy" = 90,
 				"bomb" = 10,
@@ -446,9 +503,9 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	attacktext = list("slashed")
 	armor = list(
 				"melee" = 70,
-				"bullet" = 60,
+				"bullet" = 15,
 				"laser" = 50,
-				"energy" = 70,
+				"energy" = 60,
 				"bomb" = 10,
 				"bio" = 100,
 				"rad" = 100)
@@ -539,9 +596,9 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	attacktext = list("slashed")
 	armor = list(
 				"melee" = 75,
-				"bullet" = 60,
+				"bullet" = 40,
 				"laser" = 55,
-				"energy" = 90,
+				"energy" = 60,
 				"bomb" = 10,
 				"bio" = 100,
 				"rad" = 100)
@@ -633,7 +690,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	attacktext = list("gnashed")
 	armor = list(
 				"melee" = 75,
-				"bullet" = 60,
+				"bullet" = 40,
 				"laser" = 60,
 				"energy" = 90,
 				"bomb" = 10,
@@ -698,7 +755,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	vore_pounce_chance = 60 //It's the queen, and it's hungry.
 	vore_default_mode = DM_DIGEST
 	swallowTime = 3 SECONDS
-	vore_escape_chance = 0
+	vore_escape_chance = 0 //You're not climbing out of that neck
 
 
 //------------------------------------------------------------------------------------------------------------
@@ -772,23 +829,24 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 /mob/living/simple_animal/hostile/metroid/evolution/Life()
 	. = ..()
 
-	if(canEvolve == 1 && nutrition >= evo_limit && (buckled || vore_fullness == 1)) //spit dat crap out if nutrition gets too high!
-		release_vore_contents()
-		prey_excludes.Cut()
-		stop_consumption()
+	if(stat != DEAD)
+		if(canEvolve == 1 && nutrition >= evo_limit && (buckled || vore_fullness == 1)) //spit dat crap out if nutrition gets too high!
+			release_vore_contents()
+			prey_excludes.Cut()
+			stop_consumption()
 
-	if(canEvolve == 1 && nutrition >= evo_point && !buckled && vore_fullness == 0 && !victim)
-		playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
-		paralysis = 7998
-		sleep(50)
-		paralysis = 0
-		expand_troid()
-		return
-	if(stance == 7) //Necessary to fix a bug where if their vore prey or latching victim is laying down when they evolve, they get stuck in stance 7 and do nothing.
-		stance = 4
-		return
-	else
-		handle_idle()
+		if(canEvolve == 1 && nutrition >= evo_point && !buckled && vore_fullness == 0 && !victim)
+			playsound(src, 'sound/metroid/metroidgrow.ogg', 50, 1)
+			paralysis = 7998
+			sleep(50)
+			paralysis = 0
+			expand_troid()
+			return
+		if(stance == 7) //Necessary to fix a bug where if their vore prey or latching victim is laying down when they evolve, they get stuck in stance 7 and do nothing.
+			stance = 4
+			return
+		else
+			handle_idle()
 
 /mob/living/simple_animal/hostile/metroid/proc/expand_troid()
 	new next(get_turf(src))
@@ -811,13 +869,14 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 
 /mob/living/simple_animal/hostile/metroid/evolution/proc/handle_idle()
 	//Do we have a vent ? Good, let's take a look
+	
 	for(entry_vent in view(1, src))
-		if(!victim && !buckled && vore_fullness == 0 && prob(90)) //10 % chance to consider a vent, to try and avoid constant vent switching
+		if(prob(1)) //1% chance to consider a vent, to try and avoid constant vent switching
 			return
 		visible_message("<span class='danger'>\The [src] starts trying to slide itself into the vent!</span>")
 		sleep(50) //Let's stop the metroid for five seconds to do its parking job
 		..()
-		if(!victim && !buckled && vore_fullness == 0 && entry_vent.network && entry_vent.network.normal_members.len)
+		if(entry_vent.network && entry_vent.network.normal_members.len)
 			var/list/vents = list()
 			for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in entry_vent.network.normal_members)
 				vents.Add(temp_vent)
@@ -924,7 +983,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 
 		var/armor_modifier = abs((victim.getarmor(null, "bio") / 100) - 1)
 		if(istype(victim, /mob/living/carbon))
-			victim.adjustCloneLoss(rand(5,6) * armor_modifier)
+			victim.adjustCloneLoss(rand(2,6) * armor_modifier)
 			victim.adjustToxLoss(rand(1,2) * armor_modifier)
 			if(victim.health <= 0)
 				victim.adjustToxLoss(rand(2,4) * armor_modifier)
@@ -938,7 +997,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 			"I can not feed from this subject", "I do not feel nourished", "This subject is not food")]...</span>")
 			stop_consumption()
 
-		adjust_nutrition(50 * armor_modifier)
+		adjust_nutrition(35 * armor_modifier)
 		playsound(src, 'sound/metroid/metroidattack.ogg', 50, 1)
 
 		adjustOxyLoss(-10 * armor_modifier) //Heal yourself
@@ -1028,7 +1087,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 					if(!L.isSynthetic())
 						if(ishuman(L))
 							if(L.getCloneLoss() < L.getMaxHealth() * 1.5)
-								adjust_nutrition(damage_to_do * armor_modifier)
+								adjust_nutrition(5 + damage_to_do * armor_modifier)
 
 		else if(istype(L, /mob/living/simple_animal))
 			if(!ismetroid(L))
@@ -1201,7 +1260,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 				var/mob/living/simple_animal/SA = L
 				if(!SA.stat)
 					L.attack_generic(src, damage_to_do, pick(attacktext))
-					adjust_nutrition(damage_to_do * 4)
+					adjust_nutrition(damage_to_do * 5)
 
 
 	if(istype(L,/obj/mecha))

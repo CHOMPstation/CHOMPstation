@@ -60,3 +60,24 @@
 	result = "matcha_latte"
 	required_reagents = list ("matchapowder" = 1, "milk" = 5)
 	result_amount = 5
+
+/datum/chemical_reaction/change_drug/male
+	name = "Elixer of Change"
+	id = "change_drug_male"
+	result = "change_drug_male"
+	required_reagents = list("blood" = 1, "mutagen" = 1, "iron" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/change_drug/female
+	name = "Elixer of Change"
+	id = "change_drug_female"
+	result = "change_drug_female"
+	required_reagents = list("blood" = 1, "mutagen" = 1, "sugar" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/change_drug/intersex
+	name = "Elixer of Change"
+	id = "change_drug_intersex"
+	result = "change_drug_intersex"
+	required_reagents = list("change_drug_male" = 1, "change_drug_female" = 1)
+	result_amount = 1

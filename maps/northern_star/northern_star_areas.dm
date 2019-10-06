@@ -20,3 +20,12 @@
 
 /area/Clown
 	name = "\improper Clown Room"
+
+//TFF 22/9/19 - Add new area for Mining Outpost Emergency Storage
+/area/outpost/mining_main/emergency_storage
+	name = "Mining Outpost Emergency Storage"
+
+//TFF 28/9/19 - Prevent Atmos Leak event from going into these areas.
+/datum/event/atmos_leak/setup()
+	excluded |= /area/gateway
+	..()
