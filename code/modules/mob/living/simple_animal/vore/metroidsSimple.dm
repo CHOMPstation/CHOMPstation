@@ -1279,3 +1279,4 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	if(target_mob.stat == DEAD)
 		return 1 // Melee (eat) the target if dead, don't shoot it.
 	return ..()
+	
