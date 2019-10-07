@@ -250,7 +250,8 @@
 	name = "Mouse Plushie"
 	desc = "A plushie of a delightful mouse! What was once considered a vile rodent is now your very best friend."
 	slot_flags = SLOT_HEAD
-	icon_state = "mouse_brown"
+	//CHOMPStation edit TFF 3/10/19 - changing the icon_state to be less dead looking. >:C
+	icon_state = "mouse_brown-new"
 	item_state = "mouse_brown_head"
 	icon = 'icons/vore/custom_items_vr.dmi'
 	icon_override = 'icons/vore/custom_items_vr.dmi'
