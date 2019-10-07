@@ -89,7 +89,7 @@
 		var/obj/item/weapon/grab/G = I
 
 		//Has to be aggressive grab, has to be living click-er and non-silicon grabbed
-		if((G.state >= GRAB_AGGRESSIVE) && (isliving(user) && (!issilicon(G.affecting) || ispAI(G.affecting))))//Chompstation edit, lets pAI be eaten
+		if((G.state >= GRAB_AGGRESSIVE) && (isliving(user) && !issilicon(G.affecting)))
 
 			var/mob/living/attacker = user  // Typecast to living
 
@@ -204,7 +204,9 @@
 	P.vore_taste = src.vore_taste
 	P.can_be_drop_prey = src.can_be_drop_prey
 	P.can_be_drop_pred = src.can_be_drop_pred
-
+	//ChompStation edit, added in inflation option
+	P.inflatable = src.inflatable
+	
 	var/list/serialized = list()
 	for(var/belly in src.vore_organs)
 		var/obj/belly/B = belly
@@ -231,6 +233,7 @@
 	vore_taste = P.vore_taste
 	can_be_drop_prey = P.can_be_drop_prey
 	can_be_drop_pred = P.can_be_drop_pred
+	P.inflatable = src.inflatable
 
 	release_vore_contents(silent = TRUE)
 	vore_organs.Cut()
@@ -384,16 +387,8 @@
 		belly = pred.vore_selected
 	return perform_the_nom(user, prey, pred, belly)
 
-/mob/living/proc/feed_self_to_grabbed(var/mob/living/user, var/mob/living/pred, var/belly, var/list/bellys)
-	//CHOMPEDIT:  AUTO BELLY SELECTOR
-	if (!user.client)
-		for(var/obj/belly/guttoviolate in pred.vore_organs)
-			if(guttoviolate.name == "fstomach")
-				bellys |= guttoviolate
-		if(!bellys)return
-		belly = pick(bellys)
-	//CHOMPEDIT: END
-	else belly = input("Choose Belly") in pred.vore_organs
+/mob/living/proc/feed_self_to_grabbed(var/mob/living/user, var/mob/living/pred)
+	var/belly = input("Choose Belly") in pred.vore_organs
 	return perform_the_nom(user, user, pred, belly)
 
 /mob/living/proc/feed_grabbed_to_other(var/mob/living/user, var/mob/living/prey, var/mob/living/pred)
@@ -569,7 +564,7 @@
 		to_chat(src, "<span class='notice'>You are not holding anything.</span>")
 		return
 
-	if(is_type_in_list(I,edible_trash) || is_type_in_list(I,edible_tech) && isSynthetic())
+	if(is_type_in_list(I,edible_trash))
 		drop_item()
 		I.forceMove(vore_selected)
 		updateVRPanel()
@@ -617,17 +612,8 @@
 				to_chat(src, "<span class='notice'>You can taste the flavor of gluttonous waste of food.</span>")
 		else if(istype(I,/obj/item/weapon/storage/glass_ornament))
 			to_chat(src, "<span class='notice'>You can taste the flavor of smooth glass.</span>")
-		//TFF 10/7/19 - Add custom flavour for collars for trash can trait.
-		else if (istype(I,/obj/item/clothing/accessory/collar))
-			visible_message("<span class='warning'>[src] demonstrates their voracious capabilities by swallowing [I] whole!</span>")
-			to_chat(src, "<span class='notice'>You can taste the submissiveness in the wearer of [I]!</span>")
-		else if(istype(I,/obj/item/integrated_circuit) ||istype(I,/obj/item/weapon/circuitboard))
-			to_chat(src, "<span class='notice'>mmm crunchy computer chips.</span>")
-		else if(istype(I,/obj/item/weapon/cell))
-			to_chat(src, "<span class='notice'>you can taste the energy filling your stomach.</span>")
 		else
 			to_chat(src, "<span class='notice'>You can taste the flavor of garbage. Delicious.</span>")
-
 		return
 	to_chat(src, "<span class='notice'>This item is not appropriate for ethical consumption.</span>")
 	return
@@ -658,6 +644,7 @@
 	dispvoreprefs += "<b>Mob Vore:</b> [allowmobvore ? "Enabled" : "Disabled"]<br>"
 	dispvoreprefs += "<b>Drop-nom prey:</b> [can_be_drop_prey ? "Enabled" : "Disabled"]<br>"
 	dispvoreprefs += "<b>Drop-nom pred:</b> [can_be_drop_pred ? "Enabled" : "Disabled"]<br>"
+	dispvoreprefs += "<b>Inflatable:</b> [inflatable ? "Enabled" : "Disabled"]<br>"
 	user << browse("<html><head><title>Vore prefs: [src]</title></head><body><center>[dispvoreprefs]</center></body></html>", "window=[name];size=200x300;can_resize=0;can_minimize=0")
 	onclose(user, "[name]")
 	return
