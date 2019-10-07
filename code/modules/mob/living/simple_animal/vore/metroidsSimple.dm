@@ -92,8 +92,8 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	//hand_form = "hands"	// Used in IsHumanoidToolUser. 'Your X are not fit-'.
 	//hud_gears		// Slots to show on the hud (typically none)
 	//ui_icons		// Icon file path to use for the HUD, otherwise generic icons are used
-	//r_hand_sprite = "piranha_r" // If they have hands, //TODO make a leaf sprite for this
-	//l_hand_sprite = "piranha_l" // they could use some icons.
+	//r_hand_sprite = "metroid_r" // If they have hands
+	//l_hand_sprite = "metroid_l" // they could use some icons.
 	player_msg = "SUCC." // Message to print to players about 'how' to play this mob on login.
 
 
@@ -121,6 +121,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_damage_upper = 9
 	move_to_delay = 6
 	harm_intent_damage = 1
+	stop_when_pulled = 1
 	armor = list(
 				"melee" = 50,
 				"bullet" = -90,
@@ -131,9 +132,9 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 				"rad" = 100)		
 	vore_active = 1
 	vore_bump_chance = 0
-	vore_capacity = 1
+	vore_capacity = 3
 	vore_icons = SA_ICON_LIVING
-	vore_pounce_chance = 80 //Don't punch or grab this guy. He will grab you instead!
+	vore_pounce_chance = 90 //Don't punch or grab this guy. He will grab you instead!
 	swallowTime = 1 SECONDS //Hungry little bastards.
 	vore_default_mode = DM_HOLD
 	vore_digest_chance = 1		// Chance to switch to digest mode if resisted
@@ -153,7 +154,12 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	vore_active = 1
 	vore_pounce_chance = 50
 	vore_icons = SA_ICON_LIVING
-	swallowTime = 10 SECONDS //You'll have time to crawl away.
+/mob/living/simple_animal/hostile/hostile/metroid/mine/init_vore()
+	..()
+	var/obj/belly/B = vore_selected
+	B.digest_burn = 1
+	B.digest_brute = 0
+	
 
 /mob/living/simple_animal/hostile/metroid/mine/death()
 	playsound(src, 'sound/effects/metroiddeath.ogg', 50, 1)
@@ -297,7 +303,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	vore_pounce_chance = 25 //Metroids only eat incapacitated targets
 	vore_default_mode = DM_DIGEST
 	swallowTime = 1 SECONDS //Hungry little bastards.
-	vore_escape_chance = 25
+	vore_escape_chance = 50
 
 /mob/living/simple_animal/hostile/metroid/evolution/super/New()
 	playsound(src, 'sound/metroid/metroidsee.ogg', 100, 1)
@@ -365,8 +371,8 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 		)
 
 	cooperative = 1
-	evo_point = 1400
-	evo_limit = 1600
+	evo_point = 1200
+	evo_limit = 1400
 	next = "/mob/living/simple_animal/hostile/metroid/combat/gamma"
 
 /mob/living/simple_animal/hostile/metroid/combat/alpha/New()
@@ -385,7 +391,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	vore_pounce_chance = 15 //Alphas will try knocking targets over since they lost their stun ability from the initial phases.
 	vore_default_mode = DM_DIGEST
 	swallowTime = 3 SECONDS
-	vore_escape_chance = 25
+	vore_escape_chance = 40
 
 
 
@@ -457,8 +463,8 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 
 	cooperative = 1
 	var/emp_chance = 20 // Beware synths
-	evo_point = 1400
-	evo_limit = 1600
+	evo_point = 1200
+	evo_limit = 1400
 	next = "/mob/living/simple_animal/hostile/metroid/combat/zeta"
 
 /mob/living/simple_animal/hostile/metroid/combat/gamma/New()
@@ -477,7 +483,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	vore_pounce_chance = 15
 	vore_default_mode = DM_DIGEST
 	swallowTime = 3 SECONDS
-	vore_escape_chance = 20
+	vore_escape_chance = 30
 
 
 
@@ -569,7 +575,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	vore_pounce_chance = 20
 	vore_default_mode = DM_DIGEST
 	swallowTime = 3 SECONDS
-	vore_escape_chance = 15
+	vore_escape_chance = 20
 
 
 
@@ -610,9 +616,9 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	move_shoot = 1				//Move and shoot at the same time.
 	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
 	ranged_cooldown_time = 150 	//How long, in deciseconds, the cooldown of ranged attacks is
-	rapid = 1					// Three-round-burst fire mode
-	projectiletype	= /obj/item/projectile/energy/metroidacid	// The projectiles I shoot
-	projectilesound = 'sound/weapons/slashmiss.ogg' // The sound I make when I do it
+	rapid = 0					// Three-round-burst fire mode
+	projectiletype	= /obj/item/projectile/beam/smalllaser	// The projectiles I shoot
+	projectilesound = 'sound/weapons/Flamer.ogg' // The sound I make when I do it
 
 	//Unaffected by atmos.
 	minbodytemp = 0
@@ -639,12 +645,12 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 		)
 	emote_hear = list()
 	emote_see = list(
-		"ROAR!"
+		"ROAR"
 		)
 
 	cooperative = 1
-	evo_point = 2600
-	evo_limit = 3000
+	evo_point = 1700
+	evo_limit = 2000
 	next = "/mob/living/simple_animal/hostile/metroid/combat/queen"
 
 /mob/living/simple_animal/hostile/metroid/combat/omega/New()
@@ -663,7 +669,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	vore_pounce_chance = 40
 	vore_default_mode = DM_DIGEST
 	swallowTime = 3 SECONDS
-	vore_escape_chance = 5
+	vore_escape_chance = 10
 
 
 
@@ -728,7 +734,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 
 	emote_hear = list()
 	emote_see = list(
-		"ROAR!"
+		"ROAR"
 		)
 
 	cooperative = 1
@@ -871,7 +877,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	//Do we have a vent ? Good, let's take a look
 	
 	for(entry_vent in view(1, src))
-		if(prob(1)) //1% chance to consider a vent, to try and avoid constant vent switching
+		if(prob(99)) //1% chance to consider a vent, to try and avoid constant vent switching
 			return
 		visible_message("<span class='danger'>\The [src] starts trying to slide itself into the vent!</span>")
 		sleep(50) //Let's stop the metroid for five seconds to do its parking job
@@ -1273,3 +1279,4 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	if(target_mob.stat == DEAD)
 		return 1 // Melee (eat) the target if dead, don't shoot it.
 	return ..()
+	
