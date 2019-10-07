@@ -49,6 +49,7 @@ V::::::V           V::::::VO:::::::OOO:::::::ORR:::::R     R:::::REE::::::EEEEEE
 	var/vore_taste = "nothing in particular"
 	var/can_be_drop_prey = FALSE
 	var/can_be_drop_pred = FALSE
+	var/inflatable = FALSE
 
 	//Mechanically required
 	var/path
@@ -117,6 +118,7 @@ V::::::V           V::::::VO:::::::OOO:::::::ORR:::::R     R:::::REE::::::EEEEEE
 	can_be_drop_prey = json_from_file["can_be_drop_prey"]
 	can_be_drop_pred = json_from_file["can_be_drop_pred"]
 	belly_prefs = json_from_file["belly_prefs"]
+	inflatable = json_from_file["inflatable"]
 
 	//Quick sanitize
 	if(isnull(digestable))
@@ -132,7 +134,8 @@ V::::::V           V::::::VO:::::::OOO:::::::ORR:::::R     R:::::REE::::::EEEEEE
 		allowmobvore = FALSE
 	if(isnull(belly_prefs))
 		belly_prefs = list()
-
+	if(isnull(inflatable))
+		inflatable = FALSE
 	return 1
 
 /datum/vore_preferences/proc/save_vore()
@@ -149,6 +152,8 @@ V::::::V           V::::::VO:::::::OOO:::::::ORR:::::R     R:::::REE::::::EEEEEE
 			"can_be_drop_prey"		= can_be_drop_prey,
 			"can_be_drop_pred"		= can_be_drop_pred,
 			"belly_prefs"			= belly_prefs,
+			//ChompStation edit: added in inflation option
+			"inflatable"			= inflatable,
 		)
 
 	//List to JSON

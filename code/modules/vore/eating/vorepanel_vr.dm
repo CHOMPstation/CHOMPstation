@@ -302,6 +302,13 @@
 	dat += "<a href='?src=\ref[src];toggle_dropnom_pred=1'>Toggle Drop-nom Pred</a>"
 	dat += "<br><a href='?src=\ref[src];setflavor=1'>Set Your Taste</a>"
 	dat += "<a href='?src=\ref[src];togglenoisy=1'>Toggle Hunger Noises</a>"
+	
+	//ChompStation edit: adds inflatable as an option
+	switch(user.inflatable)
+		if(1)
+			dat += "<a href='?src=\ref[src];toggleinf=1'><span style='color:red;'>Toggle inflation</span></a>"
+		if(0)
+			dat += "<a href='?src=\ref[src];toggleinf=1'>Toggle inflation</a>"
 
 	dat += "<HR>"
 
@@ -852,6 +859,22 @@
 				user.noisy = TRUE
 			if("Disable audible hunger")
 				user.noisy = FALSE
+				
+	if(href_list["toggleinf"])
+		var/choice = alert(user, "This button allows you to be inflated like a balloon. Setting this will notify admins. Currently you are [user.inflatable? "" : "not"] inflatable.", "", "Allow inflation", "Cancel", "Disallow inflation")
+		switch(choice)
+			if("Cancel")
+				return 0
+			if("Allow inflation")
+				user.inflatable = TRUE
+			if("Disallow inflation")
+				user.inflatable = FALSE
+
+		message_admins("[key_name(user)] toggled their inflatability to [user.inflatable] ([user ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[user.loc.];Y=[user.loc.y];Z=[user.loc.z]'>JMP</a>" : "null"])")
+
+		if(user.client.prefs_vr)
+			user.client.prefs_vr.inflatable = user.inflatable
 
 	//Refresh when interacted with, returning 1 makes vore_look.Topic update
 	return 1
+
