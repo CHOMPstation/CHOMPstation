@@ -63,8 +63,8 @@
 						/mob/living/simple_animal/redpanda/alt;0.25,
 						/mob/living/simple_animal/redpanda/alt/waaah;0.25,
 						/mob/living/simple_animal/hostile/piranhaplant;0.33,
-						/mob/living/simple_animal/hostile/piranhaplant/spitter0.33,
-						/mob/living/simple_animal/hostile/piranhaplant/pitcher0.33,
+						/mob/living/simple_animal/hostile/piranhaplant/spitter;0.33,
+						/mob/living/simple_animal/hostile/piranhaplant/pitcher;0.33,
 						/mob/living/simple_animal/otie;0.5))
 	return ..()
 
@@ -80,6 +80,8 @@
 						/mob/living/simple_animal/hostile/alien/drone,
 						/mob/living/simple_animal/hostile/alien/sentinel,
 						/mob/living/simple_animal/hostile/alien/queen,
+						/mob/living/simple_animal/hostile/alien/queen/empress,
+						/mob/living/simple_animal/hostile/alien/queen/empress/mother,
 						/mob/living/simple_animal/otie/feral,
 						/mob/living/simple_animal/hostile/metroid/combat/queen,
 						/mob/living/simple_animal/hostile/metroid/combat/omega,
