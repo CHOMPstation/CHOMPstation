@@ -113,7 +113,7 @@
 	slippery gullet of the creature. It's warm, and the air is thick. You can hear its body \
 	squelch and shift around you as you settle into its stomach! It's oddly calm, and very dark. \
 	The doughy flesh rolls across your form in gentle waves. The aches and pains across your form slowly begin to \
-	diminish, your body is healing much faster than normal! You’re also soon soaked in harmless slime."
+	diminish, your body is healing much faster than normal! You're also soon soaked in harmless slime."
 
 	player_msg = "You've chosen to generate your own energy rather than taking \
 	it from others. Most of the time, anyway. You don't have a need to steal energy from others, and gather it up \
@@ -153,8 +153,8 @@
 	stalker = TRUE
 	vore_stomach_flavor = "You slip passed pointy triangle teeth and down the slick, slippery gullet of the creature. \
 	It's warm, and the air is thick. You can hear its body squelch and shift around you as you settle into its stomach! \
-	It’s relatively calm inside the dark organ. Wet and almost molten for how gooey your surroundings feel. \
-	You can feel the doughy walls cling to you posessively... It’s almost like you could sink into them. \
+	It's relatively calm inside the dark organ. Wet and almost molten for how gooey your surroundings feel. \
+	You can feel the doughy walls cling to you posessively... It's almost like you could sink into them. \
 	There is also an ominous gurgling from somewhere nearby..."
 
 	player_msg = "You're familiar with generating your own energy, but occasionally \
@@ -195,7 +195,7 @@
 	vore_stomach_flavor = "You slip passed pointy triangle teeth and down the slick, slippery gullet \
 	of the creature. It's warm, and the air is thick. You can hear its body squelch and shift around you \
 	as you settle into its stomach! The doughy walls within cling to you heavily, churning down on you, wearing \
-	you out!! There doesn’t appear to be any actual danger here, harmless slime clings to you, but it’s getting \
+	you out!! There doesn't appear to be any actual danger here, harmless slime clings to you, but it's getting \
 	harder and harder to move as those walls press in on you insistently!"
 
 	player_msg = "Your kind rarely ventures into realspace. Being in any well-lit \
@@ -235,7 +235,7 @@
 	vore_stomach_flavor = "You slip passed pointy triangle teeth and down the slick, slippery gullet \
 	of the creature. It's warm, and the air is thick. You can hear its body squelch and shift around you \
 	as you settle into its stomach! The doughy walls within cling to you heavily, churning down on you, wearing \
-	you out!! There doesn’t appear to be any actual danger here, harmless slime clings to you, but it’s getting \
+	you out!! There doesn't appear to be any actual danger here, harmless slime clings to you, but it's getting \
 	harder and harder to move as those walls press in on you insistently!"
 
 	player_msg = "Your kind rarely ventures into realspace. Being in any well-lit area is very taxing on you, but you \
@@ -293,8 +293,8 @@
 	desc = "She appears to be a fluffer of some sort. Deep blue eyes and curious attitude."
 	icon_state = "rivyr"
 	eye_desc = "deep blue eyes"
-	vore_stomach_flavor = "Blue flesh gleams in the fading light as you slip down the little mar’s gullet! \
-	Gooey flesh and heat surrounds your form as you’re tucked away into the darkness of her stomach! Thick slimes cling \
+	vore_stomach_flavor = "Blue flesh gleams in the fading light as you slip down the little mar's gullet! \
+	Gooey flesh and heat surrounds your form as you're tucked away into the darkness of her stomach! Thick slimes cling \
 	to you, but they seem to be harmless. The organ gently churns around you, clinging to your shape and forcing \
 	you to curl up a bit. You can feel her rub at you some through the layers of flesh and fluff, while aches \
 	and pains begin to fade away across your body."
@@ -419,3 +419,13 @@
 	to himself. Another loud wet swallow and down goes your waist into his hungry maw, lifting up the legs high into the sky while allowing gravity and his gulps \
 	to send you packing away into his chubby gut that now expands to fit you inside of the wet chamber. At least you were safe for now that is."
 	player_msg = "You are Roti, a curious shadekin that wishes to learn from the station and eventually speak with them."
+
+//kcin2001's soft shadekin
+/mob/living/simple_animal/shadekin/green/soft
+	name = "Softpatch"
+	desc = "A green eyed brown shadekin, looks fluffy and a bit chubby around the middle underneath his well worn cloak \
+	He seems curious but ready to flee"
+	icon_state = "soft"
+	eye_desc = "soft green eyes"
+//	vore_stomach_flavor = ""
+	player_msg = "You are Softpatch, you like things that are soft and are curious about the beings in realspace"
