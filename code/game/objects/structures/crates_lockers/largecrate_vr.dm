@@ -88,8 +88,8 @@
 						/mob/living/simple_animal/hostile/giant_spider/nurse/queen,
 						/mob/living/simple_animal/hostile/giant_spider/phorogenic,
 						/mob/living/simple_animal/hostile/giant_spider/carrier,
-						/mob/living/simple_animal/hostile/dragon;0.5,
-						/mob/living/simple_animal/hostile/dragon/phoron;0.5,
+						/mob/living/simple_animal/hostile/dragon,
+						/mob/living/simple_animal/hostile/dragon/phoron,
 						/mob/living/simple_animal/hostile/corrupthound))
 	return ..()
 
