@@ -213,7 +213,6 @@ character_name: Drake Frostpaw
 item_path: /obj/item/weapon/storage/box/fluff/drake
 }
 
-# ######## E CKEYS
 {
 ckey: draycu
 character_name: Theseus
@@ -227,6 +226,14 @@ ckey: draycu
 character_name: Schae Yonra
 item_path: /obj/item/weapon/melee/fluff/holochain/mass
 }
+
+{
+ckey: draycu
+character_name: Vuhbar Groor
+item_path: /obj/item/clothing/accessory/medal/conduct
+}
+
+# ######## E CKEYS
 
 {
 ckey: erikthedog
@@ -538,6 +545,14 @@ item_path: /obj/item/weapon/implanter/reagent_generator/rischi
 }
 
 # ######## L CKEYS
+
+{
+ckey: lowpowermia
+character_name: Mia Sceline
+item_path: /obj/item/clothing/accessory/medal/conduct
+item_desc: A bronze medal awarded for distinguished conduct. Whilst a great honor, this is most basic award on offer. It is often awarded by a captain to a member of their crew. It has a shitty '=3' carved into it.
+}
+
 #{
 #ckey: luminescentring
 #character_name: Briana Moore
@@ -802,6 +817,12 @@ item_path: /obj/item/device/pda/clown
 }
 
 {
+ckey: somememeguy
+character_name: Uboiezb
+item_path: /obj/item/clothing/accessory/medal/silver/valor
+}
+
+{
 ckey: Swat43
 character_name: Fortune Bloise
 item_path: /obj/item/weapon/storage/backpack/satchel/fluff/swat43bag
@@ -851,13 +872,17 @@ item_path: /obj/item/clothing/accessory/locket/star
 
 # ######## T CKEYS
 {
-
 ckey: techtypes
-
 character_name: Lasshseeki Korss
 item_path: /obj/item/weapon/implant/language/eal
-
 }
+
+{
+ckey: thefurryfeline
+character_name: Samantha Janice Softfur
+item_path: /obj/item/clothing/accessory/medal/gold/heroism
+}
+
 {
 ckey: tonyvld
 character_name: Tony Bingham
