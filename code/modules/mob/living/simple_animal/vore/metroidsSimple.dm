@@ -154,7 +154,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	vore_active = 1
 	vore_pounce_chance = 50
 	vore_icons = SA_ICON_LIVING
-/mob/living/simple_animal/hostile/hostile/metroid/mine/init_vore()
+/mob/living/simple_animal/hostile/metroid/mine/init_vore()
 	..()
 	var/obj/belly/B = vore_selected
 	B.digest_burn = 1
