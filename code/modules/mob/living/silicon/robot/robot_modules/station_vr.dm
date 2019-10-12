@@ -67,55 +67,72 @@
 
 /obj/item/weapon/robot_module/robot/medical/surgeon //VOREStation sprites
 	vr_sprites = list(
-						"Acheron" = "mechoid-Medical"
+						"Acheron" = "mechoid-Medical",
+						"Gibbs" = "gibbs"
 					 )
 
 /obj/item/weapon/robot_module/robot/medical/crisis //VOREStation sprites
 	vr_sprites = list(
 						"Handy" = "handy-med",
-						"Acheron" = "mechoid-Medical"
+						"Acheron" = "mechoid-Medical",
+						"Gibbs" = "gibbs",
+						"Servbot" = "servbot-medi"
 					 )
 
 /obj/item/weapon/robot_module/robot/clerical/butler //VOREStation sprites
 	vr_sprites = list(
 						"Handy - Service" = "handy-service",
 						"Handy - Hydro" = "handy-hydro",
-						"Acheron" = "mechoid-Service"
+						"Acheron" = "mechoid-Service",
+						"Lloyd" = "lloyd",
+						"Servbot" = "servbot-service"
 					 )
 
 /obj/item/weapon/robot_module/robot/clerical/general //VOREStation sprites
 	vr_sprites = list(
 						"Handy" = "handy-clerk",
-						"Acheron" = "mechoid-Service"
+						"Acheron" = "mechoid-Service",
+						"Servbot - Service" = "servbot-service"
 					 )
 
 /obj/item/weapon/robot_module/robot/janitor //VOREStation sprites
 	vr_sprites = list(
 						"Handy" = "handy-janitor",
-						"Acheron" = "mechoid-Janitor"
+						"Acheron" = "mechoid-Janitor",
+						"Flynn" = "flynn",
+						"Han-d" = "han-d",
+						"Servbot" = "servbot-jani"
 					 )
 
 /obj/item/weapon/robot_module/robot/security/general //VOREStation sprites
 	vr_sprites = list(
 						"Handy" = "handy-sec",
-						"Acheron" = "mechoid-Security"
+						"Acheron" = "mechoid-Security",
+						"Woody" = "woody",
+						"Servbot" = "servbot-sec"
 					 )
 
 /obj/item/weapon/robot_module/robot/miner //VOREStation sprites
 	vr_sprites = list(
 						"Handy" = "handy-miner",
-						"Acheron" = "mechoid-Miner"
+						"Acheron" = "mechoid-Miner",
+						"Ishimura" = "ishimura",
+						"Servbot" = "servbot-miner"
 					 )
 
 /obj/item/weapon/robot_module/robot/standard //VOREStation sprites
 	vr_sprites = list(
 						"Handy" = "handy-standard",
-						"Acheron" = "mechoid-Standard"
+						"Acheron" = "mechoid-Standard",
+						"Durin" = "durin",
+						"Servbot" = "servbot"
 					 )
 
 /obj/item/weapon/robot_module/robot/engineering/general //VOREStation sprites
 	vr_sprites = list(
-						"Acheron" = "mechoid-Engineering"
+						"Acheron" = "mechoid-Engineering",
+						"Conagher" = "conagher",
+						"Servbot" = "servbot-engi"
 					 )
 
 /obj/item/weapon/robot_module/robot/research //VOREStation sprites
@@ -125,7 +142,8 @@
 
 /obj/item/weapon/robot_module/robot/security/combat //VOREStation sprites
 	vr_sprites = list(
-						"Acheron" = "mechoid-Combat"
+						"Acheron" = "mechoid-Combat",
+						"Servbot" = "servbot-combat"
 					 )
 
 /obj/item/weapon/robot_module/robot/knine
