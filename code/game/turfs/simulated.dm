@@ -81,7 +81,8 @@
 		var/mob/living/M = A
 		if(M.lying)
 			return ..()
-
+		if(!M.create_dirt)
+			return ..()
 		// Dirt overlays.
 		update_dirt()
 

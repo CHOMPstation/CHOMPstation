@@ -6,6 +6,7 @@
 	icon_state = "grey baby slime"
 	icon_living = "grey baby slime"
 	icon_dead = "grey baby slime dead"
+	create_dirt = 0
 
 	maxHealth = 100
 	health = 100

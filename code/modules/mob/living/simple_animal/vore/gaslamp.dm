@@ -18,6 +18,7 @@ TODO: Make them light up and heat the air when exposed to oxygen.
 	icon_state = "gaslamp"
 	icon_living = "gaslamp"
 	icon_dead = "gaslamp-dead"
+	create_dirt = 0
 
 	faction = "virgo3b"
 	maxHealth = 100

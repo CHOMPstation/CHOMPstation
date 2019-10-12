@@ -24,6 +24,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	response_harm = "hits"
 	harm_intent_damage = 5
 	isEdible = 0 //They cannot be eaten while alive.
+	create_dirt = 0
 	var/canEvolve = 1 //A variable for admins to turn off and on for when they like assign a player as a mob. I want to add a verb so that they can do it on command when the conditions are right in the future.
 	var/obj/machinery/atmospherics/unary/vent_pump/entry_vent //Graciously stolen from spider code
 
@@ -129,7 +130,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 				"energy" = -50,
 				"bomb" = 70,
 				"bio" = 100,
-				"rad" = 100)		
+				"rad" = 100)
 	vore_active = 1
 	vore_bump_chance = 0
 	vore_capacity = 3
@@ -159,7 +160,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	var/obj/belly/B = vore_selected
 	B.digest_burn = 1
 	B.digest_brute = 0
-	
+
 
 /mob/living/simple_animal/hostile/metroid/mine/death()
 	playsound(src, 'sound/effects/metroiddeath.ogg', 50, 1)
@@ -518,6 +519,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	gender = NEUTER
 	faction = "metroids"
 	move_to_delay = 4
+	create_dirt = 1
 
 	move_shoot = 1				//Move and shoot at the same time.
 	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
@@ -619,6 +621,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	rapid = 0					// Three-round-burst fire mode
 	projectiletype	= /obj/item/projectile/beam/smalllaser	// The projectiles I shoot
 	projectilesound = 'sound/weapons/Flamer.ogg' // The sound I make when I do it
+	create_dirt = 1
 
 	//Unaffected by atmos.
 	minbodytemp = 0
@@ -712,6 +715,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	rapid = 1					// Three-round-burst fire mode
 	projectiletype	= /obj/item/projectile/energy/metroidacid	// The projectiles I shoot
 	projectilesound = 'sound/weapons/slashmiss.ogg' // The sound I make when I do it
+	create_dirt = 1
 
 	//Unaffected by atmos.
 	minbodytemp = 0
@@ -875,7 +879,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 
 /mob/living/simple_animal/hostile/metroid/evolution/proc/handle_idle()
 	//Do we have a vent ? Good, let's take a look
-	
+
 	for(entry_vent in view(1, src))
 		if(prob(99)) //1% chance to consider a vent, to try and avoid constant vent switching
 			return
@@ -1279,4 +1283,3 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	if(target_mob.stat == DEAD)
 		return 1 // Melee (eat) the target if dead, don't shoot it.
 	return ..()
-	
