@@ -1,6 +1,6 @@
 /mob/living //for defining variables which all living mobs needs for various reasons
 	var/entangle_immunity = 0
-
+	var/create_dirt = 1
 /mob/living/New()
 	..()
 

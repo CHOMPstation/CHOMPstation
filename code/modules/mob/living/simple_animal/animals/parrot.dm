@@ -37,6 +37,7 @@
 	icon_living = "parrot_fly"
 	icon_dead = "parrot_dead"
 	intelligence_level = SA_ANIMAL
+	create_dirt = 0
 
 	turns_per_move = 5
 	pass_flags = PASSTABLE
