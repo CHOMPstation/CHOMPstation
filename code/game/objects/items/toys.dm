@@ -755,7 +755,7 @@
 	desc = "A \"Space Life\" brand Emergency Response Team Commander action figure."
 	icon_state = "ert"
 	toysay = "We're probably the good guys!"
-	
+
 /obj/item/toy/figure/samus
 	name = "Space bounty hunter action figure"
 	desc = "A \"Space Life\" brand Emergency Response Team Commander action figure."
@@ -938,10 +938,11 @@
 	desc = "A plushie of an adorable diona nymph! While its level of self-awareness is still being debated, its level of cuteness is not."
 	icon_state = "nymphplushie"
 
+//CHOMPStation edit TFF 3/10/19 - changing the icon_state to be less dead looking. >:C
 /obj/item/toy/plushie/mouse
 	name = "mouse plush"
 	desc = "A plushie of a delightful mouse! What was once considered a vile rodent is now your very best friend."
-	icon_state = "mouseplushie"
+	icon_state = "mouseplushie-new"
 
 /obj/item/toy/plushie/kitten
 	name = "kitten plush"

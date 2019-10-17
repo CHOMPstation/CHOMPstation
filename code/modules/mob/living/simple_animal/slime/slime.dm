@@ -10,6 +10,7 @@
 	var/glows = FALSE // If true, will glow in the same color as the color var.
 	var/icon_state_override = null // Used for special slime appearances like the rainbow slime.
 	pass_flags = PASSTABLE
+	create_dirt = 0
 
 	speak_emote = list("chirps")
 

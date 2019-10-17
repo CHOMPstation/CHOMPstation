@@ -30,7 +30,24 @@
 					   "mechoid-Service",
 					   "mechoid-Janitor",
 					   "mechoid-Combat",
-					   "mechoid-Combat-roll"
+					   "mechoid-Combat-roll",
+					   "durin",
+					   "flynn",
+					   "gibbs",
+					   "conagher",
+					   "ishimura",
+					   "lloyd",
+					   "woody",
+					   "servbot",
+					   "servbot-service",
+					   "servbot-engi",
+					   "servbot-sec",
+					   "servbot-miner",
+					   "servbot-jani",
+					   "servbot-medi",
+					   "servbot-combat",
+					   "servbot-combat-roll",
+					   "han-d"
 					   )					//List of all used sprites that are in robots_vr.dmi
 
 

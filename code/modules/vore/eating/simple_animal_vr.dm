@@ -34,9 +34,12 @@
 	var/mob/living/carbon/human/user = usr
 	if(!istype(user) || user.stat) return
 
+//ChompStation edit: This prevented some flexibility with mob vore and the returned message was highly unprofessional.
+/*
 	if(retaliate || (hostile && faction != user.faction))
 		user << "<span class='warning'>This predator isn't friendly, and doesn't give a shit about your opinions of it digesting you.</span>"
 		return
+*/
 	if(vore_selected.digest_mode == DM_HOLD)
 		var/confirm = alert(user, "Enabling digestion on [name] will cause it to digest all stomach contents. Using this to break OOC prefs is against the rules. Digestion will reset after 20 minutes.", "Enabling [name]'s Digestion", "Enable", "Cancel")
 		if(confirm == "Enable")

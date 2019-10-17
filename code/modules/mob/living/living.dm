@@ -1,6 +1,6 @@
 /mob/living //for defining variables which all living mobs needs for various reasons
 	var/entangle_immunity = 0
-
+	var/create_dirt = 1
 /mob/living/New()
 	..()
 
@@ -1226,6 +1226,7 @@ default behaviour is:
 			var/turf/end_T = get_turf(target)
 			if(end_T)
 				add_attack_logs(src,M,"Thrown via grab to [end_T.x],[end_T.y],[end_T.z]")
+			src.drop_from_inventory(G)	//CHOMPStation Edit TFF 6/10/19 - Throw-spam with grab fix, drop when done.
 
 	src.drop_from_inventory(item)
 	if(!item || !isturf(item.loc))
