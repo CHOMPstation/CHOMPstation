@@ -108,12 +108,12 @@
 /datum/gear/uniform/job_suit/nurse
 	display_name = "suit, nurse"
 	path = /obj/item/clothing/under/rank/nursesuit
-	allowed_roles = list("Chief Medical Officer","Medical Doctor")
+//	allowed_roles = list("Chief Medical Officer","Medical Doctor")
 	
 /datum/gear/uniform/job_suit/nurse/alt
 	display_name = "outfit, nurse"
 	path = /obj/item/clothing/under/rank/nurse
-	allowed_roles = list("Chief Medical Officer","Medical Doctor")
+//	allowed_roles = list("Chief Medical Officer","Medical Doctor")
 	
 /datum/gear/uniform/job_suit/med
 	display_name = "jumpsuit, medical"
