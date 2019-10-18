@@ -441,7 +441,6 @@
 #include "code\game\area\ai_monitored.dm"
 #include "code\game\area\areas.dm"
 #include "code\game\area\asteroid_areas.dm"
-#include "code\game\area\asteroid_areas_ch.dm"
 #include "code\game\area\Away Mission areas.dm"
 #include "code\game\area\Space Station 13 areas.dm"
 #include "code\game\area\Space Station 13 areas_vr.dm"

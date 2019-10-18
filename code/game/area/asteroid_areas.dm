@@ -29,6 +29,11 @@
 
 // OUTPOSTS
 
+//CHOMPStation Addition Start - TFF 18/10/19 - Try to make outposts require power
+/area/outpost
+	requires_power = 1
+//CHOMPStation Addition End
+
 // Small outposts
 /area/outpost/mining_north
 	name = "North Mining Outpost"
@@ -41,7 +46,6 @@
 /area/outpost/abandoned_Engineering
 	name = "Abandoned Engineering Outpost"
 	icon_state = "dark"
-	always_unpowered = 1	//CHOMPStation Edit TFF 16/10/19 - fix magic powering for POI
 
 /area/outpost/abandoned_Station
 	name = "Abandoned Station"
