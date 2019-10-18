@@ -179,7 +179,7 @@
 /mob/living/simple_animal/hostile/piranhaplant/spitter/init_vore()
 	..()
 	var/obj/belly/B = vore_selected
-	B.vore_verb = "slurped up"
+	B.vore_verb = "slurp up"
 	B.desc	= "You're pulled into the tight mouth of the plant. The tongue mulls you about and squishes you around, coating you in a slurry of digestive fluides that burn hotly and smell foul."
 	B.digest_burn = 5
 	B.digest_brute = 0
