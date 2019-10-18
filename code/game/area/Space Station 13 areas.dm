@@ -2527,8 +2527,6 @@ area/space/atmosalert()
 
 //Misc
 
-
-
 /area/wreck/ai
 	name = "\improper AI Chamber"
 	icon_state = "ai"
