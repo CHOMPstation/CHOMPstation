@@ -20,3 +20,7 @@
 	build_path = /obj/machinery/computer/security/xenobio
 	network = list(NETWORK_XENOBIO)
 	req_access = list()
+
+//TFF 26/10/19 - add t-comms network cameras
+/obj/machinery/camera/network/tcomms
+	network = list(NETWORK_TCOMMS)

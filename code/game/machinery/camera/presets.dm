@@ -101,8 +101,12 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/network/security
 	network = list(NETWORK_SECURITY)
 
+/*
+//CHOMPStation Removal TFF 26/10/19 - refactored in northern_star_things.dm
 /obj/machinery/camera/network/telecom
 	network = list(NETWORK_TELECOM)
+//CHOMPStation Removal
+*/
 
 /obj/machinery/camera/network/thunder
 	network = list(NETWORK_THUNDER)
