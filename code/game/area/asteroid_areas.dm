@@ -5,6 +5,7 @@
 	music = 'sound/ambience/song_game.ogg'
 	sound_env = ASTEROID
 
+//CHOMPStation Edit Start - Rock Raider music tracks
 /area/mine/explored
 	name = "Mine"
 	icon_state = "explored"
@@ -24,9 +25,14 @@
 	name = "Upper Level Mine"
 	icon_state = "unexplored"
 	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg', 'sound/ambience/LRRMenu.ogg', 'sound/ambience/LRRTrack1.ogg', 'sound/ambience/LRRTrack2.ogg', 'sound/ambience/LRRTrack3.ogg')
-
+//CHOMPStation Edit End
 
 // OUTPOSTS
+
+//CHOMPStation Addition Start - TFF 18/10/19 - Try to make outposts require power
+/area/outpost
+	requires_power = 1
+//CHOMPStation Addition End
 
 // Small outposts
 /area/outpost/mining_north
@@ -45,9 +51,11 @@
 	name = "Abandoned Station"
 	icon_state = "dark"
 
+//CHOMPSTation Addition Start
 /area/outpost/abandoned_Station_medical
 	name = "Abandoned Station Medical"
 	icon_state = "dark"
+//CHOMPStation Addition End
 
 // Main mining outpost
 /area/outpost/mining_main
@@ -98,7 +106,7 @@
 /area/outpost/mining_main/bathroom
 	name = "Mining Outpost Bathroom"
 
-//Medical outpost
+//CHOMPStation Addition Start - Medical outpost
 /area/outpost/medical
 	icon_state = ""
 
@@ -128,6 +136,13 @@
 
 /area/outpost/medical/main_room
 	name = "Medical Outpost Main Room"
+//TFF 16/10/19 - Moar area additions.
+/area/outpost/medical/atmos
+	name = "Medical Outpost Atmospherics"
+
+/area/outpost/medical/backup_power
+	name = "Medical Outpost Backup Power"
+//CHOMPStation Addition End
 
 // Engineering Outpost
 /area/outpost/engineering
