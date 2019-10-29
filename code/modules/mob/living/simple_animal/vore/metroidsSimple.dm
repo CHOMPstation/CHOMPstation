@@ -24,7 +24,6 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	response_harm = "hits"
 	harm_intent_damage = 5
 	isEdible = 0 //They cannot be eaten while alive.
-	create_dirt = 0
 	var/canEvolve = 1 //A variable for admins to turn off and on for when they like assign a player as a mob. I want to add a verb so that they can do it on command when the conditions are right in the future.
 	var/obj/machinery/atmospherics/unary/vent_pump/entry_vent //Graciously stolen from spider code
 
@@ -38,17 +37,13 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-
-
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 	attacktext = list("suckulated")
 	attack_sound = 'sound/effects/metroidattack.ogg'
-
 	speak_chance = 2
 	emote_hear = list("makes a wooshing sound")
 	emote_see = list("SKREEs")
-
 	meat_type = /obj/item/toy/figure/samus
 
 	var/mob/living/victim = null // the person the metroid is currently feeding on
@@ -57,6 +52,22 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	var/evo_point = 0
 	var/evo_limit = 0
 	var/next = null
+	
+	//Stuff for if a person is playing as a metroid.
+	show_stat_health = 1	// Does the percentage health show in the stat panel for the mob
+	ai_inactive = 0 	// Set to 1 to turn off most AI actions
+	has_hands = 1		// Set to 1 to enable the use of hands and the hands hud
+	humanoid_hands = 1	// Can a player in this mob use things like guns or AI cards?
+	//hand_form = "hands"	// Used in IsHumanoidToolUser. 'Your X are not fit-'.
+	//hud_gears		// Slots to show on the hud (typically none)
+	//ui_icons		// Icon file path to use for the HUD, otherwise generic icons are used
+	//r_hand_sprite = "metroid_r" // If they have hands
+	//l_hand_sprite = "metroid_l" // they could use some icons.
+	player_msg = "SUCC." // Message to print to players about 'how' to play this mob on login.
+
+
+
+
 
 /mob/living/simple_animal/hostile/metroid/init_vore() //graciously ~stolen~ inspired from the Synx code
 	..()
@@ -84,22 +95,6 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	"The metroid swells as it absorbs the rest of your life force and nutrients into its body, making it stronger and even hungry for more."
 	)
 
-
-//Stuff for if a person is playing as a metroid.
-	show_stat_health = 1	// Does the percentage health show in the stat panel for the mob
-	ai_inactive = 0 	// Set to 1 to turn off most AI actions
-	has_hands = 1		// Set to 1 to enable the use of hands and the hands hud
-	humanoid_hands = 1	// Can a player in this mob use things like guns or AI cards?
-	//hand_form = "hands"	// Used in IsHumanoidToolUser. 'Your X are not fit-'.
-	//hud_gears		// Slots to show on the hud (typically none)
-	//ui_icons		// Icon file path to use for the HUD, otherwise generic icons are used
-	//r_hand_sprite = "metroid_r" // If they have hands
-	//l_hand_sprite = "metroid_l" // they could use some icons.
-	player_msg = "SUCC." // Message to print to players about 'how' to play this mob on login.
-
-
-
-
 /mob/living/simple_animal/hostile/metroid //activate noms
 	vore_active = 1
 	vore_pounce_chance = 25
@@ -122,6 +117,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_damage_upper = 9
 	move_to_delay = 6
 	harm_intent_damage = 1
+	speak_chance = 1
 	stop_when_pulled = 1
 	armor = list(
 				"melee" = 50,
@@ -130,7 +126,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 				"energy" = -50,
 				"bomb" = 70,
 				"bio" = 100,
-				"rad" = 100)
+				"rad" = 100)		
 	vore_active = 1
 	vore_bump_chance = 0
 	vore_capacity = 3
@@ -160,7 +156,7 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	var/obj/belly/B = vore_selected
 	B.digest_burn = 1
 	B.digest_brute = 0
-
+	
 
 /mob/living/simple_animal/hostile/metroid/mine/death()
 	playsound(src, 'sound/effects/metroiddeath.ogg', 50, 1)
@@ -190,11 +186,11 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_damage_upper = 5
 	melee_miss_chance = 0
 	armor = list(
-				"melee" = 20,
+				"melee" = 0,
 				"bullet" = -60,
 				"laser" = 60,
 				"energy" = 10,
-				"bomb" = 70,
+				"bomb" = -100,
 				"bio" = 100,
 				"rad" = 100)
 	gender = NEUTER
@@ -258,11 +254,11 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	melee_damage_upper = 9
 	melee_miss_chance = 0
 	armor = list(
-				"melee" = 20,
+				"melee" = 0,
 				"bullet" = -50,
 				"laser" = 90,
 				"energy" = 10,
-				"bomb" = 70,
+				"bomb" = -100,
 				"bio" = 100,
 				"rad" = 100)
 	gender = NEUTER
@@ -519,7 +515,6 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	gender = NEUTER
 	faction = "metroids"
 	move_to_delay = 4
-	create_dirt = 1
 
 	move_shoot = 1				//Move and shoot at the same time.
 	ranged_cooldown = 0 		//What the starting cooldown is on ranged attacks
@@ -621,7 +616,6 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	rapid = 0					// Three-round-burst fire mode
 	projectiletype	= /obj/item/projectile/beam/smalllaser	// The projectiles I shoot
 	projectilesound = 'sound/weapons/Flamer.ogg' // The sound I make when I do it
-	create_dirt = 1
 
 	//Unaffected by atmos.
 	minbodytemp = 0
@@ -715,7 +709,6 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 	rapid = 1					// Three-round-burst fire mode
 	projectiletype	= /obj/item/projectile/energy/metroidacid	// The projectiles I shoot
 	projectilesound = 'sound/weapons/slashmiss.ogg' // The sound I make when I do it
-	create_dirt = 1
 
 	//Unaffected by atmos.
 	minbodytemp = 0
@@ -879,9 +872,9 @@ var/global/list/queen_amount = 0 //We only gonna want 1 queen in the world.
 
 /mob/living/simple_animal/hostile/metroid/evolution/proc/handle_idle()
 	//Do we have a vent ? Good, let's take a look
-
+	
 	for(entry_vent in view(1, src))
-		if(prob(99)) //1% chance to consider a vent, to try and avoid constant vent switching
+		if(prob(99) || ai_inactive == 1) //1% chance to consider a vent, to try and avoid constant vent switching
 			return
 		visible_message("<span class='danger'>\The [src] starts trying to slide itself into the vent!</span>")
 		sleep(50) //Let's stop the metroid for five seconds to do its parking job
