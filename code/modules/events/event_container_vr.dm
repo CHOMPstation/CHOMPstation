@@ -39,7 +39,6 @@
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Economic News",		/datum/event/economic_event,	300),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Electrified Door",	/datum/event/electrified_door,	-5, 	list(ASSIGNMENT_MEDICAL = 5, ASSIGNMENT_ENGINEER = 20, ASSIGNMENT_AI = 10)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Lost Carp",			/datum/event/carp_migration, 	0, 		list(ASSIGNMENT_SECURITY = 40), 1),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Meteor Shower",		/datum/event/meteor_wave,		-20,		list(ASSIGNMENT_ENGINEER = 50), 1),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Lotto",		/datum/event/money_lotto, 		0, 		list(ASSIGNMENT_ANY = 1), 1, 5, 15),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Shipping Error",	/datum/event/shipping_error	, 	30, 	list(ASSIGNMENT_ANY = 2), 0),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Supply Demand",		/datum/event/supply_demand,		-15,	list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_MEDICAL = 5), 1),
@@ -55,6 +54,8 @@
 	)
 	add_disabled_events(list(
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Ian Storm",			/datum/event/ianstorm,	 		1,		list(), 1),
+		//Moved this to disabled for now, at least until meteors get a 10 minute delay. Might not happen as progress on Chomp Station Bayport continues.
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Meteor Shower",		/datum/event/meteor_wave,		-20,		list(ASSIGNMENT_ENGINEER = 50), 1),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Hacker",		/datum/event/money_hacker, 		0, 		list(ASSIGNMENT_ANY = 4), 1, 10, 25),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "PDA Spam",			/datum/event/pda_spam, 			0, 		list(ASSIGNMENT_ANY = 4), 1, 25, 50),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Space Dust",		/datum/event/dust,	 			50, 	list(ASSIGNMENT_ENGINEER = 20), 1, 0, 50),
@@ -81,6 +82,7 @@
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Escaped Slimes",			/datum/event/escaped_slimes, 			-40,	list(ASSIGNMENT_SCIENTIST = 30, ASSIGNMENT_SECURITY = 20)),
 		// Pure RP fun, no mechanical effects.
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Ion Storm",				/datum/event/ionstorm, 					-50,	list(ASSIGNMENT_AI = 200, ASSIGNMENT_CYBORG = 100, ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_SCIENTIST = 5), 0),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Shower",			/datum/event/meteor_wave,				-50,	list(ASSIGNMENT_ENGINEER = 45), 1),
 		//New CHOMPStation event. Mice grow into rats.
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Mutants",					/datum/event/mutants,					20,		list(ASSIGNMENT_ANY = 15, ASSIGNMENT_SECURITY = 50), 1),
 		// Opens doors in brig.  So just RP fun
@@ -98,9 +100,7 @@
 	)
 	add_disabled_events(list(
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Carp School_NoRequirements",	/datum/event/carp_migration,		100, 	list(ASSIGNMENT_ENGINEER = 20, ASSIGNMENT_SECURITY = 30), 1),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Escaped Slimes_NoRequirements",	/datum/event/escaped_slimes, 	30,		list(ASSIGNMENT_SCIENTIST = 40, ASSIGNMENT_SECURITY = 30)),
-//Moved this to disabled for now, at least until meteors get a 10 minute delay. Might not happen as progress on Chomp Station Bayport continues.
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Shower",			/datum/event/meteor_wave,				-50,	list(ASSIGNMENT_ENGINEER = 45), 1),		
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Escaped Slimes_NoRequirements",	/datum/event/escaped_slimes, 	30,		list(ASSIGNMENT_SCIENTIST = 40, ASSIGNMENT_SECURITY = 30)),		
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Shower_NoRequirements",	/datum/event/meteor_wave,			30,		list(ASSIGNMENT_ENGINEER = 20), 0),
 		//Moved spider infestation to disabled for now due to CHOMP random event rebalancing.
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Spider Infestation",		/datum/event/spider_infestation, 		-20,	list(ASSIGNMENT_SECURITY = 30, ASSIGNMENT_HOS = 20, ASSIGNMENT_WARDEN = 20), 0),
