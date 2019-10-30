@@ -15,12 +15,18 @@
 	w_class = ITEMSIZE_SMALL
 	var/scanning = 0
 	var/radiation_count = 0
+	var/datum/looping_sound/geiger/soundloop
+
+/obj/item/device/geiger/Initialize()
+	soundloop = new(list(src), FALSE)
+	return ..()
 
 /obj/item/device/geiger/New()
 	processing_objects |= src
 
 /obj/item/device/geiger/Destroy()
 	processing_objects -= src
+	QDEL_NULL(soundloop)
 	return ..()
 
 /obj/item/device/geiger/process()
@@ -31,6 +37,7 @@
 		return
 	radiation_count = radiation_repository.get_rads_at_turf(get_turf(src))
 	update_icon()
+	update_sound()
 
 /obj/item/device/geiger/examine(mob/user)
 	..(user)
@@ -44,18 +51,24 @@
 	if(amount > radiation_count)
 		radiation_count = amount
 
-	var/sound = "geiger"
-	if(amount < 5)
-		sound = "geiger_weak"
-	playsound(src, sound, between(10, 10 + (radiation_count * 4), 100), 0)
-	if(sound == "geiger_weak") // A weak geiger sound every two seconds sounds too infrequent.
-		spawn(1 SECOND)
-			playsound(src, sound, between(10, 10 + (radiation_count * 4), 100), 0)
 	update_icon()
+	update_sound()
+
+/obj/item/device/geiger/proc/update_sound()
+	var/datum/looping_sound/geiger/loop = soundloop
+	if(!scanning)
+		loop.stop()
+		return
+	if(!radiation_count)
+		loop.stop()
+		return
+	loop.last_radiation = radiation_count
+	loop.start()
 
 /obj/item/device/geiger/attack_self(var/mob/user)
 	scanning = !scanning
 	update_icon()
+	update_sound()
 	to_chat(user, "<span class='notice'>\icon[src] You switch [scanning ? "on" : "off"] \the [src].</span>")
 
 /obj/item/device/geiger/AltClick(mob/user)//chomp edit

@@ -110,6 +110,12 @@ var/list/_client_preferences_by_type
 	enabled_description = "All Emotes"
 	disabled_description = "Nearby"
 
+/datum/client_preference/air_pump_noise 
+	description ="Air Pump Ambient Noise" 
+	key = "SOUND_AIRPUMP" 
+	enabled_description = "Audible" 
+	disabled_description = "Silent" 
+
 /datum/client_preference/ghost_radio
 	description ="Ghost radio"
 	key = "CHAT_GHOSTRADIO"

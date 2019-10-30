@@ -16,6 +16,7 @@
 	var/global/list/acceptable_items // List of the items you can put in
 	var/global/list/acceptable_reagents // List of the reagents you can put in
 	var/global/max_n_of_items = 0
+	var/datum/looping_sound/microwave/soundloop
 
 
 // see code/modules/food/recipes_microwave.dm for recipes
@@ -314,6 +315,7 @@
 
 /obj/machinery/microwave/proc/start()
 	src.visible_message("<span class='notice'>The microwave turns on.</span>", "<span class='notice'>You hear a microwave.</span>")
+	soundloop.start()
 	src.operating = 1
 	src.icon_state = "mw1"
 	src.updateUsrDialog()
@@ -322,8 +324,10 @@
 	src.operating = 0 // Turn it off again aferwards
 	src.icon_state = "mw"
 	src.updateUsrDialog()
+	soundloop.stop()
 
 /obj/machinery/microwave/proc/stop()
+	soundloop.stop()
 	playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
 	src.operating = 0 // Turn it off again aferwards
 	src.icon_state = "mw"
@@ -350,6 +354,7 @@
 	src.icon_state = "mwbloody" // Make it look dirty too
 	src.operating = 0 // Turn it off again aferwards
 	src.updateUsrDialog()
+	soundloop.stop()
 
 /obj/machinery/microwave/proc/broke()
 	var/datum/effect/effect/system/spark_spread/s = new
@@ -361,6 +366,7 @@
 	src.flags = null //So you can't add condiments
 	src.operating = 0 // Turn it off again aferwards
 	src.updateUsrDialog()
+	soundloop.stop()
 
 /obj/machinery/microwave/proc/fail()
 	var/obj/item/weapon/reagent_containers/food/snacks/badrecipe/ffuu = new(src)
