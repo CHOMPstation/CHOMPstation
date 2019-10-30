@@ -9,6 +9,9 @@
 #define WEATHER_WINDY				"windy"
 #define WEATHER_HOT					"hot"
 #define WEATHER_BLOOD_MOON			"blood moon" // For admin fun or cult later on.
+#define WEATHER_EMBERFALL			"emberfall" // More adminbuse, from TG. Harmless.
+#define WEATHER_ASH_STORM			"ash storm" // Ripped from TG, like the above. Less harmless.
+#define WEATHER_FALLOUT				"fallout" // Modified emberfall, actually harmful. Admin only.
 
 #define PLANET_PROCESS_SUN		0x1
 #define PLANET_PROCESS_TEMP		0x2

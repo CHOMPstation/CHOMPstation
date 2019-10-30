@@ -110,6 +110,18 @@ var/list/_client_preferences_by_type
 	enabled_description = "All Emotes"
 	disabled_description = "Nearby"
 
+/datum/client_preference/weather_sounds
+	description ="Weather sounds"
+	key = "SOUND_WEATHER"
+	enabled_description = "Audible"
+	disabled_description = "Silent"
+
+/datum/client_preference/supermatter_hum
+	description ="Supermatter hum"
+	key = "SOUND_SUPERMATTER"
+	enabled_description = "Audible"
+	disabled_description = "Silent"
+
 /datum/client_preference/air_pump_noise 
 	description ="Air Pump Ambient Noise" 
 	key = "SOUND_AIRPUMP" 
