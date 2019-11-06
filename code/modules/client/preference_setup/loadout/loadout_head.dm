@@ -271,6 +271,12 @@
 	display_name = "rabbit ears"
 	path = /obj/item/clothing/head/rabbitears
 
+//CHOMPStation Addition Start - TFF 17/10/19 - Add Nurse Hat for one point, no job lock
+/datum/gear/head/nurse_hat
+	display_name = "hat, nurse"
+	path = /obj/item/clothing/head/nursehat
+//CHOMPStation Addition End
+
 /datum/gear/head/beanie
 	display_name = "beanie"
 	path = /obj/item/clothing/head/beanie

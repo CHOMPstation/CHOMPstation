@@ -39,7 +39,6 @@
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Economic News",		/datum/event/economic_event,	300),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Electrified Door",	/datum/event/electrified_door,	-5, 	list(ASSIGNMENT_MEDICAL = 5, ASSIGNMENT_ENGINEER = 20, ASSIGNMENT_AI = 10)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Lost Carp",			/datum/event/carp_migration, 	0, 		list(ASSIGNMENT_SECURITY = 40), 1),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Meteor Shower",		/datum/event/meteor_wave,		-20,		list(ASSIGNMENT_ENGINEER = 50), 1),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Lotto",		/datum/event/money_lotto, 		0, 		list(ASSIGNMENT_ANY = 1), 1, 5, 15),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Shipping Error",	/datum/event/shipping_error	, 	30, 	list(ASSIGNMENT_ANY = 2), 0),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Supply Demand",		/datum/event/supply_demand,		-15,	list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_MEDICAL = 5), 1),
@@ -55,6 +54,8 @@
 	)
 	add_disabled_events(list(
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Ian Storm",			/datum/event/ianstorm,	 		1,		list(), 1),
+		//Moved this to disabled for now, at least until meteors get a 10 minute delay. Might not happen as progress on Chomp Station Bayport continues.
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Meteor Shower",		/datum/event/meteor_wave,		-20,		list(ASSIGNMENT_ENGINEER = 50), 1),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Hacker",		/datum/event/money_hacker, 		0, 		list(ASSIGNMENT_ANY = 4), 1, 10, 25),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "PDA Spam",			/datum/event/pda_spam, 			0, 		list(ASSIGNMENT_ANY = 4), 1, 25, 50),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Space Dust",		/datum/event/dust,	 			50, 	list(ASSIGNMENT_ENGINEER = 20), 1, 0, 50),
@@ -99,7 +100,7 @@
 	)
 	add_disabled_events(list(
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Carp School_NoRequirements",	/datum/event/carp_migration,		100, 	list(ASSIGNMENT_ENGINEER = 20, ASSIGNMENT_SECURITY = 30), 1),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Escaped Slimes_NoRequirements",	/datum/event/escaped_slimes, 	30,		list(ASSIGNMENT_SCIENTIST = 40, ASSIGNMENT_SECURITY = 30)),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Escaped Slimes_NoRequirements",	/datum/event/escaped_slimes, 	30,		list(ASSIGNMENT_SCIENTIST = 40, ASSIGNMENT_SECURITY = 30)),		
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Shower_NoRequirements",	/datum/event/meteor_wave,			30,		list(ASSIGNMENT_ENGINEER = 20), 0),
 		//Moved spider infestation to disabled for now due to CHOMP random event rebalancing.
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Spider Infestation",		/datum/event/spider_infestation, 		-20,	list(ASSIGNMENT_SECURITY = 30, ASSIGNMENT_HOS = 20, ASSIGNMENT_WARDEN = 20), 0),
@@ -119,18 +120,19 @@
 		// TFF: Virgo event commented out. Technically meant for Tether maps, not Polaris.
 		// new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Strike",	/datum/event/meteor_strike,		10,		list(ASSIGNMENT_ENGINEER = 15), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Wave",			/datum/event/meteor_wave,		-110,		list(ASSIGNMENT_ENGINEER = 50),	1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Metroid Infestation",	/datum/event/metroid_infestation, -75,	list(ASSIGNMENT_SECURITY = 35, ASSIGNMENT_SCIENCE = 20, ASSIGNMENT_HOS = 10, ASSIGNMENT_WARDEN = 10), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Metroid Infestation",	/datum/event/metroid_infestation, -75,	list(ASSIGNMENT_SECURITY = 35, ASSIGNMENT_SCIENCE = 20, ASSIGNMENT_HOS = 10, ASSIGNMENT_WARDEN = 10), 0),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines",			/datum/event/spacevine, 		20,		list(ASSIGNMENT_ENGINEER = 15), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",	/datum/event/spider_infestation, -45,	list(ASSIGNMENT_SECURITY = 30, ASSIGNMENT_HOS = 10, ASSIGNMENT_WARDEN = 10), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Viral Infection",		/datum/event/viral_infection,	-50,	list(ASSIGNMENT_MEDICAL = 25), 	1),
 	)
 	add_disabled_events(list(
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob_NoRequirements",	/datum/event/blob, 	10,		list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_ENGINEER = 30), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Carp Migration_NoRequirements",	/datum/event/carp_migration,	10,	list(ASSIGNMENT_SECURITY = 10), 1),
-		//Moved escaped slimes to disabled for now due to CHOMP random event rebalancing.
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Escaped Slimes",		/datum/event/escaped_slimes, 	-50,	list(ASSIGNMENT_SCIENTIST = 30, ASSIGNMENT_SECURITY = 30), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Escaped Slimes_NoRequirements",	/datum/event/escaped_slimes, 	30,		list(ASSIGNMENT_SCIENTIST = 10, ASSIGNMENT_SECURITY = 5)),
+//Commenting this one out. This is easily abused and spawns too many slimes at once. Might bring back later.
+//		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Escaped Slimes",		/datum/event/escaped_slimes, 	-50,	list(ASSIGNMENT_SCIENTIST = 30, ASSIGNMENT_SECURITY = 30), 1),
+//		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Escaped Slimes_NoRequirements",	/datum/event/escaped_slimes, 	30,		list(ASSIGNMENT_SCIENTIST = 10, ASSIGNMENT_SECURITY = 5)),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Wave_NoRequirements",		/datum/event/meteor_wave,		30,	list(ASSIGNMENT_ENGINEER = 30),	1),
+//Moved to disabled because this was getting redundant with the amount of spiders occurring.
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",	/datum/event/spider_infestation, -45,	list(ASSIGNMENT_SECURITY = 30, ASSIGNMENT_HOS = 10, ASSIGNMENT_WARDEN = 10), 0),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation_NoRequirements",	/datum/event/spider_infestation, 	30,	list(ASSIGNMENT_SECURITY = 10), 0),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Supply Demand",		/datum/event/supply_demand,		0,	list(ASSIGNMENT_ANY = 5, ASSIGNMENT_SCIENCE = 15, ASSIGNMENT_GARDENER = 10, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_MEDICAL = 15), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Viral Infection_NoRequirements",	/datum/event/viral_infection,	50,	list(ASSIGNMENT_MEDICAL = 50), 1),
