@@ -900,6 +900,7 @@
 #include "code\game\objects\effects\misc.dm"
 #include "code\game\objects\effects\overlays.dm"
 #include "code\game\objects\effects\portals.dm"
+#include "code\game\objects\effects\portals_ch.dm"
 #include "code\game\objects\effects\spiders.dm"
 #include "code\game\objects\effects\step_triggers.dm"
 #include "code\game\objects\effects\zone_divider.dm"
