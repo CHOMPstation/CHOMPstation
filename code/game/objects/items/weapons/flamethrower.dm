@@ -31,7 +31,9 @@
 /obj/item/weapon/flamethrower/Destroy()
 	qdel_null(weldtool)
 	qdel_null(igniter)
+	//CHOMPStation Edit Start TFF 14/11/19 - Port Citadel Flamethrower fix
 	qdel_null(beaker)
+	//CHOMPStation Edit End
 	. = ..()
 
 /obj/item/weapon/flamethrower/process()
