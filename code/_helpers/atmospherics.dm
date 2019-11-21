@@ -43,5 +43,8 @@
 /obj/machinery/power/rad_collector/atmosanalyze(var/mob/user)
 	if(P)	return atmosanalyzer_scan(src, src.P.air_contents, user)
 
+//CHOMPStation Removal TFF 14/11/19 - Port Citadel Flamethrower fix
+/*
 /obj/item/weapon/flamethrower/atmosanalyze(var/mob/user)
 	if(ptank)	return atmosanalyzer_scan(src, ptank.air_contents, user)
+*/

@@ -88,6 +88,8 @@
 	src.air_contents.adjust_gas("phoron", (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
 	return
 
+//CHOMPStation Removal Start //TFF: Ports Polaris's full tank edit.
+/*
 /obj/item/weapon/tank/phoron/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 
@@ -99,6 +101,8 @@
 		user.remove_from_mob(src)
 		src.loc = F
 	return
+//CHOMPStation Removal End
+*/
 
 /obj/item/weapon/tank/vox	//Can't be a child of phoron or the gas amount gets screwey.
 	name = "phoron tank"
@@ -133,13 +137,13 @@
 
 /obj/item/weapon/tank/emergency/oxygen
 	name = "emergency oxygen tank"
-	desc = "Used for emergencies. Use sparingly if you need it." //TFF: Changes desc since it's got a full tank now.
+	desc = "Used for emergencies. Use sparingly if you need it." //CHOMPStation Edit TFF: Changes desc since it's got a full tank now.
 	icon_state = "emergency"
 	gauge_icon = "indicator_emergency"
 
 /obj/item/weapon/tank/emergency/oxygen/New()
 		..()
-		src.air_contents.adjust_gas("oxygen", (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)) //TFF: Ports full tank version from Polaris.
+		src.air_contents.adjust_gas("oxygen", (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)) //CHOMPStation Edit TFF: Ports full tank version from Polaris.
 
 		return
 
@@ -167,7 +171,7 @@
 
 /obj/item/weapon/tank/emergency/nitrogen/New()
 	..()
-	src.air_contents.adjust_gas("nitrogen", (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)) //TFF: Ports Polaris's full tank edit. Note: Not sure why this is needed. Or more specifically was done. Probably isn't needed. 
+	src.air_contents.adjust_gas("nitrogen", (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))	//CHOMPStation Edit TFF: Ports Polaris's full tank edit. Note: Not sure why this is needed. Or more specifically was done. Probably isn't needed.
 
 /obj/item/weapon/tank/emergency/nitrogen/double
 	name = "double emergency nitrogen tank"
@@ -183,7 +187,7 @@
 
 /obj/item/weapon/tank/emergency/phoron/New()
 	..()
-	src.air_contents.adjust_gas("phoron", (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)) //TFF: Ports Polaris's full tank edit.
+	src.air_contents.adjust_gas("phoron", (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))	//CHOMPStation Edit TFF: Ports Polaris's full tank edit.
 
 /obj/item/weapon/tank/emergency/phoron/double
 	name = "double emergency phoron tank"

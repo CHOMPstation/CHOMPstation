@@ -23,13 +23,17 @@
 	var/turf/previousturf = null
 	var/obj/item/weapon/weldingtool/weldtool = null
 	var/obj/item/device/assembly/igniter/igniter = null
-	var/obj/item/weapon/tank/phoron/ptank = null
-
+	//CHOMPStation Edit Start TFF 14/11/19 - Port Citadel Flamethrower fix
+	var/obj/item/weapon/reagent_containers/glass/beaker/beaker = null
+	var/cooldown
+	//CHOMPStation Edit End
 
 /obj/item/weapon/flamethrower/Destroy()
 	qdel_null(weldtool)
 	qdel_null(igniter)
-	qdel_null(ptank)
+	//CHOMPStation Edit Start TFF 14/11/19 - Port Citadel Flamethrower fix
+	qdel_null(beaker)
+	//CHOMPStation Edit End
 	. = ..()
 
 /obj/item/weapon/flamethrower/process()
@@ -50,7 +54,9 @@
 	overlays.Cut()
 	if(igniter)
 		overlays += "+igniter[status]"
-	if(ptank)
+	//CHOMPStation Edit Start TFF 14/11/19 - Port Citadel Flamethrower fix
+	if(beaker)
+	//CHOMPStation Edit End
 		overlays += "+ptank"
 	if(lit)
 		overlays += "+lit"
@@ -60,13 +66,16 @@
 	return
 
 /obj/item/weapon/flamethrower/afterattack(atom/target, mob/user, proximity)
-	if(!proximity) return
+	if(world.time < cooldown)
+		return
+	if(proximity) return
 	// Make sure our user is still holding us
 	if(user && user.get_active_hand() == src)
 		var/turf/target_turf = get_turf(target)
 		if(target_turf)
 			var/turflist = getline(user, target_turf)
 			flame_turf(turflist)
+	cooldown = world.time + 1.5 SECONDS
 
 /obj/item/weapon/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
@@ -78,9 +87,11 @@
 		if(igniter)
 			igniter.loc = T
 			igniter = null
-		if(ptank)
-			ptank.loc = T
-			ptank = null
+		//CHOMPStation Edit Start TFF 14/11/19 - Port Citadel Flamethrower fix
+		if(beaker)
+			beaker.loc = T
+			beaker = null
+		//CHOMPStation Edit End
 		new /obj/item/stack/rods(T)
 		qdel(src)
 		return
@@ -101,20 +112,24 @@
 		update_icon()
 		return
 
-	if(istype(W,/obj/item/weapon/tank/phoron))
-		if(ptank)
-			user << "<span class='notice'>There appears to already be a phoron tank loaded in [src]!</span>"
+	//CHOMPStation Edit Start TFF 14/11/19 - Port Citadel Flamethrower fix
+	if(istype(W,/obj/item/weapon/reagent_containers/glass/beaker))
+		if(beaker)
+			user << "<span class='notice'>There is a beaker already loaded!!</span>"
 			return
 		user.drop_item()
-		ptank = W
+		beaker = W
+	//CHOMPStation Edit End
 		W.loc = src
 		update_icon()
 		return
-
+	//CHOMPStation Removal Start TFF 14/11/19 - Port Citadel Flamethrower fix
+/*
 	if(istype(W, /obj/item/device/analyzer))
 		var/obj/item/device/analyzer/A = W
 		A.analyze_gases(src, user)
 		return
+*/
 	..()
 	return
 
@@ -122,10 +137,12 @@
 /obj/item/weapon/flamethrower/attack_self(mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
 	user.set_machine(src)
-	if(!ptank)
-		user << "<span class='notice'>Attach a phoron tank first!</span>"
+	//CHOMPStation Edit Start TFF 14/11/19 - Port Citadel Flamethrower fix
+	if(!beaker)
+		user << "<span class='notice'>Attach a beaker first!</span>"
 		return
-	var/dat = text("<TT><B>Flamethrower (<A HREF='?src=\ref[src];light=1'>[lit ? "<font color='red'>Lit</font>" : "Unlit"]</a>)</B><BR>\n Tank Pressure: [ptank.air_contents.return_pressure()]<BR>\nAmount to throw: <A HREF='?src=\ref[src];amount=-100'>-</A> <A HREF='?src=\ref[src];amount=-10'>-</A> <A HREF='?src=\ref[src];amount=-1'>-</A> [throw_amount] <A HREF='?src=\ref[src];amount=1'>+</A> <A HREF='?src=\ref[src];amount=10'>+</A> <A HREF='?src=\ref[src];amount=100'>+</A><BR>\n<A HREF='?src=\ref[src];remove=1'>Remove phorontank</A> - <A HREF='?src=\ref[src];close=1'>Close</A></TT>")
+	var/dat = text("<TT><B>Flamethrower (<A HREF='?src=\ref[src];light=1'>[lit ? "<font color='red'>Lit</font>" : "Unlit"]</a>)</B>\n<A HREF='?src=\ref[src];remove=1'>Remove beaker</A> - <A HREF='?src=\ref[src];close=1'>Close</A></TT>")
+	//CHOMPStation Edit End
 	user << browse(dat, "window=flamethrower;size=600x300")
 	onclose(user, "flamethrower")
 	return
@@ -139,19 +156,20 @@
 	if(usr.stat || usr.restrained() || usr.lying)	return
 	usr.set_machine(src)
 	if(href_list["light"])
-		if(!ptank)	return
-		if(ptank.air_contents.gas["phoron"] < 1)	return
+		//CHOMPStation Edit Start TFF 14/11/19 - Port Citadel Flamethrower fix
+		if(!beaker)
+			return
+		//CHOMPStation Edit End
 		if(!status)	return
 		lit = !lit
 		if(lit)
 			processing_objects.Add(src)
-	if(href_list["amount"])
-		throw_amount = throw_amount + text2num(href_list["amount"])
-		throw_amount = max(50, min(5000, throw_amount))
 	if(href_list["remove"])
-		if(!ptank)	return
-		usr.put_in_hands(ptank)
-		ptank = null
+		//CHOMPStation Edit Start TFF 14/11/19 - Port Citadel Flamethrower fix
+		if(!beaker)	return
+		usr.put_in_hands(beaker)
+		beaker = null
+		//CHOMPStation Edit End
 		lit = 0
 		usr.unset_machine()
 		usr << browse(null, "window=flamethrower")
@@ -181,21 +199,30 @@
 	for(var/mob/M in viewers(1, loc))
 		if((M.client && M.machine == src))
 			attack_self(M)
+	//remove fuel now
 	return
 
 
 /obj/item/weapon/flamethrower/proc/ignite_turf(turf/target)
-	//TODO: DEFERRED Consider checking to make sure tank pressure is high enough before doing this...
-	//Transfer 5% of current tank air contents to turf
-	var/datum/gas_mixture/air_transfer = ptank.air_contents.remove_ratio(0.02*(throw_amount/100))
-	//air_transfer.toxins = air_transfer.toxins * 5 // This is me not comprehending the air system. I realize this is retarded and I could probably make it work without fucking it up like this, but there you have it. -- TLE
-	new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target,air_transfer.gas["phoron"],get_dir(loc,target))
-	air_transfer.gas["phoron"] = 0
-	target.assume_air(air_transfer)
-	//Burn it based on transfered gas
-	//target.hotspot_expose(part4.air_contents.temperature*2,300)
-	target.hotspot_expose((ptank.air_contents.temperature*2) + 380,500) // -- More of my "how do I shot fire?" dickery. -- TLE
-	//location.hotspot_expose(1000,500,1)
+//CHOMPStation Edit Start TFF 14/11/19 - Port Citadel Flamethrower fix
+	//>flamethrowers using gas
+	//Why?
+	if(!beaker)
+		return
+	if(!beaker.reagents.has_reagent("fuel", 5))
+		return
+	new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target,get_dir(loc,target))
+	target.hotspot_expose(500)
+	for(var/mob/living/carbon/human/M in target)
+		to_chat(M, "<span class='warning'>The fuel ignites you!</span>")
+		M.adjust_fire_stacks(2)
+		M.IgniteMob()
+	for(var/mob/living/simple_animal/S in target) //also kills simple things.
+		S.health -= 10
+	for(var/obj/effect/plant/V in target)
+		qdel(V)
+	beaker.reagents.remove_reagent("fuel", 5)
+//CHOMPStation Edit End
 	return
 
 /obj/item/weapon/flamethrower/full/New(var/loc)
