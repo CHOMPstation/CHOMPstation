@@ -13,6 +13,7 @@
 	icon = 'icons/obj/jukebox.dmi'
 	icon_state = "jukebox2-nopower"
 	var/state_base = "jukebox2"
+	var/jukebox_edition = "default"
 	anchored = 1
 	density = 1
 	power_channel = EQUIP
@@ -32,6 +33,12 @@
 	var/list/datum/track/queue = list()			// Queued songs
 	var/list/datum/track/tracks = list()		// Available tracks
 	var/list/datum/track/secret_tracks = list() // Only visible if hacked
+
+/obj/machinery/media/jukebox/casinojukebox
+	name = "space casino jukebox"
+	icon = 'icons/obj/casino.dmi'
+	icon_state = "casinojukebox-nopower"
+	state_base = "casinojukebox"
 
 /obj/machinery/media/jukebox/New()
 	..()
@@ -55,6 +62,24 @@
 		if(T.secret)
 			secret_tracks |= T
 		else
+			tracks |= T
+
+		if(T.casino)
+			tracks -= T
+	return
+
+// On initialization, copy our tracks from the global list
+/obj/machinery/media/jukebox/casinojukebox/initialize()
+	. = ..()
+	if(all_jukebox_tracks.len < 1)
+		stat |= BROKEN // No tracks configured this round!
+		return
+	// Ootherwise load from the global list!
+	for(var/datum/track/T in all_jukebox_tracks)
+		if(!T.casino)
+			tracks -= T
+			secret_tracks -= T
+		if(T.casino)
 			tracks |= T
 	return
 

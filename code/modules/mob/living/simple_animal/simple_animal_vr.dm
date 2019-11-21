@@ -87,6 +87,9 @@
 	if(vore_capacity != 0 && (vore_fullness >= vore_capacity)) // We're too full to fit them
 		ai_log("vr/wont eat [M] because I am too full", 3)
 		return 0
+	if(!M.isEdible && M.stat != DEAD)//Don't eat mobs that can't be eaten.
+		ai_log("vr/wont eat [M] because they aren't edible", 3)
+		return 0
 	return 1
 
 /mob/living/simple_animal/PunchTarget()

@@ -476,17 +476,27 @@ area/space/atmosalert()
 
 
 
-
-
-
-
-
-
-
 /area/casino/casino_ship
 	name = "\improper Casino Ship"
 	icon_state = "yellow"
 	requires_power = 0
+	dynamic_lighting = 0
+
+/area/casino/casino_ship/wing_left
+	name = "\improper Casino Ship left wing"
+	icon_state = "yellow"
+
+/area/casino/casino_ship/wing_right
+	name = "\improper Casino Ship right wing"
+	icon_state = "yellow"
+
+/area/casino/casino_ship/dorms
+	name = "\improper Casino Ship dorms"
+	icon_state = "yellow"
+
+/area/casino/casino_ship/cockpit
+	name = "\improper Casino Ship left wing"
+	icon_state = "yellow"
 
 /area/planet/clown
 	name = "\improper Clown Planet"
@@ -1346,6 +1356,11 @@ area/space/atmosalert()
 	name = "\improper Fitness Room"
 	icon_state = "fitness"
 
+//CHOMPStation Addition TFF 24/9/19 - Sauna
+/area/crew_quarters/sauna
+	name = "\improper Sauna"
+	icon_state = "pool"
+
 /area/crew_quarters/longue_area
 	name = "\improper Lounge" //VOREStation Edit - Muh speeling.
 	icon_state = "recreation_area"
@@ -1538,6 +1553,33 @@ area/space/atmosalert()
 	icon_state = "atmos_storage"
 	sound_env = SMALL_ENCLOSED
 
+//CHOMPStation Addition Start TFF 24/9/19 - Add Atmos Gas Chambers.....
+/area/engineering/gas_storage
+	icon_state = "atmos storage"
+	requires_power = 0
+
+/area/engineering/gas_storage/air
+	name = "\improper Air Gas Storage"
+
+/area/engineering/gas_storage/oxygen
+	name = "\improper Oxygen Gas Storage"
+
+/area/engineering/gas_storage/nitrogen
+	name = "\improper Nitrogen Gas Storage"
+
+/area/engineering/gas_storage/co2
+	name = "\improper Carbon Dioxide Gas Storage"
+
+/area/engineering/gas_storage/phoron
+	name = "\improper Phoron Gas Storage"
+
+/area/engineering/gas_storage/n2o
+	name = "\improper Nitrous Oxide Gas Storage"
+
+/area/engineering/gas_storage/mix
+	name = "\improper Gas Mixing"
+//CHOMPStation Addition End
+
 /area/engineering/drone_fabrication
 	name = "\improper Engineering Drone Fabrication"
 	icon_state = "drone_fab"
@@ -1597,7 +1639,6 @@ area/space/atmosalert()
 /area/engineering/aft_hallway
 	name = "\improper Engineering Aft Hallway"
 	icon_state = "engineering_aft_hallway"
-
 
 //Solars
 
@@ -2486,8 +2527,6 @@ area/space/atmosalert()
 
 //Misc
 
-
-
 /area/wreck/ai
 	name = "\improper AI Chamber"
 	icon_state = "ai"
@@ -2508,7 +2547,32 @@ area/space/atmosalert()
 	name = "Unknown"
 	icon_state = "storage"
 
+//CHOMPStation Addition Start //TFF 16/10/19 - Add more POI area distinctions.
+/area/wreck/ufo_ship
+	name = "\improper Crashed Alien Ship"
+	icon_state = "bridge"
 
+/area/wreck/thing
+	name = "\improper Strange Station"
+	icon_state = "bridge"
+
+/area/wreck/crashed_escape_pod
+	name = "\improper Crashed Escape Pod"
+	icon_state = "bridge"
+
+/area/wreck/derelict_pirate_ship
+	name = "\improper Derelict Pirate Ship"
+	icon_state = "bridge"
+
+/area/derelict/derelict_syndie_ship
+	name = "\improper Derelict Syndie Ship"
+	icon_state = "yellow"
+
+/area/derelict/derelict_ship
+	name = "\improper Ship Wreck"
+	icon_state = "yellow"
+
+//CHOMPStation Addition End
 
 // Telecommunications Satellite
 /area/tcommsat/

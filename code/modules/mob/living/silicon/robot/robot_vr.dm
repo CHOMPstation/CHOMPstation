@@ -7,6 +7,7 @@
 	var/leap_at
 	var/dogborg = FALSE //Dogborg special features (overlays etc.)
 	var/wideborg = FALSE //When the borg simply doesn't use standard 32p size.
+	var/resticon = TRUE //does nothing without dogborg and when false makes it use a similar method to default borgs
 	var/scrubbing = FALSE //Floor cleaning enabled
 	var/datum/matter_synth/water_res = null
 	var/notransform
@@ -29,7 +30,24 @@
 					   "mechoid-Service",
 					   "mechoid-Janitor",
 					   "mechoid-Combat",
-					   "mechoid-Combat-roll"
+					   "mechoid-Combat-roll",
+					   "durin",
+					   "flynn",
+					   "gibbs",
+					   "conagher",
+					   "ishimura",
+					   "lloyd",
+					   "woody",
+					   "servbot",
+					   "servbot-service",
+					   "servbot-engi",
+					   "servbot-sec",
+					   "servbot-miner",
+					   "servbot-jani",
+					   "servbot-medi",
+					   "servbot-combat",
+					   "servbot-combat-roll",
+					   "han-d"
 					   )					//List of all used sprites that are in robots_vr.dmi
 
 
@@ -56,9 +74,12 @@
 			add_overlay("taser")
 		if(lights_on)
 			add_overlay("eyes-[module_sprites[icontype]]-lights")
-		if(resting)
+		if(resting && resticon == FALSE)
+			cut_overlay("eyes-[module_sprites[icontype]]")
+		if(resting && resticon == TRUE)
 			cut_overlays() // Hide that gut for it has no ground sprite yo.
 			icon_state = "[module_sprites[icontype]]-rest"
+
 		else
 			icon_state = "[module_sprites[icontype]]"
 	if(dogborg == TRUE && stat == DEAD)

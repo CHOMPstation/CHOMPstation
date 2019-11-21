@@ -35,7 +35,9 @@
 		/obj/item/weapon/screwdriver,
 		/obj/item/weapon/stamp,
 		/obj/item/clothing/accessory/permit,
-		/obj/item/clothing/accessory/badge
+		/obj/item/clothing/accessory/badge,
+		/obj/item/weapon/spacecasinocash,
+		/obj/item/weapon/casino_platinum_chip
 		)
 	cant_hold = list(/obj/item/weapon/screwdriver/power)
 	slot_flags = SLOT_ID

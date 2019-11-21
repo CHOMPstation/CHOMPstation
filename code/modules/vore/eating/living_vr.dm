@@ -204,7 +204,9 @@
 	P.vore_taste = src.vore_taste
 	P.can_be_drop_prey = src.can_be_drop_prey
 	P.can_be_drop_pred = src.can_be_drop_pred
-
+	//ChompStation edit, added in inflation option
+	P.inflatable = src.inflatable
+	
 	var/list/serialized = list()
 	for(var/belly in src.vore_organs)
 		var/obj/belly/B = belly
@@ -231,6 +233,7 @@
 	vore_taste = P.vore_taste
 	can_be_drop_prey = P.can_be_drop_prey
 	can_be_drop_pred = P.can_be_drop_pred
+	P.inflatable = src.inflatable
 
 	release_vore_contents(silent = TRUE)
 	vore_organs.Cut()
@@ -414,7 +417,7 @@
 
 	// Prepare messages
 	if(user == pred) //Feeding someone to yourself
-		attempt_msg = text("<span class='warning'>[] is attemping to [] [] into their []!</span>",pred,lowertext(belly.vore_verb),prey,lowertext(belly.name))
+		attempt_msg = text("<span class='warning'>[] is attempting to [] [] into their []!</span>",pred,lowertext(belly.vore_verb),prey,lowertext(belly.name))
 		success_msg = text("<span class='warning'>[] manages to [] [] into their []!</span>",pred,lowertext(belly.vore_verb),prey,lowertext(belly.name))
 	else //Feeding someone to another person
 		attempt_msg = text("<span class='warning'>[] is attempting to make [] [] [] into their []!</span>",user,pred,lowertext(belly.vore_verb),prey,lowertext(belly.name))
@@ -641,6 +644,7 @@
 	dispvoreprefs += "<b>Mob Vore:</b> [allowmobvore ? "Enabled" : "Disabled"]<br>"
 	dispvoreprefs += "<b>Drop-nom prey:</b> [can_be_drop_prey ? "Enabled" : "Disabled"]<br>"
 	dispvoreprefs += "<b>Drop-nom pred:</b> [can_be_drop_pred ? "Enabled" : "Disabled"]<br>"
+	dispvoreprefs += "<b>Inflatable:</b> [inflatable ? "Enabled" : "Disabled"]<br>"
 	user << browse("<html><head><title>Vore prefs: [src]</title></head><body><center>[dispvoreprefs]</center></body></html>", "window=[name];size=200x300;can_resize=0;can_minimize=0")
 	onclose(user, "[name]")
 	return

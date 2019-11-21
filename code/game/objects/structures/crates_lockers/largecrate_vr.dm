@@ -55,6 +55,16 @@
 						/mob/living/simple_animal/hostile/mimic,
 						/mob/living/simple_animal/hostile/rat,
 						/mob/living/simple_animal/hostile/rat/passive,
+						/mob/living/simple_animal/chocobo,
+						/mob/living/simple_animal/alpha_chocobo,
+						/mob/living/simple_animal/hostile/metroid/evolution/super,
+						/mob/living/simple_animal/redpanda;0.25,
+						/mob/living/simple_animal/redpanda/fae;0.25,
+						/mob/living/simple_animal/redpanda/alt;0.25,
+						/mob/living/simple_animal/redpanda/alt/waaah;0.25,
+						/mob/living/simple_animal/hostile/piranhaplant;0.33,
+						/mob/living/simple_animal/hostile/piranhaplant/spitter;0.33,
+						/mob/living/simple_animal/hostile/piranhaplant/pitcher;0.33,
 						/mob/living/simple_animal/otie;0.5))
 	return ..()
 
@@ -64,14 +74,22 @@
 
 /obj/structure/largecrate/animal/dangerous/initialize()
 	starts_with = list(pick(/mob/living/simple_animal/hostile/carp/pike,
-						/mob/living/simple_animal/chocobo,
 						/mob/living/simple_animal/hostile/deathclaw,
 						/mob/living/simple_animal/hostile/dino,
 						/mob/living/simple_animal/hostile/alien,
 						/mob/living/simple_animal/hostile/alien/drone,
 						/mob/living/simple_animal/hostile/alien/sentinel,
 						/mob/living/simple_animal/hostile/alien/queen,
+						/mob/living/simple_animal/hostile/alien/queen/empress,
+						/mob/living/simple_animal/hostile/alien/queen/empress/mother,
 						/mob/living/simple_animal/otie/feral,
+						/mob/living/simple_animal/hostile/metroid/combat/queen,
+						/mob/living/simple_animal/hostile/metroid/combat/omega,
+						/mob/living/simple_animal/hostile/giant_spider/nurse/queen,
+						/mob/living/simple_animal/hostile/giant_spider/phorogenic,
+						/mob/living/simple_animal/hostile/giant_spider/carrier,
+						/mob/living/simple_animal/hostile/dragon,
+						/mob/living/simple_animal/hostile/dragon/phoron,
 						/mob/living/simple_animal/hostile/corrupthound))
 	return ..()
 

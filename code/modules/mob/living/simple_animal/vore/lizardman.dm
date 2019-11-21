@@ -24,9 +24,9 @@
 	speak_emote = list("growls","hisses")
 	say_maybe_target = list("Rawr?")
 	say_got_target = list("GWAR!!")
-	response_help = "pets the"
-	response_disarm = "bops the"
-	response_harm = "hits the"
+	response_help = "pets"
+	response_disarm = "bops"
+	response_harm = "hits"
 	attacktext = list("bit")
 	friendly = list("nuzzles", "licks", "noses softly at", "noseboops", "headbumps against", "leans on", "nibbles affectionately on")
 

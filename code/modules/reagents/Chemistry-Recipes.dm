@@ -1464,7 +1464,8 @@
 	required_reagents = list("rum" = 2, "vermouth" = 2, "phoron" = 2)
 	result_amount = 6
 
-/datum/chemical_reaction/drinks/beepsky_smash
+//CHOMPStation Edit TFF 24/9/19 - Minor change to make it easier for no runtimes with casino.dm
+/datum/chemical_reaction/drinks/beepskysmash
 	name = "Beepksy Smash"
 	id = "beepksysmash"
 	result = "beepskysmash"
@@ -1850,10 +1851,11 @@
 	required_reagents = list("gingerale" = 4, "grenadine" = 1)
 	result_amount = 5
 
+//CHOMPStation Edit TFF 24/9/19 - Minor change to make it easier for no runtimes with casino.dm
 /datum/chemical_reaction/drinks/royrogers
 	name = "Roy Rogers"
-	id = "roy_rogers"
-	result = "roy_rogers"
+	id = "royrogers"
+	result = "royrogers"
 	required_reagents = list("gingerale" = 4, "lemon_lime" = 2, "grenadine" = 1)
 	result_amount = 7
 

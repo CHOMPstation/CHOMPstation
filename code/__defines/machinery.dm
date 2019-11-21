@@ -44,8 +44,9 @@ var/global/defer_powernet_rebuild = 0      // True if net rebuild will be called
 #define NETWORK_ERT "ZeEmergencyResponseTeam"
 #define NETWORK_DEFAULT "Station"
 #define NETWORK_MEDICAL "Medical"
-//TFF: Add Med Outpost Network.
+//CHOMPStation Addition Start TFF: Add Med Outpost Network.
 #define NETWORK_MEDICAL_OUTPOST "Medical Outpost"
+//CHOMPStation Addition End
 #define NETWORK_MERCENARY "MercurialNet"
 #define NETWORK_MINE "Mining Outpost"
 #define NETWORK_NORTHERN_STAR "Northern Star"
@@ -55,7 +56,9 @@ var/global/defer_powernet_rebuild = 0      // True if net rebuild will be called
 #define NETWORK_PRISON "Prison"
 #define NETWORK_SECURITY "Security"
 #define NETWORK_INTERROGATION "Interrogation"
-#define NETWORK_TELECOM "Tcomms"
+//CHOMPStation Edit Start TFF 26/10/19 - Refactor NETWORK_TELECOM to NETWORK_TCOMMS
+#define NETWORK_TCOMMS "Tcomms"
+//CHOMPStation Edit End
 #define NETWORK_THUNDER "Thunderdome"
 #define NETWORK_COMMUNICATORS "Communicators"
 #define NETWORK_SOLARS "Solars"

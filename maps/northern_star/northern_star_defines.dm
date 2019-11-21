@@ -10,6 +10,9 @@
 
 //TFF: Camera network defines
 #define NETWORK_MEDICAL_OUTPOST "Medical Outpost"
+//TFF 15/10/19 - Define T-comms and Xenobio camera networks
+#define NETWORK_TCOMMS "Telecommunications"
+#define NETWORK_XENOBIO "Xenobiology"
 
 /datum/map/northern_star
 	name = "Northern Star"
@@ -59,7 +62,9 @@
 							NETWORK_SECURITY,
 							//TFF: One camera? Move to Security Network
 //							NETWORK_INTERROGATION,
-							NETWORK_SOLARS
+							NETWORK_SOLARS,
+							//TFF 16/10/19 - Add T-comms network,
+							NETWORK_TCOMMS
 							)
 
 	allowed_spawns = list("Arrivals Shuttle","Gateway", "Cryogenic Storage", "Cyborg Storage", "Elevator")

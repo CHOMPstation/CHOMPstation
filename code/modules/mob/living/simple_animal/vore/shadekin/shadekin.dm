@@ -43,9 +43,9 @@
 	emote_see = list("tailtwitches", "earflicks")
 	say_maybe_target = list("...mar?")
 	say_got_target = list("MAR!!!")
-	response_help = "pets the"
-	response_disarm = "bops the"
-	response_harm = "hits the"
+	response_help = "pets"
+	response_disarm = "bops"
+	response_harm = "hits"
 	attacktext = list("mauled","slashed","clawed")
 	friendly = list("boops", "pawbs", "mars softly at", "sniffs on")
 	reactions = list("Mar?" = "Marrr!", "Mar!" = "Marrr???", "Mar." = "Marrr.")

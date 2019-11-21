@@ -149,10 +149,9 @@
 
 //Chief Engineer's rig. This is sort of a halfway point between the old hardsuits (voidsuits) and the rig class.
 /obj/item/weapon/rig/ce
-
-	name = "advanced voidsuit control module"
-	suit_type = "advanced voidsuit"
-	desc = "An advanced voidsuit that protects against hazardous, low pressure environments. Shines with a high polish."
+	name = "advanced hardsuit control module"
+	suit_type = "advanced hardsuit"
+	desc = "An advanced suit that protects against hazardous, low pressure environments. Shines with a high polish."
 	icon_state = "ce_rig"
 	armor = list(melee = 40, bullet = 10, laser = 30,energy = 25, bomb = 40, bio = 100, rad = 100)
 	slowdown = 0
@@ -334,13 +333,14 @@
 		/obj/item/weapon/storage/backpack,
 		)
 
-	req_access = list()
+	req_access = list(access_hos)
 	req_one_access = list()
 
 
 /obj/item/weapon/rig/pursuit/equipped
 
 	initial_modules = list(
+		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/vision/sechud,
 		/obj/item/rig_module/sprinter/pursuit,
 		/obj/item/rig_module/grenade_launcher/nerfed,

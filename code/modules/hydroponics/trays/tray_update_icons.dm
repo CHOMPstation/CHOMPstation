@@ -84,7 +84,7 @@
 			var/clr
 			if(seed.get_trait(TRAIT_BIOLUM_COLOUR))
 				clr = seed.get_trait(TRAIT_BIOLUM_COLOUR)
-			set_light(round(seed.get_trait(TRAIT_POTENCY)/10), l_color = clr)
+			set_light(round(seed.get_trait(TRAIT_POTENCY)/5), l_color = clr)
 			return
 
 	set_light(0)

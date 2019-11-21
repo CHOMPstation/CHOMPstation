@@ -114,6 +114,7 @@
 
 //spreading vines aren't created on their final turf.
 //Instead, they are created at their parent and then move to their destination.
+
 /obj/effect/plant/proc/spread_to(turf/target_turf)
 	var/obj/effect/plant/child = new(get_turf(src),seed,parent)
 
@@ -126,6 +127,14 @@
 		step_to(child, target_turf)
 		child.anchored = 1
 		child.update_icon()
+
+		if((seed.get_trait(TRAIT_POTENCY)) >= 50 && (seed.get_trait(TRAIT_CARNIVOROUS)) && prob(5))
+			var/spread_mobspawn = rand(0,2)
+			switch(spread_mobspawn)
+				if(0)	new /mob/living/simple_animal/hostile/piranhaplant(src.loc)
+				if(1)	new /mob/living/simple_animal/hostile/piranhaplant/spitter(src.loc)
+				if(2)	new /mob/living/simple_animal/hostile/piranhaplant/pitcher(src.loc)
+
 
 		//see if anything is there
 		for(var/thing in child.loc)

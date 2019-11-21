@@ -237,3 +237,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/steamtealeaf
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/tencha
+	make_food(var/obj/container as obj)
+		var/obj/item/weapon/reagent_containers/food/snacks/validsalad/being_cooked = ..(container)
+		being_cooked.reagents.del_reagent("teamush")
+		return being_cooked
