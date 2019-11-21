@@ -216,7 +216,7 @@
 	path = /obj/item/clothing/under/mime
 	allowed_roles = "Mime"
 
-//CHOMPStation Add End
+//CHOMPStation Addition End
 
 /datum/gear/uniform/skirt
 	display_name = "skirt selection"
