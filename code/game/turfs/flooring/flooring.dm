@@ -158,7 +158,7 @@ var/list/flooring_types
 /decl/flooring/carpet/rainbowcarpet
 	name = "rainbow carpet"
 	icon_base = "rainbowcarpet"
-//	build_type = /obj/item/stack/tile/carpet/rainbow
+	build_type = /obj/item/stack/tile/carpet/rainbowcarpet
 
 /decl/flooring/tiling
 	name = "floor"
