@@ -42,7 +42,7 @@
 			spawn_area_type = /area/hydroponics/garden
 			locstring = "the public garden"
 		if(LOC_MAINTENANCE)
-			spawn_area_type = /area/maintenance/locker
+			spawn_area_type = /area/maintenance/chapel_fore
 			locstring = "far northern maintenance tunnels"
 		if(LOC_CONSTR)
 			spawn_area_type = /area/construction
