@@ -2,7 +2,7 @@
 #define LOC_CHAPEL 1
 #define LOC_LIBRARY 2
 #define LOC_GARDEN 3
-#define LOC_MAINTENANCE 4 
+#define LOC_MAINTENANCE 4
 #define LOC_CONSTR 5
 
 #define BOSS_METROID 0
@@ -102,7 +102,7 @@
 #undef LOC_CHAPEL
 #undef LOC_LIBRARY
 #undef LOC_GARDEN
-#undef LOC_MAINTENANCE 
+#undef LOC_MAINTENANCE
 #undef LOC_CONSTR
 
 #undef BOSS_METROID
