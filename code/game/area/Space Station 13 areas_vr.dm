@@ -248,3 +248,13 @@
 /area/engineering/engine_gas
 	name = "\improper Engine Gas Storage"
 	icon_state = "engine_waste"
+
+//CHOMPStation Addition Start - TFF 24/11/19 - New areas for Chapel Maint.
+/area/maintenance/chapel_aft
+	name = "Chapel Maintenance - Aft"
+	icon_state = "maint_chapel"
+
+/area/maintenance/chapel_fore
+	name = "Chapel Maintenance - Fore"
+	icon_state = "maint_chapel"
+//CHOMPStation Addition End
