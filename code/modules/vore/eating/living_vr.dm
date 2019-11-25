@@ -228,12 +228,12 @@
 
 	digestable = P.digestable
 	//TFF 30/4/19: Ports VoreStation Remains Option
-	P.digest_leave_remains = src.digest_leave_remains
+	digest_leave_remains = P.digest_leave_remains
 	allowmobvore = P.allowmobvore
 	vore_taste = P.vore_taste
 	can_be_drop_prey = P.can_be_drop_prey
 	can_be_drop_pred = P.can_be_drop_pred
-	P.inflatable = src.inflatable
+	inflatable = P.inflatable
 
 	release_vore_contents(silent = TRUE)
 	vore_organs.Cut()

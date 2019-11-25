@@ -134,7 +134,7 @@
 	name = "Bullvalene"
 	id = "bullvalene"
 	result = "bullvalene"
-	required_reagents = list("dermaline" = 1, "orangesap" = 1, "Copper" = 1)
+	required_reagents = list("dermaline" = 1, "orangesap" = 1, "copper" = 1)
 	result_amount = 1
 
 /datum/chemical_reaction/nutrient

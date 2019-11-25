@@ -366,10 +366,10 @@
 	inhibitors = list("sugar" = 1) // Messes up with inaprovaline
 	result_amount = 2
 
-/datum/chemical_reaction/alizine
-	name = "Alizine"
-	id = "alizine"
-	result = "alizine"
+/datum/chemical_reaction/alizene
+	name = "Alizene"
+	id = "alizene"
+	result = "alizene"
 	required_reagents = list("bicaridine" = 1, "serazine" = 1, "tungsten" = 1)
 	result_amount = 3
 
