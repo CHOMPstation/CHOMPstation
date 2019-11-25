@@ -26,14 +26,6 @@
 	name = "Mining Outpost Emergency Storage"
 
 //TFF 28/9/19 - Add more areas. Again.
-/area/maintenance/chapel_aft
-	name = "Chapel Maintenance - Aft"
-	icon_state = "maint_chapel"
-
-/area/maintenance/chapel_fore
-	name = "Chapel Maintenance - Fore"
-	icon_state = "maint_chapel"
-
 /area/crew_quarters/bar_backroom
 	name = "Bar Backroom"
 	icon_state = "bar"

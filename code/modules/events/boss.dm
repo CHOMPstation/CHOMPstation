@@ -2,7 +2,7 @@
 #define LOC_CHAPEL 1
 #define LOC_LIBRARY 2
 #define LOC_GARDEN 3
-#define LOC_MAINTENANCE 4 
+#define LOC_MAINTENANCE 4
 #define LOC_CONSTR 5
 
 #define BOSS_METROID 0
@@ -42,7 +42,7 @@
 			spawn_area_type = /area/hydroponics/garden
 			locstring = "the public garden"
 		if(LOC_MAINTENANCE)
-			spawn_area_type = /area/maintenance/locker
+			spawn_area_type = /area/maintenance/chapel_fore
 			locstring = "far northern maintenance tunnels"
 		if(LOC_CONSTR)
 			spawn_area_type = /area/construction
@@ -102,7 +102,7 @@
 #undef LOC_CHAPEL
 #undef LOC_LIBRARY
 #undef LOC_GARDEN
-#undef LOC_MAINTENANCE 
+#undef LOC_MAINTENANCE
 #undef LOC_CONSTR
 
 #undef BOSS_METROID
