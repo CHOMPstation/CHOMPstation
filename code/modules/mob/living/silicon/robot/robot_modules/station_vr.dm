@@ -569,6 +569,7 @@
 	can_buckle = 1
 	sprites = list(
 					"Pupdozer" = "pupdozer",
+					"V2 Engidog" = "thottbot", //Citadel RP addition
 					)
 	channels = list("Engineering" = 1)
 	networks = list(NETWORK_ENGINEERING)
@@ -583,9 +584,14 @@
 	src.modules += new /obj/item/weapon/wirecutters/cyborg(src)
 	src.modules += new /obj/item/device/multitool(src)
 	src.modules += new /obj/item/device/t_scanner(src)
+	src.modules += new /obj/item/device/analyzer(src)
 	src.modules += new /obj/item/taperoll/engineering(src)
 	src.modules += new /obj/item/weapon/inflatable_dispenser/robot(src)
 	src.modules += new /obj/item/device/geiger(src)
+	src.modules += new /obj/item/device/pipe_painter(src)
+	src.modules += new /obj/item/device/floor_painter(src)
+	src.modules += new /obj/item/weapon/gripper(src)
+	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
 	src.modules += new /obj/item/weapon/dogborg/jaws/small(src)
 	src.modules += new /obj/item/device/dogborg/boop_module(src)
 	src.emag 	 = new /obj/item/weapon/dogborg/pounce(src)
