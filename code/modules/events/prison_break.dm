@@ -18,13 +18,13 @@
 //CHOMPStation Edit Start TFF 3/12/19 - Fix Xenobio Breach Event
 /datum/event/prison_break/xenobiology
 	eventDept = "Science"
-	areaName = list("Xenobiology")
+	areaName = list("Research Outpost Xenobiology Lab")
 	areaType = list(/area/outpost/research/xenobiology)
 	areaNotType = list(/area/rnd/xenobiology/xenoflora, /area/rnd/xenobiology/xenoflora_storage)
 
 /datum/event/prison_break/station
 	eventDept = "Station"
-	areaName = list("Brig","Virology","Xenobiology")
+	areaName = list("Brig","Virology","Research Outpost Xenobiology Lab")
 	areaType = list(/area/security/prison, /area/security/brig, /area/medical/virology, /area/medical/virologyaccess, /area/outpost/research/xenobiology)
 	areaNotType = list(/area/rnd/xenobiology/xenoflora, /area/rnd/xenobiology/xenoflora_storage)
 //CHOMPStation Edit End

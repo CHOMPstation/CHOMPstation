@@ -95,12 +95,14 @@
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Viral Infection",			/datum/event/viral_infection,			-60,	list(ASSIGNMENT_MEDICAL = 50), 1),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Virology Breach",			/datum/event/prison_break/virology,		-10,	list(ASSIGNMENT_MEDICAL = 30, ASSIGNMENT_ENGINEER = 20), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, 	"Wallrot",					/datum/event/wallrot, 					0,		list(ASSIGNMENT_ENGINEER = 30, ASSIGNMENT_GARDENER = 50), 1),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Wormholes",				/datum/event/wormholes,	 				20,		list(ASSIGNMENT_ANY = 5)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Xenobiology Breach",		/datum/event/prison_break/xenobiology,	-10,	list(ASSIGNMENT_SCIENCE = 30, ASSIGNMENT_ENGINEER = 20), 1),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Wormholes",				/datum/event/wormholes,	 				20,		list(ASSIGNMENT_ANY = 5))
+		//CHOMPStation Removal TFF 3/12/19 - Moved to Major
+//		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Xenobiology Breach",		/datum/event/prison_break/xenobiology,	-10,	list(ASSIGNMENT_SCIENCE = 30, ASSIGNMENT_ENGINEER = 20), 1),
+
 	)
 	add_disabled_events(list(
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Carp School_NoRequirements",	/datum/event/carp_migration,		100, 	list(ASSIGNMENT_ENGINEER = 20, ASSIGNMENT_SECURITY = 30), 1),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Escaped Slimes_NoRequirements",	/datum/event/escaped_slimes, 	30,		list(ASSIGNMENT_SCIENTIST = 40, ASSIGNMENT_SECURITY = 30)),		
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Escaped Slimes_NoRequirements",	/datum/event/escaped_slimes, 	30,		list(ASSIGNMENT_SCIENTIST = 40, ASSIGNMENT_SECURITY = 30)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Shower_NoRequirements",	/datum/event/meteor_wave,			30,		list(ASSIGNMENT_ENGINEER = 20), 0),
 		//Moved spider infestation to disabled for now due to CHOMP random event rebalancing.
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Spider Infestation",		/datum/event/spider_infestation, 		-20,	list(ASSIGNMENT_SECURITY = 30, ASSIGNMENT_HOS = 20, ASSIGNMENT_WARDEN = 20), 0),
@@ -123,6 +125,7 @@
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Metroid Infestation",	/datum/event/metroid_infestation, -75,	list(ASSIGNMENT_SECURITY = 35, ASSIGNMENT_SCIENCE = 20, ASSIGNMENT_HOS = 10, ASSIGNMENT_WARDEN = 10), 0),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines",			/datum/event/spacevine, 		20,		list(ASSIGNMENT_ENGINEER = 15), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Viral Infection",		/datum/event/viral_infection,	-50,	list(ASSIGNMENT_MEDICAL = 25), 	1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Xenobiology Breach",	/datum/event/prison_break/xenobiology,	-10,	list(ASSIGNMENT_SCIENCE = 30, ASSIGNMENT_ENGINEER = 20), 1)
 	)
 	add_disabled_events(list(
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob_NoRequirements",	/datum/event/blob, 	10,		list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_ENGINEER = 30), 1),
@@ -136,7 +139,7 @@
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation_NoRequirements",	/datum/event/spider_infestation, 	30,	list(ASSIGNMENT_SECURITY = 10), 0),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Supply Demand",		/datum/event/supply_demand,		0,	list(ASSIGNMENT_ANY = 5, ASSIGNMENT_SCIENCE = 15, ASSIGNMENT_GARDENER = 10, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_MEDICAL = 15), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Viral Infection_NoRequirements",	/datum/event/viral_infection,	50,	list(ASSIGNMENT_MEDICAL = 50), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Dust",			/datum/event/dust,	 			50, 	list(ASSIGNMENT_ENGINEER = 30), 0),	
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Dust",			/datum/event/dust,	 			50, 	list(ASSIGNMENT_ENGINEER = 30), 0),
 	))
 
 #undef ASSIGNMENT_ANY
