@@ -15,18 +15,19 @@
 	areaName = list("Virology")
 	areaType = list(/area/medical/virology, /area/medical/virologyaccess)
 
+//CHOMPStation Edit Start TFF 3/12/19 - Fix Xenobio Breach Event
 /datum/event/prison_break/xenobiology
 	eventDept = "Science"
 	areaName = list("Xenobiology")
-	areaType = list(/area/rnd/xenobiology)
+	areaType = list(/area/outpost/research/xenobiology)
 	areaNotType = list(/area/rnd/xenobiology/xenoflora, /area/rnd/xenobiology/xenoflora_storage)
 
 /datum/event/prison_break/station
 	eventDept = "Station"
 	areaName = list("Brig","Virology","Xenobiology")
-	areaType = list(/area/security/prison, /area/security/brig, /area/medical/virology, /area/medical/virologyaccess, /area/rnd/xenobiology)
+	areaType = list(/area/security/prison, /area/security/brig, /area/medical/virology, /area/medical/virologyaccess, /area/outpost/research/xenobiology)
 	areaNotType = list(/area/rnd/xenobiology/xenoflora, /area/rnd/xenobiology/xenoflora_storage)
-
+//CHOMPStation Edit End
 
 /datum/event/prison_break/setup()
 	announceWhen = rand(75, 105)
