@@ -353,7 +353,10 @@ var/list/mob/living/forced_ambiance_list = new
 			temp_airlock.prison_open()
 		for(var/obj/machinery/door/window/temp_windoor in src)
 			temp_windoor.open()
-
+		//CHOMPStation Addition Start TFF 3/12/19 - Add Blast Doors to open on prison break.
+		for(var/obj/machinery/door/blast/regular/temp_blastdoor in src)
+			temp_blastdoor.open()
+		//CHOMPStation Addition End
 /area/has_gravity()
 	return has_gravity
 
