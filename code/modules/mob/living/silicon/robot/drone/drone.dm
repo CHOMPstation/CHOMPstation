@@ -289,6 +289,14 @@ var/list/mob_hat_cache = list()
 		return
 	health = 35 - (getBruteLoss() + getFireLoss())
 	return
+	
+/mob/living/silicon/robot/drone/security/updatehealth() //fuck this being hardcoded
+	if(status_flags & GODMODE)
+		health = 100
+		stat = CONSCIOUS
+		return
+	health = 100 - (getBruteLoss() + getFireLoss())
+	return
 
 //Easiest to check this here, then check again in the robot proc.
 //Standard robots use config for crit, which is somewhat excessive for these guys.
