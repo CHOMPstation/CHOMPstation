@@ -1,3 +1,7 @@
+<h1>This repo is depreciated. The new repository is at [CHOMPStation2](https://github.com/CHOMPStation2/CHOMPStation2/).</h1>
+
+<hr>
+
 # VOREStation
 
 [![Build Status](https://travis-ci.org/CHOMPstation/CHOMPstation.svg?branch=master)](https://travis-ci.org/CHOMPstation/CHOMPstation)
