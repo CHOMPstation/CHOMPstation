@@ -89,7 +89,7 @@
 		var/obj/item/weapon/grab/G = I
 
 		//Has to be aggressive grab, has to be living click-er and non-silicon grabbed
-		if((G.state >= GRAB_AGGRESSIVE) && (isliving(user) && !issilicon(G.affecting)))
+		if((G.state >= GRAB_AGGRESSIVE) && (isliving(user) && (!issilicon(G.affecting) || ispAI(G.affecting))))//Chompstation edit, lets pAI be eaten
 
 			var/mob/living/attacker = user  // Typecast to living
 
@@ -387,8 +387,16 @@
 		belly = pred.vore_selected
 	return perform_the_nom(user, prey, pred, belly)
 
-/mob/living/proc/feed_self_to_grabbed(var/mob/living/user, var/mob/living/pred)
-	var/belly = input("Choose Belly") in pred.vore_organs
+/mob/living/proc/feed_self_to_grabbed(var/mob/living/user, var/mob/living/pred, var/belly, var/list/bellys)
+	//CHOMPEDIT:  AUTO BELLY SELECTOR
+	if (!user.client)
+		for(var/obj/belly/guttoviolate in pred.vore_organs)
+			if(guttoviolate.name == "fstomach")
+				bellys |= guttoviolate
+		if(!bellys)return
+		belly = pick(bellys)
+	//CHOMPEDIT: END
+	else belly = input("Choose Belly") in pred.vore_organs
 	return perform_the_nom(user, user, pred, belly)
 
 /mob/living/proc/feed_grabbed_to_other(var/mob/living/user, var/mob/living/prey, var/mob/living/pred)
@@ -564,7 +572,7 @@
 		to_chat(src, "<span class='notice'>You are not holding anything.</span>")
 		return
 
-	if(is_type_in_list(I,edible_trash))
+	if(is_type_in_list(I,edible_trash) || is_type_in_list(I,edible_tech) && isSynthetic())
 		drop_item()
 		I.forceMove(vore_selected)
 		updateVRPanel()
@@ -612,6 +620,14 @@
 				to_chat(src, "<span class='notice'>You can taste the flavor of gluttonous waste of food.</span>")
 		else if(istype(I,/obj/item/weapon/storage/glass_ornament))
 			to_chat(src, "<span class='notice'>You can taste the flavor of smooth glass.</span>")
+		//TFF 10/7/19 - Add custom flavour for collars for trash can trait.
+		else if (istype(I,/obj/item/clothing/accessory/collar))
+			visible_message("<span class='warning'>[src] demonstrates their voracious capabilities by swallowing [I] whole!</span>")
+			to_chat(src, "<span class='notice'>You can taste the submissiveness in the wearer of [I]!</span>")
+		else if(istype(I,/obj/item/integrated_circuit) ||istype(I,/obj/item/weapon/circuitboard))
+			to_chat(src, "<span class='notice'>mmm crunchy computer chips.</span>")
+		else if(istype(I,/obj/item/weapon/cell))
+			to_chat(src, "<span class='notice'>you can taste the energy filling your stomach.</span>")
 		else
 			to_chat(src, "<span class='notice'>You can taste the flavor of garbage. Delicious.</span>")
 		return
