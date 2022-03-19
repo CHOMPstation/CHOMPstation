@@ -24,6 +24,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 '''
+'''//CHOMP EDIT: I am tired of this. I am commenting it out.
 
 from __future__ import print_function
 import yaml, os, glob, sys, re, time, argparse
@@ -213,3 +214,4 @@ if len(del_after):
 
 if errors:
     sys.exit(1)
+'''
